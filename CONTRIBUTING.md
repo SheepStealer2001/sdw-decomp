@@ -22,7 +22,7 @@ Set up first as in [GETTING_STARTED.md](GETTING_STARTED.md) (Windows) or [MACOS.
 - Inline helpers that several files use have one body, in the owner's `<file>_inlines.h`: a file defines the `SDW_INLINE_<HELPER>` selectors of the helpers it uses, includes that header and undefines them again, so each file keeps its own selection and definition order (VC6 expands an inline where it was defined). The few helpers with more than one byte-proven spelling take the variant's number as the selector's value.
 - A game function or global that other files use is declared once, in the header of the file that defines it (`src/<dir>/<file>.h`, or `<file>_api.h` where `<file>.h` already holds that file's member hooks). Include that header instead of writing a local prototype.
 - Windows, DirectX and C runtime declarations come from the stand-ins in `src/sdk/` (`windef.h`, `win32.h`, `mmsystem.h`, `ddraw.h`, `d3d7.h`, `dinput.h`, `dsound.h`, `mmstream.h`, `crt.h`), spelled as the SDK spells them and holding only what `src/` uses. Add to them instead of declaring SDK names in a file.
-- No inline assembly (outside the stand-ins in `src/standin/`, whose code the link discards) and no byte patches: the source has to compile to the bytes.
+- No inline assembly (outside the stand-ins in `src/standin/`, whose code the link discards, and `Timer::ReadTSC`'s `cpuid` / `rdtsc`, which C cannot express in Visual C++ 6.0) and no byte patches: the source has to compile to the bytes.
 
 ## The compiler's rules
 
