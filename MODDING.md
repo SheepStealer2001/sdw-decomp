@@ -4,7 +4,9 @@ Mods for Sheep, Dog 'n' Wolf are DLLs, level patches, models and files. A mod lo
 
 ## Installing
 
-Run the commands in this guide in the repository's folder (on Windows, type `python` where they say `python3`).
+The quickest way: download the ready-made loader and the example mods (`sdw-mod-loader-<version>.zip`) from the repository's **Releases** page, unzip it into the game's folder next to `SheepD3D.exe`, and start the game (steps 3 and 4 below, and the notes on CrossOver and Windows, apply to it too). Nothing needs building for that.
+
+To build the loader and the mods yourself, run the commands in this guide in the repository's folder (on Windows, type `python` where they say `python3`).
 
 1. Put your copy of the game at the repository's root as `Sheep, Dog 'n' Wolf (PAL Version)/` (BUILDING.md §1). Then make the disassembly baseline (BUILDING.md §2: the disassembly and `python3 tools/pe_index.py`, which writes `work/iat.json`) and the object classes' header:
 
