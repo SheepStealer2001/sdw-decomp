@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x10,u32,colour,flat colour from BsFile_ReadU24BE (0x41d1d6),verified
+0x14,u32,texIndex,the Vdx7Rect page zero-extended (0x41d2fc),verified
+0x18,float[6],uv,"u0 v0 u1 v1 u2 v2 from Bs_TexelToUV (fstp +0x18..+0x2c, 0x41d20b-0x41d2e5)",verified

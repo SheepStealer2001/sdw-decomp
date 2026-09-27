@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x7c,AltModel,normalModel,"Main-model snapshot (ScnObject_InitWithAltModels outMain), restored by Mine_Reset when the exploded model is showing",verified
+0x8c,AltModel,explodedModel,"Alternate model from id-list 3 (the shared explosion model, same list as Dynamite); swapped in by Mine_SetState(4)",verified
+0x9c,u32,deadline,g_gameTime deadline. SetState(1): now + 0x5000 (5 s). SetState(3): now + 0x2aa (0.1665 s). GroundMine proximity trigger: now + fuseDelay. DefusableMine state 5: now + 0x14000 (20 s). DefusableMine_Reset: now,verified
+0xa0,Vec3s,savedPos,Position after SnapToGround in Mine_Init; msg 0x13 refreshes it while in world; Mine_Reset restores it,verified
+0xa6,u8,state,"MineState (0-5 shared, 6-8 DefusableMine only)",verified
+0xa7,MineFlagBits,mineFlags,"bit 0 = explodedModel is shown (set by SetState(4), cleared by Mine_Init/Mine_Reset); DefusableMine skips its idle animation while it is set",verified

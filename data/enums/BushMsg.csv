@@ -1,0 +1,5 @@
+value,name,meaning
+#,BushMsg,messages handled by Bush_HandleMessage
+0x1c00,MSG_BUSH_ENTER_BEGIN,Wolf_DoAction (ctx CTX_BUSH) before Wolf state 0x5f: bush anim 2
+0x1c01,MSG_BUSH_WORN,"Wolf state 0x5f at anim end (Wolf+0x664 = bush): RemoveFromWorld, state 3"
+0x1c02,MSG_BUSH_TAKEN_OFF,arg 1 (Wolf_BushCommon action): re-added at the Wolf's pos/rot; arg 0 (Wolf_EnterState leaving model set 2): respawn at home

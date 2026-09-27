@@ -1,0 +1,11 @@
+value,name,meaning
+#,MineState,"Mine +0xa6 (Mine_SetState 0x4d4dbe, table 0x4d5048; DefusableMine_Update table 0x4d7327)"
+0,MINE_ST_SAFE,DefusableMine: defused or carried (pickup prompt); no base action
+1,MINE_ST_REARMING,deadline = now + 5 s; DefusableMine returns to 2 once the deadline has passed AND it is in the dormant half
+2,MINE_ST_ARMED,armed: proximity/region check (subclass); msg 0 arg 0 starts a countdown
+3,MINE_ST_COUNTDOWN,deadline = now + 0x2aa (0.1665 s); GroundMine proximity trigger overrides it with fuseDelay and can cancel back to 2
+4,MINE_ST_EXPLODING,"exploded model + anim 0, shadow hidden, MSG_KILL broadcasts (300 any class, 550 Rocks), camera shake"
+5,MINE_ST_EXPLODED,"explosion anim finished. GroundMine stays here until Reset; DefusableMine waits 20 s, resets, goes to 1"
+6,DM_ST_DEFUSE_BEGIN,DefusableMine: MSG_USE received; next update -> 7
+7,DM_ST_PLAYBACK,DefusableMine: shows the code one symbol per step (Ralph frozen via msg 0xe)
+8,DM_ST_INPUT,"DefusableMine: the player repeats the code on the beat; success -> 0, any miss -> 4"

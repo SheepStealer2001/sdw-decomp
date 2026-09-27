@@ -1,0 +1,46 @@
+offset,ctype,name,meaning,confidence
+0x0,CineTrack *,tracks,"first track header = cinematic resource + 4 (Cine_Load, Cine_Finish)",verified
+0x4,u32 *,resource,cinematic blob from WarReloc_Find; *resource = voice stream id played once by Cine_Update,verified
+0x8,u16,trackCount,number of tracks (15-bit count from the type-0x85 entry); Cine_ResetIterators loads +0x2c from it,verified
+0xc,s32,time,"the cinematic's current time; every keyframe evaluator (Cine_KeyframeScalar 0x5625f0, Cine_LerpAngle 0x562570) reads its interpolation parameter from here",verified
+0x10,s32,endTriggerMs,last key time*16 - 1000; flag 0x1000 starts the level-exit fade when time reaches it,verified
+0x14,s32,startRawTime,g_rawTime at Cine_Rewind; time = (g_rawTime - this)*1000 >> 12,verified
+0x18,s32,active,1 while playing (0x71c450); 0 on Cine_Reset/Cine_Stop,verified
+0x1c,s32,finished,1 after stop/reset (0x71c454),verified
+0x20,s32,wolfReady,0x71c458: Game_Frame sends Wolf msg 0x407 until non-zero; Cine_NotifyActors sets 1 directly when flags & 0x18,verified
+0x24,u32,runFlags,"bit 0 = voice stream already started (cleared by Cine_Load, set by Cine_Update)",verified
+0x28,CineTrack *,targetDesc,"pointer to the current target descriptor. Its FIRST BYTE is a selector: 0 means the cinematic's own camera block at +0x8cc, values 1..4 mean a scenaric object whose pointer is at descriptor+4",verified
+0x2c,s32,blocksRemaining,"outer block counter, decremented when scriptRemaining hits 0",verified
+0x30,CineRecord *,scriptCursor,"cursor into the opcode stream, advanced by Cine_AdvanceScriptCursor 0x561be0. A record is an 8-byte header {u16 opcode; u16 COUNT; u32 payloadPtr} followed by count*g_cineOpStride[opcode] bytes; Cine_RecordSize 0x561800 computes exactly that. record+2 is a COUNT, not flags.",verified
+0x34,s32,scriptRemaining,"records left in the current block; when it reaches 0, +0x2c is decremented and +0x28/+0x30 are reloaded",verified
+0x38,CineTrack *,savedTargetDesc,"shadow copy of the live iterator word at +0x28, saved by Cine_SaveIterator 0x561c90 and restored by Cine_RestoreIterator 0x561cb0 - the pair lets the interpreter scan ahead and rewind.",verified
+0x3c,s32,savedBlocksRemaining,"shadow copy of the live iterator word at +0x2c, saved by Cine_SaveIterator 0x561c90 and restored by Cine_RestoreIterator 0x561cb0 - the pair lets the interpreter scan ahead and rewind.",verified
+0x40,CineRecord *,savedScriptCursor,"shadow copy of the live iterator word at +0x30, saved by Cine_SaveIterator 0x561c90 and restored by Cine_RestoreIterator 0x561cb0 - the pair lets the interpreter scan ahead and rewind.",verified
+0x44,s32,savedScriptRemaining,"shadow copy of the live iterator word at +0x34, saved by Cine_SaveIterator 0x561c90 and restored by Cine_RestoreIterator 0x561cb0 - the pair lets the interpreter scan ahead and rewind.",verified
+0x48,u16 *,keyCur,"current keyframe pointer, loaded from the script record's +4 by Cine_RunOpcodes 0x5621b0",verified
+0x4c,u16 *,keyNext,next keyframe pointer; the pair bracket the interpolation,verified
+0x50,CineActorSlot[46],actorSlots,"CineActorSlot[] {ScnObject *obj; CineActorSave save} stride 0x2c, one per selector-1/2 track, filled by Cine_ResolveTracks, consumed by Cine_Finish; room for 46 before +0x854",verified
+0x854,ScnObject *[16],taggedObjs,objects frozen by Cine_TagObjectsInBox (cap 0x10),verified
+0x894,u8[16],taggedVisible,per tagged object: 1 visible / 0 hidden at tag time; restored by Cine_Finish,verified
+0x8a4,s32,taggedCount,number of taggedObjs,verified
+0x8a8,u32,cineId,Cine_Start arg 1; low word is the key into the WAR type-0x85 cinematic directory,verified
+0x8ac,Box *,sheepBox,"Cine_Start arg 4, or the first WAR_IDO_CINSHEEPBBOX (9) export when 0 and flags & 0x4000000",verified
+0x8b0,Box *,cineBox,"Cine_Start arg 3, or the first WAR_IDO_CINBBOX (8) export when 0 and flags & 0x8000000; the box Cine_TagObjectsInBox freezes objects in",verified
+0x8b4,u32,flags,"flags (dword: written 0xc000000 at 0x5617d6, read with 32-bit loads; byte tests use the low byte). bit 0x10 makes Cine_OpKeyPosition add the world offset at +0x8c0; 0x4000000/0x8000000 select default sheep/cine boxes",verified
+0x8b8,void *,dialogueText,"Cine_Start arg 5; shown via Dialogue_Show each frame, enables the skip/dialogue paths",verified
+0x8bc,s32,talkStartTime,g_gameTime when the current dialogue page began; the talk anim plays for 0x2000 (2 s) after it,verified
+0x8c0,Vec3s,worldOffset,added to interpolated positions when flags bit 0x10 is set (three s16 at +0x8c0/+0x8c2/+0x8c4),verified
+0x8c8,s32,hasCameraTrack,1 if any track has selector 0; gates Camera_StartScripted / Camera_ReleaseScripted_2,verified
+0x8cc,Vec3s,camPos,"the cinematic camera's position, written by 0x561ae0 when the target selector is 0 - i.e. opcode 1 aimed at the camera rather than an object",verified
+0x8d2,Vec3s,camRot,"the cinematic camera's rotation, written by 0x561b10 on the selector-0 path of opcode 2",verified
+0x8d8,u16,camFocalScale,"quantised FOCAL SCALE for the cinematic camera, animated by opcode 6. Camera_StartScripted turns it into p = floor(s/2), from which the engine forms 512/(2p) and a projection angle of 2*atan(that). A larger value narrows the horizontal FOV. Resolved from the consumer side.",verified
+0x8dc,s32,unk8dc,zeroed by Cine_Start (0x563230); no reader found,verified
+0x8e0,s32,cameraCaptured,"set 1 by Cine_CaptureCamera, 0 by Cine_Load; Cine_Finish re-runs Cine_RunOpcodes when 1",verified
+0x8e4,s32,claimFlag,"WarReloc_Find's claim in/out: 0 at load (receives the entry's bit 31), 1 at finish (sets bit 31 of the directory entry)",verified
+0x8e8,CineAttach[4],attachTable,"CineAttach[4] stride 0x1c {+0 child, +4 parent (compared with the script target by 0x563060), +8 Vec3s offset, +0xe rot, +0x14 joint, +0x18 arg}; read by 0x562660 attach / 0x5626b0 detach; never populated in this build",verified
+0x958,s32,attachCount,"number of entries in attachTable (4 slots, stride 0x1c); cleared by Cine_Start, never made positive in this build",verified
+0x95c,s32,wolfFrozen,result of Wolf msg 0xe at Cine_Start (0 if flags & 0x200 or no Wolf); Cine_Stop sends msg 0xf when non-zero,verified
+0x960,s32,cameraHeld,"set 1 by Cine_Start; tested by Cine_CaptureCamera, Cine_RunOpcodes, Cine_Update, Cine_Stop",inferred
+0x964,u8,savedSfxVolume,"flags & 0x4000: copy of g_sfxVolume 0x71cdb0 taken at start (then set 0; 0x563314-0x56331a), restored by Cine_Stop",verified
+0x968,CineDialogue,dialogue,"the dialogue block {speaker, idle anim, talk anim, camera setup}: Cine_SetDialogueParams 0x561cde copies all 12 bytes as one struct (add ecx,0x968 then three dword stores)",verified
+0x974,s8,dialogueMode,1 once the cinematic has jumped to its end state and waits on the dialogue box (Cine_Update). s8: the only read is movsx at 0x5626ff,verified

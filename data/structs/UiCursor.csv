@@ -1,0 +1,15 @@
+offset,ctype,name,meaning,confidence
+0x0,u32,frameColor,RGB tint of the animated frame quad; initialised to 0x4BCCFF,inferred
+0x4,u32,baseColor,RGB tint of the static base quad; initialised to 0x4BCCFF,inferred
+0x8,s16,x,cursor X in virtual HUD units,verified
+0xa,s16,y,"cursor Y, stored already biased by half the first frame's height",verified
+0xc,s16,frameW,"on-screen width of the animated frame quad, taken from the last loaded frame bitmap",inferred
+0xe,s16,frameH,on-screen height of the animated frame quad,inferred
+0x10,u8,baseU,U origin of the base bitmap (resource 0x27) in its texture page,inferred
+0x11,u8,baseV,V origin of the base bitmap,inferred
+0x12,u8,baseWMinus1,"base bitmap width - 1, used as both quad width and UV span",inferred
+0x13,u8,baseHMinus1,base bitmap height - 1,inferred
+0x16,u16,baseTexIndex,texture index of the base bitmap,inferred
+0x18,UiCursorFrame[4],frames,"four animation frames from resources 0x28..0x2B, 8 bytes each: {u8 u; u8 v; u8 wMinus1; u8 hMinus1; u16 pad; u16 texIndex}",verified
+0x38,u8,frameIndex,"current animation frame 0..3, advanced every 100 ms by UiCursor_Animate",verified
+0x39,u8,slideX,"horizontal offset added to the base quad's X, computed as (t256 * frames[0].wMinus1) >> 8",verified

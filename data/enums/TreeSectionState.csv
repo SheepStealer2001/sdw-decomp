@@ -1,0 +1,6 @@
+value,name,meaning
+#,TreeSectionState,state field of TreeSection
+0x0,TREESECTION_ST_STANDING,SetState 0: anim STAND looped (inferred)
+0x1,TREESECTION_ST_CUT,SetState 1: anim APPEAR; Update: -> 2 (inferred)
+0x2,TREESECTION_ST_FALL,"SetState 2: alt model, anim STAND1; Update: box collision off, -> 3 (inferred)"
+0x3,TREESECTION_ST_FALLEN,set by Update 2 (inferred)

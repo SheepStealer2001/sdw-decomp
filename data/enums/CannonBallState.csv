@@ -1,0 +1,9 @@
+value,name,meaning
+#,CannonBallState,"CannonBall +0xdc (CannonBall_SetState 0x4a3512, Update jump table 0x4a2d71)"
+0,CB_ST_IDLE,"at home, not drawn; cameraReleased cleared"
+1,CB_ST_FLY,"ballistic flight (msg 0x3381): lifetime, optional gravity, collision sweep, lethal proximity kill"
+2,CB_ST_HOMING,"msg 0x338a (Rook): straight at homingTarget at 2000 u/s, no collision, kills the Wolf within 70 XZ with no height test"
+3,CB_ST_LOADED,"msg 0x3389 (CanonSimple fire delay): chase camera only, not drawn"
+4,CB_ST_PIPE_ENTER,"msg 0x3383: approach the pipe entry, then to the pipe and state 0"
+5,CB_ST_EXPLODE,"2500 ms explosion with debris; then home, msg 0x4f to launcher and pipes, state 0"
+6,CB_ST_PIPE_TRANSIT,msg 0x3385: linear time interpolation through the pipe (ended by the pipe's next message)

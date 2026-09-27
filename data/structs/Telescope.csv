@@ -1,0 +1,19 @@
+offset,ctype,name,meaning,confidence
+0x40,u8,state,"TelescopeState: 0 viewing, 1 just started (mask drawn, input next frame), 2 idle",verified
+0x42,u16,focal,camera focal passed to Camera_StartScripted = focal[mode],verified
+0x44,s16,basePitch,always 0 (msg 1),verified
+0x46,s16,baseYaw,0x800 - rot.y (normal) or -rot.y (reverse),verified
+0x48,s16,baseRoll,always 0,verified
+0x4a,Vec3s,eye,"camera eye = pos + (0,-0xB4,0) + camDist along the view direction",verified
+0x52,s16,yawOffset,current horizontal offset; starts at initHorAngle; clamped to ±maxHorAngle (may overshoot by one step),verified
+0x54,s16,pitchOffset,current vertical offset; starts at ±initVertAngle (negated in reverse); clamped to ±maxVertAngle,verified
+0x56,s16,initVertAngle,INITVERTANGLE * 11,verified
+0x58,s16,initHorAngle,INITHORANGLE * 11,verified
+0x5a,s16,maxVertAngle,MAXVERTANGLE * 11,verified
+0x5c,s16,maxHorAngle,MAXHORANGLE * 11,verified
+0x5e,u16[2],focalByMode,"[0] NORMALFOCAL, [1] REVERSEFOCAL",verified
+0x62,u16[2],camDistByMode,"[0] CAMDISTNORMAL, [1] CAMDISTREVERSE; eye distance along the view direction",verified
+0x66,u8,mode,"0 normal, 1 reverse; chosen by msg 2 from the box that holds the Wolf; also passed to Hud_DrawTelescopeMask",verified
+0x68,Box *,normalBox,NORMALBOXID (Scn_GetPropBox),verified
+0x6c,Box *,reverseBox,REVERSEBOXID (Scn_GetPropBox); tested before normalBox,verified
+0x70,s32,wolfFrozen,Wolf msg 0xE reply at start; msg 0xF sent on exit; cleared when another object takes the freeze (msg 0xE to the telescope),verified

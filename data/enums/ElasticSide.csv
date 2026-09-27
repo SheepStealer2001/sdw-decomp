@@ -1,0 +1,5 @@
+value,name,meaning
+#,ElasticSide,return of elastic_ProjectOntoBand / elastic +0x2ce
+0x2c,ELASTIC_SIDE_POS,local z > 0
+0x4d,ELASTIC_SIDE_NONE,'M': the projection falls outside the A..B span
+0xd4,ELASTIC_SIDE_NEG,"-0x2c, local z <= 0"

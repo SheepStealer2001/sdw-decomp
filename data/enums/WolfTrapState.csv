@@ -1,0 +1,6 @@
+value,name,meaning
+#,WolfTrapState,state field of WolfTrap
+0x0,WOLFTRAP_ST_ARMED,"SetState 0: at home, shadow on, anim TRAP3 (inferred)"
+0x1,WOLFTRAP_ST_CAUGHT,"SetState 1: anim TRAP0, msg 0x33 arg 1 to the victim, Sam and Bell; Update: struggle counting (inferred)"
+0x2,WOLFTRAP_ST_RELEASE,"SetState 2: anim TRAP2, msg 0x33 arg 0, 0x1400 ms; Update: -> 0 (inferred)"
+0x3,WOLFTRAP_ST_CATCHING,Update 3: -> 1 once the victim is frozen (inferred)

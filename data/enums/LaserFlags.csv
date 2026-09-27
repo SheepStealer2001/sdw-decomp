@@ -1,0 +1,5 @@
+value,name,meaning
+#,LaserFlags,Laser.flags (u16)
+0x1,LASER_F_START_OFF,PostLoadInit: LaserProperty(8) sets it; state 0 goes to OFF (1) instead of ON (3)
+0x2,LASER_F_SWITCH_ARMED,"Reset sets it (6); HandleMessage 0x20 acts only when clear, then sets it (inferred)"
+0x4,LASER_F_TOGGLE,Reset / Laser_Create set it; HandleMessage toggles it (inferred)

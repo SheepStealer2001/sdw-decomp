@@ -1,0 +1,6 @@
+value,name,meaning
+#,MarvinState,state field of Marvin
+0x0,MARVIN_ST_IDLE,SetState 0: anim STAND1; Update: freezes the Wolf in cineBox (inferred)
+0x1,MARVIN_ST_MOCK,SetState 1: anim TALK1; Update: mockery lines (inferred)
+0x2,MARVIN_ST_SUCCESS,"SetState 2: anim TALK2; Update: success lines, level exit (inferred)"
+0x4,MARVIN_ST_EXIT,"Update 2: after the success lines, Fade_StartLevelExit (inferred)"

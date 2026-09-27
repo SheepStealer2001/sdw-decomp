@@ -1,0 +1,6 @@
+value,name,meaning
+#,ResolveMoveFlags,"ScnObject::Collide_ResolveMove's flags argument (0x50e6b7), on top of the CollideClass bits of the contacts to slide along (flags & COLL_WALL, then flags & COLL_FLOOR; 0 sweeps once and never slides). Read from its code (src/engine/scenaric.cpp): the sweep query is CQ_STATIC | CQ_OBJECTS plus what these bits change, never the argument itself (verified)"
+0x07,RESOLVE_SLIDE_ALL,"COLL_FLOOR | COLL_WALL | COLL_FLOOR_EDGE, the usual mask (Wolf steps, Gossamer, Catapult, WoodenLift): slide along floors and walls (the slide never tests the COLL_FLOOR_EDGE bit: floor edges are stepped onto or block) (verified)"
+0x08,RESOLVE_KEEP_Y,sliding keeps the vertical part of the displacement: only x and z are projected off the contact planes (verified)
+0x20,RESOLVE_ASK_MOVER,the sweeps add CQ_ASK_MOVER (0x10) and CQ_IGNORE_SKIPBOX (0x20) (verified)
+0x40,RESOLVE_NO_STATIC,the sweeps drop CQ_STATIC (no static triangles) and add CQ_IGNORE_SKIPBOX (0x20) (verified)

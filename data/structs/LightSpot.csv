@@ -1,0 +1,15 @@
+offset,ctype,name,meaning,confidence
+0x890,u16,numSides,"PROPERTY_LIGHTSPOT_NUMSIDES, truncated from the u32 property (0x4f6cf7 mov ax,word [ebp-0x14c] / mov word [edx+0x890],ax); Render picks its own side count from the camera distance and never reads this",verified
+0x892,u16,nbHeightSegs,"PROPERTY_LIGHTSPOT_NBHEIGHTSEGS, truncated the same way (0x4f6d27 / mov word [eax+0x892],cx); also never read back",verified
+0x894,s32,radius,"PROPERTY_LIGHTSPOT_RADIUS: the cone's radius at the floor. Render lays the first ring vertex at +radius and the opposite one at -radius (0x4f701b, 0x4f7060) and the lit test scales it by height (0x4f87aa imul ecx,dword [edx+0x894])",verified
+0x898,u32,color,"PROPERTY_LIGHTSPOT_COLOR (0x4f6d5d mov [ecx+0x898],edx); not read by any function of this class",verified
+0x11fc,u8[16],block11fc,"a 0x10-byte block nothing in this class reads or writes; unk1210 is set to point at it (0x4f6da3 add ecx,0x11fc)",inferred
+0x120c,u16,unk120c,"set to 0 by PostLoadInit (0x4f6d7a mov word [ecx+0x120c],0); no reader in this class",inferred
+0x120e,u8,unk120e,"set to 3 by PostLoadInit (0x4f6d96 mov byte [eax+0x120e],3); no reader in this class",inferred
+0x120f,u8,unk120f,"set to 0 by PostLoadInit (0x4f6d89 mov byte [edx+0x120f],0), before +0x120e; no reader in this class",inferred
+0x1210,void *,unk1210,"set to this + 0x11fc, i.e. it points at the 0x10-byte block that precedes the three fields above (0x4f6da3 add ecx,0x11fc / mov [edx+0x1210],ecx); no reader in this class",inferred
+0x1214,TrajFollower,follower,"the 0x20-byte trajectory follower for the beam's patrol path, init'd with speed 200, headingBias 0, continuousHeading 0, use3dDistance 0, arriveRadius 0x32 (0x4f6ddc add eax,0x1214 before TrajFollower_Init); Update walks it by hand instead of calling TrajFollower_Step, and traj == 0 means 'no path'",verified
+0x1234,Vec3s,aim,"where the beam currently points on the floor: the patrol step moves it (0x4f66af..0x4f66f3), the locked-on state snaps it to the robot (0x4f674f add eax,0x1234), and Render builds the cone between pos and it (0x4f8801 movsx edx,word [ecx+0x1234])",verified
+0x123a,u8,locked,"0 = sweeping the path, 1 = following the robot; set when the robot is lit (0x4f6572 mov byte [ecx+0x123a],1) and cleared when it leaves the authorized boxes (0x4f6737)",verified
+0x123c,ScnObject *,robot,"the level's single CLASSID_ROBOT (101) object, or NULL when there is not exactly one (0x4f6e35 Scenaric_FindByClass(0x65,...) / cmp [ebp-0x14],1); the spotlight only ever tests and follows this object",verified
+0x1240,ZoneList,authBoxes,"PROPERTY_LIGHTSPOT_AUTHORIZEDBOX: the boxes the robot must stay inside while the spot follows it, as a {Box **boxes; u16 count} pair - both PostLoadInit and Update address it through one this+0x1240 pointer temp (0x4f6e8c, 0x4f670e)",verified

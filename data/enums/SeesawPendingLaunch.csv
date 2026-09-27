@@ -1,0 +1,5 @@
+value,name,meaning
+#,SeesawPendingLaunch,"seesaw +0xa3c, cleared at the end of every Update"
+0x1,SEESAW_PL_NEG_HIT,armed Wolf or falling Rock landed on the negative side → launch positive-side bodies along TRAJ2
+0x2,SEESAW_PL_POS_HIT,landing on the positive side → launch negative-side bodies along TRAJ1
+0x4,SEESAW_PL_ROCK,the trigger was a msg-0x5c responder (falling Rock): sheep get the full TRAJ launch instead of a hop

@@ -1,0 +1,5 @@
+value,name,meaning
+#,TimeKeeperState,TimeKeeper.state (+0x64)
+0,TK_AVAILABLE,idle loop anim 0; answers msg 2 with 0x1E and accepts msg 1
+1,TK_RINGING,"anim 1 -> anim 2 + looping sound 0xF8 -> anim 3, advanced when each anim finishes"
+2,TK_COLLECTED,"idle loop anim 0; set at init when the level's Progress bit is already set, or at the end of the sequence"

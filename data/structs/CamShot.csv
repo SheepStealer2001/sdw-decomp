@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x0,CamSetup *,cam,camera setup {u16 focal; u16 rot[3]; Vec3s pos}; NULL = inactive,verified
+0x4,s32,elapsedMs,g_dtMs accumulated; skip input accepted from 1000,verified
+0x8,u32,param,passed to Camera_StartScripted (8th argument),verified
+0xc,s8,wolfFrozen,1 if the Wolf accepted msg 0xE at start; msg 0xF sent on stop,verified
+0x10,u32,noFreeze,nonzero: do not freeze the Wolf; survives CamShot_Init re-inits,verified

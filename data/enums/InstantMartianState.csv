@@ -1,0 +1,14 @@
+value,name,meaning
+#,InstantMartianState,state field of InstantMartian
+0x0,IMARTIAN_ST_IDLE,SetState 0: random STAND0/STAND1/STAND3/STAND4 (voice 0xdf); Update: chases the shrunk Ralph (1) or flees (2) (inferred)
+0x1,IMARTIAN_ST_SHRUNK_RUN,SetState 1: anim RUN3 (inferred)
+0x2,IMARTIAN_ST_FLEE,"SetState 2: anim RUN, heading turned half round. Update: runs straight away from Ralph (heading from Ralph to the martian) at 600 units/s scaled, turning off walls and the edge of the run boxes; back to 0 once Ralph is more than 600 units away, to 5 near either end of the TRAJECTORY (MARTIENBEHAVIOR 3), to 1 when Ralph is shrunk. Entered from 0 when Ralph comes within 400 units (MARTIENBEHAVIOR 1, or 3 with Ralph inside its current box), from 1 or 7 when Ralph is no longer shrunk, and from 5 at a trajectory end inside the first or second box of its BOX..BOX5 list (verified)"
+0x3,IMARTIAN_ST_CATCH,SetState 3: anim CATCH toward target (inferred)
+0x4,IMARTIAN_ST_DORMANT,SetState 4: SetUpdateMode(2) (inferred)
+0x5,IMARTIAN_ST_PATROL,SetState 5: anim RUN; Update: trajectory patrol (inferred)
+0x7,IMARTIAN_ST_IDLE_ALT,SetState 7: random STAND2/STAND5 (inferred)
+0x8,IMARTIAN_ST_HIT,"SetState 8: anim HIT2A, not collidable; Update: -> 10 or 9 (inferred)"
+0x9,IMARTIAN_ST_HIT_LAND,SetState 9: anim HIT at the Wolf position (inferred)
+0xa,IMARTIAN_ST_HIT_HOLD,"SetState 10: anim HIT2B, holds the Wolf (MSG_KILL arg 0xd) (inferred)"
+0xd,IMARTIAN_ST_WALK_AWAY,SetState 13: anim WALK sideways (inferred)
+0xe,IMARTIAN_ST_HIDDEN_CHECKPOINT,"SetState 14: always updated, hidden, not collidable; Update: -> 4 outside the checkpoint box (inferred)"

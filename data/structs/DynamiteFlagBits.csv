@@ -1,0 +1,2 @@
+offset,ctype,name,meaning,confidence
+0x0,u8:1,exploded,bit 0 (1-byte unsigned unit),verified

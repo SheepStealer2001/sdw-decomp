@@ -1,0 +1,6 @@
+value,name,meaning
+#,FanState,"Fan state (u8 at Fan+0x8c), index into g_fanStateAnims 0x576010"
+0,FAN_ST_WORLD,"on the ground / in a container: anim 3, shadow shown"
+1,FAN_ST_HELD,"held, off: anim 2 once, shadow hidden (msg 4, msg 0x16)"
+2,FAN_ST_SPIN_UP,"msg 0x15: anim 4 once, blows every frame; -> 3 when the anim finishes"
+3,FAN_ST_BLOWING,"anim 0 looped, blows every frame, whirr loop 0x6c"

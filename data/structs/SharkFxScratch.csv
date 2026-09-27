@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,Mat34s,m,"Shark_UpdateBreathFx's view of g_collScratchA 0x6d5468: Mat34s_FromEulerScaled(&rot, &m, 0) (0x4766a1)",verified
+0x20,Vec4s,out,Mat34s_TransformVec3s output (0x4766c7 pushes scratch+0x20 as the out argument),verified
+0x28,Vec3s,offset,"the local-space spawn offset written just before the transform: (0,0,-90) for the breath bubbles (0x4766ac-0x4766be), (0,0,+90) for the charge bubbles (0x47686b-0x476880)",verified

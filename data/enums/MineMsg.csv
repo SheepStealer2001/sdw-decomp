@@ -1,0 +1,20 @@
+value,name,meaning
+#,MineMsg,"Messages handled by Mine_HandleMessage 0x4d505c, GroundMine_HandleMessage 0x4d5f98 and DefusableMine_HandleMessage 0x4d7347 (ids are per receiver)"
+0x0,MSG_KILL,"blast: arg 0 in state 2 -> countdown (0.1665 s, not cancellable); chain reaction"
+0x1,MSG_USE,"DefusableMine: start defusal (-> state 6), no state check"
+0x2,MSG_QUERY_ACTION,DefusableMine: 4 CTX_PICKUP in state 0 (Wolf/Robot); 0xC CTX_DEFUSE in state 2 while dormant (Wolf only)
+0x4,MSG_PICKUP,"DefusableMine: attach to the sender joint, state 0"
+0x5,MSG_DROP,DefusableMine: arg {Vec3s pos; u16 flags}; flags & 1 re-arms (state 1)
+0xb,MSG_SEESAW_TOUCH,GroundMine: start falling unless attached; returns 0
+0xc,MSG_LAUNCH,DefusableMine: explode now (state 4)
+0xe,MSG_FREEZE,"DefusableMine: from the Wolf, aborts a defusal in state 7/8 back to armed state 2"
+0x13,MSG_CINE_END,base: savedPos = pos if in world
+0x17,MSG_QUERY_HELD_ACTION,DefusableMine: 2 HELD_THROWABLE
+0x18,MSG_RIDER_ADD,GroundMine: mover = sender if empty (Magnet); returns 1 always
+0x19,MSG_RIDER_REMOVE,GroundMine: clear mover if sender; returns 1
+0x25,MSG_LANDED,GroundMine: same as 0xb
+0x2f,MSG_DETECTOR_PING,MineDetector cone search: non-zero = detectable. Mines return 1 (GroundMine only in proximity mode); GoldenCoins return 1 and reveal themselves
+0x51,MSG_MAGNET_QUERY,GroundMine: 1 = magnetic (proximity mode only). Sent by Magnet_Update 0x4d235e
+0x53,MSG_MAGNET_PULL,"GroundMine: forced-trigger bit 4 (arg {magnet, reply}); returns 0"
+0x55,MSG_CHECKPOINT_ROLLBACK,DefusableMine: vtable Reset
+0x5a,MSG_DETECTOR_RAY,"GroundMine: returns the distance along the sender's facing to open hazard (GroundMine_RayToHazard), INT_MAX = none"

@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x0,u8:1,manual,CAMF_MANUAL,verified
+0x0,u8:1,smooth,CAMF_SMOOTH,verified
+0x0,u8:1,snap,CAMF_SNAP,verified
+0x0,u8:1,tooFar,CAMF_TOO_FAR,verified
+0x0,u8:1,tooFarCut,"CAMF_TOOFAR_CUT. g_camFlags 0x6e4384 is this bitfield byte: the Wolf stores it with byte read-modify-writes and reads it with a byte AND widened afterwards (0x48fd04), VC6's bitfield code",verified

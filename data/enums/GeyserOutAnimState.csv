@@ -1,0 +1,6 @@
+value,name,meaning
+#,GeyserOutAnimState,
+0x3,GEYSEROUT_AS_IDLE,SetAnimState 3 plays anim 1 STAND0 (ATORNA01)
+0x4,GEYSEROUT_AS_CHARGE,4 plays anim 2 TORNA3
+0x5,GEYSEROUT_AS_TOSTAND,5 plays anim 0 TOSTAND2 looped
+0x6,GEYSEROUT_AS_SPIT,6 plays anim 3 TORNA4 and stops updating

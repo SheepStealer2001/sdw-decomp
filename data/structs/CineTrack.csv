@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,u8,selector,"CineTrackSelector: 0 camera, 1/2 scenaric object resolved by Scenaric_FindByRecord, 3/4 cinematic-only object from DAT_00585060 (Cine_ResolveTracks 0x561dd3/0x561e33)",verified
+0x1,u8,recordCount,"number of script records that follow this header (Cine_SkipRecords 0x561c56, Cine_ResetIterators 0x561bd2)",verified
+0x2,u16,index,selector 1/2: WAR resource-table index of the object's record; 3/4: index into DAT_00585060 (movzx at 0x561ddf / 0x561e3d),verified
+0x4,ScnObject *,obj,"the resolved target, written by Cine_ResolveTracks 0x561e06 / 0x561e4a",verified

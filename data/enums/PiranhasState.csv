@@ -1,0 +1,6 @@
+value,name,meaning
+#,PiranhasState,Piranhas +0x64
+1,PIRANHAS_ST_BITE,glued to Ralph's position; the first attacker plays anim 1 and sends Wolf msg 0 arg 9 on entry
+2,PIRANHAS_ST_ATTACK_WAIT,"Ralph frozen (msg 0xE); 1000 ms timer, then BITE"
+3,PIRANHAS_ST_SWIM,"2-point path to a random point 200-399 below the surface, 500 u/s"
+4,PIRANHAS_ST_LEAP,"4-point path whose middle 500 units run 50 below the surface; anim 3 plus a splash on the way up, anim 2 plus a splash on the way down"

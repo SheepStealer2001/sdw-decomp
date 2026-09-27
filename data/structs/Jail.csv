@@ -1,0 +1,17 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,state,the cage state (JailState); access width proven by the byte match of src/objects/jail.cpp,verified
+0x66,s16,targetVert,"PostLoadInit writes it from pos.y (+0xe) at 0x4cf7d8, not from heightTop; it only equals heightTop because SetPosition had already moved the cage there. Jail_Reset does copy +0x68 directly",verified
+0x68,s16,heightTop,the highest of the three path heights (sorted in PostLoadInit); access width proven by the byte match of src/objects/jail.cpp,verified
+0x6a,s16,heightMiddle,the middle path height; access width proven by the byte match of src/objects/jail.cpp,verified
+0x6c,s16,heightBottom,the lowest path height; access width proven by the byte match of src/objects/jail.cpp,verified
+0x70,s32,delay,"ms before the cage starts moving (0x400 when sent up, 0 otherwise); access width proven by the byte match of src/objects/jail.cpp",verified
+0x74,Vec3s,previousPos,position at the start of the frame; access width proven by the byte match of src/objects/jail.cpp,verified
+0x7c,ScnObject *,topSwitch,PROPERTY object at offset 0; access width proven by the byte match of src/objects/jail.cpp,verified
+0x80,ScnObject *,bottomSwitch,PROPERTY object at offset 4; access width proven by the byte match of src/objects/jail.cpp,verified
+0x84,ScnObject *,middleSwitch,PROPERTY object at offset 8; access width proven by the byte match of src/objects/jail.cpp,verified
+0x88,CollBox,carryBox,"built from the HIGHEST-index model box with flags&1 (the scan at 0x4cf486 decrements), and Box.flags bit 0 means NON-solid, so the source is a trigger volume. World-space, top raised 200 (0x4cf5a1 sub eax,0xc8). The flags dword at +0x88 is never written",verified
+0x98,CollBox,clearBox,"its top sits exactly 60 units below the cage's underside (clear.min.y = carry.max.y + 60 per 0x4cf736-0x4cf7bb), NOT ~260 — the 200-unit raise makes the volume deeper, it does not displace it. While anything overlaps it the cage will not move in either direction",verified
+0xa8,CollBox *,lowerBox,the model box whose centre is lowest (largest y: y points down); access width proven by the byte match of src/objects/jail.cpp,verified
+0xac,CollBox *,upperBox,the model box whose centre is highest (smallest y); access width proven by the byte match of src/objects/jail.cpp,verified
+0xb0,u16,soundHandle,"motor sound 0xb2, volume 0xff, SoundPlayFlags 3 (the 4th argument is flags, not a priority)",verified
+0xb4,s32,open,"the reads are 0x4cfc7a (msg 0x4300) and 0x4cfcad (msg 0x4301), and ONLY the SetState call is gated on it - targetVert and startDelayMs are written unconditionally in both message arms",verified

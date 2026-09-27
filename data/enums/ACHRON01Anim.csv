@@ -1,0 +1,6 @@
+value,name,meaning
+#,ACHRON01Anim,animation ids of WAR model ACHRON01 (its WAR type-0x86 table; names verified from the level files). Played by: TimeMachineChrono
+0x0,ACHRON01_ANIM_LINK,WAR name LINK
+0x1,ACHRON01_ANIM_OBJET,WAR name OBJET
+0x2,ACHRON01_ANIM_CHRONO1,WAR name CHRONO1
+0x3,ACHRON01_ANIM_CHRONO2,WAR name CHRONO2

@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x0,u8,devIdx,"device index of a binding (1 keyboard, 2 joystick, 4 mouse; enum MenuBindingDevice): out[0] of InputMgr_GetBinding 0x528026 and InputMgr_GetAnyPressed 0x528c85. Menu_RebindControl compares it with movzx/cmp 1 at 0x5455eb / 0x5455f4 and pushes it as a byte at 0x54564a.",verified
+0x2,u16,code,button / key code: read as a word at [ebp-0xa] (0x545610) and [ebp-0x62] (0x5455fd) and pushed as the u16 code argument of InputMgr_BindMenuKey / InputMgr_BindAction.,verified

@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x0,u32,count,number of clips; App_InitGameSystems writes 3 into g_fmvListIntro (0x401a4f) and 1 into g_fmvListCredits (0x401a8f),verified
+0x4,char[8][256],clips,"clip file names, 0x100 apart (0x71bb24/0x71bc24/0x71bd24 at 0x401a5e..0x401a82; Video_PlaySequence indexes with shl 8 at 0x561708). 8 slots is inferred from the gap 0x71b318 -> 0x71bb20",inferred

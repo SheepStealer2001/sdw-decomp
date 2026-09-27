@@ -1,0 +1,9 @@
+value,name,meaning
+#,PorkyLevel01State,state field of PorkyLevel01
+0x0,PORKY01_ST_IDLE,"SetState default: voice stopped, anim STAND1; Update: faces the Wolf, starts a cinematic in activationBox (inferred)"
+0x1,PORKY01_ST_SALADS_SHOWN,set after 2 (inferred)
+0x2,PORKY01_ST_CINE_SHEEP,"Update 2: after the cinematic shows the salads, -> 1 (inferred)"
+0x3,PORKY01_ST_CINEMATIC,Update 3: -> 0 when the cinematic ends (inferred)
+0x4,PORKY01_ST_TALK,SetState 4: anim TALK1 with text/voice; Update: Dialogue_Say then -> 0 (inferred)
+0x5,PORKY01_ST_CINE_NO_SHEEP,SetState 5 (default branch) (inferred)
+0x6,PORKY01_ST_QUESTION,"Update 6: question menu box, answer -> 4 (inferred)"

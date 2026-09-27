@@ -1,0 +1,3 @@
+value,name,meaning
+#,RestrictBoxFlags,Box.flags of a Wolf RESTRICTIONBOX zone (Wolf::restrictions)
+0x40000000,RESTRICT_F_NO_RUN,Wolf::FilterInput: a restriction box with 0x40000000 removes the run bit (inputMask &= ~4)

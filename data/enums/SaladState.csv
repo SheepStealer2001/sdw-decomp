@@ -1,0 +1,6 @@
+value,name,meaning
+#,SaladState,Salad +0x8e (Salad_SetState 0x4e7db0).
+0,SALAD_ST_IDLE,"normal; pickable, edible"
+1,SALAD_ST_GONE,hidden at home; 0xA000 ticks (10 s) -> 2
+2,SALAD_ST_RESPAWN,"visible, wobble render for 0x1000 ticks -> 0"
+3,SALAD_ST_SQUASH,"ALAITU02 model, anim 0; at anim end -> Salad_Consume (state 1)"

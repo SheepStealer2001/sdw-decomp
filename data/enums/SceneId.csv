@@ -1,0 +1,21 @@
+value,name,meaning
+#,SceneId,Progress.currentScene (+0xb6) values and the arguments of Progress_GotoScene / Level_FinishScene transitions.
+0..31,SCENE_LEVEL_n,"disc level Lvl-NN (path Levels\Lvl-%02d\Lvl-%02d). Success goes to -3; level 0x10 goes to -4, level 0x11 to -5. Failure goes to -1 from level 0, else -3"
+-1,SCENE_WHEEL,"Levels\Wheel\Wheel (title/main menu). Entering it via Level_FinishScene runs Progress_Reset. Success goes to -3 if level 0 is done, else -2"
+-2,SCENE_INTRO,"Levels\Intro\Intro, then level 0"
+-3,SCENE_HUB,"Levels\Scene\Scene; success goes to Progress+0xb7, failure to -1"
+-4,SCENE_FEND,Levels\Fend\Fend; always continues to level 0x11 (Lvl-17)
+-5,SCENE_ENDING,"Levels\Ending\Ending, then -8"
+-6,SCENE_DEMO_A,Levels\Demos; on exit it goes to -1 and sets +0xb4 bit1 so the next demo is -7
+-7,SCENE_DEMO_B,Levels\Demos (same path); on exit it goes to -1 and clears +0xb4 bit1
+-8,SCENE_END_FMV,"plays FMV list 0x71b318, then Level_FinishScene(0) gives -1 with Progress_Reset"
+0x20,SCENE_LEVEL_COUNT,Progress_InLevel: level >= 0 && level < 0x20 (SceneId doc: 0..31 = disc levels)
+0x0,SCENE_LVL_00,SceneId doc: 0..31 = disc level Lvl-NN (Progress_BuildScenePath)
+0x10,SCENE_LVL_16,SceneId doc: 0..31 = disc level Lvl-NN (Progress_BuildScenePath)
+0x11,SCENE_LVL_17,SceneId doc: 0..31 = disc level Lvl-NN (Progress_BuildScenePath)
+0x8,SCENE_LVL_08,SceneId doc: 0..31 = disc level Lvl-NN (Progress_BuildScenePath)
+0xd,SCENE_LVL_13,SceneId doc: 0..31 = disc level Lvl-NN (Progress_BuildScenePath)
+0x4,SCENE_LVL_04,SceneId doc: 0..31 = disc level Lvl-NN (Progress_BuildScenePath)
+0xf,SCENE_LVL_15,SceneId doc: 0..31 = disc level Lvl-NN (Progress_BuildScenePath)
+0xc,SCENE_LVL_12,SceneId doc: 0..31 = disc level Lvl-NN (Progress_BuildScenePath)
+0x1,SCENE_LVL_01,SceneId doc: 0..31 = disc level Lvl-NN (Progress_BuildScenePath)

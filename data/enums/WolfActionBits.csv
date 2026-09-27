@@ -1,0 +1,10 @@
+value,name,meaning
+#,WolfActionBits,wolf+0xd4 decoded input bits as used here (matches docs)
+0x01,WOLF_ACT_JUMP_EDGE,jump pressed
+0x02,WOLF_ACT_JUMP_HELD,jump held (swim up)
+0x4,WOLF_ACT_RUN,"ReadPad: PRESSED(pad, 9) -> bits |= 4; FilterInput removes it in RESTRICT_F_NO_RUN boxes, rabbit costume and WOLF_FB_SPECIAL_OBJECT"
+0x08,WOLF_ACT_RUN_HELD,run held (swim down)
+0x10,WOLF_ACT_SNEAK_HELD,sneak held
+0x20,WOLF_ACT_DOUBLE_JUMP,"ReadPad: PRESSED(pad, 11) -> bits |= 0x21; StateMachine: padBits & 0x20 -> DOUBLEJUMP_ASCEND / WATER_DOUBLEJUMP"
+0x40,WOLF_ACT_ACTION_EDGE,action pressed
+0x80,WOLF_ACT_ACTION_HELD,action held

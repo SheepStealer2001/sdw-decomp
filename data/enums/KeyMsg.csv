@@ -1,0 +1,11 @@
+value,name,meaning
+#,KeyMsg,Key_HandleMessage 0x4d01e7
+0x2,MSG_QUERY_ACTION,4 CTX_PICKUP for the Wolf or a Robot
+0x4,MSG_PICKUP,"attach, hide shadow, state 1"
+0x5,MSG_DROP,detach; SetPosition unless drop flag bit 1; state 0
+0x7,MSG_INVENTORY_STORED,returns 1
+0x8,MSG_INVENTORY_TAKE_OUT,returns 1
+0x9,MSG_CONTAINER_STATE,arg 1: homePos = pos
+0x15,MSG_HELD_STATE_BEGIN,use: Jail msg 0x4300 if jailDist < 400
+0x17,MSG_QUERY_HELD_ACTION,"0x17 HELD_KEY_USE when jailDist < 400 and jail+0xb4 == 0, else 2 HELD_THROWABLE"
+0x55,MSG_CHECKPOINT_ROLLBACK,vtable Reset

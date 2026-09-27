@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,u16[4],texScrollListIds,= g_texScrollListIds 0x6ddf60: four id-list ids of scrolling-texture rects (TexScroll_Init),verified
+0x8,u16,texScrollReverseMask,= g_texScrollReverseMask 0x6ddf68: bit i reverses list i (read as bitfields by TexScroll_Init),verified
+0xa,u16,weatherType,"= g_weatherType 0x6ddf6a: 1 rain, 2 snow (Load_DAVnWAR 0x547f46/0x547f61)",verified

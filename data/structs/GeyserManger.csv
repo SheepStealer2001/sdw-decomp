@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x40,u16,boxCount,"Number of detection boxes in PROPERTY_GEYSERMANGER_BOXDETECT, returned through Scn_GetPropIdList's count output (this+0x40), which writes a word.",verified
+0x44,CollBox **,boxes,The BOXDETECT id list: boxCount box pointers. Update tests Ralph's x and z against each box's min +4 and max +0xa; the vertical pair +6/+0xc is not tested.,verified
+0x48,u16,geyserCount,"How many of the GEYSERnn properties resolved to a live GeyserIn (class 72) or GeyserOut (class 73); doubles as the write cursor while Init fills geysers[]. NOTE the property offset starts at 4 but is incremented at the top of the loop, so GEYSER01 is skipped and one dword past the block is read.",verified
+0x4c,ScnObject *[16],geysers,"The managed GeyserIn/GeyserOut objects. Every frame they all receive msg 0x5d with argument 1 while Ralph is inside any detection box and 0 otherwise. 16 slots exactly fill the 0x8c object, and the scan runs exactly 16 iterations, so index 16 is never written.",verified

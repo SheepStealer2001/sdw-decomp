@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x0,char[0x50],instanceName,"The controller's DIDEVICEINSTANCEA.tszInstanceName (+0x28 of the instance; strncpy 0x4f bytes at 0x4064fc-0x406515), NOT tszProductName (+0x12c). Shown by D3DApp_GetJoystickInstanceName.",verified
+0x50,GUID,guidInstance,DIDEVICEINSTANCEA.guidInstance (+4 of the instance); copied at 0x40651d-0x406546 and passed to IDirectInput8A::CreateDevice by D3DApp_CreateJoystickDevice (0x405d2d).,verified

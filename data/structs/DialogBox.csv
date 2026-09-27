@@ -1,0 +1,11 @@
+offset,ctype,name,meaning,confidence
+0x0,s32,active,1 while the dialogue is open; Dialog_Close zeroes it,verified
+0x4,s32,inputLatch,debounce flag cleared every frame Dialog_Update runs without a confirm,verified
+0x8,ScnObject *,sender,the NPC that opened the box; receives nothing but is echoed back to the Wolf as the 0x0E/0x0F sender,verified
+0xc,u8,selected,"answer row latched on CROSS, copied from the draw box's cursorRow",verified
+0x10,char *[3],answerText,answer labels from Text_GetClassString(base+1+2i),verified
+0x1c,char *[3],replyText,"reply strings from Text_GetClassString(base+2+2i), replayed by Dialog_UpdateAnswer",verified
+0x28,char *,questionText,Text_GetClassString(base),verified
+0x2c,MenuPage[5],listA,the choice list's nodes built by Menu_BuildList 0x539199 (n + 2 for up to three answers; the box's drawBox.pages),verified
+0x54,Menu,listB,the Menu over listA built by the same call (the box's drawBox.list),verified
+0x68,MenuBox,drawBox,the MenuBox handed to Ui_DrawMenuBox; its text is questionText and its list pointer is &listB,verified

@@ -1,0 +1,13 @@
+offset,ctype,name,meaning,confidence
+0x0,Trajectory *,traj,the trajectory: u16 count then count Vec3s (0x45981d),verified
+0x4,s16,pointIndex,index of the point being steered toward; steps by +1 or -1 depending on forward (0x4598d6),verified
+0x6,s16,speed,speed in units/s multiplying the normalised direction (0x4599bc),verified
+0x8,s16,headingBias,constant added to the atan2 heading (0x459a29); 0x800 here,verified
+0xa,u16,heading,cached 12-bit heading toward the current point (0x459a64),verified
+0xc,s32,arriveRadiusSq,squared arrival radius (0x4597a5 squares the init argument),verified
+0x10,u32,continuousHeading,recompute the heading every step instead of only on a point change (0x459a20),verified
+0x14,u32,use3dDistance,include the vertical axis in the distance and the output velocity (0x45985a),verified
+0x18,u32,moving,set to 1 by every step and to 0 by init (0x459810),verified
+0x1c,u32,advanced,1 when a point was consumed during this step (0x4598ff),verified
+0x20,u32,forward,"1 = walk the points forwards, 0 = backwards; init sets 1 (0x4597ec) and the Gossamer flips it when a move is blocked (0x452c0d)",verified
+0x24,u32,forceAdvance,one-shot: makes the next step consume a point whatever the distance (0x4598ac); set when blocked and when the flee starts (0x454163),verified

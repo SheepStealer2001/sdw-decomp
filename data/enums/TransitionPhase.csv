@@ -1,0 +1,5 @@
+value,name,meaning
+#,TransitionPhase,"g_transitionPhase 0x6d5120, dispatched by Transition_Update 0x5166ea"
+0,TRANSITION_IDLE,no transition; Transition_Update returns 0
+1,TRANSITION_OUT,"phase 1, Transition_OutUpdate"
+2,TRANSITION_IN,"phase 2, Transition_InUpdate"

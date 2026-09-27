@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x8,u16,keyCount,"number of key records (the frame-index modulus in Anim_Start/Advance/StartDirect); the records are keyframes holding many joints, not per-joint tracks",verified
+0xa,AnimKey[],keys,"variable-length key records, next = key + 8 + 2*payloadWords",verified

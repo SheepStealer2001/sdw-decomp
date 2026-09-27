@@ -1,0 +1,8 @@
+offset,ctype,name,meaning,confidence
+0x7c,Vec3s,homePos,"spawn position: Init after the ground snap, msg 9 arg 1 (container release); Reset returns here when IN_WORLD",verified
+0x82,u16,sound,"handle of the whirr: 0x6b one-shot start, then 0x6c loop (Fan_UpdateSound); stopped by Fan_StopSound",verified
+0x84,FanReport,lastReport,"FanReport: classId = class id of the nearest attracted object relayed by msg 0x34 (the Perfume forwards the sheep's report, class 0xB); 0 = none. Low word of the u32 report returned by msg 6; proximity = dist*0xffff/range of that report (smaller = closer); a new report replaces it when <= stored or when the stored one is >= 0x800 ticks old",verified
+0x88,u32,reportTime,g_gameTime of the last stored report; msg 6 answers only while g_gameTime - reportTime <= 0x800 (0.5 s),verified
+0x8c,u8,state,"FanState, also the index into g_fanStateAnims 0x576010",verified
+0x8d,u8,soundStarted,"0 = the next Fan_UpdateSound plays the start whirr 0x6b; 1 = the start was played, keep the 0x6c loop going. Cleared by Fan_StopSound, Reset and Init",verified
+0x8e,u16,pad8e,tail padding to sizeof 0x90; never accessed,inferred

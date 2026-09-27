@@ -1,0 +1,5 @@
+value,name,meaning
+#,CamPitchAdjState,low 3 bits of g_camPitchAdjState 0x6e43d7
+0,PADJ_NONE,none
+1,PADJ_RAISE,pitch rising at +2*pitchSpeed (timer 1000 ms)
+2,PADJ_LOWER,a view 0x1c7 lower is clear: pitch falling at -2*pitchSpeed (timer 10000 ms) until g_camMinPitch

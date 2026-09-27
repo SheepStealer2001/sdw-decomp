@@ -1,0 +1,4 @@
+value,name,meaning
+#,ANIDAB01Anim,animation ids of WAR model ANIDAB01 (its WAR type-0x86 table; names verified from the level files). Played by: Hive
+0x0,ANIDAB01_ANIM_DEFAULT,WAR name DEFAULT
+0x1,ANIDAB01_ANIM_MOVE,WAR name MOVE

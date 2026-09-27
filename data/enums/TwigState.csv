@@ -1,0 +1,5 @@
+value,name,meaning
+#,TwigState,state field of Twig
+0x0,TWIG_ST_RESET,"SetState 0: anim DEFAULT; Update: when not drawn, hide at home, -> 1 (inferred)"
+0x1,TWIG_ST_HIDDEN,"SetState 1: anim DEFAULT; Update: when not drawn, show, -> 2 (inferred)"
+0x2,TWIG_ST_DRIFT,"SetState 2: anim MOVE; Update: drifts until disappearDistSq, then 0 (inferred)"

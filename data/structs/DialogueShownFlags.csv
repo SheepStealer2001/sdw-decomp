@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x0,u8,all,g_dialogueShownFlags 0x6ddfb5 as the plain byte: Cine_Update reads it as & 1,verified
+0x0,DialogueShownBits,bits,"the same byte as the DialogueShownBits view: Dialogue_Show writes bit 0 with byte bitfield code (0x5395cd, 0x539664)",verified

@@ -1,0 +1,52 @@
+offset,ctype,name,meaning,confidence
+0x7c,Box *,pastZone,IDPASTACTIONZONE (prop 0x34) via Scn_GetPropBox (0x4522c5); the zone he patrols/chases in while inFuture == 0 (0x454ed5),verified
+0x80,Box *,cineBox,IDCINEBOX (prop 0x14) via Scn_GetPropBox (0x45234e); its presence chooses the start state 9 (0x4525d5) and it is the arrival cinematic's box (0x453f5d),verified
+0x84,Box *,cineBox2,"IDCINEBOX2 (prop 0x18) via Scn_GetPropBox (0x452365); box of the second cinematic, played from msg 0x1e (0x454d21)",verified
+0x88,Box *,futureZone,IDFUTURACTIONZONE3 (prop 0x30) via Scn_GetPropBox (0x452337); his zone while inFuture != 0 (0x454e38),verified
+0x8c,ZoneList,futureZones,"IDFUTURACTIONZONE (prop 0x28) id list: Scn_FindIdList into boxes/count (0x4522f2); searched by IsInActionZone and ChaseWolf (0x454ea0, 0x4552f3)",verified
+0x94,CollBox *,myBox,his model's first collision box (0x4524e9); half of the box-overlap test that carries the Wolf while fleeing (0x4529bd),verified
+0x98,CollBox *,wolfBox,"g_pWolf's model's first collision box (0x452519), the other half of that test",verified
+0x9c,u8,state,"current state, the switch selector of Update (0x452904) and written by SetState (0x454f68)",verified
+0x9d,u8,prevState,state before the last SetState (0x454f56); state 7 (play one animation) switches on it when the animation ends (0x453b4b),verified
+0x9e,u8,mashCount,button presses counted while struggling out of his hug (0x455939); > 6 within 1500 ms frees Ralph (0x45594f),verified
+0x9f,u8,squeezeTicks,updates counted in state 1; a camera shake at 5 and at 0x10 (0x452e5d); reset by SetState(1)/SetState(3) and on an animation end (0x452e3e),verified
+0xa0,u8,grabKind,"0 = grabbed by msg 0x39 (time portal), 1 = grabbed by msg 0x3a (carried), 0xff = release done; drives state 6 (0x45360c)",verified
+0xa1,u8,hugStage,"0 none, 1 hug started (state 4 first press), 2 hug broken (0x45326b); cleared by PostLoadInit/Reset",verified
+0xa2,u8[2],pad0a2,tail padding before the s32 at 0xa4,inferred
+0xa4,s32,distToTarget,"Vec3s_DistXZ to the current target, the divisor of every velocity in this class (0x452f3d, 0x4533bc)",verified
+0xa8,u32,timer,"ms accumulator (+= g_dtMs at 0x452e06, 0x454433, 0x455acb)",verified
+0xac,u32,mashStartMs,timer when the struggle's first button press arrived (0x455912),verified
+0xb0,u32,mashLastMs,timer at the last struggle button press (0x45592a); 800 ms without one resets the struggle (0x455a29),verified
+0xb4,u32,timerLimit,"ms limit compared with timer in states 0 and 11 (0x452943, 0x45441e)",verified
+0xb8,Vec3s,target,"offset to the current target, or the absolute position the Wolf is pinned to while carried (0x4529b9-0x452ac3)",verified
+0xbe,Vec3s,vel,"velocity in units/s, fed to Vec3s_ScaleByDt (0x45308d); also reused as an absolute position for SetPosition in the grab (0x4546e9)",verified
+0xc4,Vec3s,step,this frame's translation: Vec3s_ScaleByDt output and Collide_ResolveMove in/out (0x452b8f),verified
+0xca,u8[2],pad0ca,tail padding before the pointer at 0xcc,inferred
+0xcc,Vec3s *,grabPos,&sender->pos stored by msg 0x38 (0x4548aa) and steered to in state 3,verified
+0xd0,Vec3s,startPos,his position after PostLoadInit's SnapToGround (0x4525a1); Reset puts him back here (0x45283e),verified
+0xd6,u8[2],pad0d6,tail padding before the ContactInfo at 0xd8,inferred
+0xd8,ContactInfo,contact,Collide_ResolveMove output used by states 0 and 7 (0x452bc1); contact.wallObj at 0xdc is polled for class 0xb,verified
+0xf4,s32,unusedF4,written 0 by PostLoadInit (0x45254c) and Reset (0x452852); never read,verified
+0xf8,s32,fleeing,1 once the second cinematic has sent him down IDFLEEINGTRAJ (0x454249); gates the movement half of state 7 and makes Reset resume the flight instead of returning him home,verified
+0xfc,s32,hugging,1 while Ralph is being squeezed and the struggle input is being counted (0x4531ab),verified
+0x100,Trajectory *,fleeTraj,IDFLEEINGTRAJ (prop 0x24) via Scn_GetPropTrajectory (0x45237c); the path he runs when he flees,verified
+0x104,TrajPatrol,patrol,"the follower along fleeTraj, initialised at 0x4524bd with speed 1000, bias 0x800 and arrive radius 0x32",verified
+0x12c,s32,inFuture,"toggled by msg 0x39 (the time portal, 0x454947); selects futureZone(s) instead of pastZone in IsInActionZone",verified
+0x130,s32,wolfHeld,"1 while he holds Ralph frozen: set from !g_pWolf->HandleMessage(this, 0xf, 0) and cleared with msg 0x40f 4 (0x452b4a, 0x4540ff)",verified
+0x134,s32,cinePending,set by msg 0x11 (0x454d81); state 0 turns it into the flee animation and clears it (0x452d16),verified
+0x138,s32,hasFled,1 after the flee has been started (0x454239); msg 0x1e does nothing once it is set,verified
+0x13c,s32,patrolActive,1 = state 0 walks the trajectory; cleared when the state-0 timer runs out (0x452d8c),verified
+0x140,EmitterDriftParams,dustParams,"his dust: {10, -20, 0x800, 0x155, 0x28, 0x5a, 0} written by PostLoadInit (0x452753-0x45279f)",verified
+0x158,TrailEmitter,dust,"16-particle dust trail, constructed by the factory (0x452247) and reset by PostLoadInit (0x452742)",verified
+0x2bc,u16,soundHandle,handle of the looping sound started by SetState(0) (0x4550c9); stopped there and by Reset,verified
+0x2be,u8[2],pad2be,tail padding before the u32 at 0x2c0,inferred
+0x2c0,u32,cineId,IDCINEMATIC (prop 0x1c) (0x4523ac),verified
+0x2c4,u32,cineTextId,CINETEXT (prop 0x08) (0x452428),verified
+0x2c8,u32,cineId2,"read from prop 0x1c as well (0x4523ea): IDCINEMATIC again, not IDCINEMATIC2 (prop 0x20), which nothing reads",verified
+0x2cc,u32,cineText2Id,CINETEXT2 (prop 0x0c) (0x452462),verified
+0x2d0,u32,cineFlags,CINEFLAGS (prop 0x00) (0x4523cb),verified
+0x2d4,u32,cineFlags2,CINEFLAGS2 (prop 0x04) (0x452409),verified
+0x2d8,char *,cineText,"Text_GetClassString(cineTextId) (0x452443), or 0 when the string is empty",verified
+0x2dc,char *,cineText2,"Text_GetClassString(cineText2Id) (0x45247d), or 0 when the string is empty",verified
+0x2e0,u8,cineStage,"0 none, 1 arrival cinematic started (0x453ef5), 2 flee cinematic started (0x454cff)",verified
+0x2e1,u8[3],pad2e1,tail padding to sizeof 0x2e4,inferred

@@ -1,0 +1,22 @@
+offset,ctype,name,meaning,confidence
+0x64,ScnObject *,cargo,"the object the crane is lifting: msg 0x37's argument (0x4ad67e), accepted only in state 0; cleared on entering state 0 (0x4ad10f). Sent msg 4 (attach to joint 0xd) and msg 5 (drop at drop.pos)",verified
+0x68,ScnObject *,frozenRiver,"the level's FrozenRiver (Scenaric_FindByClass(0x53) 0x4ace5a); sent msg 0x3e with 1 when the hook takes the cargo (state 2, 0x4ad21f) and with 0 when the swing ends (0x4ad510)",verified
+0x6c,s32,cargoAttached,"the cargo's reply to msg 4 (0x4acff9): non-zero while it hangs on the hook (states 2-4); cleared by the release (0x4ad022) and by Reset (0x4ad8ea), which then drops the cargo at drop.pos",verified
+0x70,s32,wolfLocked,the Wolf's reply to msg 0xe (Crane_SetWolfLock 0x4ad06b); cleared by SetWolfLock(0) and by Crane msg 0xe (0x4ad8a5),verified
+0x74,u8,state,"0 idle, 1 lower the hook, 2 take the cargo, 3/4 swing, 5 release, 6 return, 7 wait for the Wolf in cineBox, 8 wait for the cinematic (Crane_SetState 0x4ad3e5)",verified
+0x75,u8,swingAnim1,"animation of state 3, chosen per cargo class by msg 0x37 (Wolf 0xb, Sheep 7, SlidingIceCube 4) (0x4ad234)",verified
+0x76,u8,swingAnim2,"animation of state 4 (Wolf 0xc, Sheep 8, SlidingIceCube 5) (0x4ad28c)",verified
+0x77,u8,releaseAnim,"animation of state 5, the drop (Wolf 0xd, Sheep 9, SlidingIceCube 6) (0x4ad2e4)",verified
+0x78,u8,returnAnim,"animation of state 6 (Wolf 0xe, Sheep 0xa, SlidingIceCube 1) (0x4ad346)",verified
+0x80,Vec3s,homeRot,"rot saved by PostLoadInit (0x4ace6c-0x4ace8e), restored on entering state 0 (0x4ad125)",verified
+0x8c,DropMsgArg,drop,"msg 5 argument for the cargo: the crane's position plus a per-class offset (Wolf +0x8c/+0x13c, Sheep +0x13a/+0x91, SlidingIceCube -0x117/+0xce on x/z; 0x4ad77d-0x4ad84f), placed = 1, flag1 = 0 (0x4ad856-0x4ad880)",verified
+0x94,Box *,cineBox,Scn_GetPropBox(CINEBOX) (0x4acdd9). Tested in 2-D against the Wolf in state 7 (0x4ad530) and passed to Cine_Start,verified
+0x98,Box *,cineSheepBox,"Scn_GetPropBox(CINESHEEPBOX) (0x4acdf0), passed to Cine_Start",verified
+0x9c,Box *,activationBox,Scn_GetPropBox(ACTIVATIONBOX) (0x4acdc2). No reader in the Crane's code,verified
+0xa0,u32,cine,CINE property (0x4acdab): the intro cinematic id; non-zero starts the crane in state 7 (0x4acf59),verified
+0xa4,u32,cineText,CINETEXT property (0x4ace2e); its low byte indexes the class strings (0x4ace37),verified
+0xa8,u32,cineFlag,"CINEFLAG property (0x4ace0f), Cine_Start's flags",verified
+0xac,void *,cineTextStr,"Text_GetClassString(this, cineText) (0x4ace49), Cine_Start's text",verified
+0xb4,CamSetup *,camera,Scn_GetPropCamera(CAMERA) (0x4acea6): {u16 focal; s16 rot[3]; Vec3s eye}; started for a Wolf cargo by msg 0x37 (0x4ad6cf),verified
+0xba,u16,idleSound,"handle of sound 0x124, restarted on every entry to state 0 (0x4ad134, 0x4ad170); 0 from PostLoadInit (0x4acf9f)",verified
+0xbc,s32,ready,"1 when there is no intro cinematic (0x4acf88) or once it has played (0x4ad60f); Reset returns to state 0 if set, else to state 7 (0x4ad8f4)",verified

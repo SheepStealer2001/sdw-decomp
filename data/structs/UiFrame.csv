@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,s16[4][8],quads,"four border strips of four corners (x, y); written as packed dwords by Ui_BuildFrameQuads (0x53c859), read as s16 by Ui_DrawFrameQuads (0x53d122)",verified
+0x40,float[4][8],uvs,"four strips x four (u, v) pairs, strip stride 0x20 (Ui_DrawFrameQuads 0x53d199)",verified
+0xc0,u16,cellSize,"(bitmap width - 1) << 8 | (height - 1): written as one word at 0x53c81c, read as one word at 0x53d0bf",verified
+0xc2,u16,texPage,"texture page of the frame bitmap, passed as the page argument to Draw2D_TexRect",verified

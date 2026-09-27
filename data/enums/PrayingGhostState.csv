@@ -1,0 +1,17 @@
+value,name,meaning
+#,PrayingGhostState,state field of PrayingGhost
+0x0,PGHOST_ST_INIT,SetState 0: disables the three camera restrictions (inferred)
+0x1,PGHOST_ST_STAND,SetState 1: anim STAND; Update: faces the Wolf (inferred)
+0x2,PGHOST_ST_AT_POST,SetState 2: anim STAND2; Update: faces the Wolf (inferred)
+0x3,PGHOST_ST_APPEAR,"SetState 3: camera restrictions on, anim APPEAR; Update: -> 6 or 8 (inferred)"
+0x4,PGHOST_ST_LIFT_WOLF,"SetState 4: anim HOO, MSG_WOLF_STRIP, msg 0x416; Update: lifts the Wolf (inferred)"
+0x5,PGHOST_ST_CARRY_WOLF,"SetState 5: anim WALK, msg 0x416 and MSG_SWITCH_ON to the gate (inferred)"
+0x6,PGHOST_ST_LIFT_SHEEP,SetState 6: anim HOO at the sheep (inferred)
+0x7,PGHOST_ST_CARRY_SHEEP,Update 7: carries the sheep home (inferred)
+0x8,PGHOST_ST_TAKE_COSTUME,"SetState 8: anim HOO, MSG_WOLF_STRIP and MSG_WOLF_TAKE_ITEM_CLASS 0x7d (inferred)"
+0x9,PGHOST_ST_RESET_POSTS,"Update 9: msg 0x4500 to all four ghosts, -> 10 (inferred)"
+0xa,PGHOST_ST_PRAY,SetState 10: anim PRAISE for prayDurMs; Update: watches for the Wolf (inferred)
+0xb,PGHOST_ST_GO_TO_POST,SetState 11: anim STAND2; Update: -> 2 at the post (inferred)
+0xc,PGHOST_ST_CHASE,SetState 12: anim WALK toward the target (inferred)
+0xd,PGHOST_ST_GRAB,"SetState 13: anim KILL, halo JUMP1; Update: grabs the target (msg 0xe) (inferred)"
+0xe,PGHOST_ST_RETURN,"SetState 14: anim WALK, checkpoint msg 0x1080; Update: walks home (inferred)"

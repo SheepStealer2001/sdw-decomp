@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,u16,focal,a CAMERA designer property as Scn_GetPropCamera returns it (the record other classes keep as u16 *): focal length,verified
+0x2,s16[3],rot,"pitch, yaw, roll (4096 = full turn)",verified
+0x8,Vec3s,eye,eye position of the scripted camera (CrocodileLevel11_UpdateCamera reads it at +8),verified
+0xe,u16,pad,padding to the 16-byte record,inferred

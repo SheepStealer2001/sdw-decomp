@@ -1,0 +1,13 @@
+value,name,meaning
+#,HoneyPotMsg,Messages handled by HoneyPot_HandleMessage 0x4caaac
+0x2,MSG_QUERY_ACTION,Wolf only: 4 (pickup) unless Sam's origin is within the spill box
+0x4,MSG_PICKUP,"attach to sender joint arg, shadow off, state 1"
+0x5,MSG_DROP,"detach, SetPosition(arg), shadow on, state 0"
+0x7,MSG_INVENTORY_STORED,stored in inventory: state 2
+0x8,MSG_INVENTORY_TAKE_OUT,"returns 1, no change"
+0x9,MSG_CONTAINER_STATE,arg 0 state 0; arg 1 homePos = pos
+0xb,MSG_SEESAW_TOUCH,state 5
+0xc,MSG_LAUNCH,"sound 0xA6, state 6"
+0x17,MSG_QUERY_HELD_ACTION,2 = HELD_THROWABLE
+0x25,MSG_LANDED,"sound 0xA7, state 3 (then spill)"
+0x55,MSG_CHECKPOINT_ROLLBACK,Reset + SetPosition(homePos)

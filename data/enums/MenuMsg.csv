@@ -1,0 +1,15 @@
+value,name,meaning
+#,MenuMsg,"u8 first argument of a MenuHandler void(u8 msg, MenuPage *self), from the dispatch sites in Menu_Update, Menu_Init, Menu_SetCapture, Menu_NotifyPageChange and Menu_Close"
+0x0,MENU_MSG_DRAW,draw your text (sent every frame to each visible handler node)
+0x1,MENU_MSG_LEFT,"LEFT (0xFF7F, auto-repeat) on a kind-1 item"
+0x2,MENU_MSG_RIGHT,"RIGHT (0xFFDF, auto-repeat) on a kind-1 item"
+0x3,MENU_MSG_CONFIRM,"CROSS: kind 1 (blocked while g_letterboxState == 1), or kind 0 just before the page is entered"
+0x4,MENU_MSG_FOCUS,"became the cursor node, or became the open page"
+0x5,MENU_MSG_UNFOCUS,"stopped being the cursor node, or the page was left"
+0x6,MENU_MSG_DRAW_SELECTED,sent after MENU_MSG_DRAW to the cursor node only (e.g. builds the footer)
+0x7,MENU_MSG_PREDRAW,sent to each visible handler node before colour selection (handlers set their disabled bit here)
+0x8,MENU_MSG_INIT,Menu_Init broadcast to all handler nodes
+0x9,MENU_MSG_CAPTURE_TICK,every frame while g_menuCapture != 0 (to the cursor node)
+0xa,MENU_MSG_CAPTURE_RELEASE,"capture dropped to 0 (Menu_SetCapture with notify, Menu_Update, Menu_Close); can arrive twice"
+0xb,MENU_MSG_VALUE_CHANGED,after LEFT/RIGHT on a kind-1 item
+0xc,MENU_MSG_CANCEL,"TRIANGLE (0xEFFF) before Menu_GoBack, and Menu_Close"

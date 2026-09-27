@@ -1,0 +1,13 @@
+# The windmill's parts: the post stands on the root, the sails turn about their hub (z is the axis they turn on).
+joint post - 0 0 0
+joint sails post 0 1.5 -0.15
+# Animation 0, which static scenery plays: one turn of the sails every two seconds (four keys, a quarter each).
+anim 0 turn
+key 500
+sails rot 0 0 0
+key 500
+sails rot 0 0 1024
+key 500
+sails rot 0 0 2048
+key 500
+sails rot 0 0 3072

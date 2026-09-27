@@ -1,0 +1,3 @@
+value,name,meaning
+#,GhostNodeIndex,"special value of Ghost.avoidNode, an index into the 36-entry g_ghostNodes"
+0x25,GHOST_NODE_NONE,"no node to avoid: set at init, at reset and on MSG_GHOST_SET_VULNERABLE (0x44d101); g_ghostNodes has 36 entries, 0..0x23"

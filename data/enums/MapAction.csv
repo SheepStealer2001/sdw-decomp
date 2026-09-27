@@ -1,0 +1,6 @@
+value,name,meaning
+#,MapAction,"g_map.actionIndex (+0x40): the four buttons, matching the icon pairs loaded in Map_InitObject (IGLHELPA/B, IGLUSEDA/B, IGLCOMBA/B, IGLEXITA/B)."
+0,MAP_ACT_HELP,switch to MAP_MODE_HELP_SCROLL
+1,MAP_ACT_USE,"Inventory select + Wolf_SwapHeldItem(g_pWolf,0,1) then close the map - this is the withdraw/equip path"
+2,MAP_ACT_COMBINE,"Map_CombineItems, or Map_SplitItem when the selected class carries SCN_CF_COMPOSITE_ITEM"
+3,MAP_ACT_EXIT,go to SEL_CLOSE_HOLD

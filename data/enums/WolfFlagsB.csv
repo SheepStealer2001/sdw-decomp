@@ -1,0 +1,34 @@
+value,name,meaning
+#,WolfFlagsB,Wolf +0x718 gameplay flags
+0x1,WOLF_FB_DEAD,dead/caught; (merged from WolfFlags718 WOLF_FL_DEAD) dead / restart pending
+0x2,WOLF_FB_WON,level won (msg 0x401)
+0x4,WOLF_FB_RUN,run flag (tap mechanic); (merged from WolfFlags718 WOLF_FL_RUN) run flag (forced in states 0xcd/0xcf)
+0x8,WOLF_FB_IN_WATER,inside water box in a non-water state
+0x10,WOLF_FB_RECENT_CONTACT2,contact[2] within 0x400 ticks; (merged from WolfFlags718 WOLF_FL_RECENT_PICKUP) set on state entry when g_gameTime - +0x618 <= 0x400; blocks carry put-down
+0x20,WOLF_FB_RECENT_OBJECT_CONTACT,touched an object within 0x400 ticks
+0x40,WOLF_FB_FROZEN,input frozen by grabber (msg 0xE); (merged from WolfFlags718 WOLF_FL_CONTROL_LOCKED) input frozen by +0x630
+0x80,WOLF_FB_CINE_READY,msg 0x406/0x12; query 0x407; (merged from WolfFlags718 WOLF_FL_SCRIPT_DONE) set when scripted positioning ends; queried by msg 0x407
+0x100,WOLF_FB_MOVED,non-zero displacement this frame
+0x200,WOLF_FB_HELD_IN_USE,held object got msg 0x15 (use) and needs 0x16
+0x400,WOLF_FB_SEESAW_CAM,"set by MSG_SEESAW_TOUCH (0xb), cleared on landing; camera request bit (inferred)"
+0x800,WOLF_FB_LOOK_ALLOWED,msg 0x40A
+0x1000,WOLF_FB_IN_SLIDE_ZONE,zone 0x6d0c70; (merged from WolfFlags718 WOLF_FL_SLIDEBOX) inside slide box; doubles slope rate
+0x2000,WOLF_FB_FORCE_SLIDE,"msg 0x27, per frame; (merged from WolfFlags718 WOLF_FL_SLOPE_X2) also doubles slope rate (writer unknown)"
+0x4000,WOLF_FB_EQUIP_PENDING,equip selected item when wheel closes
+0x8000,WOLF_FB_RIVER_REGISTERED,set in 0x48b352 (FrozenRiver accepted); (merged from WolfFlags718 WOLF_FL_SURFACED_NOTIFIED) msg 0x36 already sent at water surface
+0x10000,WOLF_FB_WOLFTRAP_REACT,"MSG_STRUGGLE (0x40) sets it; WOLFTRAP_LOOP -> WOLFTRAP_REACT while set (section D, verified)"
+0x20000,WOLF_FB_IN_WOLFTRAP,Wolf_DoAction 0x19 (CTX_WOLFTRAP) sets it; without it the wolftrap state exits; msg 0x33 clears (verified)
+0x40000,WOLF_FB_SPECIAL_OBJECT,+0x668 object in use; disables run; (merged from WolfFlags718 WOLF_FL_MOVE_LOOP_SOUND) no-run mode with loop sfx 0x11c while moving
+0x80000,WOLF_FB_ITEM_ACTION,DoAction 0x16 sets it; EnterState sends the +0x668 object msg 1 when leaving 0x20000 states (inferred)
+0x100000,WOLF_FB_INVISIBLE,msg 0x411
+0x200000,WOLF_FB_AXIS_LOCK_A,"msg 0x44 arg 0, per frame"
+0x400000,WOLF_FB_AXIS_LOCK_B,"msg 0x44 arg 1, per frame"
+0x800000,WOLF_FB_RESETTING,set during Wolf_Reset
+0x1000000,WOLF_FB_PROMPT_DISABLED,msg 0x414
+0x2000000,WOLF_FB_FORCE_FALL,"msg 0x418, per frame; (merged from WolfFlags718 WOLF_FL_FALL_ANIM_4D) alt fall anim 0x4d / no air-run death"
+0x4000000,WOLF_FB_IN_SHADOW_ZONE,zone 0x6d0c88
+0x8000000,WOLF_FB_IN_FOOTPRINT_ZONE,zone 0x6d0c78; (merged from WolfFlags718 WOLF_FL_STEP_SFX_78) alt footstep sfx 0x78 when DAT_006ddf6a==2
+0x10000000,WOLF_FB_ON_MOVING_PLATFORM,0x49205d returned motion
+0x20000000,WOLF_FB_JUST_UNFROZEN,masks action edge this frame; (merged from WolfFlags718 WOLF_FL_SUPPRESS_ACTION) set on control unlock; FilterInput removes action edge
+0x40000000,WOLF_FB_NO_LOOK,"msg 0x425, per frame"
+0x80000000,WOLF_FB_FROZEN_BUT_PROMPT,"frozen, yet the action prompt stays allowed: set by WolfState 0x93 WOLF_ST_WOLFTRAP_START (Wolf::StateMachine flags |= 0x80000000) and cleared by Wolf::Unfreeze; Wolf::Update and msg 0 treat it as 'in control' while frozen (merged from WolfFlags718 WOLF_FL_LOCK_ALLOW_UPDATE: cleared on unlock; with 0x40 lets Wolf_Update proceed)"

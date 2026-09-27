@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x0,s32,animDt,IS g_animDt (0x6ddf5c); zeroed by Game_ResetState (0x536344),verified
+0x10,Dav *,pDav,IS g_pDav (0x6ddf6c); zeroed by Game_ResetState (0x53634d),verified
+0x14,s32,fadeTimer,IS g_fadeTimer (0x6ddf70); zeroed by Game_ResetState (0x536357),verified
+0x18,u32,flags,IS g_gameFlags (0x6ddf5c + 0x18 = 0x6ddf74): the existing GameFlags enum applies unchanged. Game_ResetState seeds it with 0xC010,verified
+0x1c,u8,cineState,"IS the letterbox/cinematic state byte 0x6ddf78: 0 idle, 1 bars animating, 2 bars fully open (subtitles and voice allowed). Game_CanOpenMenu demands 0",verified
+0x1d,u8,camDebugMode,"camera debug mode, passed as argument 2 of Camera_Update by Game_Frame (0x5603be): 0 normal, 1 stick-only eye nudge, 2 free camera (Camera_UpdateDebugFreeCam 0x55285d), >= 3 d-pad + stick nudge. Non-zero also makes Wolf/Robot_UpdateCamera skip their requests and blocks the inventory. Only writer: Game_ResetState zeroes it.",verified

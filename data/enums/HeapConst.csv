@@ -1,0 +1,7 @@
+value,name,meaning
+#,HeapConst,Constants of the engine heap
+0x98765432,HEAP_ALLOC_MAGIC,"Written at block+4 on allocation (0x54df1f, 0x54e2d8); the only two occurrences in the image. Never compared."
+0x18,HEAP_MIN_SPLIT,A free block is split only if at least 24 bytes would remain; otherwise the caller gets the whole block.
+0x10,HEAP_SENTINEL_SIZE,Size of the permanent end block.
+0x8,HEAP_HEADER_SIZE,Header bytes before the user pointer; also the minimum payload size.
+0x100000,HEAP_SMALLPOOL_THRESHOLD,Heap_Init sets up small pools only when the arena is larger than this.

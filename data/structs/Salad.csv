@@ -1,0 +1,10 @@
+offset,ctype,name,meaning,confidence
+0x7c,u32,stateTime,"g_gameTime at hide/respawn transitions (10 s wait, 1 s wobble). Collides with ScnMobile.csv's 0x7c/0x7e slopeLimit rows, which are Sheep-specific",verified
+0x80,s32,eatTime,g_dt accumulated while a sheep sends msg 1; >=0x3000 (3 s) -> eaten. Cumulative across sheep and visits; cleared only by Consume/Reset/Init,verified
+0x84,s32,liftBlockMs,ms since msg 0x79 (Wooden Lift); liftBlocked cleared after 1000,verified
+0x88,Vec3s,homePos,respawn/restart position; = pos at Init and at checkpoint msg 9 arg 1,verified
+0x8e,u8,state,SaladState,verified
+0x8f,u8:1,squashed,"bit 0 of the flag byte +0x8f, a one-bit field: squashed model (ALAITU02) currently swapped in",verified
+0x90,AltModel,mainModel,base model entry filled by ScnObject_InitWithAltModels in Salad_Create,verified
+0xa0,AltModel,squashedModel,alternate model WAR_IDO_ALAITU02 (id list 0x77) shown in state 3,verified
+0xb0,u32,liftBlocked,"set by msg 0x79 from the Wooden Lift; while set, sheep get 0 from msg 2 (not attracted)",verified

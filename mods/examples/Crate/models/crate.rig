@@ -1,0 +1,5 @@
+# The crate as the game's own crates are made: an animated model whose one part stands on the root, and one
+# animation (0, which the game plays) that holds it still.
+joint crate - 0 0 0
+anim 0 still
+key 1000

@@ -1,0 +1,8 @@
+offset,ctype,name,meaning,confidence
+0x6c,s32,restartPending,Set to 1 at 0x4bd6b2 when the blink cycle ends and the random pause starts; its Update arm restarts animation 0 and clears it at 0x4bd544. Zeroed at load.,verified
+0x70,s32,playingAnim0,"Set when animation 0 has been started; while set, each reported finish restarts animation 1 — the flicker repeat. Cleared only at 0x4bd5d3 when anim1Repeat reads 2.",verified
+0x74,s32,playingAnim1,Set when animation 1 has been started (0x4bd5fb); its branch starts animation 2 on finish and clears it at 0x4bd669.,verified
+0x78,s32,playingAnim2,Set at 0x4bd673 when animation 2 has been started; its branch ends the cycle by arming a new pause. Never cleared in Update — only the pause counter stops it re-firing.,verified
+0x7c,s32,pauseMs,"Countdown in ms between blinks, seeded Rand_Range(1000,3000). While it is above zero (signed jg at 0x4bd461) Update only subtracts g_dtMs and does not even advance the animator, so the firefly freezes on its last pose.",verified
+0x90,u8,anim1Repeat,"Times animation 1 has been replayed this blink. At 2 the loop ends and the counter is reset to 0 at 0x4bd5dd — then immediately incremented at 0x4bd5ed, so the first blink after a load replays three times and every later one twice.",verified
+0x91,u8[3],pad091,Alignment tail: obj_size is 0x94 and the last field is the u8 at 0x90. Added so the size assert in work/layout_check.c reproduces.,inferred

@@ -1,0 +1,9 @@
+offset,ctype,name,meaning,confidence
+0x0,Mat34s,viewMatS,"fixed-point 4.12 view rotation + translation, rebuilt from rot every frame",verified
+0x40,Mat44,viewMat,"D3D view matrix; the 4x4 rotation is built from rot and the translation row at +0x70 is set to -(R * worldPos) [typed Mat44 - the static initialiser 0x40103a constructs +0x40 and +0x80 with Mat44_Ctor, so these members have a constructor]",verified
+0x80,Mat44,viewMatCopy,"The matrix every world-mesh and rigid-instance draw passes to SetTransform(VIEW). Cull_IsAabbVisible transforms corners by +0x80..+0xB8 (row-vector, translation at +0xB0). WorldObj_DrawSky uses a copy with the translation row zeroed. Instan [typed Mat44, constructed by 0x40103a (mov ecx,0x584cd0 = g_camera+0x80)]",verified
+0xc0,s32[3],viewPos,camera world position transformed through viewMatS,verified
+0xcc,s32,planeD,"dot(viewMatS.rot row at +0x0C..+0x10, worldPos) — the view plane constant",verified
+0xd0,Vec3s,pos,"camera world position (x, y, z)",verified
+0xd6,s16,dist,"Orbit distance from eye to aim point. Written by Camera_SolveCollision (+0xD6 at its end), the fixed look-at and script modes, and Camera_Reset (0x400). Read as the current distance by Camera_SmoothToDesired and the cut logic. Same address as g_camDist 0x584d26. Missing from Camera.csv.",verified
+0xd8,Vec3s,rot,"camera orientation, 12-bit angles (4096 per turn)",verified

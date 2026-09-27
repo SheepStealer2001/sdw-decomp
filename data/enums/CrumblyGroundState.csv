@@ -1,0 +1,6 @@
+value,name,meaning
+#,CrumblyGroundState,state field of CrumblyGround
+0x0,CRUMBLYGROUND_ST_INTACT,SetState 0: anim STAND looped; Update: CountAndCapture (inferred)
+0x1,CRUMBLYGROUND_ST_CRACK,SetState 1: anim BRAKE1; Update: on anim end -> 2 (inferred)
+0x2,CRUMBLYGROUND_ST_COLLAPSE,"SetState 2: anim BRAKE, releases the captured victim (msg 0xf then MSG_KILL arg 1), box collision off; -> 3 (inferred)"
+0x3,CRUMBLYGROUND_ST_GONE,SetState 3: SetVisible(0) (inferred)

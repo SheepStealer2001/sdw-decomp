@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,ScnObject *,speaker,object whose talk/idle animations follow the dialogue; set from Cine_SetDialogueParams or found via msg 0x58 on a selector-2 track,verified
+0x4,u16,idleAnim,anim played once 2 s have passed since the page began,inferred
+0x6,u16,talkAnim,anim played during the first 2 s of a dialogue page and at dialogue start,inferred
+0x8,CamSetup *,camSetup,{u16 focal; u16 rot[3]; Vec3s pos} passed to Camera_StartScripted when dialogue mode starts,verified

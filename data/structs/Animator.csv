@@ -1,0 +1,13 @@
+offset,ctype,name,meaning,confidence
+0x0,AnimHeader *,cur,current animation (AnimHeader: u16 keyCount at +8) (ScnBody +0x40),verified
+0x4,void *,bufA,AnimJointPose[jointCount]: pose of the key being left ('from'); interpolation input A; swapped with B on every key step (ScnBody +0x44),verified
+0x8,void *,bufB,AnimJointPose[jointCount]: pose of the key being approached ('to'); always the destination of Anim_DecodeKey (ScnBody +0x48),verified
+0xc,void *,bufC,"AnimJointPose[jointCount]: displayed pose written by Anim_InterpolatePose, read by Instance_DrawAnimParts and Anim_GetRootOffset; final key swapped in when a non-looping anim ends (ScnBody +0x4c)",verified
+0x10,u32,timeAcc,time accumulator (g_animDt*speed>>12; frame period = frameDuration<<10) (ScnBody +0x50),verified
+0x14,u32,pendingSoundId,"key event id: set from key 0 unconditionally (can clear it), from later keys only when non-zero; consumed and zeroed by 0x50d540 (sound id, 0x158 = rumble) (ScnBody +0x54)",verified
+0x18,u16,nbJoints,model joint count (ScnBody +0x58),verified
+0x1a,u16,animId,current animation id (ScnBody +0x5a),verified
+0x1c,u16,frame,current key-frame index (ScnBody +0x5c),verified
+0x1e,u16,frameDuration,duration of current key (x1024 time units) (ScnBody +0x5e),verified
+0x20,u16,speed,playback speed 4.12 (0x1000 = 1.0) (ScnBody +0x60),verified
+0x22,u16,flags,"AnimFlags: 1 playing, 2 looping, 4 ping-pong/alt wrap, 8 finished (ScnBody +0x62)",verified

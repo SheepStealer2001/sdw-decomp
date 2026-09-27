@@ -1,0 +1,37 @@
+offset,ctype,name,meaning,confidence
+0x7c,u8,state,"1 patrol, 3 aim at Ralph, 4 hold and face him, 5 lunge blocked, 6 back to patrol, 7 wind-up, 8 lunge, 9 bite, 0xa lunge aborted, 0xb recover, 0xc swim back to the lunge start (switch 0x475442 / 0x4758ac)",verified
+0x80,s32,detectRange,"PROPERTY_SHARK_DETECTRANGE (prop +0xc, 0x474ea8-0x474ec1); 640 in Lvl-04",verified
+0x84,s32,detectHeight,"PROPERTY_SHARK_DETECTHEIGHT (prop +8, 0x474ec7-0x474ee0); the vertical window in which Ralph wakes the shark (0x475407)",verified
+0x88,s32,detectRangeCopy,second copy of detectRange (0x474ee6-0x474ef2); never read again in the class,verified
+0x8c,s32,watchOverCave,"PROPERTY_SHARK_BOOLWATCHOVERCAVE != 0 (prop +0, 0x474ef8-0x474f17); 0 on both Lvl-04 sharks. Gates state 4 (0x475281)",verified
+0x90,s32,biteAccepted,"Ralph's reply to MSG_KILL with cause 5 (arg 5, msgId 0) when the bite starts (0x475d6a-0x475d86); cleared by Reset (0x476d2f). Non-zero blocks a second bite (0x475301)",verified
+0x94,Box *,zone,"PROPERTY_SHARK_BOX (Scn_GetPropBox prop +4, 0x474f1d-0x474f2e): the water volume the shark patrols; Ralph inside it is what wolfInZone tests (0x474da4)",verified
+0x98,TrajFollower,path,"the patrol path: TrajFollower_Init(PROPERTY_SHARK_TRAJ, speed 350, bias 0x800, arrive radius 50) (0x474f34-0x474f66)",verified
+0xb8,s16,homeVert,pos.y saved by PostLoadInit (0x474f6b-0x474f7b); never read,verified
+0xbc,s32,unusedBc,cleared by PostLoadInit (0x474f95) and never read,verified
+0xc0,u16,unusedC0,cleared by PostLoadInit (0x474f7c) and never read,verified
+0xc4,s32,cornering,1 while the patrol is rounding a waypoint: set when the distance to the waypoint drops below 80 (0x476264) and cleared when cornerDist passes 160 (0x476460),verified
+0xc8,u16,cornerHeadingIn,heading of the leg entering the corner (0x4762ec),verified
+0xca,u16,cornerHeadingOut,heading of the leg leaving it (0x476365),verified
+0xcc,s32,cornerDist,distance travelled since the corner began; the blend parameter of Shark_CornerHeading (0x476448),verified
+0xd0,s32,wolfDist,"Vec3s_Dist(pos, Ralph's pos), refreshed at the top of Update (0x4751c6)",verified
+0xd4,s32,aimTimer,"2000 ms on entering state 3 (0x47594a), counted down by g_dtMs; 0 starts the wind-up (0x475562)",verified
+0xd8,Vec3s,lungeFrom,the shark's position when the lunge is aimed (0x475b11-0x475b3d),verified
+0xde,Vec3s,lungeTo,Ralph's position when the lunge is aimed (0x475b44-0x475b76),verified
+0xe4,Vec3s,lungeVel,"lunge velocity: the aim direction scaled to 900 units/s (0x475cc7-0x475d1a), reversed for the swim back (0x475ee9-0x475f3c)",verified
+0xec,s32,lungeLeft,"distance still to travel; set to the aim distance (0x475c7d), reduced by each step (0x475728), 0 ends the lunge (0x47573a)",verified
+0xf0,s32,lungeLen,"the full lunge distance, kept for the swim back (0x475c8f, compared at 0x47583a)",verified
+0xf4,Vec3s,biteRot,rotation that points from Ralph back to the shark (Shark_AimBiteRot 0x476145); copied into rot at the start of the swim back (0x47615b),verified
+0xfa,s16,idleTimer,"3000 ms between idle animations, counted down by g_dtMs in state 1 (0x475476-0x47548c)",verified
+0xfc,s32,idlePending,"1 while an idle animation is queued (set at 0x475412 when Ralph passes close by, cleared when it plays, 0x475511)",verified
+0x100,u16,idleAnim,"the animation state 1 plays: 6 by default, 5 for the look-at-Ralph idle (0x474ffe, 0x47541f)",verified
+0x104,InlineEmitter8,breathFx,8 bubbles rising from 90 units in front of the shark whenever it is 150+ below the water surface (Shark_UpdateBreathFx 0x476632),verified
+0x1c8,EmitterRiseParams,breathParams,"rise -120/s, life 0x2000, spawn every 0x400, size 10, sheet 2 (0x47500a-0x475049); size and cap are re-randomised every frame (0x47677a)",verified
+0x1dc,TrailEmitter,chargeFx,16 bubbles behind the shark during the wind-up and the lunge (Shark_UpdateChargeFx 0x4767f4); TrailEmitter is the 16-slot inline emitter layout,verified
+0x340,EmitterRiseParams,chargeParams,"rise -120/s, life 0x2000, spawn 0x80, size 10, sheet 2 (0x475053-0x475092); the lunge (state 8) swaps in -30/0x2000 and the wind-up (state 7) -120/0x400 (0x47695f-0x476997)",verified
+0x354,InlineEmitter8,rippleFx,"8 flat surface rings drawn on the water while the shark swims within 150 of the surface (Shark_UpdateRippleFx 0x476a33, drawn by Emitter_RenderFlat)",verified
+0x418,EmitterFadeParams,rippleParams,"life 0x2000, fade from 0, spawn 0x400, size 50 -> 200, sheet 1 (0x47509c-0x4750db)",verified
+0x42c,Box *,waterBox,"the water zone box the shark is in, refreshed by each of the three effect updates (0x476677, 0x476839, 0x476a78); 0 means no bubbles and no ripple",verified
+0x430,s32,wolfInZone,Ralph's position is inside zone (0x474e30),verified
+0x434,s32,wolfInWater,Ralph is inside one of the global water zones (0x474e71),verified
+0x438,s32,wolfInReach,"wolfDist <= 160, the bite distance (0x474e8c)",verified

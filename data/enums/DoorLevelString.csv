@@ -1,0 +1,7 @@
+value,name,meaning
+#,DoorLevelString,"DoorLevel class strings (ScnObject::Text_GetClassString 0x50fe66: list classId + 1 = 171 of the level's .MLT; English text from Scene.MLT block 1, verified)"
+0x0,DOORLEVELSTR_HELP,'HELP' (not used by DoorLevel)
+0x1,DOORLEVELSTR_LEVEL,"'level', the prompt's first word"
+0x2,DOORLEVELSTR_NOT_COMPLETED,'Level not completed'
+0x3,DOORLEVELSTR_COMPLETED,'Level completed'
+0x4,DOORLEVELSTR_FULLY_COMPLETED,'Level fully completed'

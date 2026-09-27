@@ -1,0 +1,26 @@
+offset,ctype,name,meaning,confidence
+0x7c,u8,state,"InstantMartianState 0..0xe; SetState 0x45862b stores its argument here, Update 0x456179 switches on it",verified
+0x7d,u8,behaviour,"from PROPERTY_INSTANTMARTIAN_MARTIENBEHAVIOR: designer 1 -> 1, 4 -> 3, anything else 0 (0x455cca/0x455cd3)",verified
+0x84,s32,stateTimer,"ms left in the current state: 0x400 at load (0x455f7d), 0x800 or 0 entering state 2 (0x457d90/0x457d9f), 0x78 entering state 10 (0x458397); Update counts it down with g_dtMs (0x4575ce, 0x457793)",verified
+0x80,s32,turnTimer,"ms left before the martian may turn again while walking (0x457266 -= g_dtMs, 0 clears `turning`; reset to 0xfa at 0x457553)",verified
+0x88,u32,sitAnimMs,duration of animation 0xf in ms (Anim_GetDurationMs at 0x455cec); the per-frame fraction of the sit move,verified
+0x8c,s16,heading,"walk heading, 12-bit (0x457dc7 = rot.y + 0x800 & 0xfff)",verified
+0x8e,s16,turning,"non-zero while the new walking heading is held: set to 0x800 at 0x45745f, cleared at 0x45728d when turnTimer runs out",verified
+0x90,s32,holdingWolf,nonzero while Ralph is attached to the martian's joint 0x17; the setter 0x4579ad sends the Wolf message 4 / 5,verified
+0x94,s32,shrunk,"set by message 0x56; every size and speed the class uses is then divided by 3 (0x45869a), and the solid box swaps from 8 to 0x10",verified
+0x98,u32,colForTraj,PROPERTY_INSTANTMARTIAN_COLFORTRAJ (0x455d65); nonzero = collide while following the trajectory (0x456e67),verified
+0x9c,Vec3s,nextPos,"the position the walk step would reach (pos + step), tested against the run boxes before it is taken (0x456c2d, 0x457364)",verified
+0xa2,Vec3s,homePos,"placed position after SnapToGround, restored by Reset through SetPosition (0x455e47, 0x45601d)",verified
+0xa8,Vec3s,target,the point to walk to: message 0x50 copies the sender's position here (0x457a96),verified
+0xae,Vec3s,step,per-frame movement for the sit move: (target - pos) scaled by g_dt/sitAnimMs (0x45633a..0x4564a3),verified
+0xb4,Vec3s,toTarget,target - pos at the moment state 3 starts (0x457e36),verified
+0xba,Vec3s,wolfPos,"Ralph's position, 4 units above him, taken when the martian sits on him (0x4581f4) and used as its own position (0x4582f6)",verified
+0xc0,ScnObject *[55],lasers,"every Laser (class 0x96) of the level, up to 55, from Scenaric_FindByClass (0x455e22)",verified
+0x19c,u16,laserCount,how many of lasers[] are filled,verified
+0x19e,u16,voice,Sound_Play handle for the running sound 0xdf (0x457ca1); SetState stops it first (0x457b97),verified
+0x1a0,Box *[5],boxes,"PROPERTY_INSTANTMARTIAN_BOX..BOX5, the boxes it may run inside; null properties are skipped (0x455dd9)",verified
+0x1b4,Box *,checkpointBox,PROPERTY_INSTANTMARTIAN_CHECKPOINTBOX (0x455e0b),verified
+0x1b8,Trajectory *,traj,PROPERTY_INSTANTMARTIAN_TRAJECTORY (0x455d0e),verified
+0x1bc,TrajPatrol,patrol,"the TRAJECTORY patrol (TrajPatrol_Init 0x459789 at 0x455d44, speed 600, radius 0x32; TrajPatrol_Step 0x4597f5 at 0x456e18). One 0x28-byte TrajPatrol: forward (+0x20 = 0x1dc) and forceAdvance (+0x24 = 0x1e0) are written through an inline whose this is &patrol (0x456e9a mov [ebp-0x9c],ecx; [edx+0x24]=1; [+0x20]^=1)",verified
+0x1e4,u16,boxCount,how many of boxes[] are filled (0x455df3),verified
+0x1e6,u16,boxIndex,index into boxes[] of the box the martian is currently running inside (0x456210),verified

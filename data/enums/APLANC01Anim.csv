@@ -1,0 +1,4 @@
+value,name,meaning
+#,APLANC01Anim,animation ids of WAR model APLANC01 (its WAR type-0x86 table; names verified from the level files). Played by: CrumblyPlat
+0x1,APLANC01_ANIM_BREAK,WAR name BREAK
+0x2,APLANC01_ANIM_STAND,WAR name STAND

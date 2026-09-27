@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,u16,parent,parent joint index; its matrix and pose scale are used for this joint,verified
+0x2,Vec3s,offset,rest offset from the parent in model units (multiplied by the parent's pose scale),verified
+0x8,u16,vertexCount,vertices of this part; parts are drawn as consecutive ranges starting at part 1 with vertex 0; part 0 (root) is never drawn,verified

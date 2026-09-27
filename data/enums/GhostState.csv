@@ -1,0 +1,12 @@
+value,name,meaning
+#,GhostState,state field of Ghost
+0x0,GHOST_ST_IDLE,"SetState 0: anim STAND, visible unless being sucked; Update: picks the next node, -> 1/2/3 (inferred)"
+0x1,GHOST_ST_WANDER_FAST,"SetState 1: travel at 400, anim WALK (inferred)"
+0x2,GHOST_ST_WANDER_SLOW,"SetState 2: travel at 200, anim WALK (inferred)"
+0x3,GHOST_ST_FLEE,"SetState 3: travel at 400, anim WALK (vulnerable path) (inferred)"
+0x4,GHOST_ST_CATCH_WOLF,"SetState 4: msg 0x4003 to the others, MSG_SCARE to the Wolf, anim KILL/MOVE (inferred)"
+0x5,GHOST_ST_SUCKED,"SetState 5: sound 0xaa, anim STANDV1; Update: MSG_HOOVER_GHOST_CAUGHT and hide on anim end (inferred)"
+0x6,GHOST_ST_RECOVER,"SetState 6: anim STAND, stop showing the captured sheep (inferred)"
+0x7,GHOST_ST_CHASE,"SetState 7: anim WALK, chaseRange 99999 (inferred)"
+0x8,GHOST_ST_BOO,"SetState 8: anim HOO, sound 0x153 (the ghost says boo) (inferred)"
+0x9,GHOST_ST_BOOED,"SetState 9: anim STAND, booCount++; three boos -> 4 (inferred)"

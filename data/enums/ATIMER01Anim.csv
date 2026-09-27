@@ -1,0 +1,4 @@
+value,name,meaning
+#,ATIMER01Anim,"animation ids of WAR model ATIMER01 (its WAR type-0x86 table; names verified from the level files). Played by: Chronometer, Gossamer_Boss, Watch"
+0x0,ATIMER01_ANIM_DEFAULT,WAR name DEFAULT
+0x1,ATIMER01_ANIM_ON,WAR name ON

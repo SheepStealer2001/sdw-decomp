@@ -1,0 +1,38 @@
+value,name,meaning
+#,WolfContextAction,"wolf+0x640: reply of nearby object to msg 2 / 0x26, or zone-derived."
+0x02,CTX_LIFT,->0x1d
+0x03,CTX_ACTIVATE,->0x3d
+0x04,CTX_PICKUP,->0x27
+0x05,CTX_PUSH,->0x2e
+0x07,CTX_READ,"signs; Wolf_DoAction sends target msg 1 (shared case 0x490c9a with 1,9,0xA,0xB,0x1C,0x1D,0x21,0x24)"
+0x08,CTX_TALK,->0x38
+0x09,CTX_TELESCOPE,returned by Telescope msg 2; Wolf_DoAction's shared case sends the target msg 1 (name inferred; elastic also returns 9 but for query 0x17)
+0x0c,CTX_DEFUSE,->0xd0
+0x0d,CTX_BUSH,->0x5f
+0x0f,CTX_CLIMB,"climb: a CLIMBBOXES zone without flag 0x4000000 (target 0) or a climbable object box (Tree answers 0xf) -> WOLF_ST_CLIMB_ZONE 0x3f / WOLF_ST_CLIMB_OBJECT 0x40 (Wolf_ClimbStep); prompt UI string 0x35 ""climb"" (verified)"
+0x11,CTX_CLIMBBOXWALK_ENTER,"a CLIMBBOXES zone with flag 0x4000000 (walkable) -> WOLF_ST_CLIMBBOXWALK_IDLE 0x41 (Wolf_ClimbBoxWalkStep); prompt UI string 0x43 ""grip"" (verified)"
+0x13,CTX_ELASTIC_TIE,elastic state 3 near another tree: Wolf_DoAction → Wolf_ClearActiveItem + target msg 1 (tie the second end)
+0x14,CTX_ELASTIC_TAKE_BACK,"WAS CTX_CANNONBALL. Elastic state 3 near its own tree: → Wolf state 0x70 (ClearActiveItem, msg 7 unties, RemoveFromWorld, Inventory_Add)"
+0x15,CTX_ELASTIC_GRAB,->0x71
+0x16,CTX_ELASTIC_PULL,->0x72
+0x17,CTX_ELASTIC_RELEASE,elastic state 5 (prompt while holding the centre); (merged from WolfCtxAction CTX_ELASTIC_RELEASE) set in 0x72/0x73
+0x19,CTX_WOLFTRAP,->0x92
+0x1a,CTX_SWIRLSIGN,SwirlSign_HandleMessage case 2 returns 0x1a to the Wolf in state 0/1 -> WolfState 0xaa (verified)
+0x1c,CTX_CANNON,"returned by CanonSimple_HandleMessage in state 0 when the Wolf's x/z is inside _ACTIVATIONBOX; per the existing CTX_READ note, Wolf_DoAction handles 0x1C in the shared case 0x490c9a that sends the target msg 1 (dispatch inferred from that note)"
+0x1e,CTX_TIMEKEEPER,->0xd1
+0x1f,CTX_ICECUBE,->0xd2
+0x22,CTX_LEVELDOOR,->0xdc
+0x23,CTX_CATAPULT,->0xde
+0xe,CTX_BUSH_TAKE_OFF,the take-the-bush-off prompt: Wolf_BushCommon 0x48c7c6 writes +0x640 = 0xe (not a carry put-down; that function is not a sheep-carry step)
+0x10,CTX_CLIMBING,"set in states 0x3f/0x40; its prompt is UI string 0x3f ""let go"" (g_wolfCtxPromptStrIds) (merged from WolfCtxAction CTX_CLIMBING)"
+0x12,CTX_CLIMBBOXWALK_LEAVE,"inside; action leaves; its prompt is UI string 0x44 ""let go"" (g_wolfCtxPromptStrIds) (merged from WolfCtxAction CTX_CLIMBBOXWALK_LEAVE)"
+0x18,CTX_BLEAT,"set in model-set-3 ground states; its prompt is UI string 0x3e ""bleat"" (g_wolfCtxPromptStrIds) (merged from WolfCtxAction CTX_BLEAT)"
+0x1b,CTX_BOO,"set in model-set-5 ground states; its prompt is UI string 0x40 ""boo"" (g_wolfCtxPromptStrIds) (merged from WolfCtxAction CTX_BOO)"
+0x20,CTX_SQUIRM,"set in state 0x4f; its prompt is UI string 0x4a ""squirm"" (g_wolfCtxPromptStrIds) (merged from WolfCtxAction CTX_SQUIRM)"
+0x0,CTX_NONE,ctxAction.action = 0 when nothing is in reach (inferred)
+0x1,CTX_USE,DoorWorld/bull reply 1; Wolf::DoAction's shared case sends the target msg 1; coverAction.action == 1 is the cover side (inferred)
+0xa,CTX_USE_0A,Wolf::DoAction shared 'send msg 1' case; no replier found in the census (inferred)
+0xb,CTX_USE_0B,same shared case; no replier found (inferred)
+0x1d,CTX_PIPE,Pipe2 replies 0x1d to the Wolf
+0x21,CTX_SAVE,MCardManager replies 0x21 within 300 units (and to the CinematicsManager)
+0x24,CTX_BONUS,BonusManager replies 0x24 to the Wolf near it

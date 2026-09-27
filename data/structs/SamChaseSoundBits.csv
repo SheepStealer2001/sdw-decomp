@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x0,u16:15,volume,"fade-in volume of the run sound 0x137, 1..0xff",verified
+0x0,u16:1,unused,bit 15: never read or set; every store keeps it only because it is the rest of the bitfield,verified

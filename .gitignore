@@ -1,0 +1,9 @@
+# Your copy of the game: never commit it
+/Sheep, Dog 'n' Wolf (PAL Version)
+# Everything generated from the exe, and the Microsoft toolchain (see BUILDING.md)
+/work
+/ghidra
+# Generated from your copy of the game (tools/scenaric_to_c.py)
+/src/include/scenaric_props.h
+__pycache__/
+.DS_Store

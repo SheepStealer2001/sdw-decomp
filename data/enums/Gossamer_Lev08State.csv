@@ -1,0 +1,15 @@
+value,name,meaning
+#,Gossamer_Lev08State,state field of Gossamer_Lev08
+0x0,GOSS08_ST_PATROL,"SetState 0: sound 0x100, anim RUN2; Update: patrols, OUCH/STAND2 on contact (inferred)"
+0x1,GOSS08_ST_CHASE,SetState 1: anim RUN1; Update: ChaseWolf with camera shakes (inferred)
+0x3,GOSS08_ST_GO_GRAB,SetState 3: anim RUN1; Update: runs to grabPos (inferred)
+0x4,GOSS08_ST_HUG,"SetState 4: mash timer; Update: CATCH2/CATCH4 hug, button mashing (inferred)"
+0x5,GOSS08_ST_APPROACH,SetState 5: anim STAND2; Update: walks toward the Wolf (inferred)
+0x6,GOSS08_ST_GRAB_RESULT,Update 6: INSIDE/OUT by grabKind (inferred)
+0x7,GOSS08_ST_FLEE,"Update 7: CATCH3/CATCH1, patrols away (inferred)"
+0x8,GOSS08_ST_WATCH,SetState 8: anim STAND2; Update: -> 5 when the Wolf is visible (inferred)
+0x9,GOSS08_ST_WAIT_CINE_BOX,"Update 9: plays the cinematic in cineBox, -> 10 (inferred)"
+0xa,GOSS08_ST_CINEMATIC,Update 10: after the cinematic -> 1 or scripted release (inferred)
+0xb,GOSS08_ST_PAUSE,Update 11: timer -> 5 (inferred)
+0xc,GOSS08_ST_CATCH,Update 12: anim CATCH when the Wolf is on high ground (inferred)
+0xd,GOSS08_ST_WAIT_ZONE,SetState 13: anim STAND2; Update: -> 5 when the Wolf is in the action zone (inferred)

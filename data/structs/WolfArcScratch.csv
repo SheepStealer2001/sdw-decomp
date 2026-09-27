@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,Vec3s,rot,rotation passed to Wolf_ApplyMove (0x48c206); Wolf_LaunchArcStep's view of g_collScratchA 0x6d5468,verified
+0x8,Vec3s,target,this frame's point on the launch parabola (0x48c063 word [ecx+8]),verified
+0x10,Vec3s,vel,"velocity, zeroed (0x48c1e2)",verified
+0x18,Vec3s,step,displacement target - pos (0x48c0f0 word [ecx+0x18]),verified

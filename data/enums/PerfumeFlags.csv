@@ -1,0 +1,4 @@
+value,name,meaning
+#,PerfumeFlags,Perfume+0x32d
+0x1,PERFUME_F_BLOWN,"set by msg 0x14 (MSG_FAN_BLOW), consumed and cleared by the next state-1 Update"
+0x2,PERFUME_F_SCENT_REGISTERED,"Flock_AddScentSource was called; cleared by Flock_RemoveScentSource in state 0, msg 7 and Reset"

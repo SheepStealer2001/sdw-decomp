@@ -1,0 +1,4 @@
+value,name,meaning
+#,ABOULE02Anim,animation ids of WAR model ABOULE02 (its WAR type-0x86 table; names verified from the level files). Played by: CannonBall
+0x0,ABOULE02_ANIM_STAND,WAR name STAND
+0x1,ABOULE02_ANIM_ANVIL,WAR name ANVIL

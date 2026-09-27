@@ -1,0 +1,12 @@
+value,name,meaning
+#,BullState,"bull +0x7c (bull_SetState 0x42f029, table 0x42f8b6; bull_Update table 0x431a19)"
+0,BULL_ST_ASLEEP,sleep anim 4; waits for the wake conditions. SetState(0) on an awake bull turns into state 2 with anim 5
+1,BULL_ST_CHARGE,"straight charge at chargeTargetPos (800/1100 u/s, 2-s timeout, loop sfx 0xfd)"
+2,BULL_ST_IDLE,awake; charges when the target or Gossamer enters the movement boxes; catches sheep in SHEEPBOX
+3,BULL_ST_SKID,anim 0xd; next state 1 when it wraps (the anim-0xc slide branch is dead)
+4,BULL_ST_HIT,"reached the target: Wolf MSG_KILL arg 4, or sheep toss (anim 0xf); 10 s then state 2"
+5,BULL_ST_STUNNED,after MSG_KILL (anim 8); exits through msg 0x38 (sets state 8) and Reset
+6,BULL_ST_SCARF_PAW,"anim 6 for 2 s then state 7; only for a carried RedScarf (class 51, unregistered), so unreachable"
+7,BULL_ST_SCARF_CHARGE,charge at the scarf; unreachable in the shipped game
+8,BULL_ST_RETURN_HOME,"walks to homePos, then state 0; also after msg 0x38 or leaving the movement boxes"
+9,BULL_ST_ESCAPE,"falls through NORETURNBOX without collision, then ScnObject_RemoveFromWorld; Reset ignores it (permanent)"

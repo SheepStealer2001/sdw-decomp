@@ -1,0 +1,9 @@
+value,name,meaning
+#,ZoneType,
+0x0,ZONE_WATER,"Zones_ResolveGlobalLists: list 0 <- GameRes 54 WAR_IDO_WATERBOX (s_zoneIds = {54,10,92,104,123,173,202})"
+0x1,ZONE_DEATH,list 1 <- 10 WAR_IDO_DEATHBOX (g_deathBoxes)
+0x2,ZONE_ICE,list 2 <- 92 WAR_IDO_ICEBOX
+0x3,ZONE_SLIDE,list 3 <- 104 WAR_IDO_SLIDEBOX (Wolf flags IN_SLIDE_ZONE)
+0x4,ZONE_PRINTS,list 4 <- 123 WAR_IDO_PRINTSBOX (footprint zone)
+0x5,ZONE_GRAVITY,list 5 <- 173 WAR_IDO_GRAVITYBOX (Wolf updraftZone)
+0x6,ZONE_SHADOW,list 6 <- 202 WAR_IDO_SHADOWBOX

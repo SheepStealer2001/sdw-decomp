@@ -1,0 +1,6 @@
+value,name,meaning
+#,DtlTextTag,"DaffyTrainingLevel::EatTextTag tags: '$XXXX$' prefixes of the help text, compared big-endian"
+0x434f4e46,DTL_TAG_CONF,'CONF' -> confirmTag
+0x4c4f434b,DTL_TAG_LOCK,'LOCK' -> lockTag
+0x53544f50,DTL_TAG_STOP,'STOP' -> stopTag
+0x56494557,DTL_TAG_VIEW,'VIEW' -> viewTag

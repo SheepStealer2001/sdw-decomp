@@ -1,0 +1,1295 @@
+class,declaration,comment
+AltModel,s32 IsValid();,
+AmbientSoundManager,void PickRepeatDelay();,
+AnimMesh,"void SetSequence(s32 seq, u8 loop, u8 blend);",/* 0x40ba9b */
+AnimMesh,void Stub_40bac3();,/* 0x40bac3 */
+AnimMesh,void Stub_40bace();,/* 0x40bace */
+AnimMesh,u8 GetFlag(char which);,/* 0x40bad9 */
+AnimMesh,void UpdateAnim();,/* 0x40bb19 */
+AnimMesh,"void ApplyFrame(MeshAnimFrame *frame, float weight);",/* 0x40bee2 */
+AnimMesh,void CapturePose(MeshAnimFrame *frame);,/* 0x40bf3a */
+AnimMesh,void SetBlendTarget(MeshAnimFrame *frame);,/* 0x40bf8e */
+AnimSprite,s32 InitFromRes(u16 resId);,/* 0x53b531 AnimSprite_InitFromRes */
+AnimSprite,"void Draw(u32 *layer, s32 x0, s32 y0, s32 x1, s32 y1, u32 color, u8 frame, u32 flipMode);",/* 0x53b67e */
+AnimSprite,"void DrawThunk9(u32 *layer, s32 x0, s32 y0, s32 x1, s32 y1, u32 color, u8 frame, u32 unused, u32 flipMode);",/* 0x53c321 */
+AnimSprite,"void DrawThunk8(u32 *layer, s32 x0, s32 y0, s32 x1, s32 y1, u32 color, u8 frame, u32 flipMode);",/* 0x53c356 */
+AutomaticDoor,void SetCollision(s32);,
+AutomaticDoor,void SetState(s8);,
+Bat,void SetState(u8);,
+Battery,s32 StepCollectFlight();,
+Battery,void SetState(u8);,
+Bees,void SetState(u8 newState);,/* 0x4981ed */
+Bees,"s16 Orbit(Vec3s offset, Vec3s centre, s16 angle, s16 step);",/* 0x498d45 */
+Bees,"s32 MoveToward(Vec3s target, s32 speed, s32 hover);",/* 0x498e0b */
+Bees,void FaceTowards(Vec3s target);,/* 0x498eec */
+Bell,void SetState(u8);,
+BipbipLevel14,void SetState(u8 newState);,/* 0x42e59f */
+BipbipLevel14,"void TrajInit(TrajFollower *f, Trajectory *traj, s16 speed, s16 bias, s32 continuousHeading, s32 use3d, s16 arriveRadius);","/* 0x42e91d, this file's copy of 0x510731 */"
+BipbipLevel14,"s32 TrajStep(TrajFollower *f, Vec3s *outVel, s16 *outHeading, s32 forward);",/* 0x42e987 */
+Bird,void SetState(u8);,
+BlackHole,"void ApplyPull(MoveModifyArg *, ScnObject *);",
+BonusManager,char *GetUiString(u8);,
+BonusManager,void DrawBonusList();,
+BonusManager,void DrawEntryInfo();,
+BonusManager,void DrawViewerFooter();,
+BsFile,bool Bs_IsGeometryResource();,/* 0x41ba1d */
+BsFile,int NextFrame();,/* 0x41ba79 */
+BsFile,int SeekFrameOfType(u8 type);,/* 0x41bb23 */
+BsFile,int FirstFrame();,/* 0x41bb5b */
+BsFile,int FindFrameOfType(u8 type);,/* 0x41bbc6 */
+BsFile,u32 PeekEntryCount();,/* 0x41bc0f */
+BsFile,int TotalVerticesAllFrames();,/* 0x41bc68 */
+BsFile,u32 FindEntryValue(u16 id);,/* 0x41bcf3 */
+BsFile,int CountKindAcrossFrames(u16 kind);,/* 0x41bddb */
+BsFile,u32 Type4_GetField18();,/* 0x41be6d */
+BsFile,int TotalField18AllFrames();,/* 0x41bec3 */
+BsFile,u32 Type4_GetTableCount();,/* 0x41bf4e */
+BsFile,int TotalTableCountAllFrames();,/* 0x41bfb4 */
+BsFile,"u32 ReadVertices(float *dest, u16 firstIndex);",/* 0x41c03f */
+BsFile,"int BsDecode_Kind0_1(BsPolyFlat *dest, int firstIndex, int bias);",/* 0x41c136 */
+BsFile,"int BsDecode_Kind2_3(BsPolyGouraud *dest, int firstIndex, int bias);",/* 0x41c461 */
+BsFile,"int BsDecode_Kind10_11(BsPolyBlendFlat *dest, int firstIndex, int bias);",/* 0x41c836 */
+BsFile,"int BsDecode_Kind12(BsPolyBlendGouraud *dest, int firstIndex, int bias);",/* 0x41cbb6 */
+BsFile,"int BsDecode_Stride24_Pass1(BsPolyTexFlat *dest, int firstIndex, int bias);",/* 0x41cfe6 */
+BsFile,"int BsDecode_Stride48_Pass1(BsPolyTexGouraud *dest, int firstIndex, int bias);",/* 0x41d7d2 */
+BsFile,"int BsDecode_Stride24_Pass2(BsPolyTexFlat *dest, int count, int bias);",/* 0x41e09a */
+BsFile,"int BsDecode_Stride48_Pass2(BsPolyTexGouraud *dest, int count, int bias);",/* 0x41e9ca */
+BsFile,u32 Type4_ReadTable14(MeshPart *dest);,/* 0x41f422 */
+BsFile,"int ReadAnimNames(MeshAnimSeq *dest, u32 count);",/* 0x41f54b */
+BsFile,u8 ReadU8(u8 advance);,/* 0x41f7ef */
+BsFile,u16 ReadU16(u8 advance);,/* 0x41f82b */
+BsFile,u32 ReadU32(u8 advance);,/* 0x41f88e */
+BsFile,u32 ReadU24BE(u8 advance);,/* 0x41f91f */
+BsFile,u32 ReadRgbHalved(u8 advance);,/* 0x41f994 */
+BsFile,"void WriteU8(u8 value, u8 advance);",/* 0x41fa42 */
+BsFile,"void WriteU16(u16 value, u8 advance);",/* 0x41fa79 */
+BsFile,"void WriteU32(u32 value, u8 advance);",/* 0x41face */
+BsFile,float Bs_S16ToFloat(s16 v);,/* 0x41fb58 */
+BsFile,float Bs_Angle12ToRadians(s16 a);,/* 0x41fb71 */
+BsFile,float Bs_Angle8ToRadians(s8 a);,/* 0x41fbba */
+BsFile,float Bs_Fixed12ToFloat(u16 v);,/* 0x41fc03 */
+BsFile,float Bs_Normal8ToFloat(u8 v);,/* 0x41fc22 */
+BsFile,"float Bs_TexelToUV(u8 texel, s16 size, s16 origin);","/* 0x41fc41, thiscall: ecx = this (0x41d1f7), ret 0xc */"
+BsFile,void SkipEntry();,/* 0x41fc89 */
+BsFile,"void ReadTrack12(MeshAnimFrame *frames, u32 count, u32 nParts);",/* 0x41fe75 */
+BsFile,"void ReadJointTable(MeshPartPose *poses, u32 count);",/* 0x41ff60 */
+BsStream,bool Seek(u32 pos);,/* 0x41b22e */
+BsStream,bool Skip(int delta);,/* 0x41b264 */
+BsStream,u8 ReadU8(u8 advance);,/* 0x41b2ad */
+BsStream,u16 ReadU16(u8 advance);,/* 0x41b2e9 */
+BsStream,u32 ReadU32(u8 advance);,/* 0x41b34c */
+Bullet,void AimAt(Vec3s *target);,/* 0x49e52e Bullet_AimAt */
+Bullet,void SetState(u8 newState);,/* 0x49e6c6 Bullet_SetState */
+Bush,void StartRespawn();,
+Butterfly,void SetState(u8);,
+CamShot,void Init(u32 flags);,
+CamShot,"void Start(CamSetup *, ScnObject *, u32);",
+CamShot,void Stop(ScnObject *);,
+CamShot,void Update(ScnObject *);,
+Camera,Vec3s ViewDir();,
+CameraRestriction,"void ReadAngleRange(s16 *, s16 *, s32, s32);",
+CannonBall,"s32 SweepMove(Vec3s *, Vec3s, u8);",
+CannonBall,void PlaceChaseCamera();,
+CannonBall,void SetState(u8);,
+CannonBall,void UpdateChaseCamera(Vec3s);,
+CannonBall,"void UpdateDebris(s32, ParticleEmitter *, ParticleEmitter *);",
+CannonBall2,"u32 Move(Vec3s *, ContactInfo *, u16, Vec3s *);",
+CannonBall2,u32 StepFall(u16);,
+CanonDummy,void SetState(u8);,
+CanonSheep,Vec3s ComputeLaunchVelocity(Vec3s);,
+CanonSheep,"Vec3s NearestPoint(Vec3s *, u16, Vec3s);",
+CanonSheep,void AimDummyAlong(Vec3s);,
+CanonSheep,void SetState(u8);,
+CanonSimple,"void AddAimOffset(s16 *, s16, u8);",
+CanonSimple,void ApplyAim(Vec3s *);,
+CanonSimple,void MoveTo(Vec3s *);,
+CanonSimple,void SetState(u8);,
+CanonSimple,void Translate(Vec3s *);,
+CanonSimple,void UpdateAim(Pad *);,
+Catapult,"s32 FindFreeLandingSpot(CollBox *box, Vec3s *target, s16 maxShift);",
+Catapult,s32 GroundQuery(struct GroundQuery *query);,
+Catapult,s32 Launch();,
+Catapult,"s32 SweepThrown(ScnObject *object, Vec3s *delta);",
+Catapult,void DrawPowerGauge();,
+Catapult,void ScanBucket(s32 seat);,
+Catapult,void SetArmPose(s16 angle);,
+Catapult,void SetState(u8 value);,
+Catapult,"void TrackCamera(Vec3s *target, CamSetup *setup, u32 mode);",
+Catapult,void UpdateArmAngle();,
+Catapult,void UpdateBucketArmed();,
+Catapult,void UpdateBucketBox();,
+Catapult,void UpdatePowerInput();,
+CheckpointManager,CheckpointEntry *FindEntryAt(Vec3s *position);,
+Chronometer,void SetMode(u8 value);,
+Cine,s32 IsActive();,
+Cine,s32 IsFinished();,
+Cine,s32 IsWolfReady();,
+Cine,CineRecord *RecordSize();,/* 0x561800 */
+Cine,void RenderTaggedObjects();,/* 0x561820 */
+Cine,s32 ScriptTargetsObject(ScnObject *obj);,/* 0x561920 */
+Cine,Vec3s *FindFirstPosKeyFor(ScnObject *obj);,/* 0x561970 */
+Cine,Vec3s *FindFirstPosKey();,/* 0x5619c0 */
+Cine,Vec3s *FindFirstRotKey();,/* 0x561a10 */
+Cine,Box *FindCinBBox();,/* 0x561a60 */
+Cine,Box *FindCinSheepBBox();,/* 0x561aa0 */
+Cine,void SetCamPos(Vec3s *p);,/* 0x561ae0 */
+Cine,void SetCamRot(Vec3s *r);,/* 0x561b10 */
+Cine,void SetCamScalar(u16 v);,/* 0x561b40 */
+Cine,void CaptureCamera();,/* 0x561b60 */
+Cine,void ResetIterators();,/* 0x561bc0 */
+Cine,s32 AdvanceScriptCursor();,/* 0x561be0 */
+Cine,s32 SkipRecords();,/* 0x561c50 */
+Cine,void SaveIterator();,/* 0x561c90 */
+Cine,void RestoreIterator();,/* 0x561cb0 */
+Cine,void SetDialogueParams(const CineDialogue *p);,/* 0x561cd0 */
+Cine,void Load();,/* 0x561d10 */
+Cine,void ResolveTracks();,/* 0x561dc0 */
+Cine,void NotifyActors();,/* 0x561e60 */
+Cine,void TagObjectsInBox();,/* 0x561f50 */
+Cine,void Reset();,/* 0x562070 */
+Cine,void Finish();,/* 0x5620a0 */
+Cine,void RunOpcodes();,/* 0x5621b0 */
+Cine,"void SaveActorState(ScnObject *obj, CineActorSave *s);",/* 0x5622b0 */
+Cine,"void RestoreActorState(ScnObject *obj, CineActorSave *s);",/* 0x562340 */
+Cine,"void KeyframePos(Vec3s *dest, Vec3s *from, Vec3s *to, s32 t0, s32 t1, u16 kind);",/* 0x5623d0 */
+Cine,"void LerpVec3s(Vec3s *out, Vec3s *from, Vec3s *to, s32 t0, s32 t1);",/* 0x562420 */
+Cine,"void KeyframeRot(Vec3s *dest, u16 *from, u16 *to, s32 t0, s32 t1, u16 kind);",/* 0x5624c0 */
+Cine,"u16 LerpAngle(s16 from, s16 to, s32 t0, s32 t1);",/* 0x562570 */
+Cine,"void KeyframeScalar(u16 *dest, u16 from, u16 to, s32 t0, s32 t1, u16 kind);",/* 0x5625f0 */
+Cine,void AttachEntry(s32 i);,/* 0x562660 */
+Cine,void DetachEntry(s32 i);,/* 0x5626b0 */
+Cine,void Update();,/* 0x5626d0 */
+Cine,void OpKeyPosition();,/* 0x562e00 */
+Cine,void OpKeyRotation();,/* 0x562ee0 */
+Cine,void OpStartAnim();,/* 0x562f70 */
+Cine,void OpAdvanceAnim();,/* 0x562fa0 */
+Cine,void OpFlickerVisibility();,/* 0x562fc0 */
+Cine,void OpKeyCamScalar();,/* 0x562ff0 */
+Cine,void OpToggleActorEntry();,/* 0x563060 */
+Cine,s32 KeyAtLast();,/* 0x5630f0 */
+Cine,s32 KeyPastLast();,/* 0x563120 */
+Cine,void LoadKeyPair();,/* 0x563150 */
+Cine,void LoadStepKeyPair();,/* 0x563190 */
+Cine,"void Start(u32 id, u32 startFlags, Box *box, Box *sheep, void *text, const CineDialogue *dlg);",/* 0x5631d0 */
+Cine,void Stop();,/* 0x563350 */
+Cine,void Rewind();,/* 0x5633f0 */
+Cine,void InitRecordCursors();,/* 0x563470 */
+CollBox,"void Box_Translate(const CollBox *src, const Vec3s *offset);","/* 0x5154ce: this = src + offset, flags copied */"
+CompositeRod,void InitParts(u16 baitClass);,
+Crane,s32 SetCargoAttached(s32 attach);,/* 0x4acfbc */
+Crane,s32 SetWolfLock(s32 lock);,/* 0x4ad038 */
+Crane,void SetState(u8 newState);,/* 0x4ad0a1 */
+CrocodileLevel09,"void MoveAndTilt(Vec3s *, s16);",
+CrocodileLevel09,void SetState(u8);,
+CrocodileLevel11,s16 HeadingToBoxCenter(Box *box);,
+CrocodileLevel11,s16 HeadingToObject(ScnObject *object);,
+CrocodileLevel11,s16 HeadingToPoint(Vec3s point);,
+CrocodileLevel11,"void PlayAnim(u16 id, s32 loop, s32 blend);",
+CrocodileLevel11,void SetState(u8 value);,
+CrocodileLevel11,void UpdateCamera();,
+CrumblyGround,s32 GetFloor(GroundQuery *);,
+CrumblyGround,void CountAndCapture();,
+CrumblyGround,void PushObjectsDown();,
+CrumblyGround,void SetState(u8);,
+CrumblyPlat,s32 GroundQuery(struct GroundQuery *);,
+CrumblyPlat,void CheckWolfOnTop();,
+CrumblyPlat,void PushRiders();,
+CrumblyPlat,void SetState(u8);,
+D3DApp,"HRESULT CreateTextureSurface(IDirectDrawSurface7 **ppSurface, u32 width, u32 height);",/* 0x404b08 */
+D3DApp,u8 StepDevice(u8);,/* 0x404c9b (launcher) */
+D3DApp,u8 SetDeviceIndex(u8);,/* 0x404d77 */
+D3DApp,u8 StepMode(u8);,/* 0x404dcf */
+D3DApp,u8 SetModeIndex(u8);,/* 0x404e86 */
+D3DApp,void GetDeviceName(char *);,/* 0x404ed8 */
+D3DApp,void GetModeString(char *);,/* 0x404f0b */
+D3DApp,u32 GetTotalVideoMem();,/* 0x40500b */
+D3DApp,u32 GetFreeVideoMem();,/* 0x4050c2 */
+D3DApp,u32 GetTotalTextureMem();,/* 0x405179 */
+D3DApp,u32 GetFreeTextureMem();,/* 0x405230 */
+D3DApp,u32 GetModeMemCost();,/* 0x4052e7 */
+D3DApp,HRESULT CreateDevice();,/* 0x405367 */
+D3DApp,void ReleaseInterfaces();,/* 0x405add */
+D3DApp,int HasJoystick();,/* 0x405b5d */
+D3DApp,u8 StepJoystick(u8);,/* 0x405b79 */
+D3DApp,u8 SetJoystickIndex(u8);,/* 0x405c11 */
+D3DApp,void GetJoystickInstanceName(char *);,/* 0x405c49 */
+D3DApp,HRESULT CreateMouseDevice(IDirectInputDevice8A **ppDevice);,/* 0x405cb8 */
+D3DApp,HRESULT CreateJoystickDevice(IDirectInputDevice8A **ppDevice);,/* 0x405cfb */
+D3DApp,HRESULT CreateKeyboardDevice(IDirectInputDevice8A **ppDevice);,/* 0x405d6c */
+D3DApp,void Frame_LimitFps(u32 maxFps);,/* 0x405daf */
+D3DApp,float Frame_GetFps();,/* 0x405e0b */
+D3DApp,void DrawFpsText(s32 line);,/* 0x405e42 */
+D3DApp,HRESULT SetRenderTargetSurface(IDirectDrawSurface7 *pNewTarget);,/* 0x405f08 */
+D3DApp,void RestoreRenderTarget();,/* 0x405ff0 */
+DaffyElf,void SetState(u8 newState);,/* 0x436770 */
+DaffyLevel01,void SetState(u8);,
+DaffyLevel01,void UpdateLipSync();,
+DaffyLevel02,s32 IsWolfInBoxXZ(Box *);,
+DaffyLevel02,u8 DetectWolf();,
+DaffyLevel02,void DrawAlertIcon();,
+DaffyLevel02,void FaceWolf();,
+DaffyLevel02,void InitHeadRecord(u16 *);,
+DaffyLevel02,void SayGoalReached();,
+DaffyLevel02,void SetState(u8);,
+DaffyLevel02,void UpdateHeadSweep();,
+DaffyLevel09,void SetState(u8 newState);,/* 0x43ac7f */
+DaffyMilitary,void FaceWolf();,/* 0x43b606 */
+DaffyMilitary,void UpdateTalkAnim();,/* 0x43b652 */
+DaffyMilitary,void SetState(u8 newState);,/* 0x43bb97 */
+DaffyScene,char *PickIdleChatterLine();,
+DaffyScene,char *PickResultLine();,
+DaffyScene,void SetState(u8);,
+DaffyScene,void StartRandomTalkAnim(s32);,
+DaffyTrainingLevel,s32 EatTextTag(u32);,
+DaffyTrainingLevel,"u32 MoveTo(Vec3s, s32, u8);",
+DaffyTrainingLevel,void ParseTextTags();,
+DaffyTrainingLevel,void PlayPendingVoice();,
+DaffyTrainingLevel,void SetHelpLine(u32);,
+DaffyTrainingLevel,"void SetLine(u8, u32);",
+DaffyTrainingLevel,"void SetMode(u8, u8);",
+DaffyWheel,"void StartCamera(CamSetup *, u32, s32);",
+DancingGhost,"s32 CarryStep(DancingGhost *, Vec3s *, Vec3s *, u16, s32);",
+DancingGhost,"s32 PushStep(u16, DancingGhost *, Vec3s, u32);",
+DancingGhost,"s32 StepToward(Vec3s *, u16, s32, s32);",
+DancingGhost,s32 UpdateCarry();,
+DancingGhost,void Despawn();,
+DancingGhost,void PopStep();,
+DancingGhost,void ReleasePartnerWait();,
+DancingGhost,"void StartDanceCamera(Vec3s *, Vec3s *);",
+DancingGhostManager,s32 UpdateBeatTrack();,
+DancingGhostManager,void AbortRound();,
+DancingGhostManager,void DespawnDanceSet();,
+DancingGhostManager,void FindTwoNearestGhosts();,
+DancingGhostManager,void HandleBeatResult();,
+DancingGhostManager,void ParseSequences(void *);,
+DancingGhostManager,void SetGhostSpot(const Box *);,
+DancingGhostManager,"void SetState(u8, s32);",
+DefusableMine,void DrawBeatLights();,
+DefusableMine,void DrawGlyph(s32 glyph);,
+DefusableMine,void DrawPanel();,
+Diamond,void SetState(u8 newState);,/* 0x4b3872 */
+Diamond,void TeleportZone();,/* 0x4b38db */
+DoorLevel,const char *GetLevelLabel(s8 level);,
+Dragon,s16 NegSign(s16);,
+Dragon,s32 ApproachSphere();,
+Dragon,s32 CheckWolfInRockZone();,
+Dragon,s32 IsWolfInFireReach();,
+Dragon,s32 IsWolfNear();,
+Dragon,s32 ShouldFly();,
+Dragon,s32 UpdateSkid();,
+Dragon,s32 VerticalMove(s32);,
+Dragon,void BackAwayFromWolf();,
+Dragon,"void CalcAnglesTo(Vec3s *, Vec3s *, Vec3s *, s32);",
+Dragon,void ChooseState();,
+Dragon,void FaceTarget(Vec3s *);,
+Dragon,void MoveToTarget(s32);,
+Dragon,"void ScaleVector(Vec3s *, s32, s32, s32, s32, s32);",
+Dragon,void SetState(u8);,
+Dragon,void StartSkid(Vec3s *);,
+Dragon,void TryMoveInZone(Vec3s *);,
+Dragon,void UpdateDust();,
+Dragon,void UpdateState();,
+Dynamite,void SetState(u8);,
+Elmer,"s32 MoveToward(Vec3s *target, s32 canRefuse);",/* 0x44a0af Elmer_MoveToward */
+Elmer,void SetState(u8 newState);,/* 0x44a697 Elmer_SetState */
+FallingGate,void FinishMove();,
+FallingGate2,void SetState(u8);,
+FallingRock,void Trigger();,
+FallingRock,void Unused_Nop();,
+Fan,void Blow(s16);,
+Fan,"void SetState(u8, s32);",
+Fan,void StopSound();,
+Fan,void UpdateSound();,
+FireBall,void RenderFlames(Camera *view);,
+FireBall,void SetState(u8);,
+Fish,void SetState(u8 state);,
+FishingRod,s32 GetLineFloorY(Vec3s *position);,
+FishingRod,"s32 IsTipBlocked(const Vec3s *position, const Vec3s *rotation);",
+FishingRod,"void CalcTipPos(const Vec3s *position, const Vec3s *rotation, Vec3s *out);",
+FloatingBox,void ReleaseContents();,
+FloatingBox,"void SetState(u8 value, s32 effect);",
+Flute,void SetState(u8 value);,
+FrozenRiver,u16 FindNextNode(Vec3s *p);,/* 0x4c340c */
+FrozenRiver,s32 AddCargo(ScnObject *obj);,/* 0x4c34ca */
+FrozenRiver,"s32 IsNodeTaken(u16 node, RiverCargo *self);",/* 0x4c364b */
+FrozenRiver,void UpdateCargo();,/* 0x4c373a */
+FrozenRiver,void MoveCargo(RiverCargo *c);,/* 0x4c38e4 */
+FrozenRiver,void SpinCargo(RiverCargo *c);,/* 0x4c3bc7 */
+FrozenRiver,void LaunchFloe();,/* 0x4c3c03 */
+Frustrum,"void SetProjection(float nearZ, float farZ, float fovRad, float viewDistance);",/* 0x418cb5 */
+Frustrum,void SetFov(float fovRad);,/* 0x418d06 */
+Frustrum,void SetFovFromTan(float tanHalfFov);,/* 0x418d3c */
+Frustrum,"void SetFogStartEnd(u8 enable, u32 color, s32 mode, float fogStart, float fogEnd);",/* 0x418d6e */
+Frustrum,"void SetFog(u8 enable, u32 color, s32 mode, float range);",/* 0x419223 */
+Frustrum,void SetFogColor(u32 color);,/* 0x4196dd */
+Frustrum,void EnableFog(u8 enable);,/* 0x41971f */
+Frustrum,"void GetFogRangeRaw(float *start, float *end);",/* 0x419b2b */
+Frustrum,"void GetFogRangeWorld(float *start, float *end);",/* 0x419b4e */
+Frustrum,void BuildProjectionMatrix(Mat44 *dest);,/* 0x419b83 */
+Frustrum,"void SetViewDistance(float distance, u8 moveFog);",/* 0x419bb4 */
+Frustrum,"void SetViewDistanceNormalized(float t, u8 moveFog);",/* 0x419c96 */
+Frustrum,float GetViewDistanceNormalized();,/* 0x419d81 */
+Frustrum,"u32 GetFogValue(float z, u8 useRawRange);",/* 0x419da6 */
+Frustrum,float NormalizeDepth(float z);,/* 0x419e40 */
+Frustrum,float DenormalizeDepth(float t);,/* 0x419e64 */
+Frustrum,void BuildFogRamp();,/* 0x419e86 */
+GameState,"void Game_SetFlags(u32 mask, s32 on);",/* 0x5362e0 */
+GameState,void Game_ResetState();,/* 0x536317 */
+GameState,s32 Game_CanOpenMenu();,/* 0x536369 */
+GeyserIn,void SetAnimState(u8);,
+GeyserIn,void SetState(u8);,
+GeyserOut,void SetState(u8 newState);,/* 0x4c6792 */
+GeyserOut,void SetAnimState(u8 newAnim);,/* 0x4c6846 */
+Ghost,void SetState(u8 newState);,/* 0x44d255 */
+Ghost,void StartCaptureCamera();,/* 0x44da32 */
+Ghost,void StartChaseCamera(s32 behindWolf);,/* 0x44ded8 */
+Ghost,s16 FindNearestNode(Vec3s p);,/* 0x44e136 */
+Ghost,void BuildNodeGraph(u16 trajListId);,/* 0x44e1a7 */
+Ghost,"s16 FindNodeAt(s16 x, s16 z);",/* 0x44e458 */
+Ghost,"s16 PickNextNode(s16 node, Vec3s target, s32 randomPick, s32 away);",/* 0x44e4c2 */
+Ghost,"void SetTravel(GhostTravel *t, Vec3s from, Vec3s to, s16 speed);",/* 0x44e947 */
+Ghost,"s32 StepTravel(GhostTravel t, Vec3s *outVel, u16 *outHeading);",/* 0x44ea01 */
+Ghost,s16 TurnToward(s16 target);,/* 0x44eab2 */
+Ghost,u8 CheckWolfProximity();,/* 0x44eaf9 */
+GoldenCoins,void SetState(u8 next);,
+GossamerOnde,void SetState(u8);,
+Gossamer_Boss,void SetState(u8 newState);,/* 0x450767 */
+Gossamer_Boss,"s32 IsInBox(const Vec3s *p, s32 usePhaseBox);",/* 0x450f43 */
+Gossamer_Boss,"s32 IsInSmashBox(const Vec3s *p, s32 index);",/* 0x45105c */
+Gossamer_Boss,void FallStep();,/* 0x4510d7 */
+Gossamer_Boss,void WalkHome();,/* 0x451202 */
+Gossamer_Boss,void StartHitCamera();,/* 0x451359 */
+Gossamer_Boss,void ChaseStep();,/* 0x451921 */
+Gossamer_Boss,void TurnStep(u8 nextState);,/* 0x451c84 */
+Gossamer_Boss,void MoveTo(Vec3s *target);,"/* 0x451faa *//* inline: the class's own scripted camera; each non-trivial argument gets a stack slot (0x451658, 0x4516ac) */"
+Gossamer_Boss,void UpdateFacingDelta();,/* 0x45214b */
+Gossamer_Lev08,s32 IsInActionZone(Vec3s *p);,/* 0x454e1c */
+Gossamer_Lev08,void SetState(u8 newState);,/* 0x454f47 */
+Gossamer_Lev08,s32 ChaseWolf();,/* 0x4551e1 */
+Gossamer_Lev08,s32 UpdateStruggle();,/* 0x4558c9 */
+Gossamer_Lev08,s32 IsWolfOnHighGround();,/* 0x455ae6 */
+Gossamer_Lev08,u16 NearestFleePoint();,/* 0x455b15 */
+GroundMine,"s32 RayToHazard(const Vec3s *origin, const Vec3s *direction, s32 limit);",
+GroundMine,u32 FallStep(u16 flags);,
+GroundMine,"u32 Move(Vec3s *delta, ContactInfo *contact, u16 flags, const Vec3s *velocity);",
+HairDryer,void Blow();,
+HairDryer,void SetState(u8);,
+Heap,HeapBlock *FindPrevBlock(HeapBlock *block);,
+Heap,"void *AllocAligned(u32 size, u32 align);",
+Heap,void *AllocSmall(u32 size);,
+Heap,"void BitmapFill(u32 *bitmap, u32 nBits);",
+Heap,"void CarveBlock(HeapBlock *block, u32 blockSize, u32 need);",
+Heap,void FreeSmall(void *ptr);,
+Heap,"void InitArena(u8 *start, u8 *end, u32 align);",
+Heap,"void InitAux(u32 value, u32 unused);",
+Heap,"void InitSmallPools(u32 poolBytes, u32 minSlot, u32 maxSlot);",
+Heap,"void Stub3_54da63(u32 a, u32 b, u32 c);",
+Heap,"void Stub3_54da70(u32 a, u32 b, u32 c);",
+Heap,void Stub_54da4d();,
+Heap,void Stub_54da58();,
+Heap,void TermArena();,
+Heap,void TermAux();,
+Heap,void TermSmallPools();,
+Heap,"void Init(u8 *block, u32 size);",/* 0x54d510 */
+Heap,void Term();,/* 0x54d561 Heap_Term */
+Heap,void *Alloc(u32 size);,/* 0x54de2a */
+Heap,void Free(void *ptr);,/* 0x54e2f1 */
+HeapOfLeaf,s32 PointInPolygon(Vec3s *);,
+HeapOfLeaf,void ComputeRadius();,
+HeapOfLeaf,void DetectMovers();,
+Hive,void AimCameraAt(Vec3s);,
+Hive,void SetState(u8);,
+HoleFX,"void Init(D3DApp *app, void *viewport, float radius, u8 useCubicBezier);",/* 0x536517 */
+HoleFX,"void SetShading(float scale, float bias);",/* 0x53678f */
+HoleFX,void UpdateVertices(int unusedBatcherArg);,/* 0x5367b4 */
+HoleFX,"long CaptureScreen(int useSecondBuffer, u8 force);",/* 0x536d24 */
+HoleFX,void Draw(PolyBatcher *unusedBatcher);,/* 0x536e34 */
+HoleFX,u8 CreateVertexBuffer();,/* 0x538130 */
+HoleFX,void BuildMesh();,/* 0x5381f4 */
+HoleFX,u8 BuildCircleMask();,/* 0x53886e */
+HoleFX,"void Bezier2_EvalWithTangent(float *outPos, float *outTangent, const float *p0, const float *p1, const float *p2, float t);",/* 0x5389d6 */
+HoleFX,"void Bezier3_Eval(float *outPos, float *outTangent, const float *p0, const float *p1, const float *p2, const float *p3, float t);",/* 0x538b2d */
+HoleFX,u32 Color_GreyFromScalar(float v);,"/* 0x538d20 *//* inline: the cubic curve's extra control point, the curve's start moved toward the hole centre by * viewportHeight / 50 (its locals are inline temporaries, after the Length temp at 0x5368b8) */"
+HoneyPot,void SetState(u8);,
+Hoover,void SetState(u8);,
+IceCube,void SetState(u8 newState);,/* 0x4cbf8b */
+InflatableSheep,s32 CheckDeathZone();,
+InflatableSheep,s32 CheckSquashed(s32 popAfter);,
+InflatableSheep,void ApplyFall(Vec3s *delta);,
+InflatableSheep,void Pop();,
+InflatableSheep,void Respawn();,
+InflatableSheep,void SetDeflated();,
+InflatableSheep,void SetInflated();,
+InflatableSheep,"void SetState(u8 value, s32 blend);",
+InflatableSheep,void UpdateTint();,
+InlineEmitter4,"void RenderFlat(Camera *view, s32 forward);",
+InlineEmitter8,"void RenderFlat(Camera *view, s32 fwd);",
+InputDevice,"void AllocButtons(u16 buttonCount, D3DApp *app);",/* 0x403ff1 */
+InputDevice,"void SetAxisCalibration(float sx, float sy, float sz, float ox, float oy, float oz);",/* 0x40437e */
+InputDevice,"void GetAxisCalibration(float *sx, float *sy, float *sz, float *ox, float *oy, float *oz);",/* 0x4043c1 */
+InputDevice,"u16 GetPressedButtons(u16 *out, u16 maxCount);",/* 0x404410 */
+InputDevice,"u32 GetObjectName(u32 diObjOffset, char *out);",/* 0x4071b0 */
+InputMgr,"u8 SaveBindingTable(u8 toRegistry, const char *dir, const char *name, InputBinding *table, InputDevice *master);",
+InputMgr,u8 CreateDevices(u8 wanted);,/* 0x527b74 */
+InputMgr,u8 IsDeviceDigital(u8 devIdx);,/* 0x527ced 1 if the device is digital (or absent) */
+InputMgr,u8 PollDevice(u8 devIdx);,/* 0x527d1b */
+InputMgr,u8 SelectDevice(u8 devIdx);,/* 0x527d54 */
+InputMgr,u8 GetCurrentDeviceIdx();,/* 0x527dd2 */
+InputMgr,"void SetAxisCalibration(float sx, float sy, float sz, float ox, float oy, float oz);",/* 0x527dec */
+InputMgr,"u8 BindAction(u8 slot, u8 devIdx, u16 code);",/* 0x527e1c */
+InputMgr,"u8 BindMenuKey(u8 slot, u16 code);",/* 0x527ecd */
+InputMgr,"u8 GetBinding(u8 slot, InputBindingIdx *out);",/* 0x528026 */
+InputMgr,long RecreateDevice(u8 devIdx);,/* 0x52807a */
+InputMgr,void ResetEdges();,/* 0x5282b8 */
+InputMgr,long SetAcquiredAll(u8 acquire);,/* 0x528315 */
+InputMgr,"long SetAcquired(u8 devIdx, u8 acquire);",/* 0x5283be */
+InputMgr,void SetActiveFlags(u8 flag);,/* 0x528486 */
+InputMgr,long Poll();,/* 0x52852d */
+InputMgr,long GetAnyPressedRaw(InputBinding *out);,/* 0x528b0e */
+InputMgr,long GetAnyPressed(InputBindingIdx *out);,/* 0x528c85 */
+InputMgr,u8 LoadConfig(const char *dir);,/* 0x528e14 */
+InputMgr,u8 SaveConfig(const char *dir);,/* 0x528ef2 */
+InputMgr,"u8 LoadBindingTable(u8 fromRegistry, const char *dir, const char *name);",/* 0x528f64 */
+InputMgr,InputDevice *DeviceFromIndex(u8 devIdx);,/* 0x529afb */
+InputMgr,u8 IndexFromDevice(InputDevice *dev);,/* 0x529b6b */
+InputMgr,u8 FindBinding(const InputBinding *b);,/* 0x529bbd */
+InputMgr,u8 FindBindingByIndex(const InputBindingIdx *b);,/* 0x529c27 */
+InputMgr,u8 IsReservedKeyBinding(const InputBinding *b);,/* 0x529ca0 */
+InputMgr,u8 IsReservedKey(const InputBindingIdx *b);,/* 0x529d0c */
+InputMgr,"void Input_GetKeyName(u32 diObjOffset, char *out, u32 outSize);",/* 0x529d75 */
+InputMgr,u8 CheckDevices();,/* 0x529da7 */
+InputMgr,u8 DeviceHasBindings(u8 devIdx);,/* 0x529e9f */
+Instance,Instance *Inst();,
+InstantHoover,Box *FindDockBox();,
+InstantHoover,ScnObject *FindNearestSocket();,
+InstantHoover,u8 CountMartiansInRange();,
+InstantHoover,void DrawHud();,
+InstantHoover,void SuckMartians();,
+InstantMartian,s32 HoldWolf(s32 hold);,/* 0x4579ad */
+InstantMartian,void SetState(u8 newState);,/* 0x457b62 */
+InstantMartian,s16 Scale(s16 v);,/* 0x45869a */
+InstantMartian,"u16 CollideAndSlide(Vec3s *delta, ContactInfo *info, u16 cutoff, u16 flags, s32 noMove);",/* 0x4586c5 */
+InstantMartian,"u16 MoveHalves(Vec3s *delta, ContactInfo *info, u16 cutoff, u16 flags);",/* 0x458920 */
+InstantMartian,s32 InsideRunBoxes(Vec3s p);,/* 0x458a7d */
+Jail,s32 AtTargetHeight();,
+Jail,void SetState(u8 value);,
+Key,void SetState(u8 value);,
+Keyboard,"void SetAxisKeys(u16 xNeg, u16 xPos, u16 yNeg, u16 yPos, u16 zNeg, u16 zPos);",/* 0x407765 */
+Laser,void SetState(u8 value);,
+LaunchArc,"s32 Step(s32 dt, s16 *outX, s16 *outY, s16 *outZ);",
+LaunchArc,"void InitCoefficients(s32 x0, s32 x1, s32 x2, s32 y0, s32 y1, s32 y2, s32 z0, s32 z1, s32 z2);",
+LazerRobot,void CheckWolfKill();,/* 0x4d158e */
+LazerRobot,void StepPath();,/* 0x4d16c4 */
+LazerRobot,void TurnToward(Vec3s *target);,/* 0x4d174b */
+LightSpot,"s32 MsgStub(ScnObject *sender, u32 msgId, void *arg);","/* 0x4f6ebe, no callers */"
+LightSpot,void Stub();,"/* 0x4f8783, no callers */"
+LightSpot,u8 IsPointLit(Vec3s *p);,/* 0x4f878e */
+Magnet,"void PullMover(MoveModifyArg *arg, ScnObject *mover);",
+Magnet,void ReleaseAll();,
+Magnet,void ReleaseObject(ScnObject *obj);,
+Magnet,"void UpdateCaughtList(ScnObject **objects, s32 *dist2s, s32 count);",
+Magnet,"void UpdateCaughtObject(ScnObject *obj, s32 dist2);",
+Mailbox,void Deliver();,
+Mailbox,void Rollback();,
+Map,"ScnObject *FindCombineTarget(u16 classA, u16 classB);",
+Map,ScnObject *GetSelectedObject();,
+Map,char *GetHelpText();,
+Map,s32 IsRowVisible(s16 row);,
+Map,s32 IsSelectedItemAssembled();,
+Map,u16 FindOrAddRow(u16 classId);,
+Map,u16 FindRow(u16 classId);,
+Map,void AcquireItem(ScnObject *obj);,
+Map,void ActionNext();,
+Map,void ActionPrev();,
+Map,void BeginModeTransition(u8 nextMode);,
+Map,void CombineItems();,
+Map,void CursorNext();,
+Map,void CursorPrev();,
+Map,void Draw();,
+Map,void DrawHelpTooltip();,
+Map,void HighlightLocationsForZone(u16 classId);,
+Map,void InitObject();,
+Map,void Open();,
+Map,void ReleaseItem(ScnObject *obj);,
+Map,void RemoveRow(u16 classId);,
+Map,void ResetSelection();,
+Map,void SelectMenu_RestoreFlags();,
+Map,"void SetPanelRect(s16 *outRect, UiQuad *src, u16 h, u16 w);",
+Map,void SortRowsByOwned();,
+Map,void SplitItem();,
+Map,void UpdateState();,
+MapLocation,"s32 DrawWolfMarker(u8 fade, u32 color);",
+MapLocation,"void AddSlot(s32 boxOffset, s32 xOffset, s32 yOffset);",
+Marvin,void SetState(u8);,
+Mat44,Mat44 &Copy(const Mat44 &src);,
+Mat44,Mat44 &ScaleInPlace(float s);,
+Mat44,"const float &AtConst(int row, int col) const;",
+Mat44,"float &At(int row, int col);",
+Mat44,"void SetLookAt(const Vec3f &vFrom, const Vec3f &vAt, const Vec3f &vWorldUp);",
+Mat44,"void SetRotAxisAngle(const Vec3f &axis, float angle);",
+Mat44,"void SetRotAxisAngleDiv(float x, float y, float z, float angle);",
+Mat44,"void SetRotXYZ(float x, float y, float z);",
+Mat44,"void SetRotYZX(float x, float y, float z);",
+Mat44,void SetTranslationV(const Vec3f &v);,
+Mat44,void TransposeInPlace();,
+Mat44,void Zero();,
+Mat44,void SetIdentity();,/* 0x407976 */
+Mat44,"void SetRotZYX(float x, float y, float z);",/* 0x407a20 Mat44_SetRotZYX */
+Mat44,"void SetRotZXY(float x, float y, float z);",/* 0x407d18 */
+Mat44,"void SetRotXZY(float x, float y, float z);",/* 0x407e96 Mat44_SetRotXZY */
+Mat44,"void SetRotYXZ(float x, float y, float z);",/* 0x40800f Mat44_SetRotYXZ */
+Mat44,"void SetTranslation(float x, float y, float z);",/* 0x40830d */
+Mat44,"void SetScale(float sx, float sy, float sz);",/* 0x408467 */
+Mat44,"void SetPerspective(float fov, float aspect, float zn, float zf);",/* 0x408510 */
+Mat44,Mat44 &MulInPlace(const Mat44 &b);,/* 0x408e55 */
+Mat44,void Transpose(Mat44 *out);,/* 0x409827 */
+Mat44,void Transpose3x3InPlace();,/* 0x4098f2 */
+Mat44,void Transpose3x3(Mat44 *out);,/* 0x409959 */
+Mat44,void NormalizeColumnsInPlace();,/* 0x409a24 */
+Mat44,void NormalizeColumns(Mat44 *out);,/* 0x409c03 */
+Mat44,"void TransformPoint(const Vec3f *src, Vec3f *dst);",/* 0x409de4 */
+Mesh,"void DrawImmediate(PolyBatcher *batcher, Frustrum *cam);",/* 0x40d239 */
+Mesh,"s32 CollectVisiblePolys(RenderPoly *outPolys, Frustrum *cam);",/* 0x40ddd8 */
+Mesh,"s32 CollectVisibleVerts(void *outVerts, Frustrum *cam);",/* 0x40e23f */
+Mesh,"void DrawImmediateTinted(u32 tintColor, float tintBlend, PolyBatcher *batcher, Frustrum *cam);",/* 0x40e72c */
+Mesh,"u32 Color_Lerp(u32 source, u32 target, float f);",/* 0x40f7d3 */
+Mesh,"void Mesh_DrawOutlined(PolyBatcher *, Frustrum *, float);",/* 0x40f972 */
+Mesh,"void Mesh_DrawOutlinedTinted(u32 tintColor, float tintBlend, PolyBatcher *batcher, Frustrum *cam, float outlineWidth);",/* 0x412154 */
+MeshPart,"void BlendThenSetTarget(MeshPartPose *pose, float t);",/* 0x41a234 */
+MeshPart,void SetPose(MeshPartPose *pose);,/* 0x41a3e8 */
+MeshPart,void SetTargetPose(MeshPartPose *pose);,/* 0x41a461 */
+MeshPart,"void BuildMatrices(Mat44 *parentMat, Mat44 *parentScaleMat, float t);",/* 0x41a4da */
+MeshPart,float WrapAnglePi(float a);,/* 0x41a77e */
+MeshPart,float WrapAngle2Pi(float a);,/* 0x41a7ce */
+Mine,ScnObject *FindTrigger(u16 radius);,
+Mine,ScnObject *InitModels(void *record);,
+MineDetector,void DrawGauge();,
+MineDetector,void InitCollBox();,
+MineDetector,void SetState(u8 newState);,
+Monolithe,void SetState(u8 newState);,
+ObjectManager,void AddIdList(u16 id);,
+ObjectManager,void SetObjectsActive(Box *camBox);,
+PackJpeg,s32 Next();,
+PackJpeg,s32 Open(const char *);,
+PackJpeg,s32 Prev();,
+PackJpeg,"s32 SelectAndFetch(const char *, void *);",
+PackJpeg,s32 SelectByName(const char *);,
+PackJpeg,s32 SetIndex(u32);,
+PackJpeg,u32 GetCount();,
+PackJpeg,void BeginImage();,
+PackJpeg,void Close();,
+PackJpeg,void DecodeToTextures(s32);,
+PackJpeg,void DrawImage();,
+PackJpeg,void ReleaseImage();,
+Pad,s32 JustConnected();,
+Pad,s32 TypeChanged();,
+Pad,u16 GetChangedPress(u16 ignoreMask);,
+Pad,void AnalogToDpadBits();,
+Pad,"void AutoRepeat(PadRepeat *rep, u16 value);",
+Pad,void Latch();,
+Pad,void Latch_Dup();,
+Pad,void OnConnected_stub();,
+Pad,void Open(int port);,
+Pad,void ResetState();,
+Pad,void SetActuator(int on);,
+Pad,void Stub_55f078(u32 arg);,
+Pad,void Stub_55f09d();,
+Pad,s32 IsConnected();,/* 0x55f061 Pad_IsConnected */
+Pad,"void Rumble_stub(s32 durationMs, const u8 *pattern, s16 strength);","/* 0x55f085, empty on PC */"
+ParticleEmitter,"s32 Emitter_UpdateDriftAnimated(const EmitterDriftParams *p, Vec3s *src, s16 angle, s32 spawn);",
+ParticleEmitter,"s32 Emitter_UpdateDriftLift(const EmitterDriftParams *p, Vec3s *src, s16 angle, s32 spawn);",
+ParticleEmitter,"s32 Emitter_UpdatePerfume(const EmitterPerfumeParams *params, Vec3s *source, s16 direction, s32 drift, s16 referenceHeight, s32 spawn);",
+ParticleEmitter,"void Emitter_AddParticle(const Vec3f *pos, s16 angle, s16 size, u8 grey, u8 frame);",
+ParticleEmitter,"void Sfx_SpawnBillboard(const Vec3s *src, s16 angle, s16 size, u8 grey, u32 interval, u32 now, s32 spawn, u8 frameSel);",
+ParticleEmitter,"void Emitter_Render(Camera *view, s32 altSheet);",/* 0x52a9e9 */
+ParticleEmitter,void Emitter_RenderFlat_Fwd(Camera *view);,/* 0x52afa8 */
+ParticleEmitter,void Emitter_RenderFlat(Camera *view);,/* 0x52afc1 */
+ParticleEmitter,"s32 Emitter_UpdateDrift(const EmitterDriftParams *p, Vec3s *src, s16 angle, s32 spawn);",/* 0x52c9ec */
+ParticleEmitter,"s32 Emitter_UpdateRiseToCap(const EmitterRiseParams *p, Vec3s *src, s32 spawn);",/* 0x52cc89 */
+ParticleEmitter,"s32 Emitter_UpdateColumn(const EmitterColumnParams *params, const Vec3s *anchor, s32 age, s32 spawn);",/* 0x52d381 */
+ParticleEmitter,"s32 Emitter_UpdateFade(const EmitterFadeParams *p, Vec3s *src, s16 angle, s32 spawn);",/* 0x52d57c */
+ParticleEmitter,"s32 Emitter_UpdateTrail(const EmitterTrailParams *p, Vec3s *src, s32 spawnTime, s16 angle, s32 keep);",/* 0x52d791 */
+ParticleEmitter,void Emitter_Reset();,/* 0x52dbe3 */
+ParticleEmitter,void Emitter_Init(s32 count);,/* 0x52dc84 */
+PathFollower,s32 GetSegmentLength();,/* 0x546bc0 */
+PathFollower,void BeginSegment();,/* 0x546c8e */
+PathFollower,void Start(s32 speed);,/* 0x546eb5 */
+PathFollower,u8 Step();,/* 0x546f1e */
+PathFollower,u8 StepSmooth();,/* 0x54705f */
+Pipe,void SetState(u8 newState);,
+Pipe2,"void MoveBoxWithSpin(CollBox *box, Vec3s offset, Vec3s pivot, s16 angle);",
+Pipe2,void SetState(u8 newState);,
+Piranhas,void PickSwimTarget(Vec3s *out);,
+Piranhas,void SetState(u8 newState);,
+Piranhas,void UpdateSharedFx();,
+PolyBatcher,u32 GetTypeStateFlags(s32 polyType);,/* 0x416d04 */
+PolyBatcher,"void SetTypeStateFlags(s32 polyType, u32 flags);",/* 0x416d73 */
+PolyBatcher,"void ClearTypeStateFlags(s32 polyType, u32 flags);",/* 0x416df2 */
+PolyBatcher,u32 GetDefaultStateFlags();,/* 0x416ea8 */
+PolyBatcher,void SetDefaultStateFlags(u32 flags);,/* 0x416eb9 PolyBatcher_SetDefaultStateFlags */
+PolyBatcher,void ClearDefaultStateFlags(u32 flags);,/* 0x416ecf */
+PolyBatcher,u32 GetClearColor();,/* 0x416eef */
+PolyBatcher,void SetClearColor(u32 argb);,/* 0x416f00 */
+PolyBatcher,void SetComputeSortZ(u8 enable);,/* 0x416f16 */
+PolyBatcher,"s32 CreateTexture(const char *fileName, u32 index, u32 width, u32 height, u32 format);",/* 0x416f2c */
+PolyBatcher,s32 LoadTexturePages(const char *path);,/* 0x416fe2 */
+PolyBatcher,long Render_RestoreLostSurfaces();,/* 0x41785d */
+PolyBatcher,bool IsImmediateTexture(u32 textureIndex);,/* 0x417a1e */
+PolyBatcher,void Render_BeginFrame();,/* 0x417a38 */
+PolyBatcher,void Render_EndFrame(u8 flush);,/* 0x417e59 */
+PolyBatcher,void Render_Present(u32 maxFps);,/* 0x417ecf */
+PolyBatcher,void Flush();,/* 0x417faf */
+PolyTri,PolyTri & operator=(const PolyTri &src);,
+PorkyLevel01,void ShowSalad(s8 index);,/* 0x459b47 */
+PorkyLevel01,void HideSalads();,/* 0x459bf4 */
+PorkyLevel01,"void SetState(u8 newState, char *text, u32 voice);",/* 0x45a446 */
+PorkyLevel01,void FaceWolf();,/* 0x45abf0 */
+PrayingGhost,void SetState(u8 newState);,/* 0x45d83e */
+PrayingGhost,"s32 MoveToward(Vec3s target, s32 speed, s32 turn);",/* 0x45e029 */
+PrayingGhost,s16 TurnToHeading(s16 want);,/* 0x45e100 */
+PrayingGhost,void FaceTowards(Vec3s target);,/* 0x45e200 */
+PrayingGhost,void DrawAlertIcon();,/* 0x45e323 */
+Progress,s32 FieldAcFlagClear();,
+Progress,s8 CurrentLevel();,
+Progress,s8 GetLevel();,
+Progress,s8 GetLevelIndexA();,
+Progress,u8 GetLanguage();,
+Progress,void SetLevelDone(s8 level);,
+Progress,void SetSceneExitTarget(s8 level);,
+Progress,void SetSecondDemoNext(s32 on);,
+Progress,void Reset();,/* 0x50b930 Progress_Reset */
+Progress,void AwardTimeKeeper();,/* 0x50bcd5 */
+Progress,u32 IsTimeKeeperDone(s8 level);,/* 0x50bd92 */
+Progress,void SetBonusPoints(u16 points);,/* 0x50bdc1 */
+Progress,void LoadRecord(const void *src);,/* 0x50bddc *//* source-only inline: toggles auto save; `this` is a temp (0x542e71) */
+Progress,void CopyRecord(void *dest);,/* 0x50be91 */
+Progress,u8 IsLevelDone(s8 level);,/* 0x50beb5 */
+Progress,void Level_FinishScene(s32 success);,/* 0x50bee0 */
+Progress,void StartAttractDemo();,/* 0x50c16f */
+Progress,s32 GotoScene(s8 scene);,/* 0x50c2a1 */
+RCarpetMobile,s32 GroundQuery(struct GroundQuery *query);,
+RCarpetMobile,"s32 Move(s32 reverse, s32 clampEnds, s32 returnHome);",
+RCarpetMobile,"s32 TrajStep(TrajFollower *f, Vec3s *outVelocity, s16 *outHeading, s32 reverse, s32 clampEnds, s32 returnHome);",
+RCarpetMobile,void UpdateRideBox();,
+RenderPoly,void Assign(const RenderPoly *src);,/* 0x41ac43 RenderPoly_Assign */
+RenderPoly,void InitFromBsFlat(const BsPolyFlat *src);,/* 0x41ace3 */
+RenderPoly,void InitFromBsGouraud(const BsPolyGouraud *src);,/* 0x41ad78 */
+RenderPoly,void InitFromBsTexFlat(const BsPolyTexFlat *src);,/* 0x41ae07 */
+RenderPoly,void InitFromBsTexGouraud(const BsPolyTexGouraud *src);,/* 0x41aedc */
+RenderPoly,void InitFromBsBlendFlat(const BsPolyBlendFlat *src);,/* 0x41afb7 */
+RenderPoly,void InitFromBsBlendGouraud(const BsPolyBlendGouraud *src);,/* 0x41b0a7 */
+Resizer,"void PlaceAtBoxCentre(ScnObject *object, Box *box);",
+Resizer,void SetState(u8 state);,
+Robot,s32 UpdateCamera(Pad *pad);,/* 0x45e62e */
+Robot,s32 GetDropPoint(Vec3s *out);,/* 0x45e9f1 */
+Robot,s32 IsFalling();,/* 0x45eab1 */
+Robot,s32 CanJump();,/* 0x45eb0f */
+Robot,void ScanContextActions();,/* 0x45eb72 */
+Robot,s32 IsContextActionAllowed(s32 onGround);,/* 0x45ec5f */
+Robot,s32 DoContextAction();,/* 0x45ed32 */
+Robot,s32 TryContextAction(s32 onGround);,/* 0x45ee9e */
+Robot,"u32 Move(Vec3s *delta, Vec3s *vel, const Vec3s *newRot, u16 mask);",/* 0x45eefe */
+Robot,u32 WalkStep();,/* 0x45efc5 */
+Robot,u32 DashStep();,/* 0x45f07a */
+Robot,u32 TurnToHeadingStep(s16 heading);,/* 0x45f100 */
+Robot,u32 FallStep(u16 mask);,/* 0x45f187 */
+Robot,u32 JumpRiseStep();,/* 0x45f24a */
+Robot,s32 EjectFlightStep();,/* 0x45f30b */
+Robot,s32 GroundControlStep();,/* 0x45f50e */
+Robot,s32 StandStep();,/* 0x45f5a6 */
+Robot,s32 FaceTargetStep();,/* 0x45f602 */
+Robot,s32 IsControllable();,/* 0x45f66d */
+Robot,s32 TakeControl();,/* 0x45f6be */
+Robot,void ReleaseControl();,/* 0x45f721 */
+Robot,void EnterIdle();,/* 0x4615a0 */
+Robot,void NextIdleAnim();,/* 0x4615e6 */
+Robot,void EnterState(u8 state);,/* 0x461611 */
+Robot,void SetState(u8 state);,/* 0x4618df */
+Robot,"void SetStateAnim(u8 state, u16 animId, s32 loop);",/* 0x46197b */
+Robot,void SetStateKeepAnim(u8 state);,/* 0x4619dd */
+Robot,void ClearState();,/* 0x4619f6 */
+Rock,s32 CrushObjectsBelow(ScnObject *exclude);,
+Rock,"u16 Move(Vec3s *delta, u16 flags, s32 pushing);",
+Rock,void ApplyGravity(Vec3s *delta);,
+Rock,void PlayRollSound();,
+Rock,void ReturnHome();,
+Rock,void SetState(u8 newState);,
+Rock,void StartFall();,
+Rock,void StartLvl03Cinematic();,
+Rock,void StopRollSound();,
+Rocket,void DrawGauges();,
+Rocket,void SetState(u8 state);,
+RollingCarpet,ScnObject *FindRider();,
+RollingCarpet,void FaceRider();,
+RollingCarpet,void InitBeltScroll(s8 step);,
+RollingCarpet,void ScrollBelt(s16 rows);,
+RollingCarpet,void SetState(u8 newState);,
+Rook,"Vec3s *AimCannonAt(Vec3s *outError, const Vec3s *target);",
+Rook,void SetState(u8 state);,
+Salad,void Consume();,
+Salad,void SetState(u8 state);,
+Sam,"Vec3s ClampPointToBoxXZ(CollBox *box, Vec3s *point);",
+Sam,"Vec3s NearestPointInBoxesXZ(CollBox **boxes, short count, Vec3s *point, short margin);",
+Sam,int CollectMovedSheep(ScnObject **out);,
+Sam,"int FindPathHistory(unsigned char kind, short a);",
+Sam,"int FindPathHistoryExact(unsigned char kind, short a, short b);",
+Sam,int IsDistBelowHistoryThreshold(int distance);,
+Sam,int IsTargetNearFinalPathEdge();,
+Sam,int IsWolfBehindHidingBox();,
+Sam,"int IsWolfOutsideHitZone(int ignoreTimer, int requireGoalChase);",
+Sam,int KickRobot(int force);,
+Sam,int NoticesWolfWhileBusy(int kind);,
+Sam,"int PointInBoxListXYZ(Vec3s *point, CollBox **boxes, unsigned short count);",
+Sam,"int PointInBoxListXZ(Vec3s *point, CollBox **boxes, unsigned short count);",
+Sam,int TryCatchWolf();,
+Sam,"unsigned char CheckStepUpAhead(Vec3s *end, short firstHeight);",
+Sam,unsigned short GetAnimId(unsigned short index);,
+Sam,"unsigned short ResolveMove(Vec3s *delta, SamContactInfo *info, unsigned short normalCutoff, unsigned short mask, Vec3s *startPos, CollBox *box);",
+Sam,void AddCarried(ScnObject *object);,
+Sam,"void AddPathHistory(unsigned char kind, short a, short b);",
+Sam,void ClearPathHistory();,
+Sam,"void DetectWolf(Vec3s *wolfPos, short halfAngle);",
+Sam,"void DetectWolfPatrol(Vec3s *wolfPos, short halfAngle);",
+Sam,void DrawZoneIndicator();,
+Sam,void DropAllCarried();,
+Sam,void EnterCin01State();,
+Sam,void EnterDefaultState();,
+Sam,"void EnterFollowNodeState(Vec3s *firstPos, NavNode *pathHead, int resetCooldown);",
+Sam,void EnterFollowTrajectoryFastState();,
+Sam,void EnterFollowTrajectoryState();,
+Sam,void EnterInvestigateState();,
+Sam,void EnterLookAfterState();,
+Sam,void EnterLookAfterTimedState(short durationMs);,
+Sam,void EnterReachGoalState();,
+Sam,"void EnterReachNodeState(NavNode *node, unsigned char neighborIndex, int fromSearch);",
+Sam,"void EnterSearchNearestNodeState(int dx, int dz);",
+Sam,void FreezePickupTarget(ScnObject *object);,
+Sam,void InitBeachVariant();,
+Sam,void InitHeadRecord(unsigned short *record);,
+Sam,"void KnockOut(unsigned short fallAnim, unsigned short lyingAnim, unsigned short getUpAnim);",
+Sam,"void OnGoalReached(int reached, int interrupted);",
+Sam,"void PlayAnim(unsigned short index, int loop, int flag2, short speed);",
+Sam,void PutDownCarried(unsigned short keepPosition);,
+Sam,void RemoveCarried(ScnObject *object);,
+Sam,void ResetStallAnchor();,
+Sam,void SetGoalCarry(SamCarryGoal *goal);,
+Sam,void SetGoalFetch(SamFetchGoal *goal);,
+Sam,void SetGoalHome();,
+Sam,void SetGoalWolf();,
+Sam,void SetState(unsigned char state);,
+Sam,void SetupJump(Vec3s *point);,
+Sam,void SnapshotSheepPositions();,
+Sam,void StartReactionCamera();,
+Sam,"void StartSearchTowardGoal(int *dxOut, int *dzOut, int *distanceOut);",
+Sam,"void Stub_46eb4c(short yaw, int unused);",
+Sam,void SwapBeachPositions();,
+Sam,void TurnYawToward(short targetYaw);,
+Sam,void UnfreezePickupTarget(ScnObject *object);,
+Sam,void UpdateGoalPos();,
+Sam,void UpdateJump();,
+Sam,void UpdateStallTracker();,
+Sam,void UpdateZoneState();,
+Sam,"Vec3s FindFreeDropSpot(Vec3s point, CollBox *box);",/* VC6 /Ob1 reproduces the original dead stack reads when this accessor * appears in a conditional expression. Its field load overwrites the * scratch value before use; no uninitialized pointer is dereferenced. */
+Sam_Pirate,"Vec3s PickTrajPoint(Vec3s *points, u16 count, Vec3s exclude, s32 nearest);",
+Sam_Pirate,"s16 CircleStep(Vec3s offset, Vec3s pivot, s16 angle, s16 step);",
+Sam_Pirate,"s32 MoveToward(Vec3s target, s32 speed, s16 fallSpeed, Vec3s post, Vec3s bridgeEnd, s32 aboard);",
+Sam_Pirate,"s32 Vec3sEqual(Vec3s a, Vec3s b);",
+Sam_Pirate,void FaceToward(Vec3s target);,
+Sam_Pirate,void SetState(u8 state);,
+ScnBody,s32 AnimFlags(u16 mask);,
+ScnBody,u16 AnimId();,
+ScnBody,u16 CurrentAnim();,
+ScnBody,u16 GetAnimId();,
+ScnBody,"void PlayAnim(u16 id, s32 loop, s32 blend);",
+ScnBody,void AdvanceAnim();,/* 0x50e18f *//* inline: start animation id with option bits 1 loop / 2 blend (as in src/game/wolf.h); the *//* original's register allocation in Cine_Update only comes out with the call written through it */
+ScnBody,"void AltModel_InitBody(AltModel *out, u16 idListId);",/* 0x5101d5 */
+ScnBody,void AltModel_SaveBody(AltModel *out);,/* 0x51033a */
+ScnBody,void SwapModel(AltModel *m);,/* 0x510452 */
+ScnBody,void ShareAnimTable(const u16 *resIdx);,/* 0x5104fa */
+ScnBody,"void RenderEx(Camera *view, void *buffer, s32 unused, s32 projDist, s16 *screenXY);",/* 0x51166d */
+ScnBody,"void RenderTinted(Camera *view, u32 color, u16 amount, u16 mirrorPlane);",/* 0x5116a4 */
+ScnBody,"void SetJointOverride(s32 joint, Vec3s *rotOrNull, Vec3s *transOrNull, Vec3s *scaleOrNull);",/* 0x511dc1 */
+ScnControllable,s32 IsStickTowardSide(ScnObject *);,/* 0x491d25 */
+ScnControllable,"void NextIdleAnim(const IdleAnimEntry *, const IdleAnimEntry *, u32);",/* 0x491e10 */
+ScnControllable,s32 AddMoveModifier(ScnObject *);,/* 0x491f32 */
+ScnControllable,void RemoveMoveModifier(ScnObject *);,/* 0x491fc2 */
+ScnControllable,"s32 ApplyMoveModifiers(Vec3s *, Vec3s *, s32, s32, s32);",/* 0x49205d */
+ScnControllable,"void ReadPad(Pad *, s32, s32);",/* 0x4921b7 */
+ScnControllable,"s32 ScanInteractables(ActionHit *primary, ActionHit *secondary, s16 yRange, s16 boxDist, s16 pointRadius, s16 maxAngle, s32 skipPrimary);",/* 0x4924db */
+ScnControllable,"s32 Mobile_Steer(Vec3s *outVel, Vec3s *rot, const MoveRecord *rec, s32 suppressFacing);",/* 0x492b4b */
+ScnControllable,"void SteerRun(Vec3s *outVel, Vec3s *rot, const MoveRecord *rec, s32 runFlag);",/* 0x492d9f */
+ScnControllable,"void SteerToHeading(Vec3s *outVel, Vec3s *rot, const MoveRecord *rec, s16 heading);",/* 0x492ee2 */
+ScnControllable,"s32 Wolf_SurfaceVelocity(Vec3s *vel, s32 doubleSlopeRate, const s16 *surfaceTuning);",/* 0x49303c */
+ScnControllable,"u32 Wolf_MoveResolve(Vec3s *delta, ContactInfo *info, u16 normalCutoff, u16 mask, s32 horizLimit, s32 vertLimit, s16 stepAllowance);",/* 0x4932ee */
+ScnControllable,void StopMotion();,/* 0x4935f7 */
+ScnControllable,void Hud_ResetActionPrompt();,/* 0x493cd0 */
+ScnLogic,void SwapModel(const AltModel *m);,/* 0x5103cd */
+ScnMobile,s16 GroundY();,
+ScnMobile,void SetShadowRadius(u8 radius);,
+ScnMobile,void UpdateShadow();,/* 0x51186d */
+ScnObject,CollBox *FirstBox();,
+ScnObject,CollBox *GetFirstModelBoxInline();,
+ScnObject,CollBox *GetModelBox();,
+ScnObject,ScnObject *GetParent();,
+ScnObject,s16 Facing();,
+ScnObject,s16 GetFacing();,
+ScnObject,s16 GetHeading();,
+ScnObject,s32 FlagsClear(u32 mask);,
+ScnObject,s32 InWorld();,
+ScnObject,s32 InstFlags(u16 mask);,
+ScnObject,s32 InstanceFlags(u16 mask);,
+ScnObject,s32 IsActive();,
+ScnObject,s32 IsCollidable();,
+ScnObject,s32 IsInWorld();,
+ScnObject,s32 IsKept();,
+ScnObject,s32 IsSoundPlaying(u16 handle);,
+ScnObject,s32 IsVisible();,
+ScnObject,s32 SoundIsPlaying(u16 handle);,
+ScnObject,u16 GetClassId();,
+ScnObject,u16 GetFlags();,
+ScnObject,"u16 PlaySound(u16 id, u16 volume, u8 flags, s32 pitch);",
+ScnObject,void *Record();,
+ScnObject,"void BroadcastAround(s32 below, s32 above, u16 radius, u32 msg, void *arg);",
+ScnObject,void Drop(Vec3s *where);,
+ScnObject,void EnableBoxCollide(s32 on);,
+ScnObject,void EnableTint(s32 on);,
+ScnObject,"void SetAttachment(u8 joint, const Vec3s *localOffset, const Vec3s *rotation, s32 rootRotation, const Vec3s *worldOffset);",
+ScnObject,void SetBoxCollide(s32 on);,
+ScnObject,void SetCollidable(s32 solid);,
+ScnObject,void SetCollision(s32 on);,
+ScnObject,void SetContactEnabled(s32 on);,
+ScnObject,void SetDrawMode(u32 mode);,
+ScnObject,void SetFlag40(s32 on);,
+ScnObject,void SetHeading(s16 value);,
+ScnObject,"void SetInstFlag(u16 mask, s32 on);",
+ScnObject,void SetKept(s32 on);,
+ScnObject,void SetMovementEnabled(s32 on);,
+ScnObject,void SetNoCull(s32 on);,
+ScnObject,void SetNoDistCull(s32 on);,
+ScnObject,void SetPartHeight(u32 value);,
+ScnObject,"void SetSoundRate(u16 handle, s32 rate);",
+ScnObject,void SetTintOverride(s32 on);,
+ScnObject,void SetTinted(s32 on);,
+ScnObject,void SetVisible(s32 on);,
+ScnObject,"void StartCameraBlended(u16 rotX, u16 rotY, u16 rotZ, Vec3s *eye, u16 focal);",
+ScnObject,void StopSound(u16 sound);,
+ScnObject,void StopSoundHandle(u16 handle);,
+ScnObject,s32 IsRocket(ScnObject *obj);,/* 0x49192e */
+ScnObject,s32 GetSideQuadrant(ScnObject *other);,/* 0x491bf2: the switch on it takes all of eax (0x47fce7) *//* inline: partHeight = v >> 4; the constant is loaded into a register and shifted unsigned (0x47e54c; the same *//* with 0x100 at 0x487e90 and 0x180 at 0x497e19) */
+ScnObject,"s32 IsOnSameSideAs(ScnObject *a, ScnObject *b);",/* 0x491c55 *//* inline: flag 0x100 (in the world) materialised with neg/sbb/neg before the test (0x48617b) */
+ScnObject,s16 GetSideHeading(ScnObject *);,/* 0x491cfc */
+ScnObject,"void CalcFacingCameraRot(Vec3s *outRot, Camera *view, s32 yawOnly, const Vec3s *baseRot);",/* 0x50da72 */
+ScnObject,"ScnObject *InitWithAltModels(void *record, AltModel *outMain, s32 count, const u16 *ids, AltModel *outAlts);",/* 0x50dd9f */
+ScnObject,void Translate(Vec3s *delta);,/* 0x50e345 */
+ScnObject,s32 Scenaric_FindActiveIndex();,/* 0x50e39e */
+ScnObject,s32 Scenaric_FindObjectIndex();,/* 0x50e3f6 */
+ScnObject,void AddToWorld(Vec3s *posOrNull);,/* 0x50e44e */
+ScnObject,void RemoveFromWorld();,/* 0x50e595 */
+ScnObject,"u16 Collide_ResolveMove(Vec3s *ioDelta, ContactInfo *outInfo, u16 floorNormalCutoff, u16 flags, Vec3s *startPosOrNull, CollBox *boxOrNull, s16 stepHeight, ScnObject **excludeList, s32 excludeCount);",/* 0x50e6b7 */
+ScnObject,void DisableBoxes(u32 mask);,/* 0x50f3d9 */
+ScnObject,void EnableBoxes(u32 mask);,/* 0x50f45b */
+ScnObject,CollBox *GetFirstSolidBox();,/* 0x50f4dd */
+ScnObject,"s16 World_GroundYRay(Vec3s *pos, s32 includeObjects);",/* 0x50f54a */
+ScnObject,"s16 QueryGroundY(Vec3s *pos, s32 includeObjects);",/* 0x50f5b1 */
+ScnObject,s16 QueryGroundY_Shrunk(Vec3s *pos);,/* 0x50f650 */
+ScnObject,"s16 QueryGroundYAndObject(Vec3s *pos, ScnObject **outHitObj);",/* 0x50f74a */
+ScnObject,"s32 TestBodyAt(Vec3s *pos, u8 mode);",/* 0x50f7c0 */
+ScnObject,"ScnObject *Scenaric_FindNearestOfClass(Vec3s *center, s16 classId, s16 minY, s16 maxY, u16 radius, s16 *outDist, s32 includeHidden);",/* 0x50fa46 */
+ScnObject,"void Scenaric_BroadcastInRadius(u16 classFilter, s16 minY, s16 maxY, u16 radius, u32 msgId, void *arg, s32 includeHidden);",/* 0x50fc62 */
+ScnObject,char *Text_GetClassString(u8 index);,/* 0x50fe66 */
+ScnObject,void Detach();,/* 0x50ffca */
+ScnObject,void SnapToGround(s32 includeObjects);,/* 0x510041 */
+ScnObject,"void AltModel_InitRigid(AltModel *out, u16 idListId);",/* 0x51014c */
+ScnObject,void AltModel_SaveRigid(AltModel *out);,/* 0x5102dd */
+ScnObject,s32 IsRespawnWobbleDone(s32 elapsed);,/* 0x510574 */
+ScnObject,"void RenderRespawnWobble(Camera *view, s32 elapsed);",/* 0x51058d */
+ScnObject,"void TrajFollower_Init(TrajFollower *f, Trajectory *trajectory, s16 speed, s16 headingBias, u32 continuousHeading, u32 use3dDistance, s16 arriveRadius);",/* 0x510731 */
+ScnObject,"s32 TrajFollower_Step(TrajFollower *f, Vec3s *outVel, s16 *outHeading);",/* 0x51079b */
+ScnObject,s16 HeadingTo(Vec3s *target);,/* 0x511265 */
+ScnObject,"s32 Scenaric_SendToClass(u16 classId, s32 msg, void *arg);",/* 0x511529 */
+ScnObject,"void RenderPivoted(Camera *view, Vec3s *pivot, Vec3s *scaleOrNull);",/* 0x511a12 */
+ScnObject,"void RenderFacingCamera(Camera *view, s32 yawOnly, Vec3s *scaleOrNull, Vec3s *baseRotOrNull);",/* 0x511be4 */
+Screen,u32 *Layers4(u16 index);,
+Screen,u32 *Layers60(u16 index);,
+Screen,s32 Init(s32 unused);,/* 0x52a580 (ret 4; the argument is not read) */
+Screen,float ScaleX(s32 x);,/* 0x52a626 Screen_ScaleX */
+Screen,float ScaleY(s32 y);,/* 0x52a644 Screen_ScaleY */
+Screen,u16 LayerIndex(u32 *layer);,/* 0x52a662 */
+Screen,float Draw2D_LayerToZ(u32 *layer);,/* 0x52a67b */
+Screen,void Clear(u32 color);,/* 0x52a708 */
+Screen,void SetProjection(s32 dist);,"/* 0x52a742 *//* source-only inline: the layer handle tables (a constant index is materialised in eax, 0x529fbd) */"
+ScrollText,"void Init(char *text, const s16 *rect);",/* 0x5398d4 ScrollText_Init */
+ScrollText,void ScrollList_Update(s8 dir);,/* 0x539965 */
+ScrollText,"void Draw(u8 layerIndex, u8 align);",/* 0x539b42 ScrollText_Draw */
+Seed,void SetState(u8 value);,
+Shadow,void Invalidate();,
+Shadow,void Reproject();,
+Shadow,void SetEnabled(s32 on);,
+Shadow,void SetFlag4(s32 on);,
+Shadow,void SetVisible(s32 on);,
+Shark,void UpdateWolfChecks();,/* 0x474d90 */
+Shark,void UpdateAi();,/* 0x475208 */
+Shark,void RunState();,/* 0x475436 */
+Shark,void ForceState(u8 newState);,/* 0x475880 */
+Shark,void SetState(u8 newState);,/* 0x4758a0 */
+Shark,"void AimRotation(Vec3s *from, Vec3s *to, Vec3s *out, s32 pitch);",/* 0x475fbd */
+Shark,void FaceWolf(s32 pitch);,/* 0x4760cb */
+Shark,void AimBiteRot(s32 pitch);,/* 0x47611a */
+Shark,void ApplyBiteRot();,/* 0x47615b */
+Shark,void FollowPath();,/* 0x476180 */
+Shark,"u16 HeadingXZ(Vec3s *from, Vec3s *to);",/* 0x47646e */
+Shark,u16 CornerHeading();,/* 0x4764e7 */
+Shark,void UpdateBreathFx();,/* 0x476632 */
+Shark,void UpdateChargeFx();,/* 0x4767f4 */
+Shark,void UpdateRippleFx();,/* 0x476a33 */
+Sheep,ScnObject *FindNearestAttractor(s32);,
+Sheep,ScnObject *FindScentSourceInRange();,
+Sheep,s32 CanSmellObject(ScnObject *);,
+Sheep,"s32 FallStep(s32, s32, s32);",
+Sheep,"s32 IsAtTarget(ScnObject *, s32);",
+Sheep,s32 IsAvailable();,
+Sheep,s32 IsTargetSameLevel(ScnObject *);,
+Sheep,"s32 IsTargetValidWithin(ScnObject *, s32);",
+Sheep,"s32 IsTargetWithinRange(ScnObject *, s32);",
+Sheep,"s32 MoveToward(Vec3s *, s32);",
+Sheep,s32 ShouldEnterFall();,
+Sheep,s32 ShouldIgnoreLures();,
+Sheep,s32 TestScentSource(FlockScentSource *);,
+Sheep,s32 Think_FindAttraction();,
+Sheep,s32 TurnToHeading(s32);,
+Sheep,u32 TryReserveScentSource();,
+Sheep,"u32 TryReserveTarget(s32, u32);",
+Sheep,void AttachIceBlock();,
+Sheep,void DetachIceBlock();,
+Sheep,void EnterIdleState();,
+Sheep,void FrozenFloatStep();,
+Sheep,"void Move(Vec3s *, Vec3s *, s32);",
+Sheep,void NextIdleAnim();,
+Sheep,void ReleaseTarget();,
+Sheep,void ResetVars();,
+Sheep,"void SetState(u8, u16, s32, s32);",
+Sheep,void SetStateId(u8);,
+Sheep,void SetStateQuiet(u8);,
+Sheep,void StartApproach(s32);,
+Sheep,void StartSplashFx();,
+Sheep,void StopSplashFx();,
+Sheep,void TurnToTarget();,
+Sheep,void UpdateZoneMask();,
+SignTips,void SetState(u8 value);,
+SlidingIceCube,s32 QueryRiders(ScnObject **out);,
+SlidingIceCube,"u16 CrushMove(Vec3s *delta, u16 resolveFlags);",
+SlidingIceCube,"u16 SlideMove(Vec3s *delta, u16 resolveFlags);",
+SlidingIceCube,void ApplyGravity(Vec3s *velocity);,
+SlidingIceCube,void HideSplash();,
+SlidingIceCube,void PlaySlideSound();,
+SlidingIceCube,void SetState(u8 value);,
+SlidingIceCube,void ShowSplash(Box *water);,
+SmallRock,"u16 Move(Vec3s *delta, u16 resolveFlags);",
+SmallRock,void ApplyGravity(Vec3s *velocity);,
+SmallRock,void ReturnHome();,
+SmallRock,void SetState(u8 value);,
+SmallRock,void StartFall();,
+Snowball,"s32 TryResize(s16 newScale, Vec3s *delta);",/* 0x4f5ce3 */
+Snowball,"u16 Move(Vec3s *delta, u16 resolveFlags);",/* 0x4f6025 */
+Snowball,void ApplyGravity(Vec3s *vel);,/* 0x4f6081 */
+SoundDevice,u8 StepDevice(u8);,/* 0x406747 (launcher) */
+SoundDevice,u8 SetDeviceIndex(u8);,/* 0x4067dc */
+SoundDevice,void GetDeviceName(char *);,/* 0x406812 */
+SoundDevice,s32 Stub0();,/* 0x40683f */
+SoundDevice,s32 Stub1();,/* 0x40684c */
+SoundDevice,"HRESULT Init(HWND hWnd, u32 sampleRate, u8 bitsPerSample);",/* 0x406859 */
+SoundDevice,IDirectSound *GetDSound();,/* 0x406a5b */
+SoundDevice,u32 GetBufferLocFlags();,/* 0x406a6c */
+SoundDevice,u32 GetVoiceAmplitude(s32 refresh);,/* 0x406a8f */
+SoundDevice,u32 GetVoiceAmplitude_Unused(s32 refresh);,/* 0x406ade */
+SoundDevice,u8 PollStreamEvents();,/* 0x406b2d */
+SoundDevice,"HRESULT RegisterStreamEvent(void *stream, HANDLE *outEvent);",/* 0x406b8b */
+SoundDevice,u32 UnregisterStreamEvent(void *stream);,/* 0x406c5a */
+Sprite,"void DrawThunkAt(u32 *layer, s32 x, s32 y, u32 color, u32 flip);",
+Sprite,s32 LoadFromRes(u16 resType);,/* 0x53a72a Sprite_LoadFromRes */
+Sprite,"void Draw(u32 *layer, s32 x0, s32 y0, s32 x1, s32 y1, u32 color, u32 flipMode);",/* 0x53a7f7 Sprite_Draw */
+Sprite,"void DrawFrame(u32 *layer, s32 x0, s32 y0, s32 x1, s32 y1, u32 color, u32 frame, u32 flipMode);",/* 0x53b419 */
+Sprite,"void DrawThunk(u32 *layer, s32 x0, s32 y0, s32 x1, s32 y1, u32 color, u32 flipMode);",/* 0x53b44a */
+StreamPlayer,void Load_MusicVoiceBank();,/* 0x563740 */
+StreamPlayer,void StopAndFree();,/* 0x563920 */
+StreamPlayer,"void PlayVoice(u32 clip, u8 language, u32 unused, u32 lipSync);",/* 0x563940: clip is pushed as a dword (0x515e94) */
+StreamPlayer,s32 UpdateVoice();,/* 0x563bd0 */
+StreamPlayer,void StopVoice();,/* 0x563f90 */
+StreamPlayer,void RestartLevelMusic();,/* 0x564020 */
+StreamPlayer,void LoadLevelMusic();,/* 0x564160 starts the level's music clip */
+StreamPlayer,void SetPaused(s32 pause);,/* 0x5642e0 */
+StreamPlayer,void Halt();,"/* 0x564340 stops the current stream, state = 0 */"
+StreamPlayer,void Update();,/* 0x564360 per-frame service */
+StreamPlayer,void ApplyVolume();,/* 0x564430 */
+StreamPlayer,s32 IsMusic();,/* 0x564490 */
+StreamPlayer,s32 IsBusy();,/* 0x5644b0 1 while state is 3..6 */
+StreamSound,"s32 CreateFromWaveEx(SoundDevice *device, WaveFile *wave, float seconds, u8 notifications);",/* 0x420e90 */
+StreamSound,s32 ServiceNotify();,/* 0x421140 StreamSound_ServiceNotify: returns EDI in EAX (0x421216) */
+StreamSound,s32 Play(u32 lipSync);,/* 0x421230 (non-virtual: slot 5 stays _purecall) */
+StreamSound,"s32 ReadOrPadSilence(u8 *dest, u32 size);",/* 0x421490 */
+StreamSound,u32 GetVoiceAmplitude(s32 refresh);,/* 0x421570 StreamSound_GetVoiceAmplitude */
+SuperButton,s32 AreInputsOn();,
+SuperButton,"s32 GetInputValue(ScnObject *, s32 *);",
+SuperButton,"s32 SetInputValue(ScnObject *, s32 *);",
+SuperButton,void ClearInputs();,
+SuperButton,void SetDisabled(u8);,
+SwirlSign,void SetState(u8);,
+Telescope,s32 UpdateView(Pad *);,
+TextResBank,u16 Load(const char *path);,/* 0x54f9ae */
+TextResBank,"char *LoadString(u16 group, u16 langMask, u16 index);",/* 0x54fd25 */
+Texture,void Surface_Unlock();,/* 0x40aea9 */
+Texture,u32 GetFormat();,/* returns format (+0x0c) */
+Texture,u32 GetHeight();,/* returns height (+0x08) */
+Texture,IDirectDrawSurface7 *GetSurface();,/* returns surface (+0x10) */
+Texture,u32 GetWidth();,/* returns width (+0x04) */
+TimeKeeper,void SetState(u8 value);,
+TimeMachineChrono,void SetHeld(u8);,
+TimeMachineSphere,void SetState(u8);,
+TimeMachineSphere,void SwapToPast();,
+TimeMachineSphere,void SwapToPresent();,
+Timer,void Start();,/* 0x40b293 */
+Timer,void Stop();,/* 0x40b2d8 */
+Timer,void OffsetBase(double ticks);,/* 0x40b32d */
+Timer,double GetElapsed(int unit);,/* 0x40b35a samples */
+Timer,double GetDelta(int unit);,/* 0x40b3ef samples */
+Timer,double PeekElapsed(int unit);,/* 0x40b478 no sample */
+Timer,double PeekDelta(int unit);,/* 0x40b49c no sample */
+Timer,s64 ReadTSC();,/* 0x40b4e4 cpuid; rdtsc */
+Timer,"double Convert(s64 ticks, int unit);",/* 0x40b51c */
+TrafficJams,void SetPhase(u8 value);,
+TrafficJams,void SetState(u8 value);,
+Train,void PlaceCars();,/* 0x4fd6a6 */
+Train,void SetState(u8 newState);,/* 0x4fece2 */
+TrainStation,void SetState(u8);,
+TrajPatrol,void Reverse();,
+Tree,void SetVisible(u8 value);,
+TreeSection,void SetState(u8);,
+TriggedStone,void CrushVictims();,/* 0x502603 */
+Twig,void SetState(u8);,
+UiCursor,"void SetPos(s16 x, s16 y);",/* 0x538eb2 */
+UiCursor,void SetSlide(u8 t256);,/* 0x538ee3 */
+UiCursor,void Animate();,/* 0x538f07 */
+UiCursor,"void UiFrame_LoadSkin(s16 x, s16 y);",/* 0x539f2a */
+UiCursor,void Draw(u32 *layer);,/* 0x53a13d */
+UiIcon,void SetColor(u32 rgb);,
+UiIcon,void SetEnabled(s32 on);,
+UiIcon,void SetHighlighted(s32 on);,
+UiIcon,void UiIcon_SetFadeLevel(u8 level);,/* 0x538f4f */
+UiIcon,void UiIcon_Draw(u16 layer);,/* 0x538fcf */
+UiIcon,"void UiIcon_Setup(const u16 *mainRes, const u16 *overlayRes, const u16 *backRes, s16 x, s16 y, u16 scaleX, u16 scaleY, s32 scaleExtras);","/* 0x53a4f4 *//* inline setters: the value goes through a 32-bit temp (0x53a50d, 0x53a702) */"
+UiQuad,void SetColor(u32 rgb);,
+UiQuad,void SetFadeLevel(u8 level);,
+UiQuad,"void UiQuad_Mirror(s32 flipX, s32 flipY);",/* 0x538e3f */
+UiQuad,"void UiQuad_SetFromBitmap(const u16 *bitmap, s32 x, s32 y, s32 boxW, s32 boxH, s32 scaleX, s32 scaleY);",/* 0x539c29 */
+UiQuad,void UiQuad_Draw(u16 layer);,/* 0x539d91 *//* inline: the fade level in drawFlags bits 6-8; `this` is a temp at each call (0x538f5b) */
+Video,s32 CloseFile();,
+Video,s32 ConnectAudioStream(s32);,
+Video,s32 CreateStream(IDirectDraw7 *);,
+Video,s32 OpenFile(const char *);,
+Video,s32 ReleaseFilter(s32);,
+Video,s32 RunLoop();,
+VideoPlayer,u8 Init(D3DApp *);,
+VideoPlayer,"u8 PlayFile(const char *, u8);",
+VisibilityManager,void CollectMeshes(s16);,
+VisibilityManager,void SetMeshesVisible(s32);,
+Volcano,void SetState(u8);,
+WallAvoid,void Reset();,/* 0x493e80 */
+WallAvoid,"void ComputeSteer(const Vec3s *from, u16 fallbackHeading, const Vec3s *target, s16 keepDist, u16 *outSteerHeading, u16 *outTargetHeading, s16 *outDistError);",/* 0x493ecb */
+WallAvoid,"void UpdateFromContact(const ContactInfo *contact, u16 moveResult);",/* 0x494116 */
+Watch,void SetState(u8 newState);,/* 0x50623c */
+WaterGeyser,void SetState(u8);,
+WaterMine,s32 KillOverlapping();,
+WaterMine,void SetIdleModel();,
+WaveFile,"s32 Open(char *name, u8 fromMemory, u32 size);",/* 0x4217d0 WaveFile_Open: fromMemory=1 opens `size` bytes at name */
+WaveFile,s32 ResetFile();,/* 0x4218e0 */
+WaveFile,"s32 Read(u32 size, u8 *dest, u32 *read);",/* 0x421930 */
+WaveFile,s32 Close();,/* 0x421950 */
+WaveFile,"s32 ReadMmio(HMMIO__ *h, u32 size, u8 *dest, MMCKINFO *ck, u32 *read);",/* 0x421960 */
+WaveFile,"s32 ReadRiffHeader(HMMIO__ *h, MMCKINFO *riff, WAVEFORMATEX **format);",/* 0x421a20 */
+Weather,"void SetVolume(float halfWidth, float radius, u32 count);",/* 0x52e27b */
+Weather,"u8 SetTexture(u16 resId, float width, float height, u32 color);",/* 0x52e322 */
+Weather,"u8 SetTexture2(u16 resId, float width, float height, u32 color);",/* 0x52e4a0 */
+Weather,"void SfxParticles_InitRandom(Vec3f *dir, float spread, float speedMin, float speedMax);",/* 0x52e625 */
+Weather,void Advance(Mat44 *view);,/* 0x52e8bf */
+Weather,"void DrawRain(Mat44 *view, float *cullNormal);",/* 0x52e9a5 */
+Weather,void DrawSnow(Mat44 *view);,/* 0x53049a */
+Weather,u8 CreateVertexBuffers(u32 count);,/* 0x531a08 */
+Weather,void WrapToVolume(Mat44 *view);,/* 0x531bdd */
+Wheel,void SetState(u8 newState);,/* 0x50862e */
+Wheel,s32 ScanLift(u16 index);,/* 0x50889b */
+Wheel,void UpdateSpin();,/* 0x50897d */
+Wheel,s16 ComputeSpinStep();,/* 0x508aff */
+Wheel,"s32 MoveAlongRail(s32 limit, s8 dir);",/* 0x508e41 */
+Wheel,void PlaceLifts(s16 *rot);,/* 0x509140 */
+WheelDummy,s32 AnswerGroundQuery(void *arg);,/* 0x509747 WheelDummy_AnswerGroundQuery */
+Wolf,void StateMachine(Pad *pad);,/* 0x47d310 */
+Wolf,void DropHeld(u32 flags);,/* 0x486f11 */
+Wolf,void EnterState(u8 state);,/* 0x48716f */
+Wolf,"void SetStateAnim(u8 state, u16 animId, s32 loop, s32 stopLoopSound);",/* 0x4875b9 */
+Wolf,void SetState(u8 state);,/* 0x487716 */
+Wolf,void SetStateKeepAnimStopSound(u8 state);,/* 0x487762 */
+Wolf,void SetStateKeepSound(u8 state);,/* 0x487783 */
+Wolf,void SetStateKeepAnim(u8 state);,/* 0x4877cf */
+Wolf,"void SetMode(u8 newMode, u8 newState);",/* 0x4877e8 */
+Wolf,void SetIdleState();,/* 0x48786d */
+Wolf,void IdleAnimStep();,/* 0x48797d */
+Wolf,void ResetState();,/* 0x487bdf */
+Wolf,void InitMoveConfig();,/* 0x4880f2 */
+Wolf,"void ClampDeltaToBox(Box *box, Vec3s *delta, u32 axes);",/* 0x488c86 */
+Wolf,"void SetForwardVelocityMax(Vec3s *outVel, Vec3s *rot, const MoveRecord *rec);",/* 0x488dbb */
+Wolf,"u32 LeapStep(s32 jumpHeight, s32 jumpTicks);",/* 0x488e5a */
+Wolf,"s32 MoveStepDirected(s16 facingTarget, s16 headingTarget, s32 targetSpeed);",/* 0x488f81 */
+Wolf,"void ApplyGravity(Vec3s *vel, s32 gravity, s32 terminal);",/* 0x4891bb */
+Wolf,"u32 ApplyMove(Vec3s *step, Vec3s *rot, s16 collFlags, Vec3s *vel);",/* 0x48924c */
+Wolf,s32 MoveStep(s32 faceMotion);,/* 0x48928f */
+Wolf,"u32 JumpAscendStep(s32 height, s32 ticks);",/* 0x4894b4 */
+Wolf,"u32 FallStep(s16 yLimit, s32 slowFall);",/* 0x48959f */
+Wolf,"s32 MoveTowardPoint(Vec3s *target, s16 facing, s32 useFacing);",/* 0x4896e3 */
+Wolf,s32 MoveStepFixedFacing(s16 facing);,/* 0x489b24 */
+Wolf,s32 SidestepStep(s16 facing);,/* 0x489bb5 */
+Wolf,s32 PushObjectStep(ScnObject *target);,/* 0x489e09 */
+Wolf,"s32 RocketFlyStep(s32 boost, s32 launching);",/* 0x48a18f */
+Wolf,s32 ForcedHeadingGroundStep(s16 heading);,/* 0x48a767 */
+Wolf,"void ClimbStep(Box *box, s32 isClimbZone);",/* 0x48a897 */
+Wolf,s32 ClimbBoxWalkStep();,/* 0x48af65 */
+Wolf,void SwimMove();,/* 0x48b04b */
+Wolf,void WaterFloatUpStep();,/* 0x48b352 */
+Wolf,s32 WaterSinkStep();,/* 0x48b664 */
+Wolf,s32 SwimStateStep();,/* 0x48b90b */
+Wolf,void UpdraftStep();,/* 0x48ba14 */
+Wolf,void DeathRiseStep();,/* 0x48bb95 */
+Wolf,"u8 RunMove(s32 applySurface, s32 reflectOnCrash, u32 *outCollFlags);",/* 0x48bc2d */
+Wolf,s32 LaunchArcStep();,/* 0x48bf28 */
+Wolf,s32 CheckFallOrSlide(s32 onSlope);,/* 0x48c279 */
+Wolf,s32 State2B_Step();,/* 0x48c2b9 */
+Wolf,s32 MoveStepGrounded();,/* 0x48c307 */
+Wolf,s32 ForcedHeadingGroundStepChecked(s16 heading);,/* 0x48c32d */
+Wolf,s32 FaceTargetStep();,/* 0x48c358 */
+Wolf,s32 FaceTargetActionStep(s32 ctxType);,/* 0x48c3a4 */
+Wolf,s32 FaceStickStep();,/* 0x48c3e9 */
+Wolf,s32 GroundCommon();,/* 0x48c431 */
+Wolf,s32 SneakStateStep();,/* 0x48c546 */
+Wolf,s32 StrafeFixedFacingStep(s16 facing);,/* 0x48c5af */
+Wolf,s32 SidestepHeldStep(s16 facing);,/* 0x48c654 */
+Wolf,s32 BushCommon();,/* 0x48c7c6 */
+Wolf,s32 ModelSet3GroundStep();,/* 0x48c8b5 */
+Wolf,void GhostCostumeSetIdle();,/* 0x48c963 */
+Wolf,s32 GhostCostumeGroundStep();,/* 0x48c99c */
+Wolf,s32 StrafeAroundFocusStep();,/* 0x48ca9d */
+Wolf,s32 SlowFallItemGroundStep();,/* 0x48cbac */
+Wolf,s32 SlowFallItemFallStep();,/* 0x48cc29 */
+Wolf,"s32 SlowFallItemAscendStep(s32 height, s32 duration, s32 isBoost);",/* 0x48ccbe */
+Wolf,s32 FlattenedGroundStep();,/* 0x48cd4e */
+Wolf,"s32 JumpAscendStateStep(s16 height, s32 duration);",/* 0x48cdaa */
+Wolf,s32 FallStepLandTo(u8 landState);,/* 0x48ce06 */
+Wolf,s32 FallStateStep(s16 yLimit);,/* 0x48ce7d */
+Wolf,s32 RunStep(Pad *pad);,/* 0x48cf34 */
+Wolf,"u32 MoveWithPlatform(Vec3s *delta, ContactInfo *contact, u16 mask, Vec3s *vel);",/* 0x48d0c7 */
+Wolf,void SetFrozenBy(ScnObject *sender);,/* 0x48d3c0 */
+Wolf,void Unfreeze();,/* 0x48d3ee */
+Wolf,void PlayLoopSound(s16 sfxId);,/* 0x48d438 */
+Wolf,void StopLoopSound();,/* 0x48d49b */
+Wolf,void UpdateMoveLoopSound();,/* 0x48d4e1 */
+Wolf,void FootstepSound();,/* 0x48d512 */
+Wolf,void SneakStepSound();,/* 0x48d627 */
+Wolf,void RunSound(s32 isStart);,/* 0x48d6eb */
+Wolf,void Msg74_Draw(DrawMsgArgs *args);,/* 0x48d74e */
+Wolf,"s32 ShowProp(s32 propIndex, u16 animId, s32 loop);",/* 0x48d894 */
+Wolf,void MashCounterStep();,/* 0x48d973 */
+Wolf,"s16 SnapHeadingToObject(ScnObject *obj, s16 heading);",/* 0x48d9dd */
+Wolf,void SetScale(s16 newScale);,/* 0x48daa8 */
+Wolf,void ScaleVec(Vec3s *v);,/* 0x48db86 */
+Wolf,void UpdateFallAnim();,/* 0x48dc18 */
+Wolf,CollBox *FindClimbBoxOnTarget();,/* 0x48dd48 */
+Wolf,void NotifyAttached_6A();,/* 0x48dde9 */
+Wolf,void RestartNoAnim(s32 delayTicks);,/* 0x48de3e */
+Wolf,"void Die(u8 deathState, u32 dropFlags, s32 extraDelay);",/* 0x48de74 */
+Wolf,void RunTapCheck(s32 playStartSound);,/* 0x48def7 */
+Wolf,s32 CanUseInventory();,/* 0x48dfc5 */
+Wolf,s32 CanControl();,/* 0x48e030 */
+Wolf,"void FilterInput(Pad *pad, u32 inputMask);",/* 0x48e090 */
+Wolf,void ClearEffects();,/* 0x48e1b1 */
+Wolf,void UpdateTrailFx();,/* 0x48e27f */
+Wolf,void EquipItem(ScnObject *obj);,/* 0x48f120 */
+Wolf,s32 CanSwapItem(s32 needStateFlag);,/* 0x48f212 */
+Wolf,"s32 SwapHeldItem(s32 animated, s32 needStateFlag);",/* 0x48f2a8 */
+Wolf,s32 QuickInventory(Pad *pad);,/* 0x48f69a */
+Wolf,void UpdateCamera(Pad *pad);,/* 0x48f81e */
+Wolf,void ScanContextActions();,/* 0x490286 */
+Wolf,s32 IsActionAvailable(s32 onGround);,/* 0x49054c */
+Wolf,s32 DoAction(s32 onGround);,/* 0x490778 */
+Wolf,s32 CheckActionButton(s32 onGround);,/* 0x490ecf */
+Wolf,s32 TryStartPush(s32 enable);,/* 0x490f40 */
+Wolf,"void CalcHeldObjWorldPos(const Vec3s *localOffset, Vec3s *outPos);",/* 0x490f98 */
+Wolf,"s32 CanPutDownHeldObj(s32 atFeet, Vec3s *outPos);",/* 0x491091 */
+Wolf,void Fx0_Start();,/* 0x4912c7 */
+Wolf,void Fx0_Stop();,/* 0x491358 */
+Wolf,void Fx2Body_StartAtSurface();,/* 0x49138c */
+Wolf,void Fx2Body_Stop();,/* 0x49145a */
+Wolf,void Fx3or4_Start(s32 variant);,/* 0x491480 */
+Wolf,void Fx3or4_Stop();,/* 0x491532 */
+Wolf,void Fx5_Start(s32 variant);,/* 0x491566 */
+Wolf,void Fx5_Stop();,/* 0x491651 */
+Wolf,"void FxGeneric_Start(u8 propIndex, u8 animId);",/* 0x491677 */
+Wolf,void FxGeneric_Stop();,/* 0x4916c8 */
+Wolf,void Fx8_Start();,/* 0x4916ee */
+Wolf,void Fx8_Stop();,/* 0x49176f */
+Wolf,void Fx6_Start(s32 variant);,/* 0x4917a3 */
+Wolf,void Fx6_Stop();,/* 0x49181f */
+Wolf,void HeldObj_SendMsg15();,/* 0x491845 */
+Wolf,void HeldObj_SendMsg16();,/* 0x4918b8 */
+Wolf,void SetActiveItem(ScnObject *item);,/* 0x491960 */
+Wolf,void ClearActiveItem();,/* 0x4919fc */
+Wolf,void StoreActiveItemInInventory();,/* 0x491a72 */
+Wolf,s32 IsFalling();,/* 0x491ad0 */
+Wolf,s32 CanJump();,/* 0x491b58 */
+Wolf,"void DrawActionPrompt(ActionHit *, ActionHit *, s32);",/* 0x4936ab */
+Wolf,"void Hud_DrawItemPrompt(u16 *, s32);",/* 0x493a7f */
+Wolf,void InitActionPromptStrings();,/* 0x493d18 */
+WolfTrap,s32 SetVictimFrozen(s32 frozen);,/* 0x509bf5 */
+WolfTrap,void SetState(u8 newState);,/* 0x509c81 */
+WoodenLift,void UpdateBoxes();,/* 0x50a1e9 */
+WoodenLift,s32 IsDriverInBoxXZ(Box *box);,/* 0x50a54a */
+WoodenLift,s32 Move(s16 dir);,/* 0x50a8f0 */
+WoodenLift,s32 CarryObjects(Vec3s delta);,/* 0x50adec */
+WoodenPlatForm,void MoveTowards(s16 targetY);,/* 0x50b377 */
+WoodenPlatForm,void CarryObjects(Vec3s *delta);,/* 0x50b505 */
+WoodenPlatForm,s32 GetLoad();,/* 0x50b5f4 */
+ZoneList,Box *Contains(Vec3s *point);,
+ZoneList,Box *ContainsXZ(Vec3s *point);,
+ZoneList,Box *FindContaining(Vec3s *p);,
+ZoneList,Box *FindContainingXZ(Vec3s *p);,
+ZoneList,void Clear();,
+ZoneList,void Resolve(u32 id);,
+bridge,void StartSnapCamera();,/* 0x49d95c */
+bridge,u8 CountWolfAndSheep();,/* 0x49db10 */
+bridge,void Collapse();,/* 0x49dce5 */
+bridge,void PushObjectsDown();,/* 0x49ddd0 */
+bull,void SetState(u8 state);,
+elastic,"s32 ApplyTension(const Vec3s *stretch, const Vec3s *velocity, Vec3s *step);",
+elastic,s32 StepPullUp(Vec3s *);,
+elastic,s32 StepVibration(Vec3s *);,
+elastic,s32 TrackWolfCrossing(const Vec3s *step);,
+elastic,s8 ProjectOntoBand(const Vec3s *);,
+elastic,void AddWolfRider();,
+elastic,"void AimCamera(const Vec3s *, CamSetup *, u32);",
+elastic,void BuildBandFrame();,
+elastic,void RemoveWolfRider();,
+elastic,void RenderBand(Camera *);,
+elastic,void ResetToItem();,
+elastic,void SetBandMode(s32);,
+elastic,void SetWolfFrozen(s32);,
+elastic,"void SetupLaunch(s32, const Vec3s *, s32, s32, s32);",
+elastic,"void StartPullUp(const Vec3s *, s32);",
+elastic,"void StartVibration(const Vec3s *, const Vec3s *, s32);",
+elastic,void StepLaunch(Vec3s *);,
+elastic,"void UpdateBandMesh(const Vec3s *, s32);",
+elastic,void UpdateTensionColour();,
+seesaw,s32 GroundQuery(GroundQuery *query);,
+seesaw,s32 IsBodyObstructed();,
+seesaw,"void AddBody(ScnObject *obj, s32 landingSpeed);",
+seesaw,"void ArcCoeffsFrom3Points(s32 p0, s32 pMid, s32 pEnd, s32 *outP0, s32 *outV, s32 *outA);",
+seesaw,"void LaunchObject(ScnObject *obj, const Trajectory3 *trajectory, CamSetup *camera, u32 camParam, u32 hop);",
+seesaw,void RemoveLaunch(s32 index);,
+seesaw,void UpdateEjectionTimers();,
+seesaw,void UpdateLaunches();,

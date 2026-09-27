@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x0,Vec3s,pos,node position; vertical is always written 0 (0x44e28a),verified
+0x6,s16,pad6,not written by Ghost_BuildNodeGraph,inferred
+0x8,GhostNode *[4],links,"neighbours, appended by Ghost_BuildNodeGraph in both directions (0x44e401, 0x44e421)",verified
+0x18,u8,linkCount,number of entries in links (0x44e40b),verified
+0x19,u8,pad19,padding before index,inferred
+0x1a,s16,index,the node's own index in g_ghostNodes (0x44e2b0); how a neighbour pointer is turned back into an index,verified

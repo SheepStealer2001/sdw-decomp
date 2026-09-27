@@ -1,0 +1,11 @@
+value,name,meaning
+#,CamStateFlags,g_camStateFlags 0x6e43f4
+0x1,CAMS_SAMPUSH_OUT,mode 0xC: pushing the eye out (Sam off-screen) latch
+0x2,CAMS_SAMPUSH_IN,mode 0xC: pulling in (Sam centred) latch
+0x4,CAMS_BIT2,cleared by SetMode(0xC) and ResetMotion; no setter found
+0x8,CAMS_ROT_NEG,manual rotation negative this frame (cleared at Camera_Update start)
+0x10,CAMS_ROT_POS,manual rotation positive this frame
+0x20,CAMS_SKIP_SWEEP,"next solver call may move more than 50 units without a sweep (set by ResetMotion, cleared by the solver)"
+0x40,CAMS_HIT,sweep contact since the last 16-frame gate
+0x80,CAMS_LOOK_EXIT_BLOCKED,eye was not clear in look mode; next solver call forces a cut at the mode distance
+0x100,CAMS_CUT,a cut happened; Camera_SmoothToDesired snaps and clears it

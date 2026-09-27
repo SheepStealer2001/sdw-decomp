@@ -1,0 +1,6 @@
+value,name,meaning
+#,BullMsg,messages handled by bull_HandleMessage 0x431a41
+0x0,MSG_KILL,"arg 0 burnt black, arg 2 box collision off, arg 4 plain; all -> state 5 and return 1"
+0x1c,MSG_QUERY_MOVED,"1 unless state is 0, 2 or 5"
+0x1d,MSG_LOUD_NOISE,dynamite 3000-radius broadcast: wakes a sleeping bull (anim 0xe at WAKEUPSPEED)
+0x38,MSG_TIMEMACHINE_CALL,"-> state 8. Sent by TimeMachineSphere at 0x4fb68b (arg 0) to its slot +0x224 = first object of class 0x2b (bull), found by Scenaric_FindByClass at 0x4fa2d6. The other 0x38 senders at 0x4fa99f/0x4fa9f6 go to +0x218 = Dragon and +0x220 = Gossamer_Lev08, not the bull."

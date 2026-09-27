@@ -1,0 +1,7 @@
+value,name,meaning
+#,SheepAttractKind,value returned by an attractor to msg 2 from a sheep
+0x0,SHEEP_ATTR_NONE,Sheep::Update: reply 0 = no attractor (inferred)
+0x25,SHEEP_ATTR_SALAD,Salad 0x4e8091
+0x26,SHEEP_ATTR_BUSH,"Bush 0x49eca9, or Wolf with state flag 0x10000"
+0x27,SHEEP_ATTR_BUTTON,SensibleButton 0x4f044c
+0x28,SHEEP_ATTR_LEADER,Wolf with model set 3 (+0x711==3)

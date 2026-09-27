@@ -1,0 +1,8 @@
+value,name,meaning
+#,CullOutcode,"Per-corner outcode bits built by Cull_IsAabbVisible (camera space; h = z*tanHalfFov, v = h*aspect)."
+0x01,CULL_OC_LEFT,x < -h (only tested when x <= h)
+0x02,CULL_OC_RIGHT,x > h
+0x04,CULL_OC_VNEG,-y < -v (only tested when -y <= v)
+0x08,CULL_OC_VPOS,-y > v
+0x10,CULL_OC_NEAR,z < Frustrum.nearZ (+0x8)
+0x20,CULL_OC_FAR,"z > Frustrum.viewDistance (+0x28), not farZ"

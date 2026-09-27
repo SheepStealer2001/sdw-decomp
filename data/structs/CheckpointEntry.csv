@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x0,Box **,triggers,"trigger box list (Scn_FindIdList of the entry's first id property); FindEntryAt 0x4ab3cc skips an entry whose list is NULL, and reaching an entry with its disableEarlierMask bit set clears the earlier entries' lists",verified
+0x4,CollBox *,wolfDestination,Wolf's respawn box (PostLoadInit 0x4aba04-0x4abadb): its centre is sent with MSG_WOLF_SAVE_RESPAWN; NULL = the entry does not move Wolf's respawn,verified
+0x8,CollBox *,sheepDestination,the sheep's respawn box (PostLoadInit 0x4aba04-0x4abadb): its centre is sent with MSG_SHEEP_SAVE_RESPAWN; NULL = the entry does not move the sheep's respawn,verified
+0xc,u16,count,number of trigger boxes (FindEntryAt 0x4ab3d9),verified
+0xe,u16,yaw,"orientation (4096/turn), converted from the entry's degrees property by PostLoadInit (0x4aba04-0x4abadb)",verified

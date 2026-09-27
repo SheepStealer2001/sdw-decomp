@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x0,s32,riseSpeed,"vertical speed per second (Emitter_UpdateColumn 0x52d41e mov eax,[edx]; imul g_dt)",verified
+0x4,s32,life,particle life in ticks (0x52d393 idiv [ecx+4]),verified
+0x8,s32,period,"spawn interval, and the divisor that turns the caller's age into the frame index (0x52d3de idiv [ecx+8]; 0x52d3fc push [eax+8])",verified
+0xc,s16,sizeStart,"size at birth (0x52d4d9 movsx edx,[ecx+0xc])",verified
+0xe,s16,sizeEnd,"size at death (0x52d4e0 movsx ecx,[eax+0xe])",verified
+0x10,u8,sheetIndex,"sprite sheet (0x52d3be mov dl,[ecx+0x10])",verified

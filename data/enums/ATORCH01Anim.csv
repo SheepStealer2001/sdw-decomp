@@ -1,0 +1,3 @@
+value,name,meaning
+#,ATORCH01Anim,animation ids of WAR model ATORCH01 (its WAR type-0x86 table; names verified from the level files). Played by: Torch; the model of Torch is inferred (the only table whose ids match what the class plays)
+0x0,ATORCH01_ANIM_STAND1,WAR name STAND1

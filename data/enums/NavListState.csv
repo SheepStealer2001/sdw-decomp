@@ -1,0 +1,5 @@
+value,name,meaning
+#,NavListState,NavNode.listState of the A* search (engine/navigation.cpp)
+0x0,NAV_LIST_NONE,cleared by NavPath_ClearSearch / pop
+0x1,NAV_LIST_OPEN,start node and every pushed son get 1; StepSearch pops state 1
+0x2,NAV_LIST_CLOSED,the expanded node gets 2

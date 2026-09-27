@@ -1,0 +1,6 @@
+value,name,meaning
+#,AROCHE03Anim,"animation ids of WAR model AROCHE03 (its WAR type-0x86 table; names verified from the level files). Played by: Rock, TriggedStone"
+0x0,AROCHE03_ANIM_FALL1,WAR name FALL1
+0x1,AROCHE03_ANIM_STAND1,WAR name STAND1
+0x2,AROCHE03_ANIM_EXPLOD1,WAR name EXPLOD1
+0x3,AROCHE03_ANIM_EXPLOD2,WAR name EXPLOD2

@@ -1,0 +1,6 @@
+value,name,meaning
+#,WolfCaughtArg,"arg of MSG_WOLF_CAUGHT 0x400 from Sam (SamMsg/WolfMsg docs: 0 grab, 1 from state 8 end, 2 hit, 3 release)"
+0x0,CAUGHT_GRAB,"arg 0 grab (FB DEAD, state 0x31)"
+0x1,CAUGHT_END,arg 1 (from state 8 end): Die 0x32
+0x2,CAUGHT_HIT,arg 2 hit (Die 0x33)
+0x3,CAUGHT_RELEASE,arg 3 release

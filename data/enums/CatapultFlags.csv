@@ -1,0 +1,7 @@
+value,name,meaning
+#,CatapultFlags,Catapult +0x14c
+0x1,CATF_SWITCH_LATCHED,"set by MSG_SWITCH_ON 0x1f (launches once), cleared by MSG_SWITCH_OFF 0x20"
+0x2,CATF_ARM_ALONG_Z,facing within 99 of 0x400/0xc00: the arm and throw run along z
+0x4,CATF_THROW_NEGATIVE,"facing in [0x39d,0x863]: the bucket sits on the negative side of the axis"
+0x8,CATF_ARM_AT_REST,"set at Init/Reset/arm return, cleared when the throw starts"
+0x10,CATF_BUCKET_SOLID,arm at rest and bucket seen empty: CustomCollide makes the bucket box solid

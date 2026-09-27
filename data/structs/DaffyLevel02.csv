@@ -1,0 +1,43 @@
+offset,ctype,name,meaning,confidence
+0x7c,u8,state,DaffyLevel02State,verified
+0x7d,u8,savedState,state to return to after the burnt line (state 0xC),verified
+0x80,Box *,cineBox,PROPERTY CINEBOX: entering it starts the intro cinematic; also passed to Cine_Start,verified
+0x84,Box *,cineSheepBox,PROPERTY CINESHEEPBOX (Cine_Start sheep box),verified
+0x88,Box *,activationBox,PROPERTY ACTIVATIONBOX: game area; leaving it cancels the game; the beam applies only inside (3D test),verified
+0x8c,Box *,goalBox,PROPERTY GOALBOX: win zone,verified
+0x90,Box *,startBox,PROPERTY STARTBOX: start zone (no detection inside),verified
+0x94,u32[2],cine,"PROPERTY CINE, CINE2 (indexed by cineIndex +0xb5)",verified
+0x9c,u32,cineTextBase,PROPERTY CINETEXT; line shown = string(CINETEXT + talkPhase),verified
+0xa0,u32,cineFlags,PROPERTY CINEFLAGS,verified
+0xa4,s16,headSweepPhase,"12-bit phase, += sweepSpeed*(g_dtMs>>1)",verified
+0xa6,s16,headYaw,"sin(phase)*maxAngle/360, applied to joint 4",verified
+0xa8,s16,headSweepSpeed,1,verified
+0xaa,s16,headMaxAngle,70 (degrees),verified
+0xac,s16,relAngleToWolf,(yawToWolf - (yaw+headYaw)) & 0xfff; in view when < 0x38. Also rotates the HUD head,verified
+0xae,s16,yawToWolf,atan2 bearing + 0x800,verified
+0xb0,char *,curText,current line string,verified
+0xb4,u8,talkPhase,DaffyLevel02TalkPhase (also the CINETEXT offset),verified
+0xb5,u8,cineIndex,"0 = CINE, 1 = CINE2 (set after the first cinematic)",verified
+0xb6,u8,detectResult,DaffyLevel02Detect from DetectWolf,verified
+0xb7,u8,textBurnt,"PROPERTY TEXTBURNT string index (state 0xC, voice 0xD)",verified
+0xb8,s32,startBoxTimerMs,ms spent in startBox while running (+= g_dtMs),verified
+0xbc,s32,startBoxTimeoutMs,"nag threshold: 7000, or 3000 after being caught while carrying a sheep",verified
+0xc0,u32,voiceId,"voice for the current line (0x10..0x16 Lvl-02, 0x1c..0x22 Lvl-03)",verified
+0xc4,u32[3],answerVoices,"voices for the 3 dialog answers (Dialog_UpdateAnswer): {0x19,0x17,0x18} Lvl-02 / {0x1f,0x20,0x21} Lvl-03",verified
+0xd0,u32,isLevel2Variant,1 when no HiddenRocks (class 0x23) exists (Lvl-02): voice set and detect order,verified
+0xd4,s16[4],textBoxRect,"{50,50,412,140} for the Yes/No text box",verified
+0xdc,u32,gameRunning,red-light game in progress,verified
+0xe0,u32,gameArmed,entering startBox will start a game,verified
+0xe4,u32,introDone,rules cinematic seen; kept across Reset,verified
+0xe8,u32,challengeWon,set in SayGoalReached; talking then opens the 3-answer dialog,verified
+0xec,u32,burnt,msg 0 arg 0; cleared after the burnt line,verified
+0xf0,u32,wolfFrozen,result of Wolf msg 0xE; unfreeze sends msg 0xF,verified
+0xf4,u32,startBoxNagGiven,nag (phase 9) given this stay in startBox,verified
+0xf8,Vec3s,spawnRot,"rot at Init; restored on game start, win and Reset",verified
+0x108,DialogBox,dialog,"Dialog_Begin(first string 10, 3 answers) box, opened after a win",verified
+0x190,u8,headBufToggle,alternates 0/1 each icon draw,verified
+0x194,u8[0x190],headRenderBufA,head icon render buffer (ScnBody_RenderEx),verified
+0x324,u8[0x190],headRenderBufB,second head icon buffer,verified
+0x4b4,s32,alertIconColor,index into g_samZoneColors for the icon frame; always 1,verified
+0x4b8,ScnBody,head,"embedded ScnBody (0x64 bytes, vtable ScnBody) with model WAR_IDO_ATEROB01; yaw +0x4ce; tint +0x4d2/+0x4d4",verified
+0x51c,u16[10],headRecord,fake level record for the head (DaffyLevel02_InitHeadRecord),verified

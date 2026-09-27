@@ -1,0 +1,3 @@
+name,return,params,forward,meaning
+VideoFrameProc,s32,"struct IDirectDrawSurface *surface, struct RECT *rect",IDirectDrawSurface RECT,"Video's per-frame callback: set by Video_SetFrameCallback 0x4220a0, called cdecl at 0x42206d with the frame surface and source rect"
+ScnFactoryFn,struct ScnObject *,void *record,,"a scenaric class factory (<Class>_Create): stored by Scenaric_RegisterClass_2 0x50d630 in ScnClassRegEntry.factory and called by Scenaric_CreateObject 0x50d9af with the object's WAR record"

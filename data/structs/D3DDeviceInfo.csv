@@ -1,0 +1,14 @@
+offset,ctype,name,meaning,confidence
+0x0,char[0x28],strDesc,"Human-readable device name: the D3D device name (""Direct3D HAL"", ""RGB Emulation"", ...) for the primary display driver, or the DirectDraw driver description for a secondary driver. Shown in the launcher's device combo.",verified
+0x28,GUID *,pDeviceGUID,Points at guidDevice in the same record. Passed to IDirect3D7::EnumZBufferFormats and IDirect3D7::CreateDevice. This self-pointer-next-to-value shape is the DX7 SDK D3DEnum_DeviceInfo idiom.,verified
+0x2c,GUID,guidDevice,"The D3D device CLSID. memcmp'd against IID_IDirect3DHALDevice (0x577718) and IID_IDirect3DTnLHalDevice (0x577708) to decide VIDEOMEMORY vs SYSTEMMEMORY for the z buffer, textures and vertex buffers.",verified
+0x3c,u8[0xEC],ddDesc,"Copy of the device's D3DDEVICEDESC7. Sub-offsets confirmed against the asm: +0x00 dwDevCaps, +0x04 dpcLineCaps, +0x3C dpcTriCaps (dwTextureCaps at +0x5C), +0x74 dwDeviceRenderBitDepth, +0x84/+0x88 dwMaxTextureWidth/Height, +0xC4 deviceGUID.",verified
+0x128,s32,bHardware,dwDevCaps & D3DDEVCAPS_HWRASTERIZATION (0x80000). A device is only kept when it is hardware or it is the primary display driver.,verified
+0x12c,GUID *,pDriverGUID,"DirectDraw driver GUID pointer, NULL for the primary display. Passed straight to DirectDrawCreateEx.",verified
+0x130,GUID,guidDriver,The DirectDraw driver GUID that pDriverGUID points at (zero/unused for the primary display).,verified
+0x140,u8[0x17C],ddDriverCaps,"DDCAPS of the hardware driver (dwSize 0x17C). Only dwCaps2 (+8, tested for DDCAPS2_CANRENDERWINDOWED 0x80000) is read.",verified
+0x2bc,u8[0x17C],ddHelCaps,"DDCAPS of the HEL (emulation) side, filled by IDirectDraw7::GetCaps and copied along but never read.",verified
+0x438,u8[100][0x7C],modes,"Array of DDSURFACEDESC2 display modes, 100 slots. modes[0] is the width-0 ""Windowed Mode"" pseudo-entry when the driver is the primary display and reports DDCAPS2_CANRENDERWINDOWED. Fields used: dwHeight +0x08, dwWidth +0x0C, dwRefreshRate +0x18, ddpfPixelFormat.dwRGBBitCount +0x54.",verified
+0x34a8,u32,modeCount,"Number of modes in the array; set to 1 by the windowed pseudo-entry, then incremented once per EnumDisplayModes callback, then rebuilt by the bpp filter and again by the constructor's width filter.",verified
+0x34ac,u32,modeIndex,"Currently selected mode. The value that reaches D3DApp_CreateDevice is set by the launcher's WM_INITDIALOG, which Play! re-runs: CB_GETCURSEL on combo 0x3ec, a combo POSITION, via D3DApp_SetModeIndex 0x404e86 (0x402f08-0x402f2e). Only the Accept handler uses CB_GETITEMDATA. Render_Present treats index 0 as ""windowed"", which is only correct on an unfiltered list.",verified
+0x34b0,s32,bDesktopCompatible,"1 when the bpp-filtered mode list still began with the width-0 windowed pseudo-mode, i.e. the device can render into a window at the desktop depth. D3DApp_CreateDevice and Render_Present both branch on it.",verified

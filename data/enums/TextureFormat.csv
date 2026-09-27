@@ -1,0 +1,5 @@
+value,name,meaning
+#,TextureFormat,Texture format / g_texRequestedFormat (engine/texture.cpp)
+0x0,TEXFMT_RGB565,g_texRequestedFormat 0 accepts rBits 5 / gBits 6; format 0 copies 16-bit pixels unchanged
+0x1,TEXFMT_ARGB1555,1 accepts 5/5 bits with an alpha mask; format 1 repacks 565 -> 1555
+0x2,TEXFMT_ARGB4444,2 accepts 4/4 bits with an alpha mask; format 2 repacks to 4444 (HoleFX mask texture doc: format-2 = ARGB4444)

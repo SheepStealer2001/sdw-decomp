@@ -1,0 +1,7 @@
+value,name,meaning
+#,MineDetectorState,MineDetector +0xb4 (MineDetector_SetState 0x4d880e)
+0,MD_ST_IDLE,"lying or carried, not in use"
+1,MD_ST_FALLING,released from a container (msg 9 arg 1): falls 5 units per frame until it lands on static floor
+2,MD_ST_RAISING,"msg 0x15: anim 4, then -> 3"
+3,MD_ST_SCANNING,cone + region search every update; gauge drawn; sound 0x102
+4,MD_ST_LOWERING,"msg 0x16: anim 5, then -> 0"

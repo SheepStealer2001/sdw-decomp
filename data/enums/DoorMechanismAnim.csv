@@ -1,0 +1,3 @@
+value,name,meaning
+#,DoorMechanismAnim,no model with an animation table for class DoorMechanism in any level
+0x0,DOORMECH_ANIM_RUN,no animation table for this class in the retail levels; named from the state that starts it (inferred)

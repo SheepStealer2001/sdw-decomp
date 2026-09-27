@@ -1,0 +1,19 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,state,Update dispatches on it; SetState's final byte store is at 0x4c5666.,verified
+0x65,u8,animState,"SetAnimState 0x4c5683 compares the incoming byte, then stores it after the animation switch; Update tests it against 5 for the sound.",verified
+0x66,u16,corkPushCount,"counts MSG_PUSH pulses to the corking rock (which is this->victim +0x90, not a separate pointer); read-modify-written at 0x4c5074 but no branch ever tests it",verified
+0x68,s32,timerMs,"ms countdown, minus g_dtMs each frame (0x4c4235-0x4c424a). PostLoadInit also seeds it with 0x3e8 at 0x4c3f09",verified
+0x6c,s32,activePeriod,"PostLoadInit: property 0x20 shifted by 10, DWORD store at 0x4c3f2c; SetState(1) copies it to the timer at 0x4c53fb.",verified
+0x70,s32,transitDelayMs,"property 0x1c multiplied by 1000, DWORD store at 0x4c3f4e; SetState(3) copies it at 0x4c55eb.",verified
+0x74,s32,corkPeriod,"property 0x18 shifted by 10, DWORD store at 0x4c3f6d; SetState(4) loads it at 0x4c560f.",verified
+0x78,s32,idlePeriod,"property 0xc shifted by 10, DWORD store at 0x4c3f8c; SetState(0) loads it at 0x4c5379.",verified
+0x7c,s32,pullTimerMs,stores of 840 at 0x4c5560 and 190 at 0x4c5621; Update tests it signed for non-negative and decrements it.,verified
+0x80,Vec3s,pullOffset,"three signed word components copied from pos at 0x4c54a8 onward, then the victim's position is subtracted at 0x4c5516 onward.",verified
+0x86,Vec3s,frameDelta,"word copy from pullOffset at 0x4c4653/6d/87, signed word multiplication by low16(g_dtMs), division by 840 at 0x4c4700-15; passed to Translate and MSG_PUSH.",verified
+0x8c,CollBox *,detectBox,"Scn_GetPropBox(record,4) result stored at 0x4c3ee9; the pointer is loaded at 0x4c4424 for ObjGrid_QueryBoxPoints. Box and CollBox have the same 16-byte flags/bounds layout; the store casts the Box * the getter returns.",verified
+0x90,ScnObject *,victim,cleared at 0x4c53a2; receiver of the virtual msg 0x31 at 0x4c5449-452; its position/rotation and class are accessed throughout Update.,verified
+0x94,ScnObject *,geyserController,"Scn_GetPropObject(record,0x10) result stored at 0x4c3fc7; receives msg 0x2800. Name inferred from the message's role.",verified
+0x98,ScnObject *,geyserOut,"Scn_GetPropObject(record,0x14) result stored at 0x4c3f00; receiver of 0x2880-0x2888.",verified
+0x9c,CamSetup *,cameraSetup,"the msg 0x2885 return, stored at 0x4c48f6; the camera arguments use u16 offsets 0, 2, 4, 6 and a Vec3s at +8, starting at 0x4c4956.",verified
+0xa0,u16,soundHandle,zeroed by a word store at 0x4c3ecf; passed to Sound_Stop in SetAnimState and to Sound_IsPlaying in Update.,verified
+0xa2,u8,flags,"bit 2 is NOT ALWAYSMANAGE — prop 0 is never read by the class (only three prop-getter calls exist: 0x4c3ede, 0x4c3ef5, 0x4c3fbc). Bit 2 is set unconditionally at load (0x4c3fd7) and thereafter only toggled by msg 0x2800. bit 0 rock covering, bit 3 tilted mouth, bit 4/5 the 0x2887/0x2888 r",verified

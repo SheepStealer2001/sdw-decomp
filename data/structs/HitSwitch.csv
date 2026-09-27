@@ -1,0 +1,2 @@
+offset,ctype,name,meaning,confidence
+0x40,ScnObject *,target,"The object named by PROPERTY_HITSWITCH_TARGETS, resolved at 0x4c9b7c; receives msg 0x2c when a bull bumps the switch. Dereferenced at 0x4c9d28 with no NULL check. obj_size 0x44 leaves room for exactly this pointer.",verified

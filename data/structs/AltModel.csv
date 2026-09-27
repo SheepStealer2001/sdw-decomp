@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x0,u16,modelResIdx,"DAV resource index of the model, 0xffff = none; written into WAR record word 0 on swap",verified
+0x2,u16,res2Idx,secondary resource index (record word 1),verified
+0x4,void *,animBuf,joint-buffer block (nbJoints*0x78) handed to Animator_Init 0x55b3ae on swap; NULL for rigid models,verified
+0x8,Vec3s,boundCenter,copied to obj+0x28 on swap,verified
+0xe,u16,boundRadius,copied to obj+0x2e on swap,verified

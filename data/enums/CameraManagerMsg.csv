@@ -1,0 +1,4 @@
+value,name,meaning
+#,CameraManagerMsg,handled by CameraManager_HandleMessage 0x4a059f
+0xd00,MSG_CAMMGR_ENABLE_ONLY_BOX,arg Box*: enable only the slots whose box == arg; NULL disables all. Sent by the Level 0 training Daffy 0x43ef00
+0xd01,MSG_CAMMGR_GET_ENTRY,arg Box*: returns &entry with that box (uninitialised return when none); no sender found

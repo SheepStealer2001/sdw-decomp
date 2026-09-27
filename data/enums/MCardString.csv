@@ -1,0 +1,53 @@
+value,name,meaning
+#,MCardString,ids for MCard_GetString / g_pGetUiString (English text quoted)
+0x00,MCSTR_LOOKING,looking for saved game... please wait.
+0x01,MCSTR_FORMAT_Q,PC placeholder (format card?)
+0x02,MCSTR_CREATE_FILE_Q,would you like to create a save file?
+0x03,MCSTR_CREATE_NEW_GAME,create new game: automatic save on.
+0x04,MCSTR_LOAD_GAME,load game: automatic save on.
+0x05,MCSTR_SAVE_GAME,Save game
+0x06,MCSTR_CONFIRM_SAVE,Are you sure you want to save this game?
+0x07,MCSTR_CONFIRM_OVERWRITE,are you sure you want to overwrite this game?
+0x08,MCSTR_FORMATTING,PC placeholder
+0x09,MCSTR_CREATING,creating save file...
+0x0a,MCSTR_LOADING,loading data...
+0x0b,MCSTR_SAVING,Saving data...
+0x0c,MCSTR_OVERWRITING,Overwriting data...
+0x0d,MCSTR_AUTOSAVING,Autosaving data...
+0x0e,MCSTR_FORMAT_OK,PC placeholder
+0x0f,MCSTR_LOAD_OK,load completed.
+0x10,MCSTR_SAVE_OK,Save completed.
+0x11,MCSTR_OVERWRITE_OK,Overwrite completed.
+0x12,MCSTR_FORMAT_FAILED,PC placeholder
+0x13,MCSTR_CREATE_FAILED,creation failed!
+0x14,MCSTR_LOAD_FAILED,load failed!
+0x15,MCSTR_SAVE_FAILED,save failed!
+0x16,MCSTR_OVERWRITE_FAILED,overwrite failed!
+0x17,MCSTR_NO_CARD,PC placeholder
+0x18,MCSTR_CARD_FULL,PC placeholder
+0x19,MCSTR_FILE_NOT_FOUND,save file not found.
+0x1a,MCSTR_NEW_GAME_NO_AUTOSAVE_Q,start a new game? automatic save off.
+0x1b,MCSTR_DAMAGED,PC placeholder
+0x1c,MCSTR_CORRUPT,data may be corrupt!
+0x1d,MCSTR_SAVE_CANCELLED,Data save cancelled!
+0x1e,MCSTR_AUTOSAVE_OK,Autosave completed!
+0x1f,MCSTR_AUTOSAVE_FAILED,Autosave failed! Autosave disabled.
+0x20,MCSTR_AUTOSAVE_UNFORMATTED,PC placeholder
+0x21,MCSTR_AUTOSAVE_NOCARD,PC placeholder
+0x22,MCSTR_AUTOSAVE_DAMAGED,PC placeholder
+0x23,MCSTR_AUTOSAVE_CORRUPT,Data may be corrupt! Autosave disabled.
+0x24,MCSTR_CANCEL,cancel
+0x25,MCSTR_RETRY,retry
+0x26,MCSTR_YES,yes
+0x27,MCSTR_NO,no
+0x28,MCSTR_OK,ok
+0x29,MCSTR_EMPTY,empty
+0x2a,MCSTR_START_GAME,start game
+0x2b,MCSTR_NEW_GAME,new game
+0x2c,MCSTR_BACK,back
+0x2d,MCSTR_LOAD,load
+0x2e,MCSTR_SAVE,save
+0x2f,MCSTR_GAME,game
+0x30,MCSTR_SHEEP_TO_CATCH,%d sheep to catch
+0x31,MCSTR_BONUS,bonus
+0x32,MCSTR_SAVE_FILE,save file

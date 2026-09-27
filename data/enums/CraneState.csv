@@ -1,0 +1,11 @@
+value,name,meaning
+#,CraneState,state field of Crane
+0x0,CRANE_ST_IDLE,"SetState 0: anim STAND, idle sound 0x124, no cargo (inferred)"
+0x1,CRANE_ST_CATCH,SetState 1: anim CATCH; Update: on anim end -> 2 (inferred)
+0x2,CRANE_ST_CATCH_HOLD,"SetState 2: anim CATCH1, msg 0x3e arg 1 to the FrozenRiver, cargo attached; -> 3 (inferred)"
+0x3,CRANE_ST_SWING1,SetState 3: anim swingAnim1; -> 4 (inferred)
+0x4,CRANE_ST_SWING2,SetState 4: anim swingAnim2; -> 5 (inferred)
+0x5,CRANE_ST_RELEASE,"SetState 5: anim releaseAnim, cargo detached; -> 6 (inferred)"
+0x6,CRANE_ST_RETURN,"SetState 6: anim returnAnim; Update: on anim end releases the camera, msg 0x3e arg 0, -> 0 (inferred)"
+0x7,CRANE_ST_WAIT_CINE_BOX,"SetState 7: anim STAND; Update: starts the cinematic when the Wolf enters cineBox, -> 8 (inferred)"
+0x8,CRANE_ST_CINEMATIC,Update 8: -> 0 (ready) when the cinematic finishes (inferred)

@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,state,"0 intact/idle, 1 kill received (start breaking), 2 break animation running. Reset does NOT clear it, which is half of the checkpoint defect.",verified
+0x68,CamSetup *,camera,PROPERTY_ICEGROUND_IDCAMERA (0): the scripted camera record played while the ice breaks; NULL means no cutaway.,verified
+0x6c,u32,broken,"1 once the break animation has finished. While set, HandleMessage returns 0 at 0x4cc368 for EVERY message, so the tile answers no more ground queries and cannot be re-broken. Cleared by PostLoadInit and Reset.",verified

@@ -1,0 +1,10 @@
+value,name,meaning
+#,DaffySceneState,state field of DaffyScene
+0x0,DAFFYSCENE_ST_IDLE,"SetState 0: releases camera and crowds (msg 0x6581), random idle anim (STAND/STAND2/DANSE1/DANSE2/IMPRESS/JOKE/SEE/SHOW) (inferred)"
+0x1,DAFFYSCENE_ST_WAIT_CINE,Update 1: -> nextState when no cinematic and no scripted camera (inferred)
+0x2,DAFFYSCENE_ST_TALK_INTRO,"SetState 2: freezes the Wolf, camera prop 0, first talk line; Update: talk loop (inferred)"
+0x3,DAFFYSCENE_ST_TALK_PROP_54,"SetState 3: camera prop 8, text prop 0x54, voice 0x2f; Update: talk loop (inferred)"
+0x4,DAFFYSCENE_ST_TALK_PROP_5C,"SetState 4: camera prop 0x20, text prop 0x5c; Update: talk loop (inferred)"
+0x5,DAFFYSCENE_ST_TALK_PROP_40,"SetState 5: camera prop 4, text prop 0x40, voice 0x31; Update: talk loop (inferred)"
+0x6,DAFFYSCENE_ST_SPEECH,"SetState 6: talkTimer 4000, random speech camera; Update: talk loop (inferred)"
+0x7,DAFFYSCENE_ST_CHATTER,"SetState 7: talkTimer 4000, chatterCount++, random speech camera; Update: talk loop (inferred)"

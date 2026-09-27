@@ -1,0 +1,13 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,state,"0 fresh (Update picks 1 or 3 from the INACTIVE flag), 1 disabled (hidden, SCN_UPD_NEVER, sound stopped), 2 activation delay running, 3 firing. Written only by Laser_SetState.",verified
+0x68,s32,activationStartMs,g_gameTimeMs 0x71b2d4 captured when state 2 begins (0x4d0c7d); the activation delay is measured from it.,verified
+0x6c,u16,activationDelayMs,PROPERTY_LASER_ACTIVATIONDELAY (prop 0) truncated to 16 bits: how long state 2 lasts before the beam comes on. Compared unsigned at 0x4d095d.,verified
+0x6e,u16,activationElapsedMs,"g_gameTimeMs - activationStartMs, stored each frame of state 2 as a 16-bit value, so it wraps every 65.5 s.",verified
+0x70,u32,flags,"Bit values: 1 = the INACTIVE property was set, 2 = a MSG_SWITCH_OFF toggle has already been consumed this cycle (cleared by MSG_SWITCH_ON), 4 = polarity inverted by a switch. PostLoadInit clears the whole word first; Reset does `or 6`, i.e. it sets values 2 and 4.",verified
+0x74,u16,soundHandle,"Handle of the looping beam sound. The call is Sound_Play(soundId 0xff, this, volume 0x7f, flags 7, rate 0x1000) - cdecl, so the last push 0xff is the id, not 0x7f. Started while Ralph is within 750 Manhattan XZ units and stopped when he leaves or the laser is switched off.",verified
+0x76,u16,type,"PROPERTY_LASER_TYPE (prop 12), 0..9; selects the beam animation through the permutation below rather than directly.",verified
+0x78,u16,animId,"Animation played while firing, derived from type through the jump table at 0x4d06a8 as 0,1,5,8,2,6,3,7,4,9 - so a level file's TYPE is NOT the animation index and the permutation must be applied before reading a model's animation list.",verified
+0x7c,CollBox *,beamBox,"the beam's world box, read by InstantMartian::CollideAndSlide (0x458797 mov ecx,[eax+0x7c]; then +4/+8/+0xa/+0xe as min/max)",verified
+0x80,s16,normX,"x of the contact normal the beam reports (0x458886 mov dx,[ecx+0x80] -> ContactInfo.wallNormalMean.x)",verified
+0x82,s16,normZ,z of that normal (0x4588a0 -> ContactInfo.wallNormalMean.z),verified
+0x84,u8:1,beamOn,"beam live: bit 0 of the byte at +0x84 (0x458809 mov dl,[ecx+0x84]; and dl,1 - VC6's 1-bit unsigned bitfield read)",verified

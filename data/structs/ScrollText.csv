@@ -1,0 +1,8 @@
+offset,ctype,name,meaning,confidence
+0x0,s16[4],rect,"x, y, w, h of the scroll window, copied wholesale from the caller and replayed through Text_SetWindowRect on every Init/Step/Draw",verified
+0x8,char *,text,the string being scrolled (overlay char * - the generator emits const char * as void *; ScrollText_Draw 0x539c0e and ScrollList_Update 0x539a3a add a byte offset to it),verified
+0xc,u16,topLine,index of the first visible wrapped line,verified
+0xe,u16,maxTopLine,"max(0, totalWrappedLines - font->rows); the scroll clamp",verified
+0x10,u16,charOffset,"byte offset into text of the first visible line, recomputed by summing Text_MeasureLine 0x533403 over topLine lines",verified
+0x12,s8,scrollDir,"pixels per frame of the smooth scroll in flight (negative = up, positive = down); 0 when idle",verified
+0x13,s8,scrollPixels,accumulated sub-line pixel offset; the line commits when it reaches font->lineHeight or wraps to 0. Draw subtracts it from g_textCursorY,verified

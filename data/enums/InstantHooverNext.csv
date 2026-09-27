@@ -1,0 +1,6 @@
+value,name,meaning
+#,InstantHooverNext,"InstantHoover.nextAction (+0x188), dispatched by Update state 4 on anim end (table 0x4ce637)"
+0,IHOOVER_NEXT_IDLE_LOOP,"state 1, anim 1 loop (never set by code)"
+2,IHOOVER_NEXT_AFTER_CATCH,"set by SuckMartians: state 1, anim 1; Marvin 0x6480 arg 1 if all captured"
+3,IHOOVER_NEXT_AFTER_CLOSE,set when the open window ends (anim 3): same as 2
+5,IHOOVER_NEXT_OPEN,"set by msg 0x3F (anim 5): state 3, anim 0"

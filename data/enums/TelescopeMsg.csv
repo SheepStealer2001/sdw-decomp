@@ -1,0 +1,5 @@
+value,name,meaning
+#,TelescopeMsg,handled by Telescope_HandleMessage 0x4f972d
+0x1,MSG_USE,"start viewing (freeze Wolf, scripted camera)"
+0x2,MSG_QUERY_ACTION,from class 0 only: returns context action 9 when the Wolf is in the reverse or normal box
+0xe,MSG_FREEZE,"the Wolf is being frozen by another object: clear wolfFrozen, return 1"

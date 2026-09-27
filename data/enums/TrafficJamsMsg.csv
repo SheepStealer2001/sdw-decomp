@@ -1,0 +1,10 @@
+value,name,meaning
+#,TrafficJamsMsg,handled by TrafficJams_HandleMessage 0x4fd1cb
+0x1e,MSG_BULL_TARGET_QUERY,from station: returns jammed; *arg = BREAKTIME or ARRIVINGTIME
+0x1f,MSG_SWITCH_ON,toggle jammed/clear once until MSG_SWITCH_OFF
+0x20,MSG_SWITCH_OFF,re-arm the toggle
+0x5f,MSG_JAMS_STATION_ACTIVE,re-registers with its station and returns whether the train is on that route
+0x4682,MSG_JAMS_SET_PREV,"prev = sender, prev2 = arg"
+0x4683,MSG_JAMS_GET_BREAK_LEFT,"break countdown if jammed, else 0"
+0x4684,MSG_JAMS_GET_ARRIVING_LEFT,arrival countdown
+0x4685,MSG_JAMS_GET_LASTSEG_LEFT,last-segment countdown (not for itself)

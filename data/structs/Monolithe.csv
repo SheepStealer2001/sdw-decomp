@@ -1,0 +1,16 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,monoState,name and access width as src/objects/monolithe.cpp uses the field,verified
+0x65,u8,previousState,name and access width as src/objects/monolithe.cpp uses the field,verified
+0x66,u16,riderCount,name and access width as src/objects/monolithe.cpp uses the field,verified
+0x68,u16,spinTicks,"frames elapsed in state 1; 0x80 of rotation per frame, ending at 16 ticks (0x4d9565 `cmp edx,0x10 / jl`; 0x4d9561 is the load). Tick 1 sends MSG_SCRIPT_HOLD 0x23, tick 0x10 MSG_SCRIPT_RELEASE 0x24. Frame-counted, so it is faster in wall-clock time at high FPS",verified
+0x6a,u16,ghostCount,name and access width as src/objects/monolithe.cpp uses the field,verified
+0x70,s32,freezeAccepted,name and access width as src/objects/monolithe.cpp uses the field,verified
+0x74,s32,freezeEnabled,name and access width as src/objects/monolithe.cpp uses the field,verified
+0x78,Vec3s,homeRot,name and access width as src/objects/monolithe.cpp uses the field,verified
+0x7e,Vec3s,spinRot,name and access width as src/objects/monolithe.cpp uses the field,verified
+0x84,CamSetup *,uiCamera,name and access width as src/objects/monolithe.cpp uses the field,verified
+0x88,ScnObject *[10],ghosts,name and access width as src/objects/monolithe.cpp uses the field,verified
+0xb0,ScnObject *,freezeTarget,who gets the UI freeze during the turn: g_pWolf (stored 0x4d9c23) or a Robot (classId 0x65) found in the msg-0x1f presser array (0x4d9d34),verified
+0xb4,CollBox *,sheepBox,name and access width as src/objects/monolithe.cpp uses the field,verified
+0xb8,MonolitheRider[10],riders,"10 entries of 12 bytes {Vec3s offset; u16 pad; ScnObject *obj}; the acceptance test is Vec3s_DistXZ < 0xe6 (0x4d998e cmp 0xe6/jge), not 0xe5. 0xb8+120 = 0x130 = soundHandle, so the 10-entry bound is forced by the layout",verified
+0x130,u16,spinSound,name and access width as src/objects/monolithe.cpp uses the field,verified

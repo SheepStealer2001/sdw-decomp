@@ -1,0 +1,10 @@
+offset,ctype,name,meaning,confidence
+0x0,s16,maxSpeed,"target speed at full stick deflection, u/s (Mobile_Steer: maxSpeed * stickMag >> 8)",verified
+0x2,s16,acceleration,Math_ApproachLinear rate when speeding up,verified
+0x4,s16,deceleration,Math_ApproachLinear rate when slowing; Mobile_Steer brakes at (acceleration+deceleration)/2 when the stick points backwards,verified
+0x6,s16,verticalRate,not read by the steering functions; name ,inferred
+0x8,s32,maxTravelTurnRate,angular speed limit for the motion heading,verified
+0xc,s32,maxFacingTurnRate,angular speed limit for the facing,verified
+0x10,s32,travelTurnAcceleration,angular acceleration for the motion heading (also passed as the facing's deceleration),verified
+0x14,s32,facingTurnAcceleration,angular acceleration for the facing,verified
+0x18,s32,returnAngleThreshold,a stick further than this from the motion heading makes Mobile_Steer return 1,verified

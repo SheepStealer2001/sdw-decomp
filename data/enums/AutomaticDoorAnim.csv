@@ -1,0 +1,6 @@
+value,name,meaning
+#,AutomaticDoorAnim,no model with an animation table for class AutomaticDoor in any level
+0x1,AUTODOOR_ANIM_CLOSING,no animation table for this class in the retail levels; named from the state that starts it (inferred)
+0x2,AUTODOOR_ANIM_CLOSED,no animation table for this class in the retail levels; named from the state that starts it (inferred)
+0x3,AUTODOOR_ANIM_OPENING,no animation table for this class in the retail levels; named from the state that starts it (inferred)
+0x4,AUTODOOR_ANIM_OPEN,no animation table for this class in the retail levels; named from the state that starts it (inferred)

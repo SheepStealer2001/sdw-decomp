@@ -1,0 +1,6 @@
+value,name,meaning
+#,TriggedStoneState,state field of TriggedStone
+0x0,TSTONE_ST_ARMED,"Update 0: after triggerDelayMs anim FALL1, -> 2 (inferred)"
+0x1,TSTONE_ST_DONE,"Update 3: anim STAND1, -> 1 (inferred)"
+0x2,TSTONE_ST_FALL,"Update 2: crushes victims, then anim EXPLOD1... -> 3 (inferred)"
+0x3,TSTONE_ST_SETTLE,"Update 3: on anim end releases camera, anim STAND1, -> 1 (inferred)"

@@ -1,0 +1,11 @@
+value,name,meaning
+#,WolfProp,prop index of Wolf::ShowProp / FxGeneric_Start = row of g_wolfPropModelTable (propModels[i] = table[i])
+0x0,WOLF_PROP_ETOIL,table[0] = WAR_IDO_AETOIL01 (dizzy stars: Fx 'stop the dizzy stars')
+0x1,WOLF_PROP_SABLE1,table[1] = WAR_IDO_ASABLE01
+0x2,WOLF_PROP_SABLE2,table[2] = WAR_IDO_ASABLE02
+0x3,WOLF_PROP_GLACON1,"table[3] = WAR_IDO_AGLACON1 (ice block, effect flag 4)"
+0x4,WOLF_PROP_GLACON3,"table[4] = WAR_IDO_AGLACON3 (ice trap, effect flag 0x100000)"
+0x5,WOLF_PROP_FEUIL,"table[5] = WAR_IDO_AFEUIL01 (effect 5, 0x2000)"
+0x6,WOLF_PROP_CENSURE,"table[6] = WAR_IDO_ACENSURE (effect 6, 0x4000)"
+0x7,WOLF_PROP_CBOUE,table[7] = WAR_IDO_ACBOUE01
+0x8,WOLF_PROP_ECLAI,table[8] = WAR_IDO_AECLAI01

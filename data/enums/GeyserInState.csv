@@ -1,0 +1,7 @@
+value,name,meaning
+#,GeyserInState,state field of GeyserIn
+0x0,GEYSERIN_ST_IDLE,"SetState 0: idlePeriod timer, anim state 5, victim cleared; Update: -> 1 on timer or msg 0x2884 (inferred)"
+0x1,GEYSERIN_ST_ACTIVE,"SetState 1: activePeriod, anim state 6; Update: back to 0 when the out-geyser is idle (inferred)"
+0x2,GEYSERIN_ST_SUCK,"SetState 2: msg 0x31 to the victim, anim state 9; Update: pulls the victim in (inferred)"
+0x3,GEYSERIN_ST_TRANSIT,"SetState 3: anim state 8, transit delay; Update: carries the victim to the out-geyser (inferred)"
+0x4,GEYSERIN_ST_CORKED,"SetState 4: corkPeriod, anim state 7; Update: a Rock plugs it (inferred)"

@@ -1,0 +1,9 @@
+value,name,meaning
+#,StreamPlayerState,state field of StreamPlayer
+0x0,STREAM_ST_IDLE,Load_MusicVoiceBank / Halt / SetPaused(1): state = 0; Update 0: silent loop (inferred)
+0x1,STREAM_ST_PLAYING,"Update 2: loader finished, stream started, state = 1 (inferred)"
+0x2,STREAM_ST_LOADING,"RestartLevelMusic / LoadLevelMusic: loader started, state = 2 (inferred)"
+0x3,STREAM_ST_VOICE_DONE,UpdateVoice / StopVoice: state = 3 (inferred)
+0x4,STREAM_ST_UNUSED_4,value in the census; no writer found in stream_player.cpp (inferred)
+0x5,STREAM_ST_VOICE_FADE_MUSIC,"PlayVoice: loader started, music fades, state = 5 (inferred)"
+0x6,STREAM_ST_VOICE_PLAYING,UpdateVoice: state = 6 (inferred)

@@ -1,0 +1,9 @@
+value,name,meaning
+#,GameLanguage,
+0x0,GAME_LANG_ENGLISH,0/default -> English
+0x1,GAME_LANG_SPANISH,1 -> Spanish
+0x2,GAME_LANG_ITALIAN,2 -> Italian
+0x3,GAME_LANG_BRAZILIAN,3 -> Brazilian
+-0x3,GAME_LANG_DUTCH,StreamPlayer::PlayVoice: language -3 -> Voices/Dutch
+-0x2,GAME_LANG_GERMAN,-2 -> German
+-0x1,GAME_LANG_FRENCH,-1 -> French

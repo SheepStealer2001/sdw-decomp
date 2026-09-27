@@ -1,0 +1,6 @@
+value,name,meaning
+#,DtlMode,"DaffyTrainingLevel.mode, SetMode arg 0 (comment at 0x43eb56: 0 idle, 1 talking, 2 walking to the next help point; 0xff leaves it alone)"
+0x0,DTL_MODE_IDLE,"SetMode case 0: shadow on, camera released, Wolf unfrozen, anim 0xb STAND1"
+0x1,DTL_MODE_TALK,"case 1: Wolf frozen (msg 14), speech clock started"
+0x2,DTL_MODE_WALK,"case 2: walk to the next help point, scripted camera"
+0xff,DTL_MODE_KEEP,0xff = leave the field alone (SetMode)

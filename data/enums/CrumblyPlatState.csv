@@ -1,0 +1,5 @@
+value,name,meaning
+#,CrumblyPlatState,state field of CrumblyPlat
+0x0,CRUMBLYPLAT_ST_INTACT,SetState 0: anim STAND looped; Update: CheckWolfOnTop (inferred)
+0x1,CRUMBLYPLAT_ST_BREAK,SetState 1: anim BREAK; Update: on anim end -> 2 (inferred)
+0x2,CRUMBLYPLAT_ST_GONE,SetState 2: SetVisible(0) (inferred)

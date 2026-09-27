@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x0,u8,u,U origin of the frame bitmap in its texture page (UiFrame_LoadSkin 0x53a0ae writes [this+8*i+0x18]; UiCursor_Draw 0x53a34e reads it),verified
+0x1,u8,v,"V origin of the frame bitmap (0x53a0bc write, 0x53a362 read)",verified
+0x2,u8,wMinus1,frame bitmap width - 1 (0x53a0ce write; UiCursor_SetSlide 0x538ef1 reads frames[0]),verified
+0x3,u8,hMinus1,frame bitmap height - 1 (0x53a0e0 write; UiCursor_SetPos 0x538ecb reads frames[0]),verified
+0x6,u16,texIndex,texture page of the frame bitmap (0x53a04c write as word [this+8*i+0x1e]; UiCursor_Draw 0x53a472 reads it),verified

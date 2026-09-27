@@ -1,0 +1,15 @@
+offset,ctype,name,meaning,confidence
+0x0,void **,vtbl,0x5775ec; single slot = StreamPlayer_ScalarDeletingDtor,verified
+0x4,StreamSound *,current,the playing stream = this+8+slot*0x94,verified
+0x8,StreamSound[2],streams,StreamSound[2] (0x94 each); double-buffered: the loader fills the idle one,verified
+0x130,u8,activeSlot,index of the playing stream; the loader uses (activeSlot-1)&1,verified
+0x131,u8,bankLoaded,set to 1 by Load_MusicVoiceBank once MusicVoice.BSV is read (0x5638e6); zeroed by the ctor (0x563662),verified
+0x132,u16,clipCount,entries in +0x134 (0x74 from MusicVoice.BSV),verified
+0x134,char **,clipNames,"per-clip allocated entries from Load_MusicVoiceBank, used as file names by 0x563bd0",verified
+0x138,u16,currentClip,clip index being loaded (g_pStreamPlayer id),verified
+0x13a,char[0x200],path,full clip path built from 0x6d5220 + clip name; the loader thread argument. Length inferred from the next field,inferred
+0x33c,s32,state,"stream state machine (3 load-next, 5 fade-out, 6 wait-for-load...), per 0x563bd0",verified
+0x340,s32,pausedState,state saved by 0x5642e0 on pause (0x5642f5) and restored on resume (0x56431b); zeroed by the ctor (0x56367c),verified
+0x344,s32,autoPlay,1 by ctor: StreamSound_Play after a load completes,verified
+0x348,u32,playArg,argument passed to StreamSound_Play (lip-sync enable),verified
+0x34c,s32,stateStartMs,g_rawTimeMs when the state was entered (fade/timeout timing),verified

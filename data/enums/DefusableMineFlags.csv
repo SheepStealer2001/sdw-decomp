@@ -1,0 +1,6 @@
+value,name,meaning
+#,DefusableMineFlags,DefusableMine +0xf8 dmFlags
+0x1,DM_STEP_OK,correct press accepted for this step
+0x2,DM_STEP_ERROR,"wrong, early, late or extra press this step (-> explosion at step end)"
+0x4,DM_WOLF_FROZEN,the Wolf accepted msg 0xe from this mine (frozen during states 7/8)
+0x8,DM_SYMBOL_SOUND_DONE,playback symbol sound 0x83 already played this step

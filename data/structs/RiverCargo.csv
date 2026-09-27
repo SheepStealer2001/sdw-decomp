@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x0,u16,node,index of the path point it moves toward (FrozenRiver_FindNextNode 0x4c353b; ++ at 0x4c3a06),verified
+0x4,s32,moving,"1 while it moves toward node; 0 while another cargo holds that node (FrozenRiver_IsNodeTaken, 0x4c355a/0x4c3569, 0x4c37f3)",verified
+0x8,s32,active,"floe slots: 1 while the floe is in the water (FrozenRiver_LaunchFloe 0x4c3d5a), 0 once the crane has it (0x4c30d4); the cargo slots only clear it (0x4c31d3)",verified
+0xc,ScnObject *,obj,"the Wolf, the Sheep or the SlidingIceCube (0x4c3523, 0x4c35ba, 0x4c2bbb)",verified
+0x10,s32,waitingCrane,1 once the crane has been sent msg 0x37 for it at the last node (0x4c3b2a); MoveCargo then does nothing more for it,verified
+0x14,s32,done,"1 once the crane has taken it (msg 0x3e, 0x4c3039/0x4c310b); FrozenRiver_UpdateCargo skips it",verified

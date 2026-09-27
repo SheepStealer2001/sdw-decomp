@@ -1,0 +1,11 @@
+offset,ctype,name,meaning,confidence
+0x7c,Vec3s,homePos,= pos at Init (if in world) and on msg 9 arg 1; Reset moves the Hoover here and snaps it to the ground,verified
+0x82,u8,state,"HooverState (0 armed, 1 off, 2 sucking)",verified
+0x84,Box *,activationBox,PROPERTY_HOOVER_ACTIVATIONBOX (Scn_GetPropBox offset 0); stored by Init and never read,verified
+0x88,ScnObject *[15],ghosts,"Ghost objects (class 120) from Scenaric_FindByClass(0x78, …, 15); receive 0x4001 and the suck request msg 0",verified
+0xc4,ScnObject *,battery,sender of 0x4581 (the master Battery); gets 0x4404 arg 1 at suck start and arg 0 at suck end. Uninitialised until the first 0x4581,verified
+0xc8,u16,ghostCount,count for ghosts[],verified
+0xcc,u32,inHand,"1 after a Wolf held-action query (msg 0x17); 0 after msg 7 (stored), Init, Reset. Gates arming on 0x4581",verified
+0xd0,u32,charged,"1 on 0x4581 (5 batteries), 0 on 0x4582; gates arming on msg 8",verified
+0xd4,u32,wolfFrozen,return of Wolf msg 0xE (MSG_FREEZE) when a suck starts; cleared when msg 0xF (MSG_UNFREEZE) succeeds on 0x4583,verified
+0xd8,u16,suckSoundHandle,"Sound_Play(0x6B, vol 0x33) handle while sucking; stopped by SetState(1/2)",verified

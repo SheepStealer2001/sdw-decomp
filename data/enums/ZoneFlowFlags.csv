@@ -1,0 +1,8 @@
+value,name,meaning
+#,ZoneFlowFlags,"Water-current bits in a zone Box.flags u32, decoded by Zone_GetFlowVelocity 0x5112d6 and Zone_GetFlowHeading 0x5113fa."
+0x00800000,FLOW_SLOW,speed 100 (takes priority over FAST)
+0x04000000,FLOW_FAST,speed 400 (default speed 200 when neither is set)
+0x08000000,FLOW_NEG_X,current toward -x (heading 0x400)
+0x10000000,FLOW_POS_X,current toward +x (heading 0xc00); checked before NEG_X
+0x20000000,FLOW_NEG_Z,current toward -z (heading 0)
+0x40000000,FLOW_POS_Z,current toward +z (heading 0x800); checked before NEG_Z

@@ -1,0 +1,14 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,active,"1 while the robot flies its patrol path (anim 1, hum 0xdb), 0 while it is parked (anim 0, hum 0xdc); MSG_SWITCH_ON toggles it (0x4d1427 movzx eax,byte [edx+0x64] / cmp eax,1), Update only steps the path when it is 1 (0x4d13c9)",verified
+0x66,u16,voice,"handle of the looping engine sound; stopped before each new Sound_Play (0x4d148e mov ax,word [edx+0x66] into the Sound_Stop temp) and cleared by Reset (0x4d1a85 mov word [edx+0x66],0)",verified
+0x68,u32,pulseLatch,"1 between MSG_SWITCH_ON and MSG_SWITCH_OFF; the ON arm does nothing while it is set, so one held switch toggles the robot once (0x4d141a cmp dword [ecx+0x68],0 / 0x4d156a mov dword [eax+0x68],1)",verified
+0x6c,CollBox,killBox,"world-space kill volume rebuilt every active frame around the robot: +-240 on x and z, 400 above pos, ground height below (0x4d1597-0x4d1611 word stores at +0x70..+0x7a); the Wolf gets MSG_KILL when his position is inside it (0x4d16bd call [eax+0x10])",verified
+0x7c,Trajectory *,traj,"PROPERTY_LAZERROBOT_TRAJ: the patrol trajectory resource (0x4d1219 call Scn_GetPropTrajectory / 0x4d1224 mov [ecx+0x7c],eax); its points are read as traj + 2 + 6*pointIndex (0x4d1725 imul eax,eax,6 / lea ecx,[edx+eax+2])",verified
+0x80,TrajFollower,follower,"the 0x20-byte trajectory follower, init'd with headingBias 0x800, continuousHeading 1, use3dDistance 0, arriveRadius 0x32 (0x4d1247 add eax,0x80 before TrajFollower_Init; 0x4d16e0 add edx,0x80 before TrajFollower_Step)",verified
+0xa0,Vec3s,vel,"velocity the follower produced this step, in units/s (0x4d16d9 add ecx,0xa0 is TrajFollower_Step's outVel and Vec3s_ScaleByDt's input)",verified
+0xa6,Vec3s,step,"vel scaled by the frame time; handed straight to ScnObject_Translate (0x4d16f5 add eax,0xa6 out of Vec3s_ScaleByDt, 0x4d1738 add edx,0xa6 into Translate)",verified
+0xac,s16,pathHeading,"TrajFollower_Step's outHeading slot (0x4d16d0 add eax,0xac); written every step and never read - the robot turns with its own heading at +0xae instead",verified
+0xae,s16,heading,"heading toward the next waypoint, atan2 of the horizontal delta plus half a turn, masked to 0..0xfff (0x4d17b1 add edx,0x800 / and edx,0xfff / mov word [eax+0xae],dx); the turn step then edits it in place before it is copied into rot.y",verified
+0xb0,Vec3s,homePos,"the placed position, saved by PostLoadInit (0x4d12b6 add edx,0xb0, 6-byte copy of pos) and restored by Reset through virtual SetPosition (0x4d19a5 add eax,0xb0 / call [edx+0x1c])",verified
+0xb8,ScnObject *,activator,"the sender of the switch message that last toggled the robot (0x4d1441, 0x4d14dd mov [edx+0xb8],eax); Reset sends it message 0x4d if it is non-NULL (0x4d1a3d push 0x4d)",verified
+0xbc,s16,speed,"PROPERTY_LAZERROBOT_SPEED, truncated from the u32 property to a word (0x4d1208 mov dx,word [ebp-0xc] / mov word [ecx+0xbc],dx); passed to TrajFollower_Init by PostLoadInit and again by Reset",verified

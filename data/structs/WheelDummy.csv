@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x40,CollBox,box,"world ground box: the parent Wheel copies a model box + its position into +0x44..+0x4f (0x5094ad-0x509520) and the dummy answers MSG_GROUND_QUERY from it (0x509747 lea this+0x40, reads +4/+6/+8/+0xa/+0xe)",verified
+0x50,s16,railPhase,"phase angle written by the parent Wheel (Wheel_PostLoadInit 0x507ccb mov word ptr [eax+0x50], 0) and read back signed (movsx) with the wheel's rot[1] when it places the lifts",verified
+0x52,s16,spinPhase,"spin phase written by the parent Wheel (Wheel_PostLoadInit 0x507cea mov word ptr [eax+0x52], cx; cx = lift index * step) and read back signed (movsx) with rot[2] when it places the lifts",verified

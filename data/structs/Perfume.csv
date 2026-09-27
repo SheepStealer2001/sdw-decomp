@@ -1,0 +1,12 @@
+offset,ctype,name,meaning,confidence
+0x7c,InlineEmitter32,scentFx,"32-slot perfume-particle emitter with inline storage: the factory sets slotPool = +0xa0, particles = +0x220, count (+0x9d) = 0x20; flags byte +0x9e bit 0 = active (tested by Render)",verified
+0x320,Vec3s,emitPos,"particle source, rewritten every Update: pos with y - 40 (40 units up). The drift band reference height is emitPos.y - 90",verified
+0x326,Vec3s,homePos,spawn position (Init; msg 9 arg 1); Reset returns here unless the item is KEPT,verified
+0x32c,u8,state,"PerfumeState: 0 inactive (delivered, held or reset), 1 emitting (after a placed drop, msg 5 flag bit 0)",verified
+0x32d,PerfumeFlagBits,perfumeFlags,"PerfumeFlags: bit 0 blown this frame (msg 0x14; consumed by Update), bit 1 scent source registered with the flock",verified
+0x32e,u16,pad32e,"padding, never accessed",inferred
+0x330,s32,blowTime,"accumulated blowing in 1/4096 s: += g_dt while blown, -= g_dt otherwise, clamped 0..0x471c. Scent range = blowTime*450>>12 (max 1999)",verified
+0x334,s16,blowHeading,facing of the last Fan holder that blew it (msg 0x14 arg); the drift direction of the particles and of the scent cone. Never cleared by Init or Reset,verified
+0x336,PerfumeScentReport,lastReport,PerfumeScentReport: classId = class of the nearest object that reported smelling the perfume (msg 0x34 from Sheep_TestScentSource: 0xB); relayed to the Fan with msg 0x34 on each blow; proximity = dist*0xffff/sqrt(rangeSq) of that report; the smallest wins within 0x800 ticks,verified
+0x33a,u16,pad33a,"padding, never accessed",inferred
+0x33c,u32,reportTime,g_gameTime of the last stored report (the relay is sent only while it is <= 0x800 old); dword-zeroed in Init/Reset,verified

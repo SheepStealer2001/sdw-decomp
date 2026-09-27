@@ -1,0 +1,10 @@
+value,name,meaning
+#,CollQueryFlags,u8 flag byte passed to Collide_SweepBox / Collide_SweepBox_Sam / Coll_BoxGroundQuery
+0x01,CQ_STATIC,test static world triangles
+0x02,CQ_STATIC_EXT,"also enables static triangles, plus the id-list-7 exclusion zones and id-list-6 static boxes prepass (Collide_SweepBox only)"
+0x04,CQ_OBJECTS,test scenaric objects from the object grid
+0x08,CQ_SAM_WALL_OVERLAP,"Sam sweep only: triangles with |normal.y|<2000 are plain overlap-tested, frac forced 0, result bit 0x8000"
+0x10,CQ_ASK_MOVER,"mover->HandleMessage(NULL, 0x77, candidate) nonzero vetoes the candidate"
+0x20,CQ_IGNORE_SKIPBOX,test generic boxes even when obj flag 0x400 is set
+0x40,CQ_FROM_GROUND_QUERY,ORed in by Coll_BoxGroundQuery when calling a custom collider
+0x80,CQ_FROM_QUERY_GROUND_Y,passed only by ScnObject::QueryGroundY (w.mode | 0x80); never tested (verified)

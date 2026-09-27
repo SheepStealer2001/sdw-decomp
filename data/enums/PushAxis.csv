@@ -1,0 +1,5 @@
+value,name,meaning
+#,PushAxis,"reply to MSG_QUERY_PUSH_AXIS 0x5b (read by Wolf::SnapHeadingToObject). The ScnMsg doc says '1 = X locked, 2 = Y locked'; Rock answers 1 when !allowX and 2 when !allowZ, so 2 is the Z axis"
+0x0,PUSH_AXIS_FREE,0 = free (SnapHeadingToObject case 0: nearest 0x400 step)
+0x1,PUSH_AXIS_X_LOCKED,Rock: return 1 when !rockFlags.allowX
+0x2,PUSH_AXIS_Z_LOCKED,Rock: return 2 when !rockFlags.allowZ (doc says Y)

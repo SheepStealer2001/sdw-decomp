@@ -1,0 +1,12 @@
+offset,ctype,name,meaning,confidence
+0x4,u8,hasTex2,1 once Weather_SetTexture2 has set the second texture (0x52e615); the ctor clears it,verified
+0x8,WeatherTex,tex,first particle texture (Weather_SetTexture),verified
+0x38,WeatherTex,tex2,second particle texture (Weather_SetTexture2),verified
+0x68,Vec3f,centre,"camera-space centre of the particle volume: (0, 0, sqrt(radius^2 - halfWidth^2) + near plane) (Weather_SetVolume 0x52e2a2-0x52e2dc)",verified
+0x74,float,radius,volume radius (Weather_SetVolume 0x52e28a),verified
+0x78,float,radiusSq,radius squared (0x52e29c),verified
+0x7c,WeatherParticle[500],particles,the particles; count at +0x566c,verified
+0x566c,u32,count,"live particles, capped at 500 by Weather_SetVolume (0x52e2ee)",verified
+0x5670,IDirect3DVertexBuffer7 *,vb,"D3DFVF_XYZ vertex buffer, 4 vertices per particle (Weather_CreateVertexBuffers 0x531a08)",verified
+0x5674,IDirect3DVertexBuffer7 *,vbXf,D3DFVF_XYZRHW ProcessVertices destination,verified
+0x5678,RenderPoly,poly,the one triangle every quad half is pushed through (RenderPoly_Ctor 0x52e223),verified

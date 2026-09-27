@@ -1,0 +1,4 @@
+value,name,meaning
+#,ABOCGL02Anim,animation ids of WAR model ABOCGL02 (its WAR type-0x86 table; names verified from the level files). Played by: IceGround
+0x0,ABOCGL02_ANIM_EXPLOD1,WAR name EXPLOD1
+0x1,ABOCGL02_ANIM_STAND0,WAR name STAND0

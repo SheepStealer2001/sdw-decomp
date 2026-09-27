@@ -1,0 +1,8 @@
+value,name,meaning
+#,AttachLinkFlags,AttachLink +7 as read by Instance_CalcWorldMatrix and written by Instance_DrawAnimParts
+0x01,ATTACH_F_MATRIX_VALID,set when the parent's draw publishes the matrix; without it the child is marked invisible
+0x02,ATTACH_F_PARENT_RENDERED,"parent processed this frame: Scenaric_RenderAll clears 0x01|0x02 (& 0xFC) on every active link, then renders the parent of any link without 0x02; Scn_RenderIfVisible sets it (| 2) on its child links."
+0x04,ATTACH_F_ROOT_ROTATION,publish the root part M[0] rotation with part M[partIndex] translation
+0x08,ATTACH_F_LOCAL_OFFSET,child translation = link matrix applied to localOffset*8
+0x10,ATTACH_F_EXTRA_ROTATION,multiply by RotXYZ(link rot) when publishing
+0x20,ATTACH_F_WORLD_OFFSET,add worldOffset*8 to the child translation

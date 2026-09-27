@@ -1,0 +1,5 @@
+value,name,meaning
+#,VisMgrState,VisibilityManager.state (+0x256)
+0,VIS_INIT,after init; forces the first update to apply
+1,VIS_HIDDEN,camera inside a WHENINBOX box: CANTSEE meshes have kind 0
+2,VIS_SHOWN,camera outside: saved kinds restored

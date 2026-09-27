@@ -1,0 +1,5 @@
+value,name,meaning
+#,BipbipState,state field of bipbip
+0x0,BIPBIP_ST_WAIT,Update 0: -> 1 when the Wolf enters startBox (inferred)
+0x1,BIPBIP_ST_RUN_ROAD,"Update 1: road path, -> 2 at its end (inferred)"
+0x2,BIPBIP_ST_RUN_TUNNEL,"Update 2: road and wall paths, Reset at the end (inferred)"

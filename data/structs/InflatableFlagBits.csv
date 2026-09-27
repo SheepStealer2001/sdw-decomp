@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,u8:1,inflated,bit 0 (1-byte unsigned unit): inflated,verified
+0x0,u8:1,burnt,bit 1 (1-byte unsigned unit): burnt (black tint; deflated by Reset),verified
+0x0,u8:6,rest,bits 2..7 (1-byte unsigned unit),inferred

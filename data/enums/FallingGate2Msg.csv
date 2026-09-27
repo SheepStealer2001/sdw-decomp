@@ -1,0 +1,3 @@
+value,name,meaning
+#,FallingGate2Msg,Message used by Sam_Pirate on FallingGate2 (handler 0x4ba8e2).
+0x72,MSG_GATE_QUERY,returns (gate+0x78 CLOSED == 0). Sam_Pirate is jailed when he is in JAIL_BOX and this returns 0

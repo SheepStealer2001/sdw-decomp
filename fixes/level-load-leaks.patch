@@ -1,0 +1,97 @@
+Smaller leaks on every level load: the level's mesh vertex buffers, and three more
+
+A level free drops its objects with the object arena and deletes its meshes, but some of what a load creates is never
+released. Each full load (restarts, the studio and every level entry included) leaves behind:
+
+- The vertex buffers of every mesh in the level. Load_WarMeshes builds each of the level's meshes with
+  Mesh::BuildFromBsFile, which creates two Direct3D vertex buffers per mesh (the positions and the transformed
+  vertices, 12 + 16 bytes per vertex). Load_FreeWarMeshes deletes the meshes, but Mesh::~Mesh frees only the face array
+  and nothing releases the buffers, so the whole level's geometry buffers stay allocated (elastic objects' meshes,
+  which go in the same table, included). This is likely the largest
+  per-load leak after the iris texture (fixes/iris-mask-leak.patch).
+- Road Runner (bipbip): PostLoadInit creates the two shared vertex buffers on every call, overwriting the previous
+  ones, where every other shared buffer is created once.
+- The rolling carpet: its belt set-up makes a new backup Texture on every load without deleting the previous one.
+- Time_Init, called by Load_DAVnWAR on every load, makes a new Timer (0x28 bytes) without deleting the previous one.
+
+This fix releases a mesh's buffers in its destructor (and nulls them in its constructor), creates the Road Runner's
+buffers once, and deletes the previous rolling-carpet backup and Timer before making new ones. Behaviour is unchanged. The meshes elastic objects build are in the same mesh table (elastic.cpp puts them there),
+so their buffers are released by the same destructor.
+
+Touches: src/engine/mesh.cpp (Mesh::Mesh, Mesh::~Mesh), src/objects/bipbip.cpp (bipbip::PostLoadInit),
+src/objects/rollingcarpet.cpp (RollingCarpet::InitBeltScroll), src/engine/time.cpp (Time_Init).
+
+diff --git a/src/engine/mesh.cpp b/src/engine/mesh.cpp
+index 4a1892c..5b08d0c 100644
+--- a/src/engine/mesh.cpp
++++ b/src/engine/mesh.cpp
+@@ -186,6 +186,8 @@ Mesh::Mesh()
+ {
+     app = 0;
+     faces = 0;
++    vbPositions = 0;   /* FIX level-load-leaks: so that the destructor can release them */
++    vbTransformed = 0; /* FIX level-load-leaks */
+ }
+ 
+ /* 0x40c1db */
+@@ -193,6 +195,12 @@ Mesh::~Mesh()
+ {
+     if (faces && faceCount > 0)
+         delete[] faces;
++    /* FIX level-load-leaks: the original never released a mesh's two vertex buffers, so every level free left those
++     * of all the level's meshes behind. */
++    if (vbPositions)
++        vbPositions->Release();
++    if (vbTransformed)
++        vbTransformed->Release();
+ }
+ 
+ /* Two unused inline functions with an array new. They emit nothing, but VC6 numbers each array new's count
+diff --git a/src/engine/time.cpp b/src/engine/time.cpp
+index ba034a0..843a6e1 100644
+--- a/src/engine/time.cpp
++++ b/src/engine/time.cpp
+@@ -42,6 +42,8 @@ extern u32 g_gameFlags; /* 0x6ddf74  bit 0x40 = paused
+  * Time_Update delta is 0) and zeroes the clock; the previous Timer is not deleted. */
+ void Time_Init()
+ {
++    if (g_pTimer) /* FIX level-load-leaks: Time_Init runs on every level load; the previous Timer was never deleted */
++        delete g_pTimer;
+     g_pTimer = new Timer;
+     g_pTimer->Stop();
+     g_timeScale = 0x1000;
+diff --git a/src/objects/bipbip.cpp b/src/objects/bipbip.cpp
+index 87ff20a..7e545d0 100644
+--- a/src/objects/bipbip.cpp
++++ b/src/objects/bipbip.cpp
+@@ -150,13 +150,15 @@ void bipbip::PostLoadInit()
+     desc.dwCaps = D3DVBCAPS_DONOTCLIP;
+     desc.dwFVF = D3DFVF_XYZ;
+     desc.dwNumVertices = 2;
+-    g_pD3DAppMain->CreateVB(&desc, &g_bipbipVb);
++    if (!g_bipbipVb) /* FIX level-load-leaks: created once, as the other shared vertex buffers are */
++        g_pD3DAppMain->CreateVB(&desc, &g_bipbipVb);
+     memset(&desc, 0, sizeof(desc));
+     desc.dwSize = sizeof(desc);
+     desc.dwCaps = D3DVBCAPS_DONOTCLIP;
+     desc.dwFVF = D3DFVF_XYZRHW;
+     desc.dwNumVertices = 2;
+-    g_pD3DAppMain->CreateVB(&desc, &g_bipbipVbXf);
++    if (!g_bipbipVbXf) /* FIX level-load-leaks */
++        g_pD3DAppMain->CreateVB(&desc, &g_bipbipVbXf);
+ }
+ 
+ /* 0x4995c2 - vtable +0x14: waiting again: dust cleared, shadow on, hidden but always updated, back at the start of the
+diff --git a/src/objects/rollingcarpet.cpp b/src/objects/rollingcarpet.cpp
+index 209b586..5b9d2c7 100644
+--- a/src/objects/rollingcarpet.cpp
++++ b/src/objects/rollingcarpet.cpp
+@@ -515,6 +515,8 @@ void RollingCarpet::InitBeltScroll(s8 step)
+     g_rollingCarpetBeltScroll.offset = 0;
+     g_rollingCarpetBeltScroll.step = step;
+     w.source = g_pPolyBin->textures[g_rollingCarpetBeltScroll.texPage];
++    if (g_rollingCarpetBeltBackup) /* FIX level-load-leaks: the previous load's backup was never deleted */
++        delete g_rollingCarpetBeltBackup;
+     g_rollingCarpetBeltBackup = new Texture(g_pD3DAppMain, g_rollingCarpetBeltScroll.w, g_rollingCarpetBeltScroll.h,
+                                             w.source->GetFormat(), &w.result);
+     w.rect.top = w.rec->v;

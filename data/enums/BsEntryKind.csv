@@ -1,0 +1,25 @@
+value,name,meaning
+#,BsEntryKind,"Leading u16 of an entry inside a Black Sheep geometry record. BsFile_SkipEntry 0x41fc89 switches on it to advance by count * stride, which is what defines the entry format: {u16 kind; u16 count; payload[count*stride]}. All 23 kinds 0x00..0x16 extracted from that switch (verified). The strides of the polygon decoders (0x10/0x11 = 12, 0x12/0x16 = 20, 0x13 = 24) match this table exactly; where a kind's MEANING is given it is inferred from its decoder."
+0x00,BS_ENTRY_F3,payload stride 8 bytes per element
+0x01,BS_ENTRY_F4,payload stride 8 bytes per element
+0x02,BS_ENTRY_G3,payload stride 16 bytes per element
+0x03,BS_ENTRY_G4,payload stride 20 bytes per element
+0x04,BS_ENTRY_FT3,payload stride 24 bytes per element
+0x05,BS_ENTRY_FT4,payload stride 24 bytes per element
+0x06,BS_ENTRY_GT3,payload stride 40 bytes per element
+0x07,BS_ENTRY_GT4,payload stride 48 bytes per element
+0x08,BS_ENTRY_GT4_SQ64_A,"payload stride 48 bytes per element. fixed-square, 64px cell"
+0x09,BS_ENTRY_GT4_SQ64_B,"payload stride 48 bytes per element. fixed-square, 64px cell"
+0x0a,BS_ENTRY_GT4_SQ32_A,"payload stride 48 bytes per element. fixed-square, 32px cell"
+0x0b,BS_ENTRY_GT4_SQ32_B,"payload stride 48 bytes per element. fixed-square, 32px cell"
+0x0c,BS_ENTRY_FT4_SQ64_A,"payload stride 24 bytes per element. fixed-square, 64px cell, flat"
+0x0d,BS_ENTRY_FT4_SQ64_B,"payload stride 24 bytes per element. fixed-square, 64px cell, flat"
+0x0e,BS_ENTRY_FT4_SQ32_A,"payload stride 24 bytes per element. fixed-square, 32px cell, flat"
+0x0f,BS_ENTRY_FT4_SQ32_B,"payload stride 24 bytes per element. fixed-square, 32px cell, flat"
+0x10,BS_ENTRY_BF3,payload stride 12 bytes per element. flat triangle
+0x11,BS_ENTRY_BF4,payload stride 12 bytes per element. flat quad
+0x12,BS_ENTRY_BG3,payload stride 20 bytes per element. vertex-coloured triangle
+0x13,BS_ENTRY_BG4,payload stride 24 bytes per element. vertex-coloured quad
+0x14,BS_ENTRY_BFT3,payload stride 24 bytes per element
+0x15,BS_ENTRY_BGT3,payload stride 40 bytes per element
+0x16,BS_ENTRY_BG3_ALT,"payload stride 20 bytes per element. vertex triangle, identical branch to 0x12"

@@ -1,0 +1,17 @@
+value,name,meaning
+#,GoldenCoinsMsg,"Messages GoldenCoins (class 141) handles, as used by Sam_Pirate. Handler 0x4c7cde read for meaning."
+0x0,MSG_KILL,state 4 (hidden); returns 0
+0x2,MSG_QUERY_ACTION,4 CTX_PICKUP for the Wolf unless claimedBySam (+0x70)
+0x4,MSG_PICKUP,"attach, state 1"
+0x5,MSG_DROP,"detach to arg pos, state 2"
+0x6,MSG_QUERY_NEAREST_TARGET,"fills {u16 classIcon 0x8d; u16 level} for the Wolf's HUD hint (+0x660), from the nearest visible coin within 600 or Sam's distance (0x4a84)"
+0x7,MSG_INVENTORY_STORED,inInventory (+0x6c) = 1
+0x8,MSG_INVENTORY_TAKE_OUT,inInventory = 0 (Wolf_EquipItem sends it before msg 4)
+0x17,MSG_QUERY_HELD_ACTION,2 HELD_THROWABLE
+0x2f,MSG_DETECTOR_PING,from MineDetector_ConeScoreCB 0x4d7d00: a buried coin (state 0) gets revealed = 1 and state 3 (the coin answers 1 in every state)
+0x55,MSG_CHECKPOINT_ROLLBACK,vtable Reset
+0x4a80,MSG_COIN_IS_TAKEN,"returns 0 only when state 2 and inInventory (+0x6c, msg 7/8) == 0; +0x70 is the Sam claim"
+0x4a81,MSG_COIN_IS_HELD,state == 1
+0x4a82,MSG_COIN_SET_SCALE,+0x80 = arg
+0x4a83,MSG_COIN_CLAIM,+0x70 = 1
+0x4a84,MSG_COIN_SET_HINT_DIST,"+0x88 = (u16)arg, +0x84 = 1; consumed by msg 6"

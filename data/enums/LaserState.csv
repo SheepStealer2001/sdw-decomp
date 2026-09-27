@@ -1,0 +1,6 @@
+value,name,meaning
+#,LaserState,state field of Laser
+0x0,LASER_ST_INIT,"SetState 0: normal update, beam off; Update: -> 3 or 1 by LaserFlags 1 (inferred)"
+0x1,LASER_ST_OFF,"SetState 1: never updated, hidden, beam off, sound stopped (inferred)"
+0x2,LASER_ST_ARMING,"SetState 2: always updated, activation delay; Update: -> 3 (inferred)"
+0x3,LASER_ST_ON,"SetState 3: visible, anim animId looped, beam on; Update: burns the Wolf within 750 (inferred)"

@@ -1,0 +1,4 @@
+value,name,meaning
+#,SideQuadrant,ScnObject::GetSideQuadrant result bits
+0x1,SIDEQ_DX_GT_DZ,GetSideQuadrant: dx > dz -> |= 1
+0x2,SIDEQ_DX_GT_NEG_DZ,dx > -dz -> |= 2

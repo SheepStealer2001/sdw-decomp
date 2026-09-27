@@ -1,0 +1,13 @@
+offset,ctype,name,meaning,confidence
+0x40,u16,soundId,"SOUNDID property, passed to Sound_Play",verified
+0x42,u16,volume,"VOLUME property (0..255): the maximum volume, scaled by distance or box falloff",verified
+0x44,u16,soundHandle,"current Sound channel handle, 0 = none; cleared when the channel is found stopped or on leaving range",verified
+0x46,u16,loopPollCounter,looping mode only: incremented every in-range update; the IsPlaying / replay check runs only when it was even,verified
+0x48,s32:24,repeatTimerMs,"signed 24-bit bitfield (low 24 bits, top byte preserved): ms until the next one-shot play. -= g_dtMs while in range; plays when negative. Set by PickRepeatDelay as (s16)(MIN + rand(MAX-MIN+1)) | bit view of AmbientSoundManager +0x48: a 24-bit timer; the store masks the new value to 0xffffff and keeps the top byte (0x4949d3-0x4949ec)",verified
+0x48,s32:8,repeatTimerTop,"top byte of the repeat-timer unit, preserved by every store",inferred
+0x4c,u8:7,playFlags,7-bit bitfield of SoundPlayFlags passed as Sound_Play's 4th argument: 8 always; +2 POSITIONAL (FLAGS bit1) or +6 (bit2); +1 LOOP (bit3); +0x10 NO_ATTENUATION when linearFalloff or soundBox | bit view of AmbientSoundManager +0x4c: a 7-bit field updated as value |= 2 with the top bit preserved (0x494c6b-0x494c89),verified
+0x4c,u8:1,playFlagsTop,"top bit of the play-flags byte, preserved",inferred
+0x50,s32:1,linearFalloff,bit0 = FLAGS bit4: volume falls linearly with camera Manhattan-XZ distance over MAXDIST | signed bit view of AmbientSoundManager +0x50: shl 31 / sar 31 (0x494d25-0x494d2b),verified
+0x50,s32:31,linearFalloffRest,remaining bits,inferred
+0x54,Box *,soundBox,"SOUNDBOX (Scn_GetPropBox prop 0x10): when set, the sound plays only while g_camPos is inside it and MAXDIST is ignored",verified
+0x58,Box *,maxVolBox,"SOUNDMAXVOLBOX (prop 0x18): full volume inside; linear per-axis falloff out to the soundBox edges. If NULL, the falloff is measured from the object's pos",verified

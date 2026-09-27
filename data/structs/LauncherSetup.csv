@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x0,char[16],displayDevice,Selected render device name (strncpy 15 of the combo text + NUL). Matched back with CB_SELECTSTRING (case-insensitive prefix).,verified
+0x10,char[16],displayMode,"First 15 characters of the D3DApp_GetModeString label, e.g. '1024 x 768 x 16'. Passed to Launcher_FillModeCombo as the preselect prefix.",verified
+0x20,char[16],soundDevice,"Selected DirectSound device description, 15 chars + NUL.",verified
+0x30,char[16],controller,"Selected controller combo text: 'Keyboard only' (localized) or a joystick instance name, 15 chars + NUL.",verified
+0x40,u16,displayModeIndex,True D3DApp mode ordinal (CB_GETITEMDATA) written by the Accept handler (0x40340f). Never read back; the load path re-derives the mode from displayMode.,verified
+0x42,u8[0xE],unused,Never written or read; zero padding to the 0x50-byte registry value.,verified

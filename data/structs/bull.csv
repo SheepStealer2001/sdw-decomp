@@ -1,0 +1,30 @@
+offset,ctype,name,meaning,confidence
+0x7c,u8,state,BullState (bull_SetState writes it at entry and exit),verified
+0x80,s32,chargeSpeed,"charge and return speed in u/s: 800, or 1100 when the target is Gossamer_Lev08 (0x44c)",verified
+0x84,u32,hitTime,g_gameTime at SetState(4); state 4 goes back to state 2 after 0xa000 ticks,verified
+0x88,u32,stateTime,"g_gameTime at SetState(1/6/3); 2-s charge timeout, 1-s slide",verified
+0x8c,u32,tossClockBase,g_gameTime of the last frame that was not tossing; the toss arc advances by (now - this)*256/0x28000 per frame,verified
+0x90,s16,homeFacing,rot.y at Init; restored by SetState(0),verified
+0x92,s16,skidFacing,facing saved by SetState(3); never read,verified
+0x96,u16,targetDist,XZ distance output of Scenaric_FindBestInRadius in SetState(1); a hit is used only when < 900,verified
+0x98,u16,wakeUpSpeedPct,PROPERTY_BULL_WAKEUPSPEED; wake anim 0xe speed = pct*0x1000/100,verified
+0x9c,u32,woken,wake anim started; cleared by SetState(0) when asleep,verified
+0xa0,u32,chasingGossamer,set when a charge targets class 0x57; only Init clears it; makes Reset restart the charge,verified
+0xa4,u32,asleep,PROPERTY_BULL_ASLEEP,verified
+0xa8,Vec3s,chargeTargetPos,target position snapshotted when a charge starts; the charge runs straight at it,verified
+0xae,Vec3s,velocity,"charge velocity (x, 250, z) in u/s; SetState(9) makes it (x/4, y*4, z/4)",verified
+0xb4,Vec3s,homePos,ground-snapped Init position; target of state 8 and Reset,verified
+0xbc,CamSetup *,sheepCam,Scn_GetPropCamera(SHEEPCAM); CamShot started when a sheep is caught in SHEEPBOX,verified
+0xc0,Trajectory *,sheepTraj,Scn_GetPropTrajectory(SHEEPTRAJ); points 0..2 define the toss arc,verified
+0xc4,Box *,sheepBox,Scn_GetPropBox(SHEEPBOX); sheep whose origin is inside get tossed,verified
+0xc8,ZoneList,movementBoxes,"zone list {boxes, count}: Scn_FindIdList(MOVEMENTBOX); the charge target must be inside and each step must stay inside; their vertical ranges bound the target search | count (+4): count for movementBoxes",verified
+0xd0,ZoneList,activationBoxes,"zone list {boxes, count}: Scn_FindIdList(ACTIVATIONBOX); a noisy Wolf inside wakes the bull | count (+4): count for activationBoxes; 0 means the bull never wakes by proximity",verified
+0xd8,Box *,noReturnBox,Scn_GetPropBox(NORETURNBOX); escape volume for state 9,verified
+0xdc,ScnObject *,target,"current charge target (Wolf, a 0x1e responder such as Gossamer, or the tossed sheep)",verified
+0xe4,ScnObject *,tossedSheep,sheep being tossed along tossArc; the toss driver runs while it is set and state == 4,verified
+0xe8,ScnObject *,gossamer,Scenaric_FindByClass(0x57 Gossamer_Lev08); inside a movement box it triggers a charge from state 2,verified
+0xec,LaunchArc,tossArc,"sheep toss arc: coefficients from SHEEPTRAJ, t at +0x110 (advanced by bull_Update's own quadratic clock, not LaunchArc_Step), obj at +0x118",verified
+0x124,CamShot,sheepCamShot,toss camera shot (initialised with noFreeze = 1),verified
+0x138,EmitterDriftParams,dustParams,"Emitter_UpdateDrift params {s32 50, -60, 0x2000, 0x200; u16 size 0x50->0xb4; u8 0}",verified
+0x150,InlineEmitter16,dustEmitter,"dust emitter with inline storage (0x150..0x2b4): bull_Create 0x431c79 forms it at 0x431cb3, slotPool = +0x24 (0x431cbe), particles = +0xe4 (0x431cc9), count 0x10 (0x431cd7), Emitter_Reset 0x52dbe3 (0x431cde) before the final vptr",verified
+0x2b4,u16,soundHandle,channel of the charge loop sfx 0xfd or the escape sfx 0xca,verified

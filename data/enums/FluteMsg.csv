@@ -1,0 +1,11 @@
+value,name,meaning
+#,FluteMsg,Messages handled by Flute_HandleMessage 0x4c2151
+0x2,MSG_QUERY_ACTION,Wolf only -> 4
+0x4,MSG_PICKUP,"attach, anim 0, SetState(HELD), shadow hidden, Emitter_Reset"
+0x5,MSG_DROP,"detach, SetPosition(arg), anim 4, SetState(WORLD), shadow shown; Emitter_Reset only when arg flag bit 0 is set"
+0x6,MSG_QUERY_NEAREST_TARGET,"playing and Sam within 300: {1, dist*0xffff/300}, returns 1"
+0x9,MSG_CONTAINER_STATE,arg 1: homePos = pos
+0x15,MSG_HELD_STATE_BEGIN,"from the Wolf only: SetState(PLAYING), Sound_Play(0x25)"
+0x16,MSG_HELD_STATE_END,SetState(HELD)
+0x17,MSG_QUERY_HELD_ACTION,7 (HELD_FLUTE)
+0x55,MSG_CHECKPOINT_ROLLBACK,vtable Reset

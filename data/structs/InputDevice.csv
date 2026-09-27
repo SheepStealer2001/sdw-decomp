@@ -1,0 +1,25 @@
+offset,ctype,name,meaning,confidence
+0x0,fnptr *,vtable,"0x5742D0 base, 0x574308 joystick, 0x574314 keyboard, 0x574334 mouse. Three slots: [0] scalar deleting dtor, [1] SetAcquired, [2] Update.",verified
+0x4,u8,acquired,1 while the DirectInput device is acquired; Update refuses to run when it is 0.,verified
+0x5,u8,deviceKind,"0 = joystick, 2 = keyboard, 4 = mouse: base ctor writes 0 (0x403f4a), joystick 0 (0x406df5), keyboard 2 (0x4072d8), mouse 4 (0x409ed5).",verified
+0x6,u8,isDigital,"1 = digital device: InputMgr_Poll 0x52852d turns axisX/axisY into D-pad bits by sign against 0.0f (0x574300) and centres the analogue bytes at 0x80. 0 = analogue: axes are converted to bytes around 0x80. Writers: InputDevice_Construct 1 (base default), Keyboard_Construct 1, Joystick_Construct 0 (on the successful-init path), mouse 0x409E90 0.",verified
+0x8,float,axisX,"Normalised X axis: clamp(raw/65535, -1, +1) * scaleX + offsetX. The input manager reads these.",verified
+0xc,float,axisY,"Normalised Y axis, same formula.",verified
+0x10,float,axisZ,"Normalised Z axis (throttle / PgUp-PgDn on the keyboard), same formula.",verified
+0x14,u8 *,buttonPressed,Per-button output array: 1 when the button counts as pressed this frame after the blocked/repeat rules.,verified
+0x18,u16,buttonCount,"Number of buttons, capped at 0x100. 0x100 for the keyboard, 0xC for the joystick, 4 for the mouse.",verified
+0x1c,D3DApp *,pApp,Owning D3DApp; used for its hWnd in SetCooperativeLevel and to reach IDirectInput8.,verified
+0x20,s32,rawX,"Raw axis value in DirectInput units (-0xFFFF..+0xFFFF), written by the device-specific Update before it calls InputDevice_Update.",verified
+0x24,s32,rawY,"Raw Y axis, same convention.",verified
+0x28,s32,rawZ,"Raw Z axis, same convention.",verified
+0x2c,u8 *,buttonDown,"Per-button current physical state, written by the device Update (high bit of DIJOYSTATE.rgbButtons for the joystick).",verified
+0x30,float,axisScaleX,"Per-axis gain applied after normalisation; 1.0 by default, set by InputDevice_SetAxisCalibration from the input manager.",verified
+0x34,float,axisScaleY,Per-axis gain for Y.,verified
+0x38,float,axisScaleZ,Per-axis gain for Z.,verified
+0x3c,float,axisOffsetX,Per-axis bias added after scaling; 0.0 by default (centre calibration).,verified
+0x40,float,axisOffsetY,Per-axis bias for Y.,verified
+0x44,float,axisOffsetZ,Per-axis bias for Z.,verified
+0x48,u8 *,buttonBlocked,Per-button suppression mask: a non-zero entry forces buttonPressed to 0 for that button even while it is held.,verified
+0x4c,u8,allowHeld,1 (the constructor default) means a button that was already down last frame still reports pressed; 0 turns buttonPressed into a rising-edge signal.,verified
+0x50,u8 *,buttonDownPrev,"Previous frame's buttonDown snapshot, updated at the end of InputDevice_Update.",verified
+0x54,IDirectInputDevice8A *,pDevice,"The DirectInput device. Vtable uses: GetCapabilities 0x0C, EnumObjects 0x10, GetProperty 0x14, SetProperty 0x18, Acquire 0x1C, Unacquire 0x20, GetDeviceState 0x24, SetDataFormat 0x2C, SetCooperativeLevel 0x34, GetObjectInfo 0x38, Poll 0x64.",verified

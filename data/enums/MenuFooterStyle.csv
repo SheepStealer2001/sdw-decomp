@@ -1,0 +1,9 @@
+value,name,meaning
+#,MenuFooterStyle,"g_menuFooterStyle 0x6dec86 (engine/pause_menu.cpp; written only, nothing reads it)"
+0x0,MENU_FOOTER_NONE,PauseMenu_Open / PauseMenu_Update / PausedMenu_Open reset it to 0
+0x1,MENU_FOOTER_VALIDATE_BACK,Menu_BuildValidateBackFooter sets 1
+0x3,MENU_FOOTER_BACK,Menu_BuildBackFooter sets 3
+0x5,MENU_FOOTER_NAV,Menu_BuildNavFooter sets 5
+0x6,MENU_FOOTER_CONTROLS,Menu_BuildControlsFooter sets 6
+0x7,MENU_FOOTER_BIND,the PAUSEMENU_BIND_ARROW / PAUSEMENU_BIND_ACTION rebind prompts set 7
+0x8,MENU_FOOTER_VALIDATE_CANCEL,Menu_BuildValidateCancelFooter and the PauseMenu 'done' items set 8

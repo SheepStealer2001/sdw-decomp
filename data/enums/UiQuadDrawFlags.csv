@@ -1,0 +1,3 @@
+value,name,meaning
+#,UiQuadDrawFlags,UiQuad.drawFlags / Font.reserved (bits 6-8 hold a fade level)
+0x1c0,UIQUAD_FADE_MASK,UiQuad::SetFadeLevel: (drawFlags & 0xfe3f) | (level << 6) -- bits 6-8 hold the fade level

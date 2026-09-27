@@ -1,0 +1,9 @@
+value,name,meaning
+#,ResizerFlags,Resizer.flags (u16)
+0x1,RESIZER_F_WOLF_DEAD_HOLD,HandleMessage sets 1; Update case 0 requires it clear before freezing the Wolf (inferred)
+0x2,RESIZER_F_WOLF_DEAD,Update: set when the Wolf answers MSG_WOLF_IS_DEAD
+0x100,RESIZER_F_WOLF_FROZEN,"Update: set after msg 0xe froze the Wolf (and for class 0x91), cleared on release"
+0x200,RESIZER_F_GROW,PostLoadInit property; selects anim 1 vs 0 in Update and SetState (inferred)
+0x400,RESIZER_F_EXIT_ONLY,PostLoadInit property; without it exitObject is read and the model box is used; receives from another Resizer
+0x800,RESIZER_F_TARGET_RESIZED,"Update: set when target accepted MSG_SET_SIZE, cleared after"
+0x9ff,RESIZER_F_RUNTIME_MASK,Resizer::Reset: flags &= 0xfffff600 (keeps 0x200 GROW and 0x400 EXIT_ONLY); the constant is the complement of the literal (inferred)

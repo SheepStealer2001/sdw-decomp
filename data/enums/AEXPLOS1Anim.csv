@@ -1,0 +1,4 @@
+value,name,meaning
+#,AEXPLOS1Anim,animation ids of WAR model AEXPLOS1 (its WAR type-0x86 table; names verified from the level files). Played by: CannonBall
+0x1,AEXPLOS1_ANIM_BOOM1,WAR name BOOM1
+0x2,AEXPLOS1_ANIM_BOOM1A,WAR name BOOM1A

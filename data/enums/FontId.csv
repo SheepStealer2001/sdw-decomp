@@ -1,0 +1,5 @@
+value,name,meaning
+#,FontId,
+0x0,FONT_DEBUG,"Load_DAVnWAR: Font_LoadFromRes(0, 0x1d DAV_IDI_IGLFONTE, FONT_KIND_DEBUG)"
+0x1,FONT_GAME,"Font_LoadFromRes(1, 0x24 DAV_IDI_IGLTYPO_, FONT_KIND_GAME)"
+0x2,FONT_GAME_SMALL,"Font_CloneResized(1, 2, 10, 12): slot 2 is a resized copy of the game font"

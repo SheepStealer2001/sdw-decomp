@@ -1,0 +1,12 @@
+value,name,meaning
+#,PerfumeMsg,Messages handled by Perfume_HandleMessage 0x4da86e
+0x2,MSG_QUERY_ACTION,Wolf (0) or Robot (0x65) -> 4 (CTX_PICKUP)
+0x4,MSG_PICKUP,"attach, shadow hidden, Emitter_Reset, state INACTIVE, anim 1"
+0x5,MSG_DROP,"detach, SetPosition(arg); arg flags (+6) bit 0 (placed) -> Emitter_Reset and state EMITTING; anim 0"
+0x7,MSG_INVENTORY_STORED,about to be stored in the inventory: unregister the scent source
+0x9,MSG_CONTAINER_STATE,arg 1: homePos = pos
+0x14,MSG_FAN_BLOW,"blowHeading = arg, BLOWN; relays a fresh report to the sender (the Fan) with msg 0x34"
+0x17,MSG_QUERY_HELD_ACTION,2 (HELD_THROWABLE)
+0x25,MSG_LANDED,"clears SCN_OF_KEPT, then Reset (back to homePos, inactive)"
+0x34,MSG_ATTRACT_REPORT,"from a Sheep in the scent cone: keeps the nearest {0xB, proximity} within 0.5 s"
+0x55,MSG_CHECKPOINT_ROLLBACK,vtable Reset

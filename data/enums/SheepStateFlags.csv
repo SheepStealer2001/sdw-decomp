@@ -1,0 +1,14 @@
+value,name,meaning
+#,SheepStateFlags,u16 at g_sheepStateTable row +4
+0x0001,SHSF_NO_BOX_COLLIDE,obj+0x3A |= 0x400
+0x0002,SHSF_KEEPS_RESERVATION,target reservation kept
+0x0004,SHSF_ALWAYS_UPDATE,obj+0x3A |= 0x4000
+0x0008,SHSF_IN_WATER,no re-entry into water states; bubbles
+0x0010,SHSF_ANIM_ARG,passed as anim start flag
+0x0020,SHSF_FROZEN,ice-cube form
+0x0040,SHSF_FOLLOWING,msg 0x69 from leader cancels
+0x0080,SHSF_HIDE_SHADOW,Sheep::SetState: row->flags & 0x80 -> shadow.SetVisible(0) (ScnMobile +0x78 = shadow flags) (verified)
+0x0100,SHSF_DYING,not grabbable (mask 0x320)
+0x0200,SHSF_NOT_GRABBABLE,part of mask 0x320
+0x0400,SHSF_BLEAT,sfx 0x142 on entry
+0x0800,SHSF_ON_BUTTON,call 0x69 interrupts

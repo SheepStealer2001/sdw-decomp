@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,u16,step,queued dance step (PushStep 0x441541 word store; ClearGhostQueue 0x4b2790),verified
+0x4,DancingGhost *,partner,partner ghost for the step (0x441559; 0x4b27a1),verified
+0x8,Vec3s,point,"target point, copied by value (0x441588-0x4415ba; 0x4b27cc/27e2/27f8)",verified
+0x10,u32,argument,step argument (0x441570; 0x4b27b3). Record stride 0x14: PopStep copies 20 bytes (0x4413d5-0x4413f5),verified

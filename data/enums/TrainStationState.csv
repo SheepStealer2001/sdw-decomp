@@ -1,0 +1,4 @@
+value,name,meaning
+#,TrainStationState,TrainStation +0x40
+0,STATION_IDLE,no train on this route
+1,STATION_ROUTE_ACTIVE,train driven through this station's TRAJ

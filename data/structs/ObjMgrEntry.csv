@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,ScnObject *,obj,managed object (Scenaric_FindByRecord),verified
+0x4,u16,savedUpdateBits,obj.flags & 0x6000 saved when the camera left; restored on re-entry when keepUpdating == 0. Uninitialised before the first exit.,verified
+0x6,u16,pad6,padding (stride 8),inferred

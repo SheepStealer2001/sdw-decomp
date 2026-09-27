@@ -1,0 +1,3 @@
+value,name,meaning
+#,AECLAI01Anim,animation ids of WAR model AECLAI01 (its WAR type-0x86 table; names verified from the level files). Played by: Wolf
+0x1,AECLAI01_ANIM_TOAST,WAR name TOAST

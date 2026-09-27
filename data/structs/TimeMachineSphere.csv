@@ -1,0 +1,22 @@
+offset,ctype,name,meaning,confidence
+0x64,TimeMachinePair[16],pairs,OBJECTnnPAST / OBJECTnnPRESENT (prop offsets from table 0x57b780); used only when both are non-NULL,verified
+0xe4,u8,state,TimeMachineSphereState 0..8,verified
+0xe5,u8,seedCount,"number of Seed (class 93) objects found, max 5",verified
+0xe8,ScnObject *,chrono,"TimeMachineChrono (class 85) from FindByClass; written by Init, not read by the sphere code",verified
+0xf0,ScnObject *[5],seeds,Seed objects asked with msg 0x3281 for a return-arrival position,verified
+0x104,s32,followerWaitMs,"state-7 follower wait: 3000, decremented by g_dtMs; at <= 0 the followers get msg 0x75",verified
+0x20c,s32,wolfFrozen,1 if the Wolf accepted msg 0xE in state 1/7; msg 0xF sent at the swap; cleared by msg 0xE to the sphere,verified
+0x210,s32,wolfInsideSinceArrival,"Set to 1 by the present->past swap. State 3 then opens the return path (5/6) instead of closing (4/0). In state 6 it stays 1 only while the Wolf remains in the ±0xB9 cube, so Ralph must step out and back in.",verified
+0x214,s32,dragonFollows,Dragon reply to msg 0x38 (nonzero = will come along),verified
+0x218,ScnObject *,dragon,Dragon (class 84),verified
+0x21c,s32,gossamerFollows,Gossamer_Lev08 reply to msg 0x38,verified
+0x220,ScnObject *,gossamer,Gossamer_Lev08 (class 87),verified
+0x224,ScnObject *,bull,bull (class 43); gets msg 0x38 (return home) when travel starts,verified
+0x228,ScnBody,billboard,"embedded ScnBody (ctor sets the ScnObject/ScnBody vtables at +0x228) built from export 0x7D WAR_IDO_ABTIME02, rendered camera-facing; inst +0x22c, pos +0x234, anim +0x268, animId +0x282",verified
+0x28c,ScnRecordSynth,billboardRecord,synthetic WAR record written by Scn_BuildRecordFromExport for the billboard,verified
+0x2a0,u16,humSound,Sound 0xCD looping in state 6; stopped when state 7 starts and in Reset,verified
+0x2a2,u16,openSound,Sound 0x13E started in state 2; stopped at the end of state 4/5 and in Reset,verified
+0x2a4,TimeTravelArg,wolfArrivalQuery,msg 0x3281 arg for the Wolf {g_pWolf; pos filled by a Seed},verified
+0x2b0,TimeTravelArg,gossamerArrivalQuery,"msg 0x3281 arg for the Gossamer {gossamer; its pos, overwritten by a Seed} (the sphere writes only .obj; a Seed writes .pos)",verified
+0x2bc,s32,releaseCamNextFrame,set after an era swap; the next Update calls Camera_ReleaseScripted (a one-frame camera cut),verified
+0x2c0,s32,useDefaultArrival,scratch: 1 until a Seed answers msg 0x3281 for the Gossamer,verified

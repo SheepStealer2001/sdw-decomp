@@ -1,0 +1,26 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,state,"InstantHooverState (1 idle, 2 dropped, 3 open, 4 anim)",verified
+0x66,u16,suckRange,PROPERTY_INSTANTHOOVER_HORRANGE is loaded here and immediately overwritten with 300; capture radius for SuckMartians (3D) and CountMartiansInRange (horizontal),verified
+0x68,u16,vertRange,PROPERTY_INSTANTHOOVER_VERTRANGE; never read,verified
+0x6a,u16,dockRadius,inscribed radius (min half-extent on x/z) of the ACTIVEBOX pad found by FindDockBox; docking requires a smaller horizontal distance to the pad centre,verified
+0x6c,u16,openTimeMs,"PROPERTY_INSTANTHOOVER_OPENTIME (ms) - length of state 3 (effectively halved, see engine notes)",verified
+0x70,Sprite,hudIcon,"GameRes 193 DAV_IDI_IGHICONC, drawn at (15,200)-(47,219)",verified
+0x80,AnimSprite,hudDigits,"GameRes 130 DAV_IDI_ITICPTR_, digit sheet for the remaining-Martian counter",verified
+0xb4,ScnObject *[10],martians,InstantMartian objects (class 145),verified
+0xf0,ScnObject *,marvin,Marvin (class 193); msg 0x6480 arg = all Martians captured,verified
+0xf4,ScnObject *[15],sockets,InstantSocket objects (class 194); nearest one gets 0x6501 plug / 0x6502 unplug,verified
+0x130,ScnObject *,dockedSocket,"nearest socket at the last successful dock; only tested for non-NULL (msg 7), never cleared",verified
+0x134,u32[10],martianCaptured,1 once SuckMartians has taken martians[i]; Reset re-validates with msg 0x4C81,verified
+0x170,u32,openTimerMs,ms spent in state 3 (incremented by g_dtMs twice per frame),verified
+0x174,u32,hudTint,"HUD panel colour: g_uiTintColor, flashing to 0xAA0000 every other frame while a Martian is in range",verified
+0x178,u8,capturedCount,Martians captured so far,verified
+0x179,u8,martianCount,FindByClass(145) count (10 on Lvl-17),verified
+0x17a,u8,socketCount,FindByClass(194) count,verified
+0x17c,u32,martianInRange,"set in state 1 from CountMartiansInRange; written only, no reader in the class",verified
+0x180,u32,docked,"1 after a successful dock in state 2; 0 on pickup/drop/Init/Reset. Gates HUD, sucking, the remote (msg 0x3F/0x71)",verified
+0x188,u8,nextAction,InstantHooverNext: what state 4 does when the anim ends,verified
+0x18a,u16,dockBoxCount,count of the ACTIVEBOX id-list,verified
+0x18c,Box *,dockBox,pad found by FindDockBox in the last state-2 frame,verified
+0x190,Box **,dockBoxes,PROPERTY_INSTANTHOOVER_ACTIVEBOX id-list (10 pads on Lvl-17),verified
+0x194,Vec3s,homePos,= pos at Init; Reset returns here unless KEPT,verified
+0x19a,u16,soundHandle,vestigial: only ever zeroed; Reset calls Sound_Stop on it,verified

@@ -1,0 +1,8 @@
+offset,ctype,name,meaning,confidence
+0x0,s32,hSpeed,"horizontal drift per second along -sin/-cos(angle) (Emitter_UpdateDrift 0x52ca80 mov eax,[edx])",verified
+0x4,s32,vSpeed,"vertical drift per second (0x52ca9b mov edx,[ecx+4]); vertical points down",verified
+0x8,s32,life,"particle life in ticks (0x52c9fe idiv [ecx+8]; 0x52caec cmp ecx,[eax+8])",verified
+0xc,s32,spawnInterval,"ticks between spawns (0x52ca5b mov eax,[edx+0xc]); Wolf_UpdateTrailFx rewrites it from the speed (0x48e601, 0x48e854)",inferred
+0x10,s16,sizeStart,"particle size at birth (0x52cb9c movsx edx,[edx+0x10]); Wolf_UpdateTrailFx lifts the source by half of it (0x48e5a7)",verified
+0x12,s16,sizeEnd,"particle size at death (0x52cb95 movsx eax,[edx+0x12])",verified
+0x14,u8,sheetIndex,"sprite sheet copied to emitter+0x20 (0x52ca29 mov dl,[ecx+0x14])",verified

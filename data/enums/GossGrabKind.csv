@@ -1,0 +1,5 @@
+value,name,meaning
+#,GossGrabKind,
+0x0,GOSS_GRAB_INSIDE,"Update 6: grabKind 0 -> anim INSIDE, state 7"
+0x1,GOSS_GRAB_OUT,"grabKind 1 -> anim OUT, shows the Wolf"
+0xff,GOSS_GRAB_NONE,0xff: nothing to do yet

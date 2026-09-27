@@ -1,0 +1,9 @@
+# Crate: a model of the mod's own (models\crate.obj, made into crate.WAR / crate.DAV by tools/make_model.py when the
+# mod is built), shown by a copy of object 114 (static scenery) on flat ground 200 units to the left of where Ralph
+# starts (-2003, -2, -6273) and 150 ahead (300 to the left is past the platform's edge). It is made a Case (class 151, the
+# game's own crate: it stands on the ground, is solid, and shadows and items put down land on its top). No code.
+import crate from mod:models\crate 0
+new box from 114
+box model crate
+box class 151
+box pos -2203 0 -6123

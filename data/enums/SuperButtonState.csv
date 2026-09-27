@@ -1,0 +1,4 @@
+value,name,meaning
+#,SuperButtonState,state field of SuperButton
+0x0,SUPERBUTTON_ST_OFF,Update 0: polls AreInputsOn (inferred)
+0x1,SUPERBUTTON_ST_ON,"Update: latched, MSG_SWITCH_ON to outTarget, MSG_SWITCH_OFF to notTarget (inferred)"

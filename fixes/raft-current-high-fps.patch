@@ -1,0 +1,67 @@
+Raft current at high frame rates (Level B1, disc Lvl-05)
+
+On PC the raft that the river should carry through the gate in Level B1 can take a very long time to start moving. The raft
+takes the current's speed toward the water zone's (100, 200 or 400 units/s) with Math_ApproachLinear, whose step per
+frame is 50 * g_dt >> 12 (g_dt is the frame's length in 1/4096 s). The shift drops the fraction: at any frame rate
+above about 50 FPS the step is 0, so the current only builds up on lag frames.
+
+This fix moves the current's speed by the step of a 30 FPS frame once for every 1/30 s of game time, however many frames
+that time is split into. At any frame rate the raft now picks up the current as it does at 30 FPS: after 3 seconds on a
+100 units/s current it is at 90 units/s at 30, 60 and 144 FPS alike (the original: 90, 0 and 0).
+
+Not changed: the raft's position still moves by velocity * g_dt / 4096 per frame, truncated per axis, as every object
+in the game does. At 60 FPS that makes a slow current carry the raft somewhat slower than at 30 FPS.
+
+Touches: src/objects/raft.cpp (Raft::Update, and a new static Raft_ApproachFlowSpeed).
+
+diff --git a/src/objects/raft.cpp b/src/objects/raft.cpp
+index 3a54cbe..ca70999 100644
+--- a/src/objects/raft.cpp
++++ b/src/objects/raft.cpp
+@@ -132,6 +132,37 @@ void Raft::Render(Camera *view)
+         wakeEmitter.RenderFlat(view, 1);
+ }
+ 
++extern u32 g_gameTime; /* 0x71b2d0  game time in 1/4096 s: advances by g_dt every frame */
++extern s32 g_dt;       /* 0x71b300  this frame's length in 1/4096 s */
++
++/* FIX raft-current-high-fps: the original takes the current's speed toward the zone's with
++ * Math_ApproachLinear(cur, target, 2000, 50, 100), whose step is 50 * g_dt >> 12 (100 when slowing down). The shift
++ * drops the fraction, so on a frame shorter than 82/4096 s (any frame rate above about 50 FPS) the step is 0 and the
++ * current never builds up: the raft only gains speed on lag frames. Here the speed moves by the step of a 30 FPS frame
++ * (136/4096 s: +1 speeding up, -3 slowing down) once for every 1/30 s of game time, however many frames that time is
++ * split into, so the raft picks up the current as it does at 30 FPS at any frame rate. The limit and the clamping are
++ * Math_ApproachLinear's. */
++static s32 Raft_ApproachFlowSpeed(s32 cur, s32 target)
++{
++    s32 periods = (s32)(g_gameTime / 136 - (g_gameTime - g_dt) / 136); /* whole 1/30 s ended this frame */
++    s32 step = periods * ((((target >= cur) ? 50 : 100) * 136) >> 12);
++    if ((target - cur >= 0 ? target - cur : cur - target) <= step) {
++        if (target > 2000)
++            target = 2000;
++        else if (target < -2000)
++            target = -2000;
++    } else if (target > cur) {
++        target = cur + step;
++        if (target > 2000)
++            target = 2000;
++    } else {
++        target = cur - step;
++        if (target < -2000)
++            target = -2000;
++    }
++    return target;
++}
++
+ /* 0x4df4e7 */
+ /* BYTES(slot-name, inferred): local names chosen for their stack slots (tools/vc6_locals.py), not recovered */
+ void Raft::Update()
+@@ -216,7 +247,7 @@ void Raft::Update()
+         } else {
+             wantedFlowLocal = 0;
+         }
+-        flowSpeed = Math_ApproachLinear(flowSpeed, wantedFlowLocal, 2000, 50, 100);
++        flowSpeed = Raft_ApproachFlowSpeed(flowSpeed, wantedFlowLocal); /* FIX raft-current-high-fps */
+         if (flowSpeed) {
+             velocity.x += (s16)((-flowSpeed * g_sinTable4096[flowHeading]) >> 12);
+             velocity.z += (s16)((-flowSpeed * g_pCosTable[flowHeading]) >> 12);

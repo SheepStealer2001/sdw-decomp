@@ -1,0 +1,9 @@
+offset,ctype,name,meaning,confidence
+0x40,ZoneList,whenInBox1,"zone list {boxes, count}: WHENINBOX list; count u16 at +0x44 | count (+4): count of whenInBox1",verified
+0x48,ZoneList,whenInBox2,"zone list {boxes, count}: WHENINBOX2 list | count (+4): count",verified
+0x50,ZoneList,whenInBox3,"zone list {boxes, count}: WHENINBOX3 list | count (+4): count",verified
+0x58,ZoneList,whenInBox4,"zone list {boxes, count}: WHENINBOX4 list | count (+4): count",verified
+0x60,WorldObj *[100],meshes,g_worldObjs entries whose resource is in CANTSEE1..3,verified
+0x1f0,u8[100],savedKinds,"each mesh's WorldObj.inst_kind at init, restored when shown",verified
+0x254,s16,meshCount,number collected (cap 100),verified
+0x256,u8,state,"VisMgrState: 0 initial, 1 camera in a box (hidden), 2 shown",verified

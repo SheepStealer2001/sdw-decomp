@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x0,WolfLaunchAxis,x,"x axis of the launch parabola (Wolf+0x66c, set by msg 0xC)",verified
+0xc,WolfLaunchAxis,y,"vertical axis (0x48c07a [edx+0xc], [eax+0x10], [ecx+0x14])",verified
+0x18,WolfLaunchAxis,z,"z axis (0x48c0a8 [edx+0x18], [eax+0x1c], [ecx+0x20])",verified
+0x24,s32,t,"trajectory parameter 0..0x100, += g_dtMs >> 2 per frame (Wolf+0x690; 0x48c00b add ecx,[eax+0x24])",verified
+0x28,u8[16],unk28,"the rest of the msg 0xC argument, copied with the path: Wolf_HandleMessage copies 14 dwords (0x38 bytes) from arg to +0x66c (0x484e74 mov ecx,0xe; rep movsd); nothing reads Wolf+0x694..0x6a3 by offset",verified

@@ -1,0 +1,11 @@
+offset,ctype,name,meaning,confidence
+0x0,Trajectory *,traj,"the trajectory it follows ({u16 count; Vec3s pts[count]}): TrajFollower_Init 0x510731 stores it, TrajFollower_Step 0x51079b reads count and pts; BipbipLevel14's own follower reads it the same way (0x42e91d-0x42eb65)",verified
+0x4,s16,pointIndex,index of the waypoint currently being steered toward; wraps to 0 at the end,verified
+0x6,s16,speed,movement speed in units/s; multiplies the normalised direction to give the output velocity,verified
+0x8,s16,headingBias,constant added to the atan2 heading; every call site passes 0x800 (half a turn),verified
+0xa,u16,heading,cached 12-bit facing toward the current waypoint; reused unchanged when neither advanced nor continuousHeading is set,verified
+0xc,s32,arriveRadiusSq,squared arrival radius; the waypoint is consumed while the squared distance is below it,verified
+0x10,u32,continuousHeading,when non-zero the heading is recomputed every step; when zero it is only refreshed on waypoint change,verified
+0x14,u32,use3dDistance,when non-zero the vertical delta is included in the arrival distance and in the output velocity,verified
+0x18,u32,moving,"set to 1 by every step, cleared by init; a 'follower is running' latch",verified
+0x1c,u32,advanced,1 when at least one waypoint was consumed during this step (used to trigger the heading recompute),verified

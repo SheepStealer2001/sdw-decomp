@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,state,"SnowyGroundState: 1 intact (anim 1 loop), 2 collapsing (anim 0 once), 0 collapsed (0x4f61db)",verified
+0x65,u8:1,collapsed,bit 0: set when an object other than itself and the Wolf lands on it (0x4f630a); the ground query (msg 0xD) then stops answering,verified

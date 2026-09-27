@@ -1,0 +1,4 @@
+value,name,meaning
+#,APRISE01Anim,animation ids of WAR model APRISE01 (its WAR type-0x86 table; names verified from the level files). Played by: InstantSocket
+0x0,APRISE01_ANIM_STAND,WAR name STAND
+0x1,APRISE01_ANIM_SHOW,WAR name SHOW

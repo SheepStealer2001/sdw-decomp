@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x40,CamSetup *,camera,CAMERA (Scn_GetPropCamera): {u16 focal; s16 rot[3]; Vec3s eye},verified
+0x44,ZoneList,zones,"zone list {boxes, count}: BOXES id-list | count (+4): BOXES element count",verified
+0x4c,u32,flags,"FLAGS prop (CameraManager2Flags): 1/2/4 script flags, 8 track Wolf x, 0x10 track z, 0x20 track vertical",verified
+0x50,u32,scriptFlags,FLAGS & 7 passed to Camera_StartScripted,verified
+0x54,s32,scriptActive,1 while this manager has started its script,verified

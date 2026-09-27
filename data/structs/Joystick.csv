@@ -1,0 +1,2 @@
+offset,ctype,name,meaning,confidence
+0x58,u8[0x2C],caps,DIDEVCAPS filled by GetCapabilities in Joystick_Construct (0x406db0); bytes here because the generated header cannot name the SDK type,verified

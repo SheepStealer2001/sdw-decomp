@@ -1,0 +1,7 @@
+value,name,meaning
+#,UmbrellaState,Umbrella state (u8 at Umbrella+0x82)
+0,UMBRELLA_ST_CLOSED,"closed (anim 7 on the ground, anim 6 held)"
+1,UMBRELLA_ST_OPENING_GROUND,"msg 0x15 with arg != 3: anim 2; at anim end -> OPEN, anim 3"
+2,UMBRELLA_ST_OPENING_AIR,"msg 0x15 with arg 3 (Wolf 0x81): anim 0; at anim end -> OPEN, anim 5"
+3,UMBRELLA_ST_OPEN,open; the anim follows the Wolf state through msg 0x10
+4,UMBRELLA_ST_CLOSING,"msg 0x16: anim 1 (air) or 4 (ground); at anim end -> CLOSED, anim 6"

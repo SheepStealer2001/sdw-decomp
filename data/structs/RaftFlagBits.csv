@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,u8:1,fan,"bit 0 (1-byte unsigned unit): blown by a Fan this frame | Raft +0x13e, accessed as r8",verified
+0x0,u8:1,reset,bit 1 (1-byte unsigned unit): the RESET property,verified
+0x0,u8:1,afloat,bit 2 (1-byte unsigned unit): afloat,verified
+0x0,u8:1,hit,bit 3 (1-byte unsigned unit): hit by a CannonBall/WaterMine this frame,verified

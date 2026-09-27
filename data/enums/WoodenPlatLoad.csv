@@ -1,0 +1,5 @@
+value,name,meaning
+#,WoodenPlatLoad,"WoodenPlatForm::GetLoad's answer 0x50b5f4, the index into WoodenPlatForm.targetY: what stands on the platform (verified in its code)"
+0x0,WPLAT_LOAD_EMPTY,"nothing counted: targetY[0], the rest height (the start pos.y)"
+0x1,WPLAT_LOAD_SHEEP,"a sheep (CLASSID_SHEEP) and no heavier object: targetY[1], halfway"
+0x2,WPLAT_LOAD_HEAVY,"Ralph (CLASSID_WOLF) or a rock (CLASSID_ROCK), returned at once: targetY[2], -MINZVALUE"

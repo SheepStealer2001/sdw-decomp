@@ -1,0 +1,8 @@
+value,name,meaning
+#,SlidingIceCubeMsg,messages handled by SlidingIceCube_HandleMessage
+0x1,MSG_USE,kick from the Wolf (end of state 0xD2): push (no FrozenRiver only)
+0x2,MSG_QUERY_ACTION,returns 0x1F CTX_ICECUBE to the Wolf when no FrozenRiver and the Wolf is at most 100 above the cube origin
+0x4,MSG_PICKUP,"attach to the sender joint, state 0"
+0x5,MSG_DROP,"detach, SetPosition unless flags bit1, state 2"
+0x11,MSG_BUMP,push like MSG_USE plus sound 0x7F
+0x37,MSG_RIVER_CARGO_END,"returns 1, no effect (sent by FrozenRiver_MoveCargo at the last path node; meaning inferred)"

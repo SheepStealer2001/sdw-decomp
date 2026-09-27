@@ -1,0 +1,16 @@
+value,name,meaning
+#,BonusScreen,
+0x0,BONUS_SCR_CLOSED,case 6 on a failed viewer open sets 0; Update does nothing in 0 (inferred)
+0x1,BONUS_SCR_OPEN,"case 1: freezes the Wolf, bonus camera, -> 2"
+0x2,BONUS_SCR_LIST,"case 2: the bonus list with points, confirm/cancel"
+0x3,BONUS_SCR_BUY_PROMPT,case 3: Ui_PromptYesNo to buy a locked entry
+0x4,BONUS_SCR_BOUGHT,case 4: purchase confirmation text
+0x5,BONUS_SCR_NO_POINTS,case 5: not enough points
+0x6,BONUS_SCR_VIEWER_OPEN,case 6: opens the image pack (kind 0)
+0x7,BONUS_SCR_VIEWER_WAIT,case 7: 10-frame delay
+0x8,BONUS_SCR_VIEWER,"case 8: shows the image, left/right/cancel"
+0x9,BONUS_SCR_VIEWER_CLOSE,"case 9: closes the pack, -> 2"
+0xa,BONUS_SCR_VIEWER_PREV,case 10: previous image
+0xb,BONUS_SCR_VIEWER_NEXT,case 11: next image
+0xc,BONUS_SCR_TEXT,kind 3: scroll text
+0xd,BONUS_SCR_EXIT,cancel or kind 2 (scene exit)

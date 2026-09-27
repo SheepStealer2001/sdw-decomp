@@ -1,0 +1,10 @@
+offset,ctype,name,meaning,confidence
+0x0,void *,vtbl,vtable 0x574404 (one slot: BsFile_ScalarDeletingDtor 0x420420); stored by BsFile_Open 0x41b7fc and BsFile_Dtor 0x41b9bf,verified
+0x4,u8,ok,1 once the file loaded and its Vdx7 companion opened (BsFile_Open 0x41b99b copies vdx->ok); NextFrame/FirstFrame do nothing unless it is 1 (0x41ba8c),verified
+0x8,u32,frameCount,"number of frame-directory entries, the u32 at file offset 0xc (BsFile_Open 0x41b8ce); NextFrame wraps the index at it (0x41babb)",verified
+0xc,u8,frameType,"type byte of the current frame: directory entry >> 24, with bit 0x40 masked off by Next/FirstFrame (0x41bb02); 3/4/0xb/0x26/0x27 = geometry (Bs_IsGeometryResource 0x41ba29)",verified
+0x10,u8 *,data,"base of the loaded ""V2.6"" Black Sheep model/anim file image",verified
+0x14,s32,size,byte length of the loaded image; <= 0 aborts the load,verified
+0x18,s32,cursor,read offset advanced by BsFile_ReadU16/U32 when their `advance` argument is 1,verified
+0x1c,u32,frameIndex,"index of the current frame-directory entry; NextFrame increments it (0x41baa9), FirstFrame zeroes it (0x41bb84)",verified
+0x20,Vdx7 *,vdx,the companion .VDX7 reader opened from the same path with the extension replaced by DAV (BsFile_Open 0x41b98c); deleted through its vtable slot 0 by BsFile_Dtor 0x41ba0b,verified

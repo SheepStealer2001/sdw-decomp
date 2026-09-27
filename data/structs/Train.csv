@@ -1,0 +1,29 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,state,"TrainState: 0 TRAIN_ST_HIDDEN (out of play, waiting for a station to start its route), 1 TRAIN_ST_AT_STATION (stopped at a waypoint: in Lvl-16 the stop beside the station), 2 TRAIN_ST_MOVING (running to the waypoint). Train_SetState 0x4fece2 switches on it; Train_Update 0x4ff4c5 dispatches on it (movzx [ecx+0x64] at 0x4ff4da)",verified
+0x68,ScnObject *,station,"the TrainStation (class 136) whose route the train is on: sent msg 0x4800 in state 0, msg 0x60 when it reaches the waypoint (0x4ff599, 0x5009db). PostLoadInit copies firstStation into it",verified
+0x6c,TrainWaypoint,waypoint,"the waypoint the train is driving to, copied from the station's msg 0x4781/0x4782 argument (mov dword [eax+0x6c], ecx at 0x500f11)",verified
+0x74,s32,placeRiders,"1 = the next Train_PlaceCars must also drop whatever stands in the two dock boxes onto the cars; PlaceCars clears it (mov dword [eax+0x74],0 at 0x4fecd7). Set by PostLoadInit and Reset",verified
+0x78,s32,command,"the last station message id the train received: 0x4781 start, 0x4782 final waypoint, 0x60 go (mov [ecx+0x78],edx at 0x500ede). PostLoadInit sets -1",verified
+0x7c,s32,runTicks,"g_dt accumulated while state == 2 (add edx,[g_dt] at 0x4ff736); cleared when SetState(2) is entered. Drives the tunnel fade-in after a 0x60 command (compared with 0x1000 at 0x4ff938)",verified
+0x80,ScnObject *,rider,"the object riding the train, found by Train_PlaceCars as the class-0 object above a car that answers 0 to msg 0x40d (mov [ecx+0x80],edx at 0x4fde39); 0 when nobody rides. Cleared at the top of every PlaceCars",verified
+0x84,s32,riderAttached,1 while the rider has accepted msg 0xe (attach); set back from msg 0xf == 0 (neg/sbb/inc at 0x500b00). Train msg 0xe from the Wolf zeroes it (0x500dc0),verified
+0x88,s32,blackout,"1 = hold the screen fully black (Fade_DrawOverlay(0,0x1f,0) at 0x4ffa17); set when the train passes the start waypoint, cleared when the run-in fade finishes",verified
+0x8c,ZoneList,offTrainZones,OFFTRAINBOX (prop 0x10) boxes: the Wolf inside them is off the train - Scn_FindIdList at 0x4ff146,verified
+0x94,ZoneList,safeRecallZones,"SAFERECALBOX (prop 0x14) boxes: where a crushed object is put back (0x4ffe31, 0x4ffebe)",verified
+0x9c,CollBox,hullBox,"the loco's first solid box in world space, rebuilt every update from the leading car for the current facing and grown by 0x32 (0x500473-0x50051a)",verified
+0xac,CollBox,wolfBox,hullBox copied and grown by 0x15e/0x160 (0x50052d-0x500676): the box the Wolf must be inside to keep the train's platform messages,verified
+0xbc,Vec3s,vel,"this frame's movement, speed * (target - pos) / distance scaled by dt (Vec3s_ScaleByDt out at 0x4ffa71)",verified
+0xc2,u16,pad0c2,alignment before the sound handle,inferred
+0xc4,u16,soundHandle,"Sound_Play handle: 0xe3 when the train parks inside an OFFTRAINBOX (0x4fee57), 0xe6 while running over a SAFERECALBOX (0x4ff8da); Sound_Stop on every state change",verified
+0xc6,u16,pad0c6,alignment before the speed,inferred
+0xc8,s32,speed,units per second along the route = station SPEEDPERCENT (msg 0x4802) * -1500 / 100 (imul 0xfffffa24 / idiv 0x64 at 0x500f66),verified
+0xcc,s32,hornLatched,1 between msg 0x1f and msg 0x20 (the go button): the 0x1f handler only forwards msg 0x60 to the station when it was 0 and the train is not running (0x50102f-0x501072),verified
+0xd0,ScnObject *,firstStation,"FIRST (prop 8) - Scn_GetPropObject, kept only when its classId is 136 (0x4ff1ac)",verified
+0xd4,CollBox *[2],docks,DOCKA (prop 0) and DOCKB (prop 4): the two boxes whose contents are loaded onto a car. Indexed by the car's side bit ([this + 4*side + 0xd4] at 0x4fe64e),verified
+0xdc,CollBox *,jumpInSheepBox,JUMPINSHEEPBOX (prop 0xc): a sheep (class 0xb) crushed by a car inside it is told msg 0x987 instead (0x4fdea4),verified
+0xe0,TrainCar[5],cars,"5 x 0x80 TrainCar slots: {u16 exportId; u32 flags; ScnBody body; u16 record[10]}. PostLoadInit fills them from exports 0xa8 ALOCOM1B, 0xb4 AWAGON2A, 0xb5 AWAGON2B, 0xb3 AWAGON1B, 0xb2 AWAGON1A with flags 0, 6, 0xa, 0x10, 0 (0x4ff1e0-0x4ff250); flag 1 = built, 4 = DOCKA side, 8 = DOCKB side",verified
+0x360,EmitterDriftParams,smokeParams,"the chimney smoke: 60/-100 units per second, life 0x2000, one particle every 0x2000/0x18 ticks, size 0x50 -> 0xb4, sheet 0 (0x4ff3e0-0x4ff439)",verified
+0x378,TrailEmitter,smoke,"16-particle chimney trail, driven every update with facing + 0x800 (Emitter_UpdateDrift at 0x4ff557)",verified
+0x4dc,Vec3s,smokePos,"the chimney mouth: pos, 500 above, then 0x46 units forward along the facing (sin/cos tables at 0x4fec5e, 0x4feca8)",verified
+0x4e2,u16,pad4e2,alignment before the sweep box,inferred
+0x4e4,CollBox,sweepBox,"the loco's solid box moved to pos + vel, handed to ObjGrid_QueryBoxOverlap to find what the train is about to hit (0x4ffa84-0x4ffbd5)",verified

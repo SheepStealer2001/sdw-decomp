@@ -1,0 +1,4 @@
+value,name,meaning
+#,ABRINDILAnim,animation ids of WAR model ABRINDIL (its WAR type-0x86 table; names verified from the level files). Played by: Twig
+0x0,ABRINDIL_ANIM_MOVE,WAR name MOVE
+0x1,ABRINDIL_ANIM_DEFAULT,WAR name DEFAULT

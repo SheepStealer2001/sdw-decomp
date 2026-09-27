@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x0,Vec3s,pos,"msg 0x2e argument: the spot, copied to Wolf.interactPos (0x485c84); also the first argument of Vec3s_DistSqXZ (0x485c58)",verified
+0x6,s16,radius,"Ralph goes to the spot only when he is at least this far from it in x/z (0x485c64 movsx [ecx+6] squared, 0x485c72 cmp; jl)",verified

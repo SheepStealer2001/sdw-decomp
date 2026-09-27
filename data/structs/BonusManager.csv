@@ -1,0 +1,14 @@
+offset,ctype,name,meaning,confidence
+0x64,CamSetup *,camera,CAMERA property from Scn_GetPropCamera in PostLoadInit (0x49b655); Update reads it for Camera_StartScripted,verified
+0x70,UiQuad[2],iconQuads,"two icon quads: Init loops with lea [base + i*0x14 + 0x70] (0x49b7e8, 0x49b7fb); DrawBonusList moves and draws one of them",verified
+0x98,ScrollText,scrollText,"its address goes to ScrollText_Init / Draw / Update (0x49c28a, 0x49c93f, 0x49c9c7)",verified
+0xb4,s32,viewerNeedsDraw,"set to 1 after the picture loads (0x49c65e), tested (0x49c6cb) and cleared (0x49c6e6)",verified
+0xb8,s32,unknownB8,Update stores 1 on picture load (0x49c644); no purpose established,verified
+0xbc,s16,points,read with movsx before the price comparison (0x49c3f3); remaining points stored at 0x49c42e,verified
+0xbe,u8,promptState,"0x49c33f `add eax,0xbe` / push passes its address as Ui_PromptYesNo 0x53f2c7's 4th argument (the outer call cleans 0x10 at 0x49c371). Persistent yes/no prompt state, seeded 0x10 by Reset, which is why screen 3 tests the reply against 0x10",verified
+0xbf,u8,screen,"0 closed, 1 opening, 2 browse, 3 confirm, 4 purchase completed, 5 not enough points (0x49c3f3-0x49c4af), 6 open bonus file, 7/9 waits, 8 image viewer, 0xA/0xB prev/next slide, 0xC scroll-text, 0xD leave",verified
+0xc0,u8,backdropFade,Reset stores 7 (0x49cc04); Update counts it down and passes it to Ui_DrawMemCardBackdrop,verified
+0xc1,u8,viewerDelay,"movzx at 0x49c69a, compared with 10 on viewer entry/exit",verified
+0xc2,u8,firstVisible,movzx at 0x49c0db: first row of the four-item scrolling window,verified
+0xc3,s8,cursor,"movsx at 0x49c09d: selected bonus 0..7, indexes the 12-byte bonus table",verified
+0xc4,s8,boughtSomething,"read with movsx at 0x49ca6e so s8, and it is set on screen 4 (0x49c508, the purchase-completed arm), not screen 5. On leaving, a set value plus Progress+0xb4 bits 4 and 5 sends MSG_MCARD_AUTOSAVE 0x3500 to class 0x62",verified

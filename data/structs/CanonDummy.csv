@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,state,CanonDummyState,verified
+0x68,u32,ownedBySheepCannon,1 once a CanonSheep (146) messaged it: drawn at 2x,verified
+0x6c,Vec3s,movePos,msg 0x3882 arg; SetPosition target on entering state 2,verified
+0x74,ScnObject *,owner,CanonSheep sender; gets msg 0x4d01 when the state-2 anim ends,verified

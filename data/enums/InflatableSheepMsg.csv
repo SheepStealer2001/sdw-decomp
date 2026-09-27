@@ -1,0 +1,15 @@
+value,name,meaning
+#,InflatableSheepMsg,Messages handled by InflatableSheep_HandleMessage 0x4cd320
+0x0,MSG_KILL,arg 0 while carried: burnt; arg 2 (crush) or 9 (piranhas): Pop unless attached or already popping
+0x2,MSG_QUERY_ACTION,Wolf: 2 (lift) inflated / 4 flat; Robot: 4 flat; 0 in state 13
+0x4,MSG_PICKUP,flat -> 1; inflated by Sam -> 5; inflated by Wolf -> 4 with carryYaw
+0x5,MSG_DROP,"detach, place, facing = carrier + carryYaw; death zone pops; inflated -> 7, flat -> 0"
+0x9,MSG_CONTAINER_STATE,arg 1: homePos = pos
+0x17,MSG_QUERY_HELD_ACTION,"0x16 HELD_INFLATABLE_SHEEP when flat (not Robot), else 2"
+0x23,MSG_SCRIPT_HOLD,state 13 (sent by Sam: Sam_FreezePickupTarget 0x4621a4 / Sam_UnfreezePickupTarget 0x4621fa)
+0x24,MSG_SCRIPT_RELEASE,state 7 (sent by Sam: Sam_FreezePickupTarget 0x4621a4 / Sam_UnfreezePickupTarget 0x4621fa)
+0x25,MSG_LANDED,Pop
+0x55,MSG_CHECKPOINT_ROLLBACK,Reset
+0x4600,MSG_INFSHEEP_INFLATE,from Wolf_StateMachine 0x48226c at the end of the inflate anim: state 3
+0x4601,MSG_INFLATABLE_QUERY,returns inflated bit; asked by PrayingGhost (SHEEPBOX test) and Sam (fetch target)
+0x4602,MSG_INFSHEEP_DEFLATE_RESET,from PrayingGhost reset 0x45e22a: deflate (state 9) then Reset

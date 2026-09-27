@@ -1,0 +1,8 @@
+value,name,meaning
+#,InstMode,"Instance +2 mode byte (ScnObject +6), stored by Instance_InitBase."
+0x03,INST_MODE_WAR_STATIC,world object from a WAR type-3 mesh
+0x04,INST_MODE_WAR_ANIMATED,world object from a WAR type-4 model (unused in retail data)
+0x0B,INST_MODE_WAR_STATIC_0B,world object from a WAR type-0xB mesh
+0x26,INST_MODE_WAR_SKY,world object from a WAR type-0x26 mesh; Game_Frame tests == 0x26; sets inst flag 2
+0xFE,INST_MODE_SCN_LOGIC,ScnLogic_Init / ScnLogic_SwapModel; sets inst flag 2
+0xFF,INST_MODE_SCN_BODY,ScnBody_Init / ScnBody_SwapModel; sets inst flag 2

@@ -1,0 +1,5 @@
+value,name,meaning
+#,CostumeMsg,SheepCostume 0x4f0da0 / RabbitCostume 0x4def90 / GhostCostume 0x4c7070 (identical handlers)
+0x2,MSG_QUERY_ACTION,4 CTX_PICKUP for the Wolf only
+0x9,MSG_CONTAINER_STATE,arg 1: homePos = pos; returns 1
+0x55,MSG_CHECKPOINT_ROLLBACK,SetPosition(homePos); returns 1

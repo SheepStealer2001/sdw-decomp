@@ -1,0 +1,9 @@
+offset,ctype,name,meaning,confidence
+0x64,InlineEmitter8,wakeEmitter,"Embedded ParticleEmitter with inline storage, set up in Raft_Create. The header is 0x24 bytes at +0x64: slotPool at +0x64 points to +0x88 (8 x 0xC), particles at +0x68 point to +0xe8 (8 x 8), count 8 at +0x85, flags at +0x86 (bit0 = active). Driven by Emitter_UpdateFade with g_raftWakeFxParams and drawn by Emitter_RenderFlat_Fwd.",verified
+0x128,s32,riderCount,Number of non-excluded objects on the raft last frame; a change restarts the bob animation 2. Zeroed only in Init.,verified
+0x12c,s32,fanSpeed,"Fan propulsion speed in u/s, approaching 350 (accel/decel 200) while blown with the Wolf aboard. It moves the raft along +(sin,cos)(fanHeading), opposite to the holder's facing.",verified
+0x130,s32,flowSpeed,"Water-current speed in u/s, approaching the zone speed (100/200/400) at accel 50, decel 100, max 2000. Subtracted along (sin,cos)(flowHeading).",verified
+0x134,Vec3s,startPos,Placed position; Reset returns the raft here only when RESET is set.,verified
+0x13a,s16,fanHeading,"Arg of the last msg 0x14 (Fan blow), which is the fan holder's facing. Also picks the wake spawn corner.",verified
+0x13c,s16,flowHeading,"Heading of the water current from Zone_GetFlowHeading. It snaps while flowSpeed == 0, otherwise turns at 0x2800/s.",verified
+0x13e,RaftFlagBits,raftFlags,"RaftFlags: 1 fan-blown this frame, 2 RESET property, 4 afloat, 8 hit by CannonBall/WaterMine this frame.",verified

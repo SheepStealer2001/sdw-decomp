@@ -1,0 +1,10 @@
+offset,ctype,name,meaning,confidence
+0x0,Vec3f *,slotPool,"pool of count 0xC-byte float particle positions (Emitter_AddParticle 0x52c70d imul ecx,ecx,0xc stride); memcpy'd wholesale into the D3D vertex buffer by Emitter_Render",verified
+0x4,Particle *,particles,pool of count 8-byte particle records {u32 colour; u32 flags},verified
+0x8,u32,lastSpawnTime,"emitter clock at the last spawn call; 0 = none yet (Sfx_SpawnBillboard 0x52c79a cmp [eax+8],0; 0x52c9cd store)",verified
+0xc,u32,spawnCursor,time of the last particle spawned (Sfx_SpawnBillboard 0x52c89b add [ebp+0x18]; ja - unsigned),verified
+0x10,s32,ring,"next ring slot, (ring + 1) % count (Emitter_AddParticle 0x52c642, 0x52c75a idiv)",verified
+0x14,float[3],lastSrc,"source position at the last spawn call, as floats (Sfx_SpawnBillboard 0x52c99e fstp [eax+0x14])",verified
+0x20,u8,sheetIndex,index into the 0x34-stride sprite-sheet table at 0x6d8078; 0xFF = unset,verified
+0x21,u8,count,number of particle slots; set from the allocator's argument,verified
+0x22,EmitterFlagBits,flags,"bit 0 = emitter active/visible (EmitterFlagBits.active); cleared by Emitter_Reset, tested by Emitter_Render and Wolf_ClearEffects",verified

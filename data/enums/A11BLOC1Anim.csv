@@ -1,0 +1,5 @@
+value,name,meaning
+#,A11BLOC1Anim,animation ids of WAR model A11BLOC1 (its WAR type-0x86 table; names verified from the level files). Played by: CrumblyGround
+0x0,A11BLOC1_ANIM_STAND,WAR name STAND
+0x1,A11BLOC1_ANIM_BRAKE,WAR name BRAKE
+0x2,A11BLOC1_ANIM_BRAKE1,WAR name BRAKE1

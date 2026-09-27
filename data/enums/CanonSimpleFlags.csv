@@ -1,0 +1,10 @@
+value,name,meaning
+#,CanonSimpleFlags,CanonSimple +0x64
+0x1,CSF_ABORTED,set by Wolf msg 0xe (preempted); suppresses the Wolf unfreeze and the auto-reset on 0x4f; cleared by MSG_USE and Reset
+0xff,CSF_RUNTIME_MASK,CanonSimple::Reset: csFlags &= 0xffffff00 clears the low byte; the constant is the complement of the literal (inferred)
+0x100,CSF_FIRE_ARMED,set on each aim frame without a fire/exit press; required to fire
+0x200,CSF_AIM_CAM_STARTED,aim camera already sent; cleared on entering state 1
+0x400,CSF_AIM_CHANGED,aim moved this frame (camera and ApplyAim refresh)
+0x800,CSF_WOLF_FROZEN,this cannon sent the Wolf msg 0xe; msg 0xf on release
+0x10000,CSF_ANALOG_ACCEL,"proportional analog aim step (set at Init, never cleared)"
+0x20000,CSF_RESET_AIM,Reset restores defaultAim; never set by any code (dead)

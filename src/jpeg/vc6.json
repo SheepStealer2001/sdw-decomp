@@ -1,0 +1,222 @@
+{
+ "about": "Build settings for IJG release 6 as linked into SheepD3D.exe (see README-SDW.md). The IJG files stay unmodified, so tools/vc6.py reads their switches and address pins from here.",
+ "flags": [
+  "/O2",
+  "/Oy-",
+  "/Ob2"
+ ],
+ "system_include": "work/vc6/vc98/INCLUDE",
+ "addr": {
+  "jcomapi.c": {
+   "_jpeg_abort": "0x4222c0",
+   "_jpeg_destroy": "0x4222f0",
+   "_jpeg_alloc_quant_table": "0x422320",
+   "_jpeg_alloc_huff_table": "0x422350"
+  },
+  "jdapimin.c": {
+   "_jpeg_create_decompress": "0x422380",
+   "_jpeg_destroy_decompress": "0x422400",
+   "_jpeg_read_header": "0x422420",
+   "_jpeg_consume_input": "0x4224a0",
+   "_jpeg_finish_decompress": "0x422740"
+  },
+  "jdapistd.c": {
+   "_jpeg_start_decompress": "0x422810",
+   "_output_pass_setup": "0x422900",
+   "_jpeg_read_scanlines": "0x4229d0"
+  },
+  "jdatasrc.c": {
+   "_jpeg_stdio_src": "0x422a70",
+   "_init_source": "0x422ae0",
+   "_fill_input_buffer": "0x422b00",
+   "_skip_input_data": "0x422b80",
+   "_term_source": "0x422c30"
+  },
+  "jdcoefct.c": {
+   "_jinit_d_coef_controller": "0x422c40",
+   "_start_input_pass": "0x422d50",
+   "_start_output_pass": "0x422dc0",
+   "_decompress_onepass": "0x422f20",
+   "_dummy_consume_data": "0x4231a0",
+   "_consume_data": "0x4231b0",
+   "_decompress_data": "0x4233f0",
+   "_decompress_smooth_data": "0x4235a0"
+  },
+  "jdcolor.c": {
+   "_start_pass_dcolor": "0x422c30",
+   "_jinit_color_deconverter": "0x423b30",
+   "_build_ycc_rgb_table": "0x423cf0",
+   "_ycc_rgb_convert": "0x423dc0",
+   "_null_convert": "0x423ed0",
+   "_grayscale_convert": "0x423f60",
+   "_ycck_cmyk_convert": "0x423f90"
+  },
+  "jddctmgr.c": {
+   "_jinit_inverse_dct": "0x4240d0",
+   "_start_pass": "0x424160"
+  },
+  "jdhuff.c": {
+   "_jpeg_make_d_derived_tbl": "0x424390",
+   "_jpeg_fill_bit_buffer": "0x424550",
+   "_jpeg_huff_decode": "0x424660",
+   "_jinit_huff_decoder": "0x424760",
+   "_start_pass_huff_decoder": "0x4247a0",
+   "_decode_mcu": "0x4248f0"
+  },
+  "jdinput.c": {
+   "_jinit_input_controller": "0x424d50",
+   "_start_input_pass": "0x424da0",
+   "_finish_input_pass": "0x425010",
+   "_consume_markers": "0x425030",
+   "_per_scan_setup": "0x4253e0",
+   "_reset_input_controller": "0x425580"
+  },
+  "jdmainct.c": {
+   "_jinit_d_main_controller": "0x4255d0",
+   "_start_pass_main": "0x425760",
+   "_process_data_simple_main": "0x425910",
+   "_process_data_context_main": "0x425990",
+   "_process_data_crank_post": "0x425c40"
+  },
+  "jdmarker.c": {
+   "_jpeg_resync_to_restart": "0x425c70",
+   "_next_marker": "0x425d70",
+   "_jinit_marker_reader": "0x425e90",
+   "_get_app0": "0x425f40",
+   "_get_app14": "0x4261b0",
+   "_skip_variable": "0x426340",
+   "_read_markers": "0x4263f0",
+   "_get_sof": "0x4269d0",
+   "_get_sos": "0x426d00",
+   "_get_dht": "0x427030",
+   "_get_dqt": "0x427330",
+   "_get_dri": "0x427590",
+   "_read_restart_marker": "0x427690",
+   "_reset_marker_reader": "0x427720"
+  },
+  "jdmaster.c": {
+   "_jpeg_calc_output_dimensions": "0x427760",
+   "_use_merged_upsample": "0x427990",
+   "_jinit_master_decompress": "0x427a20",
+   "_prepare_for_output_pass": "0x427ca0",
+   "_finish_output_pass": "0x427e00"
+  },
+  "jdmerge.c": {
+   "_jinit_merged_upsampler": "0x427e30",
+   "_start_pass_merged_upsample": "0x427f60",
+   "_merged_2v_upsample": "0x427f80",
+   "_merged_1v_upsample": "0x428040",
+   "_h2v1_merged_upsample": "0x428080",
+   "_h2v2_merged_upsample": "0x4281d0"
+  },
+  "jdphuff.c": {
+   "_jinit_phuff_decoder": "0x4283b0",
+   "_start_pass_phuff_decoder": "0x428430",
+   "_decode_mcu_DC_first": "0x428720",
+   "_decode_mcu_AC_first": "0x4289b0",
+   "_decode_mcu_DC_refine": "0x428c40",
+   "_decode_mcu_AC_refine": "0x428d90"
+  },
+  "jdpostct.c": {
+   "_jinit_d_post_controller": "0x4291b0",
+   "_start_pass_dpost": "0x429240",
+   "_post_process_1pass": "0x429340",
+   "_post_process_prepass": "0x4293c0",
+   "_post_process_2pass": "0x429470"
+  },
+  "jdsample.c": {
+   "_jinit_upsampler": "0x429510",
+   "_start_pass_upsample": "0x429700",
+   "_sep_upsample": "0x429720",
+   "_fullsize_upsample": "0x429810",
+   "_noop_upsample": "0x429820",
+   "_int_upsample": "0x429830",
+   "_h2v1_upsample": "0x429920",
+   "_h2v2_upsample": "0x429980",
+   "_h2v1_fancy_upsample": "0x429a00",
+   "_h2v2_fancy_upsample": "0x429ac0"
+  },
+  "jerror.c": {
+   "_jpeg_std_error": "0x429bf0",
+   "_error_exit": "0x429c40",
+   "_output_message": "0x429c60",
+   "_emit_message": "0x429ca0",
+   "_format_message": "0x429ce0",
+   "_reset_error_mgr": "0x429d90"
+  },
+  "jidctflt.c": {
+   "_jpeg_idct_float": "0x429db0"
+  },
+  "jidctfst.c": {
+   "_jpeg_idct_ifast": "0x42a1a0"
+  },
+  "jidctint.c": {
+   "_jpeg_idct_islow": "0x42a590"
+  },
+  "jidctred.c": {
+   "_jpeg_idct_4x4": "0x42aa80",
+   "_jpeg_idct_2x2": "0x42ad90",
+   "_jpeg_idct_1x1": "0x42af50"
+  },
+  "jmemmgr.c": {
+   "_jinit_memory_mgr": "0x42af90",
+   "_alloc_small": "0x42b0c0",
+   "_alloc_large": "0x42b220",
+   "_alloc_sarray": "0x42b2e0",
+   "_alloc_barray": "0x42b390",
+   "_request_virt_sarray": "0x42b440",
+   "_request_virt_barray": "0x42b4b0",
+   "_realize_virt_arrays": "0x42b520",
+   "_access_virt_sarray": "0x42b6c0",
+   "_do_sarray_io": "0x42b820",
+   "_access_virt_barray": "0x42b8d0",
+   "_do_barray_io": "0x42ba20",
+   "_free_pool": "0x42bad0",
+   "_self_destruct": "0x42bbd0"
+  },
+  "jmemnobs.c": {
+   "_jpeg_mem_init": "0x4222b0",
+   "_jpeg_free_small": "0x42bc10",
+   "_jpeg_free_large": "0x42bc10",
+   "_jpeg_get_small": "0x42bc30",
+   "_jpeg_get_large": "0x42bc30",
+   "_jpeg_mem_available": "0x42bc50",
+   "_jpeg_open_backing_store": "0x42bc60",
+   "_jpeg_mem_term": "0x42bc80"
+  },
+  "jquant1.c": {
+   "_finish_pass_1_quant": "0x422c30",
+   "_jinit_1pass_quantizer": "0x42bc90",
+   "_create_colorindex": "0x42bfa0",
+   "_start_pass_1_quant": "0x42c0e0",
+   "_color_quantize": "0x42c2e0",
+   "_color_quantize3": "0x42c380",
+   "_quantize_ord_dither": "0x42c420",
+   "_quantize3_ord_dither": "0x42c530",
+   "_quantize_fs_dither": "0x42c640",
+   "_new_color_map_1_quant": "0x42c7e0"
+  },
+  "jquant2.c": {
+   "_finish_pass2": "0x422c30",
+   "_jinit_2pass_quantizer": "0x42c800",
+   "_init_error_limit": "0x42c930",
+   "_start_pass_2_quant": "0x42c9d0",
+   "_prescan_quantize": "0x42cb00",
+   "_pass2_no_dither": "0x42cb80",
+   "_fill_inverse_cmap": "0x42cc40",
+   "_find_best_colors": "0x42cee0",
+   "_pass2_fs_dither": "0x42d020",
+   "_finish_pass1": "0x42d2b0",
+   "_update_box": "0x42d4c0",
+   "_compute_color": "0x42d870",
+   "_new_color_map_2_quant": "0x42d9e0"
+  },
+  "jutils.c": {
+   "_jdiv_round_up": "0x42da00",
+   "_jround_up": "0x42da20",
+   "_jcopy_sample_rows": "0x42da40",
+   "_jcopy_block_row": "0x42da90",
+   "_jzero_far": "0x42dac0"
+  }
+ }
+}

@@ -1,0 +1,29 @@
+offset,ctype,name,meaning,confidence
+0x40,u16,soundHandle,"handle of the running / rolling sound (0x8d while a switch drives it, 0xf5 while it turns); 0 = none (Wheel_SetState 0x50862e)",verified
+0x42,u8,state,"0 stopped, 1 switch on, 2 free to turn, 3 held by msg 0x43 arg 1, 4 switch off / returning (Wheel_SetState 0x50862e)",verified
+0x44,s32,liftLoaded,1 while one of the four lifts overlaps the Wolf (Wheel_ScanLift 0x50889b via Wheel_UpdateSpin 0x5089d2); selects the loaded torque constants,verified
+0x48,s32,wolfAtHub,"1 while the Wolf overlaps the wheel's own model box, tested only once the glow is at least half up (0x5081e7)",verified
+0x4c,u16,loadedLift,index 0..3 of the lift that carries the Wolf (0x5089e0),verified
+0x4e,Vec3s,railStart,"the position the wheel returns to along the rail: the placed position, refreshed by state 0 and by msg 0x43 arg != 1 (0x50866d)",verified
+0x54,Vec3s,homePos,placed position; Reset copies it back into railStart (0x507e1c),verified
+0x5a,Vec3s,railPos,"the position reached along the rail, refreshed after every move (0x50905b)",verified
+0x60,Vec3s,homeRot,placed rotation; Reset restores spin from it and re-places the lifts (0x507e46),verified
+0x66,Vec3s,spin,"the wheel's working rotation, all three axes masked to 12 bits; +0x6a is the spin angle that Wheel_UpdateSpin advances (0x508aa4)",verified
+0x6c,Vec3s,liftBoxSize,"(0, lift model box height, 0): added to each lift's world box in Wheel_PlaceLifts (0x507c96)",verified
+0x72,u16,armRadius,half the height of the wheel's own model box plus 30: the radius at which the lifts are placed (0x507a7a),verified
+0x74,s16,spinStep,"angle added to the spin this frame, from Wheel_ComputeSpinStep 0x508aff; also sent to the MOBIL as msg 0x42's argument",verified
+0x76,s16,switchAngle,"PROPERTY_WHEEL_SWITCHANGLE, moved one unit away from zero by PostLoadInit (0x507b9b); read nowhere else in the class",verified
+0x78,s32,translation,PROPERTY_WHEEL_TRANSLATION: the distance the wheel may travel along its rail (0x507b5c),verified
+0x7c,s32,railTravel,XZ distance from railStart to the current position (Vec3s_DistXZ 0x508e59); the move stops at `translation`,verified
+0x80,s32,glow,"0..1000 ramp driven by g_dtMs*1000 / (raisingTime/2): rises while the wheel is past half its travel, falls back otherwise. Scaled to 0..0x1000 as the tint amount of the wheel and its four lifts",verified
+0x84,s32,railStartSet,latched the first time state 0 records railStart so that a later stop does not move it (0x50869e),verified
+0x88,u32,raisingTime,PROPERTY_WHEEL_RAISINGTIME in ms: the time the rail move and the glow ramp take (0x507a3b),verified
+0x8c,CollBox,hubBox,"the wheel's own model box in world space, its top raised by 10, used for the hub overlap query (0x50802a-0x508177)",verified
+0x9c,ScnObject *[64],overlap,ObjGrid_QueryBoxOverlap output buffer shared by the hub query and the per-lift query (0x510f34 calls at 0x508192 and 0x5088cc),verified
+0x19c,s32,overlapCount,number of objects the last overlap query returned,verified
+0x1a0,WheelDummy *[4],lifts,PROPERTY_WHEEL_LIFT0..LIFT3 (Scn_GetPropObject 0x507bd6-0x507c2c). In Lvl-12 these are WheelDummy objects (class 112): the code writes their +0x50 / +0x52 phase angles and their +0x44..+0x4f world box,verified
+0x1b0,ScnObject *,mobil,PROPERTY_WHEEL_MOBIL (0x507b3a): receives msg 0x42 with the frame's spin step while a lift is loaded (0x508af8),verified
+0x1b4,ScnObject *,switchSender,first sender of MSG_SWITCH_ON / MSG_SWITCH_OFF; passed on to the boss in the msg 0x42 argument (0x50851b),verified
+0x1b8,ScnObject *,boss,"the level's Gossamer_Boss (class 113), found by scanning g_scnObjects (0x507b0f); told when the wheel starts and stops moving",verified
+0x1c0,ScnObject *,bossMsgSender,first word of the msg 0x42 argument sent to the boss: switchSender (0x508724),verified
+0x1c4,s32,bossMsgOn,"second word: 1 when the wheel starts its rail move (state 2), 0 when it returns (state 4)",verified

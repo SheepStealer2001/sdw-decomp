@@ -1,0 +1,57 @@
+class,slot,name,signature,comment
+# Virtual slots whose name or C++ signature cannot be read off the implementing function's table name. The class is the one that
+# INTRODUCES the slot; derived classes override it under the same name and signature. Read by tools/cpp_classes.py.
+# Signature = return type and parameter list as C++ (without the name)," e.g. ""s32 (ScnObject *sender", u32 msgId," void *arg)""."
+Frustrum,0x00,~,,"0x41a040 is the scalar deleting destructor (Frustrum_Destruct, then operator delete if flags & 1); App_Shutdown deletes g_pFrustrum through it (0x401b2b)"
+InputDevice,0x04,SetAcquired,long (u8 acquire),"InputDevice_SetAcquired_Base 0x404185 returns 0 (ret 4, one byte argument); Joystick 0x406f29 / Keyboard 0x4073db Acquire or Unacquire and return S_OK, or E_FAIL without a device"
+InputDevice,0x08,Update,long (),"InputDevice_Update 0x404194 returns 0 (xor eax,eax; plain ret); Joystick_Update 0x406f85 / Keyboard 0x407437 return an HRESULT"
+ScnBody,0x20,Init,"ScnBody* (void *warRecord, u32 nbJoints)","ScnBody_Init 0x50dc96 ends ret 8 (0x50dd27) and returns this; every ScnBody/ScnMobile factory calls slot +0x20 with (record, 0) and keeps the result (Anvil_Create 0x495137-0x495148, bipbip_Create 0x499e08-0x499e19, bridge_Create 0x49e005-0x49e016, Watch_Create 0x506221-0x506232). ScnLogic's slot is its own (ScnLogic_Init takes only the record) and is left unmodelled"
+ScnControllable,0x24,GetStickHeading,s16 (s16 fallback),"stick direction as a world heading, fallback when the stick is at rest; Wolf overrides it (heading locks). Match-compiled"
+ScnLogic,0x20,Init,ScnObject* (void *record),ScnLogic_Init 0x50dbb4 / ScnLogicShadowed_Init 0x50dc25 take the record only and return this; Snowball_Create pushes one argument and keeps the result (0x4f6146-0x4f6155)
+ScnObject,0x00,PostLoadInit,void () = 0,ScnObject_Nop in the bases; the leaf classes' first init after loading (Wolf_Init / bull_Init)
+ScnObject,0x04,Update,void () = 0,per-frame update; ScnBody_Update_default advances the animation
+ScnObject,0x08,Render,void (Camera *view) = 0,ScnBody_Render / ScnMobile_Render / ScnLogic_Render
+ScnObject,0x0c,CustomCollide,"s32 (ScnObject *querier, CollBox *mover, Vec3s *disp, s32 *outFrac, s32 *outY, CollContact *contacts, s32 *nContacts, u32 mode) = 0","ScnObject_CustomCollide_default returns 0. Called by Collide_SweepBox (0x51a8f5..) with mode 0 and by Coll_BoxGroundQuery (0x51b1c0) with mode|CQ_FROM_GROUND_QUERY, only for objects with SCN_OF_CUSTOM_COLLIDE; the implementations (Catapult 0x4a9e4d, RollingCarpet 0x4e58e0, SmallRock 0x4f564c) read the arguments as named"
+ScnObject,0x10,HandleMessage,"s32 (ScnObject *sender, u32 msgId, void *arg)",ScnObject_HandleMessage_default returns 0 (ret 0xc)
+ScnObject,0x14,Reset,void (),level restart; ScnObject_Nop in the bases
+ScnObject,0x18,RenderScaled,"void (Camera *view, Vec3s *scale) = 0",scale 0x400 = 1.0
+ScnObject,0x1c,SetPosition,void (Vec3s *pos),ScnObject_SetPosition relinks the cluster-grid node; ScnMobile_SetPosition also dirties the shadow
+ScnObject,0x20,Init,void (),"ScnBody_Init(u16 *warRecord, u32 nbJoints) and ScnLogic_Init(u16 *warRecord) take different parameters: not modelled"
+ScnLogic,0x00,PostLoadInit,void () {},"ScnObject's slots 0x00/0x04/0x08/0x0c/0x18 are CRT _purecall 0x567340 in its own vtable 0x574c40 (= 0 above); ScnLogic's is ScnObject_Nop 0x4d42c0, an inline empty override whose COMDAT /OPT:ICF folds there"
+ScnLogic,0x04,Update,void () {},"ScnObject_Nop 0x4d42c0, as PostLoadInit"
+ScnLogic,0x0c,CustomCollide,"s32 (ScnObject *querier, CollBox *mover, Vec3s *disp, s32 *outFrac, s32 *outY, CollContact *contacts, s32 *nContacts, u32 mode) { return 0; }","0x42ec50, the same empty collision handler as ScnBody's"
+ScnBody,0x00,PostLoadInit,void () {},ScnObject_Nop 0x4d42c0 (folded empty COMDAT); no source defined it before
+Sound,0x04,CreateFromWave,"s32 (SoundDevice *device, WaveFile *wave) = 0","pure in Sound (_purecall 0x567340); StaticSound 0x420840, StreamSound 0x420e70 (ret 8)"
+Sound,0x08,CreateFromFile,"s32 (SoundDevice *device, char *path) = 0","pure in Sound; StaticSound 0x420770, StreamSound 0x420c90 (ret 8)"
+Sound,0x0c,Free,s32 () = 0,"pure in Sound; StaticSound 0x4208f0, StreamSound 0x421080; always S_OK. Called as slot 3 by the stream player (0x563592, 0x563930)"
+Sound,0x10,RestoreBuffer,s32 () = 0,"pure in Sound; StaticSound 0x420930, StreamSound 0x4210e0; Play tests its result with jl (0x4209a8)"
+Sound,0x14,Play,s32 () = 0,pure in Sound; StaticSound 0x420990. StreamSound leaves it pure and has a non-virtual Play(u32 lipSync) 0x421230
+Sound,0x18,Stop,void () = 0,"pure in Sound; no value: the NULL-buffer path returns with EAX = the NULL it tested (0x4209d8), and the stream player ignores EAX (0x56392b); StaticSound 0x4209d0, StreamSound 0x421280; called as slot 6 by the stream player (0x563928, 0x563da1)"
+Sound,0x1c,SetPaused,void (u8 pause) = 0,"pure in Sound; no value (NULL path leaves EAX = buffer, 0x4209f9); StaticSound 0x4209f0, StreamSound 0x4212b0: the argument is compared as a byte (0x4209fb, 0x4212ba)"
+Sound,0x20,RewindBuffer,void () = 0,"pure in Sound; no value (NULL path leaves EAX = buffer, 0x420a45); both derived slots are 0x420a40 (identical code folded by the linker)"
+Sound,0x24,SetBufferPosition,s32 (float frac) = 0,pure in Sound; both derived slots are 0x4212e0 (folded)
+Sound,0x28,IsPlaying,u8 () = 0,"pure in Sound; StaticSound 0x420a50, StreamSound 0x421370 (buffer != NULL && !stopped); the caller tests AL (0x563e4b)"
+Sound,0x2c,Sound_SetBufferVolume,s32 (float volume) = 0,"pure in Sound; both derived slots are 0x420a80 (folded), volume 0..1 pushed as a float (0x5635d1)"
+Sound,0x30,SetBufferPan,s32 (float pan) = 0,pure in Sound; both derived slots are 0x421390 (folded)
+Sound,0x34,Sound_SetBufferFrequency,s32 (u32 hz) = 0,pure in Sound; both derived slots are 0x420af0 (folded); unsigned clamp jae/jbe (0x420b0f)
+Sound,0x38,FillBuffer,s32 () = 0,"pure in Sound; StaticSound 0x420b40, StreamSound 0x421410"
+Texture,0x00,~,,"scalar deleting destructor 0x40b030 (calls the destructor 0x40ad97, which releases the surface at +0x10); TexScroll_FreeAll 0x560edd calls it as slot 0 with 1 (delete)"
+Mine,0x24,SetState,void (u8 state),Mine_SetState 0x4d4dbe takes a state byte (the original's `ret 4`); Mine and its DefusableMine override need the argument.
+Dragon,0x24,SetState,void (u8 state),"Dragon_SetState takes a state byte, same defect as Mine's slot"
+PorkyLevel01,0x24,SetState,void (u8 newState,char *text,u32 voice),"PorkyLevel01_SetState takes three arguments - state byte, subtitle text and voice id - not the generated `void ()`"
+Mesh,0x8,TransformRange,"void (u32 firstVertex, u32 count)",ret 0x8 at 0x40d236; Instance_DrawAnimParts pushes two zero-extended u16 locals at 0x551520/0x551525 and calls [vtbl+8] at 0x551532. AnimMesh inherits the slot
+Mesh,0x4,BuildFromBsFile,"u8 (D3DApp *app, BsFile *file)","ret 0x8 at 0x40d054; stores arg 1 at this+8 (0x40c249) and reads the record type byte of arg 2 (0x40c255); returns in al (0x40d04d). AnimMesh_Load 0x40b6e1 overrides it with the same ret 0x8 and ends in a direct call to 0x40c230 with (arg1, arg2) (0x40b849-0x40b854)"
+Mesh,0xc,TransformAll,void (),plain ret at 0x40d1f0; AnimMesh overrides it with the empty 0x40b865
+Mesh,0x10,TransformRangeWithMatrices,"void (Mat44 *world, Mat44 *view, Mat44 *proj, u32 firstVertex, u32 count)","ret 0x14 at 0x40d1a9; SetTransform 1/2/3 with args 1-3, then ProcessVertices(1, arg4, arg5, vbPositions, arg4, device, 1)"
+Mesh,0x14,DrawAll,"void (Mat44 *world, Mat44 *view, Mat44 *proj)",ret 0xc at 0x40d0fe (Mesh) and 0x40ba98 (AnimMesh_Draw): SetTransform 1/2/3 with args 1-3
+MeshAnimSeq,0x0,~,,"vtable 0x574354 slot 0 = 0x40c100, a vector deleting destructor calling MeshAnimSeq_Destruct 0x40b617; the name does not end in ScalarDeletingDtor, so the slot is stated here"
+MeshPart,0x0,~,,"vtable 0x5743c4 slot 0 = 0x40c020, a vector deleting destructor calling MeshPart_Dtor 0x41a209; the name does not end in ScalarDeletingDtor, so the slot is stated here"
+RenderPoly,0x0,~,,"vtable 0x5743f8 slot 0 = 0x415540, a vector deleting destructor calling RenderPoly_Dtor 0x41ac04; the name does not end in ScalarDeletingDtor, so the slot is stated here"
+BsPolyFlat,0x0,~,,"vtable 0x5743e4 slot 0 = 0x415120, the class's deleting destructor; the name does not end in ScalarDeletingDtor, so the slot is stated here"
+BsPolyGouraud,0x0,~,,"vtable 0x5743ec slot 0 = 0x4151d0, the class's deleting destructor; the name does not end in ScalarDeletingDtor, so the slot is stated here"
+BsPolyTexFlat,0x0,~,,"vtable 0x5743e8 slot 0 = 0x415280, the class's deleting destructor; the name does not end in ScalarDeletingDtor, so the slot is stated here"
+BsPolyTexGouraud,0x0,~,,"vtable 0x5743f0 slot 0 = 0x415330, the class's deleting destructor; the name does not end in ScalarDeletingDtor, so the slot is stated here"
+BsPolyBlendFlat,0x0,~,,"vtable 0x5743dc slot 0, the class's deleting destructor; the name does not end in ScalarDeletingDtor, so the slot is stated here"
+BsPolyBlendGouraud,0x0,~,,"vtable 0x5743e0 slot 0 = 0x415490, the class's deleting destructor; the name does not end in ScalarDeletingDtor, so the slot is stated here"
+MeshAnimFrame,0x00,~,,"0x420450 is the vector deleting destructor (element size 0xc, per-element MeshAnimFrame_Dtor 0x41a847)"
+MeshPartPose,0x00,~,,"0x420500 is the vector deleting destructor (element size 0x28, per-element MeshPartPose_Dtor 0x41a8d1)"

@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x0,u16,count,"number of points: 3 (the seesaw keeps only TRAJ exports whose count is 3, and writes 3 into its hop records)",verified
+0x2,Vec3s[3],pts,"start, middle and end point; seesaw_LaunchObject fits its arc through the object's position, pts[1] and pts[2]",verified

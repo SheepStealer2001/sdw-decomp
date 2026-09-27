@@ -1,0 +1,5 @@
+value,name,meaning
+#,TextPageStep,Text_PageStep mode (engine/text.cpp 0x5328b3 family)
+0x0,TEXTPAGE_SKIP_BLANK,mode 0 moves on only when the current line is blank
+0x1,TEXTPAGE_PREV,mode 1 goes to the previous page mark
+0x2,TEXTPAGE_NEXT,mode 2 goes to the next page mark

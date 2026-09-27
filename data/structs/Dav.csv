@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,DavHeader *,header,"g_pDav->header == blob after Load_DAV; +0 'VDX7' magic, +0x14 relocated pointer to the DAV directory [typed DavHeader * - Load_DAV 0x54858a..0x5485ee relocates header->dir (+0x14) and dir+6/+0xa/+0x12]",verified
+0x4,u8 *,blob,malloc'd whole .DAV image (size from directory+0xe); freed by Dav_Free,verified
+0x8,WarFile,war,"the embedded WarFile {header, table, blob}: Load_WAR/Load_WarMeshes/Load_FreeWAR take &g_pDav->war (add eax,8 at 0x547b4f, 0x547b84, 0x54820a); GetResourceType/Install_WarResource read war.table (+0xc) and war.blob (+0x10); Load_DAVnWAR reads war.header->resourceCount (0x547c10) and the clear colour (0x547f80).",verified
+0x14,StringBank,strings,"the level's .MLT string bank (StringBank: listCount +0x14, lists +0x18; lists[0] is the single malloc'd string block, StringBank_FreeLists frees lists[0] then the array); Load_MLT fills it, Load_FreeMLT zeroes it",verified

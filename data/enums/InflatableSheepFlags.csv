@@ -1,0 +1,4 @@
+value,name,meaning
+#,InflatableSheepFlags,InflatableSheep.isFlags (+0x108)
+0x1,INFSHEEP_F_INFLATED,"set by SetInflated, cleared by SetDeflated; answer to msg 0x4601"
+0x2,INFSHEEP_F_BURNT,MSG_KILL arg 0 while attached; black tint (0x1000); Reset deflates it and clears the bit

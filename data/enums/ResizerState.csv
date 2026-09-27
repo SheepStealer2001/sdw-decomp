@@ -1,0 +1,6 @@
+value,name,meaning
+#,ResizerState,state field of Resizer
+0x0,RESIZER_ST_IDLE,"SetState 0: anim STAND, model box solid; Update: finds a candidate in the activation box (inferred)"
+0x1,RESIZER_ST_CAPTURE,SetState 1: model box non-solid; Update: places the target at the box centre (ACTION1) (inferred)
+0x2,RESIZER_ST_RESIZE,"Update 2: per class, releases the Wolf and camera, -> 0 (inferred)"
+0x3,RESIZER_ST_EJECT,"SetState 3: anim ACTION1, MSG_WOLF_SET_INVISIBLE; Update: -> 0 on anim end (inferred)"

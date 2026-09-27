@@ -1,0 +1,17 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,state,"BirdState (0 appear-wait, 1 circle, 2 takeoff, 3 descend, 4 leave)",verified
+0x65,u8,offscreenTicks,updates counted in state 0 while wasOnScreen == 0; at >= 2 the bird starts circling; zeroed by SetState(0),verified
+0x66,u8,boxIndex,index into appearBoxes of the box the bird appeared in (loop variable in state 4); every state entry tests pos x/z against this box,verified
+0x6c,s16,orbitDir,+1/-1 circling direction; negated when the orbit is mirrored (reverseNext),verified
+0x6e,s16,orbitCentreVertCopy,written = orbitCentre.y in SetState(0); never read,verified
+0x70,s16,orbitAngSpeed,orbitDir*0x226 (550/4096 turn per second); applied to orbitRot.y and to facing,verified
+0x74,u32,reverseNext,"Rand_Bounded(2) result; when set, the next SetState(1) mirrors the orbit centre through the bird and reverses orbitDir",verified
+0x78,u32,wasOnScreen,Render copies inst.flags & INST_F_DRAWN here; Update zeroes it every frame,verified
+0x7c,Vec3s,orbitRadius,pos - orbitCentre at the start of a quarter circle; rotated by orbitRot each frame,verified
+0x82,Vec3s,takeoffPos,pos when leaving the circle for state 2; the orbit centre is shifted by pos - takeoffPos on landing,verified
+0x88,Vec3s,orbitRot,Euler angle of the orbit (only y is advanced); zeroed per quarter circle,verified
+0x8e,Vec3s,appearPos,centre of the APPEARBOX box Ralph was found in; the bird is teleported here,verified
+0x94,Vec3s,orbitCentre,"circle centre; appearPos + (400,0,0) on appearing",verified
+0x9a,Vec3s,flightStep,"per-frame translation for states 2/3 = Vec3s_ScaleByDt(vel), computed once at state entry",verified
+0xa0,ZoneList,appearBoxes,"zone list {boxes, count}: APPEARBOX id-list (Scn_FindIdList); export boxes {u32 flags; Vec3s min; Vec3s max} | count (+4): count written by Scn_FindIdList",verified
+0xa8,s16,flightTimerMs,"1000 (takeoff) / 1500 (descent), minus g_dtMs per frame",verified

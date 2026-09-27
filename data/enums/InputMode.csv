@@ -1,0 +1,5 @@
+value,name,meaning
+#,InputMode,"g_inputMode 0x719620, set by Input_SetMode 0x55e714"
+0,INPUT_MODE_LIVE,normal play: Input_Poll latches both pads
+1,INPUT_MODE_RECORD,pad recording: Input_SetMode snapshots the remap into the .PAD header. Never entered: no caller passes 1
+2,INPUT_MODE_PLAYBACK,set by PadRec_Load; Input_Poll stops latching (the playback step is missing from this build)

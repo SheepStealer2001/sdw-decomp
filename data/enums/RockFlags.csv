@@ -1,0 +1,9 @@
+value,name,meaning
+#,RockFlags,Rock +0x185 bit flags.
+0x01,ROCKF_PUSHED_THIS_FRAME,"set by msg 0xA, cleared by Update state 2"
+0x02,ROCKF_PUSH_MOVED,last push had non-zero x or z (roll sound on)
+0x04,ROCKF_PUSH_Y,ALLOWPUSHONYAXIS (z component allowed for Wolf pushes)
+0x08,ROCKF_PUSH_X,ALLOWPUSHONXAXIS
+0x10,ROCKF_RESET,PROPERTY_ROCK_RESET: Reset returns the rock home
+0x20,ROCKF_FALLS_AT_INIT,FALLSATINIT; forced on after a smash
+0x40,ROCKF_HAS_DEBRIS,debris body (AROCHE03) was built

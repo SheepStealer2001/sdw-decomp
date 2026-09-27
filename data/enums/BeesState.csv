@@ -1,0 +1,22 @@
+value,name,meaning
+#,BeesState,state field of Bees
+0x0,BEES_ST_HOVER_HIVE,"SetState 0: anim STAND, computes the camera angle to the hive; Update 0 waits for the hive to be in view (inferred)"
+0x1,BEES_ST_QUESTION_IN,SetState 1: anim INTERRO (question-mark reaction start); Update: on anim end -> 2 (inferred)
+0x2,BEES_ST_QUESTION_LOOP,SetState 2: anim INTERRO2 looped for 3x the duration of anim 4; Update: timer -> 3 (inferred)
+0x3,BEES_ST_QUESTION_OUT,"SetState 3: anim INTERRO3; Update: on anim end msg 0x3e04 to the hit hive, flies to the second hive (0xe) (inferred)"
+0x4,BEES_ST_EXCLAIM_IN,SetState 4: anim EXCLAM; Update: on anim end -> 5 (inferred)
+0x5,BEES_ST_EXCLAIM_LOOP,SetState 5: anim EXCLAM2 looped; Update: timer -> 6 (inferred)
+0x6,BEES_ST_EXCLAIM_OUT,SetState 6: anim EXCLAM3; Update: on anim end msg 0x3e04 and -> 0xe (inferred)
+0x7,BEES_ST_IN_HIVE,"SetState 7: anim STAND2 looped, msg 0x3e03 to the mother hive; Update: sits at the mother hive (inferred)"
+0x8,BEES_ST_ENTER_HIVE,SetState 8: anim STAND2 once; Update: on anim end msgs 0x3e02/0x3e03 and -> 7 (inferred)
+0x9,BEES_ST_ORBIT_HIVE,"SetState 9: buzz sound 0x141, anim STAND, orbit anchor 0x50 from the hive; Update: orbits, -> 0xa at the mother hive (inferred)"
+0xa,BEES_ST_ORBIT_MOTHER,"SetState 0xa: anim STAND, orbit anchor; Update: one full orbit (0xfff) of the mother hive, then 8 (inferred)"
+0xb,BEES_ST_ORBIT_SAM,"SetState 0xb: anim STAND, orbit anchor 0x64; Update: orbits Sam until 0x2ffd, then 0xc (inferred)"
+0xc,BEES_ST_RETURN_HOME,"Update 0xc: after the timer flies back to the mother hive at 400 u/s, then 7 (inferred)"
+0xd,BEES_ST_FLY_TO_TARGET,"SetState 0xd: target = hive position; Update: flies to targetPos, then 9 (inferred)"
+0xe,BEES_ST_FLY_TO_HIVE,"SetState 0xe: target = hive; Update: flies to the hive (sets g_beesLeftFirstHive), msg 0x3e02, then 9 (inferred)"
+0xf,BEES_ST_CHASE_SAM,"SetState 0xf: buzz 0x141, anim STAND; Update: follows Sam or the honey-pot victim (inferred)"
+0x10,BEES_ST_CHASE_WOLF,"SetState 0x10: anim STAND; Update: flies at the Wolf at 0x514 u/s, 0x11 on contact, 0xd if he is in water (inferred)"
+0x11,BEES_ST_STING_WOLF,"SetState 0x11: anim STAND, MSG_ENTER_CD to the Wolf; Update: sticks to the Wolf's head (inferred)"
+0x12,BEES_ST_STING_VICTIM,"SetState 0x12: buzz 0x141; Update: sits on the victim, msg 0x4a to it when alert == 3 (inferred)"
+0x13,BEES_ST_REACT,SetState 0x13: anim OUT (alert 0) or STAND2 for animDuration; Update: timer -> 0xf (inferred)

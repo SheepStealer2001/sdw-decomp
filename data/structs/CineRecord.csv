@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,u16,opcode,CineOpcode 1..8; indexes g_cineOpStride (Cine_RecordSize 0x561803),verified
+0x2,u16,count,number of keys that follow the 8-byte header (Cine_RecordSize 0x56180d); odd counts of the stride-2 opcodes 4/5/7/8 are padded by 2 (Cine_AdvanceScriptCursor 0x561c04),verified
+0x4,u16 *,keyCursor,current key; copied to Cine.keyCur/keyNext by Cine_RunOpcodes 0x5621ca,verified

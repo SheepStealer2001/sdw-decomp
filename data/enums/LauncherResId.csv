@@ -1,0 +1,20 @@
+value,name,meaning
+#,LauncherResId,"Win32 resource ids used by the launcher, read from SheepD3D.exe's .rsrc (language 1036). Dialog templates are RT_DIALOG and the rest are RT_BITMAP, 8-bit."
+0x65,IDD_OPTIONS_DEBUG,"Unreferenced twin of 0x66, 412x298 DLU, with the 'Loading (Debug)' group visible and enabled."
+0x66,IDD_OPTIONS,Options dialog (Launcher_OptionsDlgProc); debug group hidden+disabled; no WS_VISIBLE.
+0x67,IDD_LAUNCHER,Main launcher dialog (Launcher_MainDlgProc).
+0x94,IDD_EASTER_EGG,Control-less picture dialog (Launcher_EasterEggDlgProc).
+0x73,IDB_LAUNCHER_BG,641x477 main dialog background.
+0x80,IDB_OPTIONS_BG,345x486 options dialog background.
+0x8a,IDB_BTN_ACCEPT,"138x42, options 'Accept' (0x406)."
+0x8b,IDB_BTN_CANCEL,"138x42, options 'Cancel' (0x407)."
+0x8c,IDB_BTN_CONTROLPANEL,"243x24, options 'Configuration' (0x3FD, joy.cpl)."
+0x8d,IDB_BTN_QUIT,"138x42, 'Quit...' (0x455)."
+0x8e,IDB_BTN_CONFIGURE,"267x24, 'Game configuration' (0x44E)."
+0x8f,IDB_BTN_LINK,"267x24, shared by 'Readme' (0x454) and 'Game Site' (0x451)."
+0x90,IDB_BTN_INFOGRAMES,"267x24, 'Infogrames Site' (0x452)."
+0x91,IDB_BTN_INSTALL_DX,"267x24, 'Install DirectX 8' (0x44C)."
+0x92,IDB_BTN_PLAY,"138x42, 'Play!' (0x44D)."
+0x93,IDB_BTN_CLEAR,"267x24, 'Clear saves and config' (0x44F)."
+0x95,IDB_EASTER_EGG,641x477 photo collage shown by dialog 0x94.
+0x79,IDI_APP_ICON,"WinMain: wc.hIcon = LoadIconA(hInstance, 0x79) (inferred)"

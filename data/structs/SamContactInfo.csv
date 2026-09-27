@@ -1,0 +1,9 @@
+offset,ctype,name,meaning,confidence
+0x0,ScnObject *,floorObj,object of a floor-class contact (Sam_ResolveMove's private contact layout; zeroed at start),verified
+0x4,ScnObject *,wallObj,object of a wall-class contact,verified
+0x8,ScnObject *,carrierObj,contact object whose class flags have 4 (SCN_CF_CARRIER),verified
+0xc,Vec3s,floorNormal,"init (0,-0x1000,0); last floor normal",verified
+0x12,s16,minContactY,init box bottom; min of sweep outMaxY,verified
+0x14,s16,boxTopY,"translated box min.y (top), written once at start",verified
+0x16,s16,minStaticY,init box bottom; min of Collide_SweepBox_Sam outStaticY,verified
+0x18,Vec3s,wallNormalMean,mean wall normal (written only if any wall contact); init 0,verified

@@ -1,0 +1,34 @@
+The iris transition leaks a 256 x 256 texture on every level load (the memory growth)
+
+Every level load runs Transition_Init, which calls g_holeFX.Init. Init first asks D3DApp::CreateTextureSurface for a
+viewport-sized capture surface (the "frozen frame" iris). CreateTextureSurface only creates one when the pointer it is
+given is still null, and HoleFX never releases its capture surface: so the first load creates it, and on every later
+load CreateTextureSurface returns E_FAIL. Init then takes its other branch (the circle-mask iris) and makes a new
+256 x 256 ARGB4444 Texture, overwriting maskTexture without deleting the previous one. From the third load on, each load
+leaves one texture behind: 128 KB of pixels (a managed or system-memory surface, so in the game's own memory) plus the
+Texture object, which is the "a little more memory with every load" seen in Task Manager.
+
+This fix keeps the existing mask texture and redraws it instead of making a new one. It does not change which iris is
+used: the first transition after start-up still uses the frozen-frame iris and every later one the circle mask, as in
+the original.
+
+Touches: src/fx/holefx.cpp (HoleFX::Init).
+
+diff --git a/src/fx/holefx.cpp b/src/fx/holefx.cpp
+index fc01b6a..89d22a3 100644
+--- a/src/fx/holefx.cpp
++++ b/src/fx/holefx.cpp
+@@ -235,7 +235,12 @@ void HoleFX::Init(D3DApp *app, void *viewport, float radius, u8 useCubicBezier)
+     if (this->app->CreateTextureSurface(&captureSurface, (s32)this->viewport->viewportWidth,
+                                         (s32)this->viewport->viewportHeight) < 0) {
+         hasCaptureSurface = HOLEFX_MASK;
+-        maskTexture = new Texture(this->app, 0x100, 0x100, TEXFMT_ARGB4444, &result);
++        /* FIX iris-mask-leak: Transition_Init calls Init on every level load. The capture surface of the first load is
++         * never released, so CreateTextureSurface fails on every later one and Init comes here each time; the
++         * original made a new 256 x 256 mask texture here and overwrote the previous one without deleting it (128 KB
++         * of pixels per load, from the third load on). The existing mask is kept and redrawn instead. */
++        if (maskTexture == 0)
++            maskTexture = new Texture(this->app, 0x100, 0x100, TEXFMT_ARGB4444, &result);
+         BuildCircleMask();
+         screenRadius = sqrt(this->viewport->viewportWidth * this->viewport->viewportWidth / 4.0 +
+                             this->viewport->viewportHeight * this->viewport->viewportHeight / 4.0);

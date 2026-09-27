@@ -1,0 +1,19 @@
+offset,ctype,name,meaning,confidence
+0x0,fnptr *,vtable,"0x5742E8, one slot: D3DApp_ScalarDeletingDtor 0x406570. Written by D3DApp_Construct, D3DApp_ConstructUnfiltered and D3DApp_Destruct.",verified
+0x4,u8,deviceReady,Set to 1 at the end of D3DApp_CreateDevice. Main_Loop's whole render/update block is gated on it via g_pPolyBatcher->pApp->deviceReady.,verified
+0x8,HWND__ *,hWnd,"(HWND) The render window. Passed to SetCooperativeLevel, the DirectInput SetCooperativeLevel calls and Main_Loop's GetDC/GetActiveWindow. Typed HWND__ * (the STRICT HWND) so the generator can declare it, as run3/app_main does.",verified
+0xc,HINSTANCE__ *,hInstance,"(HINSTANCE) Module handle, used only for DirectInput8Create. Typed HINSTANCE__ * (the STRICT HINSTANCE); read by DirectInput8Create in both constructors (0x4045cb) and CreateDevice (0x40546f).",verified
+0x10,RECT,clientRect,"Destination rectangle of the present. Fullscreen: SetRect(0,0,modeW,modeH). Windowed: GetClientRect + two ClientToScreen calls, so it is in screen coordinates. Render_Present passes it as the Blt destination.",verified
+0x20,IDirectDraw7 *,pDD,"The DirectDraw7 object for the selected driver. Vtable uses seen: CreateClipper 0x10, CreateSurface 0x18, EnumDisplayModes 0x20, GetCaps 0x2C, GetDisplayMode 0x30, SetCooperativeLevel 0x50, SetDisplayMode 0x54, GetAvailableVidMem 0x5C.",verified
+0x24,IDirect3D7 *,pD3D,"IDirect3D7 obtained by pDD->QueryInterface(IID_IDirect3D7 0x577728, &this->pD3D) in D3DApp_CreateDevice (0x405419-0x40543d). Released third by D3DApp_ReleaseInterfaces, zeroed by both constructors. Used elsewhere for CreateVertexBuffer.",verified
+0x28,IDirect3DDevice7 *,pD3DDevice,"IDirect3DDevice7 for the global g_pD3DApp (0x6d6568); vtable 0x50 SetRenderState, 0x94 SetTextureStageState, 0x2c SetTransform. Sibling +0x24 is the IDirect3D7 (see Draw_CreateScratchVertexBuffers 0x51e1f0).",verified
+0x2c,D3DDeviceInfo[20],devices,"By-value array of enumerated render devices, stride 0x34B4. 20 slots ((0x41E3C-0x2C)/0x34B4).",verified
+0x41e3c,u8,deviceCount,Number of devices that survived the constructor's filtering.,verified
+0x41e3d,u8,deviceIndex,"Currently selected device. Read by D3DApp_CreateDevice, D3DApp_GetModeString, Render_Present and HoleFX_CreateVertexBuffer.",verified
+0x41e40,IDirectDrawSurface7 *,pPrimary,Primary surface. Render_Present calls Flip (vtable 0x2C) on it in fullscreen or Blt (0x14) into clientRect in the windowed path.,verified
+0x41e44,IDirectDrawSurface7 *,pBackBuffer,"Render target. Source of the present Blt, target of IDirect3D7::CreateDevice, source of GetSurfaceDesc in D3DApp_CreateTextureSurface, and the DC used by the debug FPS/clipboard helpers.",verified
+0x41e48,IDirectDrawSurface7 *,pZBuffer,"Depth buffer, created from the format picked by D3DEnum_ZBufferFormatCallback and AddAttachedSurface'd to the back buffer.",inferred
+0x41e4c,IDirectInput8A *,pDInput,DirectInput8 object; all three device wrappers get their IDirectInputDevice8 from it.,verified
+0x41e50,DIJoystickInfo[20],joysticks,"By-value array of attached game controllers, stride 0x60: char instanceName[0x50] (DIDEVICEINSTANCEA.tszInstanceName +0x28, not tszProductName +0x12c: DI_JoystickEnumCallback 0x4064fe) then GUID guidInstance at +0x50. 20 slots ((0x425D0-0x41E50)/0x60).",verified
+0x425d0,u8,joystickCount,Number of attached controllers; D3DApp_HasJoystick returns it != 0.,verified
+0x425d1,u8,joystickIndex,Controller chosen in the launcher; D3DApp_CreateJoystickDevice uses it.,verified

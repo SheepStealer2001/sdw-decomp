@@ -1,0 +1,22 @@
+value,name,meaning
+#,WarResType,WAR table entry type byte (entry >> 24)
+0x1,WAR_RES_IGNORED_1,GetResourceType: types 1/2 are class 4 (ignored)
+0x2,WAR_RES_IGNORED_2,types 1/2 ignored
+0x3,WAR_RES_MESH,type 3: world mesh (InstMode INST_MODE_WAR_STATIC)
+0x4,WAR_RES_MODEL,type 4: animated model (INST_MODE_WAR_ANIMATED)
+0x5,WAR_RES_SCENARIC,type 5: scenaric object record (class 1)
+0x8,WAR_RES_TYPE_8,class 3 (content undecoded) (inferred)
+0x9,WAR_RES_TYPE_9,class 3 (content undecoded) (inferred)
+0xa,WAR_RES_CINEMATIC,type 0xA: cinematic (class 2)
+0xb,WAR_RES_MESH_B,type 0xB: world mesh (INST_MODE_WAR_STATIC_0B)
+0x26,WAR_RES_SKY,type 0x26: sky mesh (INST_MODE_WAR_SKY)
+0x27,WAR_RES_TYPE_27,class 3 (content undecoded) (inferred)
+0x40,WAR_RES_UNCOUNTED,type bit: Load_WAR 0x549d25 does not count a mesh or model resource that has it (a scenaric record is counted anyway); GetResourceType 0x547470 gives any unlisted type with it class 3 (data); WAR_RES_TYPE_MASK strips it
+0x80,WAR_RES_COLL_GRID,0x80: collision grid (Install_WarResource)
+0x81,WAR_RES_COLL_TRIS,0x81: collision triangles
+0x82,WAR_RES_EXPORTS,0x82: export table
+0x83,WAR_RES_HEADER3,0x83: three-u32 header (0x6ddf60/64/68)
+0x84,WAR_RES_OBJ_GRID,0x84: object/cluster grid -> ObjGrid_Init
+0x85,WAR_RES_PAIRS,0x85: {count; pair[2][]} relocated
+0x86,WAR_RES_ANIM_NAMES,0x86: model/animation debug-name table (g_animNameTable 0x585050)
+0xbf,WAR_RES_TYPE_MASK,"(entry >> 24) & 0xbf in Load_WAR, BsFile::First/NextFrame, Res_ModelType, Instance_InitFromWarRecord"

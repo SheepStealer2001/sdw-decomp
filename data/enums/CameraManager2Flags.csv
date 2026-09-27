@@ -1,0 +1,8 @@
+value,name,meaning
+#,CameraManager2Flags,CameraManager2 FLAGS prop (+0x4c)
+0x1,CM2_BLEND_IN,CAMSCR_BLEND_IN
+0x2,CM2_BLEND_OUT,CAMSCR_BLEND_OUT
+0x4,CM2_CHAIN,CAMSCR_CHAIN (dropped when re-issuing its own script)
+0x8,CM2_TRACK_X,eye.x = Wolf x
+0x10,CM2_TRACK_Y2,eye.z = Wolf z
+0x20,CM2_TRACK_VERT,eye.vertical = Wolf vertical

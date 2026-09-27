@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,s32,left,Win32 RECT. D3DApp.clientRect: ClientToScreen(hWnd; &left) at 0x4056cf and the width right - left at 0x40571d.,verified
+0x4,s32,top,Win32 RECT; the height bottom - top at 0x405735.,verified
+0x8,s32,right,Win32 RECT; ClientToScreen(hWnd; &right) at 0x405703.,verified
+0xc,s32,bottom,Win32 RECT.,verified

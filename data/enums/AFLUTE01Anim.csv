@@ -1,0 +1,4 @@
+value,name,meaning
+#,AFLUTE01Anim,animation ids of WAR model AFLUTE01 (its WAR type-0x86 table; names verified from the level files). Played by: Flute
+0x0,AFLUTE01_ANIM_LINK,WAR name LINK
+0x4,AFLUTE01_ANIM_OBJET,WAR name OBJET

@@ -1,0 +1,22 @@
+offset,ctype,name,meaning,confidence
+0x40,u8,state,"TrainStationState: 0 idle, 1 the train is on this station's route",verified
+0x44,ScnObject *,train,"sender of msg 0x4800 / 0x60 (Train, class 135)",verified
+0x48,ScnObject *,passenger,train msg 0x4783 reply; the station camera looks at it,verified
+0x4c,u32,timerTicks,g_dt accumulated since the last command,verified
+0x50,u32,lastSegTimeMs,"distXZ(p[n-2],p[n-1])*1000/(SPEEDPERCENT*15); returned by msg 0x4801",verified
+0x54,u32,prevSegTimeMs,same for segment n-3..n-2,verified
+0x58,u32,jamsArrivingTimeMs,ARRIVINGTIME of the registered TrafficJams (msg 0x5F arg),verified
+0x5c,s32,commandPending,a waypoint command is waiting for its delay,verified
+0x60,s32,skipWait,msg 0x60 arrived while a command was pending; the next jam query passes NULL (no wait),verified
+0x64,s32,camActive,station camera started; released when there is no passenger,verified
+0x68,s32,jammed,TrafficJams msg 0x1E reply,verified
+0x6c,Vec3s,waypoint,target sent to the train (arg of 0x4781/0x60/0x4782 together with +0x72),verified
+0x72,s16,waypointHeading,atan2 heading for the waypoint (+0x800 on non-final points),verified
+0x74,u16,waypointIndex,current trajectory point,verified
+0x78,ScnObject *,trafficJams,TrafficJams (class 133) registered by msg 0x5F,verified
+0x7c,Box *,box,"BOX; written by Init, no reader found in TrainStation or Train code",verified
+0x80,Trajectory *,traj,"TRAJ {u16 count; Vec3s pts[]}, >= 3 points, straightened in place by Init",verified
+0x84,ScnObject *,next,NEXT station (class 136 only); handed to the train via msg 0x60's out-arg at route end,verified
+0x88,s32,waitTicks,"WAIT ms -> ticks; written by Init, no reader found",verified
+0x8c,CamSetup *,camera,CAM setup record {u16 focal; s16 rot[3]; Vec3s eye},verified
+0x90,u32,speedPercent,SPEEDPERCENT; msg 0x4802 reply (the train sets speed -1500*pct/100),verified

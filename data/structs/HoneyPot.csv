@@ -1,0 +1,10 @@
+offset,ctype,name,meaning,confidence
+0x7c,u8,state,HoneyPotState; written only by HoneyPot_SetState,verified
+0x80,u32,beeCount,"Scenaric_FindByClass(107 Bees, bees, 5) result; loop bound for msg 0x67",verified
+0x88,Vec3s,homePos,= pos at Init and on msg 9 arg 1; msg 0x55 moves the pot back here,verified
+0x90,CollBox,spillBox,"query box rebuilt around the pot (x/z +-150, y from pos-150 to pos); min +0x94, max +0x9a; flags word +0x90 never written. Used by Update state 4 (ObjGrid_QueryBoxOverlap for Sam) and msg 2 (Sam origin test)",verified
+0xa0,ScnObject *[5],bees,Bees objects (class 107) that receive msg 0x67 (arg Sam) while Sam stands in the spill,verified
+0xb4,ScnObject *,hiveMother,PROPERTY_HONEYPOT_HIVEMOTHER (Scn_GetPropObject offset 0); also gets msg 0x67; not NULL-checked,verified
+0xb8,ScnObject *,sam,Sam (Scenaric_FindByClass(1)); his origin is tested in msg 2,verified
+0xbc,u16,launchSoundHandle,"Sound_Play(0xA6) handle on msg 0xC; zeroed by Init/Reset, never read or stopped",verified
+0xbe,u16,landSoundHandle,"Sound_Play(0xA7) handle on msg 0x25; zeroed by Init/Reset, never read or stopped",verified

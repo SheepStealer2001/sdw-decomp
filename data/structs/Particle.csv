@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x0,u32:24,age,"age in ticks (g_dt units), bits 0..23 (Emitter_UpdateDrift 0x52cadd and edx,0xffffff)",verified
+0x0,u32:8,grey,"grey level splatted to all three channels for the vertex diffuse, bits 24..31 (Emitter_AddParticle 0x52c6cd..0x52c6ea)",verified
+0x4,u32:12,angle,"12-bit angle, bits 0..11 (Emitter_AddParticle 0x52c683..0x52c699; read 0x52cb29 and edx,0xfff)",verified
+0x4,u32:12,size,"quad size, bits 12..23 (Emitter_AddParticle 0x52c69c..0x52c6b9)",verified
+0x4,u32:7,frame,"frame index into the sprite sheet, bits 24..30 (Emitter_AddParticle 0x52c6ec..0x52c707)",verified
+0x4,u32:1,alive,"bit 31 (Emitter_AddParticle 0x52c6c2 or eax,0x80000000; UpdateDrift 0x52caca shr eax,0x1f)",verified

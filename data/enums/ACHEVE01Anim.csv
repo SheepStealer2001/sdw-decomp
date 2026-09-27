@@ -1,0 +1,6 @@
+value,name,meaning
+#,ACHEVE01Anim,animation ids of WAR model ACHEVE01 (its WAR type-0x86 table; names verified from the level files). Played by: HairDryer
+0x0,ACHEVE01_ANIM_OBJET,WAR name OBJET
+0x1,ACHEVE01_ANIM_LINK,WAR name LINK
+0x2,ACHEVE01_ANIM_STANDV1,WAR name STANDV1
+0x3,ACHEVE01_ANIM_WALKV1,WAR name WALKV1

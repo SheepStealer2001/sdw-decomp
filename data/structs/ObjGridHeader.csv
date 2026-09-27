@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x0,u16,dimX,cells along X,verified
+0x2,u16,dimZ,cells along Z,verified
+0x4,s16,originX,grid origin X,verified
+0x6,s16,originZ,grid origin Z,verified
+0x8,u16,shift,log2 cell size,verified

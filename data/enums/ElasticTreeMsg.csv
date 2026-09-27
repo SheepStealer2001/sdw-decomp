@@ -1,0 +1,3 @@
+value,name,meaning
+#,ElasticTreeMsg,ElasticTree_HandleMessage
+0x1a80,MSG_ELASTICTREE_GET_INFO,"*(u32[2])arg = {Vec3s *pullUpPoint, ScnObject *camRestrict}; returns 1"

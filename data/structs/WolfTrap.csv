@@ -1,0 +1,10 @@
+offset,ctype,name,meaning,confidence
+0x7c,s32,victimFrozen,"1 while the trap holds the victim's input frozen. Zeroed by PostLoadInit, Reset and by HandleMessage case 0xE; WolfTrap_SetVictimFrozen keeps it in sync with the victim's answer and returns it.",verified
+0x80,s32,timerMs,Countdown in ms drained by g_dtMs with a SIGNED test. In state 1 it is the 0x400 ms (1.024 s) mashing window — expiry zeroes struggleCount and reloads; in state 2 it is the 0x1400 ms (5.12 s) release delay before re-arming.,verified
+0x84,ScnObject *,pSam,"Sam (class 1), resolved once in PostLoadInit; sent MSG_SAM_FORCE_ALERT (0x33, arg 1) when the trap snaps shut, so getting caught alerts Sam.",verified
+0x88,ScnObject *,pVictim,The controllable currently held (Wolf class 0 or Robot class 0x65). Set from the MSG_USE sender; cleared by PostLoadInit (0x50990f) and on entering state 0 or 2.,verified
+0x8c,ScnObject *,pBell,"The Bell (class 0x66), resolved once in PostLoadInit; sent msg 0x33 arg 1 when the trap closes — capture, alarm and Sam's alert are one event.",verified
+0x90,Vec3s,homePos,Position captured at PostLoadInit; restored through ScnMobile_SetPosition when the trap returns to state 0.,verified
+0x96,u16,struggleCount,PAD_CROSS presses registered in the current 0x400 ms window; at 6 the trap opens. Reset on entering state 1 and whenever the window expires. Sits between the two Vec3s.,verified
+0x98,Vec3s,homeRot,"Rotation captured at PostLoadInit and restored on entering state 0. While holding a victim the trap instead copies the victim's rot into its own rot, never into this field.",verified
+0x9e,u8,state,"0 idle/armed (anim 4, home, no victim), 1 holding (anim 1, victim frozen, mash window), 2 opening (anim 3, shadow hidden, 5.12 s), 3 holding but the freeze was lost, retried each frame. Single writer at the tail of SetState. 0x9e + 1 + 1 pad = obj_size 0xa0.",verified

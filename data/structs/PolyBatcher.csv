@@ -1,0 +1,26 @@
+offset,ctype,name,meaning,confidence
+0x0,fnptr *,vtbl,"0x5743a0, single entry = PolyBatcher_ScalarDeletingDtor 0x418aa0",verified
+0x4,D3DApp *,renderer,the renderer/device wrapper whose IDirect3DDevice7* lives at +0x28; the batcher reaches D3D only through it,verified
+0x8,u32,defaultStateFlags,RenderStateFlags applied by Render_BeginFrame at the start of every frame; initialised to 0x120 = RSF_DITHER | RSF_COLORVERTEX,verified
+0xc,u32,clearColor,"colour passed to IDirect3DDevice7::Clear each frame; 0 at construction, set per level by Load_DAVnWAR through 0x416f00",verified
+0x10,u32,batchCapacity,triangles per batch before flush,verified
+0x14,Texture **,textures,"malloc'd array of textureCount+4 Texture object pointers, one per VDX7 page",verified
+0x18,u32,texturePageCount,total texture-page count. PolyBatcher_LoadTexturePages 0x416fe2 writes it as header_word & 0xffff and then sizes BOTH the texture-object array at +0x14 and the per-texture state flags at +0x28 as count*4 + 0x10. Distinct from the immediate-page count at +0x1c.,verified
+0x1c,u32,immediateTexCount,"count of the IMMEDIATE texture prefix, a subset of texturePageCount at +0x18 (not a total).",verified
+0x20,u32,lastTextureIndex,"index of the texture currently bound to stage 0, used to skip redundant SetTexture calls",verified
+0x24,u8,textureDirty,"forces the next textured draw to rebind even if the index matches; set by Render_BeginFrame, by the untextured batch flush and after each line or deferred untextured draw, cleared on bind",verified
+0x28,u32 *,texStateFlags,"per-page RenderStateFlags: 0xc020 for immediate pages (TEXTURED|FILTER_LINEAR|DITHER), 0xc002 for alpha-blend pages, 0xc004 for additive pages",verified
+0x2c,void *,flatBatchVerts,"untextured triangle batch, capacity * 0x48 bytes (3 vertices of 0x18, FVF 0xc4).",verified
+0x30,u32,flatBatchCount,triangles in the untextured batch,verified
+0x34,u32,stateFlags,the RenderStateFlags word applied when the untextured batch is flushed,verified
+0x38,void **,texBatchVerts,"per-texture batch buffers (0x60 per triangle, FVF 0x1c4); counts at +0x3C[], render flags at +0x28[], texture objects at +0x14[]",inferred
+0x3c,u32 *,texBatchCounts,"per-texture triangle counts, one per immediate page, parallel to texBatchVerts (+0x38) and texStateFlags (+0x28); PolyBatcher_SubmitPoly indexes it with the page number and LightSpot::Render does the same in its inlined copy (0x4f7f27 add ecx,edx before the count compare)",verified
+0x40,u8,computeSortZ,"1 makes PolyBatcher_SubmitPoly compute a deferred poly's sortZ as the sum of its three vertex z (read at 0x52f7e7 in the inlined submit of Weather_DrawRain, written by PolyBatcher_SetComputeSortZ 0x416f16)",verified
+0x44,RenderPoly *,sortedPolys,"pool of 6000 RenderPoly of 0x20 bytes; the allocation is 0x2ee04 bytes = a leading count word (6000) plus the array, and the field points past the count",verified
+0x48,RenderPoly **,sortedList,malloc(24000) = 6000 pointers into the RenderPoly pool; this is the array qsort reorders,verified
+0x4c,u32,sortedCount,"number of RenderPoly already pushed into sortedList this frame; the index RenderPoly_Assign writes at and the counter it bumps (0x4f7d3a imul eax,eax,0x20 on +0x44, then mov [ecx+0x4c],eax)",verified
+0x50,u32,blendStateFlags,"RenderStateFlags for RenderPoly type 2, initialised to 2 = RSF_BLEND_ALPHA (SRCBLEND=INVSRCALPHA, DESTBLEND=SRCALPHA - the inverted-alpha convention)",verified
+0x54,u32,addStateFlags,"RenderStateFlags for RenderPoly type 3, initialised to 4 = RSF_BLEND_ADD (SRCBLEND=INVSRCALPHA, DESTBLEND=ONE)",verified
+0x58,void *,lineBatchVerts,"line batch: a fixed 96000-byte buffer = 4000 vertices of 0x18 bytes = 2000 lines, drawn as D3DPT_LINELIST",verified
+0x5c,u32,lineBatchCount,lines queued in the line batch; zeroed by the flush and by the discard path of Render_EndFrame,verified
+0x60,u32,lineStateFlags,"RenderStateFlags for the line batch, 0x121 = RSF_ANTIALIAS | RSF_DITHER | RSF_COLORVERTEX",verified

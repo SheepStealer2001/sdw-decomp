@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,void *,vtbl,"vtable 0x574354 (MeshAnimSeq_vtbl, one slot: MeshAnimSeq_VecDeletingDtor 0x40c100)",verified
+0x4,char[8],name,"8-char animation name, or ""No anim"" for an empty slot (BsFile_ReadAnimNames 0x41f62c / 0x41f7c7)",verified
+0xc,MeshAnimFrame *,frames,new MeshAnimFrame[frameCount] (BsFile_ReadAnimNames 0x41f6d3),verified
+0x10,u32,frameCount,the u16 read after the name (BsFile_ReadAnimNames 0x41f64f),verified

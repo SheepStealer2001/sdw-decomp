@@ -1,0 +1,7 @@
+value,name,meaning
+#,InputDeviceMask,InputMgr.presentMask and the wanted/present masks of InputMgr::CreateDevices
+0x0,INPUTDEV_MASK_NONE,0 (inferred)
+0x1,INPUTDEV_MASK_KEYBOARD,present |= 1 with the keyboard; SetAcquired case 1 acquires keyboard
+0x2,INPUTDEV_MASK_JOYSTICK,present |= 2 with the joystick; SetAcquired case 2
+0x4,INPUTDEV_MASK_MOUSE,present |= 4 with device3; SetAcquired case 4 (Mouse class) (inferred)
+0xff,INPUTDEV_NONE,0xff = no device (inferred)

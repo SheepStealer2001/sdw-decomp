@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x0,u8,version,set 3 by PadRec_Save 0x55e8b8,verified
+0x1,u8,padType,set 7 by PadRec_Save 0x55e8bf,verified
+0x2,u16[6],remap,"button map snapshot, slots 0xe 0xf 0xc 0xd 0xb 0xa (Input_SetMode 0x55e750..0x55e7a0)",verified
+0x10,u32,dataLen,recorded data length (PadRec_Save 0x55e8a1),verified
+0x14,u32,gameTimeMs,g_gameTimeMs stamped by PadRec_Save 0x55e8b2,verified
+0x18,u8[0x10],reserved,rest of the 0x28-byte header (PadRec_Save adds 0x28),inferred

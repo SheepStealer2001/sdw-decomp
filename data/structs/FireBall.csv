@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,state,"FireBall_SetState's state: 0 = hidden, waiting for msg 0x5981 (a victim to burn); 1 = burning over the victim until the hit animation ends (Update)",verified
+0x65,u8,flameTick,"frame counter of the flame sprites: the frame is flameTick/2, and the three offsets are re-rolled when it passes the sprite's frameCount (RenderFlames)",verified
+0x66,Vec3s[3],flameOffsets,"offsets of the three flame sprites from pos, re-rolled on entering state 1 and at each wrap of flameTick",verified
+0x78,AnimSprite,flameSprite,"the flame sprite sheet (resource 0xd0, AnimSprite_InitFromRes in PostLoadInit)",verified

@@ -1,0 +1,5 @@
+value,name,meaning
+#,ACAGE01Anim,animation ids of WAR model ACAGE01 (its WAR type-0x86 table; names verified from the level files). Played by: Jail
+0x0,ACAGE01_ANIM_STAND,WAR name STAND
+0x1,ACAGE01_ANIM_CLOSE,WAR name CLOSE
+0x2,ACAGE01_ANIM_OPEN,WAR name OPEN

@@ -1,0 +1,9 @@
+value,name,meaning
+#,AppLanguageMask,"g_langMask 0x57910A, the single-bit language selector produced by App_GetLanguageMask 0x4035EF and consumed by every TextRes_LoadString call. The switch is on GetUserDefaultLangID() & 0xFF (0x4035fe), not PRIMARYLANGID (& 0x3FF); the values below are that low byte. The constants are LANGMASK_*: src/sdk/win32.h's LANG_* are the SDK's LANGIDs (App_GetLanguageMask switches on those)."
+0x01,LANGMASK_ENGLISH,LANGID & 0xFF == 9.
+0x02,LANGMASK_FRENCH,"LANGID & 0xFF == 0xC, and the fallback for every unlisted language."
+0x04,LANGMASK_GERMAN,LANGID & 0xFF == 7.
+0x08,LANGMASK_DUTCH,LANGID & 0xFF == 0x13.
+0x10,LANGMASK_SPANISH,LANGID & 0xFF == 0xA.
+0x20,LANGMASK_ITALIAN,LANGID & 0xFF == 0x10.
+0x40,LANGMASK_PORTUGUESE,LANGID & 0xFF == 0x16; the language InputDevice_GetObjectName 0x4071B0 has its hard-coded space-bar fix for.

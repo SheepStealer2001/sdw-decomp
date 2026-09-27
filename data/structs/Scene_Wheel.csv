@@ -1,0 +1,13 @@
+offset,ctype,name,meaning,confidence
+0x64,s8,index,"Selected wheel slot 0..3 (wraps both ways); every read is movsx. It seeds the target angle (index * PI/2) and the local selection byte, but it does NOT index the language tables: 0x4e997f recomputes that local from the POSE angle via Scene_Wheel_AngleToIndex and 0x4e99bb/0x4e99d9/0x4e9a30 read [ebp-",verified
+0x65,u8,state,"0 freeze the Wolf and start the intro anim, 1 wait for it, 2 idle/done, 3 (re)arm, 4 interactive spin, 5 confirmed — unfreeze, set SCN_OF_NEVER_UPDATE, then either exit the level or open the memory-card UI. Jump table 0x4e9be0.",verified
+0x66,s8,snapping,"Set to 1 whenever the player steps the wheel; while set the wheel integrates angVel toward targetAngle and clears itself (plus angVel = 0, angle snapped to index*PI/2) on reaching or overshooting it.",verified
+0x67,s8,wolfFrozen,Non-zero once the Wolf has accepted SCN_MSG_UI_FREEZE (0x0E); on confirm the wheel sends 0x0F and clears it. Same idiom as the existing CamShot.wolfFrozen row.,verified
+0x68,s8,exitLevelOnConfirm,"Branch selector on confirm: non-zero sets g_levelExitFlags bit 1 and calls Fade_StartLevelExit(0x1000); zero sends MSG_USE to the MCardManager (class 0x62) so the save UI opens. A census of 0x4e9480-0x4e9e6d finds exactly ONE reference, the read at 0x4e9b32 — nothing in the class ever writes it, not",verified
+0x69,u8,pad069,Never referenced; alignment between the s8 at 0x68 and the u16 at 0x6a.,inferred
+0x6a,u16,unk6a,Zeroed by Scene_Wheel_Reset at 0x4e9ddf and never read or written anywhere else in the class (exactly one reference).,verified
+0x6c,u16,idleMs,Milliseconds (g_dtRawMs) since the last wheel step; reset on every step and by Reset. Accumulated every Update but never compared against anything — dead state as built.,verified
+0x6e,u16,pad06e,Never referenced; alignment between the u16 at 0x6c and the float at 0x70.,inferred
+0x70,float,angVel,"Angular velocity in rad/s, recomputed each frame as (targetAngle - currentAngle) * 2 (fadd st,st) and clamped to +-7*PI/4 (5.497787 at 0x576a88). Integrated as angle += g_dtMs * angVel / 1000.",verified
+0x74,u32,unk074,"A real 4-byte slot between the two floats that NOTHING in 0x4e9480-0x4e9e6d references (per the offset census). Both neighbours are 4-aligned, so it is not alignment. It must be carried explicitly or the 0x7c size assert will not reproduce.",verified
+0x78,float,targetAngle,"Target wheel angle = index * PI/2 (1.5707964 at 0x576a8c); stepped by +-PI/2 per press and re-derived from index whenever the angle is wrapped into [0, 2*PI).",verified

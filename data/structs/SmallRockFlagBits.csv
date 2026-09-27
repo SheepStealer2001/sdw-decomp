@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x0,s32:1,thrown,bit 0 (4-byte signed unit) | SmallRock +0x174: signed one-bit extraction (0x4f4ee3),verified
+0x0,s32:1,floating,bit 1 (4-byte signed unit),verified
+0x0,s32:1,hasIce,bit 2 (4-byte signed unit),verified
+0x0,s32:1,inWater,bit 3 (4-byte signed unit),verified
+0x0,s32:1,initAtReset,bit 4 (4-byte signed unit),verified

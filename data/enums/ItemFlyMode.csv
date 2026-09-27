@@ -1,0 +1,5 @@
+value,name,meaning
+#,ItemFlyMode,g_itemFlyMode 0x6cfc2c
+0,ITEMFLY_IDLE,no effect
+1,ITEMFLY_TO_WOLF,"item leaves the inventory: t runs 0xffe down to the wrap, from the camera point to the Wolf"
+2,ITEMFLY_TO_INVENTORY,"item picked up/stored: t runs 0 to 0xfff, from its position to the camera point"

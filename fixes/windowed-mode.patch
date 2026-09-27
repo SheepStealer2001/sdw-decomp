@@ -1,0 +1,236 @@
+windowed-mode: a "Windowed" checkbox in the launcher's configuration dialog. With it ticked, the chosen resolution is
+shown in a window (with a title bar, centred on the main screen) instead of fullscreen; the mode list is unchanged.
+
+The game's display code (the DirectX 7 sample framework) can already render in a window: a desktop-compatible device
+has a width-0 "Windowed Mode" pseudo-mode, which WinMain's D3DApp filter hides. D3DApp::CreateDevice now takes that
+path when the checkbox is ticked, after giving the window a title bar and the chosen mode's client size; the frame is
+shown into the client area (ShowFrame's Blt), and the window procedure measures that area again when the window moves
+(the game measured it once). The checkbox is saved in the launcher's registry "Setup" value, in its unused padding
+(an older saved value reads as fullscreen), and is read again when the game starts with "Play".
+
+Files: src/app/fix_windowed.h (new: the Windows functions it needs), src/app/app_main.cpp (the checkbox, its colour
+on the dialog's picture, the save, WM_MOVE, ShowFrame), src/app/d3dapp.cpp (CreateDevice), src/engine/polybatcher.cpp
+(Render_Present: the game shows each frame there, not through ShowFrame, and without it a window stays black).
+
+diff --git a/src/app/app_main.cpp b/src/app/app_main.cpp
+index 4d387c1..a5fa8a5 100644
+--- a/src/app/app_main.cpp
++++ b/src/app/app_main.cpp
+@@ -55,6 +55,7 @@ struct ITEMIDLIST;
+     } /* source-only inline (App_InitGameSystems 0x401a20) */
+ #define SDW_MEMBERS_Mat44 Mat44(); /* 0x4077f0 Mat44_Ctor */
+ #include "sdw_classes.h"
++#include "fix_windowed.h"
+ 
+ /* source-only inline: the DX7 framework's ShowFrame, expanded in App_InitGameSystems (0x401943-0x4019f1): Blt the back
+  * buffer into the window rectangle when the selected mode is the desktop-compatible "Windowed Mode" pseudo-mode 0, else
+@@ -64,7 +65,7 @@ inline HRESULT D3DApp::ShowFrame()
+     HRESULT hr;
+     if (pPrimary == NULL)
+         hr = E_FAIL;
+-    else if (devices[deviceIndex].bDesktopCompatible && devices[deviceIndex].modeIndex == 0)
++    else if (g_fixWindowedActive || (devices[deviceIndex].bDesktopCompatible && devices[deviceIndex].modeIndex == 0))
+         hr = pPrimary->Blt(&clientRect, pBackBuffer, NULL, DDBLT_WAIT, NULL);
+     else
+         hr = pPrimary->Flip(NULL, DDFLIP_WAIT);
+@@ -122,6 +123,8 @@ s8 g_startLevelId = -1;            /* 0x57910c  the scene App_InitGameSystems st
+ u8 g_launcherInputMode = INPUTMODE_KEYBOARD; /* 0x57910d  keyboard only, or a joystick is selected */
+ u16 g_unref_57910e = 1;                      /* 0x57910e  no code or data refers to it */
+ u32 g_maxFps = 60;                           /* 0x579110  the frame cap passed to Render_Present */
++u8 g_fixWindowed = 0;       /* FIX windowed-mode: the launcher's checkbox (kept in the Setup value's padding) */
++u8 g_fixWindowedActive = 0; /* FIX windowed-mode: the device was created in a window */
+ 
+ /* ---- this object's .bss after g_camera (0x584d30-0x585068), zero-initialised so that they keep this order ---- */
+ u8 g_unref_584d30[0x200] = {0};           /* 0x584d30  no code or data refers to it */
+@@ -363,6 +366,13 @@ LRESULT __stdcall App_WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
+             g_inputMgr.SetAcquiredAll(1);
+             ShowCursor(0);
+             break;
++        case FIX_WM_MOVE: /* FIX windowed-mode: the frame is shown where the window is now (measured once before) */
++            if (g_fixWindowedActive && g_pD3DAppMain) {
++                GetClientRect(hWnd, &g_pD3DAppMain->clientRect);
++                ClientToScreen(hWnd, (POINT *)&g_pD3DAppMain->clientRect.left);
++                ClientToScreen(hWnd, (POINT *)&g_pD3DAppMain->clientRect.right);
++            }
++            break;
+     }
+     return DefWindowProcA(hWnd, msg, wParam, lParam);
+ }
+@@ -686,6 +696,12 @@ s32 __stdcall Launcher_OptionsDlgProc(HWND window, u32 message, u32 wParam, s32
+                    backgroundCompatibleCurrent, 0, 0, SRCCOPY);
+             DeleteObject(backgroundBitmap);
+             return 1;
++        case FIX_WM_CTLCOLORSTATIC: /* FIX windowed-mode: the checkbox on the dialog's picture, like its labels */
++            if ((HWND)lParam != GetDlgItem(window, IDC_CHK_WINDOWED))
++                return 0;
++            SetBkMode((HDC)wParam, TRANSPARENT);
++            SetTextColor((HDC)wParam, 0x202030);
++            return (s32)GetStockObject(FIX_NULL_BRUSH);
+         case WM_SETFONT:
+             /* cast kept: WM_SETFONT passes the font in wParam */
+             incomingFontValue = (HFONT)wParam;
+@@ -697,6 +713,7 @@ s32 __stdcall Launcher_OptionsDlgProc(HWND window, u32 message, u32 wParam, s32
+                 Reg_CloseKey(&key);
+                 g_launcherSetupLoaded = 1;
+             }
++            g_fixWindowed = g_launcherSetup.unused[0] != 0; /* FIX windowed-mode: as saved (0 in older saves) */
+             SendDlgItemMessageA(window, IDC_DBG_WHEEL, BM_SETCHECK, BST_CHECKED, 0);
+             SendDlgItemMessageA(window, IDC_DBG_LEVEL_EDIT, EM_SETREADONLY, 1, 0);
+             SendDlgItemMessageA(window, IDC_DBG_LEVEL_EDIT, WM_ENABLE, 0, 0);
+@@ -717,6 +734,16 @@ s32 __stdcall Launcher_OptionsDlgProc(HWND window, u32 message, u32 wParam, s32
+             LABEL(IDC_ACCEPT, 0x800);
+             LABEL(IDC_CANCEL, 0x1000);
+ #undef LABEL
++            { /* FIX windowed-mode: the checkbox, under the mode list in the Direct3D box */
++                RECT box;
++                HWND check;
++                SetRect(&box, 30, 86, 30 + 161, 86 + 10);
++                MapDialogRect(window, &box);
++                check = CreateWindowExA(0, "BUTTON", "Windowed", FIX_WS_CHECKBOX, box.left, box.top, box.right - box.left,
++                                        box.bottom - box.top, window, (HMENU)IDC_CHK_WINDOWED, g_hInstance, 0);
++                SendMessageA(check, WM_SETFONT, SendMessageA(window, FIX_WM_GETFONT, 0, 0), 1);
++                SendMessageA(check, BM_SETCHECK, g_fixWindowed ? BST_CHECKED : 0, 0);
++            }
+             g_pD3DAppMain->SetDeviceIndex(0);
+             do {
+                 g_pD3DAppMain->GetDeviceName(displayNameCopy);
+@@ -852,6 +879,9 @@ s32 __stdcall Launcher_OptionsDlgProc(HWND window, u32 message, u32 wParam, s32
+                         g_launcherInputMode = INPUTMODE_JOYSTICK;
+                     } else
+                         g_launcherInputMode = INPUTMODE_KEYBOARD;
++                    /* FIX windowed-mode: the checkbox, saved in the Setup value's padding */
++                    g_fixWindowed = SendDlgItemMessageA(window, IDC_CHK_WINDOWED, BM_GETCHECK, 0, 0) == BST_CHECKED;
++                    g_launcherSetup.unused[0] = g_fixWindowed;
+                     if (Reg_CreateSubKey(&key, "Setup") == 0 &&
+                         Reg_WriteBinary(key, 0, &g_launcherSetup, sizeValue) == 1)
+                         Reg_CloseKey(&key);
+diff --git a/src/app/d3dapp.cpp b/src/app/d3dapp.cpp
+index 2571366..5b88c46 100644
+--- a/src/app/d3dapp.cpp
++++ b/src/app/d3dapp.cpp
+@@ -60,6 +60,7 @@
+     D3DApp(HWND hWnd, HINSTANCE hInstance, u8 filterFlags); /* 0x40464f D3DApp_Construct */                        \
+     inline void DrawDebugText(int column, int line, char *text, int len); /* source-only inline, see DrawFpsText */
+ #include "sdw_classes.h"
++#include "fix_windowed.h"
+ 
+ #define WM_USER 0x400
+ 
+@@ -512,6 +513,11 @@ HRESULT D3DApp::CreateDevice()
+     pDeviceGUID = pDeviceInfo->pDeviceGUID;
+     pMode = &MODES(pDeviceInfo)[pDeviceInfo->modeIndex];
+     bIsHw = pDeviceInfo->bHardware; /* never read */
++    /* FIX windowed-mode: the launcher's checkbox puts the chosen mode in a window (the path the width-0 "Windowed
++     * Mode" pseudo-mode takes, which WinMain's filter hides): the window gets a title bar and that client size first */
++    g_fixWindowedActive = pDeviceInfo->bDesktopCompatible && (pMode->dwWidth == 0 || g_fixWindowed);
++    if (g_fixWindowedActive && pMode->dwWidth != 0)
++        Fix_SizeWindow(hWnd, pMode->dwWidth, pMode->dwHeight);
+ 
+     /* cast kept: COM returns every interface through a void ** out parameter */
+     result = DirectDrawCreateEx(pDrvGUID, (void **)&pDD, IID_IDirectDraw7, 0);
+@@ -525,7 +531,7 @@ HRESULT D3DApp::CreateDevice()
+     if (result < 0)
+         return result;
+ 
+-    if (pDeviceInfo->bDesktopCompatible && pMode->dwWidth == 0) {
++    if (g_fixWindowedActive) { /* FIX windowed-mode: was bDesktopCompatible && dwWidth == 0 */
+         result = pDD->SetCooperativeLevel(hWnd, DDSCL_NORMAL);
+         if (result < 0)
+             return result;
+@@ -541,7 +547,7 @@ HRESULT D3DApp::CreateDevice()
+ 
+     memset(&ddsdesc, 0, sizeof(ddsdesc));
+     ddsdesc.dwSize = sizeof(ddsdesc);
+-    if (pDeviceInfo->bDesktopCompatible && pMode->dwWidth == 0) {
++    if (g_fixWindowedActive) { /* FIX windowed-mode: was bDesktopCompatible && dwWidth == 0 */
+         ddsdesc.dwFlags = DDSD_CAPS;
+         ddsdesc.ddsCaps.dwCaps = DDSCAPS_PRIMARYSURFACE;
+     } else {
+@@ -553,7 +559,7 @@ HRESULT D3DApp::CreateDevice()
+     if (result < 0)
+         return result;
+ 
+-    if (pDeviceInfo->bDesktopCompatible && pMode->dwWidth == 0) {
++    if (g_fixWindowedActive) { /* FIX windowed-mode: was bDesktopCompatible && dwWidth == 0 */
+         IDirectDrawClipper *pClipper;
+         result = pDD->CreateClipper(0, &pClipper, 0);
+         if (result < 0)
+@@ -563,7 +569,7 @@ HRESULT D3DApp::CreateDevice()
+         pClipper->Release();
+     }
+ 
+-    if (pDeviceInfo->bDesktopCompatible && pMode->dwWidth == 0) {
++    if (g_fixWindowedActive) { /* FIX windowed-mode: was bDesktopCompatible && dwWidth == 0 */
+         ddsdesc.dwFlags = DDSD_CAPS | DDSD_HEIGHT | DDSD_WIDTH;
+         ddsdesc.ddsCaps.dwCaps = DDSCAPS_OFFSCREENPLAIN | DDSCAPS_3DDEVICE;
+         GetClientRect(hWnd, &clientRect);
+diff --git a/src/app/fix_windowed.h b/src/app/fix_windowed.h
+new file mode 100644
+index 0000000..aea64a6
+--- /dev/null
++++ b/src/app/fix_windowed.h
+@@ -0,0 +1,39 @@
++/* FIX windowed-mode: the launcher's "Windowed" checkbox and what it needs (not in the original game). */
++#ifndef SDW_APP_FIX_WINDOWED_H
++#define SDW_APP_FIX_WINDOWED_H
++#include "../sdk/windef.h"
++#include "../sdk/win32.h"
++
++extern u8 g_fixWindowed;       /* the checkbox: a window of the chosen resolution instead of fullscreen */
++extern u8 g_fixWindowedActive; /* the device was created windowed (D3DApp::CreateDevice) */
++
++#define IDC_CHK_WINDOWED 1040
++#define FIX_WS_WINDOWED 0x10CA0000 /* WS_VISIBLE | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX: a window that moves */
++#define FIX_WS_CHECKBOX 0x50010003 /* WS_CHILD | WS_VISIBLE | WS_TABSTOP | BS_AUTOCHECKBOX */
++#define FIX_GWL_STYLE (-16)
++#define FIX_SWP_SHOW 0x0064 /* SWP_NOZORDER | SWP_FRAMECHANGED | SWP_SHOWWINDOW */
++#define FIX_WM_MOVE 0x0003
++#define FIX_WM_GETFONT 0x0031
++#define FIX_WM_CTLCOLORSTATIC 0x0138
++#define FIX_NULL_BRUSH 5
++
++extern "C" __declspec(dllimport) long __stdcall SetWindowLongA(HWND hWnd, int index, long value);
++extern "C" __declspec(dllimport) BOOL __stdcall SetWindowPos(HWND hWnd, HWND after, int x, int y, int cx, int cy,
++                                                             UINT flags);
++extern "C" __declspec(dllimport) BOOL __stdcall AdjustWindowRect(RECT *rect, DWORD style, BOOL menu);
++extern "C" __declspec(dllimport) int __stdcall GetSystemMetrics(int index);
++extern "C" __declspec(dllimport) BOOL __stdcall MapDialogRect(HWND dialog, RECT *rect);
++extern "C" __declspec(dllimport) void *__stdcall GetStockObject(int object);
++
++/* the game's window as a window with a title bar whose client area is w x h, centred on the main screen */
++inline void Fix_SizeWindow(HWND hWnd, int w, int h)
++{
++    RECT frame;
++    SetRect(&frame, 0, 0, w, h);
++    AdjustWindowRect(&frame, FIX_WS_WINDOWED, 0);
++    SetWindowLongA(hWnd, FIX_GWL_STYLE, FIX_WS_WINDOWED);
++    SetWindowPos(hWnd, 0, (GetSystemMetrics(0) - (frame.right - frame.left)) / 2,
++                 (GetSystemMetrics(1) - (frame.bottom - frame.top)) / 2, frame.right - frame.left,
++                 frame.bottom - frame.top, FIX_SWP_SHOW);
++}
++#endif
+diff --git a/src/engine/polybatcher.cpp b/src/engine/polybatcher.cpp
+index 66e8e31..9cafb9c 100644
+--- a/src/engine/polybatcher.cpp
++++ b/src/engine/polybatcher.cpp
+@@ -577,6 +577,8 @@ void PolyBatcher::Render_EndFrame(u8 flush)
+     renderer->EndScene();
+ }
+ 
++extern u8 g_fixWindowedActive; /* FIX windowed-mode: the device was created in a window (src/app/fix_windowed.h) */
++
+ /* 0x417ecf - presents the frame (Blt into the window's client rectangle when the mode is the desktop-compatible
+  * windowed one, Flip otherwise), recovers lost surfaces, then waits out the frame limiter. */
+ /* BYTES(slot-name): names chosen for their stack slots (tools/vc6_locals.py) */
+@@ -588,8 +590,9 @@ void PolyBatcher::Render_Present(u32 maxFps)
+     d3dApp = renderer;
+     if (d3dApp->pPrimary == 0) {
+         hr = E_FAIL;
+-    } else if (d3dApp->devices[d3dApp->deviceIndex].bDesktopCompatible &&
+-               d3dApp->devices[d3dApp->deviceIndex].modeIndex == 0) {
++    } else if (g_fixWindowedActive || (d3dApp->devices[d3dApp->deviceIndex].bDesktopCompatible &&
++                                       d3dApp->devices[d3dApp->deviceIndex].modeIndex == 0)) {
++        /* FIX windowed-mode: this, not D3DApp::ShowFrame, is how each frame is shown; a window cannot Flip */
+         hr = d3dApp->pPrimary->Blt(&d3dApp->clientRect, d3dApp->pBackBuffer, 0, DDBLT_WAIT, 0);
+     } else {
+         hr = d3dApp->pPrimary->Flip(0, DDFLIP_WAIT);

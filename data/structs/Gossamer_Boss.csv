@@ -1,0 +1,54 @@
+offset,ctype,name,meaning,confidence
+0x7c,u8[3],phaseSecs,"designer properties at prop offsets 0x18/0x1c/0x20, kept as bytes (PostLoadInit 0x44ee18-0x44ee6c). SetState(9) reads phaseSecs[hitIndex+1] (0x450b89 movzx byte [ecx+eax+0x7d]), so entry 0 is never used and hitIndex 2 reads past the array into state (+0x7f)",verified
+0x7f,u8,state,GossamerBossState; switch subject of Update (0x44f3bf movzx byte [eax+0x7f]) and of SetState (0x45079d),verified
+0x80,u8,prevState,previous state saved by SetState (0x45078b mov byte [eax+0x80] dl),verified
+0x81,u8,pathIndex,"index into path->pts, advanced by msg 0x43 (0x45057e add al,1) and read by the return step (0x451217 movzx byte [edx+0x81]; imul 6)",verified
+0x82,u8,shakeTicks,frames spent in state 0xc; the ground shake fires on the 0x14th (0x450141 movzx byte [eax+0x82]; cmp 0x14),verified
+0x84,s16,hitIndex,"phase counter: 0xffff at Init/Reset (0x44f069), +1 per msg 0x43 (0x45050a add ax,1); indexes phaseBoxes[] (0x44f98f) and phaseSecs[hitIndex+1]",verified
+0x86,s16,phaseOverlapX,pos.x - phaseBoxes[hitIndex]->max.x when the last phase box is left (0x44f9a2),verified
+0x88,s16,turnAccum,turn accumulated by TurnStep in 4096ths (0x451e8c); compared with turnNeeded (0x451f5f),verified
+0x8a,s16,turnRefAngle,"reference heading for TurnStep, facing - 0x800 (0x451985, 0x44f401)",verified
+0x8c,s16,turnDir,"+1 / -1 sense of the current turn (0x451dab, 0x451db9)",verified
+0x8e,s16,turnDirLatch,turnDir latched on the first frame of a turn; a reversal aborts the turn (0x451e01-0x451e14),verified
+0x90,u16,spinFacing,facing saved when state 8 starts (0x450ace) and restored every frame of it (0x44fadb),verified
+0x94,u32,wolfDist,"XZ distance to Ralph, refreshed at the top of Update (0x44f3a8); unsigned in every compare (0x44f45c ja, 0x450314 jae)",verified
+0x98,u32,timerMs,state timer in ms; += g_dtMs (0x44f4b8),verified
+0x9c,u32,timerLimitMs,limit for timerMs (0x44f44e cmp),verified
+0xa0,u32,facingDelta,"|Ralph's facing - the boss's facing| wrapped to <= 3000, written by UpdateFacingDelta (0x452200)",verified
+0xa4,u32,spinDurationMs,"copy of timerLimitMs kept for the dust column's frame selector (0x450bbe, 0x44fe4e)",verified
+0xa8,u16,turnNeeded,"total turn a TurnStep must accumulate: 0x800 / 0x1000 / 0x3000 by state (0x4507bb, 0x4509a9, 0x450ad8)",verified
+0xac,s32,wolfHeld,reply to Ralph's freeze message 0xe; msg 0xf releases him (0x45060c),verified
+0xb0,s32,showHitBody,hitBody is rendered and animated while set (0x44f2e6),verified
+0xb4,s32,chasingFlat,set when Ralph has been flattened; the chase step then polls msg 0x41c (0x4519b0),verified
+0xb8,s32,smashStarted,state 0xb: the smash animation has been launched (0x44ff06),verified
+0xbc,s32,hasChaseTarget,non-zero while chaseTarget is valid (msg 0x42 arg +0x1c4); switches states 0x11/0x12 (0x452053),verified
+0xc0,s32,caughtWolf,set when state 0xe starts within 100 units of Ralph (msg 0x41d); decides state 0x12 vs 0x10 (0x450111),verified
+0xc4,s32,pathShifted,one-shot: the path points are shifted by the msg 0x43 argument only once (0x45051b),verified
+0xc8,s32,showSpinBody,spinBody is rendered while set (0x44f30b),verified
+0xcc,Vec3s,toTarget,target - pos each frame (0x45193f),verified
+0xd2,Vec3s,velocity,units per second for this frame (0x451ad6),verified
+0xd8,Vec3s,frameDelta,Vec3s_ScaleByDt(velocity): the move applied this frame (0x451b21),verified
+0xde,Vec3s,spawnPos,position at the start of the fight; Reset puts the boss back there (0x451730),verified
+0xe4,Vec3s,fxOrigin,dust-column origin: pos with the vertical raised 0xdc (0x450b40),verified
+0xea,Vec3s,fxAnchor,fxOrigin pushed 100 units away from the camera through fxFrame (0x44fc8f-0x44fd35),verified
+0xf0,Vec3s,arenaMaxSave,arenaBox->max as loaded; Reset restores it (0x44f0da),verified
+0xf6,Vec3s,arenaMinSave,arenaBox->min as loaded; Reset restores it (0x44f11f),verified
+0xfc,Vec3s,homePos,"the point the boss walks back to (path point, or its position at Reset) (0x4505a7, 0x4518b8)",verified
+0x102,Vec3s,fallStep,"per-frame fall/slide vector of the knock-back, and the landing spot handed to SetPosition (0x4510e3, 0x451114)",verified
+0x108,Mat34s,fxFrame,"fixed quarter-turn about the vertical used to offset the dust column toward the camera; rot[4] is set to 1 rather than 0x1000 (0x44f1b1) but multiplies the always-zero vertical, and trans is never initialised",verified
+0x128,InlineEmitter3,fx,3-slot dust column driven by Emitter_UpdateColumn (0x44fe81); an inline-storage emitter (0x60 bytes): the factory's inline constructor (0x44ec1b) points slotPool at +0x14c (0x44ec29) and particles at +0x170 (0x44ec37),verified
+0x188,EmitterColumnParams,fxParams,"Emitter_UpdateColumn parameter block of the dust column: riseSpeed 0, life 1000, period 1000, size 0x40 to 0x40, sheet 7 (stored field by field at 0x44ef93-0x44efd2)",verified
+0x19c,u16,soundHandle,channel handle of the spin / impact sound (0x44fb44),verified
+0x1a0,Trajectory *,path,PROPERTY at offset 0x14 (Scn_GetPropTrajectory 0x44ee94): the walk-back points,verified
+0x1a4,ScnBody,hitBody,extra body built from export 0x95 (0x44f00b); drawn at the boss position while showHitBody,verified
+0x208,ScnBody,spinBody,extra body built from export 0xd8 (0x44f051); drawn at fxOrigin while showSpinBody,verified
+0x26c,ScnRecordSynth,bodyRecord,scratch record shared by the two Scn_BuildRecordFromExport calls (0x44eff4),verified
+0x280,CamSetup,camSetup,CamSetup: focal = CAMERA property word 0; the whole 16-byte block is overwritten by *camProp in the last phase (0x4514de); rot = CAMERA rotation handed to Camera_StartScripted (0x4516f6); eye = CAMERA eye handed to Camera_StartScripted (0x4516e5); pad = tail padding of the 16-byte camera block copied at 0x4514ee,verified
+0x290,CamSetup *,camProp,PROPERTY CAMERA at offset 0 (Scn_GetPropCamera 0x44ef65 returns a CamSetup *),verified
+0x294,Box *[3],phaseBoxes,PROPERTY boxes at offsets 4/8/0xc (0x44ece2-0x44ed10): one arena box per phase,verified
+0x2a0,Box *,arenaBox,PROPERTY box at offset 0x10 (0x44ee7d): the fight arena,verified
+0x2a4,CollBox *,modelBox,"the model's first collision box (inst_model->boxes->boxes, 0x44eec4); widened while the boss falls",verified
+0x2a8,CollBox,modelBoxSave,modelBox min/max as loaded; Reset restores them (0x44eeda-0x44ef4d),verified
+0x2b8,Box[3],smashBoxes,copies of *phaseBoxes[i] with min.x and max.x shifted by -(5000+i) (0x44ed57); tested by IsInSmashBox,verified
+0x2e8,ScnObject *,onde,the level's GossamerOnde (class 0xb6) from Scenaric_FindByClass (0x44ef88); polled with msg 0x6c during the smash,verified
+0x2ec,ScnObject *,chaseTarget,"msg 0x42 arg: the sender's +0x1c0 pointer, chased in state 0x11 (0x450747)",verified

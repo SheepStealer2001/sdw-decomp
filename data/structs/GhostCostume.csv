@@ -1,0 +1,2 @@
+offset,ctype,name,meaning,confidence
+0x64,Vec3s,homePos,Same as SheepCostume.homePos (identical code).,verified

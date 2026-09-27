@@ -1,0 +1,13 @@
+value,name,meaning
+#,HooverMsg,Messages handled by Hoover_HandleMessage 0x4cb550 (plus ids it sends)
+0x2,MSG_QUERY_ACTION,4 to the Wolf
+0x4,MSG_PICKUP,"attach, anim 1"
+0x5,MSG_DROP,"detach, place, snap, anim 0 - state unchanged"
+0x7,MSG_INVENTORY_STORED,"stored: inHand = 0, disarm"
+0x8,MSG_INVENTORY_TAKE_OUT,arm if charged
+0x9,MSG_CONTAINER_STATE,arg 1: homePos = pos
+0x17,MSG_QUERY_HELD_ACTION,"inHand = 1, returns 0"
+0x55,MSG_CHECKPOINT_ROLLBACK,Reset
+0x4581,MSG_HOOVER_CHARGED,"from the master Battery at 5 batteries: battery = sender, charged = 1, arm if in hand"
+0x4582,MSG_HOOVER_DISCHARGED,"from the Battery: charged = 0, state 1"
+0x4583,MSG_HOOVER_GHOST_CAUGHT,"from the Ghost when its sucked anim ends (0x44ca32): unfreeze the Wolf, Wolf msg 0x4E arg 0, battery 0x4404 arg 0"

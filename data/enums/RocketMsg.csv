@@ -1,0 +1,14 @@
+value,name,meaning
+#,RocketMsg,Rocket_HandleMessage 0x4e4dbd (enum from its decompile)
+0x2,MSG_QUERY_ACTION,4 CTX_PICKUP for the Wolf in state 0
+0x4,MSG_PICKUP,"attach with g_rocketCarryOffset, state 1"
+0x5,MSG_DROP,"detach to arg pos; flag bit 0 gives state 2 (crash/respawn), else state 0"
+0x7,MSG_INVENTORY_STORED,vtable Rocket_Reset: fuel and hits refilled
+0x9,MSG_CONTAINER_STATE,arg 1: homePos = sender pos
+0x10,MSG_CARRY_ANIM,"while ACTIVE: pose 1 gives state 7, pose 2 gives state 6"
+0x15,MSG_HELD_STATE_BEGIN,"state 5/6, sound 0x128, ACTIVE"
+0x16,MSG_HELD_STATE_END,"state 1 if attached else 0, clear ACTIVE"
+0x17,MSG_QUERY_HELD_ACTION,3 HELD_ROCKET
+0x55,MSG_CHECKPOINT_ROLLBACK,vtable Rocket_Reset
+0x900,MSG_ROCKET_BURN_FUEL,"pitch ramp, fuel -= arg; 0 when empty"
+0x901,MSG_ROCKET_DAMAGE,hits -= arg; 0 when destroyed

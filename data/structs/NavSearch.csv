@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,NavNode *,head,Sorted list of open and closed nodes,verified
+0x4,u32,active,One after BeginSearch and zero after ClearSearch,verified
+0x8,s16,goalX,Search goal X,verified
+0xa,s16,goalZ,Search goal Z,verified

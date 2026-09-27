@@ -1,0 +1,5 @@
+value,name,meaning
+#,DaffyLevel01State,DaffyLevel01 +0x7d (DaffyLevel01_SetState 0x43716f).
+0,DAFFY1_STT_IDLE,idle anim; talkable (msg 1/2 need state 0)
+1,DAFFY1_STT_SAY_ANSWER,Dialogue_Say answerTexts[answerIdx] (5 = burnt line) with lip sync
+2,DAFFY1_STT_ASK,"question MenuBox with the choices; Cross picks, Triangle cancels"

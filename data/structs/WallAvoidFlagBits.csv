@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,u16:1,active,"bit view of WallAvoid.flags (+6): the last move hit a wall. Word-wide one-bit reads (mov ax,[+6]; and ax,1; xor ecx,ecx; mov cx,ax at 0x493fdc-0x493fee), set/cleared with or 1 / and 0xfffe (0x49413d-0x49415f, 0x493e87-0x493e96)",verified
+0x0,u16:1,turnSide,"turn side: +0x300 instead of -0x300 (shr dx; and dx,1 at 0x494061-0x494068; cleared with and 0xfffd at 0x493ea1)",verified
+0x0,u16:14,reserved,remaining bits,inferred

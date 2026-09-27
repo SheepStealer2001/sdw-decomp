@@ -1,0 +1,4 @@
+value,name,meaning
+#,GossamerOndeState,state field of GossamerOnde
+0x0,GONDE_ST_WAVE,"SetState 0: anim WAVE; Update: radius grows, pushes the Wolf and sheep (msg 0x19), -> 1 (inferred)"
+0x1,GONDE_ST_DONE,set by Update 0 (inferred)

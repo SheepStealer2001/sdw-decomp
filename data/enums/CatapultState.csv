@@ -1,0 +1,7 @@
+value,name,meaning
+#,CatapultState,Catapult +0x64 (Catapult_SetState 0x4a9469; Update jump table 0x4aa8f3)
+0,CAT_ST_IDLE,update NORMAL; bucket contents seated each frame
+1,CAT_ST_OPERATED,Wolf frozen at the catapult adjusting power (left/right); action exits
+2,CAT_ST_THROW,arm swing + object along the LaunchArc; update ALWAYS; sound 0x107
+3,CAT_ST_ARM_RETURN,"arm returns to armAngle; then Wolf unfrozen, state 0"
+4,CAT_ST_LAUNCH_PENDING,one-update delay after Launch; relaunches and notifies Sam (msg 0x482)

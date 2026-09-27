@@ -1,0 +1,34 @@
+value,name,meaning
+#,WolfStateFlags,u32 at descriptor+4. Evidence = the reader quoted.
+0x00000001,WSF_LOOP_ANIM,Wolf_SetState passes flags&1 as the loop argument
+0x00000002,WSF_STATIONARY,Set on standing/idle stances; msg 0x403 returns 1 only if neither 0x2 nor 0x4 (inferred meaning)
+0x00000004,WSF_BUSY_OR_QUIET,"Falls, sneaks, pick-ups; part of mask 0x8c004 that stops Wolf_SwapHeldItem from changing state; msg 0x403 (inferred meaning)"
+0x00000008,WSF_SLIDING,"Wolf_Update does not reset the slope timer +0xc4 (slide states 9,0x67,0x8b,0xbb)"
+0x00000010,WSF_CAM_LEDGE_PROBE,Wolf::UpdateCamera: (stateD->flags & 0x10) && !(flags & 0x20) -> g_camReqFlags.ledgeProbe = 1 (verified)
+0x00000020,WSF_NO_DISTANCE_COUNT,Wolf_MoveWithPlatform does not add to travelled distance +0x6d4; trail fx selector (rocket 0x54 only)
+0x00000040,WSF_RUN_COLLISION,alt collision in Wolf_MoveWithPlatform; msg 0x40c 'is running'; run dust
+0x00000080,WSF_GROUND_STATE,slope logic; msg 0x40e/0x427 'on ground'; footprints
+0x00000100,WSF_ITEM_WHEEL_OK,quick inventory / item swap allowed
+0x00000200,WSF_IGNORE_INPUT_FREEZE,msg 0xe (input freeze) ignored; object flag on enter (death/scripted)
+0x00000400,WSF_BODY_FLAG0,Wolf_EnterState -> obj+0x78 bit 0
+0x00000800,WSF_SKIP_BOX_TEST,Wolf_EnterState -> obj+0x3a bit 0x400
+0x00001000,WSF_CAM_FIXED_PITCH,cam mode 0: request |=4 with angle 0x200 (umbrella air states)
+0x00002000,WSF_CONTEXT_ACTIONS,Wolf_ScanContextActions runs
+0x00004000,WSF_IN_WATER,no water re-entry; msg 0x41f; kill type 0 -> 0x4c
+0x00008000,WSF_KEEP_COVER,keeps +0x634; msg 0x404 does the line-of-sight cover test
+0x00010000,WSF_SHEEP_NIBBLE,msg 1/2 from Sheep: 20 s timer +0x6d8 then bush lost (state 0x64 only)
+0x00020000,WSF_KEEP_ELASTIC,"Wolf_EnterState / Wolf_DropHeld keep +0x668 link (0x72,0x73)"
+0x00040000,WSF_ITEM_IN_USE,held item gets the in-use message on enter; blocks swap (mask 0x2040000)
+0x00080000,WSF_AIRBORNE,forces Wolf_IsFalling
+0x00100000,WSF_LOOK_MODE_OK,first-person look allowed
+0x00200000,WSF_WATER_COLLIDE,"0x486c1b uses sweep 0x511a12 (0x43,0x44,0x4c)"
+0x00400000,WSF_CAM_USE_WOLF_ANGLE,cam mode 0: request |=4 with wolf rot (0x44 swim)
+0x00800000,WSF_ICE_BLOCK,"attach ice-block model on enter / detach on leave; grab->0x4d, release->0x4b, geyser->0xdb"
+0x01000000,WSF_INTERACTING,passed to platform-push routine 0x49205d (arg 4); interaction states
+0x02000000,WSF_UNTOUCHABLE,"kill msg 0, catch 0x400/0x419 and most reaction messages refused; blocks item swap"
+0x04000000,WSF_MAGNET_DRAG,0xc8/0xc9; part of msg 0x53 refuse mask 0x26084000
+0x08000000,WSF_FLATTENED,msg 0x41c query; enables 0x41d; refuses 0x41b
+0x10000000,WSF_FLYING,"msg 0x41e query (updraft, black hole, rocket)"
+0x20000000,WSF_GHOST_CAPTURED,msg 0x420 query (0xda)
+0x40000000,WSF_SMOKE_TRAIL,"Wolf_UpdateTrailFx first selector (0x1c, 0xcf)"
+0x80000000,WSF_KILL_WHEN_DEAD,"death zones and kill msg still processed although dead flag set (0xf, 0xa9)"

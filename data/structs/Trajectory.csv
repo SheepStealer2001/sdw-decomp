@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x0,u16,count,"number of points (movzx at 0x4c2fba, 0x4c3453)",verified
+0x2,Vec3s[1],pts,"the points, 6 bytes each (Scn_GetPropTrajectory resources: FrozenRiver 0x4c2a1b, 0x4c38fc); indexed past 1",verified

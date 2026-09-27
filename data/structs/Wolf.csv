@@ -1,0 +1,80 @@
+offset,ctype,name,meaning,confidence
+0x5a,s16,curAnimId,current animation id (ScnBody-level field),verified
+0x64,Vec3s,groundPos,ground point under the object (+0x66 = ground height),inferred
+0x6b,u8,bodyRadius,"collision box max.y * 3/2, recomputed on scale change",inferred
+0xc0,s32,airTime,"air timer, zeroed by climb/swim/float/rise steps",verified
+0x11d,u8,idleCountdown,random number of idle loops before an idle variation,inferred
+0x120,ZoneList,climbZones,"prop CLIMBBOXES list (record+0x14) {Box **boxes; u16 count}; ctx action 0xF/0x11. One field: Wolf_ClimbBoxWalkStep keeps its address in an inline temp and reads count and boxes through it (0x48af87-0x48afa7), the shape of an inlined ZoneList member on the list",verified
+0x128,TrailEmitter,trailA,"0x164-byte ribbon emitter (ptrs +0x128->+0x14C, +0x12C->+0x20C, count byte +0x149=16, flags byte +0x14A bit0 active)",verified
+0x28c,ParticleEmitter,particles,"0x2C-byte emitter (ctor 0x52dc84), flags byte +0x2AE",verified
+0x2b0,WallAvoid,wallAvoid,"wall-steering helper (the Wolf counterpart of Sheep+0xC4): asm add ecx,0x2b0 before 0x493ecb, 0x494116 and 0x493e80. 8 bytes, ends where propBody (+0x2b8) begins",verified
+0x2b8,ScnBody,propBody,"embedded body showing one of 8 prop models (own pos +0x2C4, rot +0x2CC, model +0x2BC, anim +0x2F8, anim flags +0x31A, cur anim +0x312); it is also the attached secondary model (ice block / puff) - the old inferred row +0x2bc secondaryModelAnim described this same body's anim part",verified
+0x31c,u16[0xa],propRecord,fake level record for propBody (0x5100ae); u16 words like every WAR record,verified
+0x330,AltModel[9],propModels,alt-model table for propBody (ids g_wolfPropModelIds),verified
+0x3c0,ScnBody,splashBody,"water-entry splash body (class 0x5A record), pos +0x3CC, model +0x3C4, anim +0x400, anim flags +0x422",verified
+0x424,u16[0xa],splashRecord,fake record for splashBody; u16 words like every WAR record,verified
+0x438,Box *,waterZone,"current water box (flags: 0x1000000 freezing, 0x2000000 sink-through); a Box: flags +0, min.y (the water surface) +6 read by the swim steps (0x48b13d movsx eax,word [ecx+6]) Also read as word [zone+6] at 0x48e2eb, 0x48ed78, 0x48ee0e.",verified
+0x43c,TrailEmitter,trailB,second ribbon emitter (flags +0x45E),verified
+0x5a0,AltModel[6],modelSets,0x10 each; index = modelSet; entry 4 id at +0x5E0,verified
+0x600,s32,stateTime,ticks since state entry,verified
+0x604,s32,footstepTimer,ticks since last footstep sound (cap 0x1E000); step when >= animDuration/2,verified
+0x608,s32,runTapTimer,run tap timer; reused as mash window (0x4f) and flatten timer (0xd5),verified
+0x60c,s32,landDustTimer,"min(airTime>>3,0x400) at landing; counts down while landing dust trail plays",verified
+0x610,s32,animDurationTicks,current anim length in ticks,verified
+0x614,u32,lastObjectContactTime,g_gameTime when the mover last touched a scenaric object (contact[0]); FB 0x20 for 0x400 ticks,verified
+0x618,u32,lastContact2Time,g_gameTime when contact[2] was non-zero; FB 0x10 for 0x400 ticks (meaning of contact[2] not decoded),inferred
+0x61c,s32,flattenDuration,ticks Ralph stays flattened (arg of msg 0x41b),verified
+0x620,u16,stepSoundCount,"sneak step counter (pitch/volume ramp, max 8) / run-start sound played",verified
+0x622,u16,loopSfxHandle,handle of the looping/state sound,verified
+0x624,Vec3s,dropOffset,offset added to drop position with Wolf_DropHeld flag 8 (msg 0x428),verified
+0x62c,ScnObject *,heldObject,object in hand / carried (mode 1),verified
+0x630,ScnObject *,grabber,object that froze the Wolf (msg 0xE); polled with msg 0x6B/0x49,verified
+0x634,ScnObject *,coverObject,cover Ralph hides behind (kept by state flag 0x8000),verified
+0x638,ScnObject *,killer,"object that crushed / sucked Ralph; 0x10 snaps onto its box top, 0x3c is pulled to it",verified
+0x63c,ScnObject *,magnetTarget,"Wolf msg 0x53 stores arg[0], and the only 0x53 sender (Magnet_Update 0x4d2650) passes {candidate, reply} to its holder. So this is the metal object the held magnet caught (the first one found this frame). Cleared every frame by Wolf_Update 0x4840ca; Wolf_StrafeAroundFocusStep (states 0xC8/0xC9) faces it.",verified
+0x640,ActionHit,ctxAction,"ActionHit {action, target}: action = WolfContextAction; target = object offering the context action",verified
+0x648,s32,heldActionType,WolfHeldAction (also overwritten per state for the HUD prompt),verified
+0x64c,s32,ctx4PromptIndex,4th word of the 0x10-byte context block; read as the index into g_wolfCtx4PromptText; writer not established,inferred
+0x650,ActionHit,coverAction,"ActionHit {action, target}: action = 1 = cover zone available; target = cover zone record (side 0..3 via 0x491bf2)",verified
+0x658,s32,coverWord2,"3rd word of the 0x10-byte cover block at +0x650 (after the ActionHit coverAction.action/coverAction.target); only ever zeroed (Wolf_ScanContextActions 0x4902e0, 0x487d55)",verified
+0x65c,s32,coverWord3,"4th word of the cover block; only ever zeroed (0x4902ed, 0x487d62)",verified
+0x660,u16,itemPromptClassId,u16 class id drawn by Scenaric_DrawClassIcon for the held-item prompt; Hud_DrawItemPrompt 0x493a7f passes this word to Scenaric_DrawClassIcon as a class id (the held item's msg 6 reply word 0: GoldenCoins 0x8d; Robot_ClearState writes 0x65 = Robot).,verified
+0x662,u16,itemPromptLevel,"Word 1 of the msg 6 reply (0..0xffff, e.g. coin distance*0xffff/600). Hud_DrawItemPrompt copies it to 0x57b26e and draws the crayon frame in 0x502828 when < 0xe665, else 0x101050.",verified
+0x664,ScnObject *,bush,Bush being worn,verified
+0x668,ScnObject *,elastic,elastic being pulled (set by 0x491960),verified
+0x66c,WolfLaunchPath,launchPath,"per-axis {p0,v,a} quadratic trajectory from msg 0xC plus its parameter t (+0x690); Wolf_LaunchArcStep keeps the address this+0x66c in an inline temp and reads t as [temp+0x24] (0x48bfe9-0x48bff8)",verified
+0x6a4,ScnObject *,frozenRiver,cached class 0x53 object; msg 0x36,verified
+0x6a8,ScnObject *,sheepCostumeListener,object notified with msg 0x69 when Ralph bleats,inferred
+0x6ac,s32,timeOutOfWater,ticks since leaving water (cap 0x3C000); wet footprints while <0x14000,verified
+0x6b0,s16[8],savedBodyBox,original collision box copied back before rescaling,verified
+0x6b0,CollBox,savedBox,the same 16 bytes as a CollBox: Wolf::PostLoadInit copies the first model box here,verified
+0x6c0,ZoneList,restrictions,"prop RESTRICTIONBOX list {Box **boxes; u16 count} (flag 0x40000000 = no run): Wolf_FilterInput takes its address as one pointer (0x48e0ff add ecx,0x6c0) and reads [p] and word [p+4]",verified
+0x6c8,Box *,flyBox,prop FLYBOX: rocket flight clamp,verified
+0x6cc,Box *,updraftZone,"current updraft zone, 0 = left it; a Box: flags +0 (0x40000000 lift, 0x20000000 double), min.y +6 (0x48bb32)",verified
+0x6d0,s32,glowDist,"min distance to a light source this frame (msg 0x424); <0x200 tints, reset to 0x7fffffff",verified
+0x6d4,u32,distanceTravelled,accumulated XZ distance (msg 0x41A returns it),verified
+0x6d8,s32,bushNibbleTimer,accumulates g_dt on msg 1 from a sheep in flag-0x10000 state; at 0x14000 -> state 0xA,verified
+0x6dc,Vec3s,savedRespawnPos,,verified
+0x6e2,s16,savedRespawnFacing,,verified
+0x6e4,Vec3s,scriptWalkTarget,destination of scripted walk (msg 0x12),verified
+0x6ea,s16,scriptWalkHeading,final facing of scripted walk,verified
+0x6ec,s16,fallLimitY,Y the death falls stop at,verified
+0x6ee,s16,waterDepthOffset,offset added to water top for wade/swim thresholds,verified
+0x6f0,Vec3s,carryDropPos,place position passed with msg 0x981 in state 0x15,verified
+0x6f6,s16,lineHeading,"constrained heading (elastic via msg 0x2d, fishing rod)",verified
+0x6f8,Vec3s,savedCamRot,camera rot saved when leaving follow mode,verified
+0x6fe,s16,savedCamDist,default 0x262,verified
+0x700,Vec3s,interactPos,mine position (0xd0) / dance spot (0xc0),verified
+0x706,s16,interactHeading,heading to hold during interactions,verified
+0x708,s16,scale,"0x400 = 1.0, 0x155 shrunk",verified
+0x70a,u16,mashCount,action presses while frozen (10 to break out),verified
+0x70c,u8,danceMove,"current dance move 0..3, 0xff none. u8: the only read is movzx eax,byte [edx+0x70c]; cmp eax,0xff (Wolf_StateMachine 0x481ef8)",verified
+0x70d,u8,state,WolfState / WolfStateCarry id; switch variable,verified
+0x70e,u8,mode,"0 normal, 1 carrying lifted object; selects bank and state table",verified
+0x70f,u8,surface,0 normal / 1 ice: selects per-surface tuning and record table,verified
+0x710,u8,playerIndex,0/1 from g_wolfInstanceCount; 1 uses pad 0x719698,verified
+0x711,u8,modelSet,active model set (index into +0x5A0),verified
+0x712,u8,costume,"0 none, 4 rabbit",verified
+0x713,u8,camOverride,0xFF none,verified
+0x714,u32,fxFlags,"attached-effect flags: 4 ice block floating, 8 dizzy fx, 0x4000 costume puff, 0x100000 ice block grounded, 0x800000 carry-drop target valid",verified
+0x718,u32,flags,"bits seen here: 0x200000 / 0x400000 lock the stick heading to one axis, 0x400/0xC00 resp. 0/0x800, 0x200000 winning (Wolf_GetStickHeading 0x488be0, match-compiled); 4 run flag, 0x1000/0x2000 slope, 0x4000 item being taken out, 0x8000 frozen anchored, 0x10000 trap pulse, 0x20000 in trap, 0x40000 wading sfx, 0x80 script done, 0x10000000 pushed by platform, 0x2000000 safe fall, 0x80000000 ",verified

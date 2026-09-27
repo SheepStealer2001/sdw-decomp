@@ -1,0 +1,16 @@
+offset,ctype,name,meaning,confidence
+0x64,s32,riderDelta,The rider's displacement this frame along the carpet axis (MSG_MODIFY_MOVE delta.x or delta.z); its sign gives the drive direction and |delta| scrolls the belt.,verified
+0x68,s32,timerMs,Cooldown after release (0x400) or the fast-roll limit (0x800); decremented by g_dtMs in states 3 and 5.,verified
+0x6c,s32,ratio,"RATIO*4096/10 (RATIO=500 in Lvl-13). Written by Init, never read by the class code.",verified
+0x70,CamSetup *,camera,"CAMERA property resource {u16 a; s16 b,c,d; pos at +8}, used by Camera_StartScripted while a non-frozen rider is on the belt.",verified
+0x78,CollBox,topBox,"Model box 0 + pos, flattened to the top face and extended 50 upward, inset 50 on x and 150 on z. Used for the rider search and the x/z containment test. Computed only in Init.",verified
+0x88,CollBox *,collBox,Model box used for CustomCollide and the ground query: the last box whose flags lack 0x40000000 (axis 1) or have it (axis 0).,verified
+0x8c,ScnObject *,rider,The object riding the belt (FindRider); receives 0x18/0x19/0x44/0x4C.,verified
+0x90,ScnObject *[5],targets,"TARGET..TARGET5 objects (RCarpetMobiles); msg 0x68 MOVING at Init, msg 0x47 speed while rolling.",verified
+0xa4,Vec3s,center,Belt centre: x and z are the topBox midpoint; y is never written. The rider is pulled here.,verified
+0xaa,u16,motorSound,"Channel of belt sound 0x8E (rate 0x1000, or 0x2000 in the fast state).",verified
+0xac,Vec3s,rollRot,"Rotation copied to rot when the rider's facing flips: rot at Init, with y (+0xae) rewritten by FaceRider.",verified
+0xb2,s16,riderSpeed,"The rider's velocity along the axis (MSG_MODIFY_MOVE vel.x or vel.z in u/s), 0 when its delta is 0. Thresholds: 250 Wolf / 150 other to roll, 700 fast.",verified
+0xb4,u8,state,RollingCarpetState 0..5.,verified
+0xb5,u8,axis,"0 = the belt runs along x (facing about 0x400/0xC00), 1 = along z (facing about 0/0x800).",verified
+0xb6,RollingCarpetFlagBits,rcFlags,"RollingCarpetFlags: 1 scripted camera active, 2 rider registered (MSG_RIDER_ADD sent).",verified

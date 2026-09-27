@@ -1,0 +1,8 @@
+value,name,meaning
+#,AGLACON1Anim,"animation ids of WAR model AGLACON1 (its WAR type-0x86 table; names verified from the level files). Played by: FrozenRiver, IceCube, Sheep, SlidingIceCube, SmallRock, Wolf"
+0x0,AGLACON1_ANIM_FOND1,WAR name FOND1
+0x1,AGLACON1_ANIM_STAND1,WAR name STAND1
+0x2,AGLACON1_ANIM_STAND2,WAR name STAND2
+0x5,AGLACON1_ANIM_FLAC1,WAR name FLAC1
+0x6,AGLACON1_ANIM_WHIRL1,WAR name WHIRL1
+0x7,AGLACON1_ANIM_WHIRL2,WAR name WHIRL2

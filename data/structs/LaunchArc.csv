@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x0,s32[9],coeffs,"per-axis {p0, v, a} for the 3 outputs (x,y,z in 3-D mode); value = p0 + (t*v>>8) + (t*t*a>>15). Same block as Wolf +0x66C",verified
+0x24,s32,t,"arc parameter 0..0x100, advanced by g_dtMs>>2 (0x100 = 1024 ms)",verified
+0x28,CamSetup *,camera,"camera setup {u16 focal; u16 rot[3]; Vec3s pos} for a CamShot, or NULL; receiver zeroes it after starting",verified
+0x2c,ScnObject *,obj,the launched object (seesaw fills it with the object itself); in 2-D modes its current x or z is kept,verified
+0x30,u32,camParam,passed as CamShot param (8th arg of Camera_StartScripted),verified
+0x34,LaunchArcFlagBits,flags,"LaunchArcFlags as signed one-bit fields (LaunchArcFlagBits): bit 0 no-freeze, bit 1 2-D in the ZY plane, bit 2 3-D, bit 3 the seesaw's hop",verified

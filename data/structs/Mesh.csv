@@ -1,0 +1,8 @@
+offset,ctype,name,meaning,confidence
+0x4,u8,flags,flags byte; elastic_Init 0x4b80f1 sets it to 3 at 0x4b8156,verified
+0x8,D3DApp *,app,"Mesh_BuildFromBsFile's FIRST argument (0x40c246-0x40c249); Mesh_TransformAll reads [[this+8]+0x28], the IDirect3DDevice7 (0x40d1b8). Was 'srcRecord': the record is argument 2 ([ebp+0xc], read at 0x40c252).",verified
+0xc,IDirect3DVertexBuffer7 *,vbPositions,"D3D7 vertex buffer for positions. Mesh_BuildFromBsFile allocates a scratch of vertexCount*0xc (three floats per vertex), fills it, then calls vtable +0xc (Lock), memcpy's vertexCount*0xc bytes in, and calls +0x10 (Unlock) - those are IDirect3DVertexBuffer7::Lock and ::Unlock",verified
+0x10,IDirect3DVertexBuffer7 *,vbTransformed,"destination of IDirect3DVertexBuffer7::ProcessVertices (vtbl +0x14) in Mesh_TransformAll 0x40d1ea, transforming vbPositions (+0xc); also filled by Lock/memcpy/Unlock in the build. Was 'vbSecondary'.",verified
+0x14,u32,vertexCount,"vertex count, taken from BsFile_PeekEntryCount 0x41bc0f - i.e. the u16 at geometry record +8. It sizes every allocation in the build at 0xc bytes per vertex",verified
+0x18,RenderPoly *,faces,the face array (Mesh_Construct 0x40c1b0 nulls it; Mesh_Destruct frees it when faces and faceCount are both non-zero); elastic_Init stores its constructed RenderPoly array here at 0x4b836f,verified
+0x1c,u32,faceCount,number of faces in the array; elastic_Init stores 8 at 0x4b82ec (dword store). Completes the 0x20-byte object that elastic_Init allocates at 0x4b80fe,verified

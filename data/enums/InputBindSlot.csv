@@ -1,0 +1,18 @@
+value,name,meaning
+#,InputBindSlot,"slot of an InputMgr binding table (InputMgr.keyTable / padTable, 16 {device, button} pairs; verified in InputMgr::Poll and BindMenuKey). Slots 0..11 are the PS1 buttons Poll turns into the active-low pad word, slots 12..15 the menu directions (keyboard only, also the keyboard's axis keys). Not the g_inputMap slots (InputMapSlot)"
+0x0,INPUT_BIND_TRIANGLE,Poll clears PAD_TRIANGLE
+0x1,INPUT_BIND_CIRCLE,Poll clears PAD_CIRCLE
+0x2,INPUT_BIND_CROSS,Poll clears PAD_CROSS
+0x3,INPUT_BIND_SQUARE,Poll clears PAD_SQUARE
+0x4,INPUT_BIND_L1,Poll clears PAD_L1
+0x5,INPUT_BIND_R1,Poll clears PAD_R1
+0x6,INPUT_BIND_L2,Poll clears PAD_L2
+0x7,INPUT_BIND_R2,Poll clears PAD_R2
+0x8,INPUT_BIND_SELECT,Poll clears PAD_SELECT
+0x9,INPUT_BIND_START,Poll clears PAD_START
+0xa,INPUT_BIND_L3,Poll clears PAD_L3
+0xb,INPUT_BIND_R3,Poll clears PAD_R3
+0xc,INPUT_BIND_MENU_UP,menu up: BindMenuKey also makes it the keyboard's Y- axis key (KB_AXIS_Y_NEG)
+0xd,INPUT_BIND_MENU_RIGHT,menu right: the keyboard's X+ axis key (KB_AXIS_X_POS)
+0xe,INPUT_BIND_MENU_DOWN,menu down: the keyboard's Y+ axis key (KB_AXIS_Y_POS)
+0xf,INPUT_BIND_MENU_LEFT,menu left: the keyboard's X- axis key (KB_AXIS_X_NEG)

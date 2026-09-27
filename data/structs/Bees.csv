@@ -1,0 +1,29 @@
+offset,ctype,name,meaning,confidence
+0x64,CollBox *,flyBox,"PROPERTY BOXFLY (Scn_GetPropBox(record, 4) 0x4972b3): the area the honey pot must stay in; once the pot leaves it on x/z potLeftFlyBox is latched (0x49752c)",verified
+0x68,CollBox *,detectWolfBox,"PROPERTY BOXDETECTWOLF (Scn_GetPropBox(record, 0) 0x4972c7): Ralph inside it (3-D test, 0x497584) starts the sting, state 0x10",verified
+0x6c,ScnObject *,honeyPot,"the level's HoneyPot (Scenaric_FindByClass(108) 0x497288); its SCN_OF_IN_WORLD bit (spilled, not carried) gates the chase states",verified
+0x70,ScnObject *,victim,"msg 0x67's argument (0x4980c6, from HoneyPot_Update while Sam stands in the spill); refused in state 0x12. Chased instead of sam while g_honeyPotSamInHoney",verified
+0x74,ScnObject *,sam,the level's Sam (Scenaric_FindByClass(1) 0x4972a5): the default chase target of state 0xF,verified
+0x78,ScnObject *,hitHive,"the hive that reported the cannonball (msg 0x3981's sender, 0x4980fe); gets msg 0x3e02 when the swarm leaves it and 0x3e04 when the swarm has arrived",verified
+0x7c,ScnObject *,firstHive,"PROPERTY FIRSTHIVE (Scn_GetPropObject(record, 8) 0x4972db): where the swarm starts (SetPosition at 0x497345)",verified
+0x80,ScnObject *,secondHive,"PROPERTY SECONDHIVE (Scn_GetPropObject(record, 0x10) 0x4972ef): where a cannonball on the first hive sends the swarm",verified
+0x84,ScnObject *,motherHive,"PROPERTY MOTHERHIVE (Scn_GetPropObject(record, 0xc) 0x497306): the home the broadcast 0x3982 sends every swarm back to",verified
+0x88,ScnObject *,hive,"the hive currently circled; firstHive at load (0x497351), secondHive at the end of state 3 (0x497f50), motherHive on msg 0x3982 (0x498196)",verified
+0x8c,u8,state,"BeesState, 0..0x13; written at the top of SetState 0x4981f9 and dispatched by Update 0x497637",verified
+0x8d,u8,alert,msg 0x3980's argument (0x4980d4): indexes chaseTime and picks the taunt animation in state 0x13; 3 also makes the swarm send msg 0x4a to its victim (0x497cd5),verified
+0x90,s32,timer,"ms countdown, decremented by g_dtMs in states 2, 5, 0xb, 0xc, 0x12 and 0x13; loaded from chaseTime, animDuration or 3x the animation length",verified
+0x94,s32[4],chaseTime,"how long the swarm chases, in ms, by alert level: 450, 300, 150, 0 (0x497235-0x49725c); read as chaseTime[alert] at 0x497a8e and 0x497ab7",verified
+0xa4,s32,settleTimer,"150 ms at load (0x497269), counted down only in state 0xE; at 0 it sets g_beesLeftFirstHive (0x49789b)",verified
+0xa8,u32,animDuration,"Anim_GetDurationMs(inst, 1, 1) at load (0x497322): the length of the taunt animation, used as the state 0x13 timer",verified
+0xac,s32,potLeftFlyBox,"latched to 1 the first frame the HoneyPot is outside flyBox on x/z (0x49752c); never cleared, so it stays set for the rest of the level",verified
+0xb0,s32,stungHome,set to 1 on entering state 7 (0x49764e); blocks any further Ralph detection (0x49753c),verified
+0xb4,s32,wolfDist,"distance to Ralph from the last MoveToward of state 0x10 (0x497bf8); under 0x14 it switches to the sting, state 0x11. Set to 1000 on entering 0x11",verified
+0xb8,s32,targetDist,distance to the chase target from the last MoveToward of state 0xF (0x497a31); under 0x28 it starts the sting,verified
+0xc0,s32,camAngle,"atan2 angle (4096/turn) from the camera to the circled hive, taken on entering state 0 (0x498a51); the swarm leaves state 0 when it is within 100 of it",verified
+0xc4,s32,hiveAngle,the same angle measured from the swarm each frame of state 0 (0x497de5),verified
+0xc8,s16,orbitAngle,"the circling angle, advanced by Orbit's step every frame (-0x19, -0x32 or -0x64 depending on the state); |angle| over 0xFFF or 0x2FFD ends the circling",verified
+0xca,Vec3s,renderRot,"extra rotation handed to ScnObject_RenderFacingCamera (0x498f20); x = 0x400 at load, the other two 0",verified
+0xd0,Vec3s,targetPos,"the point states 0xD, 0xE and 0x10 fly to: the circled hive's position on entering them (0x4988f6), the second hive's on msg 0x3981 (0x498129)",verified
+0xe8,Vec3s,orbitOffset,"the radius vector of the circle: pos - orbitAnchor, so 0x50 (or 0x64 in state 0xB) on x and 0 on the other two",verified
+0xee,Vec3s,orbitAnchor,"the swarm's position at the moment the circling starts, moved 0x50 (0x64) back on x; only used to derive orbitOffset",verified
+0xf4,u16,soundHandle,"handle of the buzz 0x141; volume 0x3f while circling (state 9) and 0xff while chasing (0xF, 0x12)",verified

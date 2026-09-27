@@ -1,0 +1,6 @@
+value,name,meaning
+#,InstantHooverState,InstantHoover.state (+0x64)
+1,IHOOVER_ST_IDLE,closed; HUD + in-range blink when docked
+2,IHOOVER_ST_DROPPED,one frame after msg 5: try to dock on an ACTIVEBOX pad
+3,IHOOVER_ST_OPEN,"sucking window, until openTimerMs > openTimeMs"
+4,IHOOVER_ST_ANIM,playing anim 5/2/3; nextAction decides what follows

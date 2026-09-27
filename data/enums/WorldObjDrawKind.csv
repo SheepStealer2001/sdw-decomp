@@ -1,0 +1,7 @@
+value,name,meaning
+#,WorldObjDrawKind,"WorldObj +3 drawKind: index into g_worldObjDrawFns 0x57eaf0, set by WorldObj_CreateFromResource."
+0,WORLDOBJ_HIDDEN,WorldObj_DrawHidden: only clears INST_F_DRAWN. Written by VisibilityManager 0x5039c8 to hide a mesh.
+1,WORLDOBJ_STATIC,"WAR type 3 static world mesh, WorldObj_DrawStatic"
+2,WORLDOBJ_STATIC_0B,"WAR type 0xB static world mesh, WorldObj_DrawStatic0B (identical code)"
+3,WORLDOBJ_SKY,"WAR type 0x26 camera-centred mesh, WorldObj_DrawSky (Game_Frame also calls it directly before the Z clear)"
+4,WORLDOBJ_ANIMATED,"WAR type 4 animated world model, 0x55da1e. No retail level contains one."

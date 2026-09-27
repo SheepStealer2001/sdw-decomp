@@ -1,0 +1,6 @@
+value,name,meaning
+#,VolcanoState,Volcano +0xa4 (SetState 0x5058e5 table 0x505dc3; Update table 0x5058b6)
+0,VOLC_ST_DORMANT,"hidden, no collide; timer Rand_Range(1500,4500) ms or 500 before a U-turn; a Rock on the crater re-arms it"
+1,VOLC_ST_ERUPT,bomb flies along arcPoints (1 sample / 25 ms) with 5 trailing blobs; splash at the end or on impact
+2,VOLC_ST_ERUPT_REVERSE,UTURN: same arc played backward; unused in the shipped data
+3,VOLC_ST_VERTICAL,VERTICAL: 380-unit lava column in hitBox; unused in the shipped data

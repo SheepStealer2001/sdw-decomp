@@ -1,0 +1,2 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,state,"RocksState (0 intact, 1 hit, 2 crumbling)",verified

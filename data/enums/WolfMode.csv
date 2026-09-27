@@ -1,0 +1,4 @@
+value,name,meaning
+#,WolfMode,
+0x0,WOLF_MODE_NORMAL,mode 0 = WolfState table 0x5750c0 (WolfState doc)
+0x1,WOLF_MODE_CARRY,mode 1 = WolfStateCarry table 0x5757b8 (carrying a lifted object)

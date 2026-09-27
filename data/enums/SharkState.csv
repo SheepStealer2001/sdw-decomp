@@ -1,0 +1,14 @@
+value,name,meaning
+#,SharkState,state field of Shark
+0x0,SHARK_ST_INIT,state after load (inferred)
+0x1,SHARK_ST_IDLE,SetState 1: anim idleAnim; Update: switches idleAnim to 6 after idleTimer (inferred)
+0x3,SHARK_ST_AIM,"SetState 3: anim STAND1, aimTimer 2000; Update: -> 7 when the timer ends (inferred)"
+0x4,SHARK_ST_FACE,SetState 4: anim STAND1; Update: FaceWolf(0) (inferred)
+0x5,SHARK_ST_HIT,SetState 5: anim HIT1; Update: -> 0xb (inferred)
+0x6,SHARK_ST_LOOK,"SetState 6: level rotation, anim LOOK; Update: -> 1 (inferred)"
+0x7,SHARK_ST_WIND_UP,SetState 7: anim STAND2; Update: -> 8 (inferred)
+0x8,SHARK_ST_LUNGE,SetState 8: anim SWIM1 toward the Wolf; Update: -> 9 in reach (inferred)
+0x9,SHARK_ST_BITE,"SetState 9: anim EAT, MSG_KILL arg 5 to the Wolf (inferred)"
+0xa,SHARK_ST_MISS,SetState 0xa: anim ATTACK1 (inferred)
+0xb,SHARK_ST_BRAKE,SetState 0xb: anim BRAKE; Update: -> 0xc (inferred)
+0xc,SHARK_ST_SWIM_BACK,SetState 0xc: anim SWIM1 back to lungeFrom; Update: -> 6 (inferred)

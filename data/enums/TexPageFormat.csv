@@ -1,0 +1,7 @@
+value,name,meaning
+#,TexPageFormat,texture page format word (PolyBatcher::LoadTexturePages; bits 2-4 are a field)
+0x3,TEXFMT_PIXEL_MASK,"LoadTexturePages: format & 3 is the page's TextureFormat, passed to the Texture constructor"
+0x4,TEXFMT_KIND_IMMEDIATE,(format & TEXFMT_KIND_MASK) == 4: an immediate page with its own batch (the file lists these first); state flags DITHER | TEXTURED | FILTER_LINEAR
+0x8,TEXFMT_KIND_BLEND,a sorted page drawn alpha-blended: state flags BLEND_ALPHA | TEXTURED | FILTER_LINEAR
+0x10,TEXFMT_KIND_ADD,a sorted page drawn additively: state flags BLEND_ADD | TEXTURED | FILTER_LINEAR; any other kind after the immediate pages makes LoadTexturePages return 0
+0x1c,TEXFMT_KIND_MASK,"LoadTexturePages: switch (format & 0x1c), == 4 is immediate"

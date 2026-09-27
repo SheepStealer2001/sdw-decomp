@@ -1,0 +1,40 @@
+offset,ctype,name,meaning,confidence
+0x0,char *,helpText,"description string for the item under the cursor, refreshed by Map_GetHelpText",verified
+0x4,ScrollText,scrollText,"the help-text scroller of mode 4: Map_UpdateState calls ScrollText_Init / ScrollList_Update on this+4 and Map_Draw calls ScrollText_Draw(this+4, 2, 1) at 0x54169c",verified
+0x18,u32,pulseColorFast,cosine-modulated tint 0x808080<->0x3040E0 used for the mailbox markers,verified
+0x1c,u32,pulseColorSlow,"slower cosine tint passed to the MapLocation ""you are here"" marker draw",verified
+0x24,s16[4],panelFrom,"start rect of the animated description panel as one contiguous {x,y,w,h}: 0x527772 lerps +0x24 and +0x28 together into a single stack rect that Map_DrawPanel consumes, so it is one field, not a panelFrom/panelFromWH pair at +0x24/+0x28",verified
+0x2c,s16[4],panelTo,"target rect of the animated description panel, one contiguous {x,y,w,h}; 0x5276bd is called on +0x2c and +0x30 as a pair immediately before each lerp",verified
+0x34,s16,pulsePhaseFast,12-bit angle advanced by g_dtRawMs*12 each frame,verified
+0x36,s16,pulsePhaseSlow,12-bit angle advanced by g_dtRawMs*4 each frame,verified
+0x38,s16,scrollTop,index of the first visible inventory row,verified
+0x3a,s16,cursorIndex,"selected inventory row (absolute, not windowed)",verified
+0x3c,u16,selectedClassId,class id of the item under the cursor; fed to Map_GetHelpText and Map_HighlightLocationsForZone,verified
+0x3e,s16,prevCursorIndex,"cursor position before the current move, used to repaint the old row",verified
+0x40,s16,actionIndex,selected action button 0=HELP 1=USE 2=COMBINE/SPLIT 3=EXIT,verified
+0x42,s16,prevActionIndex,"previous action button, repainted to 0x808080",verified
+0x44,s16,combinePartnerIndex,row latched as the first half of a combine while mode 3 is active,verified
+0x46,s16,helpTimerMs,"tooltip countdown, armed to 3000 and decremented by g_dtRawMs",verified
+0x48,s32,markerTimerMs,"mailbox-highlight countdown, armed to 6000 and decremented by g_dtRawMs",verified
+0x4c,s16,listBaseY,virtual-screen Y of the first item slot; starts 0x80 then shifted up by half the list height,verified
+0x4e,u16,autoRepeatMs,auto-advance timer for the transient modes (bit 7 of mode set); any d-pad press forces it to 0x96,verified
+0x50,u16,wipeHeight,"height of each curtain bar during the open/close wipe, stepped by +7 per FRAME",verified
+0x52,u8,swapPending,1 while a combine partner has been picked and the second item is being chosen,verified
+0x54,u8,mode,"sub-mode inside state 3: 1 item list, 2 action row, 3 combine pick, 4 help scroll; bit 0x80 = transient/auto-advance",verified
+0x55,u8,pendingMode,mode committed when autoRepeatMs expires,verified
+0x56,u8,itemCount,number of inventory classes present in this level,verified
+0x57,u8,visibleCount,"rows shown at once, min(4, itemCount)",verified
+0x58,u8,locationCount,number of Mailbox markers found (max 5),verified
+0x59,u8,phaseCounter,per-FRAME counter for the opening (15 down) and closing (15 up) holds; also drives the global fade level as phaseCounter/2,verified
+0x5b,s8,scrollDir,"mode-4 help scroll direction for this frame: 0, -1 while UP is held, +1 while DOWN is held (Pad_MenuHeld at 0x540c46 / 0x540c64); passed to ScrollList_Update(this+4) at 0x540c87",verified
+0x5c,u8,closeCounter,"per-FRAME counter for state 5; at 5 it calls SelectMenu_RestoreFlags, at 10 it moves to state 6",verified
+0x5d,u8,state,"select-menu state 0 closed, 1 opening wipe, 2 opening hold, 3 interactive, 4 closing hold, 5 closing wipe, 6 closing tail, 7 suppressed",verified
+0x60,u16 *[13],resIcons,"resource id lists: [0..7] = four action-button icon pairs (HELPB/HELPA, USEDB/USEDA, COMBB/COMBA, EXITB/EXITA), [8]=IGLCADG_ item frame, [9]=IGLFLEC_ arrow, [10]=IGLCADH_ button frame, [11]=IGLCERC_ marker, [12]=IGLTRIA_",verified
+0x94,char *[4],actionText,"button labels, indexed by actionIndex: UI strings 0x24, 0x23, 0x25, 0x03",verified
+0xa4,char *,actionTextSplit,"UI string 0x49, substituted for actionText[2] when the selected item is composite",verified
+0xa8,MapMarker[5],markers,"cached Mailbox markers, 0x20 bytes each",verified
+0x148,u16[16],inventoryClassIds,"class id of each inventory row, in scan order",verified
+0x168,UiQuad[5],backdrop,"the DAV_IDI_MAP bitmap laid out as a five-piece nine-slice: top bar h=0x30, left column 0x60x0xA1, right column 0x30x0xA1, centre panel {0x60,0x30,0x170,0xA1}, bottom bar h=0x1F",verified
+0x1cc,UiQuad[2],scrollArrow,"up/down list arrows drawn from IGLFLEC_ at x=0x18, above and below the item list",verified
+0x1f4,UiIcon[4],actionSlots,"the four action buttons, 0x44 bytes each: +0x00 u8 enabled, +0x01 u8 highlighted, +0x04 u32 tint",verified
+0x304,UiIcon[4],itemSlots,"the four visible inventory slots, same 0x44 layout",verified

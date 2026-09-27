@@ -1,0 +1,2 @@
+offset,ctype,name,meaning,confidence
+0x58,u16[6],axisKeys,"the DIK scan codes that stand in for the three axes: X-, X+, Y-, Y+, Z-, Z+ (Keyboard_Construct 0x40734c-0x407379, InputMgr_BindMenuKey 0x527ecd)",verified

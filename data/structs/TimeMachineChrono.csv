@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x7c,u8,held,"1 while attached to the Wolf (msg 4), 0 otherwise (TimeMachineChrono_SetHeld). msg 0x15 starts time travel only when this is 1.",verified
+0x7e,Vec3s,homePos,Init pos (ground-snapped) or pos at msg 9 arg 1; Reset moves the chrono back here.,verified
+0x84,TimeMachineSphere *,sphere,FindByClass(0x56); receives msg 0x2f00 on use. NULL when not exactly one exists; msg 0x15 does not check for NULL.,verified

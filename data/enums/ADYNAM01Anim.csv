@@ -1,0 +1,6 @@
+value,name,meaning
+#,ADYNAM01Anim,animation ids of WAR model ADYNAM01 (its WAR type-0x86 table; names verified from the level files). Played by: Dynamite (g_dynamiteStates)
+0x0,ADYNAM01_ANIM_OBJET,WAR name OBJET
+0x1,ADYNAM01_ANIM_STAND1,WAR name STAND1
+0x2,ADYNAM01_ANIM_LINK,WAR name LINK
+0x3,ADYNAM01_ANIM_LINK2,WAR name LINK2

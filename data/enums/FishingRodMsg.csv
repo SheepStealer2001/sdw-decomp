@@ -1,0 +1,14 @@
+value,name,meaning
+#,FishingRodMsg,Messages handled by FishingRod_HandleMessage 0x4bdf55 (jump table 0x4be492 / 0x4be4c6); also the default of CompositeRod_HandleMessage
+0x2,MSG_QUERY_ACTION,4 (CTX_PICKUP) for the Wolf only
+0x4,MSG_PICKUP,"attach to sender joint arg, shadow hidden, anim 6"
+0x5,MSG_DROP,"detach, SetPosition(arg), state 0, anim 7 (does not end fishing)"
+0x9,MSG_CONTAINER_STATE,arg 1: homePos = pos
+0x10,MSG_CARRY_ANIM,"while fishing: arg 0xC -> anim 2, 0xD -> 3, 0xE -> 4, other -> 1 (Wolf states 0xAE/0xAF/0xB0 carry those nibbles)"
+0x15,MSG_HELD_STATE_BEGIN,"cast: state 1, anim 0"
+0x16,MSG_HELD_STATE_END,"fishing: EndFishing, state 3, anim 5; else state 0, anim 6"
+0x17,MSG_QUERY_HELD_ACTION,0x14 HELD_FISHINGROD
+0x55,MSG_CHECKPOINT_ROLLBACK,vtable Reset
+0x61,MSG_ROD_REEL_IN,"lineLen -= arg, floor 0"
+0x62,MSG_ROD_REEL_OUT,"lineLen += arg, cap 0x23f"
+0x63,MSG_ROD_TIP_BLOCKED,"FishingRod_IsTipBlocked(arg pos, sender rot); nonzero refuses the Wolf's sidestep"

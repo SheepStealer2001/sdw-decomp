@@ -1,0 +1,9 @@
+offset,ctype,name,meaning,confidence
+0x0,u16,cineId,CINnn: cinematic id passed to Cine_Start (+0x2 padding),verified
+0x4,Box *,cineBox,"CINnnBOX list[0], or NULL (Cine_Start then may use WAR_IDO_CINBBOX)",verified
+0x8,Box *,actBox,CINnnACTBOX list[0]: the trigger box tested against the Wolf's pos; also the key for msg 0x1400,verified
+0xc,u32,flags,"CINnnFLAGS, passed to Cine_Start as CineFlags. Also read here: 1 confirm-press, 0x80 has text, 0x2000 repeatable, 0x8000 save first",verified
+0x10,u32,played,set when started (unless flags & 0x2000); blocks retrigger; cleared by msg 0x1400,verified
+0x14,const char *,text,"Text_GetClassString(manager, CINnnTEXT & 0xff) when flags & 0x80, else NULL; Cine_Start's text argument",verified
+0x18,Box *,sheepBox,"CINnnSHEEPBOX list[0], or NULL",verified
+0x1c,u32,started,set to 1 on every Cine_Start from this trigger; no reader found (write-only),inferred

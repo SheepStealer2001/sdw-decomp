@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x0,char[0x28],description,the DirectSound device description DS_EnumCallback 0x406cfb strcpy's here (unbounded); SoundDevice_GetDeviceName 0x406812 copies it out for the launcher,verified
+0x28,GUID,guid,"the device GUID DS_EnumCallback copies here (left zero for the primary device, whose GUID pointer is NULL); SoundDevice_Init 0x406859 passes its address to DirectSoundCreate",verified

@@ -1,0 +1,10 @@
+value,name,meaning
+#,InstantHooverMsg,Messages handled by InstantHoover_HandleMessage 0x4ce7ea (plus ids it sends)
+0x2,MSG_QUERY_ACTION,4 to the Wolf
+0x4,MSG_PICKUP,"undock, anim 4, attach"
+0x5,MSG_DROP,"undock, place, anim 1, state 2 (dock attempt)"
+0x7,MSG_INVENTORY_STORED,stored: nearest socket gets 0x6502 if it was ever docked
+0x17,MSG_QUERY_HELD_ACTION,2
+0x3f,MSG_REMOTE_SWITCH,RemoteControl held-state begin (arg 1) / end (arg 0); arg 1 while idle and docked opens the hoover
+0x55,MSG_CHECKPOINT_ROLLBACK,Reset
+0x71,MSG_REMOTE_QUERY_UNAVAILABLE,1 when not docked (RemoteControl then offers no action)

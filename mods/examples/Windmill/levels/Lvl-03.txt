@@ -1,0 +1,7 @@
+# Windmill: an animated model of the mod's own (models\windmill.obj with its parts and animation in windmill.rig,
+# made into the game's files by tools/make_model.py when the mod is built), shown by a copy of object 114 (static
+# scenery, which plays a model's animation 0 in a loop) 600 units behind where Ralph starts (-2003, -2, -6273).
+import windmill from mod:models\windmill 0
+new mill from 114
+mill model windmill
+mill pos -2003 -2 -6873

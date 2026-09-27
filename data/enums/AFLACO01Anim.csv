@@ -1,0 +1,4 @@
+value,name,meaning
+#,AFLACO01Anim,animation ids of WAR model AFLACO01 (its WAR type-0x86 table; names verified from the level files). Played by: Perfume
+0x0,AFLACO01_ANIM_OBJET,WAR name OBJET
+0x1,AFLACO01_ANIM_LINK,WAR name LINK

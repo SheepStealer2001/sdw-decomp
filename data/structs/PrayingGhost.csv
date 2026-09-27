@@ -1,0 +1,62 @@
+offset,ctype,name,meaning,confidence
+0x64,ScnObject *,sheep,"designer property SHEEP (Scn_GetPropObject prop 0x1c, 0x45ac5d); the sheep this ghost prays to and carries",verified
+0x68,ScnObject *,jail,"first CLASSID_JAIL 126 object (Scenaric_FindByClass 0x7e, 0x45ae1e)",verified
+0x6c,ScnObject *,inflatableSheep,"first CLASSID_INFLATABLESHEEP 132 object, cleared when the search does not return 1 (0x45ad38)",verified
+0x70,ScnObject *,ghostCostume,"first CLASSID_GHOSTCOSTUME 125 object, cleared when the search does not return 1 (0x45ad61)",verified
+0x74,ScnObject *,checkpoint,"designer property CHECKPOINT (prop 0x0c, 0x45ac49); gets message 0x1080 from state 14",verified
+0x7c,ScnObject *,camRestrict1,designer property CAMERARESTRICTION1 (prop 0x00) - gets message 0xd80 with 0/1,verified
+0x80,ScnObject *,camRestrict2,designer property CAMERARESTRICTION2 (prop 0x04),verified
+0x84,ScnObject *,camRestrict3,designer property CAMERARESTRICTION3 (prop 0x08),verified
+0x88,ScnObject *,fallingGate,designer property FALLINGGATE (prop 0x14) - gets message 0x1f from state 5,verified
+0x8c,ScnObject *,fallingGateDetec,designer property FALLINGGATEDETEC (prop 0x18) - gets message 0x20 when the trajectory ends,verified
+0x90,ScnObject *,noticed,the object handed with message 0x5e (0x45d78d); classId 0x65 makes it the chase target,verified
+0x94,ScnObject *,target,"who this ghost chases in states 12/13: `noticed` when its classId is 0x65, else g_pWolf (0x45cee7-0x45cf20)",verified
+0x98,ZoneList,monoHideBoxes,designer property WOLFNOTVISIBLEMONO (prop 0x34) resolved through Scn_FindIdList (0x45adb9),verified
+0xa0,ZoneList,wolfHideBoxes,designer property WOLFINVISIBLE1 (prop 0x30) resolved through Scn_FindIdList (0x45adf0),verified
+0xa8,TrajFollower,followSelf,"TrajFollower_Init(this, ..., speed 300, bias 0x800, arrive 50) over the TRAJECTORY property (0x45ae81)",verified
+0xc8,TrajFollower,followWolf,second follower over the same trajectory - stepped with g_pWolf as the mover (0x45c18f),verified
+0xe8,TrajFollower,followSheep,third follower over the same trajectory - stepped with g_prayingGhosts[2] as the mover (0x45c235),verified
+0x108,Trajectory *,trajectory,designer property TRAJECTORY (Scn_GetPropTrajectory prop 0x2c) - u16 count then Vec3s points from +2,verified
+0x10c,s16,turnHeading,heading turned a quarter of the way per call by PrayingGhost_TurnToHeading 0x45e100,verified
+0x110,Box *,startBox,designer property STARTBOX (Scn_GetPropBox prop 0x24),verified
+0x114,Box *,sheepBox,designer property SHEEPBOX (Scn_GetPropBox prop 0x20),verified
+0x118,u16,trajCount,trajectory[0] - the number of trajectory points (0x45af05),verified
+0x11a,Vec3s,trajFirst,first trajectory point (0x45af1b),verified
+0x120,Vec3s,trajLast,last trajectory point: trajectory + 2 + (count-1)*6 (0x45af3c),verified
+0x128,ScnBody,halo,a second animated body built from exported resource 0xbf; its vtables are constructed by the factory at 0x45e516 and it is drawn before the ghost's own body (0x45dffe),verified
+0x18c,u16[10],haloRecord,"the synthetic WAR record Scn_BuildRecordFromExport(0xbf, ...) writes for the halo body (0x45b06f)",inferred
+0x1a0,s32,haloValid,1 when the halo record was built and the halo body initialised (0x45b0ae),verified
+0x1a4,s32,haloVisible,1 while the halo body is drawn (set in state 13 at 0x45df22; tested by Render 0x45dff5),verified
+0x1a8,Vec3s,chaseDelta,target minus mover; the working vector of every chase step (0x45bbe5),verified
+0x1ae,Vec3s,chaseVel,"chaseDelta scaled to speed 200 on x and z, 0 vertical (0x45bc44)",verified
+0x1b4,Vec3s,chaseStep,Vec3s_ScaleByDt(chaseVel) - the per-frame translation (0x45bca1),verified
+0x1ba,Vec3s,homePos,the object's position at PostLoadInit; the respawn point (0x45af6e),verified
+0x1c0,Vec3s,postPos,the ghost's post on the trajectory: trajFirst offset by 0x1f4 / 0 / 0xf5 / 0x15e on x by index (0x45d534-0x45d65b),verified
+0x1c6,Vec3s,sheepHome,"centre of SHEEPBOX in x/z, ground height there from the sheep's own collision box (0x45ac88)",verified
+0x1cc,Vec3s,wolfCapturePos,g_pWolf->pos snapshotted when the capture starts (states 4 and 8),verified
+0x1d2,Vec3s,sheepCapturePos,sheep->pos snapshotted when state 6 starts (0x45dde6),verified
+0x1d8,u8,state,"PrayingGhost_SetState's argument; 0..14, the Update switch",verified
+0x1d9,u8,index,"this ghost's slot: the argument of message 0x4505, also its index into g_prayingGhosts and g_ghostAtPost",verified
+0x1dc,s32,wolfLift,vertical offset added to wolfCapturePos.y while the Wolf is carried; steps by -10 until |wolfLift| >= 100,verified
+0x1e0,s32,sheepLift,same for the sheep in state 6; steps by -10 while 300 - |sheepCapturePos.y| > |sheepLift|,verified
+0x1e4,u32,prayDurMs,Anim_GetDurationMs(anim 4) - the length of the praying animation (0x45b037),verified
+0x1e8,u32,grabDurMs,Anim_GetDurationMs(anim 10) - the length of the grab animation (0x45b053),verified
+0x1ec,s32,alertDelayMs,designer property TIMEORANGE (prop 0x28) - how long the ghost may see the Wolf before alertLevel goes to 1,verified
+0x1f0,s32,timer,countdown in g_dtMs units: the praying cycle in state 10 and the grab in state 13,verified
+0x1f4,s32,sheepGraceMs,2000 ms grace after the sheep enters SHEEPBOX before the ghosts are told (message 0x4501),verified
+0x1f8,s16,trajHeading,heading written by TrajFollower_Step (0x45c0ce),verified
+0x200,s32,registered,1 once message 0x4505 has placed this ghost in g_prayingGhosts (0x45d4f9),verified
+0x204,s32,isLeader,set only on the ghost with index 1 (0x45d4ec); that one drives the cinematic capture,verified
+0x208,s32,praying,1 in state 10 (the praying loop) and 0 in states 1 and 12,verified
+0x20c,s32,wolfHidden,1 when the Wolf's position is inside one of monoHideBoxes or wolfHideBoxes (0x45cb9e),verified
+0x210,s32,sheepBoxOccupied,1 when ObjGrid_QueryBoxOverlap on SHEEPBOX returned something that is not a sheep (0x45b6c0),verified
+0x214,s32,sheepDecoySeen,1 when an InflatableSheep is in SHEEPBOX (0x45b684),verified
+0x218,s32,decoyAccepted,1 when the InflatableSheep accepted message 0x4601 (0x45b674),verified
+0x21c,s32,graceArmed,1 while the sheep-gone grace period is counting (0x45b767),verified
+0x220,s32,trajDone,1 when the cinematic trajectory has been walked to its end (0x45c2c3),verified
+0x224,s32,watching,1 in state 10 (the ghost is at its post and watching) and 0 in state 1,verified
+0x228,s32,sheepStolen,1 once the sheep has been seen leaving STARTBOX (0x45b2c4); cleared when the capture reaches the Wolf,verified
+0x22c,u8,iconBufToggle,alternates the two icon primitive buffers handed to ScnBody_RenderEx (0x45e3ea),verified
+0x230,u8[2][400],iconPrimBuf,two 0x190-byte primitive blocks for the head-icon draw (same shape as Watch::hudPrimBuf),verified
+0x550,u32,alertLevel,index into g_samZoneColors for the head icon: 0 white / 1 orange (0x45e49c),verified
+0x554,ZoneList,alertBoxes,id list 0x45 - while the Wolf stands in one of these boxes the ghost does not notice him (0x45b0ca),verified

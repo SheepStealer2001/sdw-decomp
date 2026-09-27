@@ -1,0 +1,4 @@
+value,name,meaning
+#,AROCHE06Anim,animation ids of WAR model AROCHE06 (its WAR type-0x86 table; names verified from the level files). Played by: Rocks
+0x0,AROCHE06_ANIM_BOOM01,WAR name BOOM01
+0x1,AROCHE06_ANIM_STAND1,WAR name STAND1

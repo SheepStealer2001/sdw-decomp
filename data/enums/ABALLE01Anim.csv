@@ -1,0 +1,5 @@
+value,name,meaning
+#,ABALLE01Anim,animation ids of WAR model ABALLE01 (its WAR type-0x86 table; names verified from the level files). Played by: Bullet
+0x1,ABALLE01_ANIM_ACTION1,WAR name ACTION1
+0x2,ABALLE01_ANIM_RUN,WAR name RUN
+0x4,ABALLE01_ANIM_ACTION,WAR name ACTION

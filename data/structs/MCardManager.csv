@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x64,CamSetup *,uiCamera,"PROPERTY_MCARDMANAGER_ID_CAMERA (prop 0) via Scn_GetPropCamera: a camera setup record {u16 focal; s16 rot[3]; Vec3s eye}, NOT a Camera - g_camera 0x584c50 is passed separately. NULL means do not move the camera; every camera call in Update is guarded on it.",verified
+0x68,u8,state,"0 idle; 1 start autosave (camera shot mode 2, freeze Ralph, MCard_SetMode(3)); 2 autosave running; 3 autosave closing; 4 start the manual save/load UI (shot mode 0xd); 5 UI running (world rendering off); 6 UI closing. Drives the table at 0x4d4a4e via state-1.",verified
+0x69,s8,keepCamera,"Latched at the start of state 4 from g_camMode 0x6e4383 being 9, 0xa or 7 (note: 7 here, unlike the 8 used by the other states' guards). Non-zero means another system owns the camera, so state 6 skips Camera_ReleaseAny. Read with movsx.",verified
+0x6a,u8,exitAfterUi,"Written by the state-5 exit dispatch: 0 for Card_StateMachine results 0x2649/0x264a, 1 for 0x264b. In state 6, g_mcardMode 0x6e38a2 == 1 with this set starts Fade_StartLevelExit(0x1000) - the load-game path leaves the level.",verified

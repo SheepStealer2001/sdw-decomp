@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x40,u8,disabled,"Non-zero makes Update return immediately. Sole writer is SuperButton_SetDisabled, whose only two callers both push 0, so in the shipped game the gate is never disabled.",verified
+0x44,SuperButtonInput[2],inputs,"The two buttons registered with this gate, addressed as [reg + 8*i + 0x44] / [reg + 8*i + 0x48] with the loop bound 2. Emitted as a record array (as FrozenRiver/RiverCargo), because two stride-8 arrays would overlap and fail the layout check. Spans 0x44..0x53.",verified
+0x54,ScnObject *,outTarget,PROPERTY_SUPERBUTTON_OUT (prop 4) via Scn_GetPropObject; receives MSG_SWITCH_ON 0x1f while the gate is on and MSG_SWITCH_OFF 0x20 while it is off. Null-guarded at each send.,verified
+0x58,ScnObject *,notTarget,"PROPERTY_SUPERBUTTON_NOT (prop 0): the inverted output, getting MSG_SWITCH_OFF while the gate is on and MSG_SWITCH_ON while it is off.",verified
+0x5c,s32,latched,"Set to 1 on every frame the gate is on (0x4f8b19) and cleared only by PostLoadInit (0x4f8aa9). Reset restores state from it, so a SuperButton solved once stays solved across deaths and restarts.",verified
+0x60,s32,state,"1 = gate on. Written 1 only under `cmp [ebp-4],1` at 0x4f8afe; the switch's 0 and 2 arms jump past the store, so Update never clears it. Rewritten from the latch by Reset.",verified

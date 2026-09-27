@@ -1,0 +1,4 @@
+value,name,meaning
+#,ATUYAU02Anim,animation ids of WAR model ATUYAU02 (its WAR type-0x86 table; names verified from the level files). Played by: Pipe2; the model of Pipe2 is inferred (the only table whose ids match what the class plays)
+0x1,ATUYAU02_ANIM_THROW,WAR name THROW
+0x2,ATUYAU02_ANIM_THROW2,WAR name THROW2

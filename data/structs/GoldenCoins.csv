@@ -1,0 +1,10 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,state,GoldenCoinsState 0..4 (GoldenCoins_SetState).,verified
+0x68,s32,appearTimer,Set to 0x3c00 (3.75 s of g_gameTime) by SetState(3); no reader found in the class.,inferred
+0x6c,s32,inInventory,"1 after msg 7 (stored in the inventory), 0 after msg 8 (equipped); makes msg 0x4a80 report the coin as taken.",verified
+0x70,s32,claimedBySam,Set by msg 0x4a83 (Sam pocketing it); msg 2 then offers nothing to the Wolf. Cleared by SetState 0 and 2.,verified
+0x74,s32,revealed,Set to 1 when the MineDetector's msg 0x2f reveals a buried coin; cleared only by Init. Reset picks buried (0) or visible-at-home (1) from it.,verified
+0x78,Vec3s,homePos,Ground-snapped start position (Init); SetState(0) and Reset move the coin here.,verified
+0x80,s32,renderScale,"Uniform render scale, 0 meaning 0x400; set by Sam msg 0x4a82 while pocketing (0x2aa, 0x155), cleared by SetState(0) and Reset.",verified
+0x84,s32,hintPending,1 after msg 0x4a84 (Sam near the Wolf while it holds this coin); consumed by the next msg 6.,verified
+0x88,u16,hintDist,"Sam-Wolf XZ distance from msg 0x4a84, or the outDist that Scenaric_FindBestInRadius writes (600 when nothing is found); msg 6 reports hintDist*0xffff/600.",verified

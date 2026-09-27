@@ -1,0 +1,6 @@
+value,name,meaning
+#,CanonSimpleState,"CanonSimple +0x7c (CanonSimple_SetState 0x4a7840, jump table 0x4a7cac)"
+0,CS_ST_IDLE,"visible, Wolf unfrozen; waits for MSG_USE"
+1,CS_ST_AIM,"first-person aim: Wolf frozen and invisible, cannon and barrel hidden, crosshair and mask HUD"
+2,CS_ST_FIRED,ball launched (0x3381); waits for the ball's msg 0x4f
+3,CS_ST_FIRING,"400 ms delay: barrel recoil, ball loaded with the chase camera"

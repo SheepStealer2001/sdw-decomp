@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,s32:1,midRoute,"Sam.followFlags bit 0: after reaching a waypoint Sam sets it to waypointCount > 1, i.e. the new target is an intermediate path node, not the goal; cleared by EnterFollowNodeState",verified
+0x0,s32:1,dropping,"bit 1: set (0x469538) while midRoute when the ground under the next step is more than 100 lower, or dropToNode was set this frame; Sam then commits to the drop and ignores the pursuit-zone exit and authorized-zone turn-back checks. Cleared on the next waypoint and by EnterFollowNodeState",verified
+0x0,s32:1,dropToNode,"bit 2: set (0x469336) while midRoute and not dropping when the current waypoint is more than 40 below Sam; route Y velocity 2000 instead of 1000, and SAM_STT_FOLLOWNODES skips the per-frame goal/notice block. Cleared on the next waypoint and by EnterFollowNodeState",verified

@@ -1,0 +1,30 @@
+offset,ctype,name,meaning,confidence
+0x64,Vec3s,flyStart,collect-flight start: SetState(3) copies pos componentwise (0x496e29/37/45),verified
+0x6c,Vec3s,hudTarget,"collect-flight target on the HUD, stored x/y/z by SetState(3) (0x496e71/87/8e)",verified
+0x74,Vec3s,flyPosition,"lerp output of the collect flight, passed to SetPosition (address taken at 0x4970fb, 0x49716a)",verified
+0x7c,u16,flyT,"flight parameter: movzx at 0x496fb1, incremented and stored at 0x497117",verified
+0x7e,u8,state,SetState stores its argument (0x496cda),verified
+0x7f,u8,hudState,Update stores 5 on area entry (0x4966a7) and 6 on departure (0x496740),verified
+0x80,s16,scale,SetState(3) stores 0x1000 (0x496ded); Update compares signed and shrinks it; Render copies it three times,verified
+0x82,s16,hudOffsetY,PostLoadInit stores 30; Update compares signed and adds/subtracts 4,verified
+0x84,u32 *,hudFullBitmap,"u32*: IdList_FindWithCount(0x9b); Update double-dereferences it before UiQuad_SetFromBitmap, the same pattern as the markerBitmap +0x58 of the level managers",verified
+0x88,u32 *,hudEmptyBitmap,"u32*: IdList_FindWithCount(0x9c), the same double dereference",verified
+0x8c,u32,chargeDuration,from the Ghost message 0x4005 at init; Update divides it by five (0x4965fd),verified
+0x90,UiQuad[5],hudSlots,"UiQuad[5]: UiQuad_SetFromBitmap((UiQuad*)(this+0x90+i*0x14)) for i<5; 0x90+5*0x14 = 0xf4 = master, so the extent is exact",verified
+0xf4,Battery *,master,"MASTER property, or this when null; messages 0x4401/0x4403/0x4405 go to it",verified
+0xf8,ScnObject *,hoover,found by class 0x83 at init; HandleMessage sends it 0x4581/0x4582,verified
+0xfc,ScnObject *,ghost,found by class 0x78 at init; sent 0x4005,verified
+0x100,ScnObject *[5],collected,message 0x4401 stores the sender at +0x100 + count*4 (0x496b36),verified
+0x114,Box *,triggerBox,Box property at init; Update tests its XZ bounds,verified
+0x118,Vec3s,homePos,"saved at init; Reset and SetState(2) pass its address to SetPosition (0x49656b, 0x496d70)",verified
+0x11e,Vec3s,renderRot,copied to rot for rendering; StepCollectFlight updates the first component signed,verified
+0x124,s32,isMaster,"1 when the MASTER property is null, else 0",verified
+0x128,s32,reported,SetState(1) sends the collection notification once; cleared by reset/init,verified
+0x12c,s32,wolfInBox,latched XZ containment of the trigger box,verified
+0x130,s32,charged,set by HandleMessage on the fifth battery,verified
+0x134,s32,draining,argument of message 0x4404; gates the drain timer and collection,verified
+0x138,s32,unknown138,Update writes 1 when not draining (0x49661a); role not established,verified
+0x13c,u16,collectedCount,movzx at 0x4965d7 and 0x496e58; message 0x4403 returns it,verified
+0x13e,s16,flySpin,SetState stores a derived angle; read signed by StepCollectFlight,verified
+0x140,s32,drainTimer,Update subtracts g_dtMs and compares signed with 0 (0x4965b3),verified
+0x144,u16,soundHandle,SetState stores the Sound_Play handle (0x496de3); cleared by init/reset,verified

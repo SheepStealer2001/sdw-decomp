@@ -1,0 +1,5 @@
+value,name,meaning
+#,ElasticSubState,"elastic +0x31d, used in state 3"
+1,ELASTIC_SUB_FOLLOW,normal tension handling
+2,ELASTIC_SUB_WOLF_INTERACTING,Wolf in a WSF_INTERACTING state (msg-0x1a flags bit 1): horizontal step zeroed
+3,ELASTIC_SUB_PULL_UP,bungee pull-up to the tree's IDPOINTUP point

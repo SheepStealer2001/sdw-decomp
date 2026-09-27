@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x0,s8:3,state,"g_camPitchAdjState (0x6e43d7) low 3 bits, signed: 0 none, 1 raising the pitch over an obstacle, 2 lowering it back (the CamPitchAdjState enum); read and written as a signed bitfield (Camera_UpdateChase / Camera_UpdateFollow)",verified
+0x0,s8:5,unused,remaining bits,inferred

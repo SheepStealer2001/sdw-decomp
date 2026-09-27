@@ -1,0 +1,14 @@
+value,name,meaning
+#,SamModeFlags,PROPERTY_SAM_MODE bits (sam+0x8B4)
+0x1,SAM_MODE_PATROL,value 1 of the SAM_MODE_BEHAVIOUR_MASK field (enum doc: 1 = patrol); mode = (mode & ~0x3ff) | 1
+0x3ff,SAM_MODE_BEHAVIOUR_MASK,"low 10 bits: 1 = patrol (follow TRAJECTORY), else look-after"
+0x400,SAM_MODE_CIN01_ON_NOISE,msg 0x481 in look-after triggers state 0xB cinematic instead of investigate
+0x800,SAM_MODE_STOP_AT_NODES,patrol pauses into timed look-after (inferred)
+0x1000,SAM_MODE_NO_GIVEUP_OUTSIDE_ZONE,keep chasing outside AUTHORIZEDZONE
+0x2000,SAM_MODE_GUARD_SHEEP,sheep-guard logic in Sam_DetectWolf
+0x4000,SAM_MODE_NO_JUMP,disables Sam_CheckStepUpAhead
+0x8000,SAM_MODE_LEVEL_VARIANT,"uses id-lists 0xAF..0xC4, walk-carry"
+0x10000,SAM_MODE_CHASE_CAMERA,camera mode 0xC with 2NDCAMERABOX while red
+0x20000,SAM_MODE_ALT_BEHAVIOUR,"alternate set (home switching by sheep in orange box, catch in state 2)"
+0x40000,SAM_MODE_NODES_ONLY,"node-path movement only, 1.5x speed"
+0x80000,SAM_MODE_WATCH_ROBOT,on reaching the robot enter state 0x16 instead of hitting at once

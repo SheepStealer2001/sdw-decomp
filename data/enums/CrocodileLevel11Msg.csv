@@ -1,0 +1,4 @@
+value,name,meaning
+#,CrocodileLevel11Msg,CrocodileLevel11_HandleMessage 0x435334
+0x0,MSG_KILL,"Only from sender class 0x5f (CannonBall), and not already dead: state 6, returns 1. Sender not NULL-checked. Ignored from every other class."
+0xe,MSG_FREEZE,"Sent by the Wolf to its previous grabber when another object (e.g. Cine_Start) freezes him: wolfFrozen = 0, returns 1."

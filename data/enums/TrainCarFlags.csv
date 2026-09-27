@@ -1,0 +1,7 @@
+value,name,meaning
+#,TrainCarFlags,TrainCar.flags (Train cars[5])
+0x1,TRAINCAR_F_PRESENT,PostLoadInit sets it per used car; hidden/shown with the train and placed only when set
+0x2,TRAINCAR_F_BIT1,"Train::PostLoadInit sets it on the two AWAGON2 cars (cars[1], cars[2]); never read"
+0x4,TRAINCAR_F_SIDE_LEFT,PlaceCars: & 4 -> side = 0 (inferred)
+0x8,TRAINCAR_F_SIDE_RIGHT,PlaceCars: & 0xc (either side) marks a rider side (inferred)
+0x10,TRAINCAR_F_BIT4,Train::PostLoadInit sets it on the AWAGON1B car (cars[3]); never read

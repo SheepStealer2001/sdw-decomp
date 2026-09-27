@@ -1,0 +1,11 @@
+offset,ctype,name,meaning,confidence
+0x7c,InlineEmitter3,emitter,"3-slot inline emitter; factory 0x4b5896 takes its address at 0x4b58d0 and calls Emitter_Reset 0x52dbe3 at 0x4b58f7 BEFORE the final Dynamite vtable. 0x60 bytes, ending exactly at fuse +0xdc",verified
+0xdc,s32,fuse,remaining fuse in 1/4096 s ticks; decremented by g_dt while lit (state 3),verified
+0xe0,s32,stateTimestamp,g_gameTime at the last state change (respawn wait 0x3000 ticks),verified
+0xe4,s32,fuseTotal,(COUNTDOWN ms << 12) / 1000,verified
+0xe8,AltModel,normalModel,model before the blast; its address is passed to InitWithAltModels at 0x4b5932,verified
+0xf8,AltModel,explodedModel,model after the blast; its address is passed to InitWithAltModels at 0x4b5923,verified
+0x108,Vec3s,homePos,"spawn position; its address is taken at 0x4b518f, 0x4b553c, 0x4b57bf and 0x4b5819 (Init / Reset / HandleMessage)",verified
+0x10e,u16,soundHandle,"stored Sound_Play handle: word reads at 0x4b4f26/0x4b4f34 (the Sound_Stop path), word writes at 0x4b4f53/0x4b544b/0x4b586d",verified
+0x110,u8,state,"0 idle, 3 lit, 4 exploding, 5 hidden waiting 3 s, 6 fading back in",verified
+0x111,DynamiteFlagBits,dynFlags,bit 0 set while the explosion model is shown,verified

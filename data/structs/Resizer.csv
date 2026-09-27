@@ -1,0 +1,17 @@
+offset,ctype,name,meaning,confidence
+0x64,u32,flags,"bit 0x1 = someone else already froze the Wolf, do not freeze (Update tests !(flags&1) at 0x4e1e63 before sending 0xe). 0x2 Wolf dead, 0x100 resizing, 0x200 _MAXIMIZE, 0x400 _EXIT, 0x800 size accepted",verified
+0x68,u8,state,"ResizerState: written by SetState 0x4e22ac, switched on by Update (the byte-matched source reads it here)",verified
+0x6c,AltModel,model,"AltModel: outMain of ScnObject_InitWithAltModels (0x4e2516 add ecx,0x6c)",verified
+0x7c,AltModel,altMaximize,"alt-model entry for id-list 0xbe (0x4e2509 add edx,0x7c is outAlts; 0x4e18c7 SwapModel)",verified
+0x8c,AltModel,altExit,"outAlts[1], id-list 0xb7 (0x4e1902 add edx,0x8c; 0x4e190c call 0x510452)",verified
+0x9c,s32,startMs,g_gameTimeMs when the target is frozen in state 1 (Update); the resize waits 500 ms from it,verified
+0xa0,u32,elapsedMs,g_gameTimeMs - startMs (Update state 1),verified
+0xa4,u16,camFocal,"the scripted camera's focal, 0x180 (PostLoadInit)",verified
+0xa6,Vec3s,camRot,"the scripted camera's rotation: (0x100, -rot.y & 0xfff, 0) (PostLoadInit)",verified
+0xac,Vec3s,camEye,the scripted camera's eye: pos moved 300 back along the heading and 250 up (PostLoadInit),verified
+0xb4,CollBox *,modelBox,"model box 0, made non-solid while idle and solid while capturing (SetState)",verified
+0xb8,Box *,activationBox,PROPERTY_RESIZER_ACTIVATIONBOX (prop 8): the zone Update searches for a target; not read with RESIZER_F_EXIT_ONLY,verified
+0xbc,s16,height,modelBox->min.y - 5: the y at which a captured or ejected object is placed,verified
+0xbe,u16,targetClass,the target's ScenaricClassId (CLASSID_WOLF or CLASSID_INSTANTMARTIAN),verified
+0xc0,ScnObject *,target,"the object being resized: found in activationBox, or handed over by MSG_RESIZER_RECEIVE",verified
+0xc4,ScnObject *,exitObject,PROPERTY_RESIZER_EXIT (prop 12): the exit Resizer that receives the resized target (MSG_RESIZER_RECEIVE),verified

@@ -1,0 +1,26 @@
+offset,ctype,name,meaning,confidence
+0x64,u32,csFlags,CanonSimpleFlags,verified
+0x68,u32,stickRepeatMs,ms since the analog step was recomputed (150 ms period),verified
+0x6c,u32,dpadRepeatMs,ms since dpadStep last grew,verified
+0x70,s16,dpadStep,"d-pad aim step per frame, 5 rising by 2 every 150 ms up to 25",verified
+0x74,s32,stickPitchStep,cached analog pitch step (stick Y),verified
+0x78,s32,stickYawStep,cached analog yaw step (stick X),verified
+0x7c,u8,state,CanonSimpleState,verified
+0x7d,u8[2],rumbleMotors,"{0xfe,0xff} for Pad_Rumble_stub",verified
+0x80,Vec3s,basePos,ground-snapped position at Init,verified
+0x86,Vec3s,lastPos,position used to shift the activation box in MoveTo/Translate,verified
+0x8c,Vec3s,muzzlePos,"basePos raised by 80: aim-camera eye, barrel position, ball home/respawn",verified
+0x92,Vec3s,defaultAim,"(ANGLEX, ANGLEY, 0) converted deg*0xfff/360",verified
+0x98,Vec3s,aim,"current (pitch, yaw, roll) = defaultAim + aimOffset; replaced by the camera forward vector on fire and passed to the ball as launchDir",verified
+0x9e,Vec3s,aimOffset,"player offsets (pitch clamp -vertLimit..40, yaw +-horzLimit); kept across Reset",verified
+0xa4,u16,horzLimit,"PROPERTY HORZLIMIT, (deg<<12)/360",verified
+0xa6,u16,vertLimit,"PROPERTY VERTLIMIT, (deg<<12)/360 (upward limit)",verified
+0xa8,s32,fireDelayMs,"state 3 countdown, 400 ms",verified
+0xac,ScnObject *[5],pipes,Pipe (96) objects; each gets msg 0x66 on fire,verified
+0xc0,ScnObject *[5],pipes2,Pipe2 (163) objects; msg 0x66 on fire,verified
+0xd4,u16,pipeCount,count for pipes[],verified
+0xd6,u16,pipe2Count,count for pipes2[],verified
+0xe0,Vec3s,muzzlePosCopy,copy of muzzlePos written by MoveTo/Translate; no reader found,verified
+0xe8,Box *,activationBox,PROPERTY _ACTIVATIONBOX (tested in XZ only),verified
+0xec,ScnObject *,barrel,"PROPERTY CANONDUMMY: the CanonDummy barrel model, rotated by ApplyAim",verified
+0xf0,ScnObject *,ball,PROPERTY CANNONBALL: the CannonBall driven by messages,verified

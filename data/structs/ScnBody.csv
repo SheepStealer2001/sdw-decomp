@@ -1,0 +1,2 @@
+offset,ctype,name,meaning,confidence
+0x40,Animator,anim,"the body's animation state, an Animator (+0x40..+0x64: cur, the three pose buffers, timeAcc, pendingSoundId, nbJoints, animId, frame, frameDuration, speed, flags); Anim_Start, Anim_Advance, Anim_FireSoundEvent and Anim_GetRootOffset take &anim",verified

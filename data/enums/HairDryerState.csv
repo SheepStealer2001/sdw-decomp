@@ -1,0 +1,5 @@
+value,name,meaning
+#,HairDryerState,HairDryer state (u8 at HairDryer+0x84)
+0,HAIRDRYER_ST_WORLD,"on the ground, anim 0"
+1,HAIRDRYER_ST_HELD,"held, off, anim 1"
+2,HAIRDRYER_ST_BLOWING,HairDryer_Blow (msg 0x41 cone) and loop sound 0x11b every frame

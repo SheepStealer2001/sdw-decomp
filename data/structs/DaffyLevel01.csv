@@ -1,0 +1,18 @@
+offset,ctype,name,meaning,confidence
+0x7c,u8,level,"PROPERTY LEVEL; 13 selects the variant (flags bit2): anim set 7/2/4, box collision on",verified
+0x7d,u8,state,DaffyLevel01State,verified
+0x7e,s8,nbChoices,PROPERTY NBCHOICES (max 5),verified
+0x80,char *[5],answerTexts,string(ANSWERTEXTS+i),verified
+0x94,char *,burntText,string(TEXTBURNT); read as answerTexts[5],verified
+0x98,u32[5],answerVoices,VOICE1..VOICE5 via the offset table 0x57a6b0,verified
+0xac,u32,burntVoice,VOICEBURNT; read as answerVoices[5],verified
+0xb0,u32,burnt,msg 0 arg 0 (explosion): blackened,verified
+0xb4,u32,burntLineSaid,burnt text already spoken once,verified
+0xb8,u8,answerIdx,chosen row (or 5 = burnt line),verified
+0xbc,CamSetup *,textCamera,PROPERTY TEXTCAMERA camera setup {u16 focal; u16 rot[3]; Vec3s pos} for Camera_StartScripted,verified
+0xc0,MenuPage[7],choicePages,node array (root + nbChoices + 1) built by Menu_BuildList,verified
+0xf8,Menu,choiceMenu,Menu record written by Menu_BuildList; count +0xfc used for the box height,verified
+0x10c,MenuBox,questionBox,"text = QUESTIONTEXT, +0x110 = &choicePages, +0x114 = &choiceMenu, cursorRow +0x118, fits +0x11c, rect +0x120 (centred), bgColor +0x128",verified
+0x12c,DaffyLevel01FlagBits,flags,"DaffyLevel01Flags: 1 Wolf frozen by this object, 2 Train level (anims 0/1), 4 LEVEL==13 variant",verified
+0x130,char *[5],choiceTexts,"string(CHOICETEXTS+i), drawn by DrawChoice0..4",verified
+0x144,u32,menuJustOpened,1 on the frame of msg 1; blocks the confirm press on that frame; cleared at the end of Update,verified

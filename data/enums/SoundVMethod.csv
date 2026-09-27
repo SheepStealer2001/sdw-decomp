@@ -1,0 +1,17 @@
+value,name,meaning
+#,SoundVMethod,Byte offsets of the 15 virtual methods shared by g_vtblStaticSound 0x574458 and g_vtblStreamSound 0x57449C (the abstract base 0x57441C declares all of them pure except the destructor). Useful because the module calls its own methods through `*(code **)(*this + N)` and the decompiler shows only the raw offset.
+0x00,SOUNDV_DTOR,Scalar deleting destructor (flags & 1 => operator delete).
+0x04,SOUNDV_CREATE_FROM_WAVE,Create the buffer from a caller-owned WaveFile.
+0x08,SOUNDV_CREATE_FROM_FILE,Open a .WAV path and create the buffer; the object owns the WaveFile.
+0x0c,SOUNDV_FREE,"Release the buffer, the notify interface and any owned WaveFile."
+0x10,SOUNDV_RESTORE,Restore a lost buffer and refill it. Called by Play.
+0x14,SOUNDV_PLAY,Start playback. Pure on StreamSound - use StreamSound_Play 0x421230 instead.
+0x18,SOUNDV_STOP,Stop and rewind to 0.
+0x1c,SOUNDV_SET_PAUSED,"(char bPause) Stop without rewinding, or resume."
+0x20,SOUNDV_REWIND,SetCurrentPosition(0). Same function 0x420A40 in both tables.
+0x24,SOUNDV_SET_POSITION,(float frac01) Seek to a fraction of the buffer. Same function 0x4212E0 in both tables.
+0x28,SOUNDV_IS_PLAYING,BOOL. StaticSound asks DirectSound; StreamSound reads its own `stopped` flag.
+0x2c,SOUNDV_SET_VOLUME,(float gain01) Same function 0x420A80 in both tables.
+0x30,SOUNDV_SET_PAN,(float pan) Same function 0x421390 in both tables.
+0x34,SOUNDV_SET_FREQUENCY,(DWORD hz) Same function 0x420AF0 in both tables.
+0x38,SOUNDV_FILL_BUFFER,Refill the buffer from the start of the wave data.

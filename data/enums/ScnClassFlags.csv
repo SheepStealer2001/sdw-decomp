@@ -1,0 +1,15 @@
+value,name,meaning
+#,ScnClassFlags,class-registry flag bits: g_scnClassRegistry[classId].classFlags (u32 at 0x6cffe4 + classId*0x10)
+0x001,SCN_CF_INTERACTABLE,considered by ScnControllable_ScanInteractables
+0x2,SCN_CF_SHEEP_ATTRACTOR,Sheep_AttractorScoreCB 0x4784ca sends msg 2 only to classes with it
+0x004,SCN_CF_CARRIER,recorded as ContactInfo.carrierObj; blocks Wolf put-down on top
+0x8,SCN_CF_08,Scenaric_RegisterClass_2 passes 0x9 for the Daffy classes; no reader in the census (inferred)
+0x10,SCN_CF_SEESAW_SNAP,"seesaw_Update translates the body by the plank gap when it did not handle msg 0xb (Wolf, Sheep, Rock, box, items…)"
+0x20,SCN_CF_SNAP_TO_SUPPORT,"pulled onto its support even when above it (ground snap). Set on 12 classes: Dynamite, Salad, Perfume, Bush, DefusableMine, 3 costumes, HoneyPot, Key, InflatableSheep, GoldenCoins. Does NOT mean carryable: the Bush is not carried in game (Ralph gets inside it and is hidden from Sam). Name inferred"
+0x40,SCN_CF_GROUND_PROVIDER,"ObjGrid_QueryGroundY 0x472380 sends msg 0xD (MSG_GROUND_QUERY) only to these classes: seesaw, Rock, Wooden Lift, WoodenPlatForm, Raft, Catapult, Snowball, SnowyGround, IceGround, WheelDummy, RollingCarpet, RCarpetMobile, CrumblyGround, Jail, Train, FloatingBox, Case, CrumblyPlat. Name inferred from use"
+0x080,SCN_CF_INTERACT_ANY_FACING,facing-angle test skipped
+0x100,SCN_CF_COMPONENT_ITEM,"Set only on Magnet (66) and FishingRod (67), the two parts of the composite rods. No reader of bit 0x100 found among the 34 direct reads of 0x6cffe4 (some masks are in registers), so the name is inferred"
+0x200,SCN_CF_COMPOSITE_ITEM,composite inventory item
+0x400,SCN_CF_INVENTORY_ITEM,"the class appears as a row on the map/inventory screen; Map_InitObject selects classes with 0x400 set and 0x200 clear, and Map_Open / Map_AcquireItem test it before converting an object to a list row"
+0x800,SCN_CF_SHEEP_ANCHORABLE,Sheep only; matches SheepMsg 0x2e MSG_SET_ANCHOR (seesaw walk-to-end)
+0x1000,SCN_CF_IGNORED_BY_BUTTONS,"SensibleButton_Update skips these objects. reg_arg3 has it for SensibleButton(24), CannonBall(95), DancingGhost(127), PrayingGhost(130), Train(135)"

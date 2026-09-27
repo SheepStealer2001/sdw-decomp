@@ -1,0 +1,16 @@
+offset,ctype,name,meaning,confidence
+0x0,u32,color,"current text colour, stored as rgb | 0x05000000",verified
+0x4,u16,texPage,"texture page index of the font sheet; Text_DrawGlyph writes texPage + 4 as the RenderPoly type, the same +4 convention as Sprite.texPage",verified
+0x6,u16,reserved,explicitly zeroed by Font_LoadFromRes and never read anywhere in the binary,verified
+0x8,u8,cellW,"width in TEXELS of one glyph cell on the sheet; the U span sampled per glyph (8 for the debug font, 16 for the game font)",verified
+0x9,u8,cellH,height in TEXELS of one glyph cell (0x10 for both fonts); the V span and row stride,verified
+0xa,u8,glyphWidth,advance width of one character in HUD units,verified
+0xb,u8,glyphHeight,on-screen glyph height in HUD units (0xF for both fonts); used for the vertical clip test and the quad's bottom edge. Distinct from lineHeight (+0x12 = 0x11),verified
+0xc,u8,cellWShift,"log2 of cellW (3 for the 8-wide debug font, 4 for the 16-wide game font). Written by Font_LoadFromRes; no reader was found - the glyph emitter multiplies by cellW instead",inferred
+0xd,u8,cellHShift,"log2 of cellH (4 in both fonts). Written by Font_LoadFromRes, no reader found",inferred
+0xe,u8,cols,columns that fit in the current text window (windowW / glyphWidth); recomputed by Text_SetFont and Text_SetWindow,verified
+0xf,u8,rows,rows that fit in the current text window (windowH / lineHeight),verified
+0x10,u8,sheetU,U origin of the font sheet's sub-rect within the 256-pixel texture page; glyph U = sheetU + col*cellW,verified
+0x11,u8,sheetV,V origin of the font sheet; glyph V = sheetV + row*cellH,verified
+0x12,u8,lineHeight,vertical advance per line; added to g_textCursorY on wrap and on '\n',verified
+0x13,u8,pad,tail padding of the 0x14-byte entry; never written or read,inferred

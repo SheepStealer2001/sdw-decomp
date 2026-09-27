@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x10,u32,colour,flat colour from BsFile_ReadRgbHalved (BsDecode_Kind10_11),verified
+0x14,u32,blendMode,a u32 read straight from the file (BsDecode_Kind10_11); RenderPoly_InitFromBsBlendFlat 0x41afb7 switches on it,verified

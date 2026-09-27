@@ -1,0 +1,53 @@
+The "PAUSED" menu overflows after 25 level loads (the crash after many loads and restarts)
+
+Every level load, restarts included (Progress::RestartScene reloads the level), runs Game_ReloadLevel, which builds the
+two pause menus: the pause menu and the one-item "PAUSED" menu (g_pausedMenu). Game_FreeLevel empties the pause menu's
+nodes before the next load, but nothing empties the "PAUSED" menu's: PausedMenu_ClearItems (0x5465fd) is never called.
+So every load appends two more nodes (a page and its item) to g_pausedMenu, whose array g_pausedMenuItems (0x6de9c0)
+holds 50 and whose add functions never check that. From the 26th load since the game was started, each load writes 16
+bytes past the array's end, a little further every time, over whatever comes next in memory:
+
+  loads 26-40   the pause menu's four slider cursors (g_menuCursors 0x6deb58)
+  loads 41-44   the pause box and text rectangles and the progress snapshot (0x6dec48-0x6dec83)
+  load  45      g_pauseResumeIndex, g_pauseRebinding and the pause menu's exit / restart request flags (0x6dec84-0x6dec8f)
+  loads 46-67   the message box: its text, rectangle and frame (0x6dec90-0x6dedef)
+  loads 68-92   the pause menu's own nodes (g_pauseMenuItems 0x6dedf8), just after they are built for that level
+  load  93      g_pMenuNoiseTexture (0x6def88): the same load then reads through it (Menu_CreateNoiseTexture, from
+                Menus_LoadLevelUi), and the value written there is two node fields, not a Texture
+  loads 95-99   g_quitPending and the list heap's allocator state (g_listNodeHeap 0x6defa8)
+  load  99      g_scratch32k (0x6defe8), the 32 KB block the next level free releases
+
+Most of the rest is rewritten later in the same load or when the pause menu opens, so the damage shows where a value
+stays wrong: the pause menu's own nodes (a crash or a broken menu when Start is pressed, loads 68-92) and the noise
+texture pointer (most likely a crash during the 93rd load; if the address written there happens to be readable, the
+load can survive and a later one crashes). Only the Start press depends on the player, which is why the count of
+loads before a crash varies. Every full load counts: the first scene at start-up, the studio, levels, restarts, and the
+attract demos. This is read from the code; not yet seen in the running game (g_pausedMenu.count, the s16 at
+0x57c158, should read twice the number of loads since the game started).
+
+This fix empties the "PAUSED" menu in Game_FreeLevel, next to the pause menu.
+
+Touches: src/engine/game_level.cpp (Game_FreeLevel).
+
+diff --git a/src/engine/game_level.cpp b/src/engine/game_level.cpp
+index 2bed064..0571809 100644
+--- a/src/engine/game_level.cpp
++++ b/src/engine/game_level.cpp
+@@ -85,10 +85,17 @@ inline void D3DApp::ResetStateFlags(u32 flags)
+ 
+ /* 0x529f40 - frees the loaded level: the pause menu's items, the level data, the level heap and its 512 KB block,
+  * the 32 KB scratch. Nothing happens when no level is loaded. */
++void PausedMenu_ClearItems(); /* 0x5465fd */
++
+ void Game_FreeLevel()
+ {
+     if (g_pDav) {
+         PauseMenu_ClearItems();
++        /* FIX paused-menu-overflow: Game_ReloadLevel rebuilds both pause menus on every load, but only the pause menu's
++         * nodes were emptied here. The one-item "PAUSED" menu (g_pausedMenu) was never emptied (nothing calls
++         * PausedMenu_ClearItems), so each load added two nodes to its 50-node array, and from the 26th load on they were
++         * written past its end, over the pause menu's globals and later the list heap's. */
++        PausedMenu_ClearItems();
+         Load_FreeLevel();
+         g_scenaricLevelHeap.Term();
+         if (g_levelHeapStorage) {

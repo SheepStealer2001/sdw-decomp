@@ -1,0 +1,5 @@
+value,name,meaning
+#,PromptResult,g_promptResult (Prompt_Begin/Prompt_Update)
+0x1,PROMPT_CHOICE_1,confirmChoice == 1
+0x2,PROMPT_CHOICE_2,the other choice
+-0x1,PROMPT_PENDING,Prompt_Begin sets -1; 'returns -1 while pending'

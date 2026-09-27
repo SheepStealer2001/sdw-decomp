@@ -1,0 +1,6 @@
+value,name,meaning
+#,AOISEA01Anim,animation ids of WAR model AOISEA01 (its WAR type-0x86 table; names verified from the level files). Played by: Bird
+0x0,AOISEA01_ANIM_FLY,WAR name FLY
+0x1,AOISEA01_ANIM_FLY2,WAR name FLY2
+0x2,AOISEA01_ANIM_SPEED,WAR name SPEED
+0x3,AOISEA01_ANIM_SLOW,WAR name SLOW

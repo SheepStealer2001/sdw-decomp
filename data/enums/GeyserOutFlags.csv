@@ -1,0 +1,9 @@
+value,name,meaning
+#,GeyserOutFlags,GeyserOut flags byte behind Flag()/SetFlag()/ClearFlag()/FlagClear()
+0x1,GEYSEROUT_F_BUSY,returned by msg 0x2884; Update 1 spits only when clear
+0x2,GEYSEROUT_F_CAM_OBJ,returned by msg 0x2888
+0x4,GEYSEROUT_F_WOLF_FROZEN,msg 0x2886 sets it after freezing the Wolf; Update 0/3 clear it (inferred)
+0x8,GEYSEROUT_F_CORKED,"msg 0x2881 sets, 0x2882 clears"
+0x10,GEYSEROUT_F_FROZE_WOLF,msg 0x2886: set when msg 0xe froze the Wolf
+0x20,GEYSEROUT_F_SLANTED,PostLoadInit: |slant.x| + |slant.z| > 0x19 -> SetFlag(0x20)
+0x40,GEYSEROUT_F_CAM_WOLF,returned by msg 0x2887

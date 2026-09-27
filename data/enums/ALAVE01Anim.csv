@@ -1,0 +1,3 @@
+value,name,meaning
+#,ALAVE01Anim,animation ids of WAR model ALAVE01 (its WAR type-0x86 table; names verified from the level files). Played by: Lava; the model of Lava is inferred (the only table whose ids match what the class plays)
+0x0,ALAVE01_ANIM_SPLASH,WAR name SPLASH

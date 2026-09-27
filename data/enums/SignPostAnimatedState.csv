@@ -1,0 +1,7 @@
+value,name,meaning
+#,SignPostAnimatedState,SignPostAnimated (class 165) +0x64.
+0,SIGNANIM_ST_OPENING,as SignPostSimple
+1,SIGNANIM_ST_SHOWING,subtitle box
+2,SIGNANIM_ST_CLOSING,unfreeze on release
+3,SIGNANIM_ST_IDLE,readable when not hidden
+4,SIGNANIM_ST_REVEALING,"after msg 0xE81: anim 0 until finished, then collision on and anim 1"

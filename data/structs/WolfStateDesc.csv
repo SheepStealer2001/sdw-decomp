@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x0,u8,anim,"animation id of the state: Wolf_SetState 0x48774b movzx dx,byte [desc] is its animId argument (bank-0 entry 0 = 0x4a)",verified
+0x1,u8,profile,"index into the bank's MoveRecord table (0x488eb1: movzx ecx,byte [desc+1]; imul ecx,0x1c)",verified
+0x2,u8:4,heldMsgArg,"low nibble: the argument of the held-object messages 0x10 / 0x15 / 0x16 (Wolf_EnterState 0x4874f5 mov dl,[ecx+2]; and dl,0xf; xor eax,eax; mov al,dl: VC6's bitfield read)",verified
+0x2,u8:4,modelSet,"high nibble: model set of the state, 0 = the costume's (Wolf_SetStateAnim 0x4875e9 mov al,[edx+2]; shr al,4; and al,0xf: a bitfield read)",verified
+0x3,u8,camMode,camera mode used unless Wolf+0x713 camOverride != 0xff (Wolf_UpdateCamera 0x48fa7f byte [desc+3]),verified
+0x4,u32,flags,"state flags: bit 0 = loop the state animation (Wolf_SetState 0x487741 [desc+4] & 1); Wolf_EnterState applies more (0x400, 0x800, ...); entry 0 = 0x102193",verified

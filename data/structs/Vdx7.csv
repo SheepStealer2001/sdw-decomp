@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,void *,vtbl,vtable 0x574400 (one slot: Vdx7_ScalarDeletingDtor 0x41b6b0); stored by Vdx7_Open 0x41b41c,verified
+0x4,u8,ok,1 once the VDX7 magic matched and both tables were read (Vdx7_Open 0x41b649),verified
+0x8,u32 *,entries,"malloc'd array of u16 values widened to u32 (Vdx7_Open 0x41b4f0, 0x41b573); free'd by Vdx7_Dtor. The textured decoders index it with a polygon's u32 texture id to get a records index (BsDecode_Stride24_Pass1 0x41d1a2-0x41d1a8)",verified
+0xc,Vdx7Record *,records,"malloc'd array of 10-byte records (Vdx7_Open 0x41b517); free'd by Vdx7_Dtor. The decoders take &records[entries[id]] (imul 0xa 0x41d1b7, add [eax+0xc] 0x41d1ba)",verified

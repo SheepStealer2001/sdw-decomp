@@ -1,0 +1,10 @@
+offset,ctype,name,meaning,confidence
+0x0,Vec3s,localOffset,"offset in the parent part's frame, *8, applied when flags & 0x08 (Instance_CalcWorldMatrix)",verified
+0x6,u8,partIndex,parent model part whose matrix M[partIndex] is published into the link,verified
+0x7,AttachLinkBits,flags,"AttachLinkFlags (1 matrix valid, 2 parent already run through Scn_RenderIfVisible this frame - set on every child link at 0x56015d, tested at 0x5600da, cleared with 1 by Scenaric_RenderAll, 4 root rotation + part translation, 8 local offset, 0x10 extra rotation, 0x20 world offset)",verified
+0x7,u8,flagsByte,"flags as the plain byte: Scenaric_RenderAll clears matrixValid and parentDone together with one and-byte (& 0xFC at 0x5601ac), which the bitfield view would split into two stores",verified
+0x8,Vec3s,rot,extra rotation (4096/turn) applied with Mat44_SetRotXYZ when flags & 0x10,verified
+0x10,Vec3s,worldOffset,added to the child's translation *8 when flags & 0x20,verified
+0x18,Instance *,parentInst,The parent's embedded render instance (parentObj + 4). Written by AttachLink_Alloc and zeroed by AttachLink_Free and AttachLink_InitPool. AttachLink_FindFirstChildSlot matches on it; ScnObject_Detach decrements (parentInst+0xE) through it.,verified
+0x1c,ScnObject *,parentObj,The parent scenaric object. Written by AttachLink_Alloc and zeroed by AttachLink_Free and AttachLink_InitPool. Scn_RenderIfVisible recurses into it to render the parent first.,verified
+0x20,Mat44,matrix,parent-published D3D matrix for the attached child (translation row at +0x50/+0x54/+0x58). A real Mat44 member: StaticCtor_g_attachLinkStorage 0x55b1aa calls Mat44_Ctor 0x4077f0 on +0x20 of each of the 10 entries,verified

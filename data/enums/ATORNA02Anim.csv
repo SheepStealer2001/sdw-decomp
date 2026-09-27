@@ -1,0 +1,7 @@
+value,name,meaning
+#,ATORNA02Anim,animation ids of WAR model ATORNA02 (its WAR type-0x86 table; names verified from the level files). Played by: GeyserIn
+0x0,ATORNA02_ANIM_TOSTAND1,WAR name TOSTAND1
+0x1,ATORNA02_ANIM_STAND0,WAR name STAND0
+0x2,ATORNA02_ANIM_TORNA3,WAR name TORNA3
+0x3,ATORNA02_ANIM_TORNA4,WAR name TORNA4
+0x4,ATORNA02_ANIM_TORNA4A,WAR name TORNA4A

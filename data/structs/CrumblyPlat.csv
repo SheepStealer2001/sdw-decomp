@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x64,ScnObject *[8],hits,"Output buffer for ObjGrid_QueryBoxPoints: every object whose origin lies inside worldBox. Only 8 slots fit before hitCount at +0x84, but the query writes up to 64 (cap at 0x510c52). Slot 8 is immediately overwritten by the return value, so the first lasting damage is the 10th hit and the first write",verified
+0x84,s32,hitCount,Number of objects the last grid query returned; the loop bound in both CheckWolfOnTop and PushRiders (signed jge).,verified
+0x88,Vec3s,pushDown,"Constant (0, +10, 0) - downward on the down-positive axis - the nudge CrumblyPlat_PushRiders applies to non-Wolf riders. Only that unreferenced function reads it.",verified
+0x8e,Vec3s,pushUp,"Constant (0, -30, 0), i.e. upward, the nudge CrumblyPlat_PushRiders applies to Ralph. Only that unreferenced function reads it.",verified
+0x94,CollBox,worldBox,"The model's first collision box translated into world space once at PostLoadInit. It is both the trigger volume for the grid query and the surface the ground query answers from (its min on the vertical, this+0x9a, plus 5). 0x10 bytes, 0x94..0xa3.",verified
+0xa4,u8,state,"0 intact (anim 2 looping, solid, answers ground queries), 1 crumbling (anim 1 one-shot, collision already off), 2 gone (SCN_OF_HIDDEN). PostLoadInit pre-sets 2 so that SetState(0) is not skipped by SetState's equality early-out.",verified

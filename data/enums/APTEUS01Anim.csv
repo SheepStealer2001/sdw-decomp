@@ -1,0 +1,6 @@
+value,name,meaning
+#,APTEUS01Anim,animation ids of WAR model APTEUS01 (its WAR type-0x86 table; names verified from the level files). Played by: TimeKeeper
+0x0,APTEUS01_ANIM_CLOCK1,WAR name CLOCK1
+0x1,APTEUS01_ANIM_CLOCK2,WAR name CLOCK2
+0x2,APTEUS01_ANIM_CLOCK3,WAR name CLOCK3
+0x3,APTEUS01_ANIM_CLOCK4,WAR name CLOCK4

@@ -1,0 +1,7 @@
+value,name,meaning
+#,RCarpetMobileMsg,messages handled by RCarpetMobile_HandleMessage
+0xd,MSG_GROUND_QUERY,flat top of model box 0
+0x1f,MSG_SWITCH_ON,mode 4; drive +400 when the sender is a RollingCarpet or SensibleButton
+0x20,MSG_SWITCH_OFF,mode 4; drive -400 when the sender is a RollingCarpet or SensibleButton
+0x47,MSG_CARPET_DRIVE,arg = s32* signed speed (u/s) from RollingCarpet states 4/5; returns 1 while not at a trajectory end
+0x68,MSG_CARPET_SET_MODE,"arg = RollingCarpet MOVING property (1/2/4), from RollingCarpet_Init"

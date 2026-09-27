@@ -1,0 +1,6 @@
+value,name,meaning
+#,PadType,PS1 controller type id at Pad+0x57/+0x58 and in the high nibble of frame byte 1
+0x0,PADTYPE_NONE,Pad::ResetState / PadRec: padType = 0 (no device) (inferred)
+1,PADTYPE_MOUSE,"PS1 mouse (id 0x12). Only the debug free camera tests it (type nibble of Pad+0x2b == 1 at 0x552900), then reads +0x2e/+0x2f as signed deltas. Whether the PC input layer ever reports it is not checked."
+4,PADTYPE_DIGITAL,InputMgr_IsDeviceDigital(0) == 1 (keyboard / digital device); PS1 id 0x41
+7,PADTYPE_ANALOG,analog device; PS1 DualShock id 0x73. Enables the Pad_AnalogToStick paths

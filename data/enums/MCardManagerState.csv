@@ -1,0 +1,9 @@
+value,name,meaning
+#,MCardManagerState,state field of MCardManager
+0x0,MCARDMGR_ST_IDLE,state after 3 (inferred)
+0x1,MCARDMGR_ST_SAVE_OPEN,"Update 1: UI camera, freezes the Wolf (inferred)"
+0x2,MCARDMGR_ST_SAVE_RUN,Update 2: Card_StateMachine; done -> 3 (inferred)
+0x3,MCARDMGR_ST_SAVE_CLOSE,"Update 3: releases camera and Wolf, -> 0 (inferred)"
+0x4,MCARDMGR_ST_AUTOSAVE_OPEN,Update 4: camera mode 0xd (inferred)
+0x5,MCARDMGR_ST_AUTOSAVE_RUN,"Update 5: world render off, Card_StateMachine (inferred)"
+0x6,MCARDMGR_ST_AUTOSAVE_CLOSE,Update 6: world render back on (inferred)

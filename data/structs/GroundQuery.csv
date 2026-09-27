@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x0,Vec3s,pos,query point; y is overwritten with the surface height (msg 0xd argument),verified
+0x6,Vec3s,normal,"surface normal out, 4.12 (up = (0,-0x1000,0))",verified

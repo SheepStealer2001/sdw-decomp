@@ -1,0 +1,6 @@
+value,name,meaning
+#,ControlPreset,"Progress+0x9a, switched by Input_ApplyControlConfig 0x55ecc8. Map slots 0xc/0xd/0xe/0xf/0xb/0xa get the listed PadButton masks"
+0,CTRL_PRESET_A,"Triangle, Circle, Cross, Square, R1, L1 (the defaults in g_padMasks)"
+1,CTRL_PRESET_B,"Square, Triangle, Circle, Cross, R1, L1"
+2,CTRL_PRESET_C,"Cross, Square, Triangle, Circle, R1, L1"
+3,CTRL_PRESET_CUSTOM,the six saved words Progress+0x9e..+0xa8

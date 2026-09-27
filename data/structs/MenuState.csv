@@ -1,0 +1,16 @@
+offset,ctype,name,meaning,confidence
+0x0,Menu *,current,the open menu (g_curMenu),verified
+0x4,s16,itemCount,item count of the open menu (g_menuItemCount),verified
+0x6,s16,capacity,g_menuCapacity,verified
+0x8,s16,cursor,g_menuCursor,verified
+0xa,s16,lastCursor,g_menuLastCursor,verified
+0xc,s16,currentPage,g_menuCurPage,verified
+0xe,s16,previousPage,g_menuPrevPage,verified
+0x10,u8,capture,g_menuCapture,verified
+0x11,u8,previousCapture,g_menuCapturePrev,verified
+0x12,u8,cursorRow,g_menuCursorRow,verified
+0x13,u8,reserved13,,inferred
+0x14,s32:1,dirty,"bit 0 of the flags word, a signed one-bit field: the menu needs redrawing (Menu_IsDirty / Menu_SetDirty)",verified
+0x14,s32:31,flagsRest,remaining bits of the flags word,inferred
+0x18,MenuPage *,pages,g_menuPages,verified
+0x1c,u32,reserved1c,unknown final dword retained as storage,inferred

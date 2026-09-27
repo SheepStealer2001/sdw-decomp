@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x7c,Vec3s,homePos,"pos at FishingRod_Init and at msg 9 arg 1; target of Reset's SetPosition when in the world. Never set for MagnetRod/SaladRod (their Init skips FishingRod_Init), so it stays (0,0,0) from the level-heap memset",verified
+0x82,s16,lineLen,"Fishing line length in world units: 0 at Init, Reset and BeginFishing. Msg 0x61 shortens it (floor 0) and 0x62 lengthens it (cap 0x23f = 575). CompositeRod_Update also shortens it so the bait stays 25 units above the floor",verified
+0x84,u8,state,"FishingRodState: 0 idle, 1 casting, 2 fishing, 3 retracting",verified
+0x85,RodFlagBits,rodFlags,"FishingRodFlags. Bit 0 = line out (set by BeginFishing, cleared by EndFishing, Init and InitParts); gates the msg 0x10 anims, msg 0x16's retract branch, CompositeRod_Update/Render and the msg 6 forward (it does NOT gate the line-length msgs 0x61/0x62, which are unconditional)",verified
+0x86,u8[2],pad86,tail padding to sizeof 0x88,inferred

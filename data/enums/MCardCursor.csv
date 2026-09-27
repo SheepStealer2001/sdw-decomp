@@ -1,0 +1,9 @@
+value,name,meaning
+#,MCardCursor,g_mcardCursor 0x6e368d and the input results of the card screens
+0x10,MCARD_CUR_LEFT,left option; as an input result: confirm/left chosen
+0x20,MCARD_CUR_RIGHT,right option
+0x80,MCARD_IN_CANCEL,TRIANGLE pressed (input result only)
+0x4,MCARD_CUR_SLOT4,slot 4 (MCard_StepBlockScan sets 4 before stepping)
+0x0,MCARD_CUR_NONE,cleared cursor (inferred)
+0xf,MCARD_CUR_SLOT_MASK,MCardCursor doc: 0x01-0x04 = slot; Card_StateMachine keeps event & 0xf
+0x1,MCARD_CUR_SLOT1,"save slot 1, the first of 0x01-0x04 (1-based; g_cardBlockState[cursor-1])"

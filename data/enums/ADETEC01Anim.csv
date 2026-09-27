@@ -1,0 +1,8 @@
+value,name,meaning
+#,ADETEC01Anim,animation ids of WAR model ADETEC01 (its WAR type-0x86 table; names verified from the level files). Played by: MineDetector
+0x0,ADETEC01_ANIM_LINK,WAR name LINK
+0x1,ADETEC01_ANIM_OBJET,WAR name OBJET
+0x2,ADETEC01_ANIM_DETEC1,WAR name DETEC1
+0x3,ADETEC01_ANIM_DETEC2,WAR name DETEC2
+0x4,ADETEC01_ANIM_DETEC3,WAR name DETEC3
+0x5,ADETEC01_ANIM_DETEC4,WAR name DETEC4

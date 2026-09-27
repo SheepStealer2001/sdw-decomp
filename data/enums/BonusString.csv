@@ -1,0 +1,22 @@
+value,name,meaning
+#,BonusString,"BonusManager class strings (BonusManager::GetUiString -> Text_GetClassString; English text from Scene.MLT, verified). 13 + kind are the category names, 17 + entry the entry descriptions"
+0x0,BONUSSTR_HELP,"'No help, because Ralph Wolf can't pick up this object'"
+0x1,BONUSSTR_BONUS,'bonus'
+0x2,BONUSSTR_POINTS,'point(s)'
+0x3,BONUSSTR_EXIT,'$B_CANCEL$ exit'
+0x4,BONUSSTR_YOU_HAVE_POINTS,'you have %d point(s)'
+0x5,BONUSSTR_BUY_PROMPT,'$B_VALID$ to buy bonus'
+0x6,BONUSSTR_VIEW_PROMPT,'$B_VALID$ to view bonus'
+0x7,BONUSSTR_NOT_ENOUGH_POINTS,'Not enough points to buy this bonus.'
+0x8,BONUSSTR_CONFIRM_BUY,'Do you really want to buy this bonus ?'
+0x9,BONUSSTR_BOUGHT,'Bonus bought.'
+0xa,BONUSSTR_BUY,'buy'
+0xb,BONUSSTR_BROWSE_FOOTER,"'$B_UP$$B_DOWN$, $B_CANCEL$ back'"
+0xc,BONUSSTR_OK,'ok'
+0xd,BONUSSTR_PICTURE,"'picture (first bonus category, item + 13)'"
+0xe,BONUSSTR_MOVIE,'movie'
+0xf,BONUSSTR_CINEMATIC,'cinematic'
+0x10,BONUSSTR_TIP,'tip'
+0x11,BONUSSTR_CHARACTER_SKETCH,"'character sketch... (first bonus description, cursor + 17)'"
+0x19,BONUSSTR_TIP_AUTUMN_TEXT,"'to access hidden autumn level: go into the autumn hall, here you'll have to jump inside the dark side of the black wall. then, follow the path until you see a level's door.' (the text of bonus entry 6)"
+0x1a,BONUSSTR_TIP_PAST_PRESENT_TEXT,"'to access hidden past-present level, you'll have to take past-present level's door in the other side.' (the text of bonus entry 7)"

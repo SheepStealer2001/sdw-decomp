@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x10,u32[3],colour,per-vertex colours from BsFile_ReadRgbHalved (BsDecode_Kind12),verified
+0x1c,u32,blendMode,a u32 read straight from the file (BsDecode_Kind12); RenderPoly_InitFromBsBlendGouraud 0x41b0a7 switches on it,verified

@@ -1,0 +1,5 @@
+value,name,meaning
+#,SensibleButtonType,"SensibleButton.type (+0x65) = PROPERTY_SENSIBLEBUTTON_TYPE (data/structs/SensibleButton.csv: data uses 0, 1, 12)"
+0xa,SBUTTON_TYPE_GROUNDED,type 10 or 14: SnapToGround ignoring objects (PostLoadInit)
+0xc,SBUTTON_TYPE_HIDDEN,type 12 starts hidden and disabled
+0xe,SBUTTON_TYPE_NO_SHEEP,"type 14: grounded, and msg 2 answers 0 instead of 0x27 SHEEP_ATTR_BUTTON"

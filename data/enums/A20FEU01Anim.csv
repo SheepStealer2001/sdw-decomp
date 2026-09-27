@@ -1,0 +1,4 @@
+value,name,meaning
+#,A20FEU01Anim,animation ids of WAR model A20FEU01 (its WAR type-0x86 table; names verified from the level files). Played by: TrafficJams
+0x0,A20FEU01_ANIM_GREEN,WAR name GREEN
+0x1,A20FEU01_ANIM_RED,WAR name RED

@@ -1,0 +1,29 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,state,CatapultState,verified
+0x66,s16,armAngle,pulled-back arm angle = 0xe60 + power*0x140/1024; SetArmPose input,verified
+0x68,s16,power,throw power 0..0x400 (set in state 1); 0x200 = trajectory P2 exactly,verified
+0x6c,UiQuad,powerGauge,"HUD gauge quad from GameRes 71 DAV_IDI_ICTJAUG1 at (8,16)",verified
+0x80,Box *,activationBox,PROPERTY ACTIVATIONBOX (XZ test),verified
+0x84,CamSetup *,mobileCamera,"PROPERTY MOBILECAMERA camera setup {focal; rot[3]; Vec3s pos}, used to follow the thrown object",verified
+0x88,s16,camHoldMs,2000 after a landing/hit; the camera is released when it runs out,verified
+0x8c,s16,launchDelayMs,"state 4 delay, set to 1 by Launch (one update)",verified
+0x90,u32,wolfFrozen,1 while this catapult holds the Wolf frozen (msg 0xe sent; 0xf on release),verified
+0x94,u16,powerSound,handle of looping sound 0x76 while power is adjusted,verified
+0x96,s16,offset0,PROPERTY OFFSET0: horizontal offset of the arm pivot,verified
+0x98,s16,h0,PROPERTY H0: pivot height,verified
+0x9a,s16,armLength1,PROPERTY ARMLENGTH1,verified
+0x9c,s16,armLength2,PROPERTY ARMLENGTH2,verified
+0x9e,s16,armLength3,PROPERTY ARMLENGTH3,verified
+0xa0,Vec3s,bucketExtent,bucket box half-extents from the model's last flag-1 box (halved on the cross axes),verified
+0xa8,CollBox,bucketBox,"world-space bucket box (flags 0xa8, min 0xac, max 0xb2): collision (bit4), ground query, occupancy",verified
+0xb8,u32,stateJustEntered,1 from SetState until the next Update; blocks the entering press from exiting state 1,verified
+0xbc,ScnObject *[16],bucketObjs,objects in the bucket (ScanBucket); [0] is the one thrown,verified
+0xfc,u16,bucketCount,count for bucketObjs; > 1 refuses to launch,verified
+0xfe,Vec3s,maxThrowOffset,MAXDIST along the TRAJECTORY P0->P2 XZ direction; scaled by (power-0x200)/512,verified
+0x104,s16,maxDist,PROPERTY MAXDIST,verified
+0x108,LaunchArc,arc,"embedded LaunchArc: coeffs 0x108, t 0x12c (0..0x100), camera 0x130, obj 0x134 (thrown object), camParam 0x138, flags 0x13c; the arc math is inlined in Catapult_Update",verified
+0x140,Trajectory *,trajectory,"PROPERTY TRAJECTORY export {u16 3; Vec3s P0,P1,P2} or NULL",verified
+0x144,Vec3s,thrownLastPos,thrown object's position last frame (arc delta base),verified
+0x14c,CatapultBits,catFlags,CatapultFlags,verified
+0x150,Vec3s,landingTarget,"P2 + power offset, shifted by FindFreeLandingSpot (x/z used as the arc end)",verified
+0x156,s16,armSwingT,"0..0x100 arm swing (state 2, +g_dtMs>>3) / return (state 3, +g_dtMs>>2) parameter",verified

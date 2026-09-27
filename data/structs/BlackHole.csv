@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,state,"0 = waiting/pulling, 1 = Ralph has been swallowed. Nothing in state 1 returns to 0, so it is terminal until Reset or PostLoadInit.",verified
+0x65,BlackHoleFlagBits,flags,Bit 0 = this hole is registered in the Wolf's rider/move-modifier list (MSG_RIDER_ADD 0x18 returned non-zero); cleared only when MSG_RIDER_REMOVE 0x19 also returns non-zero. Also read as the send-guard at 0x49ae26 and 0x49afad.,verified

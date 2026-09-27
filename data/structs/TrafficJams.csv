@@ -1,0 +1,18 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,phase,"TrafficJamsPhase: 0 the train is on this station's route (timers run), 1 elsewhere (timers held full)",verified
+0x65,u8,state,"TrafficJamsState: 0 clear (anim 0), 1 jammed (anim 1; the train waits BREAKTIME)",verified
+0x68,s32,switchLatch,msg 0x1F toggles the state only while 0; msg 0x20 clears it,verified
+0x6c,s32,trainAtStation,cached train msg 0x4784 reply,verified
+0x70,s32,wolfInBox,Wolf inside BOXSTATION (x/z); edges send Chronometer msg 0x4703,verified
+0x74,s32,breakTimeMs,BREAKTIME,verified
+0x78,s32,arrivingTimeMs,ARRIVINGTIME,verified
+0x7c,s32,lastSegTimeMs,station msg 0x4801 reply (fetched lazily while 0),verified
+0x80,s32,breakRemainingMs,break countdown (g_dtMs); msg 0x4683,verified
+0x84,s32,arrivingRemainingMs,arrival countdown; msg 0x4684,verified
+0x88,s32,lastSegRemainingMs,last-segment countdown; msg 0x4685,verified
+0x8c,s32,etaMs,"estimated time until the train reaches this station, shown on the Chronometer (msg 0x4702)",verified
+0x90,ScnObject *,chronometer,Chronometer (class 134) HUD clock,verified
+0x94,ScnObject *,station,TRAINSTATION,verified
+0x98,ScnObject *,train,Train (class 135),verified
+0x9c,ScnObject *[4],ring,"{self, next (NEXTJAMS), prev2 (msg 0x4682 arg), prev (msg 0x4682 sender)}: ring order in a 4-station loop",verified
+0xac,Box *,stationBox,BOXSTATION,verified

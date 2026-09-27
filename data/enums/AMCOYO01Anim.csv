@@ -1,0 +1,12 @@
+value,name,meaning
+#,AMCOYO01Anim,"animation ids of WAR model AMCOYO01 (its WAR type-0x86 table; names verified from the level files). Played by: Wolf in the sheep costume, modelSet 3 (model inferred)"
+0x0,AMCOYO01_ANIM_STAND1,WAR name STAND1
+0x1,AMCOYO01_ANIM_WALK1,WAR name WALK1
+0x3,AMCOYO01_ANIM_JUMP0,WAR name JUMP0
+0x4,AMCOYO01_ANIM_JUMP1,WAR name JUMP1
+0x5,AMCOYO01_ANIM_JUMP2,WAR name JUMP2
+0x6,AMCOYO01_ANIM_TALK1,WAR name TALK1
+0x7,AMCOYO01_ANIM_FALL1,WAR name FALL1
+0x8,AMCOYO01_ANIM_SLIDE1,WAR name SLIDE1
+0xa,AMCOYO01_ANIM_CARRY1B,WAR name CARRY1B
+0xf,AMCOYO01_ANIM_KICK,WAR name KICK

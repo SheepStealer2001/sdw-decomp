@@ -1,0 +1,11 @@
+offset,ctype,name,meaning,confidence
+0x7c,InlineEmitter4,emitter,"embedded water-ripple emitter with inline storage (0x7c..0xf0): factory 0x4cdc54 sets slotPool = +0x24 (0x4cdc97), particles = +0x54 (0x4cdca2), count 4 (0x4cdcae) and calls Emitter_Reset 0x52dbe3 (0x4cdcb5) before the final vtable 0x576474 (0x4cdcbd); drawn flat by Render",verified
+0xf0,s32,fallTime,"g_dt accumulated while falling (states 2, 7); drives ApplyFall; zeroed on landing/floating/drop",verified
+0xf4,u32,stateTime,"g_gameTime at Respawn / state 12 entry / Init / Reset; 3 s hidden wait and 1 s wobble (a g_gameTime stamp compared unsigned, jb at 0x4cd1ee)",verified
+0xf8,s32,driftSpeed,"water-flow drift speed (Math_ApproachLinear toward the zone flow speed, max 2000, accel 50, decel 100)",verified
+0xfc,Vec3s,homePos,respawn position: = pos at Init and on msg 9 arg 1,verified
+0x102,s16,carryYaw,"(own facing - carrier facing) & 0xFFF when the Wolf lifts it inflated; attach rotation, restored on drop",verified
+0x104,s16,driftHeading,"heading of the water drift, stepped toward the zone flow heading at 0x2800/s",verified
+0x106,u8,state,InflatableSheepState,verified
+0x107,u8,carryJoint,joint index from msg 4 arg; reused by AttachLink_SetParams after inflating,verified
+0x108,InflatableFlagBits,isFlags,"InflatableSheepFlags: bit 0 inflated, bit 1 burnt (black tint; deflated by Reset)",verified

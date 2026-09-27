@@ -1,0 +1,2 @@
+offset,ctype,name,meaning,confidence
+0x0,s32:1,heardCall,Sam.sheepFlags bit 0: Sam heard the sheep-costume bleat (msg 0x69) inside his orange zone (see Sam.csv sheepFlags),verified

@@ -1,0 +1,6 @@
+value,name,meaning
+#,GeyserOutState,state field of GeyserOut
+0x0,GEYSEROUT_ST_IDLE,SetState 0: anim state 3; Update: ClearFlag(4) (inferred)
+0x1,GEYSEROUT_ST_CHARGE,"SetState 1: spitDelay timer, anim state 4, msg 0x30 to the passenger; Update: -> 2 when ready (inferred)"
+0x2,GEYSEROUT_ST_SPIT,"SetState 2: passenger cleared, anim state 6; Update: on anim end -> 0 (inferred)"
+0x3,GEYSEROUT_ST_RESET,SetState 3: anim state 6; Update: ClearFlag(4) (inferred)

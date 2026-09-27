@@ -1,0 +1,4 @@
+value,name,meaning
+#,CanonDummyMsg,CanonDummy_HandleMessage 0x4a5874
+0x3881,MSG_CD_RECOIL,"play anim 1 (sent by CanonSimple state 3, CanonSheep, Rook 0x4e78ef)"
+0x3882,MSG_CD_MOVE_TO,"arg Vec3s* -> movePos, state 1 (CanonSheep only)"

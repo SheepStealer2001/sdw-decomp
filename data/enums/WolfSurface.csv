@@ -1,0 +1,4 @@
+value,name,meaning
+#,WolfSurface,"Wolf.surface (+0x70f): the ground Ralph is on, which selects the per-surface tuning row (WolfMoveBank.surfaceTuning) and movement profile table (WolfMoveBank.profiles); Wolf::Update sets it from the ice zones (verified)"
+0x0,WOLF_SURFACE_NORMAL,normal ground
+0x1,WOLF_SURFACE_ICE,inside an ICEBOX zone

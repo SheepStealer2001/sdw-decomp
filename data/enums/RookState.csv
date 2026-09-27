@@ -1,0 +1,6 @@
+value,name,meaning
+#,RookState,state field of Rook
+0x0,ROOK_ST_PATROL,"Update 0: follows its trajectory, detect box moves with it (inferred)"
+0x1,ROOK_ST_AIM,SetState 1: MSG_SCARE to the Wolf; Update: aims the cannon (inferred)
+0x3,ROOK_ST_RECOIL,"SetState 3: fire delay 350, MSG_CD_RECOIL, MSG_CB_SET_OWNS_CAMERA; Update: -> 4 (inferred)"
+0x4,ROOK_ST_FIRE,SetState 4: MSG_CB_FIRE_AT the Wolf (inferred)

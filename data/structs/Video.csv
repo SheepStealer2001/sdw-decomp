@@ -1,0 +1,11 @@
+offset,ctype,name,meaning,confidence
+0x0,void *,vtbl,"Video_vtbl 0x5744e4, ONE slot (the scalar deleting destructor 0x421de0): stored by the constructor at 0x421db4. Allocated as 0x38 bytes (push 0x38 at 0x421c92). Class name Video, matching the Video_* functions; older comments said VideoStream",verified
+0x4,RECT,sourceRect,GetSurface output (0x421f09); passed to the frame callback (0x422065),verified
+0x14,IGraphBuilder *,graph,OpenFile (0x421eb7); RemoveFilter through it (0x422273-0x422282),verified
+0x18,IAMMultiMediaStream *,mediaStream,CreateStream (0x421f84): Initialize / AddMediaStream,verified
+0x1c,IUnknown *,unknownStream,only null tests and Release established,inferred
+0x20,IDirectDrawStreamSample *,sample,CreateSample output (0x421ef3); GetSurface and Update,verified
+0x24,IDirectDrawSurface *,surface,"GetSurface output (0x421f0d), the legacy IDirectDrawSurface as in the SDK signature; passed to the callback (0x422065)",verified
+0x28,VideoFrameProc,frameCallback,"VideoFrameProc s32 (__cdecl *)(IDirectDrawSurface *, RECT *): set by the constructor (0x421dba) and SetFrameCallback (0x4220a0), called cdecl at 0x42206d",verified
+0x2c,u8[8],unknown2c,no typed use established,inferred
+0x34,IBaseFilter *,audioFilter,"CoCreateInstance (0x42210b-0x42211d), AddFilter (0x422136), released by ReleaseFilter (0x42227a)",verified

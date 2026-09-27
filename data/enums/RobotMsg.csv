@@ -1,0 +1,27 @@
+value,name,meaning
+#,RobotMsg,"Messages handled by Robot_HandleMessage 0x460b93 (sender, id, arg)"
+0x0,MSG_KILL,"Sam + EJECTTRAJ → eject (state 0x11); arg 0 from others → die (0x10 for FireBall, else 0xF); always returns 1"
+0x2,MSG_QUERY_ACTION,Wolf within the vertical window → 2 (CTX_LIFT)
+0x4,MSG_PICKUP,Magnet: hang 75 below joint; else carried by Ralph (state 2)
+0x5,MSG_DROP,"detach, face away from dropper, SetPosition unless flag bit 1, state 1"
+0x6,MSG_QUERY_NEAREST_TARGET,forwarded to heldObject
+0xb,MSG_SEESAW_TOUCH,"with 0x25: end of launch/throw → state 1, or 7 if controlled and in 0x15"
+0xc,MSG_LAUNCH,state 0x15
+0xe,MSG_FREEZE,suspend control (third party) or release to the Wolf
+0xf,MSG_UNFREEZE,"CONTROLLED |= 1, suspender = 0 (no check)"
+0x10,MSG_CARRY_ANIM,"arg 1 → anim 0, args 0/2..6 → anim 1"
+0x17,MSG_QUERY_HELD_ACTION,→ 2 (HELD_THROWABLE)
+0x18,MSG_RIDER_ADD,ScnControllable_AddMoveModifier
+0x19,MSG_RIDER_REMOVE,ScnControllable_RemoveMoveModifier
+0x25,MSG_LANDED,same handler as 0xB
+0x33,MSG_TRAP_STATE,arg 0 (trap released): clear TRAPPED/STRUGGLE; arg 1 ignored
+0x3f,MSG_REMOTE_SWITCH,"from RemoteControl: arg 1 take control, arg 0 release"
+0x40,MSG_STRUGGLE,WolfTrap relays each Action press: STRUGGLE flag
+0x44,MSG_AXIS_LOCK,per-frame heading snap
+0x49,MSG_GRABBER_CAMERA,from Wolf_UpdateCamera: Robot_UpdateCamera(pad)
+0x4c,MSG_QUERY_CONTROLLED,→ CONTROLLED bit
+0x51,MSG_MAGNET_QUERY,→ 1 (meaning unknown) -- the magnet update 0x4d235e pulls only candidates that answer nonzero; the Robot always answers 1 (it is magnetic)
+0x6b,MSG_DRAW_PROMPT,draw HUD prompts while DRIVEN
+0x3680,MSG_ROBOT_IS_ACTIVE,→ state flag 8
+0x3681,MSG_ROBOT_IS_DRIVEN,→ robotFlags & 0x20
+0x3682,MSG_ROBOT_IS_EJECTED,→ state in 0x11..0x14 (queried by LightSpot 0x4f6ecd)

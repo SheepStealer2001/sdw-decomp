@@ -1,0 +1,15 @@
+offset,ctype,name,meaning,confidence
+0x40,char *,text,"Text_GetClassString(this, TEXTNUM)",verified
+0x44,u32,color,COLOR; bytes 0..2 are scaled for the fades,verified
+0x44,u8[4],colorBytes,"the bytes of color, low byte first; CreditsManager_Render scales bytes 0..2 for the fades",verified
+0x48,s16,latchedScreenX,projected x (512 wide) frozen while rot.x rises,verified
+0x4a,s16,latchedScreenY,projected y (240 high),verified
+0x4c,s16,timerMs,fade timer (g_dtRawMs),verified
+0x4e,s16,prevRotX,rot.x of the last render; a rising rot.x (animated by a cinematic) latches the screen position,verified
+0x50,u16,timeAppearMs,"TIME_APP (fade-in length; also, wrongly, the fade-out divisor)",verified
+0x52,u16,timeDisappearMs,TIME_DIS (fade-out length),verified
+0x55,u8,prevVisible,(flags & 0x804) == 0 on the previous active update,verified
+0x56,u8,state,"CreditsState 0 wait, 1 fade in, 2 shown, 3 fade out",verified
+0x57,u8,active,"set by msg 0x12, cleared by msg 0x13 / end of fade out",verified
+0x58,u8,posLatched,screen position frozen in +0x48/+0x4a,verified
+0x59,u8,textJust,"TEXTJUST, alignment passed to Text_Printf",verified

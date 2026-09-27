@@ -1,0 +1,5 @@
+value,name,meaning
+#,APIRANA1Anim,animation ids of WAR model APIRANA1 (its WAR type-0x86 table; names verified from the level files). Played by: Piranhas
+0x1,APIRANA1_ANIM_PIRANA1,WAR name PIRANA1
+0x2,APIRANA1_ANIM_PIRANA2,WAR name PIRANA2
+0x3,APIRANA1_ANIM_PIRANA3,WAR name PIRANA3

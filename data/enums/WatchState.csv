@@ -1,0 +1,4 @@
+value,name,meaning
+#,WatchState,state field of Watch
+0x0,WATCH_ST_OFF,"SetState 0: never updated, anim DEFAULT, running = 0 (inferred)"
+0x1,WATCH_ST_ON,"SetState 1: always updated, anim ON looped (inferred)"

@@ -1,0 +1,6 @@
+value,name,meaning
+#,ScnUpdateMode,Argument of an inlined update-mode setter that unoptimised MSVC compiles as a 4-way jump table on a constant (seen at 0x50d89e table 0x50d93b and 0x50a094 table 0x50a1d9). It edits ScnObject.flags (+0x3a).
+0,SCN_UPD_NORMAL,clear 0x4000 and 0x2000: updated only within the 3000-unit camera radius
+1,SCN_UPD_ALWAYS,"set 0x4000, clear 0x2000 (Wooden Lift uses this)"
+2,SCN_UPD_NEVER,"clear 0x4000, set 0x2000 (generic fallback logic objects)"
+3,SCN_UPD_CINE,flags |= 0x20 (keeps updating in cinematic mode)

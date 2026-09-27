@@ -1,0 +1,13 @@
+value,name,meaning
+#,SmallRockMsg,SmallRock_HandleMessage 0x4f47e3
+0x0,MSG_KILL,THROWN -> ReturnHome; returns 0
+0x2,MSG_QUERY_ACTION,"Wolf only, not floating: 2 (CTX_LIFT) when the box centres are within 90 vertically"
+0x4,MSG_PICKUP,"attach to the sender joint arg with offset {10,0,0}; collision off; state 0"
+0x5,MSG_DROP,"arg {pos; flags}: flags&2 keep the position; flags&1 -> THROWN and fall, else rest"
+0xa,MSG_PUSH,"arg Vec3s* delta: moves with gravity, rolls, writes the moved x/z back, state 2"
+0xb,MSG_SEESAW_TOUCH,-> state 3 unless 3 or 5
+0xc,MSG_LAUNCH,"arg LaunchArc* -> state 5, THROWN, CamShot"
+0xe,MSG_FREEZE,CamShot_Stop
+0x13,MSG_CINE_END,StartFall
+0x17,MSG_QUERY_HELD_ACTION,returns 2
+0x25,MSG_LANDED,arg != 0 and THROWN -> shatter (state 4); else StartFall (Catapult/elastic send arg 1 on impact)

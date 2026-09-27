@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,void *,vtbl,vtable 0x5743d8 (one slot: MeshPartPose_VecDeletingDtor 0x420500),verified
+0x4,float[3],rot,"Euler angles in radians, read by BsFile_ReadJointTable (0x420294/0x4202c2/0x4202f0); cleared to 0 first",verified
+0x10,float[3],pos,"translation, read by BsFile_ReadJointTable (0x42031e..0x42037a); cleared to 0 first",verified
+0x1c,float[3],scale,"scale, 1.0 unless present (BsFile_ReadJointTable 0x42001b..0x42003d, 0x4203a8..0x420404)",verified

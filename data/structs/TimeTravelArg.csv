@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,ScnObject *,obj,partner (msgs 0x3B/0x3C) or the queried object (msg 0x3281),verified
+0x4,Vec3s,pos,position mapped into the receiver's era (0x3B/0x3C) or the arrival position written by a Seed (0x3281),verified
+0xa,u16,padA,padding (stride 0xC),inferred

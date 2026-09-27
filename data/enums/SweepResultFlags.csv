@@ -1,0 +1,3 @@
+value,name,meaning
+#,SweepResultFlags,high bit of the Collide_SweepBox_Sam return value
+0x8000,SWEEP_SPECIAL_WALL,Collide_SweepBox_Sam returns count | 0x8000 when specialWall (CQ_SAM_WALL_OVERLAP doc)

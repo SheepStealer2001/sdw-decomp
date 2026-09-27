@@ -1,0 +1,11 @@
+value,name,meaning
+#,FloatingBoxFlags,FloatingBox.boxFlags (u32)
+0x1,FBOX_F_OPENED,HandleMessage sets 1; Update tests 3 (either) to skip (inferred)
+0x2,FBOX_F_WOLF_DEAD,Update: set when the Wolf answers MSG_WOLF_IS_DEAD; state 3 skipped
+0xff,FBOX_F_RUNTIME_MASK,FloatingBox::Reset: boxFlags &= 0xffffff00; the constant is the complement of the literal (inferred)
+0x100,FBOX_F_PUSHED,HandleMessage sets it; Update: no push motion without it (inferred)
+0x200,FBOX_F_THAW,HandleMessage 2 / MSG_THAW (0x41) / MSG_LANDED set it in state 1
+0x400,FBOX_F_SPLASH,SetState 0 with effect sets it; drives the splash emitter fade
+0x800,FBOX_F_SPLASH_STARTED,SetState: set with 0x400; Render clears it; Update tests it (inferred)
+0x1000,FBOX_F_BOUNCE,HandleMessage 0x6d sets it; Update 0: bounce animation while set
+0x1f00,FBOX_F_MOTION_MASK,FloatingBox::Reset: boxFlags &= 0xffffe0ff (bits 0x100-0x1000); the constant is the complement of the literal (inferred)

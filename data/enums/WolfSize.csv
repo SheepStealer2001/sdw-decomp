@@ -1,0 +1,5 @@
+value,name,meaning
+#,WolfSize,"the Wolf's reply to MSG_QUERY_SIZE 0x57 (Wolf::HandleMessage: scale 0x400 normal, below it small, above it big; InstantMartian, Laser and Resizer test == 1)"
+0x0,WOLF_SIZE_NORMAL,rv = 0 when scale == 0x400
+0x1,WOLF_SIZE_SMALL,rv = 1 when scale < 0x400
+0x2,WOLF_SIZE_BIG,rv = 2 otherwise

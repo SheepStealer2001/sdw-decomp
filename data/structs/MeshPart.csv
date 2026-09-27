@@ -1,0 +1,15 @@
+offset,ctype,name,meaning,confidence
+0x0,void *,vtbl,"MeshPart vtable 0x5743c4 (one slot, the vector deleting dtor 0x40c020): stored by MeshPart_Ctor 0x41a07c and MeshPart_Dtor 0x41a215",verified
+0x4,u32,parentIndex,"index of the parent part; 0xffff (none) from MeshPart_Ctor 0x41a115, the file's u16 from BsFile_Type4_ReadTable14; AnimMesh_Draw reads it to pick the parent's +0x14/+0x18 matrices",verified
+0x8,u32,field_08,zeroed by MeshPart_Ctor 0x41a11f; no reader in this range,inferred
+0xc,u32,vertexCount,vertices of this part (u16 from the file); zeroed by MeshPart_Ctor 0x41a129,verified
+0x10,Mat44 *,matrix,"the part's final matrix = *scaleMatrix * *localMatrix, written by MeshPart_BuildMatrices 0x41a76a; the only one MeshPart_Dtor frees (0x41a21e)",verified
+0x14,Mat44 *,localMatrix,"rotation * translation * parent's localMatrix, written by MeshPart_BuildMatrices 0x41a735; children receive it as parentMat",verified
+0x18,Mat44 *,scaleMatrix,SetScale(lerped scale) at 0x41a6ff; children receive it as parentScale (its diagonal scales their offset),verified
+0x1c,float[3],offset,"joint offset from the parent, from the file (s16 via Bs_S16ToFloat); scaled by the parent scale diagonal in MeshPart_BuildMatrices 0x41a50f..0x41a53b",verified
+0x28,float[3],rot,"current rotation (radians), lerped toward targetRot through the wrap helpers by MeshPart_BlendThenSetTarget 0x41a241",verified
+0x34,float[3],pos,current translation,verified
+0x40,float[3],scale,"current scale, 1.0f at construction (0x41a1c9)",verified
+0x4c,float[3],targetRot,pose being blended toward (MeshPart_SetTargetPose 0x41a461),verified
+0x58,float[3],targetPos,,verified
+0x64,float[3],targetScale,1.0f at construction (0x41a1e7),verified

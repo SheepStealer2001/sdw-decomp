@@ -1,0 +1,6 @@
+value,name,meaning
+#,InflatableSheepStateFlags,"flags word of g_inflatableSheepStateTable entries, applied by InflatableSheep_SetState"
+0x1,INFSHEEP_SF_NOT_SOLID,"sets SCN_OF_NO_BOX_COLLIDE (0x400), else clears it"
+0x2,INFSHEEP_SF_LOOP,Anim_Start mode bit 0 (loop); no entry uses it
+0x4,INFSHEEP_SF_NO_SHADOW,"sets shadow.flags bit 0, else clears it"
+0x8,INFSHEEP_SF_HIDDEN,"sets SCN_OF_HIDDEN (0x800), else clears it"

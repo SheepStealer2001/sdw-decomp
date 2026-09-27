@@ -1,0 +1,3 @@
+value,name,meaning
+#,GhostLinkSlot,"special value of the link-slot picks in Ghost::PickNextNode 0x44e4c2 (best / runnerUp), which index GhostNode.links[4]"
+0x5,GHOST_LINK_NONE,"no link picked yet: both picks start at 5 and are tested against it (0x44e4cc, 0x44e8ec, 0x44e90d)"

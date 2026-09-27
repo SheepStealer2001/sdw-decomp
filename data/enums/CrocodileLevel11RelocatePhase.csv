@@ -1,0 +1,5 @@
+value,name,meaning
+#,CrocodileLevel11RelocatePhase,"CrocodileLevel11 +0x65, sub-phase of state 5"
+0,CROC11_RELOC_TURN_TO_BOX,turnAnim; facing steps from the Daffy heading toward the curBox-centre heading by 1/10 of the difference per frame; within 10 -> anim 3.
+1,CROC11_RELOC_WALK,Integer-normalised 430 u/s walk to the curBox centre; within 50 -> toggled turnAnim.
+2,CROC11_RELOC_TURN_TO_DAFFY,Facing steps back toward the Daffy heading; within 10 -> state 0 and unfreeze.

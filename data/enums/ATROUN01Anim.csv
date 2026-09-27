@@ -1,0 +1,4 @@
+value,name,meaning
+#,ATROUN01Anim,animation ids of WAR model ATROUN01 (its WAR type-0x86 table; names verified from the level files). Played by: BlackHole
+0x0,ATROUN01_ANIM_STAND,WAR name STAND
+0x1,ATROUN01_ANIM_HOLE,WAR name HOLE

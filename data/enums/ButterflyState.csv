@@ -1,0 +1,4 @@
+value,name,meaning
+#,ButterflyState,Butterfly +0x64 (no state 1)
+0,BUTTERFLY_ST_FLUTTER,quarter-turn orbits (radius 200) with random height changes at 80 u/s
+2,BUTTERFLY_ST_LEAVE,"leave anim once, then hidden until Ralph is in an appear box for 3 updates"

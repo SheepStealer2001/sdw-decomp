@@ -1,0 +1,4 @@
+value,name,meaning
+#,AGOOMB01Anim,animation ids of WAR model AGOOMB01 (its WAR type-0x86 table; names verified from the level files). Played by: Gossamer_Boss
+0x1,AGOOMB01_ANIM_LIGHT,WAR name LIGHT
+0x2,AGOOMB01_ANIM_TURN3,WAR name TURN3

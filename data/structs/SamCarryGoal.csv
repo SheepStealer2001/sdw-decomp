@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,ScnObject *,object1,first object to carry,verified
+0x4,ScnObject *,object2,second object to carry,verified
+0x8,Vec3s,destination,where to take them,verified

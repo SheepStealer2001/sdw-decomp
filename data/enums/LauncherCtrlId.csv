@@ -1,0 +1,37 @@
+value,name,meaning
+#,LauncherCtrlId,"Control ids in dialogs 0x67 and 0x66/0x65, read from the templates and the dialog procs' WM_COMMAND/SendDlgItemMessage uses."
+0x44c,IDC_INSTALL_DX,_spawnv(_P_NOWAIT) <exedir>\Install\dxsetup.exe.
+0x44d,IDC_PLAY,"Invisible options pass (apply saved settings), then EndDialog."
+0x44e,IDC_CONFIGURE,Show the options dialog.
+0x44f,IDC_CLEAR_SAVES,"Confirm, then Reg_DeleteAppKeys."
+0x450,IDC_WEB_LABEL,Hidden static 'Visit Infogrames web sites :'.
+0x451,IDC_GAME_SITE,www.looneytunesgames.com.
+0x452,IDC_INFOGRAMES_SITE,www.infogrames.com.
+0x454,IDC_README,<exedir>./Readme.htm.
+0x455,IDC_QUIT,exit(0).
+0x3e8,IDC_GRP_VIDEO,Hidden group box ('Video Setup').
+0x3e9,IDC_LBL_VIDEO_DRIVERS,Hidden static; its text is painted by WM_PAINT.
+0x3ea,IDC_LBL_VIDEO_MODES,Hidden static; painted.
+0x3eb,IDC_CMB_DEVICE,Render device combo; CBN_SELCHANGE refills the modes.
+0x3ec,IDC_CMB_MODE,Display mode combo; item data = true mode ordinal.
+0x3ed,IDC_GRP_DEBUG_LOAD,"'Loading (Debug) ' group, hidden and disabled in 0x66."
+0x3ee,IDC_DBG_WHEEL,"Debug start radio 'Wheel' (checked in WM_INITDIALOG, never read)."
+0x3ef,IDC_DBG_INTRO,Debug radio 'Intro'.
+0x3f0,IDC_DBG_SCENE,Debug radio 'Scene'.
+0x3f1,IDC_DBG_FAKE_ENDING,Debug radio 'Fake Ending'.
+0x3f2,IDC_DBG_REAL_ENDING,Debug radio 'Real Ending'.
+0x3f3,IDC_DBG_DEMO1,Debug radio 'Demo 1'.
+0x3f4,IDC_DBG_DEMO2,Debug radio 'Demo 2'.
+0x3f5,IDC_DBG_LEVEL,"Debug radio 'Level :', enables the edit 0x3F6."
+0x3f6,IDC_DBG_LEVEL_EDIT,Debug level-number edit (never read).
+0x3f7,IDC_GRP_SOUND,Hidden group box ('Sound Setup').
+0x3f8,IDC_LBL_SOUND_DRIVERS,Hidden static; painted.
+0x3f9,IDC_CMB_SOUND,DirectSound device combo.
+0x3fa,IDC_GRP_CONTROL,Hidden group box ('Control Setup').
+0x3fb,IDC_LBL_CONTROLLERS,Hidden static; painted.
+0x3fc,IDC_CMB_CONTROLLER,"Controller combo; entry 0 = 'Keyboard only', then joysticks."
+0x3fd,IDC_CONTROLPANEL,Opens joy.cpl through rundll32.
+0x406,IDC_ACCEPT,Apply + save Setup blob + EndDialog.
+0x407,IDC_CANCEL,EndDialog.
+0x1,IDOK,Win32 WINUSER.H IDOK (EasterEgg dialog)
+0x2,IDCANCEL,WINUSER.H IDCANCEL

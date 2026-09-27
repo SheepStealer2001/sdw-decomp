@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,s32:1,negative,bit 0 (4-byte signed unit): launch pending on the negative side | seesaw +0xa3c: signed one-bit reads (shl/sar) in AddBody/Update,verified
+0x0,s32:1,positive,bit 1 (4-byte signed unit): launch pending on the positive side,verified
+0x0,s32:1,rock,bit 2 (4-byte signed unit): set by a falling/rolling Rock landing (msg 0x5C == 1),verified

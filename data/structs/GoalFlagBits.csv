@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,u8:1,cinematic,bit 0 (1-byte unsigned unit),verified
+0x0,u8:1,noSheep,bit 1 (1-byte unsigned unit),verified
+0x0,u8:1,triggered,bit 2 (1-byte unsigned unit),verified
+0x0,u8:5,reserved,bits 3..7 (1-byte unsigned unit),inferred

@@ -1,0 +1,4 @@
+value,name,meaning
+#,CreditsManagerMsg,handled by CreditsManager_HandleMessage 0x4ade4b
+0x12,MSG_CINE_PLACE,"activate; state 1 if already visible else 0 (the cinematic actor messages: 0x12 from Cine_NotifyActors 0x561e60, 0x13 from Cine_Finish 0x5620a0)"
+0x13,MSG_CINE_END,"deactivate and hide (the cinematic actor messages: 0x12 from Cine_NotifyActors 0x561e60, 0x13 from Cine_Finish 0x5620a0)"

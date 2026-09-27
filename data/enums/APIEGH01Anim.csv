@@ -1,0 +1,8 @@
+value,name,meaning
+#,APIEGH01Anim,animation ids of WAR model APIEGH01 (its WAR type-0x86 table; names verified from the level files). Played by: InstantHoover
+0x0,APIEGH01_ANIM_OPEN,WAR name OPEN
+0x1,APIEGH01_ANIM_CLOSED,WAR name CLOSED
+0x2,APIEGH01_ANIM_CATCH,WAR name CATCH
+0x3,APIEGH01_ANIM_CLOSED1,WAR name CLOSED1
+0x4,APIEGH01_ANIM_LINK,WAR name LINK
+0x5,APIEGH01_ANIM_OPEN1,WAR name OPEN1

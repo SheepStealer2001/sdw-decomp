@@ -1,0 +1,35 @@
+value,name,meaning
+#,SheepMsg,msgIds handled by Sheep_HandleMessage (senders found by corpus grep)
+0x0,MSG_KILL,"arg 0 fade, 1 fall (restart 0x7000), 2 type-2 death"
+0x2,MSG_QUERY_ACTION,Wolf/Sam: returns 2 (grabbable) if state flags&0x320==0 and height within -50..+80
+0x4,MSG_PICKUP,arg=joint; by Wolf(0)/Sam(1)/Crane(0x52); alerted in-zone sheep refuse Wolf -> state 0x1B
+0x5,MSG_DROP,arg = {Vec3s pos; u16 flags(bit1 = keep pos)} -> FALL / FROZEN_FALL
+0xB,MSG_SEESAW_TOUCH,"gravityTimer = 0x5000, returns 0"
+0xC,MSG_LAUNCH,"tossed by the bull (0x42f7a1, arg 0) or launched by a seesaw (0x4ef3cb, arg LaunchArc*); SensibleButton never sends it"
+0x10,MSG_CARRY_ANIM,Wolf state-table nibble 0..8 -> anim 7/9/3/10/11
+0x12,MSG_CINE_PLACE,flag 8 set
+0x13,MSG_CINE_END,flag 8 clear
+0x17,MSG_QUERY_HELD_ACTION,returns 2
+0x18,MSG_RIDER_ADD,pPlatform = sender if free
+0x19,MSG_RIDER_REMOVE,clear pPlatform if sender
+0x1C,MSG_QUERY_MOVED,returns moved bit
+0x23,MSG_SCRIPT_HOLD,"-> 0x1A, pScriptHolder = sender"
+0x24,MSG_SCRIPT_RELEASE,-> idle
+0x25,MSG_LANDED,-> FALL unless dead
+0x27,MSG_SEESAW_DRIFT,"idle only: fallTime 0x800, slope limit off 500 ms, FALL"
+0x2E,MSG_SET_ANCHOR,arg {Vec3s centre; s16 radius}
+0x30,MSG_GEYSER_OUT,"arg!=0 -> state 0x29, returns anim length"
+0x31,MSG_GEYSER_IN,out-of-zone sheep only; 0x28 / 0x2A; returns anim length or 2000
+0x3B,MSG_TIMEMACHINE_SWAP,"in-zone sheep teleports home, snap, idle"
+0x41,MSG_THAW,IceCube: state 0x24 -> 0x26
+0x5C,MSG_QUERY_MOVING,1 if state 0x20 else 2 -- the same in-flight query the seesaw sends at 0x4eef29 (not a button query)
+0x69,MSG_SHEEP_CALL,Wolf state 0x8C broadcast r=800: follow (0x1D) or stop following
+0x980,MSG_SHEEP_SAVE_RESPAWN,CheckpointManager; ignored if frozen
+0x981,MSG_SHEEP_WALK_TO,Wolf; -> state 0x19
+0x982,MSG_SHEEP_QUERY_AVAILABLE,Salad/SceneSheepPanel: available or targeting sender
+0x983,MSG_SHEEP_SLEEP,Monolithe: flag 0x400
+0x984,MSG_SHEEP_QUERY_IN_WATER,WaterGeyser
+0x985,MSG_SHEEP_ENTER_CANNON,"CanonSheep: copy rot, state 0x2B"
+0x986,MSG_SHEEP_MARK_IN_GEYSER,flag 0x8000 (no sender found)
+0x987,MSG_SHEEP_RUN_TO_SAM,Train
+0x988,MSG_SHEEP_KEEP_CHECKPOINT,CheckpointManager

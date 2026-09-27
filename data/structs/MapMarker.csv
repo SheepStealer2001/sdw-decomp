@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,UiQuad,sprite,the IGLCERC_ marker quad; its colour field at +0x00 is the pulse tint and its flags at +0x08 take the fade level,verified
+0x14,s16,mapX,Mailbox property MAPPOSX (offset 28) multiplied by 2,verified
+0x16,s16,mapY,Mailbox property MAPPOSY (offset 32),verified
+0x18,u16[4],acceptedClassIds,"class ids this mailbox accepts, resolved from Mailbox properties O1..O4",verified

@@ -1,0 +1,8 @@
+value,name,meaning
+#,DeathZoneType,box[0] of g_deathBoxes in Wolf_Update
+0x2000000,DZ_RESTART,"restart in 0x1000, no anim"
+0x4000000,DZ_BLOWN_AWAY,"Die(0x3B,0,0x4000); Die(0x3B = WOLF_ST_DIE_BLOWN_AWAY, 0, 0x4000) (verified)"
+0x8000000,DZ_37_PROP2,"Die(0x37) + prop (2,1)"
+0x10000000,DZ_37_PROP1,"Die(0x37) + prop (1,0)"
+0x20000000,DZ_37_BURN,Die(0x37) + burnt
+0x40000000,DZ_FALL,"state 0xD, deathY = box[3]"

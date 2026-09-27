@@ -1,0 +1,4 @@
+value,name,meaning
+#,TimeMachineSphereMsg,"messages handled (0xE, 0x2F00) and sent by the TimeMachineSphere"
+0xe,MSG_FREEZE,"received: clear wolfFrozen (+0x20c), return 1"
+0x2f00,MSG_TIMEMACHINE_START,received from the chrono: SetState(1) with no state check

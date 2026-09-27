@@ -1,0 +1,16 @@
+offset,ctype,name,meaning,confidence
+0x7c,s32,fallTime,ticks of fall (g_dt); gravity speed = fallTime*1500>>12 capped at 1000; zeroed on floor contact,verified
+0x80,u32,sliding,pos is inside slidingBox (x/z): slides at 400 u/s toward -z,verified
+0x84,CollBox *,collBox,"model box 0, or box 1 when box 0 lacks flag 4 and there is more than 1 box; lift-height test and push roll",verified
+0x88,Box *,slidingBox,"SLIDINGBOX, only if its id list holds exactly one box",verified
+0x8c,LaunchArc,launch,"copy of the msg 0xC LaunchArc; t at +0xb0 (advanced by g_dtMs>>2), camera +0xb4, obj +0xb8, camParam +0xbc, flags +0xc0",verified
+0xc4,CamShot,camShot,launch camera shot,verified
+0xd8,s16,carryYaw,"yaw relative to the carrier while attached (msg 4), restored on drop",verified
+0xdc,ZoneList,deathBoxes,"zone list {boxes, count}: Scn_FindIdList(10 WAR_IDO_DEATHBOX) | count (+4): count for deathBoxes",verified
+0xe4,Vec3s,homePos,respawn position (ReturnHome),verified
+0xec,AltModel,baseModel,"saved intact model, restored when leaving state 4",verified
+0xfc,AltModel,brokenModel,"WAR_IDO_AROCHE5B (id list 0x58), swapped in by SetState(4)",verified
+0x10c,ScnBody,iceBody,"embedded ScnBody from WAR_IDO_AGLACON1 (only Lvl-06 exports it); drawn and collided while FLOATING; model at +0x114, pos at +0x118",verified
+0x170,u8,state,SmallRockState,verified
+0x171,SmallRockMoveBits,moveFlags,SmallRockMoveFlags,verified
+0x174,SmallRockFlagBits,rockFlags,SmallRockFlags,verified

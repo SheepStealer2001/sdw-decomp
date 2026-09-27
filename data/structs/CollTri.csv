@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x0,Vec3s,bbMin,"game-space AABB min (x, vertical-down, z)",verified
+0x6,Vec3s,bbMax,game-space AABB max,verified
+0xc,Vec3s,normal,4.12 plane normal in game space (y<0 = floor facing up),verified
+0x12,s16,pad12,padding after normal (never read in this module),inferred
+0x14,Vec3s[3],verts,"three vertices stored as (x, -y, -z) = detector space /16; queries negate y and z to get game space or <<4 for clipping",verified
+0x26,u16,flags,surface flags (not read by any function of this module),inferred

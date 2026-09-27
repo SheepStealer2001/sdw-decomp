@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x40,u8,state,SignPostSimpleState,verified
+0x42,Vec3s,savedPos,restored by Reset; updated by msg 9 arg 1 and msg 0x13,verified
+0x48,u16,distance,PROPERTY_SIGNPOSTSIMPLE_DISTANCE: Manhattan XZ read radius (all data 200),verified
+0x4c,u32,textIndex,PROPERTY_SIGNPOSTSIMPLE_INDEXTEXT,verified
+0x50,char *,text,"Text_GetClassString(this, (u8)textIndex)",verified
+0x54,u32,wolfFrozen,reply of Wolf msg 0xE; msg 0xF sent on close when set,verified

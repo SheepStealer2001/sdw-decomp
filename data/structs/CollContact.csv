@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,ScnObject *,obj,"owner of the hit box, NULL for static triangles / static boxes",verified
+0x4,Vec3s,normal,4.12 contact normal in game space,verified
+0xa,Vec3s,point,"reference point on the surface (first triangle vertex in game space, or a corner/centre of the hit box)",verified
+0x10,s16 *,triVerts,pointer to the raw CollTri.verts of the hit triangle; written only by Collide_SweepBox's triangle path,verified

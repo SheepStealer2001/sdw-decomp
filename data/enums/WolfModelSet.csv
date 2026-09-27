@@ -1,0 +1,8 @@
+value,name,meaning
+#,WolfModelSet,High nibble of descriptor byte 2 (-> wolf+0x711).
+0,WMS_RALPH,normal model (costume +0x712 may still be 4 = rabbit); the record's own model (modelSets[0]); in a state descriptor 0 selects the costume's set (Wolf::SetStateAnim)
+1,WMS_EXPLOSION,"modelSets[1] = g_wolfAltModelIds[0] = WAR_IDO_AEXPLOS2 (one animation, BOOM); used by state 0x0e WOLF_ST_DIE_FELL only"
+2,WMS_BUSH,0x60-0x6c; modelSets[2] = g_wolfAltModelIds[1] = WAR_IDO_ABCOYO01
+3,WMS_SHEEPCOSTUME,0x84-0x90; modelSets[3] = g_wolfAltModelIds[2] = WAR_IDO_AMCOYO01
+4,WMS_RABBITCOSTUME,"Rabbit costume: Wolf_SwapHeldItem enters state 0xA0 for class 99 only when modelSet != 4, and undresses (state 0xA2) when modelSet == 4; reached through costume byte +0x712 = 4 in Wolf_SetStateAnim; modelSets[4] = g_wolfAltModelIds[3] = WAR_IDO_ACOLAP01"
+5,WMS_GHOSTCOSTUME,0xb3-0xc2; modelSets[5] = g_wolfAltModelIds[4] = WAR_IDO_ACOGHO01

@@ -1,0 +1,31 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,state,"CrocodileLevel11State (Update table 0x435318, SetState table 0x435ba1). Read by SetState before being written, and uninitialised at the first SetState(0) from Init.",verified
+0x65,u8,relocatePhase,"CrocodileLevel11RelocatePhase in state 5: 0 turn toward the new box, 1 walk, 2 turn back toward Daffy.",verified
+0x66,Vec3s,homePos,Position after Init moved the croc to the x/z centre of homeBox. Restored by Reset unless dead.,verified
+0x6c,s16,homeFacing,rot.y (+0x16) at Init. Restored by every Reset.,verified
+0x70,s32,wolfFrozen,Wolf MSG_FREEZE reply at SetState(5); cleared by msg 0xe and Reset; set to !(MSG_UNFREEZE reply) at the end of a relocation. Write-only.,verified
+0x74,Box *,homeBox,"BOXES entry chosen at Init (containing, or the nearest centre). Reset copies it to curBox.",verified
+0x78,Box *,curBox,"Box the croc currently guards. Scanned with ObjGrid_QueryBoxPoints (3-D, origins only); its x/z range decides whether the Wolf or ball has left; the relocation target.",verified
+0x7c,ScnObject *[64],boxObjects,Output of ObjGrid_QueryBoxPoints (cap 64) for curBox (state 0) or bounceBox (state 6).,verified
+0x17c,s32,boxObjectCount,"Count returned by the last query. More than 1 in state 0 triggers the scan, since the croc counts itself.",verified
+0x180,s32,prevBoxObjectCount,Count at the last state-2 scan or dead-state query. A rise in state 6 triggers a bouncer search. Not set by Init.,verified
+0x184,s32,targetIndex,Index in boxObjects of the Wolf (->state 3) or CannonBall (->state 4) found by the state-2 scan. The last match wins.,verified
+0x188,ScnObject *,ball,"CannonBall being watched in state 4; set by SetState(4), which sends it msg 0x3387 arg 0.",verified
+0x18c,CollBox *,bounceBox,NULL from Init. SetState(4) points it at biteBox. Queried by the dead state with no NULL check.,verified
+0x190,CollBox,biteBox,"Model box 0 with each coord (s16)(c*200)/80 + pos (x2.5 about the croc, axis-aligned). Rebuilt by SetState(3) and (4). The bite zone in state 3 and the trampoline zone in state 6.",verified
+0x1a0,Box *,cineBox,"Scn_GetPropBox(CINEBOX), passed to Cine_Start.",verified
+0x1a4,Box *,cineSheepBox,"Scn_GetPropBox(CINESHEEPBOX), passed to Cine_Start (0 in Lvl-13).",verified
+0x1a8,CollBox *,activationBox,Scn_GetPropBox(ACTIVATIONBOX). The Wolf's origin inside it (3-D) starts the one-time cinematic.,verified
+0x1ac,u32,cineId,"PROPERTY_CROCODILELEVEL11_CINE, Cine_Start id.",verified
+0x1b0,u32,cineFlags,"PROPERTY_CROCODILELEVEL11_CINEFLAG, Cine_Start flags (418 in Lvl-13).",verified
+0x1b4,s32,cinePlayed,"Set to 1 when the activation cinematic ends (state 1). Never cleared after Init, so the cine plays once per level load.",verified
+0x1b8,u8,cineTextIndex,Low byte of PROPERTY_CROCODILELEVEL11_CINETEXT. Text_GetClassString index passed to Cine_Start as the dialogue text.,verified
+0x1bc,u32,nextIdleAnimTime,g_gameTime at which state 0 picks a new idle anim (4/5/6). Re-armed to now by SetState(0) and Reset; after a pick it is set to now + Rand_Bounded(0x5000).,verified
+0x1c0,ScnObject *,bouncer,"Wolf that entered bounceBox on the previous dead-state frame, pending the bounce test.",verified
+0x1c4,s16,bounceEntryVert,Bouncer's y when recorded. 0x8000 = none.,verified
+0x1cc,u16,turnAnim,"Relocation turn anim: 10 or 11, chosen by the turn direction at SetState(5), toggled for the final turn.",verified
+0x1ce,s16,turnOffset,"Accumulated relocation turn, stepped by (angle difference)/10 per frame.",verified
+0x1d0,ZoneList,zones,"zone list {boxes, count}: Scn_FindIdList(BOXES) list. | count (+4): Count written by Scn_FindIdList. Rand_Bounded bound for the relocation.",verified
+0x1d8,u32,remainDeadAtReset,"PROPERTY_CROCODILELEVEL11_REMAINDEADATRESET. If non-zero, Reset does not call SetState(0), even for a live croc (1 in Lvl-13).",verified
+0x1dc,ScnObject *,daffy,Scn_GetPropObject(DAFFY); DaffyLevel01 res 64 in Lvl-13. Only used as the rest heading at the start and end of a relocation.,verified
+0x1e0,CamSetup *,camera,"Scn_GetPropCamera(CAMERA) resource, a CamSetup. Only its eye position at +8 is used (UpdateCamera).",verified

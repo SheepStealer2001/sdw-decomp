@@ -1,0 +1,8 @@
+value,name,meaning
+#,MapMode,"g_map.mode (+0x54), the sub-mode while SelectMenuState == 3. Bit 0x80 marks a transient mode that auto-advances to pendingMode after 150 ms of autoRepeatMs."
+0x0,MAP_MODE_NONE,BeginModeTransition(0) from Map::UpdateState (inferred)
+1,MAP_MODE_ITEM_LIST,cursor moves over the inventory rows; CROSS enters the action row
+2,MAP_MODE_ACTION_ROW,cursor moves over HELP/USE/COMBINE/EXIT; CROSS performs the action
+3,MAP_MODE_COMBINE_PICK,a first item has been latched into combinePartnerIndex and the second is being chosen
+4,MAP_MODE_HELP_SCROLL,UP/DOWN scroll the long description text (0x539965)
+0x80,MAP_MODE_F_TRANSIENT,"MapMode doc: bit 0x80 marks a transient mode (BeginModeTransition sets it, UpdateState auto-advances)"

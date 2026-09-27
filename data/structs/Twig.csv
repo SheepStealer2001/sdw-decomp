@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x64,Vec3s,home,Spawn position copied from ScnObject.pos at init; the twig is teleported back here each time it has drifted disappearDistSq away.,verified
+0x6a,Vec3s,frameDelta,"Scratch per-frame translation: velocity scaled by g_dt (Vec3s_ScaleByDt writes through its SECOND argument), then fed to ScnObject_Translate.",verified
+0x70,Vec3s,velocity,"Drift velocity in units/s, hard-coded to (0, 0, -500) at init; the facing angle is derived from it.",verified
+0x76,u8,state,"0 = wait until off-screen then hide and teleport home, 1 = wait until off-screen then unhide, 2 = drifting. Dispatched with unsigned compares.",verified
+0x78,s32,disappearDistSq,"Square of PROPERTY_TWIG_DISAPPEAR_DIST, computed in place with a 32-bit imul before any range check. The type is s32 (the compare at 0x502ae5 is jge, signed): a property above 46340 makes the square NEGATIVE, so the twig would take the 'reached the limit' branch every frame and never drift.",verified
+0x7c,u32,drawnLastFrame,"Copy of inst.flags bit 0 (drawn this render pass), latched by Twig_Render and cleared at the end of each Update, so the twig never hides or teleports on camera.",verified

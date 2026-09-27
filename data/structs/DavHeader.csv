@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x0,char[4],magic,'VDX7': Load_DAV strncmp's 4 bytes against sprintf('VDX7') (0x548547-0x548564),verified
+0x14,DavDirectory *,dir,"file offset of the DAV directory, relocated to a pointer by Load_DAV (0x5484af on the 0x44-byte probe read, 0x548587 on the real image). DavDirectory has misaligned fields (+6/+0xa/+0xe/+0x12) and is declared in the source files that read it (e.g. src/engine/fade.cpp)",verified

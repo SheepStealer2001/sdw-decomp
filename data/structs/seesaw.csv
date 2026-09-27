@@ -1,0 +1,36 @@
+offset,ctype,name,meaning,confidence
+0x64,Box,footprint,"world box centred on pos with the model-box half extents (flags 0 at +0x64, min +0x68, max +0x6e); used for the rider scan and the ground query",verified
+0x74,Box *,raisedBox,"Box* set by Init to &+0x88; read 31 times as a Box by seesaw_CollideBody (0x4edb56..0x4edd10, in the chunk Ghidra split off at 0x4ed99f)",verified
+0x78,Box,footprintUp500,copy of the footprint with the top (min.y +0x7e) raised 500,verified
+0x88,Box,footprintUp1500,copy of +0x78 with the top raised another 1000,verified
+0x98,s16,centreOnAxis,coordinate subtracted from obj.x (or .z when axisIsZ) to classify the landing side (+-30 dead zone),inferred
+0x9a,s16,plankTopOffset,-modelBox.min.y: height of the plank top above the pivot; pivotY = pos.y - plankTopOffset*cos>>12,verified
+0x9c,u16,halfWidth,half extent across the plank axis,verified
+0x9e,u16,halfLength,half extent along the plank axis,verified
+0xa0,s16,tilt,"plank angle (4096/turn), clamped to [-maxTiltNeg, maxTiltPos]; written into rot.z",verified
+0xa2,s16,maxTiltNeg,MAXANGLE degrees * 4096/360,verified
+0xa4,s16,maxTiltPos,"MAXANGLE2 * 4096/360, or maxTiltNeg when 0",verified
+0xa8,s32,tiltVel,"low-pass filtered tilt error (3*delta when |delta| > 0xcd, else (3*v + delta)/4)",verified
+0xac,u16,bodyCount,entries in bodies (max 32),verified
+0xae,u16,launchCount,seesaw-driven launches (max 32),verified
+0xb0,SeesawBodyEntry[32],bodies,32 x {s32 landingSpeed; s32 canLaunch; ScnObject *obj} filled by seesaw_AddBody,verified
+0x230,LaunchArc[32],launches,arcs the seesaw drives itself (objects that returned 0 to msg 0xC),verified
+0x930,Vec3s[32],launchPos,last arc position per launch,verified
+0x9f0,Trajectory3 *[2],traj,TRAJ1/TRAJ2 export records (kind 3 only); objects on the negative/positive side are launched along them,verified
+0x9f8,CamSetup *[2],launchCam,CAMERA1/CAMERA2 camera setups handed to seesaw_LaunchObject,verified
+0xa00,u32[2],launchCamFlags,CamScriptFlags: (CAMERAnINTERPB != 0) | (CAMERAnINTERPE != 0)<<1,verified
+0xa08,s16,pivotY,plank surface height at the pivot,verified
+0xa0a,s16,pivotAxisCoord,pos.x (X plank) or pos.z (Z plank),verified
+0xa0c,s16,tiltSin,sin(tilt) 4.12,verified
+0xa0e,s16,tiltCos,cos(tilt) 4.12 (0x1000 at Create),verified
+0xa10,CamShot,camShot,launch camera shot,verified
+0xa24,Box *,ejectionBox1,"EJECTIONBOX1 (Scn_FindIdList, only when the list has exactly one entry; 0x4eb973..): tested against Ralph's position by 0x4ebbb7 to arm the ejection timer on that side",inferred
+0xa28,Box *,ejectionBox2,"EJECTIONBOX2 (Scn_FindIdList, only when the list has exactly one entry; 0x4eb973..): tested against Ralph's position by 0x4ebbb7 to arm the ejection timer on that side",inferred
+0xa2c,s16,ejectionTimer1,"ejection timer (ms) for side 1: 4000 while Ralph is inside its ejection box, 100 while Wolf msg 0x40E is nonzero, else -= g_dtMs (0x4ebc6b..). >0 makes a Wolf landing on that side a speed-48000 launch; zeroed by AddBody/LaunchObject",inferred
+0xa2e,s16,ejectionTimer2,"ejection timer (ms) for side 2: 4000 while Ralph is inside its ejection box, 100 while Wolf msg 0x40E is nonzero, else -= g_dtMs (0x4ebc6b..). >0 makes a Wolf landing on that side a speed-48000 launch; zeroed by AddBody/LaunchObject",inferred
+0xa30,u16,creakSound,handle of sound 0x108; cleared when it stops or on Reset,verified
+0xa34,u32,seesawFlags,bit 1: launch camera shot does not freeze the Wolf,verified
+0xa38,u32,axisIsZ,"0: plank along X, else along z",verified
+0xa3c,SeesawPendingBits,pendingLaunch,"bit 0 negative side, bit 1 positive side, bit 2 set by a falling/rolling Rock landing (msg 0x5C == 1)",verified
+0xa40,s8,hopIdx,next hopTraj slot (mod 4),verified
+0xa42,Trajectory3[4],hopTraj,"4 trajectory records of 0x14 bytes: {3; obj pos; (x, y-300, z); (x, seesaw.y, z)}, a vertical hop for sheep",verified

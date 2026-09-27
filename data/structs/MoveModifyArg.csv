@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x0,Vec3s,delta,"the mover's displacement for this step, which a registered rider may change (BlackHole_ApplyPull reads it from 0x49b1c6)",verified
+0x6,u16:1,flag0,bit 0 of the flags word; no reader identified,inferred
+0x6,u16:1,noPull,"bit 1: pullers leave this move alone - BlackHole_HandleMessage skips ApplyPull (mov dx,[ecx+6]; shr dx; and dx,1 at 0x49b3b3-0x49b3c5) and Magnet skips PullMover on the same bit",verified
+0x6,u16:1,flag2,bit 2: ScnControllable::ApplyMoveModifiers sets it from its fifth argument (or 4 / and 0xfffb on the payload at 0x4920bd-0x4920d4),verified
+0x6,u16:13,otherFlags,remaining flag bits,inferred
+0x8,Vec3s,velocity,the mover's velocity; BlackHole_ApplyPull adds signed 16-bit components to it (0x49b2e8-0x49b320),verified

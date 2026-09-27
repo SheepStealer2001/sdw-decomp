@@ -1,0 +1,47 @@
+offset,ctype,name,meaning,confidence
+0x7c,ScnObject *,jailGate,first FallingGate2 (class 0x8C) in the level; msg 0x72 asks whether it is open (returns CLOSED==0),verified
+0x80,Box *,jailBox,PROPERTY JAIL_BOX (Lvl-15 id 617),verified
+0x84,Box *,nearJailBox,PROPERTY BOX_NEAR_JAIL (618),verified
+0x88,Box *,bridgeBox,PROPERTY BRIDGE_BOX (619): the boat bridge; on-boat test and talk trigger,verified
+0x8c,ZoneList,forbiddenBoxes,"zone list {boxes, count}: PROPERTY BOX_FORBIDDEN id list (669, 2 boxes): a target coin inside one aborts the hunt (state 0xE) | count (+4): count for forbiddenBoxes",verified
+0x94,u8,state,"Sam_PirateState (0..0x11), written by Sam_Pirate_SetState",verified
+0x95,u8,pocketStep,"state 0xD coin-pocketing step (0: lift coin 50 + scale 0x2aa, 1: scale 0x155)",verified
+0x96,u8,idleAnimIdx,current idle index 0..3 into g_samPirateBoatIdleAnims / JailIdleAnims (never repeats twice),verified
+0x97,u8,idleAnimPick,scratch for the Rand_Bounded(4) re-roll,verified
+0x98,s32,coinScale,"render scale sent to the target coin with msg 0x4A82 (0x400, then 0x2aa, then 0x155)",verified
+0xa0,s32,wolfDist,"state 4: Vec3s_DistXZ(Wolf, Sam); < 401 draws",verified
+0xa4,s32,timerMs,"g_dtMs countdown: idle length (2x or 4x anim), shoot length (2 x anim 1), 700/100 ms coin steps, 1000 ms stare",verified
+0xa8,Vec3s,spawnPos,pos after SnapToGround in Init; Reset and idle 0 teleport here; state 2 walks here,verified
+0xae,Vec3s,jailSpot,pos on reaching nearJailPos (state 0xF end); jail idle 0 teleports here; state 3 walks back here,verified
+0xc0,Vec3s,circleOffset,"pos - circlePivot at idle-0 start (= (±150,0,0)); rotated each frame by CircleStep",verified
+0xc6,Vec3s,bridgeEndPos,"farthest TRAJ_BOAT point from spawn (Lvl-15: 2898,-24,6277); route point for leaving/boarding the boat; idle anims face it",verified
+0xcc,Vec3s,guardPost,"nearest TRAJ_BOAT point (Lvl-15: 1294,-200,6275); home for states 1/0xE/0x11 and the talk-trigger centre",verified
+0xd2,Vec3s,trajExclude,zeroed in Init and passed as the excluded point to Sam_Pirate_PickTrajPoint; no other use,verified
+0xde,Vec3s,nearJailPos,centre of BOX_NEAR_JAIL (XZ) at ground height; jail walk target and jail talk-trigger centre,verified
+0xe4,u32,jailedOnce,set on the first entry to state 0x10 (forces idle 3); gates the top-of-frame jail check; never reset,verified
+0xe8,u32,coinFound,state 9 scratch: a reachable free coin was found this frame,verified
+0xec,u32,coinPickedBefore,"set by SetState(0xC); cleared by SetState(4). When set, a reached coin goes straight to state 0xD (skips the pick-up anim)",verified
+0xf0,ScnObject *[15],coins,"GoldenCoins (class 0x8D) found by Scenaric_FindByClass, limited to NBER_OF_COIN. Capacity up to +0x12c is inferred from the next field",inferred
+0x12c,ScnObject *,targetCoin,coin being hunted or pocketed,verified
+0x130,Vec3s,coinSearchOrigin,"reference for the 601-unit coin radius: Sam's pos (set when zero or unless keepSearchOrigin), or the last pocketed coin's pos; cleared in state 4",verified
+0x138,u32,coinCount,"number of coins actually found (written, not read in this class)",verified
+0x13c,u32,nbCoins,PROPERTY NBER_OF_COIN (Lvl-15: 10); loop bound for coins[],verified
+0x140,s32,nearestCoinDist,best coin distance in state 9 (reset to 600),verified
+0x144,u32,coinHuntActive,"set in states 2/9; cleared in state 4 and the non-jail Reset. While 0, the top-of-frame coin scan runs in every state",verified
+0x148,u32,keepSearchOrigin,set by state 0xD so the next state-9 search is centred on the pocketed coin,verified
+0x14c,Vec3s,circlePivot,spawnPos.x-150 (boat) or jailSpot.x+150 (jail),verified
+0x152,s16,circleAngle,"accumulated angle (starts -30, -30 per frame). Idle ends when |angle| > 0x2ffd (3 laps, boat) or > 0x1ffe (2 laps, jail)",verified
+0x154,u32,onBoat,"1 if Sam's XZ is in bridgeBox, or |pos.y| > |guardPost.y| - 10 (on deck); drives routing, coin filters and texts",verified
+0x158,TrajFollower,trajFollower,"initialised on TRAJ_BOAT (speed 250, radius 50) but never stepped (dead)",verified
+0x178,Trajectory *,trajBoat,PROPERTY TRAJ_BOAT trajectory {u16 count; Vec3s pts[]},verified
+0x17c,u16,trajPointCount,copied from trajBoat[0] (Lvl-15: 2),verified
+0x17e,Vec3s[10],trajPoints,copy of the TRAJ_BOAT points. Capacity 10 is inferred from the next field (+0x1bc); there is no bound check,inferred
+0x1bc,EmitterDriftParams,dustParams,"EmitterDriftParams: hSpeed = Emitter_UpdateDrift params p[0] = 100: horizontal drift units/s; vSpeed = p[1] = -20: vertical drift/s (up); life = p[2] = 0x1000 (1 s); spawnInterval = p[3] = 0x1000/6. The role 'spawn period' is inferred; sizeStart = 10; sizeEnd = 0x28; sheetIndex = sprite sheet index of the dust drift params (the +0x14 byte of the drift-param block, as Robot ""sheet"" / GroundMine ""ringParams.sheetIndex""). 0 (last byte of the drift params)",verified
+0x1d4,InlineEmitter16,dustEmitter,"running dust (spawns in states 9/0xE), drawn by Sam_Pirate_Render; inline storage 0x1d4..0x338: factory 0x4722d7 sets slotPool = +0x24, particles = +0xe4, count 0x10 (0x472319-0x472335) and calls Emitter_Reset 0x52dbe3 (0x47233c) before the Sam_Pirate vptr (0x472344)",verified
+0x33e,u16,shotSoundHandle,handle of sound 0xF4 started in SetState(7); stopped when the state-8 anim ends,verified
+0x340,char *,textInBoat1,string of PROPERTY TEXT_IN_BOAT1 (voice 0x38),verified
+0x344,char *,textInBoat2,TEXT_IN_BOAT2 (voice 0x39),verified
+0x348,char *,textInJail,TEXT_IN_JAIL (voice 0x3A),verified
+0x34c,u32,talkedFlag,1 after a dialogue. Blocks re-talk until the Wolf is > 600 from guardPost (boat) or > 400 from nearJailPos (jail). Cleared by Reset,verified
+0x350,u32,boatTextToggle,alternates TEXT_IN_BOAT1/2 between boat talks,verified
+0x354,u32,jailWarningGiven,set while TEXT_IN_JAIL is spoken. Afterwards the Wolf entering jailBox makes jailed Sam draw (state 5). NOT cleared by Reset,verified

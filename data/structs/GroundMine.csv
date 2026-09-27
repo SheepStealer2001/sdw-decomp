@@ -1,0 +1,13 @@
+offset,ctype,name,meaning,confidence
+0xa8,ZoneList,hazardBoxes,"zone list {boxes, count}: BOXES id-list (Scn_FindIdList). Non-empty = REGION mode: a hidden minefield that explodes on Ralph or the stolen sheep when its origin is inside one of these boxes | count (+4): count for hazardBoxes; 0 = ordinary proximity mine",verified
+0xb0,ZoneList,safeBoxes,"zone list {boxes, count}: TRAJECTORIES id-list: safe-path boxes carved out of the hazard boxes (Lvl-07: 7 corridors about 240 wide; Lvl-15: 13) | count (+4): count for safeBoxes",verified
+0xb8,InlineEmitter3,fuseFx,"3-slot countdown column (Emitter_UpdateColumn with g_groundMineFuseFxParams, drawn as billboards); pools at +0xdc/+0x100",verified
+0x118,u32,fuseDelay,"TIMEINS * 0x800 - 1 ticks (0 if TIMEINS = 0 -> explodes at once), i.e. TIMEINS x 0.5 s",verified
+0x11c,u16,beepSound,"channel handle of the armed beep 0x96, replayed while in state 2/3, stopped otherwise",verified
+0x11e,u16,radius,RADIUS: trigger radius (vertical band +-radius/2); ring grows to half-size radius*2,verified
+0x120,GroundMineFlagBits,gmFlags,GroundMineFlags,verified
+0x122,u16,pad122,padding,inferred
+0x124,InlineEmitter4,ringFx,"4-slot ground ring pulse showing the danger radius (Emitter_UpdateFade, drawn flat) while armed or counting down",verified
+0x198,EmitterFadeParams,ringParams,EmitterFadeParams: life = Emitter_UpdateFade params p[0]: particle life 0x4000 (4 s); fadeStart = p[1]: fade start 0 (fades over the whole life); spawnInterval = p[2]: spawn interval 0x1000 (one ring per second); sizeStart = starting quad half-size 0; sizeEnd = end quad half-size = RADIUS * 2; sheetIndex = sprite-sheet index 5 (copied to ringFx.sheetIndex),verified
+0x1ac,s32,fallTime,"g_dt accumulated while gmFlags & 2, capped at 0x1e000 (30 s); fall speed = clamp(fallTime*2000>>12, 120, 1000) u/s",verified
+0x1b0,ScnObject *,mover,"Object dragging the mine (msg 0x18 sets it if empty, 0x19 clears it for the matching sender): the Magnet. Gets MSG_MODIFY_MOVE 0x1a on every GroundMine_Move and keeps the fall stage running. Not cleared by Reset",verified

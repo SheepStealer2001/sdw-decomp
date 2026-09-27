@@ -1,0 +1,9 @@
+value,name,meaning
+#,SmallRockState,SmallRock +0x170 (SetState 0x4f4f69; Update table 0x4f479c on state-1)
+0,SROCK_ST_REST,anim 0; no update (also while carried)
+1,SROCK_ST_FALL,gravity physics; DEATHBOX and water checks
+2,SROCK_ST_PUSHED,msg 0xA; falls back to 1 once not pushed on a frame
+3,SROCK_ST_ON_SEESAW,msg 0xB; gravity-only moves
+4,SROCK_ST_SHATTERED,"AROCHE5B model, anim 1, MSG_KILL arg 2 to everything within 100; ReturnHome when the anim ends"
+5,SROCK_ST_LAUNCHED,follows the msg 0xC LaunchArc
+6,SROCK_ST_FLOATING,ice floe on water (only with the AGLACON1 body): drifts with the current and carries riders

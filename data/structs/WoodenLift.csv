@@ -1,0 +1,21 @@
+offset,ctype,name,meaning,confidence
+0x40,ScnObject *,robot,first Robot (class 101) in the level or NULL; when it answers msg 0x3681 the camera-box test uses it instead of the Wolf,verified
+0x44,Box *,cameraBox,IDCAMERABOX (prop +8); XZ-only test for the scripted lift camera,verified
+0x48,s16,bottomY,"lower end of travel (larger y, y points down)",verified
+0x4a,s16,topY,"upper end of travel; one end is the start pos.y, the other -MAXZVALUE",verified
+0x4c,s16,cameraChangeY,-CAMERACHANGEZVALUE; the scripted camera runs only while pos.y < this,verified
+0x4e,u16,speed,STEP*30 units/s; per-frame step = speed*g_dt>>12 (truncated),verified
+0x50,CamSetup *,camera,"CAMERA property resource (Scn_GetPropCamera); u16 at +0, s16 at +2/+4/+6 and the pointer +8 are passed to Camera_StartScripted",verified
+0x54,s16,dirOn,direction taken on msg 0x1f (points from the start end toward the other end),verified
+0x56,s16,dirOff,direction taken on msg 0x20 (back toward the start end),verified
+0x58,s16,dir,"current direction, +1 down or -1 up; initialised to dirOn",verified
+0x5a,u16,soundHandle,channel handle of motor sound 0x5e,verified
+0x5c,u8,frozen,"Update does nothing while non-zero; only ever written 0 (PostLoadInit), so dead",verified
+0x5d,u8:1,switchedOn,WoodenLiftFlags bit0: switched on / camera armed (or/and byte ops at 0x50b132 0x50b151; read shr-free and al 1 at 0x50a7ab),verified
+0x5d,u8:1,camReleased,WoodenLiftFlags bit1: scripted camera released (read shr al; and al 1 at 0x50a7e3; set or cl 2 at 0x50a8b3),verified
+0x5d,u8:1,soundOn,WoodenLiftFlags bit2: motor sound playing (read shr dl 2; and dl 1 at 0x50a6f6; set or al 4 at 0x50a750),verified
+0x60,CollBox,rideBox,model box 0 + pos with min.y-5; objects overlapping it are carried,verified
+0x70,CollBox,underBox,model box 0 + pos with max.y+50; bodyless objects inside block downward motion,verified
+0x80,u16,downProbeResult,Collide_ResolveMove result of the 30-unit downward probe (0 = clear),verified
+0x84,ContactInfo,probeContact,contact info of the downward probe; floorObj with inst flag 8 is ignored,verified
+0xa0,Vec3s,probeDelta,"(0,30,0), the probe move vector",verified

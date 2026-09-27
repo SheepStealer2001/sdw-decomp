@@ -1,0 +1,11 @@
+value,name,meaning
+#,RemoteControlMsg,Messages handled by RemoteControl_HandleMessage 0x4e1253
+0x0,MSG_KILL,"arg 8 while held: forward msg 0 arg 8 (KILL_ZAP) to the holder, anim 3"
+0x2,MSG_QUERY_ACTION,Wolf → 4 (CTX_PICKUP)
+0x4,MSG_PICKUP,attach to sender joint arg
+0x5,MSG_DROP,detach and SetPosition(arg) unconditionally
+0x9,MSG_CONTAINER_STATE,arg 1: homePos = pos
+0x15,MSG_HELD_STATE_BEGIN,target msg 0x3F arg 1
+0x16,MSG_HELD_STATE_END,target msg 0x3F arg 0
+0x17,MSG_QUERY_HELD_ACTION,0x10 / 0x12 by SWITCHONOFF; 0 if no target or target answers 0x71
+0x55,MSG_CHECKPOINT_ROLLBACK,Reset

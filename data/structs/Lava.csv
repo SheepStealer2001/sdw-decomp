@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x64,s16,range,"PROPERTY_LAVA_RANGE (prop 0, PROPSIZE_LAVA 4): half-width of the square XZ area around homePos in which each new eruption is placed. Read with movsx and negated for the two Rand_Range bounds.",verified
+0x66,Vec3s,homePos,"The placed position after the conditional snap to ground; every eruption is re-seated at homePos plus a random XZ offset within +/-range, with the vertical offset hard-coded to 0. The offset census over 0x4d1010-0x4d1177 shows the class has no other fields.",verified

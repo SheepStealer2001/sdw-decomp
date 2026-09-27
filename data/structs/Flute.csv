@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x7c,InlineEmitter16,noteFx,"16-slot music-note emitter with inline storage: the factory sets slotPool = +0xa0, particles = +0x160, count (+0x9d) = 0x10; flags +0x9e bit 0 = active",verified
+0x1e0,ScnObject *,sam,first Sam (class 1) found by Scenaric_FindByClass at Init; receives msg 0x481 within 300 units; NULL disables every effect (and the 0x1D broadcast),verified
+0x1e4,Vec3s,homePos,spawn position (Init; msg 9 arg 1); Reset returns here when IN_WORLD,verified
+0x1ea,u16,playSound,"handle of the tune 0x25 (LOOP|POSITIONAL|NO_RETRIGGER), started by msg 0x15; stopped by every Flute_SetState",verified
+0x1ec,u8,state,"FluteState: 0 world, 1 held (silent; notes in flight age out), 2 playing",verified
+0x1ed,u8[3],pad1ed,tail padding to sizeof 0x1f0,inferred

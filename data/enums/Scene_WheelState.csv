@@ -1,0 +1,8 @@
+value,name,meaning
+#,Scene_WheelState,state field of Scene_Wheel
+0x0,SCENEWHEEL_ST_START,"Update 0: freezes the Wolf, anim PUSH, -> 1 (inferred)"
+0x1,SCENEWHEEL_ST_PUSH,Update 1: on anim end -> 3 (inferred)
+0x2,SCENEWHEEL_ST_UNUSED_2,written once by Update; no case (inferred)
+0x3,SCENEWHEEL_ST_SETUP,"Update 3: target angle from index, -> 4 (inferred)"
+0x4,SCENEWHEEL_ST_SELECT,Update 4: left/right turn the wheel (msg 0x6180 to DaffyWheel) (inferred)
+0x5,SCENEWHEEL_ST_CONFIRM,"Update 5: releases the Wolf, level exit or save UI (inferred)"

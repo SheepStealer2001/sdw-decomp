@@ -1,0 +1,13 @@
+value,name,meaning
+#,SeedMsg,messages handled and sent by Seed_HandleMessage 0x4ea560
+0x2,MSG_QUERY_ACTION,4 CTX_PICKUP for the Wolf or a Robot (no state check)
+0x4,MSG_PICKUP,"attach to sender joint arg, state 2"
+0x5,MSG_DROP,detach to arg pos; drop flag bit 0 gives state 3 (plant)
+0x7,MSG_INVENTORY_STORED,state 1 and flags |= 8 (SCN_OF_KEPT): the seed is committed the moment it enters the inventory
+0x9,MSG_CONTAINER_STATE,state 0; arg 1 also sets homePos
+0x15,MSG_HELD_STATE_BEGIN,returns 1
+0x17,MSG_QUERY_HELD_ACTION,0x18 HELD_SEED_PLANT when the sender's pos is inside a BOXES box (3-axis)
+0x3c,MSG_TIMEMACHINE_SWAP_OUT,"relocate g_pSheepOutOfZone / Gossamer out of the present tree boxes, then Tree msg 0x3300"
+0x55,MSG_CHECKPOINT_ROLLBACK,"back to homePos, state 0"
+0x3280,MSG_SEED_QUERY_TREE_POS,from Tree: planted seed returns the XZ centre of its box at the seed's height
+0x3281,MSG_SEED_QUERY_ARRIVAL,"from TimeMachineSphere state 8: box corner for the Wolf (max) or Gossamer (min), y = seed - 20"

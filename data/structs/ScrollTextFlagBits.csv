@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x0,s32:1,open,g_scrollTextFlags 0x6ddf10 bit 0: the player took over the paging with the action button (ScrollText_Run sets it with or 1 at 0x532ae8); read signed shl 0x1f / sar 0x1f (0x532a5a),verified
+0x0,s32:1,closed,bit 1: the player closed the text (or 2 at 0x532b66); cleared with and -3 (0x532a15),verified
+0x0,s32:1,hasPrev,"bit 2: a previous page exists (Text_PageStep, and -5 / shl 2 at 0x532766); read shl 0x1d / sar 0x1f (0x5327e1)",verified
+0x0,s32:1,hasNext,"bit 3: a next page exists (Text_PageStep, and -9 / shl 3 at 0x532794); read shl 0x1c / sar 0x1f (0x5327b7)",verified
+0x0,s32:1,pageTurned,bit 4: a page was turned this call (ScrollText_Run and -0x11 / shl 4 at 0x532c16; cleared at 0x532994),verified

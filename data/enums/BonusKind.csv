@@ -1,0 +1,6 @@
+value,name,meaning
+#,BonusKind,
+0x0,BONUS_KIND_IMAGES,g_bonusEntries[].kind 0 opens the image viewer (screen 6)
+0x1,BONUS_KIND_1,no case in BonusManager::Update (inferred)
+0x2,BONUS_KIND_SCENE,kind 2: SetSceneExitTarget(payload) and level exit
+0x3,BONUS_KIND_TEXT,kind 3: scroll text of payload[0]

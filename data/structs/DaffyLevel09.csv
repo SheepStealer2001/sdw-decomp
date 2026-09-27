@@ -1,0 +1,31 @@
+offset,ctype,name,meaning,confidence
+0x7c,TrajFollower,walkOut,"follower for the TRAJ path, started by SetState(3) with speed 0x145, bias 0x800, arrive radius 0x32 (0x43aec5); stepped in state 3",verified
+0x9c,TrajFollower,walkBack,"follower for the TRAJRET path, started by SetState(6) (0x43afa6); stepped in state 6",verified
+0xbc,Trajectory *,traj,PROPERTY_DAFFYLEVEL09_TRAJ trajectory (Scn_GetPropTrajectory 0x43a1f4); the walk to the sign,verified
+0xc0,Trajectory *,trajRet,PROPERTY_DAFFYLEVEL09_TRAJRET trajectory (0x43a20b); the walk back,verified
+0xc4,ScnObject *,swirlSign,the level's SwirlSign (Scenaric_FindByClass(89) 0x43a1e4). Queried with msg 0x3081 (= sign still on face 0) and flipped with msg 0x3d in state 5,verified
+0xc8,ScnObject *,elmer,the level's Elmer (Scenaric_FindByClass(90) 0x43a0c0); looked up but not read by this class,verified
+0xcc,u8,state,"0 holding the placard, 1 intro cinematic, 2 disguise cinematic, 3 walk out along TRAJ, 4/5 flip animations, 6 walk back, 7 idle facing Ralph (DaffyLevel09_SetState 0x43ac7f)",verified
+0xd0,CamSetup *,camera,PROPERTY_DAFFYLEVEL09_CAMERATRAJ camera record (Scn_GetPropCamera 0x43a189); its Vec3s at +8 is the eye position of the state-3 scripted camera,verified
+0xd4,u16,camRotX,"pitch of the state-3 scripted camera: atan2(dVert, sqrt(dx*dx+dz*dz)) in 4096ths, masked 0xfff (0x43a981)",verified
+0xd6,u16,camRotY,"yaw of the state-3 scripted camera: atan2(-dx, dz) in 4096ths, masked 0xfff (0x43a9cd)",verified
+0xdc,s32,wolfFrozen,"non-zero while this object holds the Wolf's UI freeze (msg 0xe reply, 0x43aeee); released with msg 0xf, and cleared by Reset and by msg 0xe",verified
+0xe0,u32,unke0,cleared by PostLoadInit (0x43a30e) and never read anywhere in the class,verified
+0xe4,Vec3s,homePos,"placed position, copied after SnapToGround (0x43a281); Reset teleports back to it",verified
+0xea,u16,soundHandle,"handle of sound 0x6a started when the placard goes up (0x43b1d5); cleared by PostLoadInit and Reset, never stopped",verified
+0xec,Box *,cineBox,PROPERTY_DAFFYLEVEL09_CINEBOX (0x43a10c); Cine_Start argument 3,verified
+0xf0,Box *,cineSheepBox,PROPERTY_DAFFYLEVEL09_CINESHEEPBOX (0x43a172); Cine_Start argument 4,verified
+0xf4,Box *,activationBox,PROPERTY_DAFFYLEVEL09_ACTIVATIONBOX (0x43a123); in state 7 Ralph inside it starts the intro cinematic,verified
+0xf8,ZoneList,deguisBoxes,PROPERTY_DAFFYLEVEL09_BOXDEGUIS id list (0x43a15f): in state 7 Ralph inside one of them while wearing model set 4 runs the disguise branch,verified
+0x100,u32,cine,PROPERTY_DAFFYLEVEL09_CINE (0x43a0e1); played by state 1,verified
+0x104,u32,cineDeguis,PROPERTY_DAFFYLEVEL09_CINEDEGUIS (0x43a100); played by state 2,verified
+0x108,u32,cineFlag,PROPERTY_DAFFYLEVEL09_CINEFLAG (0x43a235); Cine_Start argument 2 for state 1,verified
+0x10c,u32,cineDeguisFlag,PROPERTY_DAFFYLEVEL09_CINEDEGUISFLAG (0x43a254); Cine_Start argument 2 for state 2,verified
+0x110,s32,placardTimeMs,ms left with the placard up: set to 2000 by msg 0 (0x43ab91) and counted down by g_dtMs in state 0; on expiry the Wolf is unfrozen and the scripted camera released,verified
+0x114,u32,cinePlayed,latched when any of this object's cinematics has run; blocks the ACTIVATIONBOX trigger in state 7 (0x43a61c),verified
+0x118,u32,deguisCinePlayed,"latched when the disguise branch has run once (0x43a717, 0x43a7e2); afterwards state 7 goes straight to the walk-out",verified
+0x11c,u8,cineText,PROPERTY_DAFFYLEVEL09_CINETEXT (0x43a1b3); the index passed to Text_GetClassString for state 1's dialogue,verified
+0x11d,u8,cineTextDeguis,PROPERTY_DAFFYLEVEL09_CINETEXTDEGUIS (0x43a1d2); the same for state 2,verified
+0x120,ScnBody,placard,a second body constructed in place by the factory (0x43b280) and initialised from a synthesised record (0x43a2c1): the sign Daffy holds up. Rendered only in state 0,verified
+0x184,u16[10],placardRecord,"the 0x14-byte WAR record synthesised by Scn_BuildRecordFromExport(2, ...) for the placard (0x43a2a9)",verified
+0x198,u32,placardValid,1 when the synthesised record resolved and the placard body was initialised (0x43a2d9),verified

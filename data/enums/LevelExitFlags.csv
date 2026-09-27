@@ -1,0 +1,7 @@
+value,name,meaning
+#,LevelExitFlags,g_levelExitFlags
+0x1,LEVEL_EXIT_NEXT,Cine::Finish (CINE_LEVEL_EXIT) and Fade_Update set it; Level_ExitUpdate finishes the level
+0x2,LEVEL_EXIT_DEMO,Scene_Wheel sets it; Level_ExitUpdate starts the attract demo
+0x4,LEVEL_EXIT_TO_MENU,PauseMenu_Exit sets it; Level_ExitUpdate calls Level_FinishScene(0)
+0x10,LEVEL_EXIT_TRANSITION,Transition_Start sets it; tested by Level_ExitUpdate (inferred)
+0x20,LEVEL_EXIT_RESTART,PauseMenu_Exit sets it; Level_ExitUpdate calls RestartScene

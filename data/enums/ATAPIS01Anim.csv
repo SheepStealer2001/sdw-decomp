@@ -1,0 +1,6 @@
+value,name,meaning
+#,ATAPIS01Anim,animation ids of WAR model ATAPIS01 (its WAR type-0x86 table; names verified from the level files). Played by: RollingCarpet
+0x0,ATAPIS01_ANIM_STAND,WAR name STAND
+0x1,ATAPIS01_ANIM_RUN,WAR name RUN
+0x2,ATAPIS01_ANIM_RUNF,WAR name RUNF
+0x3,ATAPIS01_ANIM_WALK,WAR name WALK

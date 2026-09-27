@@ -1,0 +1,24 @@
+value,name,meaning
+#,CameraMode,Values of g_camMode 0x6e4383 as dispatched by Camera_Update (jump table 0x55a6d9). Requesters come from the Wolf state descriptor byte [3] dump and Robot_UpdateCamera 0x45e62e.
+0,CAM_FOLLOW,Normal follow (Camera_UpdateFollow); 194 Wolf states; dist 610
+1,CAM_LOOK,"First-person look on the view button (Camera_UpdateLook), dist 0"
+2,CAM_FOLLOW_RUN,"Camera_UpdateFollow with run parameters (dist 370, focal 230); WOLF_ST_RUN_START/RUN/RUN_AIR"
+3,CAM_ROCKET,Camera_UpdateRocket; WOLF_ST_ROCKET_FLY/ROCKET_CRASH
+4,CAM_FIXED_LOOKAT,"Camera_UpdateFixedLookAt, eye frozen; DIE_BLOWN_AWAY, ROCKET_MOUNT, ROCKET_IGNITE"
+5,CAM_DIRECTED,"Camera_UpdateDirected; Wolf descriptor values 0xD..0x14 (elastic pull, cover, sidle, fishing, deaths, caught by Sam)"
+6,CAM_ROBOT,"Camera_UpdateFollow with dist 230 / focal 284; set by Robot_UpdateCamera 0x45e62e (Camera_SetMode(6,0))"
+7,CAM_SCRIPTED,static scripted pose (Camera_UpdateScriptedHold)
+8,CAM_SCRIPT_RETURN,1 s eased return from a script (Camera_UpdateScriptReturn)
+9,CAM_SCRIPT_BLEND_IN,eased blend from follow into a script (Camera_UpdateScriptBlendIn)
+10,CAM_SCRIPT_TO_SCRIPT,eased blend between scripts (Camera_UpdateScriptToScript)
+11,CAM_ORBIT_UNUSED,Has a parameter record but Camera_Update never dispatches it; its update 0x5591f2 is unreferenced
+12,CAM_SAM_CHASE,Level-1 Sam chase camera (Camera_UpdateSamChase)
+0xd,CAM_REQ_DIR_BEHIND,"Wolf::UpdateCamera req 0xd: mode 5, no pad rotation, yaw behind the facing"
+0xe,CAM_REQ_DIR_COVER,"req 0xe: restriction on, yaw from the cover target side"
+0xf,CAM_REQ_DIR_CLIMB,req 0xf: pitch follows vertical velocity (0xd56 up / 0x2aa down)
+0x10,CAM_REQ_DIR_HIGH,req 0x10: pitch 0x200
+0x11,CAM_REQ_DIR_FRONT,"req 0x11: faces the Wolf, aim 300 ahead, pitch 0x2aa"
+0x12,CAM_REQ_DIR_HOLD,req 0x12-0x14: keep the current camera rotation
+0x13,CAM_REQ_DIR_HOLD2,req 0x13 (same case as 0x12)
+0x14,CAM_REQ_DIR_HOLD3,req 0x14 (same case as 0x12)
+0xff,CAM_REQ_NONE,camOverride 0xff: use the state descriptor's camMode (Wolf::UpdateCamera)

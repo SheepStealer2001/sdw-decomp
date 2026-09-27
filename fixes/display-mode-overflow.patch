@@ -1,0 +1,32 @@
+The game does not start with several large displays attached (the launcher never appears)
+
+Before the launcher opens, the game lists every display mode each display offers (D3DEnum_DisplayModeCallback 0x40600d,
+called by DirectDraw for D3DEnum_DDrawDeviceCallback 0x4062e5) into a table of 100 modes, with no limit. That table is
+inside a D3DDeviceInfo on the stack of D3DEnum_DDrawDeviceCallback, so the 101st mode lands on the table's own count and
+every later one is written further up the stack, over that frame's pointers and return address and over its callers'.
+DirectDraw offers each resolution once per depth (32, 16 and 8 bits), so a display with more than about 33 resolutions
+overflows it. A 6K monitor running scaled offers 38; a MacBook's built-in screen offers 22, which is why the game
+starts with the laptop alone and not with the monitors attached.
+
+This fix keeps only the depths the game's devices can render (16, 24 and 32 bits: D3DEnum_D3DDeviceCallback drops the
+rest anyway) and stops at the table's 100 entries. The launcher lists the same modes as before.
+
+Files: src/app/d3dapp.cpp (D3DEnum_DisplayModeCallback).
+
+diff --git a/src/app/d3dapp.cpp b/src/app/d3dapp.cpp
+index 2571366..05a433c 100644
+--- a/src/app/d3dapp.cpp
++++ b/src/app/d3dapp.cpp
+@@ -805,6 +805,12 @@ HRESULT __stdcall D3DEnum_DisplayModeCallback(DDSURFACEDESC2 *pddsd, void *pCont
+ {
+     /* cast kept: the enumeration context is the D3DDeviceInfo the caller passed */
+     D3DDeviceInfo *pInfo = (D3DDeviceInfo *)pContext;
++    /* FIX display-mode-overflow: the table holds 100 modes and the caller's copy of it is on its stack, so a display
++     * offering more overwrote that frame and its callers'. Only the depths the game's devices render (16, 24, 32 bits)
++     * are kept, and none past the table's end. */
++    DWORD bits = pddsd->ddpfPixelFormat.dwRGBBitCount;
++    if ((bits != 16 && bits != 24 && bits != 32) || pInfo->modeCount >= 100)
++        return DDENUMRET_OK;
+     MODES(pInfo)[pInfo->modeCount] = *pddsd;
+     pInfo->modeCount++;
+     return DDENUMRET_OK;

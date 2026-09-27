@@ -1,0 +1,12 @@
+offset,ctype,name,meaning,confidence
+0x0,Trajectory *,path,"the Trajectory it follows ({u16 count; Vec3s pts[count]}): PathFollower_Start 0x546ee3 reads pts[0] (+2/+4/+6); PathFollower_Step 0x546fb3 compares toIdx with count - 1. bipbip_PostLoadInit stores the first entry of the TRAJECTORY / TRAJ_WALL id list (0x4993e1, 0x4993fd)",verified
+0x4,s32,speed,units per second: PathFollower_Start's argument (0x546ed4); 0x546c8e turns segment length * 1000 / speed into the rate. bipbip sets it to SPEED_TWO after the first segment (0x499897),verified
+0x8,Vec3s,pos,"the current position: Vec3s_LerpToTarget(&pos, points[fromIdx], t) every step (0x546f64); bipbip moves itself there (SetPosition 0x49992c) and draws its tunnel image from the wall path's one (0x499ac7)",verified
+0xe,Vec3s,segEnd,"the point the current segment runs to: points[toIdx], or with smooth set the halfway point towards points[toIdx+1] (0x546cf8, 0x546d19-0x546d4f)",inferred
+0x14,Vec3s,segStart,"points[fromIdx], copied by Start and by Step when it moves to the next segment (0x546eec-0x546f0c, 0x547013-0x547049)",verified
+0x1a,u16,heading,"12-bit heading of the current segment, from atan2 in 0x546c8e (& 0xfff); bipbip faces it (0x499913)",verified
+0x1c,u16,smooth,"1 = cut corners through the halfway point (0x546c9a movzx/cmp 1); zeroed by Start and on every new segment (0x546eda, 0x546ff6)",verified
+0x1e,u16,fromIdx,"index of the segment's start point: 0 from Start, +1 per segment (0x546ebf, 0x546fd2)",verified
+0x20,u16,toIdx,"index of the segment's end point: 1 from Start, +1 per segment; Step returns 2 instead of advancing when it is count - 1 (0x546ec8, 0x546fac-0x546fbd). bipbip leaves the road for the wall when it reaches count - 1 (0x4998a0)",verified
+0x22,u16,rate,t per 1024 ms: 0x400000 / (segment ms) from 0x546c8e; t += rate * g_dtMs / 1024 per step (0x546f76-0x546f8a); 0 at the end of the path. bipbip copies the road's to the wall path (0x499909),verified
+0x24,s16,t,"progress along the segment, 0..0x1000 (0x546f6f-0x546f9d)",verified

@@ -1,0 +1,3 @@
+value,name,meaning
+#,ALANGUE1Anim,animation ids of WAR model ALANGUE1 (its WAR type-0x86 table; names verified from the level files). Played by: Scene_Wheel
+0x0,ALANGUE1_ANIM_PUSH,WAR name PUSH

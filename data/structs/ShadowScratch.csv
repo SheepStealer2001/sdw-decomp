@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,Vec3i,tangent,"(n.y, -n.x, 0) scaled to the shadow radius by Vec3i_SetLength (Shadow_Update 0x472617-0x472659)",verified
+0x10,Vec3i,bitangent,normal x tangent (Vec3i_Cross out at +0x10: 0x472664),verified
+0x20,Vec3i,normal,the ground normal widened to s32 (0x472636-0x47264a),verified

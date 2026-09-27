@@ -1,0 +1,12 @@
+offset,ctype,name,meaning,confidence
+0x0,u32,color,24-bit RGB tint; passed through Color_RgbToBgr (which also zeroes the alpha byte) into all four vertex colours,verified
+0x4,u8,u,U origin of the sub-rect within the 256-pixel texture page,verified
+0x5,u8,v,V origin of the sub-rect,verified
+0x6,u8,wMinus1,sub-rect width minus 1 in texels; used as both the offset and the size argument of Tex_CornerUV on the U axis,verified
+0x7,u8,hMinus1,sub-rect height minus 1 in texels,verified
+0x8,u16,drawFlags,"flag word whose bits 6..8 (mask 0x01C0) hold a 0..7 fade/alpha level set by UiIcon_SetFadeLevel; not read by UiQuad_Draw itself, so the consumer is elsewhere in the interface module",verified
+0xa,u16,texIndex,texture/poly index passed as Draw2D_TexRect's texIndex argument (the same space as RenderPoly.type minus 4),verified
+0xc,s16,x,"left edge in the 512x240 virtual HUD space, fed to Screen_ScaleX",verified
+0xe,s16,y,"top edge in virtual HUD space, fed to Screen_ScaleY",verified
+0x10,s16,w,width in virtual HUD units; x1 = x + w. Made negative by UiQuad_Mirror to flip horizontally,verified
+0x12,s16,h,height in virtual HUD units; y1 = y + h. Made negative by UiQuad_Mirror to flip vertically,verified

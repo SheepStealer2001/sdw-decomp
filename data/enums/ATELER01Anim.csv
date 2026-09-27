@@ -1,0 +1,5 @@
+value,name,meaning
+#,ATELER01Anim,animation ids of WAR model ATELER01 (its WAR type-0x86 table; names verified from the level files). Played by: RemoteControl
+0x0,ATELER01_ANIM_OBJET,WAR name OBJET
+0x1,ATELER01_ANIM_LINK,WAR name LINK
+0x3,ATELER01_ANIM_ELECTR1,WAR name ELECTR1

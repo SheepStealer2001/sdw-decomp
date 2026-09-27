@@ -1,0 +1,14 @@
+offset,ctype,name,meaning,confidence
+0x7c,u8,state,current scene state (Update dispatches on it),verified
+0x7d,u8,nextState,pending state,verified
+0x89,u8,cameraCount,number of speech cameras in speechCameras,verified
+0x8a,u16,chatterCount,chatter counter,verified
+0x8c,u16,talkTimer,talk timer,verified
+0x90,char *,text,current subtitle text,verified
+0x94,void *,properties,the designer property record,verified
+0x98,CamSetup *[5],speechCameras,Scn_GetPropCamera results,verified
+0xac,CamSetup *,activeCamera,camera of the current speech,verified
+0xb0,s32,wolfFrozen,1 while the scene holds Ralph frozen,verified
+0xb4,u32,voice,current voice id,verified
+0xb8,ScnObject *[3],crowds,the Crowd objects of the scene,verified
+0xc4,u8,crowdCount,entries in crowds,verified

@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x7c,u8,state,"0 intro (start both scripted cameras, anim 0x27, go to 2), 1 play anim 0x29 then 2, 2 play anim 0x28 then 1. Each transition out of 1/2 waits for the animation to reach its last key AND for g_camMode to leave the three script-blend modes 8/9/0xA.",verified
+0x7e,u16,unk7e,"Cleared by Reset and again when msg 0x6182 re-arms the camera; no reader in the class, and the class is only ever addressed through Scenaric_SendToClass(187).",verified
+0x80,u8[8],unk080,"Eight bytes the class never reads or writes: ScnMobile ends at 0x7c, own accesses are only +0x7c, +0x7e, +0x88 and +0x8c, and obj_size is 0x90. Carried explicitly so the size assert reproduces.",verified
+0x88,CamSetup *,camShot,"Camera setup {u16 focal; u16 rot[3]; Vec3s pos} from PROPERTY_DAFFYWHEEL_IDCAMERA (4), used for the main wheel camera; chained with CamScriptFlags 4 and blend 0x4800 (0x1000 when msg 0x6182 re-chains it).",verified
+0x8c,CamSetup *,camShotBegin,"Camera setup from PROPERTY_DAFFYWHEEL_IDCAMBEGIN (0), used for the opening shot in state 0 with CamScriptFlags 2 (blend out) and blend 0x1000.",verified

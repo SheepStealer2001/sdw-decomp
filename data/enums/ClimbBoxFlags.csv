@@ -1,0 +1,5 @@
+value,name,meaning
+#,ClimbBoxFlags,Box.flags of a CLIMBBOXES zone (Wolf::climbZones)
+0x2000000,CLIMB_F_ALL_AXES,Wolf::ClimbStep: box->flags & 0x2000000 -> work.axes = 7 (inferred)
+0x4000000,CLIMB_F_WALKABLE,ScanContextActions: context 0x11 instead of 0xf; ClimbBoxWalkStep leaves when the box lacks it (inferred)
+0x78000000,CLIMB_DIR_MASK,Wolf::ClimbStep: g_wolfClimbDirTable[(flags & 0x78000000) >> 27] (bits 27-30 are a direction field)

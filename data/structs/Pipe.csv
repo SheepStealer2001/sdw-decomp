@@ -1,0 +1,23 @@
+offset,ctype,name,meaning,confidence
+0x64,CollBox *[2],mouths,name and access width as src/objects/pipe.cpp uses the field,verified
+0x6c,ZoneList,movementZones,name and access width as src/objects/pipe.cpp uses the field,verified
+0x74,CollBox,workBox,"16-byte scratch Box, loaded THREE times per state-4 pass: the scanned mouth, then pos+myBox (which feeds pipeCentre), then the chosen exit mouth (0x4db1a8) which feeds exitPos and exitBoxSpan",verified
+0x94,CollBox *,modelBox,name and access width as src/objects/pipe.cpp uses the field,verified
+0x98,ScnObject *,ball,name and access width as src/objects/pipe.cpp uses the field,verified
+0x9c,Vec3s,entryPos,name and access width as src/objects/pipe.cpp uses the field,verified
+0xa2,Vec3s,launchDir,name and access width as src/objects/pipe.cpp uses the field,verified
+0xa8,Vec3s,exitPos,name and access width as src/objects/pipe.cpp uses the field,verified
+0xae,Vec3s,centerPos,name and access width as src/objects/pipe.cpp uses the field,verified
+0xb4,s32,forbidX,name and access width as src/objects/pipe.cpp uses the field,verified
+0xb8,s32,forbidZ,name and access width as src/objects/pipe.cpp uses the field,verified
+0xbc,s32,pushedThisFrame,set 1 by every accepted push (0x4dc203) but cleared ONLY while state == 1 — 0x4dbea7 jne skips the 0x4dbf77 store — so in states 0/3/4 the flag survives the frame,verified
+0xc0,u8,occupied,name and access width as src/objects/pipe.cpp uses the field,verified
+0xc1,u8,armed,name and access width as src/objects/pipe.cpp uses the field,verified
+0xc2,u8,mouthIndex,name and access width as src/objects/pipe.cpp uses the field,verified
+0xc3,u8,objectIndex,name and access width as src/objects/pipe.cpp uses the field,verified
+0xc4,u8,pipeState,name and access width as src/objects/pipe.cpp uses the field,verified
+0xc5,u8,exitAxis,name and access width as src/objects/pipe.cpp uses the field,verified
+0xc8,s32,exitBoxSpan,"Vec3s_DistXZ of the EXIT activation box's min/max, not of the pipe's own collision box - workBox is reloaded with the exit mouth at 0x4db1a8-0x4db1ee before the 0x4db2ec call. An eighth of it insets entryPos. Matches Pipe2 +0x118",verified
+0xcc,u32,launchDelay,name and access width as src/objects/pipe.cpp uses the field,verified
+0xd0,u32,launchStart,name and access width as src/objects/pipe.cpp uses the field,verified
+0xd4,u16,soundHandle,"handle of the push rumble (Sound_Play 0x106, vol 0xff, flags 2 — the 4th argument is SoundPlayFlags, not a priority). NB Pipe_Reset zeroes +0xd4 at 0x4dc40f before reading it at 0x4dc41b, so its Sound_Stop gets handle 0 and does not stop the loop",verified

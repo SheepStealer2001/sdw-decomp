@@ -1,0 +1,8 @@
+value,name,meaning
+#,SensibleButtonMsg,Messages handled by SensibleButton_HandleMessage 0x4f044c (sender must be non-NULL) and sent by its Update.
+0x2,MSG_QUERY_ACTION,-> 0x27 SHEEP_ATTR_BUTTON to any sender (0 for TYPE 14): buttons are sheep attractors. The Wolf never sends msg 2 to a button (registry flag 1 is clear)
+0x1f,MSG_SWITCH_ON,"sent every frame while occupied, arg = occupants[4]"
+0x20,MSG_SWITCH_OFF,"sent every frame while empty, arg 0"
+0x43,MSG_TELEPORTED,returns 1 (senders 0x4b3664 / 0x4b38db; meaning unknown)
+0x4d,MSG_BUTTON_LOCK,arg 1: lock and show pressed; else unlock and show up
+0x1000,MSG_BUTTON_REVEAL,"enable, show, return home (senders GossamerBoss_Update 0x44f54b, 0x4746c3)"

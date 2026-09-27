@@ -1,0 +1,4 @@
+value,name,meaning
+#,CamSweepSide,Camera_SweepEyeBox work sideFlags
+0x1,CAMSIDE_RIGHT,"Camera_SweepEyeBox: DOT(right, sideDelta) > 0 -> |= 1"
+0x2,CAMSIDE_LEFT,else -> |= 2

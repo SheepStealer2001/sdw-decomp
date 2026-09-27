@@ -1,0 +1,11 @@
+offset,ctype,name,meaning,confidence
+0x7c,ContactInfo,contact,"Collide_ResolveMove output while falling (state 1); floorObj +0x7c, movableObj +0x84",verified
+0x98,CollBox,collBox,"private collision box for the fall: min (-10,-20,-10), max (10,0,10) (MineDetector_InitCollBox); flags word not written",verified
+0xa8,Vec3s,homePos,spawn position (Init after snap; msg 9 arg 1 = container release); Reset returns here,verified
+0xae,u16,scanSound,handle of the scanning sound 0x102; stopped by every SetState,verified
+0xb0,s32,reading,distance to the selected mine in world units (<= 200 shows on the gauge); INT_MAX = nothing,verified
+0xb4,u8,state,MineDetectorState,verified
+0xb5,u8,regionCount,"number of registered region GroundMines (msg 0x2280, max 4); zeroed only in MineDetector_Create",verified
+0xb6,u8:1,scanning,"bit 0 of the flag byte +0xb6, a one-bit field (byte bitfield operations at 0x4d828e/0x4d8418): bit 0 = scanning (set on entering state 3, cleared by msg 0x16/Reset/Init); enables the msg 0x10 carry-animation switch",verified
+0xb7,u8,padB7,padding,inferred
+0xb8,ScnObject *[4],regions,region-mode GroundMines that registered with msg 0x2280; each is asked msg 0x5a (ray distance) every scanning update,verified

@@ -1,0 +1,23 @@
+offset,ctype,name,meaning,confidence
+0x0,void *,vtbl,InputMgr_vtbl 0x577138,verified
+0x4,u8,axisX,stick X 0..255 (0x80 centre),verified
+0x5,u8,axisY,stick Y 0..255 (0x80 centre),verified
+0x6,u16,padBits,PS1-layout active-low pad word built by InputMgr_Poll (0x1000 Triangle ... 0x0001 Select),verified
+0x8,u16,menuNav,"arrow-key nav word with auto-repeat (0xffef up, 0xffbf down, 0xffdf right, 0xff7f left; 0xffff none)",verified
+0xa,u8,pausePressed,Pause or P pressed this frame (edge),verified
+0xb,u8,escPressed,Esc pressed this frame (edge),verified
+0xc,u8,enterPressed,Enter pressed this frame (edge),verified
+0x10,s32,navRepeatMs,"auto-repeat countdown: 500 first, then 125",verified
+0x14,Keyboard *,keyboard,,verified
+0x18,Joystick *,joystick,,verified
+0x1c,Mouse *,device3,"the mouse device: ctor 0x409e90 (vtable 0x574334, deviceKind 4). InputMgr passes 12 buttons (push 0xc at 0x527c97) but the ctor caps the count at 4 (cmp ecx,4 / jle at 0x409eac).",verified
+0x20,u8,presentMask,"1 keyboard, 2 joystick, 4 third",verified
+0x24,InputDevice *,current,device read by InputMgr_Poll,verified
+0x28,InputBinding *,bindings,current binding table: &padTable or &keyTable,verified
+0x2c,InputDevice *,preferred,device to return to when it responds again,verified
+0x30,InputBinding[16],padTable,16 x {InputDevice *dev; u16 code; u16 pad} for the pad,verified
+0xb0,InputBinding[16],keyTable,16 x binding for the keyboard,verified
+0x130,u16,lastNav,previous nav value for the auto-repeat (u16: InputMgr_Poll compares it with movzx at 0x528a96),verified
+0x132,u8,pausePrev,,verified
+0x133,u8,escPrev,,verified
+0x134,u8,enterPrev,,verified

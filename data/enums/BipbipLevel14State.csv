@@ -1,0 +1,10 @@
+value,name,meaning
+#,BipbipLevel14State,state field of BipbipLevel14
+0x0,BIPBIP14_ST_EAT,"SetState 0: anim EAT at startPos, route follower initialised; Update: -> 1 when the Wolf is within ~1200 (inferred)"
+0x1,BIPBIP14_ST_START,SetState 1: anim START; Update: on anim end -> 2 (inferred)
+0x2,BIPBIP14_ST_RUN,"SetState 2: anim RUN1 + sound 0x136; Update: runs, stops at a shut FallingGate (3) (inferred)"
+0x3,BIPBIP14_ST_RUN_ROUTE,"SetState 3: anim RUN1 + sound 0x136; Update: follows gotoFollower, -> 6 when the Wolf is close and no gate is shut (inferred)"
+0x4,BIPBIP14_ST_WAIT,SetState 4: anim STAND; Update: waits waitLeftMs then goes to stateAfterWait (inferred)
+0x5,BIPBIP14_ST_STOP_AT_STATION,"SetState 5: anim STOP2; Update: sets chased, -> 1 when the train station reports no train in the zone (inferred)"
+0x6,BIPBIP14_ST_STAND_WATCH,"SetState 6: sound stopped, anim STAND; Update: -> 1 near, -> 3 far (inferred)"
+0x7,BIPBIP14_ST_RETURN,"SetState 7: anim RUN1; Update: follows returnFollower back to startPos, then 0 (inferred)"

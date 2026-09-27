@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,float,x,,verified
+0x4,float,y,vertical points down,inferred
+0x8,float,z,,inferred

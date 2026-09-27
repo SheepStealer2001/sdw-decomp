@@ -1,0 +1,10 @@
+offset,ctype,name,meaning,confidence
+0x0,void **,vtable,"0x57441C for the abstract base, 0x574458 for StaticSound, 0x57449C for StreamSound. 15 slots.",inferred
+0x4,u8,looping,1 = pass DSBPLAY_LOOPING to IDirectSoundBuffer::Play. Also switches Sound_SetBufferPosition to fractional-wrap mode and makes StreamSound_ReadOrPadSilence rewind instead of padding silence.,inferred
+0x8,WaveFile *,wave,The source .WAV reader. Deleted through its own vtable slot 0 when waveIsExternal == 0.,inferred
+0xc,u8,waveIsExternal,"1 = the WaveFile belongs to somebody else, do not delete it. Set to 1 by both ctors and by CreateFromWave; only CreateFromFile clears it.",inferred
+0x10,IDirectSoundBuffer *,buffer,The secondary buffer. Released (vtbl+8) by every teardown path; NULL means the sound is not created.,inferred
+0x14,u32,bufferBytes,DSBUFFERDESC.dwBufferBytes. For StaticSound it is the whole data chunk; for StreamSound it is notifySize * nNotifications and is the modulus for writeOffset.,inferred
+0x18,s32,volumeCb,"Current attenuation in centibels, -6000..0. Initialised to -3000 by both derived ctors.",inferred
+0x1c,s32,panCb,"Current pan in centibels, -10000..+10000 (DSBPAN_LEFT..DSBPAN_RIGHT).",inferred
+0x20,u32,baseFrequency,"Sample rate. Filled by IDirectSoundBuffer::GetFrequency right after creation (StaticSound only), and overwritten by Sound_SetBufferFrequency with the requested rate.",inferred

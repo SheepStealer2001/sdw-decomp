@@ -1,0 +1,13 @@
+offset,ctype,name,meaning,confidence
+0x4,s32,mirrorRenderFlag,absolute address 0x6d6fe4 (g_screen 0x6d6fe0 + 4),verified
+0x8,u16,mirrorRenderOn,absolute address 0x6d6fe8 (g_screen 0x6d6fe0 + 8),verified
+0xa,s16,mirrorPlaneVert2x,absolute address 0x6d6fea (g_screen 0x6d6fe0 + 0xa),verified
+0xc,u16,virtWidth,"virtual screen width, 0x200 (512) written by Screen_Init 0x52a5d9",verified
+0xe,u16,virtHeight,"virtual screen height, 0xf0 (240) written by Screen_Init 0x52a5e2",verified
+0x10,s16,viewportX,"viewport origin x, 0 (Screen_Init 0x52a5a7)",verified
+0x12,s16,viewportY,"viewport origin y, 0 (Screen_Init 0x52a59e)",verified
+0x14,s16,viewportWidth,_ftol(g_pFrustrum->viewportWidth) (Screen_Init 0x52a5be),verified
+0x16,s16,viewportHeight,_ftol(g_pFrustrum->viewportHeight) (Screen_Init 0x52a5d2),verified
+0x80,void *,scratch4,malloc(4) by Screen_Init 0x52a602,verified
+0x84,void *,scratch60,malloc(0x60) by Screen_Init 0x52a615,verified
+0x88,s32,projDist,projection distance; Screen_SetProjection 0x52a751 stores its argument (Screen_Init passes 0x180),verified

@@ -1,0 +1,2 @@
+offset,ctype,name,meaning,confidence
+0x0,s16:10,value,"g_camSamPush (0x6e43f8) low 10 bits, signed: Sam-visibility push counter (mode 0xC, +-5 per frame, halved on release, clamped -30..+40)",verified

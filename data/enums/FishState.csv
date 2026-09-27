@@ -1,0 +1,6 @@
+value,name,meaning
+#,FishState,Fish +0x7c
+0,FISH_ST_WAIT_HOME,at homePos; swims again after 2 not-drawn updates
+1,FISH_ST_SWIM,250 u/s straight on the facing-quadrant axis until XZ distance > DISAPPEAR_DIST
+2,FISH_ST_LEAP,anim 2; at the end translates 489 forward
+3,FISH_ST_LAND,"anim 1 once, then state 0"

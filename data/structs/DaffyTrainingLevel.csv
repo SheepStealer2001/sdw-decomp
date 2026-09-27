@@ -1,0 +1,54 @@
+offset,ctype,name,meaning,confidence
+0x7c,u8,mode,SetMode stores arg 1 (0x43eb70); Update/HandleMessage test it (movzx byte),verified
+0x7e,u8,watchState,SetMode stores arg 2 (0x43eb84); Update switches on it (0..4) driving the Watch,verified
+0x80,Vec3s,savedWolfPos,"SetMode mode 1 copies g_pWolf's +0xc/+0xe/+0x10 here at 0x43ecf2-0x43ed27, and Update restores the Wolf from it at 0x43ef83 `add edx,0x80`. This is the position the 'pWolfRestore' story actually needed",verified
+0x88,s32,wolfMoved,"Reset writes the literal 1 at 0x43e8bd and 0 at 0x43e8cc, Update only tests it against 0 (0x43ef74) and clears it (0x43efad); it is never dereferenced. Boolean 'Daffy has moved the Wolf, put him back'",verified
+0x8c,TextBox,confirmBox,"Update fills text 0x8c, rect 0x98..0x9e, bgColor 0xa0 and passes &this->+0x8c to Ui_DrawTextBox; reads confirmChoice 0x90 (byte) and fits 0x94",verified
+0xac,char *,currentText,"written 0x43d710 (g_trainingEmptyText at 0x43d699), read 0x43d732",verified
+0xb0,u8,wolfFrozen,"set 1 when the Wolf accepts msg 0xe, cleared after msg 0xf (SetMode 0x43ec6a)",verified
+0xb1,u8,confirmTag,DtlConfirmTag: set 1 / cleared 0x43d85b / 0x43d867; 2 while Update shows the yes/no box,verified
+0xb2,u8,cameraNotify,Reset sets 1 (byte); Update sends msg to helpCamera and clears,verified
+0xb3,u8,initNotify,PostLoadInit sets 1/0 (byte); Update notifies helpCamera once,verified
+0xb4,s32,retryPhase,Reset increments and clamps to 1; SetMode mode 2 zeroes,verified
+0xb8,s32,replayingHelp,"set 1 by HandleMessage's MSG_USE arm, cleared by Reset, zeroed by PostLoadInit and by SetMode mode 2",verified
+0xbc,TrainingLineBits,lineFlags,"PostLoadInit clears bit 1, Reset sets it (|=2), Update tests bit 1 at 0x43f046 and clears it at 0x43f09b; Reset also tests bit 0",verified
+0xc0,u32,fromPreviousMask,FROMPREVIOUS property (prop +0x5c = record+0x70; 0x43e30d); Reset tests bit helpIndex,verified
+0xc4,u32,helpCount,"counts the slots whose TRAJECTORY_n resolved, not whose BOX_n resolved - the gate at 0x43e3e0 tests [ebp-8], filled at 0x43e3d9 from Scn_FindIdList on table+4 (=TRAJECTORY). A slot with an unresolved BOX still counts and stores 0 at +0x1c8",verified
+0xc8,u32,helpIndex,current help point; compared unsigned (jbe/ja) in SetMode,verified
+0xcc,u32,trajNodeIndex,index into the current help point's trajectory node list — Reset's walk target is *(this+0x12c+idx*8) + 2 + *(int*)(this+0xcc)*6. Zeroed by PostLoadInit and Reset,verified
+0xd0,u32,savedHelpIndex,Update watch state 1 copies helpIndex,verified
+0xd4,s32,challengeDuration,PostLoadInit: record+0x98 * 100,verified
+0xd8,u32[20],helpTextIds,indexed dword store 0x43e352; low-byte fetch 0x43d6b8,verified
+0x128,TrainingHelpSlot[20],helpSlot,"+0x128+i*8 is TYPE_n (0x43e38a from table+6) and +0x12c+i*8 is the resolved TRAJECTORY_n id list (0x43e42a from table+4), not the BOX. Reset walks it 6 bytes per node",verified
+0x1c8,Box *[20],helpBox,"the resolved BOX_n id-list entry (0x43e35f loads table+2 = BOX; 0x43e412 stores it to this+4*helpCount+0x1c8), 0 when the property did not resolve; not the trajectory",verified
+0x218,Box *,startBox,"Scn_GetPropBox(record,0x7c)",verified
+0x21c,Box *,finishBox,"Scn_GetPropBox(record,0x80)",verified
+0x220,ScnObject *,cameras,"CAMERAS property: Scn_GetPropObject(record,0x50) at 0x43e4b0; msg 0xd00 target",verified
+0x224,ScnObject *,cinematics,"CINEMATICS property: Scn_GetPropObject(record,0x54) at 0x43e50e; msg 0x1400 target",verified
+0x228,u8[2],cameraFlags,PostLoadInit zeroes two bytes,verified
+0x22a,u16,animPhase,Reset/SetMode zero (word); Update idle anim step,verified
+0x22c,u16,initFlag,"DtlJumpPhase: the phase of a hop, read and stepped by MoveTo; set to 1 by PostLoadInit (0x43e297), SetMode's mode-0 arm (0x43ebf7), a finished move and each new help point",verified
+0x230,s32,movementDone,MoveTo sets 1/0,verified
+0x234,u32,lastSpeechMs,SetMode mode 1 stamps it with g_gameTimeMs at 0x43ed8f; Update's idle fallback tests g_gameTimeMs - this >= 0x5dc at 0x43f787,verified
+0x238,u32,currentTime,MoveTo: g_gameTime*1000>>12,verified
+0x23c,u32,lastTargetTime,MoveTo,verified
+0x240,u32,jumpDuration,MoveTo: 400 or Anim_GetDurationMs,verified
+0x244,u8,gait,MoveTo gait of the current target,verified
+0x246,Vec3s,moveStart,MoveTo copies pos,verified
+0x24c,Vec3s,target,MoveTo target x/z words,verified
+0x253,s8,deathDelay,Update watch state 3 countdown,verified
+0x254,u8,useLatched,set 1 by HandleMessage's MSG_USE arm alongside the Wolf freeze; zeroed by PostLoadInit,verified
+0x255,u8,stopTag,set 1 / cleared 0x43d834 / 0x43d840,verified
+0x258,s32,viewTag,stored 0x43d81a,verified
+0x25c,u32,viewStart,g_gameTime stamp,verified
+0x260,s32,lockTag,stored 0x43d804,verified
+0x264,s32,dialogueRestart,Update/Reset,verified
+0x268,s32,robotSequence,SetMode/Update,verified
+0x26c,s32,forcedFreeze,SetMode/Update,verified
+0x274,ScnObject *,robot,Update: class 0xa5 found in the help box,verified
+0x278,ScnObject *,watch,"Scenaric_FindByClass(0x67,&this->watch,1)",verified
+0x27c,u32,pendingVoice,"stored 0x43d71c, tested 0x43d63c",verified
+0x280,u32,jokeVoice1,record+0x88,verified
+0x284,u32,jokeVoice2,record+0x8c,verified
+0x288,u32,helpVoice,"HELPVOICE property (prop +0x6c, 0x43e720); written by PostLoadInit, not read by the class code",verified
+0x28c,u32,jokeEnabled,"PROPERTY JOKEENABLED (prop +0x70); used as a BITMASK, Reset tests 1 << helpIndex — not a plain boolean. Last dword of the 0x290 object",verified

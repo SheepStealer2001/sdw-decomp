@@ -1,0 +1,16 @@
+value,name,meaning
+#,ScnObjFlags,u16 at ScnObject+0x3a
+0x0002,SCN_OF_MUTE_ANIM_SOUND,animation sound events not played (0x50d540); set by Wolf/Sheep in some states
+0x0004,SCN_OF_HIDDEN2,"with 0x800: not rendered, ignored by proximity queries (mask 0x804; Scn_RenderIfVisible 0x55ffe3 skips the object). Set by ObjectManager_SetObjectsActive 0x4da187 on deactivate: keepUpdating == 0 gives flags = (flags & 0xbfff) | 0x2004; keepUpdating != 0 sets flags = 4 outright. Was also spelled SCNOBJ_SKIP_RENDER_4"
+0x0008,SCN_OF_KEPT,inventory item committed at checkpoint (survives restart)
+0x0010,SCN_OF_NO_PLANE_CULL,the near/frustum view-plane test in Scn_RenderIfVisible / RenderAll is skipped (the distance test still applies). Was also spelled SCNOBJ_IGNORE_CULL_PLANE
+0x0020,SCN_OF_CINE_UPDATE,keeps updating when tagged 0x80 in cinematic mode
+0x0040,SCN_OF_NO_DIST_CULL,exempt from the 9000000 dist2 cut in tinted render / several class updates
+0x0080,SCN_OF_IN_CINE_BOX,tagged by cinematic box scan 0x561f50
+0x0100,SCN_OF_IN_WORLD,linked in grid + g_scnActive
+0x0200,SCN_OF_CUSTOM_COLLIDE,collision sweeps call vtable +0x0c
+0x0400,SCN_OF_NO_BOX_COLLIDE,box test skipped (unless query flag 0x20); interact scan uses point distance
+0x0800,SCN_OF_HIDDEN,not rendered and skipped by proximity queries; this is the bit cinematic opcodes 4/5 toggle (Cine_OpToggleObjectFlag 0x562fc0 = cinematic HIDE/SHOW). Was also spelled SCNOBJ_HIDDEN
+0x1000,SCN_OF_INITIALISED,initial value set by both Inits; no reader found (inferred)
+0x2000,SCN_OF_NEVER_UPDATE,Update never called
+0x4000,SCN_OF_ALWAYS_UPDATE,ignores the 3000-unit camera radius

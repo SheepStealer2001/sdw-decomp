@@ -1,0 +1,2 @@
+offset,ctype,name,meaning,confidence
+0x0,float[4][4],m,"a D3DMATRIX: m[row][col], row-major (_11.._44); D3D row-vector convention v' = v*M, translation in m[3][0..2]",verified

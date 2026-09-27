@@ -1,0 +1,8 @@
+value,name,meaning
+#,DtlWatchState,"DaffyTrainingLevel.watchState (+0x7e), SetMode arg 1: the Watch challenge"
+0x0,DTL_WATCH_OFF,case 0: waits for the Wolf in startBox
+0x1,DTL_WATCH_READY,case 1: Wolf in the start box; leaving it starts the Watch (msgs 0x3781/0x3782)
+0x2,DTL_WATCH_RUNNING,"case 2: finishBox -> 4, time out (msg 0x3780 <= 0) -> 3"
+0x3,DTL_WATCH_FAILED,case 3: kills the Wolf (msg 0 arg 3) after deathDelay
+0x4,DTL_WATCH_DONE,case 4: finished inside the time
+0xff,DTL_WATCH_KEEP,0xff = leave the field alone (SetMode)

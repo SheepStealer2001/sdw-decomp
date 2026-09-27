@@ -1,0 +1,10 @@
+offset,ctype,name,meaning,confidence
+0x40,u8,state,SignPostState,verified
+0x42,Vec3s,savedPos,restored by Reset,verified
+0x48,u16,distance,PROPERTY_SIGNPOST_DISTANCE,verified
+0x4c,u32,textNum,PROPERTY_SIGNPOST_TEXTNUM: base string index,verified
+0x50,char *,text,current string,verified
+0x54,s8,textVariant,"-1 until first read, then the global read counter at that time; variant 1 shows the question box",verified
+0x58,ScnObject *,anvil,Scenaric_FindByIdList(ID_ANVIL); gets msg 0x1280; its +0x6c is polled in state 2,verified
+0x5c,CamSetup *,camera,Scn_FindIdList(ID_CAMERA)[0]: camera setup used while the anvil drops,verified
+0x64,u32,wolfFrozen,reply of Wolf msg 0xE,verified

@@ -1,0 +1,7 @@
+value,name,meaning
+#,SignPostState,SignPost (class 21) +0x40.
+0,SIGNPOST_ST_OPENING,as SignPostSimple 0
+1,SIGNPOST_ST_SHOWING,text or question box
+2,SIGNPOST_ST_ANVIL,"scripted camera until anvil+0x6c == 0, then back to 1"
+3,SIGNPOST_ST_CLOSING,unfreeze on release -> 4
+4,SIGNPOST_ST_IDLE,readable

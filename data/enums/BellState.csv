@@ -1,0 +1,5 @@
+value,name,meaning
+#,BellState,state field of Bell
+0x1,BELL_ST_IDLE,SetState 1: anim STAND (inferred)
+0x2,BELL_ST_RINGING,"SetState 2: anim RING looped, ringTimer 0x1000; Update: plays bell sound 0x14f, -> 3 when the timer and anim end (inferred)"
+0x3,BELL_ST_RING_END,SetState 3: anim RING2; Update: on anim end -> 1 (inferred)

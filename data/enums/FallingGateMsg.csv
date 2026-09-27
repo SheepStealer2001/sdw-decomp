@@ -1,0 +1,6 @@
+value,name,meaning
+#,FallingGateMsg,FallingGate_HandleMessage
+0xe,MSG_FREEZE,"the Wolf freeze handover (whoever froze the Wolf is told it lost him): clears wolfFrozen. freeze handover: wolfFrozen = 0, returns 1"
+0x1f,MSG_SWITCH_ON,toggle away from the start state (arg = button occupants[4])
+0x20,MSG_SWITCH_OFF,return to the start state
+0x72,MSG_GATE_QUERY,"returns closed (+0xd0). NOT the Level 13 jail gate: Sam_Pirate_Init finds class 0x8c FallingGate2, whose msg 0x72 answers ""is open"" (FallingGate2Msg); FallingGate_HandleMessage 0x4b9adf has the opposite polarity"

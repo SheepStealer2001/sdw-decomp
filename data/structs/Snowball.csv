@@ -1,0 +1,11 @@
+offset,ctype,name,meaning,confidence
+0x58,s32,fallTime,"4.12 s airborne: += g_dt in state 2 and on each push, capped at 0x5000 by ApplyGravity (0x4f608d); zeroed on floor contact (0x4f6064) and by a successful TryResize",verified
+0x5c,s32,rollTime,"4.12 s of growing rolls (+= g_dt in TryResize, 0x4f5fc8): the scale target is rollTime*0x233/0x14000 + 0x100, reaching 0x333 at 0x14000 (20 s) (0x4f5ad1-0x4f5af9)",verified
+0x60,s16,baseRadius,half the x extent of model box 0 at scale 1.0 (0x4f5806-0x4f581b),verified
+0x62,u8,state,"SnowballState: 0 resting, 1 being pushed, 2 falling (0x4f58c7)",verified
+0x63,u8:1,pushed,"bit 0: set by each push (msg 0xA, 0x4f5b61), cleared by the next Update; when a frame passes without a push the ball falls (state 2)",verified
+0x64,ZoneList,zone,"PROPERTY ZONE id list (Scn_FindIdList at 0x4f57d5): the ball only rolls and grows while its next position is inside one of these boxes (XZ test, 0x4f5ac2, 0x4f5f02); count 0 = anywhere",verified
+0x6c,s16,radius,"current radius = baseRadius*scale >> 10 (set by TryResize, 0x4f5fb4); rolls the matrix (0x4f5b35)",verified
+0x6e,s16,scale,"6.10 scale (0x400 = 1.0): 0x400 at load, 0x100 after the first TryResize; drawn with Mat34s_ApplyScale (0x4f5bdd)",verified
+0x70,Mat34s,rollMatrix,"orientation, Mat34s_FromEulerScaled(&rot) at load (0x4f57a5), rolled by Matrix_RollByDisplacement on each push",verified
+0x90,u16,rollSound,"handle of the rolling sound 0x7b (Sound_Play at 0x4f59a7), stopped when the ball stops being pushed",verified

@@ -1,0 +1,18 @@
+value,name,meaning
+#,GameFlags,"bits of g_gameFlags 0x6ddf74"
+0x1,GF_BIT0,cleared with 0x4001 by PauseMenu_Open / Transition_Start and with 0xc001 by Map::Open; tested in 0xe01/0xa01 by Wolf::CanControl/CanUseInventory (meaning not decoded) (inferred)
+0x4,GF_LEVEL_LOADED_A,level data loaded (with 0x8 gates Game_Frame)
+0x8,GF_LEVEL_LOADED_B,level data loaded
+0x10,GF_TRANSITION_IDLE,no level transition in progress; pause may open
+0x20,GF_PAUSE_TOGGLE,pause-menu toggle request
+0x40,GF_PAUSED,paused: Time_Update forces g_dt = 0
+0x80,GF_ITEM_WHEEL_OPEN,quick-inventory wheel open: Wolf input blocked (set/cleared by Inventory_SetWheelOpen 0x50c941)
+0x100,GF_ITEM_FLY,"ItemFly_Start sets it, ItemFly_Stop clears it; ItemFly_GetObject returns g_itemFlyObj only while set"
+0x200,GF_FADE_RESTART,fade-out then level restart (death)
+0x400,GF_FADE_IN,fade-in running
+0x800,GF_FADE_EXIT,fade-out then level exit
+0x1000,GF_LETTERBOX,letterbox bars requested
+0x2000,GF_FADE_VARIANT,RNG-chosen fade variant
+0x4000,GF_UPDATE_OBJECTS,object update + camera enabled (cleared once per phase by the time-travel wipe; pause exit ORs it back unconditionally)
+0x8000,GF_RENDER_WORLD,world render enabled
+0x10000,GF_CINE_SURVIVES_RESTART,"Fade_StartRestart 0x53e767 calls Cine_Stop only when this is clear. Set by Rock_StartLvl03Cinematic (cleared by Rock msg 0x13), GossamerBoss_Update 0x44f4f4 and 0x451911"

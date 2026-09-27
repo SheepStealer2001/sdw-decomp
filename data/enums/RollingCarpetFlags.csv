@@ -1,0 +1,4 @@
+value,name,meaning
+#,RollingCarpetFlags,u8 RollingCarpet+0xb6
+0x1,RC_CAMERA_ACTIVE,Camera_StartScripted was issued
+0x2,RC_RIDER_REGISTERED,between MSG_RIDER_ADD and MSG_RIDER_REMOVE

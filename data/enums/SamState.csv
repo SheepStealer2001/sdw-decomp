@@ -1,0 +1,25 @@
+value,name,meaning
+#,SamState,"sam+0x80, written by Sam_SetState. Names 1,2,3,4,6,9 follow the developers' Enter*State strings / SAM_STT_FOLLOWNODES; others invented."
+0,SAM_STT_IDLE,"initial, anim 6"
+1,SAM_STT_FOLLOWNODES,follow nav-graph node path (original name from exe string)
+2,SAM_STT_REACHGOAL,run straight at the goal
+3,SAM_STT_SEARCHNEARESTNODE,45-degree heading search toward goal/nearest nav edge
+4,SAM_STT_REACHNODE,run to a single nav node
+5,SAM_STT_FADE,sets fade fields/globals; never entered by any Sam_SetState call (dead)
+6,SAM_STT_LOOKAFTER,stationary guard with head sweep
+7,SAM_STT_LOOKAFTER_TIMED,timed look-after pause during patrol (+0x86e)
+8,SAM_STT_CATCHWOLF,grab/hit animation playing
+9,SAM_STT_FOLLOWTRAJECTORY,patrol at 200 u/s with patrol detection
+10,SAM_STT_INVESTIGATE,walk to msg-0x481 point
+11,SAM_STT_CIN01,"MODE 0x400: face Wolf, launch CIN01 cinematic (0x5631d0), become patroller"
+12,SAM_STT_KNOCKEDOUT,"fall / lying (DEATHDURATIONMS) / get up, then chase"
+13,SAM_STT_PICKUP,pick-up anim 0xF; on end grabs fetch object
+14,SAM_STT_LIFT,"anim 0x10 after pick-up, then search toward goal"
+15,SAM_STT_PUTDOWN,"anim 0x11, yaw forced 0x800, then state 0x10"
+16,SAM_STT_AFTERPUTDOWN,anim 0x12; restores normal anim table; may go to 0x15
+17,SAM_STT_CATCHDONE,anim 0x13 after the catch; no handler (terminal until reset)
+18,SAM_STT_FOLLOWTRAJECTORY_FAST,"msg 0x4A: trajectory at 1100 u/s, no detection"
+19,SAM_STT_HITROBOT,"anim 0x16, wait actionTimer then go home"
+20,SAM_STT_DISCOVERWOLF,"entered from pre-pass when msg 0x482 arg == Wolf while fetching the Wolf; anim 8 once, may escalate to anim 0x15 + camera (inferred meaning)"
+21,SAM_STT_ANGRY,"anim 0x15 with reaction camera, then red alert chase"
+22,SAM_STT_WATCHROBOT,MODE 0x80000: stand by robot WATCHROBOTTIMEMS then Sam_TryHitRobot

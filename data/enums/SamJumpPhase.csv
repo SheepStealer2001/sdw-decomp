@@ -1,0 +1,10 @@
+value,name,meaning
+#,SamJumpPhase,
+0x0,SAM_JUMP_NONE,reset everywhere; no case
+0x1,SAM_JUMP_START,"case 1: anim 0, next"
+0x2,SAM_JUMP_START_WAIT,case 2: waits for the anim end
+0x3,SAM_JUMP_LAUNCH,"case 3: records jumpStartPos, anim 1"
+0x4,SAM_JUMP_AIR,case 4: arc toward jumpLandPos
+0x5,SAM_JUMP_LAND,case 5: anim 2
+0x6,SAM_JUMP_LAND_WAIT,case 6: waits for the anim end
+0x7,SAM_JUMP_DONE,case 7: back to the saved state

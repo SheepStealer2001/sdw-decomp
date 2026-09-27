@@ -1,0 +1,16 @@
+offset,ctype,name,meaning,confidence
+0x7c,u8,state,"0 riding the trajectory and watching, 1 aiming, 3 recoil/fire delay, 4 ball launched (no Update case, so it waits for msg 0x4f or a Reset). State 2 is never set or handled.",verified
+0x80,s32,fireDelayMs,"Recoil countdown in ms: 0x15e (350) on entering state 3, drained by g_dtMs until the signed test at 0x4e78a1 goes negative.",verified
+0x84,CollBox *,detectBox,"PROPERTY_ROOK_BOXDETECT (0). Translated in place every frame so it travels with the Rook; only the x and z extents are tested (box+4/+0xa and +8/+0xe), never the vertical pair.",verified
+0x88,CollBox *,bodyBox,"The Rook's own first solid model box (ScnObject_GetFirstSolidBox at 0x4e73b1), used as the carry volume: everything overlapping it that is not another Rook is moved by the frame delta.",verified
+0x8c,ScnObject *,cannon,"PROPERTY_ROOK_CANNON (4): the CanonDummy barrel, kept 60 units above the Rook; its rot is what Rook_AimCannonAt slews, and it receives MSG_CD_RECOIL 0x3881.",verified
+0x90,ScnObject *,cannonBall,"PROPERTY_ROOK_CANNONBALL (8): receives 0x3382 MSG_CB_PLACE while patrolling, 0x3387 with 0 on recoil and 0x338a MSG_CB_FIRE_AT when fired.",verified
+0x94,TrajFollower,traj,"0x20-byte follower for PROPERTY_ROOK_TRAJECTORY (20). Init hardcodes speed 200, headingBias 0x800, arrival radius 50 — so the authored SPEED (16) and DISTDETECT (12) properties are never read. Spans 0x94..0xb3.",verified
+0xb4,s32,aimDeltaX,"target.x - pos.x, truncated to 16 bits then sign-extended; recomputed by every aim step.",verified
+0xb8,s32,aimDeltaY,"target.vertical - pos.vertical (down-positive); drives the pitch through -atan2(dy, horizontal distance).",verified
+0xbc,s32,aimDeltaZ,"target.z - pos.z; with aimDeltaX it gives the yaw through atan2(dx, dz).",verified
+0xc0,s32,aimVelRoll,"Angular-velocity slot for the unused roll axis: cleared on entering state 1 and never read, because the aim step forces the cannon's rot.x to a constant 0.",verified
+0xc4,s32,aimVelYaw,"Math_ApproachAngle state for the cannon's facing (cannon+0x16); slew limit 0x1f40, accel/decel 0x3e8, minimum step forced. Dereferenced as a s32 at 0x546708.",verified
+0xc8,s32,aimVelPitch,"Math_ApproachAngle state for the cannon's pitch (cannon+0x18), same limits as the yaw.",verified
+0xcc,Vec3s,lastTargetPos,"The Wolf's position as of the previous aiming frame. The Rook fires only while this still equals his current position, so moving continuously prevents the shot indefinitely.",verified
+0xd2,Vec3s,cannonRestRot,"The cannon's rotation captured at init and restored verbatim by Rook_Reset. Last field: 0xd2 + 6 = obj_size 0xd8, so the layout closes with no gaps from 0x7c.",verified

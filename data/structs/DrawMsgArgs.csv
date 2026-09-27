@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,Camera *,view,"render view, argument 1 of ScnBody_RenderTinted (Wolf_Msg74_Draw 0x48d7c6 mov ecx,[eax])",verified
+0x4,u32,color,"tint colour, argument 2 (0x48d7bf mov edx,[ecx+4]); its three low bytes are halved while fxFlags & 0x20000 (0x48d773-0x48d788)",verified
+0x8,u16,amount,"tint amount, argument 3 (0x48d7b7 mov ax,word [edx+8]); replaced by 0x1000 while fxFlags & 0x20000",verified
+0xa,u16,mode,"argument 4 (0x48d7af mov cx,word [eax+0xa])",verified

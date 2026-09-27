@@ -1,0 +1,23 @@
+value,name,meaning
+#,SamMsg,"message ids seen in the Sam module (names inferred from behaviour). Sent BY Sam to the Wolf: 0x400,0x403,0x404,0x408,0x40B,0x40C,0x40D,0x410,0x419; to carried objects: 4,0xE,0xF,0x23,0x24,0x4601; received: 0,0xE,0x1D,0x33,0x38,0x4A,0x69,0x77,0x480,0x481,0x482"
+0x0,MSG_KILL,"to Sam: param 0 fade-out, param 2 knock-out; Sam->Robot param 0 = hit robot"
+0x4,MSG_PICKUP,"Sam->picked object, param 0xE (first) / 0x14 (second): attach slot/bone (inferred)"
+0xe,MSG_FREEZE,Sam->Wolf when carried; to Sam: carried object lost
+0xf,MSG_UNFREEZE,Sam->Wolf on release
+0x23,MSG_SCRIPT_HOLD,Sam->non-Wolf object grabbed
+0x24,MSG_SCRIPT_RELEASE,Sam->non-Wolf object released
+0x33,MSG_TRAP_STATE,sets forcedAlert
+0x4a,MSG_BEES_STING,enter state 0x12
+0x69,MSG_SHEEP_CALL,sender in orange box -> sheepBits.heardCall
+0x400,MSG_WOLF_CAUGHT,"param 0 grab, 1 (from state 8 end), 2 hit, 3 release"
+0x403,MSG_WOLF_IS_NOISY,
+0x404,MSG_WOLF_IS_VISIBLE,
+0x40b,MSG_WOLF_IS_SHEEPCOSTUME,wolf+0x711 == 3
+0x40c,MSG_WOLF_IS_RUNNING,queried in Sam_UpdateGoalPos for aim lead (move flag 0x40)
+0x40d,MSG_WOLF_IS_DEAD,
+0x410,MSG_WOLF_IS_RABBITCOSTUME,wolf+0x711 == 4
+0x419,MSG_WOLF_IS_CATCHABLE,
+0x480,MSG_SAM_IS_RED,
+0x481,MSG_SAM_INVESTIGATE,"sender pos -> investigatePos, 1000 ms"
+0x482,MSG_SAM_FETCH_NOTIFY,stores param in +0xa30 when fetching the Wolf
+0x4601,MSG_INFLATABLE_QUERY,sent to class 0x84 (InflatableSheep) before pick-up; 0 = cannot be picked

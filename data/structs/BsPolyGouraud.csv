@@ -1,0 +1,2 @@
+offset,ctype,name,meaning,confidence
+0x10,u32[3],colour,per-vertex colours from BsFile_ReadRgbHalved: BsDecode_Kind2_3 stores them at +0x10/+0x14/+0x18 of a 0x1c-stride record,verified

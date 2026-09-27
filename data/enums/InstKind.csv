@@ -1,0 +1,7 @@
+value,name,meaning
+#,InstKind,"Instance.inst_kind (+0x07) doc: 0 rigid scenaric instance, 4 animated; world objects 1/2/3 by WAR type"
+0x0,INST_KIND_RIGID,doc: 0 = rigid scenaric instance
+0x1,INST_KIND_WAR_03,WorldObj_CreateFromResource: WAR type 3 -> 1
+0x2,INST_KIND_WAR_0B,type 0xb -> 2
+0x3,INST_KIND_WAR_26,type 0x26 -> 3
+0x4,INST_KIND_ANIMATED,doc: 4 = animated (Animator_Init)

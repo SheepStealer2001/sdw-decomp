@@ -1,0 +1,12 @@
+value,name,meaning
+#,MineDetectorMsg,MineDetector_HandleMessage 0x4d813f
+0x2,MSG_QUERY_ACTION,4 CTX_PICKUP to the Wolf
+0x4,MSG_PICKUP,"attach to the sender joint, state 0, shadow hidden"
+0x5,MSG_DROP,"detach to arg pos, state 0"
+0x9,MSG_CONTAINER_STATE,"arg 1: homePos = pos, state 1 (fall)"
+0x10,MSG_CARRY_ANIM,"while scanning: arg 0 -> anim 2, arg 1 -> anim 3"
+0x15,MSG_HELD_STATE_BEGIN,start using: state 2
+0x16,MSG_HELD_STATE_END,stop using: state 4
+0x17,MSG_QUERY_HELD_ACTION,0xC HELD_MINEDETECTOR
+0x55,MSG_CHECKPOINT_ROLLBACK,vtable Reset
+0x2280,MSG_MINEDETECTOR_REGISTER,"a region GroundMine registers itself (GroundMine_Init via Scenaric_SendToClass 61); max 4, no duplicate check"

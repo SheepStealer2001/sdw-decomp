@@ -1,0 +1,8 @@
+value,name,meaning
+#,TrainStationMsg,handled by TrainStation_HandleMessage 0x501c8c (sender class checked)
+0x5f,MSG_JAMS_STATION_ACTIVE,"from TrafficJams, arg = ARRIVINGTIME: registers it; returns state != 0"
+0x60,MSG_TRAIN_WAYPOINT,from Train/BipbipLevel14: waypoint reached (arg out: next station at route end); also sent to the train as 'go to waypoint'
+0x4800,MSG_STATION_BEGIN_ROUTE,"from Train, state 0: start the route at point 0"
+0x4801,MSG_STATION_GET_LASTSEG_MS,from TrafficJams: lastSegTimeMs
+0x4802,MSG_STATION_GET_SPEEDPERCENT,from Train/Bipbip: SPEEDPERCENT
+0x4803,MSG_STATION_QUERY_TRAIN_ZONE,"from Train/Bipbip, state 1: forwards train msg 0x4785"

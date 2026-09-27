@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,s8,kind,"entry kind (BonusKind), read with movsx (0x49ba76): 0 opens the image viewer, 2 a scene, 3 scroll text (BonusManager::Update's switch)",verified
+0x1,u8,price,"price in points, read unsigned (0x49bae3)",verified
+0x2,char[10],payload,"the gallery name (PERSO, DECOR, STORY, COLOR, TEAM, INTRO) of a kind 0 entry, or in payload[0] the text id (BonusString) of a kind 3 entry; stride 12",verified

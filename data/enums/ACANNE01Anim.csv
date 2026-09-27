@@ -1,0 +1,10 @@
+value,name,meaning
+#,ACANNE01Anim,"animation ids of WAR model ACANNE01 (its WAR type-0x86 table; names verified from the level files). Played by: CompositeRod, FishingRod"
+0x0,ACANNE01_ANIM_FISH1,WAR name FISH1
+0x1,ACANNE01_ANIM_FISH2,WAR name FISH2
+0x2,ACANNE01_ANIM_FISH3,WAR name FISH3
+0x3,ACANNE01_ANIM_FISH4,WAR name FISH4
+0x4,ACANNE01_ANIM_FISH5,WAR name FISH5
+0x5,ACANNE01_ANIM_FISH6,WAR name FISH6
+0x6,ACANNE01_ANIM_LINK,WAR name LINK
+0x7,ACANNE01_ANIM_OBJET,WAR name OBJET

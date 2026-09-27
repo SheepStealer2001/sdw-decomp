@@ -1,0 +1,4 @@
+value,name,meaning
+#,AROCHEA2Anim,animation ids of WAR model AROCHEA2 (its WAR type-0x86 table; names verified from the level files). Played by: FallingRock
+0x0,AROCHEA2_ANIM_FALL1,WAR name FALL1
+0x2,AROCHEA2_ANIM_STAND2,WAR name STAND2

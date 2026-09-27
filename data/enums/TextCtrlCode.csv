@@ -1,0 +1,6 @@
+value,name,meaning
+#,TextCtrlCode,"single-byte control codes embedded in a formatted text buffer by the engine's printf 0x53495F and interpreted by every emitter (0x535F03, 0x535A88, 0x53618C, 0x5346FF, 0x533403, 0x533EC3, 0x533DDA)"
+0x01,TXT_COLOR,"inline colour: the next THREE bytes are the 24-bit RGB (little-endian b,g,r as assembled by 0x535A88: b + g*0x100 + r*0x10000) written straight into Font.color. Contributes nothing to the measured width and is skipped by every scanner"
+0x0A,TXT_NEWLINE,"cursorX = 0, cursorY += Font.lineHeight"
+0x20,TXT_SPACE,advance one Font.glyphWidth without emitting a quad; also the word-break character for the wrap scanner 0x5346FF
+0x00,TXT_END,terminator

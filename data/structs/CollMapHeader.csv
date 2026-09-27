@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x0,u16,nx,grid columns,verified
+0x2,u16,nz,grid rows,verified
+0x4,s16,originX,grid origin x,verified
+0x6,s16,originZ,grid origin z,verified
+0x8,s16,cellSizeX,cell width,verified
+0xa,s16,cellSizeZ,"cell depth; cells follow at +0xC in z-outer, x-inner order",verified

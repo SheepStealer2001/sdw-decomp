@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x0,void *,vtbl,vtable 0x5743fc (one slot: BsStream_ScalarDeletingDtor 0x41b3e0); stored by BsStream_Open 0x41b1ac,verified
+0x4,u8,ok,1 when Bs_LoadFile returned a length > 0 (BsStream_Open 0x41b1e4),verified
+0x8,u8 *,data,file image from Bs_LoadFile (BsStream_Open 0x41b1cf); operator delete'd by BsStream_Dtor 0x41b222,verified
+0xc,u32,size,image length; Seek/Skip compare unsigned against it (jae 0x41b246),verified
+0x10,u32,cursor,read offset (BsStream_ReadU8 0x41b2bf); zeroed by BsStream_Open 0x41b1b5,verified

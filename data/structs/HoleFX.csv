@@ -1,0 +1,19 @@
+offset,ctype,name,meaning,confidence
+0x4,u8,hasCaptureSurface,nonzero selects the blocking transition mode,inferred
+0x8,float[3],pos,"screen x, y, z of the hole quad",verified
+0x14,float,alpha,alpha/scale term animated only in blocking mode,inferred
+0x18,D3DApp *,app,the renderer wrapper; +0x28 is the IDirect3DDevice7 and +0x41E40/+0x41E44 the two surfaces the wipe blits from,verified
+0x1c,Frustrum *,viewport,"the Frustrum whose viewport it wipes (typed from its field reads - nearZ +0x08, viewportWidth +0x1c, viewportHeight +0x20 - and Frustrum_BuildProjectionMatrix 0x419b83 called on it at 0x5367eb)",verified
+0x20,u8,useCubicBezier,"selects the cubic Bezier path (0x538b2d, four control points with an extra point pulled toward the hole centre) instead of the quadratic one (0x5389d6) when building the ray vertices",verified
+0x24,float,radius,base radius of the hole ring; each ray direction is normalised and scaled by it before the Bezier sweep,verified
+0x28,Vec3f[8],rayDirs,"the 8 outward directions of the radial fan, set by HoleFX_BuildMesh to the compass points of the viewport half-extent. Vec3f, not float[8][3]: HoleFX_Ctor runs a constructor loop over the 8 elements (proved by the match: without an element constructor the bytes differ)",verified
+0x88,IDirect3DVertexBuffer7 *,vertexBuffer,"IDirect3DVertexBuffer7 of 0x41 vertices, FVF 0xC4 (XYZRHW|DIFFUSE|SPECULAR, 0x18 bytes each). Lock is vtable slot 0xC, Unlock 0x10",verified
+0x8c,RenderPoly[120],tris,"the 120 triangles of the wipe mesh, constructed in place by the ctor and destroyed backwards from +0xF8C",verified
+0xf8c,float,shadeScale,"colour shading scale: read only by the fmul at 0x538d40 in the colour function 0x538d20; set by HoleFX_SetShading 0x53678f, 1.0 in HoleFX_Init. Never used for depth",verified
+0xf90,float,shadeBias,"colour shading bias: read only by the fadd at 0x538d49 in the colour function 0x538d20; set by HoleFX_SetShading 0x53678f, 0.0 in HoleFX_Init. Never used for depth",verified
+0xf94,IDirectDrawSurface7 *,captureSurface,"IDirectDrawSurface7 the wipe blits the frozen frame into; its existence is what selects blocking mode. GetSurfaceDesc is vtable slot 0x58, Blt is slot 0x14",verified
+0xf98,u32,captureWidth,dwWidth read back from the capture surface; divides each vertex x to give its U,verified
+0xf9c,u32,captureHeight,dwHeight read back from the capture surface; divides each vertex y to give its V,verified
+0xfa0,u8,captured,latch set the first time HoleFX_CaptureScreen runs; blocks any further capture unless the force argument is 1,verified
+0xfa4,Texture *,maskTexture,"256x256 format-2 (ARGB4444) texture holding the circular alpha mask used by the non-blocking wipe; +0x04 is its pitch in pixels, +0x08 its height, +0x10 the D3D texture handle. Texture *: HoleFX_Destruct deletes it through its virtual scalar-deleting destructor (0x5364ba), HoleFX_Init builds it with Texture_Ctor 0x40a140",verified
+0xfa8,float,screenRadius,sqrt((vpW*vpW + vpH*vpH)/2) — the radius at which the non-blocking hole covers the whole screen,verified

@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,Vec3s,vel,velocity being built (Mobile_Steer output); the swim/sink steps' view of g_collScratchA 0x6d5468 (0x48b0f3),verified
+0x8,Vec3s,rot,"copy of the Wolf's rot (0x48b0ae add edx,8)",verified
+0x10,Vec3s,flow,"water current from Zone_GetFlowVelocity (0x48b1c5 add eax,0x10), added to vel",verified
+0x18,Vec3s,step,"this frame's displacement (0x48b221 add eax,0x18 into Vec3s_ScaleByDt)",verified

@@ -1,0 +1,11 @@
+offset,ctype,name,meaning,confidence
+0x7c,EmitterDriftParams,dustParams,"the dust trail's parameters, filled by PostLoadInit with Ralph's run-dust values {100, -20, 0xa30, 0xa3, 40, 120, 0} (0x499448-0x499491); passed to Emitter_UpdateDrift every running update",verified
+0x94,TrailEmitter,dust,"16-particle dust trail (inline ctor in bipbip_Create 0x499dba-0x499de5); spawns while running (0x499966, spawn 1) and only ages in the tunnel (0x4999f3, spawn 0); drawn by Render while its active bit is set (0x499a27)",verified
+0x1f8,u8,state,"0 waiting hidden until Ralph is inside startBox; 1 running along roadPath; 2 on the wall path into the painted tunnel, then Reset when the road path ends (0x49972b-0x499a09)",verified
+0x1f9,u8:1,shadowOn,"bit 0: the blob shadow is updated and drawn (Render 0x499d43); set by Reset (0x4995e2), cleared on entering the wall path (0x4998c3)",verified
+0x1fc,PathFollower,roadPath,"TRAJECTORY: the run along the road, started at SPEED_ONE by Reset (0x4996e3); the bipbip sits at its pos and faces its heading in states 1 and 2",verified
+0x224,PathFollower,wallPath,"TRAJ_WALL: started at SPEED_TWO when the road path reaches its last segment (0x4998f7), with the road's rate; its pos is where the bipbip is drawn in the tunnel",verified
+0x24c,s32,speedOne,"SPEED_ONE (s16 of prop +4, 0x49939a): the road path's starting speed",verified
+0x250,s32,speedTwo,"SPEED_TWO (s16 of prop +8, 0x4993ba): the road speed after the first segment and the wall path's speed",verified
+0x254,Box *,startBox,"BOX_DECL: Ralph's origin inside it starts the run (0x49976e); set only when BOX_DECL, TRAJECTORY and TRAJ_WALL all resolve (0x4993c7)",verified
+0x258,u32,inTunnel,1 in state 2 (0x499973): Render draws the model moved on screen onto the wall path's projected point and pushed back to its depth (0x499a91),verified

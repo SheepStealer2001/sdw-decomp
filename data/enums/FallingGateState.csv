@@ -1,0 +1,5 @@
+value,name,meaning
+#,FallingGateState,FallingGate +0xc8
+0,FGATE_ST_IDLE,at rest
+1,FGATE_ST_MOVING,animation running; FallingGate_FinishMove settles it
+2,FGATE_ST_SINGLE_SHOT,"ONLYONEACTIVATION move; camera re-issued each frame, busy stays latched afterwards"

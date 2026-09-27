@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,WarHeader *,header,"== blob: start of the in-memory WAR image. Read as the WarHeader (+4 version, +8 colour, +0xc resource count). Embedded at Dav+0x8. [typed WarHeader *: Load_DAVnWAR reads +0xc resourceCount at 0x547c13 and +8..+0xa clear colour at 0x547f83]",verified
+0x4,u32 *,table,blob + 0x10: resource table of u32 {type<<24 | byte offset}. The same array GetResourceType/Install_WarResource read at g_pDav+0xc.,verified
+0x8,u8 *,blob,"malloc(fileSize) buffer. File bytes 4.. are read to blob+4, so blob offsets equal file offsets; blob[0..3] (the CRC slot) is never filled. Freed by Load_FreeWAR.",verified

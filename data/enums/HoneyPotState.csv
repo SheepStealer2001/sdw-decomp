@@ -1,0 +1,9 @@
+value,name,meaning
+#,HoneyPotState,HoneyPot.state (+0x7c)
+0,HONEYPOT_ST_IDLE,"in the world, anim 0 loop (Init, drop, container arg 0, Reset)"
+1,HONEYPOT_ST_CARRIED,"attached to the Wolf, anim 3 loop"
+2,HONEYPOT_ST_IN_INVENTORY,"msg 7, anim 0 loop"
+3,HONEYPOT_ST_LANDED,"msg 0x25 + sound 0xA7, anim 2 once; Update moves to 4 on the next frame"
+4,HONEYPOT_ST_SPILLED,"snapped to ground, anim 1 once; Update detects Sam and incites the bees; kept by Reset"
+5,HONEYPOT_ST_ON_SEESAW,msg 0xB; Update snaps it to the ground every frame
+6,HONEYPOT_ST_LAUNCHED,"msg 0xC + sound 0xA6; no anim change, no Update case"

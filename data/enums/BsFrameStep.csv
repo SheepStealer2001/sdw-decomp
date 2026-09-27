@@ -1,0 +1,5 @@
+value,name,meaning
+#,BsFrameStep,"what BsFile's frame walk returns: NextFrame, FirstFrame, SeekFrameOfType, FindFrameOfType (engine/bs_file.cpp; returned as int)"
+0x0,BSFRAME_NOT_OPEN,the file is not open (ok != 1): nothing moved
+0x1,BSFRAME_NEXT,moved on to the next frame
+0x2,BSFRAME_FIRST,at frame 0: FirstFrame's result and NextFrame's when it wraps past the last frame

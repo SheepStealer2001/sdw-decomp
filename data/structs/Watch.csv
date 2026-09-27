@@ -1,0 +1,9 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,state,"0 hidden (update mode 2 = never updated, anim 0, stopped), 1 shown (update mode 1 = always, anim 1 looping). Written only by Watch_SetState (0x506445)",verified
+0x68,u8[2][400],hudPrimBuf,"two 0x190-byte blocks handed alternately (by hudBufToggle) to ScnBody_RenderEx as its third argument, which Instance_DrawAnimatedOnScreen does not use (0x5065c4-0x5065d7). Nothing else touches them: a double-buffered primitive area kept from a console original (inferred)",verified
+0x388,u8,hudBufToggle,"picks hudPrimBuf[0] (nonzero) or [1] (0), then flipped with ! every drawn update (0x5065fd-0x50660d); 0 from PostLoadInit",verified
+0x38c,Camera,hudCam,"the watch's own camera for the HUD draw: rot (0,0,0), dist 450, pos 450 back from the origin along rot (Vec3s_OffsetAlongAngles, 0x5064f4), view matrix built once in PostLoadInit (Camera_BuildViewMatrix 0x50650a); passed to ScnBody_RenderEx every drawn update",verified
+0x46c,AnimSprite,digits,"the ten digit frames of sprite resource 0x82 (AnimSprite_InitFromRes 0x506520); the two digits of the seconds left are drawn at (0x3f,0x18) and (0x51,0x18), each width x height of the sprite, colour 0x808080, layer 8",verified
+0x4a0,s32,timeLeft,"time left in g_dt ticks (4096 per second): set from the arg of msg 0x3781, -= g_dt per drawn update and clamped at 0 (0x50657c-0x5065a0); returned by msg 0x3780. Shown as timeLeft/0xa000%10 and timeLeft/0x1000%10",verified
+0x4a4,u32,running,"the arg of msg 0x3782; while set the watch counts down, draws itself and the digits and sets the tick volume (0x50656c). Cleared by Watch_SetState(0)",verified
+0x4a8,u16,tickSound,"channel of the ticking loop, sound 0x3f started by msg 0x3782 arg 1 (flags 9, volume 0; 0x5067fc) and stopped by arg 0; its volume rises as the time runs out: 127 - ms*127/50000 below 50 s, else 0 (0x5066ec-0x506746)",verified

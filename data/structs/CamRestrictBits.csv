@@ -1,0 +1,9 @@
+offset,ctype,name,meaning,confidence
+0x0,u8:1,snapYaw,"bit 0 CAMR_SNAPBETA: yaw snaps to multiples of 0x400 (same path as CAMREQ_SNAP_YAW) | CamRestrict.flags as one-bit u8 fields; CameraRestriction_Init 0x4a1113 builds it from the designer properties, the camera solvers read the bits (byte and/and-1 accesses)",verified
+0x0,u8:1,forbidPad,bit 1 CAMR_FORBIDPADCONTROL: pad yaw input ignored (also implied by a trajectory),verified
+0x0,u8:1,mirrorYaw,bit 2 CAMR_MIRRORBETA (MIRRORBETAINTERVAL): yaw is also allowed in the arc shifted by 0x800,verified
+0x0,u8:1,modeRun,bit 3 CAMR_MODE_RUN (MISCFLAGS bit 2): applies in camera mode 2,verified
+0x0,u8:1,modeFollow,bit 4 CAMR_MODE_FOLLOW (MISCFLAGS bit 0): applies in modes 0 and 0xC; activates when the Wolf is inside an influence box,verified
+0x0,u8:1,modeRobot,bit 5 CAMR_MODE_ROBOT (MISCFLAGS bit 1): applies in mode 6; activates when the Robot is inside an influence box,verified
+0x0,u8:1,notifyWolf,bit 6 CAMR_NOTIFY_WOLF (MISCFLAGS bit 3): on Wolf activation sends Wolf msg 0x425,verified
+0x0,u8:1,reserved,bit 7,inferred

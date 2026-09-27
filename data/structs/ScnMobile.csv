@@ -1,0 +1,2 @@
+offset,ctype,name,meaning,confidence
+0x64,Shadow,shadow,"the object's ground shadow, a 0x18-byte Shadow (+0x64..+0x7c; Shadow_Init/Update/Render take &shadow): groundPos +0x64 (+0x66 = ground height under the object), alpha +0x6a = 0x80 - min(height/4, 0x60), radius +0x6b (box.max.x*3/2, default 10), corners +0x6c/+0x72 (the quad half-diagonals), flags +0x78 (1 = not drawn, Shadow_Render 0x472904 tests [shadow+0x14]&1; 2 = re-project on the next Shadow_Update; 4 = set by SmallRock_Init with no known reader)",verified

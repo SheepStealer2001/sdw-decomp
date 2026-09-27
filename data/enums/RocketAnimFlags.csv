@@ -1,0 +1,5 @@
+value,name,meaning
+#,RocketAnimFlags,"flags word of a Rocket state/anim table entry (g_rocketStateAnims entry[1], Rocket::SetState)"
+0x1,ROCKET_AF_LOOP,Rocket::SetState: w.loop = entry[1] & 1 (verified)
+0x2,ROCKET_AF_BLEND,w.blend = entry[1] & 2 (verified)
+0x4,ROCKET_AF_SHADOW,entry[1] & 4 -> shadow.SetEnabled(1) (verified)

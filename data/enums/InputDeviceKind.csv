@@ -1,0 +1,5 @@
+value,name,meaning
+#,InputDeviceKind,"InputDevice+0x05, written by each derived constructor."
+0,INPUTDEV_JOYSTICK,"Set by Joystick_Construct 0x406DB0 (c_dfDIJoystick, 12 buttons)."
+2,INPUTDEV_KEYBOARD,"Set by Keyboard_Construct 0x4072AC (c_dfDIKeyboard, 256 buttons)."
+4,INPUTDEV_MOUSE,"Set by the mouse constructor 0x409E90, just outside this module (c_dfDIMouse, 4 buttons)."

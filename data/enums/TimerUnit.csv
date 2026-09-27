@@ -1,0 +1,7 @@
+value,name,meaning
+#,TimerUnit,"Unit selector passed to Timer_Convert 0x40b51c and hence to Timer_GetElapsed / Timer_GetDelta / Timer_Peek*. Decoded from the jump table at 0x40b5b8 (entries 0x40b53b, 0x40b543, 0x40b551, 0x40b579)."
+0,TIMER_TICKS,"raw TSC ticks as a double, no division by g_cpuHz. Used by the game clock's pause path 0x56103f to capture the unconsumed delta."
+1,TIMER_SECONDS,ticks / g_cpuHz. Used by Time_Update (multiplied by 4096 to make g_dtRaw) and by Frame_LimitFps.
+2,TIMER_MILLISECONDS,"ticks * 1000 / g_cpuHz, the multiply done in 64-bit before the divide. Used by AnimMesh_UpdateAnim."
+3,TIMER_MICROSECONDS,ticks * 1000000 / g_cpuHz. No caller in the binary.
+other,TIMER_INVALID,any value above 3 returns -1.0

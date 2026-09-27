@@ -1,0 +1,6 @@
+value,name,meaning
+#,FrustrumFogMode,"Frustrum field +0x34, the curve selector of Frustrum_BuildFogRamp 0x419e86. Decoded from the assembly at 0x419eb0-0x419ec6 (the Ghidra output mislabels these branches)."
+1,FOG_EXP,factor = 255 / exp((i+1)/768.0)
+2,FOG_EXP2,factor = 255 / exp(((i+1)/768.0)^2)
+3,FOG_LINEAR,factor = 255 * (1 - (i+1)/256.0); this is the value set by Frustrum_Construct
+0,FOG_NONE,"any other value fills the whole ramp with 0xFF000000, i.e. no fog at any depth"

@@ -1,0 +1,6 @@
+value,name,meaning
+#,AGRILL02Anim,animation ids of WAR model AGRILL02 (its WAR type-0x86 table; names verified from the level files). Played by: FallingGate (g_fallingGateAnims row 1: gateModels[1]; WAR_IDO_AGRILL02)
+0x0,AGRILL02_ANIM_CLOSED,WAR name CLOSED
+0x1,AGRILL02_ANIM_MV_CLOSE,WAR name MV_CLOSE
+0x2,AGRILL02_ANIM_MV_OPEN,WAR name MV_OPEN
+0x3,AGRILL02_ANIM_OPEN,WAR name OPEN

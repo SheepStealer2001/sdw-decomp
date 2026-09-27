@@ -1,0 +1,4 @@
+value,name,meaning
+#,ABOUTO01Anim,animation ids of WAR model ABOUTO01 (its WAR type-0x86 table; names verified from the level files). Played by: SensibleButton
+0x0,ABOUTO01_ANIM_ON,WAR name ON
+0x1,ABOUTO01_ANIM_OFF,WAR name OFF

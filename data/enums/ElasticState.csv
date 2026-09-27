@@ -1,0 +1,10 @@
+value,name,meaning
+#,ElasticState,elastic +0x31c
+0,ELASTIC_ST_ITEM,lying in the world as an item; msg 2 → CTX_PICKUP (4)
+1,ELASTIC_ST_HELD,"attached to the Wolf (msg 4) or placed (msg 5); msg 0x17 → 9 near a tree, then msg 0x15 ties it"
+3,ELASTIC_ST_TIED_ONE,one end on tree1 and Ralph holds the other (bungee); msg 0x1a limits and pulls his moves
+4,ELASTIC_ST_STRUNG,"tied between two trees (slingshot); walking through catches it, jumping or holding launches"
+5,ELASTIC_ST_PULLED,Ralph is holding the band centre (Wolf states 0x72/0x73)
+6,ELASTIC_ST_SNAP,released: vibration plus flight of the launched object
+7,ELASTIC_ST_SNAP_END,"cleanup: unfreeze and release the camera, re-register the rider, → 4"
+8,ELASTIC_ST_STRUNG_IDLE,strung band shown straight between the trees after Wolf msg 0x6a (death or restart); left only via Reset → 7

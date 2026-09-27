@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,u8:2,setting,Progress.optionFlags bits 0-1 -> g_optLanguageOrDifficulty 0x6de9b8,verified
+0x0,u8:1,gate,bit 2 -> 0x6de9b9,verified
+0x0,u8:2,soundMode,"bits 3-4 -> 0x6de9b7, the sound option (cycled % 3 by the options menu); Sound_Play plays only in modes 0 and 2",verified

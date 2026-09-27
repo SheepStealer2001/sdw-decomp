@@ -1,0 +1,4 @@
+value,name,meaning
+#,RollingCarpetAxis,"u8 RollingCarpet+0xb5: the axis the belt runs along, chosen from the placed facing in RollingCarpet_Init (0x4e5922); also sent to the rider as the MSG_AXIS_LOCK arg"
+0,RC_AXIS_X,the belt runs along x (facing about 0x400/0xC00); MSG_MODIFY_MOVE's delta.x / velocity.x drive it
+1,RC_AXIS_Z,the belt runs along z (facing about 0/0x800); MSG_MODIFY_MOVE's delta.z / velocity.z drive it

@@ -1,0 +1,31 @@
+offset,ctype,name,meaning,confidence
+0x7c,s32,burnt,"MSG_KILL (0) with argument 0 (an explosion): Porky turns black (tint 0x1000, INST_F_TINT) and his next talk says the burnt line (0x45a30b)",verified
+0x80,s32,burntLineSaid,"the burnt line (class string 9, voice 0x41) has been said; it is said once (0x45a27e-0x45a28d)",verified
+0x84,Box *,activationBox,"PROPERTY ACTIVATIONBOX (record +0x00; an id list that must hold exactly one box, else state 5): Ralph's x/z inside it starts a cinematic (0x45a6d9, 0x459de0)",verified
+0x88,Box *,cinBox,PROPERTY CINBOX (+0x10; 0 unless exactly one box): Cine_Start's box (0x45a77d),verified
+0x8c,Box *,sheepBox,"PROPERTY SHEEPBOX (+0x28; exactly one box, else state 5): Cine_Start's sheep box (0x45a72f)",verified
+0x94,u16,cinWithSheep,PROPERTY CINWITHSHEEP (+0x1c) as a word (0x45a7ac): the cinematic played when Ralph arrives with a sheep,verified
+0x96,u16,cinWithoutSheep,PROPERTY CINWITHOUTSHEEP (+0x14) as a word (0x45a7cd): the cinematic played when he arrives without one,verified
+0x98,u8,state,"PorkyLevel01 state (SetState 0x45a446): 0 waiting for Ralph in ACTIVATIONBOX, 1 lesson done, 2 with-sheep cinematic, 3 without-sheep cinematic, 4 saying a line, 5 disabled (a box property is missing), 6 question box open",verified
+0x9c,s32,cinWithSheepPlayed,"the with-sheep cinematic has started; afterwards neither cinematic plays again (0x459e80, 0x459f4b)",verified
+0xa0,s32,cinWithoutSheepPlayed,the without-sheep cinematic has started; it plays once (0x459f3f),verified
+0xa4,char *,cinWithSheepText,Text_GetClassString(CINWITHSHEEPTEXT +0x20): the with-sheep cinematic's text (0x45a81e),verified
+0xa8,char *,cinWithoutSheepText,Text_GetClassString(CINWITHOUTSHEEPTEXT +0x18) (0x45a7f6),verified
+0xac,char *,withSheepText2,Text_GetClassString(WITHSHEEPTEXT2 +0x30) (0x45a86e); not read in this file,verified
+0xb0,char *,withoutSheepText2,Text_GetClassString(WITHOUTSHEEPTEXT2 +0x2c) (0x45a846); not read in this file,verified
+0xb4,s32,saladDelayMs,PROPERTY DISPLAYSALADMILLIS (+0x24) at load: the delay before the first lettuce appears during the with-sheep cinematic; then 500 ms between lettuces. Counts down by g_dtMs only while g_cinePlayer.wolfReady (0x459ca4); signed test jle 0x459ca2,verified
+0xb8,ScnObject *,sheep,"the sheep (class 11 within 200 of Ralph) that started the with-sheep cinematic: sent msg 0x12 then, and msg 0x13 when the cinematic ends (0x459ec8, 0x45a392)",verified
+0xbc,s32:1,menuJustOpened,"bit 0: set by the talk message, cleared at the end of every Update; blocks a second talk and the confirm press in the same frame (0x45a209, 0x45a06b, 0x45a162)",verified
+0xbc,s32:1,wolfFrozen,"bit 1: Ralph was frozen with msg 0xE when the talk started; unfrozen with msg 0xF when the line or the box ends, cleared by msg 0xE back (0x45a220, 0x459d73, 0x45a1c1). Signed int bitfield (shl/sar)",verified
+0xbc,s32:30,unusedBits,the rest of the flag word; never read or written (it fills the int storage unit VC6 gives the two bitfields),inferred
+0xc0,MenuPage[5],choicePages,"the question box's node array (root + 3 choices + 1), built by Menu_BuildList (0x45a925)",verified
+0xe8,Menu,choiceMenu,Menu record written by Menu_BuildList; its count (+0xec) sizes the box (0x45aa69),verified
+0xfc,u32,curVoice,voice of the line being said (SetState argument 3; Dialogue_Say 0x459d52),verified
+0x100,Salad *[20],salads,"the level's lettuces (Scenaric_FindByClass(3, .., 20) 0x459c0a), taken out of the world at load; a slot is zeroed once shown",verified
+0x150,Vec3s[20],saladPos,each lettuce's position when it was taken out (0x459c5b); ShowSalad puts it back there,verified
+0x1c8,u32,saladCount,"number of lettuces found (compared unsigned with jae 0x459c39; Update reads its low byte as a signed char, movsx 0x459cfc)",verified
+0x1cc,s32,saladShowActive,1 from the start of the with-sheep cinematic until every lettuce has been shown one by one,verified
+0x1d0,s8,saladShowIndex,index of the last lettuce shown; -1 at the start (movsx byte 0x459cf2),verified
+0x1d4,char *,curText,line being said in state 4 (SetState argument 2),verified
+0x1d8,MenuBox,questionBox,"text = ASKTEXT, pages = &choicePages, list = &choiceMenu, rect sized to the longest line and centred in 512x240 (0x45a930-0x45ab43); drawn with Ui_DrawMenuBox in state 6",verified
+0x1f8,char *[3],choiceTexts,"Text_GetClassString(CHOICESTEXTS + i) (0x45a8d6), printed by the three choice handlers",verified

@@ -1,0 +1,11 @@
+value,name,meaning
+#,UmbrellaMsg,Messages handled by Umbrella_HandleMessage 0x502e37
+0x2,MSG_QUERY_ACTION,Wolf only -> 4
+0x4,MSG_PICKUP,"attach, anim 6, state CLOSED, shadow hidden"
+0x5,MSG_DROP,"detach, SetPosition(arg), anim 7, state CLOSED, shadow shown"
+0x9,MSG_CONTAINER_STATE,arg 1: homePos = pos
+0x10,MSG_CARRY_ANIM,"while open: Wolf variant -> anim (1->9 walk, 2->0xB jump, 3->5 glide, 10->10 jump start, 11->8 air hop, 15->0xC hop fall, else 3 idle), LOOP|BLEND"
+0x15,MSG_HELD_STATE_BEGIN,"arg 3 -> OPENING_AIR, else OPENING_GROUND"
+0x16,MSG_HELD_STATE_END,"CLOSING, clears OPEN"
+0x17,MSG_QUERY_HELD_ACTION,0xE (HELD_UMBRELLA)
+0x55,MSG_CHECKPOINT_ROLLBACK,vtable Reset

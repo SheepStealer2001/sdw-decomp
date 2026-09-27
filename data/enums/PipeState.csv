@@ -1,0 +1,6 @@
+value,name,meaning
+#,PipeState,
+0x0,PIPE_ST_IDLE,Update 0: captures a ball at either mouth (inferred)
+0x1,PIPE_ST_TRANSIT,entered when a ball is captured (inferred)
+0x3,PIPE_ST_LAUNCH_WAIT,"Update 3: after launchDelay MSG_CB_LAUNCH, -> 0 (inferred)"
+0x4,PIPE_ST_EJECT,"SetState 4: anim THROW/THROW2 by exit axis; Update: sound 0x8c, launch direction (inferred)"

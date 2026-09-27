@@ -1,0 +1,4 @@
+value,name,meaning
+#,AROCHE5BAnim,animation ids of WAR model AROCHE5B (its WAR type-0x86 table; names verified from the level files). Played by: SmallRock; the model of SmallRock is inferred (the only table whose ids match what the class plays)
+0x0,AROCHE5B_ANIM_STAND,WAR name STAND
+0x1,AROCHE5B_ANIM_BREAK,WAR name BREAK

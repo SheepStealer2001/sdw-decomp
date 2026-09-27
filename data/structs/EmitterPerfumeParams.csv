@@ -1,0 +1,9 @@
+offset,ctype,name,meaning,confidence
+0x0,s32,hSpeed,"horizontal drift per second at full strength (Emitter_UpdatePerfume 0x52ced5 mov eax,[edx]; imul g_dt)",verified
+0x4,s32,vSpeed,"vertical drift per second (0x52cef0 mov edx,[ecx+4])",verified
+0x8,s32,life,particle life in ticks (0x52ce48 idiv [ecx+8]),verified
+0xc,s32,spawnInterval,"ticks between spawns (0x52cea5 mov eax,[edx+0xc])",verified
+0x10,s16,sizeStart,"size at birth (0x52d04a movsx ecx,[eax+0x10])",verified
+0x12,s16,sizeEnd,"size at death (0x52d051 movsx eax,[edx+0x12])",verified
+0x14,s16,range,"vertical distance from the reference height over which the drift fades to 0: strength = (range - |ref - y|) / range (0x52cfab movsx edx,[ecx+0x14])",verified
+0x16,u8,sheetIndex,"sprite sheet (0x52ce73 mov dl,[ecx+0x16])",verified

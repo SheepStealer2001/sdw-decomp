@@ -1,0 +1,12 @@
+value,name,meaning
+#,CannonBallMsg,"Messages handled by CannonBall_HandleMessage 0x4a2d89 (senders: CanonSimple, CanonSheep, Rook 0x4e78ef, Pipe 0x4dadba/0x4dc69a)"
+0x3381,MSG_CB_LAUNCH,arg Vec3s* dir -> state 1; a cannon sender becomes launcher and firedByCannon=1
+0x3382,MSG_CB_PLACE,arg Vec3s* pos; from a cannon: launcher + home pos + SetPosition; else SetPosition only when idle
+0x3383,MSG_CB_ENTER_PIPE,arg Vec3s* entry -> state 4; returns 1 (refused) in states 0/4/6
+0x3384,MSG_CB_PIPE_TRANSIT,arg = duration in g_gameTime ticks; sets up entry->current-pos interpolation
+0x3385,MSG_CB_PIPE_CAMERA,"arg Vec3s* exit dir; computes camGoal, -> state 6"
+0x3386,MSG_CB_RELEASE_CAMERA,"cameraReleased=1, Camera_ReleaseScripted"
+0x3387,MSG_CB_SET_OWNS_CAMERA,ownsCamera = arg
+0x3388,MSG_CB_SET_LETHAL,lethal = arg (proximity kill in state 1)
+0x3389,MSG_CB_LOAD,arg Vec3s* dir -> state 3 with the chase camera placed
+0x338a,MSG_CB_FIRE_AT,arg Vec3s* target -> state 2 (homing)

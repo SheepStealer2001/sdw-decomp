@@ -1,0 +1,8 @@
+value,name,meaning
+#,DancingGhostManagerState,state field of DancingGhostManager
+0x0,DGMGR_ST_WAIT_CINE,Update 0: -> 1 when the cinematic trigger fired (inferred)
+0x1,DGMGR_ST_CINEMATIC,SetState 1: StartSceneInline(cineId); Update: -> 3 when it ends (inferred)
+0x2,DGMGR_ST_DANCE,"SetState 2: beat clock reset; Update: runs UpdateBeatTrack, -> 4 when the round ends (inferred)"
+0x3,DGMGR_ST_PLACE_WOLF,"SetState 3: next step, SetGameFlags(0x10); Update: walks the Wolf to stepCenter (MSG_SET5_GOTO) (inferred)"
+0x4,DGMGR_ST_ROUND_END,"SetState 4: ClearGameFlags(0x10), tambourine ghosts reset; Update: after 3000 ms -> 3 or 5 (inferred)"
+0x5,DGMGR_ST_COMPLETE,"SetState 5: danceCompleted = 1, dancers sent home (inferred)"

@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x0,u8[24],unknown00,not established,inferred
+0x18,s16,width,image width,verified
+0x1a,s16,height,image height,verified
+0x1c,s32,byteSize,pixel data size; halved with a signed divide (cdq; sub; sar at 0x55dd2a-0x55dd30),verified
+0x20,u8[8],unknown20,not established; the record is allocated as 0x28 bytes (push 0x28 at 0x55e007),inferred

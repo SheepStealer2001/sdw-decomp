@@ -1,0 +1,4 @@
+value,name,meaning
+#,PerfumeState,Perfume state (u8 at Perfume+0x32c)
+0,PERFUME_ST_INACTIVE,delivered / held / reset: no particles; unregisters its scent on the next Update
+1,PERFUME_ST_EMITTING,"placed (msg 5 with flag bit 0): particles, blowTime integration, scent source registered every frame"

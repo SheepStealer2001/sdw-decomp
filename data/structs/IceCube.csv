@@ -1,0 +1,8 @@
+offset,ctype,name,meaning,confidence
+0x64,CollBox,box,"world collision box = first solid model box + pos (Box_Translate at 0x4cbc1b); CustomCollide sweeps against it (0x4cbb75). min.y (+0x6a) is its top: lowered while the cube melts (0x4cbe12, 0x4cbe4a), restored from g_iceCubeTop by Reset (0x4cbf79)",verified
+0x74,ScnObject *,prisoner,"PROPERTY OBJ (Scn_GetPropObject(record, 0) at 0x4cbbc7): the object frozen inside; sent msg 0x41 when the cube melts (SetState 2, 0x4cc07d)",verified
+0x78,s32,meltTime,"4.12 s of heat received (+= g_dt only on frames with the heated bit, 0x4cbdb1); 0x1000 (1 s) melts the cube (SetState 2 at 0x4cbe6a); zeroed by msg 0x32 and Reset",verified
+0x7c,u8,state,"IceCubeState: 0 frozen (anim 2), 1 melting (anim 0, paused when not heated), 2 melted (waits for the anim end), 3 gone (anim 5); no collision in 2 and 3",verified
+0x7d,u8:1,melted,bit 0: set on entering state 2; blocks further heat (msg 0x41); a Reset keeps a melted cube gone (0x4cbf58),verified
+0x7d,u8:1,heated,bit 1: set by msg 0x41 (the hair dryer) and cleared by the next Update; the melt only advances on frames where it is set,verified
+0x7d,u8:1,noDaffy,"bit 2: set in PostLoadInit unless the level has a DaffyMilitary (class 0x39, loop 0x4cbcde-0x4cbd2e); selects the plain lowering of the top (0x4cbde7) over the masked one",verified

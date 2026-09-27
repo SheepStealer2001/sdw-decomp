@@ -1,0 +1,7 @@
+value,name,meaning
+#,TrainMsg,"messages the TrainStation / TrafficJams send to the Train (class 135, handler 0x500c58)"
+0x4781,MSG_TRAIN_START_AT,station -> train: first waypoint {Vec3s pos; s16 heading}; the train places itself there and reads msg 0x4802
+0x4782,MSG_TRAIN_FINAL_WAYPOINT,station -> train: last point of the route
+0x4783,MSG_TRAIN_GET_PASSENGER,"returns the rider (train+0xC8), or 0 when the Wolf is outside the OFFTRAINBOX list while the train is TRAIN_ST_AT_STATION (+0x64); read as 'Ralph aboard' (inferred)"
+0x4784,MSG_TRAIN_IS_AT_STATION,"1 when the train is TRAIN_ST_AT_STATION (+0x64 == 1, movzx at 0x501014) and its last command (+0x78) is MSG_TRAIN_WAYPOINT 0x60: stopped at the station in mid-route rather than moving"
+0x4785,MSG_TRAIN_IN_ZONE,1 when the train or one of 5 wagon positions is inside the train's box list (name inferred)

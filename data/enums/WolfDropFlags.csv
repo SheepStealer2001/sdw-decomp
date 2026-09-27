@@ -1,0 +1,6 @@
+value,name,meaning
+#,WolfDropFlags,Wolf_DropHeld / Wolf_Die flags
+0x1,WOLF_DROP_RELEASE,"release object (Die: enter via SetMode(0,..))"
+0x2,WOLF_DROP_NO_SNAP,
+0x4,WOLF_DROP_STOP,zero velocity
+0x8,WOLF_DROP_USE_OFFSET,+0x624

@@ -1,0 +1,4 @@
+value,name,meaning
+#,HoleFXMode,"the value of HoleFX+0x04, decided in HoleFX_Init by whether an off-screen capture surface could be created. It selects between two structurally different wipes"
+0x00,HOLEFX_MASK,"non-blocking: no capture surface. Draws a 256x256 circular ARGB4444 alpha mask (built by 0x53886E) scaled by the screen half-diagonal, with MIRROR texture addressing, plus surrounding flat rects. Uses no vertex buffer and no RenderPoly"
+0x01,HOLEFX_MESH,"blocking: the frozen frame is blitted into the capture surface and drawn as a 120-triangle radial mesh whose vertices ride Bezier curves, one DrawPrimitive per triangle"

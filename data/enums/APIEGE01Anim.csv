@@ -1,0 +1,5 @@
+value,name,meaning
+#,APIEGE01Anim,animation ids of WAR model APIEGE01 (its WAR type-0x86 table; names verified from the level files). Played by: WolfTrap
+0x1,APIEGE01_ANIM_TRAP0,WAR name TRAP0
+0x3,APIEGE01_ANIM_TRAP2,WAR name TRAP2
+0x4,APIEGE01_ANIM_TRAP3,WAR name TRAP3

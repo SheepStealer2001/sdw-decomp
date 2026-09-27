@@ -1,0 +1,5 @@
+value,name,meaning
+#,StreamLoadStatus,g_streamLoadStatus 0x71ce34
+0,STREAM_LOAD_PENDING,"thread started, clip not open yet"
+1,STREAM_LOAD_OK,clip opened and the idle StreamSound created
+-1,STREAM_LOAD_FAILED,WaveFile_Open failed

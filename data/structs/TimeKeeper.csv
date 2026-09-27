@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,state,"TimeKeeperState: 0 available, 1 ringing sequence, 2 collected",verified
+0x65,u8,seqStep,"ring-sequence step (0 anim1, 1 anim2 + loop sound, 2 anim3, 3 -> collected)",verified
+0x66,u16,ringSoundHandle,"handle of the looping ring sound 0xF8, stopped at step 2",verified

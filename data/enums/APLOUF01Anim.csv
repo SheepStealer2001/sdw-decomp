@@ -1,0 +1,3 @@
+value,name,meaning
+#,APLOUF01Anim,"animation ids of WAR model APLOUF01 (its WAR type-0x86 table; names verified from the level files). Played by: Sheep, SlidingIceCube, Wolf"
+0x0,APLOUF01_ANIM_SPLASH,WAR name SPLASH

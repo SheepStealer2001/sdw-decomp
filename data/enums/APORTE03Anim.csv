@@ -1,0 +1,4 @@
+value,name,meaning
+#,APORTE03Anim,animation ids of WAR model APORTE03 (its WAR type-0x86 table; names verified from the level files). Played by: DoorWorld
+0x1,APORTE03_ANIM_OPEN1,WAR name OPEN1
+0x3,APORTE03_ANIM_CLOSE1,WAR name CLOSE1

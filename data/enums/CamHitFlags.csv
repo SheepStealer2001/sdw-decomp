@@ -1,0 +1,4 @@
+value,name,meaning
+#,CamHitFlags,Camera_SolveCollision work hitFlags
+0x400,CAMHIT_LEFT,Camera_SolveCollision: & 0x400 -> g_camAutoYawRate = -yawSpeed (inferred)
+0x800,CAMHIT_RIGHT,part of 0xc00 with 0x400 (either side) (inferred)

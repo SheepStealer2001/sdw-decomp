@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x0,u32,ckid,Win32 SDK MMCKINFO (mmsystem.h). Chunk id (FOURCC): WaveFile_Open / ResetFile store 'data' 0x61746164 before mmioDescend (0x4218a9).,inferred
+0x4,u32,cksize,"Win32 SDK MMCKINFO (mmsystem.h). Chunk size; for ckData the bytes of PCM left, decremented by WaveFile_ReadMmio (0x4219a3).",inferred
+0x8,u32,fccType,Win32 SDK MMCKINFO (mmsystem.h). Form type (FOURCC) of a RIFF/LIST chunk: 'WAVE' 0x45564157 checked by 0x421a5f.,inferred
+0xc,u32,dwDataOffset,Win32 SDK MMCKINFO (mmsystem.h). File offset of the chunk data; Open/ResetFile seek to ckRiff.dwDataOffset + 4 (0x4218e5).,inferred
+0x10,u32,dwFlags,Win32 SDK MMCKINFO (mmsystem.h). MMIO_DIRTY etc.; not read by the game.,inferred

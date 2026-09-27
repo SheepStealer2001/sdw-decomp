@@ -1,0 +1,6 @@
+value,name,meaning
+#,SignPostSimpleState,SignPostSimple +0x40.
+0,SIGN_ST_OPENING,waits for a frame without a CROSS edge
+1,SIGN_ST_SHOWING,subtitle box drawn; CROSS -> 2
+2,SIGN_ST_CLOSING,next frame without edge: unfreeze Wolf -> 3
+3,SIGN_ST_IDLE,readable

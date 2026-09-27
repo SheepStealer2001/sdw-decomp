@@ -1,0 +1,7 @@
+value,name,meaning
+#,AmbientSoundFlags,AmbientSoundManager FLAGS property bits (read by AmbientSoundManager_Init 0x494a02 and Update 0x494170)
+0x1,AMBS_CINE_UPDATE,ScnObject flags |= 0x20: keeps updating (and playing) during cinematics
+0x2,AMBS_POSITIONAL,playFlags |= SNDF_POSITIONAL
+0x4,AMBS_POSITIONAL_HORIZONTAL,"if bit1 clear: playFlags |= POSITIONAL|DIST_HORIZONTAL. Also, in box mode the vertical falloff factor is skipped"
+0x8,AMBS_LOOP,"playFlags |= SNDF_LOOP: replayed when found stopped (checked every other update), no repeat timer"
+0x10,AMBS_LINEAR_FALLOFF,"volume = VOLUME*(1 - dist/MAXDIST), with SNDF_NO_ATTENUATION. Unused in retail data (max FLAGS is 13)"

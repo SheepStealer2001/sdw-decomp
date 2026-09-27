@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x40,ZoneList,manageBoxes,"zone list {boxes, count}: MANAGEINBOXES id-list (Scn_FindIdList). Tested against g_camPos (the camera eye, not the Wolf) every frame. | count (+4): element count written by Scn_FindIdList",verified
+0x48,ObjMgrEntry[50],entries,managed objects from OBJECT01..OBJECT20 id-lists; appended without a bounds check,verified
+0x1d8,s16,entryCount,number of valid entries,verified
+0x1da,u8,camZoneState,"0 before the first update, 1 camera outside every box, 2 inside one (ObjMgrCamZone)",verified
+0x1dc,u32,keepUpdating,"ACTION & 1. 0: outside the boxes objects are hidden (4) AND frozen (0x2000), and their 0x6000 bits are restored on entry. 1: hide only, but the mask bug wipes all flags.",verified

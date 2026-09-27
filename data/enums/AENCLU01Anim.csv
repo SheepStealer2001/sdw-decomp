@@ -1,0 +1,5 @@
+value,name,meaning
+#,AENCLU01Anim,animation ids of WAR model AENCLU01 (its WAR type-0x86 table; names verified from the level files). Played by: Anvil
+0x0,AENCLU01_ANIM_ANVIL1,WAR name ANVIL1
+0x1,AENCLU01_ANIM_STAND0,WAR name STAND0
+0x2,AENCLU01_ANIM_ANVIL2,WAR name ANVIL2

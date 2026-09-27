@@ -1,0 +1,7 @@
+value,name,meaning
+#,CineTrackSelector,byte 0 of a cinematic track header (Cine.targetDesc)
+0,CINE_TRACK_CAMERA,the cinematic camera block (+0x8cc); sets hasCameraTrack
+1,CINE_TRACK_OBJECT,scenaric object: index = WAR resource-table index resolved by Scenaric_FindByRecord; saved/restored and flagged 0x80
+2,CINE_TRACK_OBJECT_SPEAKER,"like 1, but also the only selector searched for the dialogue speaker (msg 0x58). How it otherwise differs from 1 is unknown"
+3,CINE_TRACK_STATIC,world static object: index into the table at *0x585060; rendered by Cine_RenderTaggedObjects
+4,CINE_TRACK_STATIC_B,same resolution as 3; the difference is unknown

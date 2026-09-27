@@ -1,0 +1,11 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,state,"0 waiting for a swimmer, 1 swallow delay, 2 repositioning under the victim, 3 geyser-in animation running, 4 delivering (Wolf path, with a camera), 5 delivering (Sheep path), 6 finished and back to 0. Written only by WaterGeyser_SetState.",verified
+0x68,s32,timeInHole,"PROPERTY_WATERGEYSER_TIMEINHOLE (prop 8). Stored by PostLoadInit at 0x5068b7 and never read - a slice of the whole class range finds no other reference to +0x68. The swallow delay is the hard-coded 1500 ms at 0x506e6b, so editing TIMEINHOLE in a level file has no effect.",verified
+0x6c,s32,animTimerMs,"How long the passenger's geyser-in animation lasts: the return of passenger->HandleMessage(this, 0x31, 1), counted down by g_dtMs in state 3.",verified
+0x70,s32,swallowTimerMs,"State-1 countdown, always initialised to 0x5dc = 1500 ms by SetState(1) and decremented by g_dtMs.",verified
+0x74,ScnObject *,geyserOut,"PROPERTY_WATERGEYSER_GEYSEROUT (prop 4) via Scn_GetPropObject: the GeyserOut this whirlpool delivers to. Receives msg 0x2885 (give me a camera), 0x2886 (take this passenger) and 0x2880, and is the position source for the teleport.",verified
+0x78,ScnObject *,sheep,Cached g_pSheepOutOfZone 0x6cf264 while testing whether a loose sheep is in the water (msg 0x984) and inside a detect box.,verified
+0x7c,ScnObject *,passenger,"The object being swallowed - Ralph or the out-of-zone Sheep. Its position drives the reposition in state 2, its classId selects the Sheep path in state 4, and it is teleported onto the GeyserOut in states 4 and 5.",verified
+0x80,ZoneList,detectBoxes,"zone list {boxes, count}: PROPERTY_WATERGEYSER_BOXDECTECT (prop 0) resolved by Scn_FindIdList: the list of water boxes that trigger the whirlpool, passed to BoxList_FindContainingPoint. | count (+4): Element count written through Scn_FindIdList's u16 out-parameter, which is passed as this+0x80+4 (0x506874).",verified
+0x88,Box *,hitBox,"The detect box the victim was found inside; its min on the vertical (+6, the surface on the down-positive axis) plus 200 becomes the geyser's own vertical position in state 2.",verified
+0x90,u16,soundHandle,"Handle of sound 0x131, started when the geyser-in sequence begins (state 3, volume 0xff) and stopped when its timer runs out. Zeroed by PostLoadInit at 0x506967.",verified

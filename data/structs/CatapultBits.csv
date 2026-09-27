@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x0,s32:1,reserved0,bit 0 (4-byte signed unit) | Signed one-bit fields match arithmetic shifts in the original catFlags reads.,inferred
+0x0,s32:1,sideways,bit 1 (4-byte signed unit),verified
+0x0,s32:1,reversed,bit 2 (4-byte signed unit),verified
+0x0,s32:1,bucketRequested,bit 3 (4-byte signed unit),verified
+0x0,s32:1,bucketArmed,bit 4 (4-byte signed unit),verified
+0x0,s32:27,reserved5,bits 5..31 (4-byte signed unit),inferred

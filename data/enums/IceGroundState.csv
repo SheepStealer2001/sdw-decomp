@@ -1,0 +1,5 @@
+value,name,meaning
+#,IceGroundState,state field of IceGround
+0x0,ICEGROUND_ST_INTACT,state after load and after 2 (inferred)
+0x1,ICEGROUND_ST_BREAK,"Update 1: camera, anim EXPLOD1, contact off, -> 2 (inferred)"
+0x2,ICEGROUND_ST_BROKEN_ANIM,"Update 2: on anim end broken = 1, camera released, -> 0 (inferred)"

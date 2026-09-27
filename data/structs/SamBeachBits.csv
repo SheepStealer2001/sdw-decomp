@@ -1,0 +1,2 @@
+offset,ctype,name,meaning,confidence
+0x0,u8:1,onSide2,Sam.beachFlags bit 0: the beach variant's second ('2') resource set is current (see Sam.csv beachFlags); flipped as a u8 bitfield,verified

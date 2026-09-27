@@ -1,0 +1,9 @@
+value,name,meaning
+#,DanceEvent,
+0x0,DANCE_EV_NONE,no event
+0x1,DANCE_EV_1,HandleBeatResult: nearest ghost step 5 (inferred)
+0x2,DANCE_EV_2,step 4 (inferred)
+0x3,DANCE_EV_3,step 6 (inferred)
+0x4,DANCE_EV_INTRUDER,Update: Wolf in the dance zone without the ghost disguise (!MSG_WOLF_IS_SET5)
+0x5,DANCE_EV_LEFT_RING,Update: the round is armed and the Wolf is outside the ring
+0x6,DANCE_EV_WANDERED,Update 3: dancers idle and the Wolf more than 150 from the step centre

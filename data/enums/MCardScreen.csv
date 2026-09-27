@@ -1,0 +1,45 @@
+value,name,meaning
+#,MCardScreen,g_mcardScreen 0x6e389c; strings via MCard_UpdateScreen (case = value - 0x1773)
+0x0,MCS_NONE,MCard_Init: g_mcardScreen = 0 (inferred)
+6000,MCS_EXIT,"cancel requested: clear cache, result CANCELLED, fade out"
+0x1771,MCS_FADE_IN,"g_mcardFade 15 -> 0, one step per call, then DETECT"
+0x1772,MCS_FADE_OUT,"g_mcardFade -> 15, then return g_mcardResult"
+0x1773,MCS_DETECT,"'looking for saved game'; waits for the delay, queries the card status (0x65 FORMAT_Q, 0x67 OPEN, 0x68 DAMAGED, else NO_CARD)"
+0x1774,MCS_FORMAT_Q,format card? (unreachable on PC)
+0x1775,MCS_OPEN,"open registry root; mode 1 goes to READ_LOAD, otherwise READ_SAVE. In autosave the image must read OK with a matching timestamp, then WRITE"
+0x1776,MCS_READ_LOAD,"'loading data...': read image; OK -> CHOOSE_LOAD, 0x322 -> CORRUPT"
+0x1777,MCS_READ_SAVE,read image; OK -> CHOOSE_SAVE
+0x1778,MCS_CHECK_SPACE,free blocks 0 -> CARD_FULL else CREATE_Q
+0x1779,MCS_CREATE_Q,'would you like to create a save file?'
+0x177a,MCS_CHOOSE_LOAD,slot chooser load / new game
+0x177b,MCS_CHOOSE_SAVE,slot chooser 'Save game' save / cancel
+0x177c,MCS_CONFIRM_SAVE,'Are you sure you want to save this game?'
+0x177d,MCS_CONFIRM_OVERWRITE,'are you sure you want to overwrite this game?'
+0x177e,MCS_FORMATTING,format (unreachable on PC)
+0x177f,MCS_CREATING,"'creating save file...': Card_CommitBlock(4,0)"
+0x1780,MCS_LOADING,Card_ReadImageAndLoadSlot(selected) -> FINISH_LOADED / LOAD_FAILED
+0x1781,MCS_WRITING,"'saving/overwriting/autosaving data...': Card_CommitBlock(slot, full)"
+0x1782,MCS_FORMAT_OK,unreachable on PC
+0x1783,MCS_LOAD_OK,'load completed'
+0x1784,MCS_SAVE_OK,'Save completed'
+0x1785,MCS_OVERWRITE_OK,'Overwrite completed'
+0x1786,MCS_FORMAT_FAILED,unreachable on PC
+0x1787,MCS_CREATE_FAILED,'creation failed!'
+0x1788,MCS_LOAD_FAILED,'load failed!'
+0x1789,MCS_SAVE_FAILED,'save failed!'
+0x178a,MCS_OVERWRITE_FAILED,'overwrite failed!'
+0x178b,MCS_NO_CARD,placeholder text on PC
+0x178c,MCS_CARD_FULL,placeholder text on PC
+0x178d,MCS_FILE_NOT_FOUND,'save file not found.'
+0x178e,MCS_NEW_GAME_NO_AUTOSAVE_Q,'start a new game? automatic save off.'
+0x178f,MCS_DAMAGED,placeholder text on PC
+0x1790,MCS_CORRUPT,'data may be corrupt!'
+0x1791,MCS_SAVE_CANCELLED,'Data save cancelled!'
+0x1792,MCS_FINISH_SAVED,"saveSlot = lastSlot, saveSlotValid, DONE"
+0x1793,MCS_FINISH_PLAIN,"DONE, no flag change"
+0x1794,MCS_FINISH_LOADED,"saveSlot, saveSlotValid and autoSaveOn, saveTimestamp = image timestamp, DONE"
+0x1795,MCS_FINISH_NO_AUTOSAVE,"clears saveSlotValid and autoSaveOn, DONE"
+0x1797,MCS_AUTOSAVE_OK,'Autosave completed!' (2000 ms)
+0x1798,MCS_AUTOSAVE_FAILED,'Autosave failed! Autosave disabled.' result FAILED
+0x179a,MCS_AUTOSAVE_NOCARD,"placeholder text, result FAILED"
+0x179c,MCS_AUTOSAVE_CORRUPT,'Data may be corrupt! Autosave disabled.' result FAILED

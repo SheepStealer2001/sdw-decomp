@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,ScnObject *,object1,first object to fetch,verified
+0x4,ScnObject *,object2,second object to fetch (0 = only one),verified
+0x8,SamFetchFlags,flags,"bit 0 object1 picked up, bit 1 object2 picked up",verified

@@ -1,0 +1,29 @@
+offset,ctype,name,meaning,confidence
+0x0,char[0x80],scenePath,"path prefix of the scene to load, built by Progress_BuildScenePath; g_pProgress itself is the path argument of Load_DAVnWAR in Game_ReloadLevel. Length 0x80 is inferred from field80 at +0x80",verified
+0x80,u32,field80,set to 1 by 0x401871 during start-up; just outside the saved record,inferred
+0x84,u8[4],timeKeeperBits,"SAVED. per-level (0..31) TimeKeeper reward bitset: set by Progress_AwardTimeKeeper, tested by Progress_IsTimeKeeperDone",verified
+0x88,u8[4],levelDoneBits,"SAVED. per-level completion bitset: tested by Progress_IsLevelDone; set by SceneSheepPanel 0x4e8b49 in the Scene hub for +0xb8, and by Level_FinishScene directly for level 16",verified
+0x8c,u32,bonusFlags,"SAVED. 32-bit collected/completed bit set. Consumers index it by a per-object bit number held at obj+0xc3: (bonusFlags >> (obj->bitIndex & 0x1f)) & 1 (0x49b9e1, 0x49b83c, BonusManager range). 6 refs",verified
+0x90,u16,bonusPoints,"SAVED. spendable balance: +1 per TimeKeeper reward (+2 for level 16), lowered by BonusManager purchases via Progress_SetBonusPoints",verified
+0x92,s8,sheepToCatch,SAVED (record +0xe). MCard_SlotChooser prints it with string 0x30 '%d sheep to catch' in the save-slot info.,verified
+0x93,s8,bonusCount,SAVED (record +0xf). Printed as '%d' followed by string 0x31 'bonus' in the save-slot info.,verified
+0x94,s8,slotIcon,SAVED (record +0x10). Save-slot thumbnail index 0..18; 19 is the empty-slot icon. It is mapped through g_mcardIconGroup 0x577170 / g_mcardIconFrame 0x577184 (20 entries each) and used without a bounds check.,verified
+0x95,u8,streamVolumeA,"SAVED. CfgGame[0], default 0xc0; volume/255 applied by 0x564430 when g_pStreamPlayer mode is 1 (music vs voice not established)",verified
+0x96,u8,streamVolumeB,"SAVED. CfgGame[1], default 0xff; applied by 0x564430 for stream modes 3/6",verified
+0x97,u8,sfxVolume,"SAVED. SFX volume 0..255. 0x50bb3f, 0x542f41 and 0x543584 push byte [+0x97] into 0x5634c0, which stores g_sfxVolume 0x71cdb0; Sound_UpdateChannelGain scales every channel by it/255.",verified
+0x98,u8,optionFlags,"SAVED. packed options byte, unpacked into three globals: bits 0-1 -> 0x6de9b8 (a four-choice setting; Menu_Printf indexes a 4-entry string table at 0x6def8c with it), bit 2 -> 0x6de9b9 (a boolean gate tested in two places), bits 3-4 -> 0x6de9b7. 32 refs - the most-used saved field",verified
+0x98,ProgressOptionBits,optionBits,"optionFlags as bitfields (setting, gate, soundMode): the sites that compile bitfield shifts, e.g. Sound_Play reads soundMode with shr/and on the byte (0x5491ee)",verified
+0x9a,ControlConfig,controls,"SAVED. the control settings as the ControlConfig Input_ApplyControlConfig takes (&controls, 0x50bfdc): preset +0x9a (0/1/2 fixed rotations of the four face buttons, 3 custom), actuatorEnable +0x9b (mirrored into g_pad+0x5b on pause exit, cleared on pause open), padIsAnalog +0x9c (Input_Poll writes (g_pad type nibble == 7) whenever the pad type changes), remap[6] +0x9e: the custom remap values of input-map slots 0xe, 0xf, 0xc, 0xd, 0xb, 0xa in that order (Input_ApplyRemap 0x55e5f3)",verified
+0xaa,u16,field_aa,SAVED (record +0x26). Progress_Reset stores 0 (word store at 0x50bc23); meaning not traced,inferred
+0xac,u16,field_ac,"SAVED (record +0x28). Progress_Reset stores runtimeFlags bit 0 ? 0x10 : 0 (word store at 0x50bc5f, computed by setne/dec/and 0x10); meaning not traced",inferred
+0xae,u8,viewDistanceSetting,"SAVED. CfgGame[6], default 200; view distance = 12000*t + 4000*(1-t) with t = (255-v)/255 (v=0 far 12000, v=255 near 4000)",verified
+0xb0,u32,saveTimestamp,NOT saved (one past the record end). Card_CommitBlock stamps g_rawTime here and 0x6e3798 is compared against it,verified
+0xb4,u8,runtimeFlags,"NOT saved. bit flags, read-modify-written all over the game - 52 refs, the most-referenced field on the object",verified
+0xb4,ProgressRuntimeFlagBits,runtimeBits,runtimeFlags as bitfields: the sites that compile bitfield shifts,verified
+0xb5,u8,saveSlot,NOT saved. the block index handed to Card_CommitBlock 0x54aaaa,verified
+0xb6,s8,currentLevel,"NOT saved. current level, as a SIGNED byte: Wolf_Init tests == -1, other code tests -6 and -7 (non-level screens), Sheep_Update tests == 12. 27 refs",verified
+0xb7,s8,sceneExitTarget,NOT saved. destination when the Scene hub (-3) finishes with success; set to -3 by every GotoScene,verified
+0xb8,s8,levelIndexA,NOT saved. bounds-checked to 0..0x1f before use as an index; compared against levelIndexB. 13 refs,verified
+0xb9,s8,levelIndexB,NOT saved. same 0..0x1f bounds check; 0x43bf20 branches on levelIndexB == levelIndexA. 9 refs,verified
+0xba,u8,modeBits,NOT saved. low bits switched on (& 3) and tested (& 1); also used as % 3,verified
+0xbb,u8,language,"Config language index: 0 English, 1 Spanish, 2 Italian, 3 Portuguese. MCard_GetString indexes the 4-language table with it (the table's content fixes the order), and Mlt_MapLanguageToBlock maps it 0->1, 1->2, 2->3, 3->6, which are those same languages' MLT blocks.",verified

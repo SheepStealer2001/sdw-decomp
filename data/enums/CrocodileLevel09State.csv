@@ -1,0 +1,10 @@
+value,name,meaning
+#,CrocodileLevel09State,CrocodileLevel09 +0xa0 (SetState 0x4337ca table 0x434070; Update table 0x4335df)
+0,CROC_ST_WAIT_START,anim 4 at the path start; walks when the Wolf is in ACTIVATIONBOX and in front (+-700)
+1,CROC_ST_WAIT_END,anim 4 at the path end; retreats when the Wolf leaves the box or gets behind
+2,CROC_ST_FORWARD,follows the path forward (moveAnim)
+3,CROC_ST_BACKWARD,follows the path back toward the start
+4,CROC_ST_BITE,"Wolf MSG_KILL arg 10 (KILL_CROCODILE), anim 8, then state 0"
+5,CROC_ST_TURN,"turn-around anim (1 walk / 0 run), then stateAfterTurn and facing += 0x800"
+6,CROC_ST_DEAD,anim 2; the corpse bounces a Wolf/FloatingBox that drops on it (MSG_BOUNCE 0x4B); survives Reset
+7,CROC_ST_SPIN_TO_START,"anim 0xb, per-frame spin back to startFacing, then state 0"

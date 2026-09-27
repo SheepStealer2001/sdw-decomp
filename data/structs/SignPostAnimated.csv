@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,state,SignPostAnimatedState,verified
+0x66,u16,distance,PROPERTY_SIGNPOSTANIMATED_DISTANCE,verified
+0x68,u32,textIndex,PROPERTY_SIGNPOSTANIMATED_INDEXTEXT,verified
+0x6c,char *,text,Text_GetClassString((u8)textIndex),verified
+0x70,u32,hidden,PROPERTY_SIGNPOSTANIMATED_HIDDEN; cleared by msg 0xE81,verified
+0x74,u32,wolfFrozen,reply of Wolf msg 0xE,verified

@@ -1,0 +1,2 @@
+offset,ctype,name,meaning,confidence
+0x40,Shadow,shadow,0x18-byte Shadow for the ScnLogic+shadow base 0x576934 (flags at +0x54),verified

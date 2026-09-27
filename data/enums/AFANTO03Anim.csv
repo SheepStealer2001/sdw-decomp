@@ -1,0 +1,9 @@
+value,name,meaning
+#,AFANTO03Anim,animation ids of WAR model AFANTO03 (its WAR type-0x86 table; names verified from the level files). Played by: PrayingGhost
+0x0,AFANTO03_ANIM_STAND,WAR name STAND
+0x1,AFANTO03_ANIM_HOO,WAR name HOO
+0x4,AFANTO03_ANIM_PRAISE,WAR name PRAISE
+0x6,AFANTO03_ANIM_WALK,WAR name WALK
+0x8,AFANTO03_ANIM_APPEAR,WAR name APPEAR
+0x9,AFANTO03_ANIM_STAND2,WAR name STAND2
+0xa,AFANTO03_ANIM_KILL,WAR name KILL

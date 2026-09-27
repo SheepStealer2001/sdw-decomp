@@ -1,0 +1,9 @@
+value,name,meaning
+#,CamRestrictFlags,"CamRestrict.flags (CameraRestriction+0x6a), built by init 0x4a1113 from the designer properties"
+0x1,CAMR_SNAPBETA,SNAPBETA: yaw snaps to multiples of 0x400 (same path as CAMREQ_SNAP_YAW)
+0x2,CAMR_FORBIDPADCONTROL,FORBIDPADCONTROL: pad yaw input ignored (also implied by a trajectory)
+0x4,CAMR_MIRRORBETA,MIRRORBETAINTERVAL: yaw is also allowed in the arc shifted by 0x800
+0x8,CAMR_MODE_RUN,MISCFLAGS bit2: applies in camera mode 2
+0x10,CAMR_MODE_FOLLOW,MISCFLAGS bit0: applies in modes 0 and 0xC; activates when the Wolf is inside an influence box
+0x20,CAMR_MODE_ROBOT,MISCFLAGS bit1: applies in mode 6; activates when the Robot is inside an influence box
+0x40,CAMR_NOTIFY_WOLF,MISCFLAGS bit3: on Wolf activation sends Wolf msg 0x425

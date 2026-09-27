@@ -1,0 +1,26 @@
+value,name,meaning
+#,WolfFlagsA,Wolf +0x714 fx/prop flags
+0x1,WOLF_FA_HAS_SPLASH,splash body created
+0x2,WOLF_FA_SPLASH_ACTIVE,
+0x4,WOLF_FA_PROP_ICE,prop 3 attached (state flag 0x800000)
+0x8,WOLF_FA_PROP0,"prop 0 attached at (0,-150,0) (states 0x56/0xA9)"
+0x10,WOLF_FA_TRAIL_RUN,run dust active
+0x20,WOLF_FA_TRAIL_TURN,sharp-turn dust
+0x40,WOLF_FA_TRAIL_ROCKET,
+0x80,WOLF_FA_TRAIL_LAND,landing dust
+0x100,WOLF_FA_TRAIL_SKID,
+0x200,WOLF_FA_BUBBLES,underwater
+0x400,WOLF_FA_RIPPLES,water surface
+0x800,WOLF_FA_REQ_SKID,per-frame request
+0x1000,WOLF_FA_REQ_TURN,"Mobile_Steer heading error, per frame"
+0x2000,WOLF_FA_PROP5,prop 5 at feet/water surface (0x491566)
+0x4000,WOLF_FA_PROP6_BILLBOARD,"prop 6 (0x4917a3), faces camera"
+0x8000,WOLF_FA_FOOTPRINTS,
+0x10000,WOLF_FA_DEATHZONE_PROP,0x491677
+0x20000,WOLF_FA_BURNT,black tint
+0x40000,WOLF_FA_BREATH,cold breath puff
+0x80000,WOLF_FA_PROP7,0x491960
+0x100000,WOLF_FA_PROP4,0x491480(1)
+0x200000,WOLF_FA_STATE_DUST,"dust for state flag 0x40000000; dust for states with WolfStateFlags 0x40000000, Wolf::Render trail mode 3 (inferred)"
+0x400000,WOLF_FA_PROP8,0x4916ee (zap)
+0x800000,WOLF_FA_CINE_SHEEP_DROP,msg 0x12 with carried sheep

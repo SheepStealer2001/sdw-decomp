@@ -1,0 +1,5 @@
+value,name,meaning
+#,WeatherType,g_weatherType 0x6ddf6a (the level's WAR header)
+0x0,WEATHER_NONE,no weather case in Game_Frame's switch
+0x1,WEATHER_RAIN,g_weatherType 1: Weather_InitRain / Weather_UpdateRain (weather.cpp 0x52dfc4)
+0x2,WEATHER_SNOW,g_weatherType 2: Weather_InitSnow / Weather_UpdateSnow (weather.cpp 0x52e0e3)

@@ -1,0 +1,5 @@
+value,name,meaning
+#,FanAnimFlags,flags word of g_fanStateAnims entries
+0x1,FAN_AF_HIDE_SHADOW,Fan_SetState sets shadow.flags bit 0 (shadow not drawn)
+0x2,FAN_AF_LOOP,Anim_Start with ANIM_SET_LOOP
+0x4,FAN_AF_BLOWING,blowing state: msg 6 answers and msg 0x10 switches anims

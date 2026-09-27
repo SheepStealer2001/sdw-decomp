@@ -1,0 +1,4 @@
+value,name,meaning
+#,RollingCarpetMsg,Messages handled by RollingCarpet_HandleMessage 0x4e68af (only these two; the others it sends belong to the receivers)
+0xd,MSG_GROUND_QUERY,ground query on the belt
+0x1a,MSG_MODIFY_MOVE,move modifier from a registered rider

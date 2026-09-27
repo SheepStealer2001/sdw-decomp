@@ -1,0 +1,12 @@
+value,name,meaning
+#,LaserType,"Laser.type, PROPERTY_LASER_TYPE (prop 12): the beam; PostLoadInit plays the ALASER01 animation of the same name, through the permutation 0,1,5,8,2,6,3,7,4,9 (jump table 0x4d06a8), so the value is not the animation index (verified)"
+0x0,LASER_TYPE_STAND4,type 0 -> animId 0 (ALASER01 STAND4) (verified)
+0x1,LASER_TYPE_STAND6,type 1 -> animId 1 (STAND6) (verified)
+0x2,LASER_TYPE_MIDDLE1,type 2 -> animId 5 (MIDDLE1) (verified)
+0x3,LASER_TYPE_MIDDLE2,type 3 -> animId 8 (MIDDLE2) (verified)
+0x4,LASER_TYPE_LEFT12,type 4 -> animId 2 (LEFT12) (verified)
+0x5,LASER_TYPE_RIGHT12,type 5 -> animId 6 (RIGHT12) (verified)
+0x6,LASER_TYPE_LEFT14,type 6 -> animId 3 (LEFT14) (verified)
+0x7,LASER_TYPE_RIGHT14,type 7 -> animId 7 (RIGHT14) (verified)
+0x8,LASER_TYPE_LEFT26,type 8 -> animId 4 (LEFT26) (verified)
+0x9,LASER_TYPE_RIGHT26,type 9 -> animId 9 (RIGHT26) (verified)

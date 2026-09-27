@@ -1,0 +1,5 @@
+value,name,meaning
+#,DaffyWheelState,state field of DaffyWheel
+0x0,DAFFYWHEEL_ST_START,"Update 0: starts the camera shots and anim PUSH, -> 2 (inferred)"
+0x1,DAFFYWHEEL_ST_PUSH_A,"Update 1: on anim end (no script camera) anim PUSH1, -> 2 ... anim PUSH2 when entering 1 (inferred)"
+0x2,DAFFYWHEEL_ST_PUSH_B,"Update 2: on anim end anim PUSH1, -> 1 (inferred)"

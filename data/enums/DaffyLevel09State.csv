@@ -1,0 +1,10 @@
+value,name,meaning
+#,DaffyLevel09State,state field of DaffyLevel09
+0x0,DAFFY09_ST_PLACARD,"SetState 0: placard APPEAR1/BURN2 in front, burn sound; Update: placard timer, releases the Wolf (inferred)"
+0x1,DAFFY09_ST_CINE_INTRO,SetState 1: StartCine(cine) + anim TALK1; Update: -> 7 when finished (inferred)
+0x2,DAFFY09_ST_CINE_DISGUISE,SetState 2: StartCine(cineDeguis) + anim TALK1; Update: -> 7 or walk out (inferred)
+0x3,DAFFY09_ST_WALK_OUT,"SetState 3: walkOut trajectory, Wolf frozen, anim WALK1; Update: -> 4 at the end (inferred)"
+0x4,DAFFY09_ST_TURN0,SetState 4: anim TURN0; Update: on anim end -> 5 (inferred)
+0x5,DAFFY09_ST_TURN1,"SetState 5: msg 0x3d to the SwirlSign, anim TURN1; Update: on anim end -> 6 (inferred)"
+0x6,DAFFY09_ST_WALK_BACK,"SetState 6: walkBack trajectory, anim WALK1; Update: -> 7 at the end (inferred)"
+0x7,DAFFY09_ST_IDLE,"SetState 7: releases the Wolf and camera, anim STAND1; Update: waits for the activation box / disguise boxes (inferred)"

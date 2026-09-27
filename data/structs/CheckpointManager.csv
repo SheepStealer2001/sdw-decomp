@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x40,u32,lastChaseTime,g_gameTime when Sam last answered msg 0x480 (alert level 2); checkpoints are frozen for 0x2000 ticks (2.0 s) after it,verified
+0x44,CheckpointEntry[8],entries,the eight checkpoint entries; the first entryCount are populated,verified
+0xc4,u32,jointMask,bit i: entry i only applies when Wolf and sheep are in the SAME entry,verified
+0xc8,u32,disableEarlierMask,bit i: reaching entry i clears all earlier entries and sends the sheep msg 0x988,verified
+0xcc,u8,entryCount,number of populated entries,verified
+0xd0,Sam *,sam,Sam object found at init (may be null),verified

@@ -1,0 +1,3 @@
+value,name,meaning
+#,CineRunFlags,Cine.runFlags
+0x1,CINE_RUN_VOICE_STARTED,Cine::Update plays the voice stream once and sets it; Cine::Load clears

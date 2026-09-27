@@ -1,0 +1,3 @@
+value,name,meaning
+#,AMEMORY1Anim,animation ids of WAR model AMEMORY1 (its WAR type-0x86 table; names verified from the level files). Played by: MCardManager
+0x0,AMEMORY1_ANIM_STAND,WAR name STAND

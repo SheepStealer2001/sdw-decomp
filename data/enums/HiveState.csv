@@ -1,0 +1,7 @@
+value,name,meaning
+#,HiveState,state field of Hive
+0x0,HIVE_ST_IDLE,"SetState 0: anim DEFAULT, releases camera and Wolf (inferred)"
+0x1,HIVE_ST_HIT,"SetState 1: anim MOVE, msg 0x3981 to the bees; Update: on anim end -> 4 / 2 / 0 (inferred)"
+0x2,HIVE_ST_TRACK_SWARM,Update 2: camera on the swarm (inferred)
+0x3,HIVE_ST_WATCH_SAM,Update 3: camera on Sam for samWatchTimer (inferred)
+0x4,HIVE_ST_RELEASE_BEES,SetState 4: bee index 0; Update: sends msg 0x3980 to one bee every 150 ms (inferred)

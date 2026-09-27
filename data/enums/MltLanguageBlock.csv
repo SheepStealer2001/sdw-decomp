@@ -1,0 +1,6 @@
+value,name,meaning
+#,MltLanguageBlock,"mapping from the configuration language index (byte at *(void**)0x57b80c + 0xBB) to the MLT block index that Load_MLT's string-bank builder 0x548980 skips to, performed by 0x548D76. Values outside 0..3 pass through unchanged"
+0x00,MLT_CFG0_BLOCK1,config language 0 reads MLT block 1
+0x01,MLT_CFG1_BLOCK2,config language 1 reads MLT block 2
+0x02,MLT_CFG2_BLOCK3,config language 2 reads MLT block 3
+0x03,MLT_CFG3_BLOCK6,"config language 3 reads MLT block 6 - the only non-consecutive entry, and the one that can walk past the end of the buffer"

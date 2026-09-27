@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x0,InputDevice *,dev,the device the action is bound to: InputMgr_BindAction stores it at table+8*slot (0x527eab),verified
+0x4,u16,code,button / DIK scan code on that device: stored at table+8*slot+4 (0x527ebc); InputMgr_Poll reads dev->buttonPressed[code] (0x52868f),verified

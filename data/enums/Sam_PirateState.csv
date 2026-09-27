@@ -1,0 +1,20 @@
+value,name,meaning
+#,Sam_PirateState,"Sam_Pirate +0x94, written by Sam_Pirate_SetState 0x47139b (jump table 0x471c34, 18 entries). Names invented from behaviour."
+0,SAMP_STT_TALK,"anim 7; Dialogue_Say TEXT_IN_BOAT1/2 (voice 0x38/0x39) or TEXT_IN_JAIL (0x3A, sets jailWarningGiven); then unfreeze Wolf, talkedFlag=1, state 4 (boat) or 0xF (jail)"
+1,SAMP_STT_GOTO_POST,anim 0xB; walk 250 to guardPost; <30 -> 4 (Init/Reset)
+2,SAMP_STT_LEAVE_FOR_COIN,anim 0xE; coinHuntActive=1; walk 250 to spawnPos; <30 -> 9
+3,SAMP_STT_LEAVE_JAIL,anim 0xE; walk to jailSpot; <20 -> 0xE (the gate opened)
+4,SAMP_STT_GUARD,random idle (circle or anim 7/8/9); Wolf within 400 of Sam -> 5; bridge talk trigger -> 0x11
+5,SAMP_STT_DRAW,"anim 0 once, face Wolf; at end timer = 2 x dur(anim 1) -> 7"
+6,SAMP_STT_STARE_COIN_THIEF,"anim 4, 1000 ms; Wolf still within 30 of targetCoin -> 5, else 9"
+7,SAMP_STT_SHOOT,"entry: Wolf msg 0 arg 0xC (kill), sound 0xF4, anim 1 loop; timer -> 8"
+8,SAMP_STT_HOLSTER,anim 2 once; stops the shot sound; no exit (until Reset or coin scan)
+9,SAMP_STT_SEEK_COIN,dust; nearest free coin within 600 of the search origin; run 450; reached -> 0xB/0xC/0xD; none -> 10
+10,SAMP_STT_NO_COIN,anim 0xC once -> 0xE
+11,SAMP_STT_SNAP_TO_COIN,SetPosition(targetCoin.pos) -> 9 (coin more than 40 lower)
+12,SAMP_STT_PICK_COIN,coinPickedBefore=1; anim 0xD once -> 0xD
+13,SAMP_STT_POCKET_COIN,"anim 3; coin claimed (0x4A83), lifted 50, shrunk 0x400->0x2aa->0x155; end: coin msg 0 (hidden) -> 9"
+14,SAMP_STT_RETURN_TO_POST,"anim 0xE, dust; run 450 to guardPost; <20 -> 4"
+15,SAMP_STT_GO_TO_JAIL,"entry: msg 0 to every coin (all hidden), anim 0xE; run 450 to nearJailPos; <20 -> jailSpot=pos, 0x10"
+16,SAMP_STT_JAILED,jail idles (first time forced idle 3); gate open -> 3; Wolf in jailBox: talk (first time) or draw (after the warning)
+17,SAMP_STT_WALK_TO_TALK,anim 0xE; walk 250 to guardPost (on boat) or nearJailPos; <20 -> 0

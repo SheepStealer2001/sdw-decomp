@@ -1,0 +1,6 @@
+value,name,meaning
+#,DefuseSymbol,"2-bit symbols packed in DefusableMine CODE (PS1 pad layout, PadButton bits)"
+0,DEFUSE_TRIANGLE,"mask 0xEFFF (PAD_TRIANGLE 0x1000), icon IMNPADT_, top"
+1,DEFUSE_CIRCLE,"mask 0xDFFF (PAD_CIRCLE 0x2000), icon IMNPADC_, right"
+2,DEFUSE_SQUARE,"mask 0x7FFF (PAD_SQUARE 0x8000), icon IMNPADS_, left"
+3,DEFUSE_CROSS,"mask 0xBFFF (PAD_CROSS 0x4000), icon IMNPADX_, bottom"

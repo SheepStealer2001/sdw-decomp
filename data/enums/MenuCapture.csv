@@ -1,0 +1,5 @@
+value,name,meaning
+#,MenuCapture,"g_menuCapture 0x6e38c0, set by Menu_SetCapture"
+0x0,MENU_CAPTURE_NONE,normal navigation
+0x1,MENU_CAPTURE_DRAWN,"cursor item owns input, menu still drawn, no navigation"
+0x2,MENU_CAPTURE_HIDDEN,cursor item owns input and the menu is not drawn

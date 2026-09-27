@@ -1,0 +1,6 @@
+value,name,meaning
+#,IceCubeState,state field of IceCube
+0x0,ICECUBE_ST_FROZEN,SetState 0: anim STAND2 (inferred)
+0x1,ICECUBE_ST_MELTING,SetState 1: anim FOND1; Update: melts while heated (inferred)
+0x2,ICECUBE_ST_MELTED,"SetState 2: melted = 1, MSG_THAW to the prisoner; Update: -> 3 on anim end (inferred)"
+0x3,ICECUBE_ST_PUDDLE,SetState 3: anim FLAC1 (inferred)

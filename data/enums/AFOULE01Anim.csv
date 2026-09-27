@@ -1,0 +1,6 @@
+value,name,meaning
+#,AFOULE01Anim,animation ids of WAR model AFOULE01 (its WAR type-0x86 table; names verified from the level files). Played by: Crowd
+0x0,AFOULE01_ANIM_APLAUD1,WAR name APLAUD1
+0x1,AFOULE01_ANIM_STAND1,WAR name STAND1
+0x2,AFOULE01_ANIM_APLAUD2,WAR name APLAUD2
+0x3,AFOULE01_ANIM_STAND2,WAR name STAND2

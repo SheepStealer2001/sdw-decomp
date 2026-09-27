@@ -1,0 +1,16 @@
+value,name,meaning
+#,RobotFlags,u32 Robot+0x2dc
+0x1,ROBOT_F_CONTROLLED,player input goes to the robot (Robot_IsControllable); set by TakeControl and by msg 0xF
+0x2,ROBOT_F_TOUCHING_MOVABLE,per frame: Robot_Move contact.movableObj; blocks put-down and dormancy
+0x4,ROBOT_F_ON_OBJECT,per frame: standing on a scenaric object; suppresses the camera ledge probe
+0x8,ROBOT_F_TRAPPED,caught in WolfTrap +0x290
+0x10,ROBOT_F_STRUGGLE,msg 0x40 from the trap; state 0x18 → 0x19
+0x20,ROBOT_F_DRIVEN,"robot owns the camera request; msg 0x3681 (read by WoodenLift, CameraRestriction and LightSpot)"
+0x40,ROBOT_F_DEAD,"ignores msg 0, 0x3F, 0xB/0x25 and the death-zone test until Reset"
+0x80,ROBOT_F_SMOKE_PHASE,toggled by smokeFlickerTimer; smoke spawns only when set
+0x100,ROBOT_F_AXIS_LOCK_A,per frame (msg 0x44 arg 0): heading snapped to 0x400/0xC00
+0x200,ROBOT_F_AXIS_LOCK_B,per frame (msg 0x44 arg 1): heading snapped to 0/0x800
+0x400,ROBOT_F_POWERED_ON,power-on anim (state 3) already played; cleared by Reset
+0x800,ROBOT_F_IN_SHADOW,inside a g_shadowBoxes zone this frame; tint 0xC00
+0x1000,ROBOT_F_BURNT,tint 0x1000 (black); set by msg 0 kill
+0x2000,ROBOT_F_DEATH_FALLS,"death anim keeps gravity and ends in SetState(1) (msg 0 kill, water, most death boxes)"

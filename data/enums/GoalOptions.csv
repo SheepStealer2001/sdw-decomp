@@ -1,0 +1,4 @@
+value,name,meaning
+#,GoalOptions,Goal OPTIONS designer property
+0x1,GOAL_OPT_CINEMATIC,PostLoadInit: options & 1 -> goalFlags.cinematic
+0x2,GOAL_OPT_NO_SHEEP,options & 2 -> goalFlags.noSheep

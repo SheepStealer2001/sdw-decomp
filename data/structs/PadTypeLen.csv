@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x0,u8:4,len,PadFrame.typeLen low nibble: data length in halfwords (PS1 libpad),verified
+0x0,u8:4,type,high nibble: controller type (7 = analog),verified

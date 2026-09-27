@@ -1,0 +1,6 @@
+value,name,meaning
+#,SelectResult,"u8 return code shared by the list selectors D3DApp_StepDevice 0x404c9b, D3DApp_SetDeviceIndex 0x404d77, D3DApp_StepMode 0x404dcf, D3DApp_SetModeIndex 0x404e86, D3DApp_StepJoystick 0x405b79, D3DApp_SetJoystickIndex 0x405c11, SoundDevice_StepDevice 0x406747 and SoundDevice_SetDeviceIndex 0x4067dc. The launcher loops on Step*(1) until it returns 2."
+0,SEL_OK,Index moved or set.
+1,SEL_CLAMPED_AT_START,"Backward step went below 0 and was clamped. It exists in all four Step functions but is dead code: the index is unsigned (DWORD jae / zero-extended byte jge), so the test never fires and the index wraps instead."
+2,SEL_CLAMPED_AT_END,Forward step passed the last entry; the index is clamped to count-1.
+3,SEL_OUT_OF_RANGE,Set*Index got an index >= count; state unchanged.

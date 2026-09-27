@@ -1,0 +1,5 @@
+value,name,meaning
+#,AGLACON3Anim,animation ids of WAR model AGLACON3 (its WAR type-0x86 table; names verified from the level files). Played by: Wolf
+0x1,AGLACON3_ANIM_CLOSED,WAR name CLOSED
+0x2,AGLACON3_ANIM_FREEZE5,WAR name FREEZE5
+0x3,AGLACON3_ANIM_FREEZE6,WAR name FREEZE6

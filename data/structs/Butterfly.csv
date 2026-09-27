@@ -1,0 +1,19 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,state,"ButterflyState (0 flutter, 2 leave/hidden)",verified
+0x65,u8,boxIndex,index of the appear box (loop variable in state 2),verified
+0x66,u8,appearDelay,counts not-drawn updates with Ralph in a box while hidden; shown at >= 3; zeroed by SetState(0) and Init,verified
+0x68,s16,orbitAngSpeed,orbitDir*0x226,verified
+0x6a,s16,orbitDir,+1/-1,verified
+0x6c,s16,vertStep,this frame's vertical move = (sign(vertDelta)*80*g_dt)>>12,verified
+0x6e,s16,vertDelta,targetVert - pos.y,verified
+0x70,s16,targetVert,"random flutter height, Rand_Range(appearPos.y-200, appearPos.y); re-picked within 20 units",verified
+0x74,u32,reverseNext,as Bird: mirror the orbit on the next SetState(0),verified
+0x78,u32,wasOnScreen,"inst.flags & INST_F_DRAWN copied in Render, zeroed in Update",verified
+0x7c,s16,variant,"_4BUTTERFLY property (0/1/2): 0 -> model APAPIL02, anims 0 (flutter) / 1 (leave); 1 -> APAPIL03, anims 0 / 2; 2 -> APAPIL03, anims 1 / 3",verified
+0x7e,Vec3s,orbitRadius,pos - orbitCentre at the start of a quarter circle,verified
+0x84,Vec3s,orbitRot,orbit Euler angle (y advanced),verified
+0x8a,Vec3s,orbitCentre,"appearPos + (200,0,0) on appearing",verified
+0x90,Vec3s,appearPos,centre of the appear box,verified
+0x98,ZoneList,appearBoxes,"zone list {boxes, count}: APPEARBOX id-list | count (+4): count from Scn_FindIdList",verified
+0xa0,AltModel,mainModel,main model snapshot from ScnObject_InitWithAltModels in Butterfly_Create,verified
+0xb0,AltModel[2],altModels,"id lists {0xb8 WAR_IDO_APAPIL02, 0xb9 WAR_IDO_APAPIL03}; [0] used when variant == 0, [1] otherwise",verified

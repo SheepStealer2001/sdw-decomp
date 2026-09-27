@@ -1,0 +1,5 @@
+value,name,meaning
+#,ALAVE02Anim,animation ids of WAR model ALAVE02 (its WAR type-0x86 table; names verified from the level files). Played by: Volcano
+0x0,ALAVE02_ANIM_SPLASH,WAR name SPLASH
+0x1,ALAVE02_ANIM_UP,WAR name UP
+0x2,ALAVE02_ANIM_DOWN,WAR name DOWN

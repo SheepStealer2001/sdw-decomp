@@ -1,0 +1,9 @@
+offset,ctype,name,meaning,confidence
+0x0,u8:2,kind,"MenuItemFlags bits 0-1: 0 = page/submenu that CROSS enters, 1 = leaf item",inferred
+0x0,u8:1,hasHandler,"bit 2 (0x04): +4 is a MenuHandler, else a char* label",inferred
+0x0,u8:1,disabled,"bit 3 (0x08): disabled (grey, skipped by navigation)",inferred
+0x0,u8:1,selected,"bit 4 (0x10): the highlighted row; a MenuHandler reads it as the blink argument of Text_PrintfStyled (unsigned 1-bit read shr 4 / and 1 at 0x43b35c, 0x43b3a6, 0x436934)",verified
+0x0,u8:3,flagsHigh,bits 5-7,inferred
+0x1,u8,childCount,number of child nodes; incremented by Menu_AddItems/Menu_AddPage on the parent; Menu_Update's draw loop runs until it has visited this many children,verified
+0x2,s16,parent,"index of the parent node in the same array, -1 for the root (node 0)",verified
+0x4,void *,handler,"union: MenuHandler void(u8 msg, MenuPage *self) when flags bit 2 is set, otherwise the char* label printed with ""%s""",verified

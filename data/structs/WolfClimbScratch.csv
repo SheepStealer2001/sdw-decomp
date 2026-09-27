@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,Vec3s,vel,velocity being built (u/s); Wolf_ClimbStep's view of g_collScratchA 0x6d5468 (0x48a8ea),verified
+0x8,Vec3s,rot,"copy of the Wolf's rot (0x48a904 add eax,8)",verified
+0x10,Vec3s,target,"climb target point: context object's position plus its box's top centre (0x48a974 word [eax+0x12], 0x48a99c [ecx+0x10], 0x48a9c4 [edx+0x14])",verified
+0x18,Vec3s,step,"this frame's displacement (0x48ac06 add eax,0x18 into Vec3s_ScaleByDt)",verified

@@ -1,0 +1,18 @@
+offset,ctype,name,meaning,confidence
+0x0,HeapBlock *,firstBlock,"First block in address order: ((start+8+A-1)&~(A-1))-8 with A = max(align,32), written by Heap_InitArena 0x54d5f3. Heap_FindPrevBlock walks from here.",verified
+0x4,HeapBlock *,freeHead,Head of the free list; head->prev points to itself. Every free/unlink path compares against it. Once no free block is left it is the end sentinel.,verified
+0x8,HeapBlock *,endSentinel,"Permanent 0x10-byte block at ((end-0x10)&~alignMask)-8, header 0x10 (0x11 when the block before it is free). next = itself; acts as the free-list terminator. Written only by Heap_InitArena.",verified
+0xc,u32,alignMask,"align-1, where align = max(CeilPow2(requested), 4); 3 for both shipped heaps. Allocation need = (size+8+alignMask)&~alignMask.",verified
+0x10,u32,alignInvMask,"~(align-1), the AND mask used to round sizes and the sentinel address.",verified
+0x14,u32,auxParam,"Written only by Heap_InitAux 0x54da2c (0x8000 on the > 1 MB path), never read anywhere; stays 0 in the shipped game.",verified
+0x18,u32,freeCount,"Number of blocks on the free list, sentinel excluded; used as the search-loop bound by Heap_Alloc/Heap_AllocAligned. Set to 1 by Heap_InitArena, +1/-1 by Heap_Free, CarveBlock and AllocAligned.",verified
+0x1c,u32,smallMinSlot,"Slot size of pool 0 in bytes (power of 2, at least 8). Pool p's bitmap word covers smallMinSlot << (p+5) bytes (Heap_AllocSmall 0x54e6d0). 0 when there are no pools.",verified
+0x20,u32,smallMaxSlot,Largest size served by the pools = smallMinSlot << (nPools-1). Heap_Alloc tries Heap_AllocSmall when size <= this. 0 after Heap_InitArena and in the shipped game.,verified
+0x24,u32,smallPoolBytes,Bytes per pool region = smallPool0Slots << smallMinShift; smallPoolShift = log2 of it. Written by Heap_InitSmallPools only.,verified
+0x28,u32,smallPool0Slots,Slot count of pool 0 = total/(nPools*smallMinSlot); pool p has smallPool0Slots >> p slots (Heap_AllocSmall 0x54e6bc).,verified
+0x2c,u16,smallMinShift,"log2 of the smallest small-block slot; pool i has slots of 1 << (smallMinShift + i) bytes (Heap_FreeSmall, 0x54e63d)",verified
+0x2e,u16,smallPoolShift,log2 of each small pool's region size; pool index = (ptr - smallBase) >> smallPoolShift,verified
+0x30,u8 *,smallBase,"start of the small-block pools; Heap_Free 0x54e2f1 sends ptr in [smallBase, smallEnd) to Heap_FreeSmall",verified
+0x34,u32 *,smallBitmapWords,"Start of the bitmap words, just after the nPools-entry pointer table (= smallBitmaps + nPools). Written by Heap_InitSmallPools; zeroed by Heap_InitArena.",verified
+0x38,u8 *,smallEnd,"end (exclusive) of the small-block pools, range test in Heap_Free 0x54e2f1",verified
+0x3c,u32 **,smallBitmaps,"Per-pool bitmap pointers (MSB-first, set bit = free). This is also the user pointer of the single Heap_Alloc block that holds the pointer table, the bitmap words and the pool data; Heap_TermSmallPools frees it. NULL in the shipped game.",verified

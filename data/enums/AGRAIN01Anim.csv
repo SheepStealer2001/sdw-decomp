@@ -1,0 +1,6 @@
+value,name,meaning
+#,AGRAIN01Anim,animation ids of WAR model AGRAIN01 (its WAR type-0x86 table; names verified from the level files). Played by: Seed
+0x0,AGRAIN01_ANIM_OBJET,WAR name OBJET
+0x1,AGRAIN01_ANIM_LINK,WAR name LINK
+0x2,AGRAIN01_ANIM_GROW,WAR name GROW
+0x3,AGRAIN01_ANIM_GROW2,WAR name GROW2

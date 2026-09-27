@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x64,s32,respawnTimerMs,"Wait after the fall animation ends: Rand_Range(750,2250) ms, decremented by g_dtMs.",verified
+0x68,s16,range,"RANGE property: random x/z respawn offset from homePos (900 in Lvl-04, 300 in Lvl-05).",verified
+0x6c,s32,animating,1 while the fall animation should advance.,verified
+0x70,Vec3s,homePos,Placed (ground-snapped) position.,verified

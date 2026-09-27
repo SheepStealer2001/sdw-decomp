@@ -1,0 +1,11 @@
+value,name,meaning
+#,RobotStateFlags,u16 flags word of g_robotStateTable entries (0x57a882 + 4*state)
+0x1,ROBOT_SF_CARRIED,Robot_EnterState sets ScnObjFlags 0x400 NO_BOX_COLLIDE and shadow.flags bit 1 (state 2 only)
+0x2,ROBOT_SF_ALWAYS_UPDATE,ScnObjFlags 0x4000 (updated beyond the camera radius); absent in states 0 and 2
+0x4,ROBOT_SF_ANIM_LOOP,Anim_Start loop bit
+0x8,ROBOT_SF_ACTIVE,driven branch of Robot_Update (ReadPad + state switch); msg 0x3680 returns it
+0x10,ROBOT_SF_SCAN_ACTIONS,Robot_ScanContextActions queries nearby objects (when empty-handed)
+0x20,ROBOT_SF_CAM_LEDGE_PROBE,Robot_UpdateCamera sets g_camReqFlags bit 1 (unless ON_OBJECT)
+0x40,ROBOT_SF_SMOKE,dash smoke spawns (state 6 only)
+0x80,ROBOT_SF_GROUNDED,passed as flag f1 to ScnControllable_ApplyMoveModifiers; set on ground states
+0x100,ROBOT_SF_EJECTED,states 0x11-0x14: msg 0x3F on/off and the View release do not change state; msg 0x3682 is true

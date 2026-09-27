@@ -1,0 +1,4 @@
+value,name,meaning
+#,D3DAppFilterFlags,"Third argument of D3DApp_Construct 0x40464F, controlling which enumerated devices and modes are copied into the D3DApp object. WinMain passes 3."
+0x1,D3DAPP_FILTER_NO_WINDOWED,"Copy only modes whose dwWidth != 0, i.e. drop the ""Windowed Mode"" pseudo-entry from every device's list. bDesktopCompatible is still copied, which is what makes Render_Present's modeIndex==0 test wrong."
+0x2,D3DAPP_FILTER_NO_RGB,"Skip any enumerated device whose description begins with ""RGB"" (the RGB Emulation software rasterizer)."

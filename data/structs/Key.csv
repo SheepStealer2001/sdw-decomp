@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x7c,Vec3s,homePos,"Ground-snapped Init pos, or pos at msg 9 arg 1; Reset restores it.",verified
+0x82,u8,state,"KeyState: 0 on the ground (anim 0), 1 held.",verified
+0x84,s32,jailDist,"3-axis Manhattan distance to the jail, computed by Key_Update; 410 when |dvert| >= 200. Use needs < 400. Stale while the key is not updated (stowed).",verified
+0x88,ScnObject *,jail,"Jail (class 0x7e) from FindByClass; receives msg 0x4300. Its +0xb4 (non-zero = already opened, inferred) disables HELD_KEY_USE.",verified

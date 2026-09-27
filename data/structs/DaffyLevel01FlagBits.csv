@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,s32:1,frozen,signed bit view of DaffyLevel01 +0x12c: bit 0 read as shl 31 / sar 31 (0x436cd8-0x436ce1),verified
+0x0,s32:1,train,"bit 1, shl 30 / sar 31 (0x437032-0x43703b)",verified
+0x0,s32:1,variant13,"bit 2, shl 29 / sar 31 (0x436b13-0x436b1c)",verified
+0x0,s32:29,reserved,remaining bits,inferred

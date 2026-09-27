@@ -1,0 +1,10 @@
+value,name,meaning
+#,BatteryState,
+0x0,BATTERY_ST_IDLE,SetState 0: SetVisible(1) only (inferred)
+0x1,BATTERY_ST_COLLECTED,SetState 1: hides and reports msg 0x4401 to the master battery once (inferred)
+0x2,BATTERY_ST_HOME,"SetState 2: scale 0, visible, back at homePos with zero rotation (inferred)"
+0x3,BATTERY_ST_FLY_TO_HUD,"SetState 3: pickup sound 0x93, full scale, records the flight start toward the HUD target (inferred)"
+0x4,BATTERY_ST_FULL_SCALE,SetState 4: scale = 4096 only (inferred)
+0x5,BATTERY_ST_HUD_SHOW,Update case 5: slides the HUD in (hudOffsetY -> 0)
+0x6,BATTERY_ST_HUD_HIDE,Update case 6: slides it out (-> 30)
+0x7,BATTERY_ST_HUD_7,assigned in PostLoadInit; no Update case (inferred)

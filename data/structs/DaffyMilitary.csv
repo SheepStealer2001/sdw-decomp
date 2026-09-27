@@ -1,0 +1,15 @@
+offset,ctype,name,meaning,confidence
+0x7c,DialogBox,dialog,"the TALKABOUT question box: Dialog_Begin (SetState 3, 0x43bdd1), Dialog_Update (Update state 3, 0x43b75a), Dialog_UpdateAnswer (state 4, 0x43b7ae); answerText[i] (+0x8c) is read by the three MenuHandlers",verified
+0x104,ScnObject *,iceCube,"the level's IceCube (Scenaric_FindByClass(60, &iceCube, 1) at 0x43b47a); Reset sends it msg 0x32 (refreeze) unless Daffy is already free (0x43baaa)",verified
+0x108,u32,talkAboutText,"PROPERTY TALKABOUTTXT (props +0x14): first string id of the question, Dialog_Begin's firstStringId (0x43bdc3)",verified
+0x10c,s32,talkTimer,4.12 s spent in the answer / punish states while the letterbox is up (+= g_dt at 0x43b673); from 0x2000 (2 s) the talk loop anim 6 plays; zeroed by SetState (0x43bbb8),verified
+0x110,char *,cineText,"PROPERTY CINETXT string (Text_GetClassString), read only when FLAGCINE & 0x80, else NULL (0x43b4c5-0x43b502); the text argument of Cine_Start in state 2",verified
+0x114,char *,punishText,"PROPERTY PUNISHTEXT string (Text_GetClassString, 0x43b526): the line said in state 5 with voice 0xd",verified
+0x118,u32,cineFlags,PROPERTY FLAGCINE (props +8): Cine_Start's startFlags; bit 0x80 = CINETXT is given,verified
+0x11c,u16,sound,"a sound handle: zeroed in PostLoadInit, stopped and zeroed by Reset (0x43bb45-0x43bb75); nothing in the class sets it",verified
+0x11e,u16,cineId,PROPERTY CINE (props +0): the release cinematic started in state 2 (0x43bd82),verified
+0x120,u8,state,"DaffyMilitaryState: 0 frozen in the ice cube, 1 free (talkable), 2 release cinematic, 3 question box, 4 answer, 5 punish line",verified
+0x121,u8,talkAboutChoiceCount,PROPERTY TALKABOUTNBCHOICE (props +0x10): Dialog_Begin's answerCount (0x43bdb9),verified
+0x122,s8:1,wolfFrozen,"bit 0: cleared by PostLoadInit, Reset and msg 0xE (another object took over the Wolf freeze); nothing in the class sets it. Signed 1-bit field (the other bits read shl/sar)",inferred
+0x122,s8:1,burnt,bit 1: set by msg 0 with arg 0 (explosion) while free: blackened; read shl 6 / sar 7 (signed) at 0x43b8c1,verified
+0x122,s8:1,punished,"bit 2: the punish line has been given once (set with SetState 5 at 0x43b8f7, read shl 5 / sar 7 at 0x43b8d7); cleared by Reset",verified

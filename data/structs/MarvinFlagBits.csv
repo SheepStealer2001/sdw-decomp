@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x0,u8:1,solved,"bit view of Marvin.dialogueFlags (+0x7d): bit 0 (and cl,1 reads; and 0xfe clears)",verified
+0x0,u8:1,wolfFrozen,bit 1 (shr 1; or 2 / and 0xfd),verified
+0x0,u8:1,interrupted,bit 2 (shr 2; or 4 / and 0xfb),verified
+0x0,u8:1,insideCineBox,bit 3 (shr 3; or 8 / and 0xf7),verified
+0x0,u8:4,reserved,remaining bits,inferred

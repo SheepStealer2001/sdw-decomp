@@ -1,0 +1,6 @@
+value,name,meaning
+#,MltBlock,"language block of a .MLT file: Mlt_MapLanguageToBlock 0x548d76 turns the config language (GameLanguage) into one of these in place, and Load_MLT_ParseBank 0x548980 skips to it; other values pass through unchanged"
+0x1,MLT_BLOCK_ENGLISH,read for config language 0 (GAME_LANG_ENGLISH)
+0x2,MLT_BLOCK_SPANISH,read for config language 1 (GAME_LANG_SPANISH)
+0x3,MLT_BLOCK_ITALIAN,read for config language 2 (GAME_LANG_ITALIAN)
+0x6,MLT_BLOCK_BRAZILIAN,read for config language 3 (GAME_LANG_BRAZILIAN); the only non-consecutive entry

@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x0,s32[3],min,"collision-space box min x,y,z (coords x16)",verified
+0xc,s32[3],max,"collision-space box max x,y,z",verified

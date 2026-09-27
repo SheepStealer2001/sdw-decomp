@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,ParticleEmitter,base,"the ParticleEmitter this inline-storage emitter is: its inline constructor points slotPool at slotBuf and particles at particleBuf, sets count = 3 and calls Emitter_Reset; every Emitter_* method runs on this header (flags +0x22 bit 0 = active)",verified
+0x24,Vec3f[3],slotBuf,3 x 0xC position records,verified
+0x48,Particle[3],particleBuf,3 x 8-byte particle records,verified

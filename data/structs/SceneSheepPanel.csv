@@ -1,0 +1,9 @@
+offset,ctype,name,meaning,confidence
+0x64,CamSetup *,camShot,PROPERTY_SCENESHEEPPANEL_ID_CAMERA (prop 0) via Scn_GetPropCamera: the camera setup record {u16 focal; s16 rot[3]; Vec3s eye}; its fields are read at 0x4e8de4-0x4e8e19 and pushed into Camera_StartScripted.,verified
+0x68,Box *,sheepBox,PROPERTY_SCENESHEEPPANEL_ID_SHEEPBOX (prop 8); the panel fires when the sheep's position is inside it (six comparisons against +4/+6/+8 and +0xa/+0xc/+0xe at 0x4e8d19-0x4e8d81).,verified
+0x6c,ScnObject *,sheep,"The level's Sheep (class 11), found once in state 0 by Scenaric_FindByClass. Reset stores the sentinel 0xCACBCCCD here, so it is only valid from state 1 on; nothing reads the poison before state 0 overwrites it.",verified
+0x70,u16,timerMs,"Milliseconds since the panel animation stepped down, accumulated from g_dtMs truncated to 16 bits; both the DoorWorld query and the fallback advance wait for 0x3e8 = 1000 ms.",verified
+0x72,u16,cineId,"PROPERTY_SCENESHEEPPANEL_ID_CINE, read as the dword at record+4+0x14 and stored as a word; played with Cine_Start mode 0x26 on entering the hub after a level.",verified
+0x74,s8,doorWorldReply,"Reply from Scenaric_SendToClass(DoorWorld 169, msg 0x5880): -1 = not asked yet, 0 = no door sequence so advance at once, non-zero = wait for the door's msg 0x4e00. Read with movsx, so signed.",verified
+0x75,u8,doorSequenceDone,"Set by SceneSheepPanel_HandleMessage on msg 0x4e00, which DoorWorld_Update 0x4b4447 sends when its door sequence finishes; makes state 3 advance to state 4. Cleared by Reset.",verified
+0x76,u8,state,"0 find the sheep and play the return cinematic, 1 wait for the sheep in ID_SHEEPBOX (with an extra branch on Progress.runtimeFlags bit 2 that forces state 4), 2 scripted camera running, 3 sheep removed and the counter stepped down, 4 release the camera and autosave.",verified

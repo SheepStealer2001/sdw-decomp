@@ -1,0 +1,8 @@
+value,name,meaning
+#,RollingCarpetState,u8 RollingCarpet+0xb4
+0,RC_ST_IDLE,search for a rider; anim 0
+1,RC_ST_RIDDEN,"rider registered, axis lock, scripted camera; waits for rider speed >= 250 (Wolf) / 150"
+2,RC_ST_REGISTER,MSG_RIDER_ADD sent; goes to 1 next frame
+3,RC_ST_RELEASE,"MSG_RIDER_REMOVE, camera released, 1024 ms cooldown then 0"
+4,RC_ST_ROLLING,drives the targets with msg 0x47 and scrolls the belt; anim 1 (Wolf) / 3 (Sheep); sound 0x8E
+5,RC_ST_ROLLING_FAST,"rider speed >= 700: anim 2, pitch x2; after 2048 ms goes to 3 (rider released)"

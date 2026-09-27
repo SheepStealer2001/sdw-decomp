@@ -1,0 +1,17 @@
+value,name,meaning
+#,WolfCarryCue,
+0x0,WOLF_CUE_IDLE,Umbrella/Robot/Sheep default branch (idle anims) (inferred)
+0x1,WOLF_CUE_WALK,Umbrella 1 -> walk anim 9; Sheep -> RUN2; Robot -> anim 0 (inferred)
+0x2,WOLF_CUE_JUMP,Umbrella 2 -> jump anim 0xB; Rocket 2 -> ROCKET_ACTIVATE_B (inferred)
+0x3,WOLF_CUE_GLIDE,Umbrella 3 -> glide anim 5 (inferred)
+0x4,WOLF_CUE_RUN,Sheep 4 (with 1) -> RUN2 (inferred)
+0x5,WOLF_CUE_5,Sheep 5/6 -> STAND2 (inferred)
+0x6,WOLF_CUE_6,Sheep 5/6 -> STAND2 (inferred)
+0x7,WOLF_CUE_SPIN,Sheep 7 -> TORNA4 once (inferred)
+0x8,WOLF_CUE_SPIN_END,Sheep 8 -> TORNA5 once (inferred)
+0xa,WOLF_CUE_JUMP_START,Umbrella 10 -> jump start (inferred)
+0xb,WOLF_CUE_AIR_HOP,Umbrella 11 -> air hop (inferred)
+0xc,WOLF_CUE_FISH_A,FishingRod 12 -> anim 2 FISH3 while the line is out (inferred)
+0xd,WOLF_CUE_FISH_B,13 -> anim 3 FISH4 (inferred)
+0xe,WOLF_CUE_FISH_C,14 -> anim 4 FISH5 (inferred)
+0xf,WOLF_CUE_HOP_FALL,Umbrella 15 -> hop fall (inferred)

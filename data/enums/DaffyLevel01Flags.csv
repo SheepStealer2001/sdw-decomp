@@ -1,0 +1,5 @@
+value,name,meaning
+#,DaffyLevel01Flags,DaffyLevel01 +0x12c.
+0x1,DAFFY1_F_WOLF_FROZEN,this object sent the Wolf msg 0xE; cleared by the unfreeze or by msg 0xE back
+0x2,DAFFY1_F_TRAIN_LEVEL,a Train (class 0x87) exists: anims 0/1
+0x4,DAFFY1_F_LEVEL13,"LEVEL==13 variant: anims 7/2/4, random idle, faces the Wolf, shadow re-projected every frame (the reading of this bit is uncertain)"

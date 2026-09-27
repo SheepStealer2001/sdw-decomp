@@ -1,0 +1,4 @@
+value,name,meaning
+#,SeesawMsg,"messages the seesaw handles (0xd, 0xe) and sends"
+0xd,MSG_GROUND_QUERY,handled: seesaw_GroundQuery
+0xe,MSG_FREEZE,"the Wolf freeze handover (whoever froze the Wolf is told it lost him): clears wolfFrozen. handled: CamShot_Stop, returns 1"

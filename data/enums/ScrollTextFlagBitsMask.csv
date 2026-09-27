@@ -1,0 +1,5 @@
+value,name,meaning
+#,ScrollTextFlagBitsMask,"mask constants for the bitfield view ScrollTextFlagBits (a mask access and a bitfield access compile differently, so the mask stays a mask)"
+0x1,SCROLLTEXT_F_OPEN,member 'open' of the bitfield view data/structs/ScrollTextFlagBits.csv
+0x2,SCROLLTEXT_F_CLOSED,member 'closed' of the bitfield view data/structs/ScrollTextFlagBits.csv
+0x10,SCROLLTEXT_F_PAGETURNED,member 'pageTurned' of the bitfield view data/structs/ScrollTextFlagBits.csv

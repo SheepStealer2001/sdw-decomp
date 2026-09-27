@@ -1,0 +1,5 @@
+value,name,meaning
+#,ACHAUV01Anim,animation ids of WAR model ACHAUV01 (its WAR type-0x86 table; names verified from the level files). Played by: Bat
+0x0,ACHAUV01_ANIM_STAND,WAR name STAND
+0x1,ACHAUV01_ANIM_FLY,WAR name FLY
+0x2,ACHAUV01_ANIM_FLY2,WAR name FLY2

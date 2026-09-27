@@ -1,0 +1,17 @@
+value,name,meaning
+#,CardStatus,status codes returned by the card layer (PC stubs keep the PS1 values)
+0x0,CARD_STATUS_NONE,Card_StateMachine: w.status != 0 tests for any status (inferred)
+0x45,CARD_SLOT_EMPTY,'E': Card_ReadImageAndLoadSlot on an empty slot
+0x46,CARD_SLOT_FULL,'F': Card_CommitBlock with overwrite=0 on a full slot
+0x65,CARD_UNFORMATTED,leads to FORMAT_Q (INFERRED from the flow; never returned on PC)
+0x67,CARD_PRESENT,CardStub_Status always returns it
+0x68,CARD_DAMAGED,leads to DAMAGED (INFERRED; never returned on PC)
+0x69,CARD_NONE,leads to NO_CARD / LOAD_FAILED (INFERRED; never returned on PC)
+0xca,CARD_FORMAT_OK,CardStub_Status2
+0x321,CARD_READ_SHORT,registry value missing or short (Card_ReadBlocks)
+0x322,CARD_CORRUPT,CRC32 mismatch
+0x323,CARD_READ_OK,"full read, CRC OK"
+0x388,CARD_WRITE_FAILED,Card_WriteFrames failure
+0x389,CARD_WRITE_OK,Card_WriteFrames success
+0x3ea,CARD_PREWRITE_OK,"CardStub_Status3, required before writing over an existing image"
+0x3f2,CARD_IMAGE_STATUS,constant stored in image +0x104

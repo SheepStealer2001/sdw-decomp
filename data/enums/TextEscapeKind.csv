@@ -1,0 +1,6 @@
+value,name,meaning
+#,TextEscapeKind,'$NAME$' escapes recognised by the engine printf 0x53495F. The name is copied into the scratch buffer at 0x6ddb10 and dispatched on its FIRST character only
+0x42,ESC_B_BUTTON,"'B' - $B_CROSS$, $B_SQUARE$, $B_TRIANGLE$, $B_CIRCLE$, $B_L1$, $B_L2$, $B_R1$, $B_R2$, $B_SELECT$, $B_START$, $B_UP$, $B_DOWN$, $B_LEFT$, $B_RIGHT$, $B_VALID$, $B_CANCEL$, $B_ACTION$, $B_JUMP$, $B_RUN$, $B_SNEAK$, $B_INTVIEW$, $B_QUICKINV$, $B_CAM_LEFT$, $B_CAM_RIGHT$. Handled by 0x533FBD, which looks the name up in the alphabetically sorted table of 24 button names at 0x57bce4..0x57bd9b and emits the matching glyph code"
+0x43,ESC_C_COLOR,"'C' - $C_DEFAULT$, $C_WHITE$, $C_RED$, $C_GREEN$, $C_BLUE$, $C_YELLOW$, $C_CYAN$, $C_PURPLE$ (names at 0x57bf70..0x57c007, present twice). Handled by 0x53447C, which emits the 4-byte TXT_COLOR sequence. Text_MeasureLine 0x533403 subtracts 1 from its width count for this escape specifically"
+0x47,ESC_G_NAME,"'G' - $G_NAME$ (0x57bf60), the player/save name. Handled by 0x5343DA, which expands it from the UI string bank"
+0x4D,ESC_M_CARD,"'M' - $M_CARD$ (0x57bf68), the memory-card/save-slot label. Handled by 0x534CD0, which calls through the function pointer at 0x6e3898 with 0x32"

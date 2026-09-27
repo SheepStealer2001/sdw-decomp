@@ -1,0 +1,18 @@
+value,name,meaning
+#,WolfKillType,"arg of msg 0 to the Wolf -> Wolf_Die(state, flags, delay); from asm 0x484653 jump table 0x486b13."
+0,KILL_GENERIC,0xf (mode 1 flags 4) or 0x4c if in water; fallLimit 32000; rumble; ignored in 0xa9
+1,KILL_FALL_PIT,"0xc,4,0x2000 (bridge, CrumblyGround)"
+2,KILL_CRUSH,"0x10,4,0x2000; killer=+0x638"
+3,KILL_RESTART_ONLY,"camera override 0x12, Wolf_ScheduleRestart(0x3000), no state"
+4,KILL_FALL_TO_SENDER,"0x35,5,0x2000; limit = sender.y+0x32"
+5,KILL_SHARK,"0x57,5,0x800"
+6,KILL_TYPE6,"Wolf_Die(0x43,5,0x1000) as assembled; sender not found"
+7,KILL_CANNONBALL,"0xa9,5,0x1000"
+8,KILL_ZAP,"0xdd,5,0x2000 or 0xa8,4,0x2000 when sender class 100"
+9,KILL_PIRANHAS,"0x59,5,0x400"
+10,KILL_CROCODILE,"0x58,5,0x800"
+11,KILL_RAFT,"0xcb,5,0"
+12,KILL_PIRATE,"0xcc,5,0x1000"
+13,KILL_MARTIAN,"0xce,5,0x5800; InstantMartian state 10 (HIT_HOLD) sends MSG_KILL arg 0xd, the only sender (verified)"
+14,KILL_BURN_RUN,"not lethal: Wolf_SetMode(0,0xcf) (Volcano)"
+15,KILL_BLACKHOLE,"0x3c,5,0x2000"

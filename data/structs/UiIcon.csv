@@ -1,0 +1,9 @@
+offset,ctype,name,meaning,confidence
+0x0,u8,enabled,drawn at all: UiIcon_Draw requires +0 and +1; Map_ResetSelection sets it to 1 through a 32-bit temp (0x5410e8) and Map_ActionPrev/Next skip buttons whose byte is 0 (0x541e84),verified
+0x1,u8,highlighted,second UiIcon_Draw gate; Map_ResetSelection clears it (0x541103),verified
+0x2,u8,hasExtraQuads,set by UiIcon_Setup when either the back or overlay bitmap was supplied; UiIcon_Draw draws the overlay quad only when it is set,verified
+0x3,u8,quantity,"item count; UiIcon_Draw prints the ""x%u"" label at 0x57c044 only when it is greater than 1",verified
+0x4,UiQuad,mainQuad,the item bitmap itself; always drawn,verified
+0x18,UiQuad,overlayQuad,grey (0x808080) overlay drawn under the main quad when hasExtraQuads is set,verified
+0x2c,UiQuad,backQuad,grey background/slot bitmap,verified
+0x40,u32,unk40,"never read or written by UiIcon_Setup / UiIcon_Draw / UiIcon_SetFadeLevel or by the Map; present because the Map arrays of UiIcon have a 0x44 stride (imul edx,edx,0x44 at 0x53fe64 / 0x5410f3 / 0x541bed) and itemSlots start at actionSlots+4*0x44 = 0x304",verified

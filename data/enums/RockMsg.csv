@@ -1,0 +1,14 @@
+value,name,meaning
+#,RockMsg,Messages handled by Rock_HandleMessage 0x4e3391 (all return 0 in state 6).
+0x0,MSG_KILL,only from class 0x87 Train: smash (state 6)
+0x2,MSG_QUERY_ACTION,Wolf only -> 5 (CTX_PUSH) if height fits and a push axis is allowed
+0xa,MSG_PUSH,arg Vec3s* delta in/out; returns 1 when handled
+0xb,MSG_SEESAW_TOUCH,sent by seesaw_Update 0x4ecd66 -> state 4
+0xc,MSG_LAUNCH,arg LaunchArc* (only seesaw_LaunchObject 0x4ef3d9) -> state 5. A NULL-arg 0xC would fault in the copy at 0x4e39fa; the bull's NULL-arg 0xC goes only to sheep
+0xd,MSG_GROUND_QUERY,Box_GroundQueryDome on collBox
+0xe,MSG_FREEZE,CamShot_Stop
+0x13,MSG_CINE_END,"clears GF 0x10000 if state 7; Rock_StartFall in every state except 6 (in state 6 Rock_HandleMessage returns 0 for all messages, 0x4e33a6)"
+0x1b,MSG_MAILBOX_DELIVERED,from Mailbox_Deliver: use the LVL03WITHBOX cinematic
+0x5b,MSG_QUERY_PUSH_AXIS,"from Wolf 0x48d9f6 (Wolf::SnapHeadingToObject): a PushAxis reply - 0 = free, 1 = X locked, 2 = Z locked (the Rock answers 2 when sideways z pushing is blocked; y is the vertical axis)"
+0x5c,MSG_QUERY_MOVING,1 in states 1/3/5 else 2 (seesaw 0x4eef37)
+0x78,MSG_QUERY_IN_FLIGHT,state == 5 (seesaw 0x4eec2e)

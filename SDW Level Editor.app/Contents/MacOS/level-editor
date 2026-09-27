@@ -1,0 +1,5 @@
+#!/bin/sh
+# The level editor (tools/level_editor.py) in the browser: it opens the page, and stops once the page has been closed.
+here="$(cd "$(dirname "$0")" && pwd)"  # Contents/MacOS of the app, which sits in the project folder
+here="$(dirname "$(dirname "$(dirname "$here")")")"
+exec /usr/bin/python3 "$here/tools/level_editor.py" --app

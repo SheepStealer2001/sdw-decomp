@@ -1,0 +1,8 @@
+value,name,meaning
+#,ACANON02Anim,animation ids of WAR model ACANON02 (its WAR type-0x86 table; names verified from the level files). Played by: CanonSheep
+0x0,ACANON02_ANIM_OPEN,WAR name OPEN
+0x1,ACANON02_ANIM_CLOSE,WAR name CLOSE
+0x2,ACANON02_ANIM_LOAD1,WAR name LOAD1
+0x3,ACANON02_ANIM_EXPLODE,WAR name EXPLODE
+0x4,ACANON02_ANIM_LOAD2,WAR name LOAD2
+0x5,ACANON02_ANIM_EXPLODE1,WAR name EXPLODE1

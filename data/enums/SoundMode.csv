@@ -1,0 +1,5 @@
+value,name,meaning
+#,SoundMode,"ProgressOptionBits.soundMode, the options menu's sound setting (cycled % 3; its labels are g_soundModeNames, BSM group 0x10 strings 0x1000 / 0x2000 / 0x4000)"
+0x0,SOUNDMODE_ALL,"""All"" (BSM 0x10/0x1000): sound effects, music and voices (verified: GREET_txt.BSM; Sound_Play plays in modes 0 and 2, the stream player only in 0 per OPT_SOUNDMODE_MASK)"
+0x1,SOUNDMODE_NONE,"""None"" (BSM 0x10/0x2000): Sound_Play refuses every sound and the stream player plays nothing (verified: GREET_txt.BSM)"
+0x2,SOUNDMODE_SFX_ONLY,"""Sfx only"" (BSM 0x10/0x4000): sound effects without music or voices (verified: GREET_txt.BSM)"

@@ -1,0 +1,4 @@
+value,name,meaning
+#,FontKind,the `kind` argument of Font_LoadFromRes 0x535C83; the names come from the two Debug_Printf traces at 0x57c464 and 0x57c48c
+0x01,FONT_KIND_DEBUG,"'Debug Fonte': cellW 8, cellH 16, advance 7, glyph height 15, lineHeight 17, cellWShift 3, cellHShift 4. Loaded as font id 0 from resource 0x1D"
+0x02,FONT_KIND_GAME,"'Game Fonte': cellW 16, cellH 16, advance 15, glyph height 15, lineHeight 17, cellWShift 4, cellHShift 4. Loaded as font id 1 from resource 0x24, and cloned to font id 2 with advance 9 / height 13"

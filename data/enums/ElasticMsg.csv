@@ -1,0 +1,15 @@
+value,name,meaning
+#,ElasticMsg,messages handled by elastic_HandleMessage (receiver side)
+0x1,MSG_USE,Wolf action: untie / tie the second end / grab the centre / release (by state)
+0x2,MSG_QUERY_ACTION,"returns WolfContextAction 4, 1, 0x13, 0x14, 0x15, 0x16 or 0x17"
+0x4,MSG_PICKUP,"attach to the sender joint (arg byte), state 1"
+0x5,MSG_DROP,"detach and SetPosition(arg), state 1"
+0x7,MSG_INVENTORY_STORED,stored into inventory: untie if tied only to tree1
+0x9,MSG_CONTAINER_STATE,arg 1: homePos = pos
+0xe,MSG_FREEZE,"the Wolf freeze handover (whoever froze the Wolf is told it lost him): clears wolfFrozen. from the Wolf (freeze handover): wolfFrozen = 0, returns 0"
+0x15,MSG_HELD_STATE_BEGIN,state 1: tie to tree1 → state 3
+0x17,MSG_QUERY_HELD_ACTION,state 1 near a tree → 9 (HELD_DROP_IN_PLACE)
+0x1a,MSG_MODIFY_MOVE,per Wolf move while registered as a rider
+0x55,MSG_CHECKPOINT_ROLLBACK,Reset
+0x6a,MSG_WOLF_RIDER_NOTIFY,Wolf died or restarting: Reset (not in state 3); state 4 → 8
+0x1900,MSG_INVENTORY_STORE_BEGIN,Reset (sent by Wolf_StoreActiveItemInInventory)

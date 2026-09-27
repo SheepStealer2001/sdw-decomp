@@ -1,0 +1,369 @@
+address,name,kind,comment
+0x50d630,Scenaric_RegisterClass,func,"(classId, factory, a, b, c) - called once per class at startup"
+0x574c1c,ScnBody_vtbl,vtable,"PROVISIONAL name: has a world presence; direct base of static props (Mailbox, bridge, seesaw...)"
+0x574c40,ScnObject_vtbl,vtable,PROVISIONAL name: root of every scenaric class (181/181)
+0x574c84,ScnMobile_vtbl,vtable,"PROVISIONAL name: movable/physical: Sam, Sheep, Dynamite, Rocket, box..."
+0x574fd0,ScnControllable_vtbl,vtable,PROVISIONAL name: only Wolf and Robot derive from it - the player-controllable actors
+0x57595c,ScnLogic_vtbl,vtable,"PROVISIONAL name: body-less managers/triggers: Goal, CameraManager, CheckpointManager..."
+0x488a51,Wolf_Create,func,"factory for CLASSID 0 ""Wolf"": new(0x71c) + inlined ctor chain"
+0x5758f8,Wolf_vtbl,vtable,sizeof(Wolf) = 0x71c
+0x46bc35,Sam_Create,func,"factory for CLASSID 1 ""Sam"": new(0xa44) + inlined ctor chain"
+0x574ff8,Sam_vtbl,vtable,sizeof(Sam) = 0xa44
+0x4b5896,Dynamite_Create,func,"factory for CLASSID 2 ""Dynamite"": new(0x114) + inlined ctor chain"
+0x575f08,Dynamite_vtbl,vtable,sizeof(Dynamite) = 0x114
+0x4e8a3f,Salad_Create,func,"factory for CLASSID 3 ""Salad"": new(0xb4) + inlined ctor chain"
+0x576a34,Salad_vtbl,vtable,sizeof(Salad) = 0xb4
+0x4d3dd0,Mailbox_Create,func,"factory for CLASSID 4 ""Mailbox"": new(0x188) + inlined ctor chain"
+0x5765dc,Mailbox_vtbl,vtable,sizeof(Mailbox) = 0x188
+0x49587d,balance_Create,func,"factory for CLASSID 5 ""balance"": new(0x7c) + inlined ctor chain"
+0x5759c8,balance_vtbl,vtable,sizeof(balance) = 0x7c
+0x49dfb9,bridge_Create,func,"factory for CLASSID 6 ""bridge"": new(0xb0) + inlined ctor chain"
+0x575b30,bridge_vtbl,vtable,sizeof(bridge) = 0xb0
+0x4bc0d2,Fan_Create,func,"factory for CLASSID 7 ""Fan"": new(0x90) + inlined ctor chain"
+0x576020,Fan_vtbl,vtable,sizeof(Fan) = 0x90
+0x4e54d2,Rocket_Create,func,"factory for CLASSID 10 ""Rocket"": new(0xa8) + inlined ctor chain"
+0x576980,Rocket_vtbl,vtable,sizeof(Rocket) = 0xa8
+0x47d284,Sheep_Create,func,"factory for CLASSID 11 ""Sheep"": new(0x110) + inlined ctor chain"
+0x57507c,Sheep_vtbl,vtable,sizeof(Sheep) = 0x110
+0x4e5878,Rocks_Create,func,"factory for CLASSID 13 ""Rocks"": new(0x68) + inlined ctor chain"
+0x5769a4,Rocks_vtbl,vtable,sizeof(Rocks) = 0x68
+0x49d1f0,box_Create,func,"factory for CLASSID 14 ""box"": new(0x88) + inlined ctor chain"
+0x575b0c,box_vtbl,vtable,sizeof(box) = 0x88
+0x4ed5d0,seesaw_Create,func,"factory for CLASSID 15 ""seesaw"": new(0xa94) + inlined ctor chain"
+0x576b44,seesaw_vtbl,vtable,sizeof(seesaw) = 0xa94
+0x4e4688,Rock_Create,func,"factory for CLASSID 16 ""Rock"": new(0x188) + inlined ctor chain"
+0x576910,Rock_vtbl,vtable,sizeof(Rock) = 0x188
+0x4a0740,CameraManager_Create,func,"factory for CLASSID 18 ""CameraManager"": new(0x15c) + inlined ctor chain"
+0x575be4,CameraManager_vtbl,vtable,sizeof(CameraManager) = 0x15c
+0x4a1666,CameraRestriction_Create,func,"factory for CLASSID 19 ""CameraRestriction"": new(0x78) + inlined ctor chain"
+0x575c2c,CameraRestriction_vtbl,vtable,sizeof(CameraRestriction) = 0x78
+0x4bb4e1,FallingRock_Create,func,"factory for CLASSID 20 ""FallingRock"": new(0x7c) + inlined ctor chain"
+0x575fec,FallingRock_vtbl,vtable,sizeof(FallingRock) = 0x7c
+0x4f1e4c,SignPost_Create,func,"factory for CLASSID 21 ""SignPost"": new(0x68) + inlined ctor chain"
+0x576c1c,SignPost_vtbl,vtable,sizeof(SignPost) = 0x68
+0x43d5c0,DaffyTrainingLevel_Create,func,"factory for CLASSID 22 ""DaffyTrainingLevel"": new(0x290) + inlined ctor chain"
+0x574dec,DaffyTrainingLevel_vtbl,vtable,sizeof(DaffyTrainingLevel) = 0x290
+0x4c78c0,Goal_Create,func,"factory for CLASSID 23 ""Goal"": new(0x5c) + inlined ctor chain"
+0x5762c4,Goal_vtbl,vtable,sizeof(Goal) = 0x5c
+0x4f0649,SensibleButton_Create,func,"factory for CLASSID 24 ""SensibleButton"": new(0xcc) + inlined ctor chain"
+0x576b68,SensibleButton_vtbl,vtable,sizeof(SensibleButton) = 0xcc
+0x4abb9d,CheckpointManager_Create,func,"factory for CLASSID 25 ""CheckpointManager"": new(0xd4) + inlined ctor chain"
+0x575d50,CheckpointManager_vtbl,vtable,sizeof(CheckpointManager) = 0xd4
+0x4ba234,FallingGate_Create,func,"factory for CLASSID 26 ""FallingGate"": new(0x104) + inlined ctor chain"
+0x575fa4,FallingGate_vtbl,vtable,sizeof(FallingGate) = 0x104
+0x4a004d,Cactus_Create,func,"factory for CLASSID 27 ""Cactus"": new(0x64) + inlined ctor chain"
+0x575bc0,Cactus_vtbl,vtable,sizeof(Cactus) = 0x64
+0x4f9b28,Telescope_Create,func,"factory for CLASSID 28 ""Telescope"": new(0x74) + inlined ctor chain"
+0x576d80,Telescope_vtbl,vtable,sizeof(Telescope) = 0x74
+0x4950ee,Anvil_Create,func,"factory for CLASSID 29 ""Anvil"": new(0x70) + inlined ctor chain"
+0x575980,Anvil_vtbl,vtable,sizeof(Anvil) = 0x70
+0x45ab80,PorkyLevel01_Create,func,"factory for CLASSID 30 ""PorkyLevel01"": new(0x204) + inlined ctor chain"
+0x574f60,PorkyLevel01_vtbl,vtable,sizeof(PorkyLevel01) = 0x204
+0x499d80,bipbip_Create,func,"factory for CLASSID 31 ""bipbip"": new(0x25c) + inlined ctor chain"
+0x575a7c,bipbip_vtbl,vtable,sizeof(bipbip) = 0x25c
+0x4accfa,CinematicsManager_Create,func,"factory for CLASSID 32 ""CinematicsManager"": new(0x24c) + inlined ctor chain"
+0x575d98,CinematicsManager_vtbl,vtable,sizeof(CinematicsManager) = 0x24c
+0x437a9b,DaffyLevel01_Create,func,"factory for CLASSID 33 ""DaffyLevel01"": new(0x148) + inlined ctor chain"
+0x574d38,DaffyLevel01_vtbl,vtable,sizeof(DaffyLevel01) = 0x148
+0x4c9a8d,HiddenRocks_Create,func,"factory for CLASSID 35 ""HiddenRocks"": new(0x40) + inlined ctor chain"
+0x576378,HiddenRocks_vtbl,vtable,sizeof(HiddenRocks) = 0x40
+0x50b1b1,WoodenLift_Create,func,"factory for CLASSID 36 ""Wooden Lift"": new(0xa8) + inlined ctor chain"
+0x57707c,WoodenLift_vtbl,vtable,sizeof(WoodenLift) = 0xa8
+0x4f9f72,TimeKeeper_Create,func,"factory for CLASSID 38 ""TimeKeeper"": new(0x68) + inlined ctor chain"
+0x576da4,TimeKeeper_vtbl,vtable,sizeof(TimeKeeper) = 0x68
+0x4da360,Perfume_Create,func,"factory for CLASSID 39 ""Perfume"": new(0x340) + inlined ctor chain"
+0x5767b0,Perfume_vtbl,vtable,sizeof(Perfume) = 0x340
+0x50b8bd,WoodenPlatForm_Create,func,"factory for CLASSID 40 ""WoodenPlatForm"": new(0x5c) + inlined ctor chain"
+0x5770a0,WoodenPlatForm_vtbl,vtable,sizeof(WoodenPlatForm) = 0x5c
+0x4c26b1,Flute_Create,func,"factory for CLASSID 41 ""Flute"": new(0x1f0) + inlined ctor chain"
+0x5761a4,Flute_vtbl,vtable,sizeof(Flute) = 0x1f0
+0x4b59c1,elastic_Create,func,"factory for CLASSID 42 ""elastic"": new(0x320) + inlined ctor chain"
+0x575f34,elastic_vtbl,vtable,sizeof(elastic) = 0x320
+0x431c79,bull_Create,func,"factory for CLASSID 43 ""bull"": new(0x2b8) + inlined ctor chain"
+0x574c60,bull_vtbl,vtable,sizeof(bull) = 0x2b8
+0x4b90ab,ElasticTree_Create,func,"factory for CLASSID 45 ""ElasticTree"": new(0x4c) + inlined ctor chain"
+0x575f5c,ElasticTree_vtbl,vtable,sizeof(ElasticTree) = 0x4c
+0x43a00d,DaffyLevel02_Create,func,"factory for CLASSID 47 ""DaffyLevel02"": new(0x530) + inlined ctor chain"
+0x574d5c,DaffyLevel02_vtbl,vtable,sizeof(DaffyLevel02) = 0x530
+0x49f1f7,Bush_Create,func,"factory for CLASSID 48 ""Bush"": new(0x78) + inlined ctor chain"
+0x575b78,Bush_vtbl,vtable,sizeof(Bush) = 0x78
+0x476d3d,Shark_Create,func,"factory for CLASSID 50 ""Shark"": new(0x43c) + inlined ctor chain"
+0x575050,Shark_vtbl,vtable,sizeof(Shark) = 0x43c
+0x50287d,TriggedStone_Create,func,"factory for CLASSID 52 ""TriggedStone"": new(0x9c) + inlined ctor chain"
+0x576ee8,TriggedStone_vtbl,vtable,sizeof(TriggedStone) = 0x9c
+0x4df190,Raft_Create,func,"factory for CLASSID 53 ""Raft"": new(0x140) + inlined ctor chain"
+0x576880,Raft_vtbl,vtable,sizeof(Raft) = 0x140
+0x4c9890,HeapOfLeaf_Create,func,"factory for CLASSID 54 ""HeapOfLeaf"": new(0x1fc) + inlined ctor chain"
+0x576354,HeapOfLeaf_vtbl,vtable,sizeof(HeapOfLeaf) = 0x1fc
+0x436892,DaffyElf_Create,func,"factory for CLASSID 55 ""DaffyElf"": new(0x128) + inlined ctor chain"
+0x574d14,DaffyElf_vtbl,vtable,sizeof(DaffyElf) = 0x128
+0x4ab30f,Catapult_Create,func,"factory for CLASSID 56 ""Catapult"": new(0x158) + inlined ctor chain"
+0x575d2c,Catapult_vtbl,vtable,sizeof(Catapult) = 0x158
+0x43bea4,DaffyMilitary_Create,func,"factory for CLASSID 57 ""DaffyMilitary"": new(0x124) + inlined ctor chain"
+0x574da4,DaffyMilitary_vtbl,vtable,sizeof(DaffyMilitary) = 0x124
+0x4c90ce,HairDryer_Create,func,"factory for CLASSID 58 ""HairDryer"": new(0x88) + inlined ctor chain"
+0x576330,HairDryer_vtbl,vtable,sizeof(HairDryer) = 0x88
+0x4b4322,DoorMechanism_Create,func,"factory for CLASSID 59 ""DoorMechanism"": new(0x80) + inlined ctor chain"
+0x575ec0,DoorMechanism_vtbl,vtable,sizeof(DoorMechanism) = 0x80
+0x4cc0dc,IceCube_Create,func,"factory for CLASSID 60 ""IceCube"": new(0x80) + inlined ctor chain"
+0x57642c,IceCube_vtbl,vtable,sizeof(IceCube) = 0x80
+0x4d8a23,MineDetector_Create,func,"factory for CLASSID 61 ""MineDetector"": new(0xc8) + inlined ctor chain"
+0x576708,MineDetector_vtbl,vtable,sizeof(MineDetector) = 0xc8
+0x5034b3,Umbrella_Create,func,"factory for CLASSID 62 ""Umbrella"": new(0x84) + inlined ctor chain"
+0x576f30,Umbrella_vtbl,vtable,sizeof(Umbrella) = 0x84
+0x4d7c50,DefusableMine_Create,func,"factory for CLASSID 64 ""DefusableMine"": new(0xfc) + inlined ctor chain"
+0x5766e0,DefusableMine_vtbl,vtable,sizeof(DefusableMine) = 0xfc
+0x4f55ab,SmallRock_Create,func,"factory for CLASSID 65 ""SmallRock"": new(0x178) + inlined ctor chain"
+0x576c90,SmallRock_vtbl,vtable,sizeof(SmallRock) = 0x178
+0x4d2c6f,Magnet_Create,func,"factory for CLASSID 66 ""Magnet"": new(0x9c) + inlined ctor chain"
+0x5765b8,Magnet_vtbl,vtable,sizeof(Magnet) = 0x9c
+0x4be6f9,FishingRod_Create,func,"factory for CLASSID 67 ""FishingRod"": new(0x88) + inlined ctor chain"
+0x5760b8,FishingRod_vtbl,vtable,sizeof(FishingRod) = 0x88
+0x4bed83,MagnetRod_Create,func,"factory for CLASSID 68 ""MagnetRod"": new(0x94) + inlined ctor chain"
+0x5760e4,MagnetRod_vtbl,vtable,sizeof(MagnetRod) = 0x94
+0x4e9f6e,Seaweed_Create,func,"factory for CLASSID 69 ""Seaweed"": new(0x64) + inlined ctor chain"
+0x576ab4,Seaweed_vtbl,vtable,sizeof(Seaweed) = 0x64
+0x503a4c,VisibilityManager_Create,func,"factory for CLASSID 70 ""VisibilityManager"": new(0x258) + inlined ctor chain"
+0x576f54,VisibilityManager_vtbl,vtable,sizeof(VisibilityManager) = 0x258
+0x4c9af0,HitSwitch_Create,func,"factory for CLASSID 71 ""HitSwitch"": new(0x44) + inlined ctor chain"
+0x57639c,HitSwitch_vtbl,vtable,sizeof(HitSwitch) = 0x44
+0x4c58ac,GeyserIn_Create,func,"factory for CLASSID 72 ""GeyserIn"": new(0xa4) + inlined ctor chain"
+0x576210,GeyserIn_vtbl,vtable,sizeof(GeyserIn) = 0xa4
+0x4c7002,GeyserOut_Create,func,"factory for CLASSID 73 ""GeyserOut"": new(0xd4) + inlined ctor chain"
+0x576258,GeyserOut_vtbl,vtable,sizeof(GeyserOut) = 0xd4
+0x4c2916,FogManager_Create,func,"factory for CLASSID 74 ""FogManager"": new(0x4c) + inlined ctor chain"
+0x5761c8,FogManager_vtbl,vtable,sizeof(FogManager) = 0x4c
+0x4f60f1,Snowball_Create,func,"factory for CLASSID 75 ""Snowball"": new(0x94) + inlined ctor chain"
+0x576cb4,Snowball_vtbl,vtable,sizeof(Snowball) = 0x94
+0x4f644f,SnowyGround_Create,func,"factory for CLASSID 76 ""SnowyGround"": new(0x68) + inlined ctor chain"
+0x576cd8,SnowyGround_vtbl,vtable,sizeof(SnowyGround) = 0x68
+0x4cc543,IceGround_Create,func,"factory for CLASSID 77 ""IceGround"": new(0x70) + inlined ctor chain"
+0x576450,IceGround_vtbl,vtable,sizeof(IceGround) = 0x70
+0x4f1d86,SignPostSimple_Create,func,"factory for CLASSID 78 ""SignPostSimple"": new(0x58) + inlined ctor chain"
+0x576bd4,SignPostSimple_vtbl,vtable,sizeof(SignPostSimple) = 0x58
+0x4f3b78,SlidingIceCube_Create,func,"factory for CLASSID 79 ""SlidingIceCube"": new(0x88) + inlined ctor chain"
+0x576c64,SlidingIceCube_vtbl,vtable,sizeof(SlidingIceCube) = 0x88
+0x4f0f2d,SheepCostume_Create,func,"factory for CLASSID 80 ""SheepCostume"": new(0x6c) + inlined ctor chain"
+0x576bb0,SheepCostume_vtbl,vtable,sizeof(SheepCostume) = 0x6c
+0x509f4c,WolfTrap_Create,func,"factory for CLASSID 81 ""WolfTrap"": new(0xa0) + inlined ctor chain"
+0x577058,WolfTrap_vtbl,vtable,sizeof(WolfTrap) = 0xa0
+0x4ad917,Crane_Create,func,"factory for CLASSID 82 ""Crane"": new(0xc0) + inlined ctor chain"
+0x575dbc,Crane_vtbl,vtable,sizeof(Crane) = 0xc0
+0x4c2980,FrozenRiver_Create,func,"factory for CLASSID 83 ""FrozenRiver"": new(0xe4) + inlined ctor chain"
+0x5761ec,FrozenRiver_vtbl,vtable,sizeof(FrozenRiver) = 0xe4
+0x44861a,Dragon_Create,func,"factory for CLASSID 84 ""Dragon"": new(0x274) + inlined ctor chain"
+0x574e58,Dragon_vtbl,vtable,sizeof(Dragon) = 0x274
+0x4fc567,TimeMachineChrono_Create,func,"factory for CLASSID 85 ""TimeMachineChrono"": new(0x8c) + inlined ctor chain"
+0x576dec,TimeMachineChrono_vtbl,vtable,sizeof(TimeMachineChrono) = 0x8c
+0x4fbff0,TimeMachineSphere_Create,func,"factory for CLASSID 86 ""TimeMachineSphere"": new(0x2c4) + inlined ctor chain"
+0x576dc8,TimeMachineSphere_vtbl,vtable,sizeof(TimeMachineSphere) = 0x2c4
+0x452210,Gossamer_Lev08_Create,func,"factory for CLASSID 87 ""Gossamer_Lev08"": new(0x2e4) + inlined ctor chain"
+0x574ee8,Gossamer_Lev08_vtbl,vtable,sizeof(Gossamer_Lev08) = 0x2e4
+0x4d6610,GroundMine_Create,func,"factory for CLASSID 88 ""GroundMine"": new(0x1b4) + inlined ctor chain"
+0x576690,GroundMine_vtbl,vtable,sizeof(GroundMine) = 0x1b4
+0x4f8fbf,SwirlSign_Create,func,"factory for CLASSID 89 ""SwirlSign"": new(0x68) + inlined ctor chain"
+0x576d5c,SwirlSign_vtbl,vtable,sizeof(SwirlSign) = 0x68
+0x44b0bd,Elmer_Create,func,"factory for CLASSID 90 ""Elmer"": new(0x168) + inlined ctor chain"
+0x574e7c,Elmer_vtbl,vtable,sizeof(Elmer) = 0x168
+0x502245,TreeSection_Create,func,"factory for CLASSID 91 ""TreeSection"": new(0x88) + inlined ctor chain"
+0x576ec4,TreeSection_vtbl,vtable,sizeof(TreeSection) = 0x88
+0x49e958,Bullet_Create,func,"factory for CLASSID 92 ""Bullet"": new(0x90) + inlined ctor chain"
+0x575b54,Bullet_vtbl,vtable,sizeof(Bullet) = 0x90
+0x4eacf8,Seed_Create,func,"factory for CLASSID 93 ""Seed"": new(0x12c) + inlined ctor chain"
+0x576afc,Seed_vtbl,vtable,sizeof(Seed) = 0x12c
+0x4eb03d,Tree_Create,func,"factory for CLASSID 94 ""Tree"": new(0x4c) + inlined ctor chain"
+0x576b20,Tree_vtbl,vtable,sizeof(Tree) = 0x4c
+0x4a4928,CannonBall_Create,func,"factory for CLASSID 95 ""CannonBall"": new(0x10a8) + inlined ctor chain"
+0x575c50,CannonBall_vtbl,vtable,sizeof(CannonBall) = 0x10a8
+0x4dc46e,Pipe_Create,func,"factory for CLASSID 96 ""Pipe"": new(0xd8) + inlined ctor chain"
+0x5767d4,Pipe_vtbl,vtable,sizeof(Pipe) = 0xd8
+0x4a8859,CanonSimple_Create,func,"factory for CLASSID 97 ""CanonSimple"": new(0xf4) + inlined ctor chain"
+0x575ce0,CanonSimple_vtbl,vtable,sizeof(CanonSimple) = 0xf4
+0x4d4c6d,MCardManager_Create,func,"factory for CLASSID 98 ""MCardManager"": new(0x6c) + inlined ctor chain"
+0x576624,MCardManager_vtbl,vtable,sizeof(MCardManager) = 0x6c
+0x4df11d,RabbitCostume_Create,func,"factory for CLASSID 99 ""RabbitCostume"": new(0x6c) + inlined ctor chain"
+0x576840,RabbitCostume_vtbl,vtable,sizeof(RabbitCostume) = 0x6c
+0x4e17a1,RemoteControl_Create,func,"factory for CLASSID 100 ""RemoteControl"": new(0x94) + inlined ctor chain"
+0x5768c8,RemoteControl_vtbl,vtable,sizeof(RemoteControl) = 0x94
+0x461e6b,Robot_Create,func,"factory for CLASSID 101 ""Robot"": new(0x2e0) + inlined ctor chain"
+0x574fa8,Robot_vtbl,vtable,sizeof(Robot) = 0x2e0
+0x499295,Bell_Create,func,"factory for CLASSID 102 ""Bell"": new(0x6c) + inlined ctor chain"
+0x575a58,Bell_vtbl,vtable,sizeof(Bell) = 0x6c
+0x5061b0,Watch_Create,func,"factory for CLASSID 103 ""Watch"": new(0x4ac) + inlined ctor chain"
+0x576f9c,Watch_vtbl,vtable,sizeof(Watch) = 0x4ac
+0x43b246,DaffyLevel09_Create,func,"factory for CLASSID 104 ""DaffyLevel09"": new(0x19c) + inlined ctor chain"
+0x574d80,DaffyLevel09_vtbl,vtable,sizeof(DaffyLevel09) = 0x19c
+0x4a5ab5,CanonDummy_Create,func,"factory for CLASSID 105 ""CanonDummy"": new(0x78) + inlined ctor chain"
+0x575c98,CanonDummy_vtbl,vtable,sizeof(CanonDummy) = 0x78
+0x4d4256,MapLocation_Create,func,"factory for CLASSID 106 ""MapLocation"": new(0x114) + inlined ctor chain"
+0x576600,MapLocation_vtbl,vtable,sizeof(MapLocation) = 0x114
+0x498fbb,Bees_Create,func,"factory for CLASSID 107 ""Bees"": new(0xf8) + inlined ctor chain"
+0x575a34,Bees_vtbl,vtable,sizeof(Bees) = 0xf8
+0x4cb0b6,HoneyPot_Create,func,"factory for CLASSID 108 ""HoneyPot"": new(0xc0) + inlined ctor chain"
+0x5763e4,HoneyPot_vtbl,vtable,sizeof(HoneyPot) = 0xc0
+0x434236,CrocodileLevel09_Create,func,"factory for CLASSID 109 ""CrocodileLevel09"": new(0xe4) + inlined ctor chain"
+0x574ca8,CrocodileLevel09_vtbl,vtable,sizeof(CrocodileLevel09) = 0xe4
+0x4b3a6c,Diamond_Create,func,"factory for CLASSID 110 ""Diamond"": new(0xbc) + inlined ctor chain"
+0x575e78,Diamond_vtbl,vtable,sizeof(Diamond) = 0xbc
+0x509614,Wheel_Create,func,"factory for CLASSID 111 ""Wheel"": new(0x1c8) + inlined ctor chain"
+0x577010,Wheel_vtbl,vtable,sizeof(Wheel) = 0x1c8
+0x509852,WheelDummy_Create,func,"factory for CLASSID 112 ""WheelDummy"": new(0x54) + inlined ctor chain"
+0x577034,WheelDummy_vtbl,vtable,sizeof(WheelDummy) = 0x54
+0x44ebe0,Gossamer_Boss_Create,func,"factory for CLASSID 113 ""Gossamer_Boss"": new(0x2f0) + inlined ctor chain"
+0x574ec4,Gossamer_Boss_vtbl,vtable,sizeof(Gossamer_Boss) = 0x2f0
+0x4f8c61,SuperButton_Create,func,"factory for CLASSID 114 ""SuperButton"": new(0x64) + inlined ctor chain"
+0x576d38,SuperButton_vtbl,vtable,sizeof(SuperButton) = 0x64
+0x4e6ea3,RollingCarpet_Create,func,"factory for CLASSID 115 ""RollingCarpet"": new(0xb8) + inlined ctor chain"
+0x5769c8,RollingCarpet_vtbl,vtable,sizeof(RollingCarpet) = 0xb8
+0x4ca5e7,Hive_Create,func,"factory for CLASSID 116 ""Hive"": new(0xc0) + inlined ctor chain"
+0x5763c0,Hive_vtbl,vtable,sizeof(Hive) = 0xc0
+0x4def1b,Piranhas_Create,func,"factory for CLASSID 117 ""Piranhas"": new(0xbc) + inlined ctor chain"
+0x57681c,Piranhas_vtbl,vtable,sizeof(Piranhas) = 0xbc
+0x4e11ad,RCarpetMobile_Create,func,"factory for CLASSID 118 ""RCarpetMobile"": new(0xb0) + inlined ctor chain"
+0x5768a4,RCarpetMobile_vtbl,vtable,sizeof(RCarpetMobile) = 0xb0
+0x4aeec5,CrumblyGround_Create,func,"factory for CLASSID 119 ""CrumblyGround"": new(0xb0) + inlined ctor chain"
+0x575e0c,CrumblyGround_vtbl,vtable,sizeof(CrumblyGround) = 0xb0
+0x44d964,Ghost_Create,func,"factory for CLASSID 120 ""Ghost"": new(0x1c0) + inlined ctor chain"
+0x574ea0,Ghost_vtbl,vtable,sizeof(Ghost) = 0x1c0
+0x4bee1a,SaladRod_Create,func,"factory for CLASSID 121 ""SaladRod"": new(0x94) + inlined ctor chain"
+0x57613c,SaladRod_vtbl,vtable,sizeof(SaladRod) = 0x94
+0x435ebd,CrocodileLevel11_Create,func,"factory for CLASSID 122 ""CrocodileLevel11"": new(0x1e4) + inlined ctor chain"
+0x574ccc,CrocodileLevel11_vtbl,vtable,sizeof(CrocodileLevel11) = 0x1e4
+0x4d9dc0,Monolithe_Create,func,"factory for CLASSID 123 ""Monolithe"": new(0x134) + inlined ctor chain"
+0x576750,Monolithe_vtbl,vtable,sizeof(Monolithe) = 0x134
+0x4f67dc,LightSpot_Create,func,"factory for CLASSID 124 ""LightSpot"": new(0x1248) + inlined ctor chain"
+0x576cfc,LightSpot_vtbl,vtable,sizeof(LightSpot) = 0x1248
+0x4c71fd,GhostCostume_Create,func,"factory for CLASSID 125 ""GhostCostume"": new(0x6c) + inlined ctor chain"
+0x57627c,GhostCostume_vtbl,vtable,sizeof(GhostCostume) = 0x6c
+0x4cff08,Jail_Create,func,"factory for CLASSID 126 ""Jail"": new(0xb8) + inlined ctor chain"
+0x5764e0,Jail_vtbl,vtable,sizeof(Jail) = 0xb8
+0x4427bb,DancingGhost_Create,func,"factory for CLASSID 127 ""DancingGhost"": new(0x150) + inlined ctor chain"
+0x574e34,DancingGhost_vtbl,vtable,sizeof(DancingGhost) = 0x150
+0x497186,Battery_Create,func,"factory for CLASSID 128 ""Battery"": new(0x148) + inlined ctor chain"
+0x575a10,Battery_vtbl,vtable,sizeof(Battery) = 0x148
+0x4d0473,Key_Create,func,"factory for CLASSID 129 ""Key"": new(0x8c) + inlined ctor chain"
+0x576504,Key_vtbl,vtable,sizeof(Key) = 0x8c
+0x45e4e8,PrayingGhost_Create,func,"factory for CLASSID 130 ""PrayingGhost"": new(0x55c) + inlined ctor chain"
+0x574f84,PrayingGhost_vtbl,vtable,sizeof(PrayingGhost) = 0x55c
+0x4cbaa1,Hoover_Create,func,"factory for CLASSID 131 ""Hoover"": new(0xdc) + inlined ctor chain"
+0x576408,Hoover_vtbl,vtable,sizeof(Hoover) = 0xdc
+0x4cdc54,InflatableSheep_Create,func,"factory for CLASSID 132 ""InflatableSheep"": new(0x10c) + inlined ctor chain"
+0x576474,InflatableSheep_vtbl,vtable,sizeof(InflatableSheep) = 0x10c
+0x4fd545,TrafficJams_Create,func,"factory for CLASSID 133 ""TrafficJams"": new(0xd0) + inlined ctor chain"
+0x576e34,TrafficJams_vtbl,vtable,sizeof(TrafficJams) = 0xd0
+0x4ac51f,Chronometer_Create,func,"factory for CLASSID 134 ""Chronometer"": new(0x4b4) + inlined ctor chain"
+0x575d74,Chronometer_vtbl,vtable,sizeof(Chronometer) = 0x4b4
+0x4fd5b0,Train_Create,func,"factory for CLASSID 135 ""Train"": new(0x4f4) + inlined ctor chain"
+0x576e58,Train_vtbl,vtable,sizeof(Train) = 0x4f4
+0x501150,TrainStation_Create,func,"factory for CLASSID 136 ""TrainStation"": new(0x94) + inlined ctor chain"
+0x576ea0,TrainStation_vtbl,vtable,sizeof(TrainStation) = 0x94
+0x494d83,AmbientSoundManager_Create,func,"factory for CLASSID 137 ""AmbientSoundManager"": new(0x5c) + inlined ctor chain"
+0x575938,AmbientSoundManager_vtbl,vtable,sizeof(AmbientSoundManager) = 0x5c
+0x4c742c,GhostHalo_Create,func,"factory for CLASSID 138 ""GhostHalo"": new(0x64) + inlined ctor chain"
+0x5762a0,GhostHalo_vtbl,vtable,sizeof(GhostHalo) = 0x64
+0x42ebaa,BipbipLevel14_Create,func,"factory for CLASSID 139 ""BipbipLevel14"": new(0xe4) + inlined ctor chain"
+0x574bf8,BipbipLevel14_vtbl,vtable,sizeof(BipbipLevel14) = 0xe4
+0x4bb004,FallingGate2_Create,func,"factory for CLASSID 140 ""FallingGate2"": new(0xb4) + inlined ctor chain"
+0x575fc8,FallingGate2_vtbl,vtable,sizeof(FallingGate2) = 0xb4
+0x4c8095,GoldenCoins_Create,func,"factory for CLASSID 141 ""GoldenCoins"": new(0x8c) + inlined ctor chain"
+0x5762e8,GoldenCoins_vtbl,vtable,sizeof(GoldenCoins) = 0x8c
+0x4722d7,Sam_Pirate_Create,func,"factory for CLASSID 142 ""Sam_Pirate"": new(0x358) + inlined ctor chain"
+0x57501c,Sam_Pirate_vtbl,vtable,sizeof(Sam_Pirate) = 0x358
+0x4c1d35,FloatingBox_Create,func,"factory for CLASSID 143 ""FloatingBox"": new(0x2ac) + inlined ctor chain"
+0x576168,FloatingBox_vtbl,vtable,sizeof(FloatingBox) = 0x2ac
+0x4cf065,InstantHoover_Create,func,"factory for CLASSID 144 ""InstantHoover"": new(0x19c) + inlined ctor chain"
+0x576498,InstantHoover_vtbl,vtable,sizeof(InstantHoover) = 0x19c
+0x458b45,InstantMartian_Create,func,"factory for CLASSID 145 ""InstantMartian"": new(0x1e8) + inlined ctor chain"
+0x574f18,InstantMartian_vtbl,vtable,sizeof(InstantMartian) = 0x1e8
+0x4a70d8,CanonSheep_Create,func,"factory for CLASSID 146 ""CanonSheep"": new(0xf0) + inlined ctor chain"
+0x575cbc,CanonSheep_vtbl,vtable,sizeof(CanonSheep) = 0xf0
+0x4a56a0,CannonBall2_Create,func,"factory for CLASSID 147 ""CannonBall2"": new(0x8c) + inlined ctor chain"
+0x575c74,CannonBall2_vtbl,vtable,sizeof(CannonBall2) = 0x8c
+0x4e941a,SceneSheepPanel_Create,func,"factory for CLASSID 148 ""SceneSheepPanel"": new(0x78) + inlined ctor chain"
+0x576a58,SceneSheepPanel_vtbl,vtable,sizeof(SceneSheepPanel) = 0x78
+0x4d1a8f,LazerRobot_Create,func,"factory for CLASSID 149 ""LazerRobot"": new(0xc0) + inlined ctor chain"
+0x576570,LazerRobot_vtbl,vtable,sizeof(LazerRobot) = 0xc0
+0x4d0f2a,Laser_Create,func,"factory for CLASSID 150 ""Laser"": new(0x88) + inlined ctor chain"
+0x576528,Laser_vtbl,vtable,sizeof(Laser) = 0x88
+0x4a88c0,Case_Create,func,"factory for CLASSID 151 ""Case"": new(0x64) + inlined ctor chain"
+0x575d04,Case_vtbl,vtable,sizeof(Case) = 0x64
+0x4e9e09,Scene_Wheel_Create,func,"factory for CLASSID 152 ""Scene_Wheel"": new(0x7c) + inlined ctor chain"
+0x576a90,Scene_Wheel_vtbl,vtable,sizeof(Scene_Wheel) = 0x7c
+0x43d542,DaffyScene_Create,func,"factory for CLASSID 155 ""DaffyScene"": new(0xcc) + inlined ctor chain"
+0x574dc8,DaffyScene_vtbl,vtable,sizeof(DaffyScene) = 0xcc
+0x4954dd,AutomaticDoor_Create,func,"factory for CLASSID 156 ""AutomaticDoor"": new(0x70) + inlined ctor chain"
+0x5759a4,AutomaticDoor_vtbl,vtable,sizeof(AutomaticDoor) = 0x70
+0x4e24ae,Resizer_Create,func,"factory for CLASSID 157 ""Resizer"": new(0xc8) + inlined ctor chain"
+0x5768ec,Resizer_vtbl,vtable,sizeof(Resizer) = 0xc8
+0x496121,Bat_Create,func,"factory for CLASSID 158 ""Bat"": new(0x9c) + inlined ctor chain"
+0x5759ec,Bat_vtbl,vtable,sizeof(Bat) = 0x9c
+0x4bd6f0,Firefly_Create,func,"factory for CLASSID 159 ""Firefly"": new(0x94) + inlined ctor chain"
+0x576070,Firefly_vtbl,vtable,sizeof(Firefly) = 0x94
+0x49ace6,Bird_Create,func,"factory for CLASSID 160 ""Bird"": new(0xac) + inlined ctor chain"
+0x575aa0,Bird_vtbl,vtable,sizeof(Bird) = 0xac
+0x49fea8,Butterfly_Create,func,"factory for CLASSID 161 ""Butterfly"": new(0xd0) + inlined ctor chain"
+0x575b9c,Butterfly_vtbl,vtable,sizeof(Butterfly) = 0xd0
+0x4bdbc7,Fish_Create,func,"factory for CLASSID 162 ""Fish"": new(0x88) + inlined ctor chain"
+0x576094,Fish_vtbl,vtable,sizeof(Fish) = 0x88
+0x4ddfd3,Pipe2_Create,func,"factory for CLASSID 163 ""Pipe2"": new(0x124) + inlined ctor chain"
+0x5767f8,Pipe2_vtbl,vtable,sizeof(Pipe2) = 0x124
+0x4d1177,Lava_Create,func,"factory for CLASSID 164 ""Lava"": new(0x6c) + inlined ctor chain"
+0x57654c,Lava_vtbl,vtable,sizeof(Lava) = 0x6c
+0x4f1de8,SignPostAnimated_Create,func,"factory for CLASSID 165 ""SignPostAnimated"": new(0x78) + inlined ctor chain"
+0x576bf8,SignPostAnimated_vtbl,vtable,sizeof(SignPostAnimated) = 0x78
+0x5060d5,Volcano_Create,func,"factory for CLASSID 166 ""Volcano"": new(0x6c0) + inlined ctor chain"
+0x576f78,Volcano_vtbl,vtable,sizeof(Volcano) = 0x6c0
+0x4b259a,DancingGhostManager_Create,func,"factory for CLASSID 167 ""DancingGhostManager"": new(0x2f4) + inlined ctor chain"
+0x575e54,DancingGhostManager_vtbl,vtable,sizeof(DancingGhostManager) = 0x2f4
+0x4b4ded,DoorWorld_Create,func,"factory for CLASSID 169 ""DoorWorld"": new(0x74) + inlined ctor chain"
+0x575ee4,DoorWorld_vtbl,vtable,sizeof(DoorWorld) = 0x74
+0x4b420c,DoorLevel_Create,func,"factory for CLASSID 170 ""DoorLevel"": new(0x6c) + inlined ctor chain"
+0x575e9c,DoorLevel_vtbl,vtable,sizeof(DoorLevel) = 0x6c
+0x4bc5ed,FireBall_Create,func,"factory for CLASSID 171 ""FireBall"": new(0xac) + inlined ctor chain"
+0x576044,FireBall_vtbl,vtable,sizeof(FireBall) = 0xac
+0x502c30,Twig_Create,func,"factory for CLASSID 172 ""Twig"": new(0x80) + inlined ctor chain"
+0x576f0c,Twig_vtbl,vtable,sizeof(Twig) = 0x80
+0x4c5c28,GeyserManger_Create,func,"factory for CLASSID 173 ""GeyserManger"": new(0x8c) + inlined ctor chain"
+0x576234,GeyserManger_vtbl,vtable,sizeof(GeyserManger) = 0x8c
+0x4f28ab,SignTips_Create,func,"factory for CLASSID 174 ""SignTips"": new(0xb8) + inlined ctor chain"
+0x576c40,SignTips_vtbl,vtable,sizeof(SignTips) = 0xb8
+0x4d8fa3,MirrorManager_Create,func,"factory for CLASSID 175 ""MirrorManager"": new(0x78) + inlined ctor chain"
+0x57672c,MirrorManager_vtbl,vtable,sizeof(MirrorManager) = 0x78
+0x4adee6,CreditsManager_Create,func,"factory for CLASSID 176 ""CreditsManager"": new(0x5c) + inlined ctor chain"
+0x575de0,CreditsManager_vtbl,vtable,sizeof(CreditsManager) = 0x5c
+0x507861,WaterMine_Create,func,"factory for CLASSID 177 ""WaterMine"": new(0xe8) + inlined ctor chain"
+0x576fec,WaterMine_vtbl,vtable,sizeof(WaterMine) = 0xe8
+0x4e7c47,Rook_Create,func,"factory for CLASSID 178 ""Rook"": new(0xd8) + inlined ctor chain"
+0x5769ec,Rook_vtbl,vtable,sizeof(Rook) = 0xd8
+0x4f0d1f,SfxCineManager_Create,func,"factory for CLASSID 179 ""SfxCineManager"": new(0xd8) + inlined ctor chain"
+0x576b8c,SfxCineManager_vtbl,vtable,sizeof(SfxCineManager) = 0xd8
+0x4af434,CrumblyPlat_Create,func,"factory for CLASSID 181 ""CrumblyPlat"": new(0xa8) + inlined ctor chain"
+0x575e30,CrumblyPlat_vtbl,vtable,sizeof(CrumblyPlat) = 0xa8
+0x4c880a,GossamerOnde_Create,func,"factory for CLASSID 182 ""GossamerOnde"": new(0x8c) + inlined ctor chain"
+0x57630c,GossamerOnde_vtbl,vtable,sizeof(GossamerOnde) = 0x8c
+0x4b91f7,FacingCamera_Create,func,"factory for CLASSID 183 ""FacingCamera"": new(0x40) + inlined ctor chain"
+0x575f80,FacingCamera_vtbl,vtable,sizeof(FacingCamera) = 0x40
+0x4da2fa,ObjectManager_Create,func,"factory for CLASSID 184 ""ObjectManager"": new(0x1e0) + inlined ctor chain"
+0x576774,ObjectManager_vtbl,vtable,sizeof(ObjectManager) = 0x1e0
+0x5070d4,WaterGeyser_Create,func,"factory for CLASSID 186 ""WaterGeyser"": new(0x94) + inlined ctor chain"
+0x576fc0,WaterGeyser_vtbl,vtable,sizeof(WaterGeyser) = 0x94
+0x441293,DaffyWheel_Create,func,"factory for CLASSID 187 ""DaffyWheel"": new(0x90) + inlined ctor chain"
+0x574e10,DaffyWheel_vtbl,vtable,sizeof(DaffyWheel) = 0x90
+0x4fc7b4,Torch_Create,func,"factory for CLASSID 188 ""Torch"": new(0xdc) + inlined ctor chain"
+0x576e10,Torch_vtbl,vtable,sizeof(Torch) = 0xdc
+0x4e7d46,Sail_Create,func,"factory for CLASSID 189 ""Sail"": new(0x64) + inlined ctor chain"
+0x576a10,Sail_vtbl,vtable,sizeof(Sail) = 0x64
+0x49cc0f,BonusManager_Create,func,"factory for CLASSID 190 ""BonusManager"": new(0xc8) + inlined ctor chain"
+0x575ae8,BonusManager_vtbl,vtable,sizeof(BonusManager) = 0xc8
+0x4d1cf1,Leaf_Create,func,"factory for CLASSID 191 ""Leaf"": new(0x78) + inlined ctor chain"
+0x576594,Leaf_vtbl,vtable,sizeof(Leaf) = 0x78
+0x49b5b9,BlackHole_Create,func,"factory for CLASSID 192 ""BlackHole"": new(0x68) + inlined ctor chain"
+0x575ac4,BlackHole_vtbl,vtable,sizeof(BlackHole) = 0x68
+0x459324,Marvin_Create,func,"factory for CLASSID 193 ""Marvin"": new(0xa8) + inlined ctor chain"
+0x574f3c,Marvin_vtbl,vtable,sizeof(Marvin) = 0xa8
+0x4cf249,InstantSocket_Create,func,"factory for CLASSID 194 ""InstantSocket"": new(0x64) + inlined ctor chain"
+0x5764bc,InstantSocket_vtbl,vtable,sizeof(InstantSocket) = 0x64
+0x436071,Crowd_Create,func,"factory for CLASSID 195 ""Crowd"": new(0x6c) + inlined ctor chain"
+0x574cf0,Crowd_vtbl,vtable,sizeof(Crowd) = 0x6c
+0x4a0d53,CameraManager2_Create,func,"factory for CLASSID 196 ""CameraManager2"": new(0x58) + inlined ctor chain"
+0x575c08,CameraManager2_vtbl,vtable,sizeof(CameraManager2) = 0x58

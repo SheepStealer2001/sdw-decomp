@@ -1,0 +1,5 @@
+value,name,meaning
+#,CanonDummyState,CanonDummy +0x64 (CanonDummy_SetState 0x4a594c)
+0,CD_ST_REST,anim 0
+1,CD_ST_MOVE_OUT,anim 3 (msg 0x3882 from CanonSheep); -> 2 when the anim ends
+2,CD_ST_AT_POS,"SetPosition(movePos), anim 2; msg 0x4d01 to owner at anim end"

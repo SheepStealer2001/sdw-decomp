@@ -1,0 +1,11 @@
+value,name,meaning
+#,DaffyLevel02State,DaffyLevel02 +0x7c (DaffyLevel02_SetState 0x439df6).
+0,DAFFY2_STT_DEBOUNCE,moves to 4 on any frame that is not a fresh Cross press
+1,DAFFY2_STT_UNUSED,anim 0xB; never entered
+2,DAFFY2_STT_GAME,red-light game logic (armed/running)
+3,DAFFY2_STT_AWAIT_TALK,after the intro cinematic (from Reset); msg 1 -> the Yes/No question (Update has no per-frame case for it)
+4,DAFFY2_STT_TALK,talkPhase sub-machine
+5,DAFFY2_STT_WAIT_CINEBOX,initial: waiting for the Wolf in CINEBOX
+10,DAFFY2_STT_QUESTION,Dialog_Update (after a win)
+11,DAFFY2_STT_ANSWER,Dialog_UpdateAnswer with answerVoices
+12,DAFFY2_STT_BURNT_LINE,"TEXTBURNT, voice 0xD, then savedState"

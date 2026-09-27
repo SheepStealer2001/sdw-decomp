@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x0,void *,vtbl,"PolyTri_vtbl 0x5743f4: stored by PolyTri_Ctor 0x41aa70 (mov [eax],0x5743f4 at 0x41aa7a) and restored by PolyTri_Dtor 0x41aa87",verified
+0x4,u32[3],idx,"the triangle's three vertex indices: HoleFX_BuildMesh writes them at +4/+8/+0xc through &poly (0x538564-0x53858c), HoleFX_Draw reads them at RenderPoly +0xc/+0x10/+0x14 (0x537382)",verified

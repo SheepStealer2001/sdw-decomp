@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,u16:1,onMover,bit 0 (2-byte unsigned unit) | The word read/modify/write at 4d59a9/4d59c3 is bit 0 of +0x120.,verified
+0x0,u16:1,falling,bit 1 (2-byte unsigned unit),verified
+0x0,u16:1,triggered,bit 2 (2-byte unsigned unit),verified
+0x0,u16:1,countingDown,bit 3 (2-byte unsigned unit),verified

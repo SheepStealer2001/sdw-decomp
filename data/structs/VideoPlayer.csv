@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x0,void *,vtbl,"VideoPlayer_vtbl 0x5744e0, ONE slot (the scalar deleting destructor 0x421bc0): stored by the constructor at 0x421ba4; the next dword is not code",verified
+0x4,u8,ready,set by the constructor (0x421baa); the boolean result of Init (0x421ccf),verified
+0x8,D3DApp *,app,"stored by Init (0x421c47), cleared by the destructor",verified
+0xc,u8[0x100],unknown0c,never accessed; not a proven string,inferred
+0x10c,Video *,stream,"the stream object: allocated and constructed in Init (0x421c82 / 0x421cae), deleted through its vtable",verified

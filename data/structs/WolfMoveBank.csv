@@ -1,0 +1,8 @@
+offset,ctype,name,meaning,confidence
+0x0,s16[2][9],surfaceTuning,"per-surface tuning, index Wolf.surface (0 normal, 1 ice), 0x12 bytes each; [4..8] read by Wolf_SurfaceVelocity, [8] = gravity rate (Wolf_LeapStep 0x488f3b, Wolf_FallStep 0x48964d pass it to Wolf_ApplyGravity); values set by Wolf_InitMoveConfig 0x4880f2",verified
+0x0,u16[2][9],surfaceTuningU,the same tuning words read unsigned: Wolf::StateMachine's and Wolf::Update's row pointer (movzx reads),verified
+0x24,WolfStateDesc *,states,"state descriptor table, index Wolf.state (0x488e86: mov edx,[bank+0x24]; lea eax,[edx+8*state])",verified
+0x28,MoveRecord *[2],profiles,"movement profile tables, index Wolf.surface (0x488ebb: add ecx,[bank+4*surface+0x28])",verified
+0x30,u16,stateCount,0xDF for bank 0 (Wolf_InitMoveConfig 0x48810f),verified
+0x32,u16,profileCount,0x12 for bank 0 (0x48812d),verified
+0x34,s16[9],params,nine more tuning words written by Wolf_InitMoveConfig 0x488136-0x48817e; +0x3E/+0x40 are the run-timer thresholds 0x199/0xC00,inferred

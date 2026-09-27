@@ -1,0 +1,18 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,gateState,named from its uses in src/objects/fallinggate2.cpp (the name and access width come from the code there),verified
+0x68,s32,riseTimer,named from its uses in src/objects/fallinggate2.cpp (the name and access width come from the code there),verified
+0x6c,s32,fallingTimeMs,"PROPERTY FALLINGTIME (prop 0xc), used as the DIVISOR of the fall's playback speed — 0x4bacd2 takes openAnimMs (+0x70, anim 4's length) as the numerator while 0x4bad10 starts anim 1, whose length sits unused in closeAnimMs. The fall only lasts FALLINGTIME if the two animations happen to ma",verified
+0x70,u32,openAnimMs,named from its uses in src/objects/fallinggate2.cpp (the name and access width come from the code there),verified
+0x74,u32,riseAnimMs,named from its uses in src/objects/fallinggate2.cpp (the name and access width come from the code there),verified
+0x78,s32,closed,named from its uses in src/objects/fallinggate2.cpp (the name and access width come from the code there),verified
+0x7c,s32,busy,named from its uses in src/objects/fallinggate2.cpp (the name and access width come from the code there),verified
+0x80,s32,oneShot,named from its uses in src/objects/fallinggate2.cpp (the name and access width come from the code there),verified
+0x84,s32,wolfFrozen,named from its uses in src/objects/fallinggate2.cpp (the name and access width come from the code there),verified
+0x88,s32,boxRaised,named from its uses in src/objects/fallinggate2.cpp (the name and access width come from the code there),verified
+0x8c,s32,firstSenderOn,named from its uses in src/objects/fallinggate2.cpp (the name and access width come from the code there),verified
+0x90,s32,singleButton,named from its uses in src/objects/fallinggate2.cpp (the name and access width come from the code there),verified
+0x94,CamSetup *,camera,"the camera property (Scn_GetPropCamera(record, 4) in PostLoadInit); when set, the opening state starts a scripted camera from it",verified
+0x98,CollBox *,solidBox,"first Box of the SHARED model's box list (0x4ba386 [this+8]->+0xc, +4 past the count). The gate edits it in place: -0xb4 on min.y/max.y when opening, +0xb4 when landing. Reset clears the +0x88 latch without restoring the box",verified
+0x9c,CollBox,worldBox,named from its uses in src/objects/fallinggate2.cpp (the name and access width come from the code there),verified
+0xac,ScnObject *,firstSender,named from its uses in src/objects/fallinggate2.cpp (the name and access width come from the code there),verified
+0xb0,u16 *,storedRecord,named from its uses in src/objects/fallinggate2.cpp (the name and access width come from the code there),verified

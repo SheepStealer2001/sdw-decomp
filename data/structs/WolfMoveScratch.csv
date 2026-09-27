@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,Vec3s,vel,velocity being built this step (the Wolf move steps point a local at g_collScratchA 0x6d5468: 0x488ec2),verified
+0x8,Vec3s,rot,rotation being built (g_wolfTmpRot 0x6d5470),verified
+0x10,Vec3s,step,per-frame displacement vel*dt (g_wolfTmpStep 0x6d5478),verified

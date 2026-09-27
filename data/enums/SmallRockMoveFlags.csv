@@ -1,0 +1,4 @@
+value,name,meaning
+#,SmallRockMoveFlags,SmallRock +0x171 moveFlags
+0x1,SROCKMF_PUSHED_THIS_FRAME,"set by msg 0xA, cleared by Update state 2"
+0x2,SROCKMF_UNSETTLED,"airborne, sliding or touching a movable object; blocks the landing test in state 5"

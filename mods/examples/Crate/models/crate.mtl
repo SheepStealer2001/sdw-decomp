@@ -1,0 +1,5 @@
+newmtl wood
+Kd 1 1 1
+map_Kd crate.png
+newmtl base
+Kd 0.4 0.28 0.12

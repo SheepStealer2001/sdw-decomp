@@ -1,0 +1,8 @@
+value,name,meaning
+#,TextureResult,Texture::Texture *result codes (engine/texture.cpp)
+0x0,TEXRES_OK,the constructors end with *result = 0
+0x1,TEXRES_NO_DEVICE,*result = 1 when !app->deviceReady
+0x2,TEXRES_NO_BITMAP,*result = 2 when LoadImage returned NULL (file constructor)
+0x3,TEXRES_NO_PIXEL_FORMAT,*result = 3 when no DDPIXELFORMAT matched (dwRGBBitCount == 0) or the format is unknown (default:)
+0x4,TEXRES_OUT_OF_MEMORY,*result = 4 after CreateSurface returned DDERR_OUTOFVIDEOMEMORY / E_OUTOFMEMORY
+0x5,TEXRES_GDI_FAILED,*result = 5 when CreateCompatibleDC / GetDC failed

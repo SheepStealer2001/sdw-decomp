@@ -1,0 +1,29 @@
+offset,ctype,name,meaning,confidence
+0x64,s32,timerMs,"dormant countdown (g_dtMs), or the vertical-mode anim timer",verified
+0x68,s16,arcIndex,current arc sample = elapsed g_gameTimeMs / 25,verified
+0x6c,u32,lavaFxActive,lavaBody animating and drawn; enables the 60-unit burn test,verified
+0x70,u32,headVisible,draw the volcano's own body (the bomb),verified
+0x74,u32,landed,bomb has splashed; stops the head collision sweep,verified
+0x78,u32,vertical,PROPERTY_VOLCANO_VERTICAL (0 in every shipped placement),verified
+0x7c,u32,uTurn,PROPERTY_VOLCANO_UTURN (0 in every shipped placement),verified
+0x80,u32,reverseNext,with UTURN: the next eruption runs backward (state 2) after 500 ms,verified
+0x84,u32,splashDone,splash played for this eruption,verified
+0x88,s16,trailEndIndex,last arc index the trailing blobs may use; truncated to the impact index,verified
+0x8c,u32,startTimeMs,g_gameTimeMs when the eruption started,verified
+0x90,u32[5],blobActive,per trailing blob: visible this frame,verified
+0xa4,u8,state,VolcanoState,verified
+0xa6,Vec3s,homePos,crater position (pos at Init),verified
+0xac,Vec3s[5],blobVel,blobDelta*50; |y| sets the blob stretch in Render,verified
+0xca,Vec3s[128],arcPoints,TRAJ1 arc pre-sampled at Init (38 used),verified
+0x3ca,Vec3s[5],blobDelta,per-blob step between consecutive arc samples; orients the blob,verified
+0x3e8,u16,loopIndex,"member used as a loop counter by Init, Update and Render",verified
+0x3ea,u16,lastArcIndex,number of sampled points - 2,verified
+0x3ec,LaunchArc,arc,"quadratic through the 3 TRAJ1 points, 3-D mode (flags 6); used only at Init",verified
+0x424,CollBox,hitBox,"flags 1; crater box +-15 (a Rock overlapping it plugs the volcano), or the lava column in vertical mode",verified
+0x434,u32,hitPending,head sweep hit a non-Wolf; splash on the next frame,verified
+0x438,ScnBody,lavaBody,"embedded ScnBody from WAR_IDO_ALAVE02 (fountain anim 1 / splash anim 2 / column anim 0); pos at +0x444, rot at +0x44c, anim flags at +0x49a",verified
+0x49c,ScnBody[5],blobs,"5 embedded ScnBody from WAR_IDO_ALAVE03, stride 0x64, trailing the bomb 2 samples apart",verified
+0x690,ScnRecordSynth,lavaRecord,record synthesised for ALAVE02,verified
+0x6a4,ScnRecordSynth,blobRecord,record synthesised for ALAVE03,verified
+0x6b8,void *,lavaModelRes,Scn_BuildRecordFromExport result for ALAVE02; Render draws lavaBody only when it is set,verified
+0x6bc,void *,blobModelRes,Scn_BuildRecordFromExport result for ALAVE03 (0 in vertical mode),verified

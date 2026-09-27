@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x0,s32,action,nonzero reply of the candidate to msg 2 (primary) or 0x26 (secondary); ScnControllable_ScanInteractables returns action != 0 (0x492aeb),verified
+0x4,ScnObject *,target,the object that gave the reply (0x49297e),verified

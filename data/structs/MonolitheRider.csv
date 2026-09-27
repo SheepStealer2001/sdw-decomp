@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,Vec3s,offset,"rider offset from the Monolithe, read as signed shorts at 0x4d93ef / 0x4d9407 / 0x4d941f and written at 0x4d99e4 / 0x4d9a02 / 0x4d9a20",verified
+0x6,u16,pad,padding to align the pointer; never accessed,verified
+0x8,ScnObject *,object,"the riding object, stored at +0xc of the record (0x4d99c7)",verified

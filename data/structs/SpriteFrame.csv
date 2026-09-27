@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,u16,texPage,texture page (TexAtlas_GetPage) of the frame bitmap; +4 is the RenderPoly type (0x53b668 / 0x53b6ea),verified
+0x2,u8,u,U origin (0x53b64a),verified
+0x3,u8,v,V origin (0x53b656),verified

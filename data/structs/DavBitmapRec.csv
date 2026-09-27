@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x0,u16,u,texel x origin on the page. Tex_CornerUV base for the horizontal corners in MCard_DrawSlotIcons.,verified
+0x2,u16,width,"width in texels; every reader subtracts 1 (MCard_Init, MCard_DrawSlotIcons, AnimSprite/Sprite loaders)",verified
+0x4,u16,v,texel y origin on the page,verified
+0x6,u16,height,height in texels (readers subtract 1),verified
+0x8,u16,page,"texture page, returned by TexAtlas_GetPage. 10-byte records in the table at DAV directory+0xa.",verified

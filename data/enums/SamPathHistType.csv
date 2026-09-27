@@ -1,0 +1,8 @@
+value,name,meaning
+#,SamPathHistType,type byte of the path-history ring entries (+0x3b6)
+0,SAM_HIST_EMPTY,
+1,SAM_HIST_FOLLOWNODES,
+2,SAM_HIST_REACHGOAL,
+3,SAM_HIST_SEARCH,"a = heading, b = step"
+4,SAM_HIST_REACHNODE,
+5,SAM_HIST_JUMP,

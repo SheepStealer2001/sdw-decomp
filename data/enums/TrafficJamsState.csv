@@ -1,0 +1,4 @@
+value,name,meaning
+#,TrafficJamsState,TrafficJams +0x65
+0,JAMS_CLEAR,anim 0; station query returns 0 with ARRIVINGTIME
+1,JAMS_JAMMED,anim 1; the train stops BREAKTIME at the last waypoint

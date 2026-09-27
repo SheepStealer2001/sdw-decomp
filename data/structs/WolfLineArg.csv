@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,s32,reverse,"msg 0x2d argument: nonzero turns the result by half a turn (0x4853ba cmp [edx],0)",verified
+0x4,Vec3s *,from,"first point of the segment; also the origin of the side test (0x4852a6 mov ecx,[eax+4])",verified
+0x8,Vec3s *,to,"second point of the segment (0x48529a mov ecx,[eax+8])",verified

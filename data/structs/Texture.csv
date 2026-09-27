@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x0,fnptr *,vtbl,"0x574340, single entry = the scalar deleting destructor 0x40b030; written by the constructor 0x40a140 and the destructor 0x40ad97",verified
+0x4,u32,width,"surface width in texels (0x40a319: = desc.dwWidth, rounded up to a power of two when the device requires it); the row pitch TexScroll_Update 0x560bcc multiplies by",verified
+0x8,u32,height,surface height (0x40a32b: = desc.dwHeight); the modulus of the TexScroll offset (0x560c1e),verified
+0xc,u32,format,"pixel-format index passed to the constructor (its 4th argument, stored via 0x5c7aa0 at 0x40a39d, then into +0xc at 0x40a3e7); read back by 0x40ade8 in TexScroll_AddRect",verified
+0x10,IDirectDrawSurface7 *,surface,the DirectDraw surface: Lock +0x64 / Unlock +0x80 / BltFast +0x1c / Release +0x8 in the destructor,verified
+0x14,u8[124],desc,DDSURFACEDESC2 the constructor fills (dwSize 0x7c) and creates the surface from,verified

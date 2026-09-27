@@ -1,0 +1,5 @@
+value,name,meaning
+#,ACLOCH01Anim,animation ids of WAR model ACLOCH01 (its WAR type-0x86 table; names verified from the level files). Played by: Bell
+0x0,ACLOCH01_ANIM_RING,WAR name RING
+0x1,ACLOCH01_ANIM_STAND,WAR name STAND
+0x2,ACLOCH01_ANIM_RING2,WAR name RING2

@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x64,ScnObject *,wolf,"The Wolf, found once at init by Scenaric_FindByClass(0). If the search fails it stays NULL and Update falls back to testing the balance's own position, which is inside its own box by construction — the platform would read as permanently pressed.",verified
+0x68,u8,wolfInside,"Latched 'the Wolf is in the trigger box' flag; the animation only changes on a transition (anim 2 pressed, anim 4 released).",verified
+0x6c,Box,triggerBox,World-space trigger volume baked once at init from the model's first NON-solid box plus the object position. The class writes only min (0x70/0x72/0x74) and max (0x76/0x78/0x7a) and never the flags dword at 0x6c; a whole Box here is the only layout that explains the 0x69..0x6f hole (nothing reference,inferred

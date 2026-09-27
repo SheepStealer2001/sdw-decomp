@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,s32:1,jokeDone,"signed bit view of DaffyTrainingLevel +0xbc: bit 0 read shl 31 / sar 31 by Reset (0x43ea1a); set by Update (or 1, 0x43f704) once helpIndex > 10",verified
+0x0,s32:1,helpPending,"bit 1, shl 30 / sar 31 in Update (0x43f04c); set by Reset (or 2), cleared by PostLoadInit/Update (and -3)",verified
+0x0,s32:30,reserved,remaining bits,inferred

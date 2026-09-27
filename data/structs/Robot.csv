@@ -1,0 +1,25 @@
+offset,ctype,name,meaning,confidence
+0x120,TrailEmitter,smokeEmitter,"Embedded dash-smoke ParticleEmitter with inline storage, the same 0x164-byte layout as Wolf trailA. - +0x120 slotPool → +0x144 (16 x 0xC), +0x124 particles → +0x204 (16 x 8). - +0x140 sheetIndex, +0x141 count = 16, +0x142 flags (bit 0 = active). - Set up in Robot_Create, Emitter_Reset by ClearState, driven by Emitter_UpdateDrift in Update and drawn by Robot_Render.",verified
+0x284,ScnObject *,heldObject,"Object in the robot's claw. Set when the pickup target accepts msg 4 (joint 0x13) at the end of state 0xB, cleared by put-down (msg 5) or Reset. Every frame Update calls its SetPosition(&robot.pos). Msg 6 and msg 0x17 are forwarded to it.",verified
+0x288,ScnObject *,suspender,"Third party that froze the robot (msg 0xE from a non-Wolf sender while CONTROLLED): control is suspended, flag 1 cleared. Cleared by msg 0xF, by the Wolf's 0xE, by the View-button release, by Sam's eject and by Reset.",verified
+0x28c,ScnObject *,remote,"RemoteControl that activated the robot (sender of msg 0x3F arg 1). Gets msg 0 arg 8 at the end of the death anim. When it is NULL, Fade_StartRestart(0x3000) runs instead. Cleared by ReleaseControl and Reset.",verified
+0x290,ScnObject *,trap,"WolfTrap the robot sprang (end of state 0x16, flag 8). Sam's msg 0 sends it 0x2C80 (reset); msg 0x33 arg 0 and ClearState clear it.",verified
+0x294,CamSetup *,ejectCam,"RobotProps.EJECTCAM via Scn_GetPropCamera(record, 0): camera setup {u16 focal; s16 rot[3]; Vec3s pos}. Used for Camera_StartScripted during eject flight state 0x12 while DRIVEN.",verified
+0x298,Trajectory *,ejectTraj,"RobotProps.EJECTTRAJ via Scn_GetPropTrajectory(record, 4): {u16 count; Vec3s pts[]}. pts[0].y (+4) is the apex height and pts[1] (+8) the landing point. Zero means Sam's msg 0 kills the robot instead of ejecting it.",verified
+0x29c,ActionHit,ctxAction,"ActionHit {action, target}: action = WolfContextAction from ScnControllable_ScanInteractables (msg 2 replies to class 0x65): 1 use, 3 activate, 4 pickup, 0x19 WolfTrap, 0x1E TimeKeeper. First word of the 0x14-byte context block passed to Wolf_DrawActionPrompt by msg 0x6B.; target = object offering ctxAction.action; re-scanned every frame",verified
+0x2a4,s32,heldActionType,"WolfHeldAction reply of heldObject to msg 0x17 (2 = throwable, which allows put-down)",verified
+0x2a8,s32,ctxPromptExtra,4th word of the context block. The scan sets it to 1 every frame (the Wolf leaves its copy at 0). Wolf_DrawActionPrompt then shows g_wolfCtx4PromptText[1] (UI string 0x38) when no context or held action exists.,verified
+0x2ac,u16,itemPromptId,"Item prompt block passed to heldObject msg 6. Preset to 0x65 (the Robot class id) as a 'none' sentinel; Hud_DrawItemPrompt(&block, id != 0x65).",verified
+0x2ae,u16,itemPromptArg,second half of the msg 6 block (Salad writes a distance here for the Wolf); zeroed by ClearState,inferred
+0x2b0,s32,stateTime,"ticks since state entry (+= g_dt, cap 0x1E000); zeroed by Robot_EnterState",verified
+0x2b4,s32,smokeFlickerTimer,"ticks until the smoke phase bit 0x80 toggles; reloaded with Rand_Range(0x100,0x400), halved when the bit becomes clear",verified
+0x2b8,Vec3s,spawnPos,ground-snapped position at Init; Reset returns here,verified
+0x2be,s16,spawnFacing,rot.y at Init; restored by Reset,verified
+0x2c0,Vec3s,savedCamRot,"robot camera {pitch, yaw, roll} saved every frame in camera mode 6 and restored into g_camReqRot when switching back to mode 6. ClearState sets it to {g_camMinPitch, -facing, 0}.",verified
+0x2c6,s16,savedCamDist,saved g_camDist for mode 6; ClearState default g_camModeParams[6].dist (0x6e44e8),verified
+0x2c8,Vec3s,dropOffset,"offset from pos for the put-down point; Init sets (0,-2,0)",verified
+0x2ce,u16,stateSoundHandle,"looping state sound (hum 0x119, motor 0x97, dash 0x98); stopped by Robot_EnterState",verified
+0x2d0,Vec3s,ejectStartPos,position when Sam's kick arrived (msg 0); start of the eject parabola,verified
+0x2d6,s16,ejectFacing,HeadingTo(kicker) stored by msg 0; kicked state 0x11 turns toward it,verified
+0x2d8,u8,state,"RobotState, the index into g_robotStateTable 0x57a880",verified
+0x2dc,u32,robotFlags,RobotFlags (see enum),verified

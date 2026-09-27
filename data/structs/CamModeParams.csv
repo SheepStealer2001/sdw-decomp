@@ -1,0 +1,9 @@
+offset,ctype,name,meaning,confidence
+0x0,s32,pitchSpeed,Max pitch rate in angle units/s (mode 0: 300). Also scaled for manual pitch input and doubled (x2) for auto-turn 0x6e43c8.,verified
+0x4,s32,yawSpeed,Max yaw rate in angle units/s (mode 0: 1500; mode 0xC: 3000). Manual rotation = input*g_dt*yawSpeed*2 >> 20. Also the side-turn rate.,verified
+0x8,s32,rollSpeed,max roll rate (mode 0: 800),verified
+0xc,s32,pitchRollAccel,Accel and decel passed to Math_ApproachAngle for pitch and roll in Camera_SmoothToDesired (mode 0: 6144),verified
+0x10,s32,yawAccel,Yaw acceleration for Math_ApproachAngle (mode 0: 2048; mode 2 run: 32768),verified
+0x14,s32,yawDecel,"Yaw deceleration, used when the required velocity is below the current one (mode 0: 6144; mode 2: 32768). The existing g_camModeDefaults comment calls +0xC..+0x17 's16 pairs'; they are three s32, read with 32-bit loads.",verified
+0x18,s16,dist,"Default orbit distance: 610, 0, 370, 510, 0, 400, 230, 0, 610, 610, 610, 400, 700 for modes 0..12",verified
+0x1a,s16,focal,"Default projection focal for Screen_SetProjection: 384, 384, 230, 321, 321, 384, 284, 0, 384, 384, 384, 384, 384",verified

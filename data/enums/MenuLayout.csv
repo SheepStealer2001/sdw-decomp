@@ -1,0 +1,5 @@
+value,name,meaning
+#,MenuLayout,first argument of Menu_Update 0x54f027
+0x0,MENU_LAYOUT_DEBUG_PAGE,"Debug font, breadcrumb title in 0x803030, grey/0x3030C0 entry colours; no retail caller"
+0x1,MENU_LAYOUT_CENTERED,"Game font, list vertically centred when it fits, colour 0x4BCCFF, selected entry blinks (pause menu 0x54579d)"
+0x2,MENU_LAYOUT_IN_BOX,same as 1 without centring (Ui_DrawTextBox / Ui_DrawMenuBox)

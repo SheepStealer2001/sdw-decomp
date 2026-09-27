@@ -1,0 +1,8 @@
+offset,ctype,name,meaning,confidence
+0x0,u8:1,matrixValid,"bit 0: the parent published this link's matrix during its Render (AttachLinkFlags 1) | AttachLink.flags as one-bit u8 fields; every access is a byte bitfield access (Scn_RenderIfVisible: mov cl,[x+7]; shr cl,1; and cl,1; xor edx,edx; mov dl,cl)",verified
+0x0,u8:1,parentDone,bit 1: the parent has been through Scn_RenderIfVisible this frame (set on every child link at 0x56015d),verified
+0x0,u8:1,rootRotation,bit 2: AttachLink_Alloc's rootRotation argument; Instance_CalcWorldMatrix then keeps the child's own rotation,verified
+0x0,u8:1,hasLocal,"bit 3: localOffset is applied (in the parent part's frame, *8)",verified
+0x0,u8:1,hasRot,bit 4: rot is applied (Mat44_SetRotXYZ),verified
+0x0,u8:1,hasWorld,bit 5: worldOffset is added to the child's translation (*8),verified
+0x0,u8:2,unused,bits 6..7,inferred

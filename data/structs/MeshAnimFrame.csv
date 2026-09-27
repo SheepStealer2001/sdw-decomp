@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,void *,vtbl,vtable 0x5743d4 (one slot: MeshAnimFrame_VecDeletingDtor 0x420450),verified
+0x4,u16,halfDurationMs,first u16 of the frame's track record (BsFile_ReadTrack12 0x41feb8); AnimMesh doubles it for the frame time,verified
+0x8,MeshPartPose *,poses,"array of the sequence's part poses, new[]'d by BsFile_ReadAnimNames (0x41f77f), filled by BsFile_ReadJointTable",verified

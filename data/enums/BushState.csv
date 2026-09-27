@@ -1,0 +1,6 @@
+value,name,meaning
+#,BushState,Bush +0x72
+0,BUSH_ST_IDLE,in the world; rustles; offered to Ralph (CTX_BUSH) and to sheep (after 3 s)
+1,BUSH_ST_RESPAWN_HIDDEN,hidden at home for 3 s (0x3000 ticks)
+2,BUSH_ST_RESPAWN_WOBBLE,"visible, drawn with ScnObject_RenderRespawnWobble for 1 s"
+3,BUSH_ST_WORN,removed from the world while Ralph wears it (msg 0x1c01)

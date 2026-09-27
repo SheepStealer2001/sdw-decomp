@@ -1,0 +1,8 @@
+value,name,meaning
+#,CompositeRodMsg,Messages handled by CompositeRod_HandleMessage 0x4be9d6 before falling back to FishingRodMsg (jump table 0x4bec2e / 0x4bec4a)
+0x6,MSG_QUERY_NEAREST_TARGET,"forwarded to rodParts.bait while fishing, else 0"
+0x28,SCN_MSG_ITEM_MATCH_QUERY,arg {u32 inUse; u16 classA; u16 classB}: 1 if the part classes match in either order; inUse = parts assembled
+0x29,MSG_ITEM_SPLIT_QUERY,"arg out {rodParts.rod, rodParts.bait}; returns 1"
+0x2a,MSG_ITEM_COMBINE,"arg in {a, b}: the classId 0x43 one becomes rodParts.rod"
+0x2b,MSG_ITEM_CONSUMED,parts = NULL
+0x6e,MSG_COMPOSITE_PARTS_QUERY,arg out {u32 assembled; u16 c0; u16 c1}; sender Map 0x54262e

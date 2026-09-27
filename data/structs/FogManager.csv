@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x44,u32,levelFogColor,g_pFrustrum->fogColor captured at init (the level's own fog),verified
+0x48,u32,fog2Color,FOG2_COLOR property; applied on time-machine msg 0x3B when TimeMachine_IsInPresent(sender) != 0,verified

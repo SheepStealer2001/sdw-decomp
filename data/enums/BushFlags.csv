@@ -1,0 +1,5 @@
+value,name,meaning
+#,BushFlags,Bush +0x73 bits
+0x1,BUSH_F_FAN_BLOWN,msg 0x14 this frame -> rustle; cleared at the end of each Update
+0x2,BUSH_F_LIFT_LOCK,msg 0x79 from a Wooden Lift; sheep are not attracted while set; auto-clears after 1000 ms
+0x4,BUSH_F_WOLF_NEAR,Ralph within 50 units last frame; crossing that radius either way starts the rustle

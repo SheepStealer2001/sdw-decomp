@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,s32,life,"particle life in ticks, 0x7fffffff = permanent (Emitter_UpdateTrail 0x52d81e cmp [ecx],0x7fffffff)",verified
+0x4,s32,param4,"read at 0x52d7e1 (mov ecx,[eax+4]); 150 in both of the Wolf's footprint blocks; meaning not read",verified
+0x8,u16,size,"particle size (0x52d7ed mov ax,word [edx+8])",verified
+0xa,u8,sheetIndex,"sprite sheet (0x52d7a0 mov dl,[ecx+0xa])",verified

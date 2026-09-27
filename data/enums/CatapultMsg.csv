@@ -1,0 +1,9 @@
+value,name,meaning
+#,CatapultMsg,Catapult_HandleMessage 0x4aa907
+0x1,MSG_USE,"Wolf inside ACTIVATIONBOX (XZ) and idle -> freeze Wolf, state 1"
+0x2,MSG_QUERY_ACTION,-> 0x23 CTX_CATAPULT when idle and the Wolf is inside the box
+0xd,MSG_GROUND_QUERY,bucket top answered as a flat floor
+0xe,MSG_FREEZE,the Wolf freeze handover (whoever froze the Wolf is told it lost him): clears wolfFrozen. wolfFrozen = 0 (another object took the Wolf)
+0x1f,MSG_SWITCH_ON,Catapult_Launch when idle and not latched; returns state==0
+0x20,MSG_SWITCH_OFF,unlatch
+0x2000,MSG_QUERY_IDLE,returns 1 when state == 0

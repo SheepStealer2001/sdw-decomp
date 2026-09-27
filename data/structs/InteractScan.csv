@@ -1,0 +1,9 @@
+offset,ctype,name,meaning,confidence
+0x0,CollBox,selfBox,"scanner's first model box translated to its position (Box_Translate, ecx = scratch at 0x492567)",verified
+0x10,CollBox,candBox,candidate box translated to the candidate's position (ecx = scratch+0x10 at 0x4927bc),verified
+0x20,s32,primaryBoxGap,"box-gap threshold, starts at boxDist, lowered by an accepted primary box (0x492992); gates both outputs (0x49280f)",verified
+0x24,s32,primaryPointDist2,"squared point radius, starts at pointRadius^2, lowered by an accepted primary point (0x492a8f); gates both outputs (0x492a41)",verified
+0x28,s32,secondaryBoxGap,written on an accepted secondary box (0x4929da); never read by the scanner,verified
+0x2c,s32,secondaryPointDist2,written on an accepted secondary point (0x492ade); never read by the scanner,verified
+0x30,Vec3s,selfPos,copy of the scanner's pos (0x492550),verified
+0x36,Vec3s,candPos,copy of the candidate's pos (0x492781),verified

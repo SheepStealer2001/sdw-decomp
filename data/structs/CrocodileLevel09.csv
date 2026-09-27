@@ -1,0 +1,22 @@
+offset,ctype,name,meaning,confidence
+0x7c,Trajectory *,traj,Scn_GetPropTrajectory(TRAJ): the path,verified
+0x80,TrajFollower,follower,"path follower (speed 500, or 250 with WALK; bias 0x800; continuous; 3-D; arrive radius 50); pointIndex at +0x84",verified
+0xa0,u8,state,CrocodileLevel09State,verified
+0xa1,u8,stateAfterTurn,direction state (2 or 3) resumed when the turn (state 5) ends,verified
+0xa2,u8,prevState,state before the last SetState; drives the waypoint bookkeeping,verified
+0xa3,u8,moveAnim,"walk/run anim id: 7 when PROPERTY_CROCODILELEVEL09_WALK is set, else 3",verified
+0xa4,s16,waypoint,trajectory point currently steered to,verified
+0xa6,s16,otherWaypoint,last waypoint reached; swapped with waypoint when the direction reverses,verified
+0xa8,s16,swapTmp,scratch for the waypoint swap,verified
+0xaa,s16,spinSpeed,"state 7 per-frame yaw step, 0x22b decaying by 1/4 each frame",verified
+0xac,s16,startFacing,"facing along the first path segment (+0x800, unmasked); restored by Reset",verified
+0xae,s16,angleToWolf,"atan angle from the croc to the Wolf (12-bit, no +0x800)",verified
+0xb0,s16,bounceEntryVert,bouncer's y when it entered deathBox; 0x8000 = none,verified
+0xb2,Vec3s,homePos,"trajectory point 0, ground-snapped",verified
+0xb8,Vec3s,moveDelta,"per-frame displacement (ScaleByDt of the follower velocity), resolved by MoveAndTilt",verified
+0xbe,Vec3s,scratchVec,"first-segment vector at Init, then Wolf - croc",verified
+0xc4,u16,pointCount,"traj->count, number of path points",verified
+0xc8,s32,deathBoxCount,object count in deathBox on the previous frame (dead state); a rise triggers a scan,verified
+0xcc,Box *,activationBox,Scn_GetPropBox(ACTIVATIONBOX); dereferenced without a NULL check,verified
+0xd0,CollBox,deathBox,"world box of the corpse: model box 0 scaled x/z *150/80 and y *200/80, offset by pos",verified
+0xe0,ScnObject *,bouncer,"Wolf or FloatingBox that entered deathBox, pending the bounce test",verified

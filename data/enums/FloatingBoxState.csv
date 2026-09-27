@@ -1,0 +1,8 @@
+value,name,meaning
+#,FloatingBoxState,state field of FloatingBox
+0x0,FBOX_ST_ON_GROUND,Update 0: bounce handling (boxFlags 0x1000) (inferred)
+0x1,FBOX_ST_FLOATING,Update 1: floats at the water zone top (Zones_Get(0)) (inferred)
+0x2,FBOX_ST_PUSHED,Update 2: splash emitter while pushed (inferred)
+0x3,FBOX_ST_SINKING,"Update 3: below the water surface (skipped when the Wolf is dead, boxFlags 2) (inferred)"
+0x4,FBOX_ST_OPENING,Update 4: on anim end releases the content (msg 9 arg 1) and -> 5 (inferred)
+0x5,FBOX_ST_OPENED,set by Update 4 (inferred)

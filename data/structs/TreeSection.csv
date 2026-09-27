@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,state,"0 standing (anim 0, looping), 1 toppling (anim 5, started by Elmer's msg 0x3181), 2 landed (model swapped to the alternate, anim 1), 3 settled — SetState has no case 3, and Update only sets SCN_OF_NO_BOX_COLLIDE on the way in.",verified
+0x68,AltModel,mainModel,"The object's own model descriptor, filled by ScnObject_InitWithAltModels as its outMain argument. AltModel is 0x10 bytes, so this ends exactly where altModel begins.",verified
+0x78,AltModel,altModel,The single alternate model (GameRes id 0x80) resolved at construction; ScnBody_SwapModel switches the body to it when the section lands — the broken trunk piece. 0x78 + 0x10 = obj_size 0x88.,verified

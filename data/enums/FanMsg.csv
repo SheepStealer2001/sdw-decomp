@@ -1,0 +1,13 @@
+value,name,meaning
+#,FanMsg,Messages handled by Fan_HandleMessage 0x4bbc71
+0x2,MSG_QUERY_ACTION,Wolf only -> 4 (CTX_PICKUP)
+0x4,MSG_PICKUP,"attach to the sender joint (arg & 0xff); SetState(HELD), stop sound"
+0x5,MSG_DROP,"detach, SetPosition(arg), SetState(WORLD), stop sound"
+0x6,MSG_QUERY_NEAREST_TARGET,"while blowing, with a report <= 0x800 ticks old: *arg = {classId, proximity}, returns 1 (Wolf itemPromptId +0x660 -> HUD icon)"
+0x9,MSG_CONTAINER_STATE,arg 1: homePos = pos
+0x10,MSG_CARRY_ANIM,"while blowing: arg 1 (Wolf 0x5b FAN_TURN) -> anim 1, else anim 0; LOOP|BLEND, only if not already playing"
+0x15,MSG_HELD_STATE_BEGIN,"SetState(SPIN_UP), restarts the sound"
+0x16,MSG_HELD_STATE_END,"SetState(HELD), stops the sound"
+0x17,MSG_QUERY_HELD_ACTION,5 (HELD_FAN)
+0x34,MSG_ATTRACT_REPORT,"stores the nearest {classId, proximity} report within 0.5 s (relayed by the Perfume)"
+0x55,MSG_CHECKPOINT_ROLLBACK,vtable Reset

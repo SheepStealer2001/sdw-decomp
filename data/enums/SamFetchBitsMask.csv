@@ -1,0 +1,4 @@
+value,name,meaning
+#,SamFetchBitsMask,"mask constants for the bitfield view SamFetchBits (a mask access and a bitfield access compile differently, so the mask stays a mask)"
+0x1,SAM_FETCH_PICKED1,member 'picked1' of the bitfield view data/structs/SamFetchBits.csv
+0x2,SAM_FETCH_PICKED2,member 'picked2' of the bitfield view data/structs/SamFetchBits.csv

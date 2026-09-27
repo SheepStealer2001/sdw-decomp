@@ -1,0 +1,7 @@
+value,name,meaning
+#,AFANTO01Anim,animation ids of WAR model AFANTO01 (its WAR type-0x86 table; names verified from the level files). Played by: Ghost
+0x1,AFANTO01_ANIM_HOO,WAR name HOO
+0x5,AFANTO01_ANIM_STAND,WAR name STAND
+0x7,AFANTO01_ANIM_WALK,WAR name WALK
+0x8,AFANTO01_ANIM_STANDV1,WAR name STANDV1
+0x9,AFANTO01_ANIM_KILL,WAR name KILL

@@ -1,0 +1,4 @@
+value,name,meaning
+#,LauncherInputMode,g_launcherInputMode 0x57910D as written by Launcher_OptionsDlgProc; the values are InputMgr device indices.
+1,INPUTMODE_KEYBOARD,"Controller combo position 0, which is TextRes(0x10,4) 'Keyboard only', or CB_ERR/0xFFFF."
+2,INPUTMODE_JOYSTICK,"Any later combo position. WM_INITDIALOG (0x402f8e, the path Play! uses) calls D3DApp_SetJoystickIndex(sel-1). The Accept handler (0x4034f9) passes sel itself, which is off by one."

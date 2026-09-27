@@ -1,0 +1,3 @@
+value,name,meaning
+#,ALAVE03Anim,animation ids of WAR model ALAVE03 (its WAR type-0x86 table; names verified from the level files). Played by: Volcano
+0x0,ALAVE03_ANIM_DEFAULT,WAR name DEFAULT

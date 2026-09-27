@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,state,"0 dropping (anim 0 until it ends), 2 holding (anim 2, 2000 ms then the scripted camera is released), 1 lifting (until the anim ends, then anim 1 and hidden), 3 idle and hidden. Written by PostLoadInit 0x494e8a, Update 0x494f1e/0x494f45/0x494fd1, HandleMessage 0x4950e2",verified
+0x68,u32,holdTimeMs,"ms spent in state 2, += g_dtMs (0x494f64-0x494f73); compared unsigned with 2000 (0x494f2f cmp/jbe); zeroed on leaving",verified
+0x6c,u32,dropping,"1 from msg 0x1280 until the hold ends (0x4950d8, 0x494f3b); state 0 waits for it and the anim end before holding (0x494ec2)",verified

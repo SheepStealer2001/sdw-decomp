@@ -1,0 +1,5 @@
+value,name,meaning
+#,ABCOYO02Anim,"animation ids of WAR model ABCOYO02 (its WAR type-0x86 table; names verified from the level files). Played by: Bush, Wolf, modelSet 1 (model inferred)"
+0x0,ABCOYO02_ANIM_STAND1,WAR name STAND1
+0x1,ABCOYO02_ANIM_OUT6,WAR name OUT6
+0x2,ABCOYO02_ANIM_JUMP6,WAR name JUMP6

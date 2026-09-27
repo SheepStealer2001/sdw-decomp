@@ -1,0 +1,10 @@
+value,name,meaning
+#,RockState,Rock +0x184 (Rock_SetState 0x4e3dda). Update jump table 0x4e334a.
+0,ROCK_ST_REST,idle; no Update case; update mode NORMAL
+1,ROCK_ST_FALL,gravity only; to 0 when on floor and settleMs<=0; update mode ALWAYS
+2,ROCK_ST_PUSHED,being pushed (msg 0xA); on release -> 1 (ground within 50) or 3
+3,ROCK_ST_ROLL_OFF,rolls 200 u/s along pushHeading until floor lost or 2 s -> 1
+4,ROCK_ST_ON_SEESAW,"msg 0xB from the seesaw; no push prompt, no crushing"
+5,ROCK_ST_LAUNCHED,following the LaunchArc (msg 0xC); ignores horizontal collision
+6,ROCK_ST_SMASHED,hit by a Train (msg 0 from class 0x87); debris anim; returns home after 5 s
+7,ROCK_ST_LVL03_CINE,Lvl-03 cinematic running; ends via msg 0x13 or cinematic inactive

@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,s32,x,,verified
+0x4,s32,y,vertical points down,inferred
+0x8,s32,z,,verified
+0xc,s32,pad,"never written by the Mat34s_Transform* functions, copied out uninitialised",verified

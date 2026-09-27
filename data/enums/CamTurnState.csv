@@ -1,0 +1,6 @@
+value,name,meaning
+#,CamTurnState,g_camTurnState 0x6e43d6 in Camera_SolveCollision
+0,TURN_IDLE,no avoidance turn
+1,TURN_PROBE,line of sight blocked: sweeping probe yaw +-offset for a clear view (gives up past 0x400)
+2,TURN_TURNING,clear yaw found: turning at g_camAutoYawRate until the every-8th-frame LOS check is clear
+4,TURN_SIDE,all walls on one side: 500 ms side-turn at +-yawSpeed

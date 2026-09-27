@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x0,Vec3s[3],verts,game-space vertices of the nearest hit triangle,verified
+0x12,Vec3s,normal,normal of the hit triangle,verified

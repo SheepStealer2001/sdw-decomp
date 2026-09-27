@@ -1,0 +1,6 @@
+value,name,meaning
+#,SlidingIceCubeState,u8 SlidingIceCube+0x82
+0,SIC_ST_IDLE,update NORMAL; anchors Sheep on top
+1,SIC_ST_SLIDING,kicked/bumped: 800 u/s along slideDir until a wall (one bounce) or the edge of pushBoxes
+2,SIC_ST_FALLING,"after msg 5 drop: falls (crushing), sinks in water with the splash, then msg 0x36 to FrozenRiver"
+3,SIC_ST_RIVER_SLIDE,landed from state 2 outside water: slides toward -z up to 800 u/s (crushing); airborne for 0x200 ticks gives state 2

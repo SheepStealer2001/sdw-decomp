@@ -1,0 +1,5 @@
+value,name,meaning
+#,LetterboxState,
+0x0,LETTERBOX_OFF,Dialogue_SetBoxActive(0) path (inferred)
+0x1,LETTERBOX_OPENING,MenuMsg doc: CROSS blocked while g_letterboxState == 1 (inferred)
+0x2,LETTERBOX_OPEN,PorkyLevel01 question menu requires == 2 (inferred)

@@ -1,0 +1,5 @@
+value,name,meaning
+#,AMINED01Anim,animation ids of WAR model AMINED01 (its WAR type-0x86 table; names verified from the level files). Played by: DefusableMine
+0x0,AMINED01_ANIM_RED,WAR name RED
+0x1,AMINED01_ANIM_GREEN,WAR name GREEN
+0x2,AMINED01_ANIM_LINK,WAR name LINK

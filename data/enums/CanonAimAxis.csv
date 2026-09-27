@@ -1,0 +1,4 @@
+value,name,meaning
+#,CanonAimAxis,"the axis argument of CanonSimple::AddAimOffset (0x4a8385): which aim offset is being moved, and so which limit clamps it"
+0,CS_AIM_PITCH,"aimOffset.x, the pitch: clamped to 40 downward and vertLimit upward"
+1,CS_AIM_YAW,"aimOffset.y, the yaw: clamped to +-horzLimit"

@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,Vec3s,pos,message 5 (MSG_DROP) argument: put the item down at pos,verified
+0x6,u16:1,placed,"put down on purpose: set by the Wolf's put-down (0x47ddd7); Seed plants, Perfume starts. A bitfield: the 16-bit mov ax,[ebp-6]; and ax,0xfffe at 0x48f340 is VC6's bitfield store",verified
+0x6,u16:1,flag1,"cleared by the Wolf (0x47dde3), set with bit 0 by the Robot's drop (0x461bc5); not traced",inferred

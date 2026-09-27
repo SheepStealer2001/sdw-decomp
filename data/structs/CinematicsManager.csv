@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x40,CineTrigger[15],triggers,"compacted CINnn triggers (0x20 bytes each), only those with ACTBOX != 0 and a resolvable ACTBOX list. +0x220..+0x23f is never touched (room for a 16th slot)",verified
+0x240,s32,triggerCount,number of valid triggers,verified
+0x244,u32,saveRequested,"set once when a flag-0x8000 trigger fires (autosave or save UI requested). While set, the scan waits for MCardManager msg 2 == 0x21. Never cleared (Reset is ScnObject_Nop)",verified
+0x248,ScnObject *,mcardManager,Scenaric_FindByClass(0x62 MCardManager) at init,verified

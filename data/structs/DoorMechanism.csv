@@ -1,0 +1,2 @@
+offset,ctype,name,meaning,confidence
+0x7c,u32,running,"1 while the driven platform is moving: the class's only field and its only behaviour is to advance a looping animation while it is set. MSG_MECHANISM_RUN 0x21 sets it, MSG_MECHANISM_STOP 0x22 clears it.",verified

@@ -1,0 +1,6 @@
+value,name,meaning
+#,BridgeState,state field of bridge
+0x0,BRIDGE_ST_IDLE,"Update 0: two or more Wolf/sheep on it -> anim POSE2, 1 (inferred)"
+0x1,BRIDGE_ST_CREAK,"Update 1: creak loops (POSE2/BRAKE2/POSE1), snap camera (inferred)"
+0x2,BRIDGE_ST_BREAK,Update 2: anim FBRAKE2 ... -> 3 (inferred)
+0x3,BRIDGE_ST_BROKEN,set by Update 2 (inferred)

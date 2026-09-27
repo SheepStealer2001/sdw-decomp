@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,u32,Data1,Win32 GUID. Copied as four dwords by struct assignment (D3DApp_Construct 0x404772-0x404785; D3DEnum_D3DDeviceCallback 0x4060a6-0x4060b9; DI_JoystickEnumCallback 0x406533-0x406546) and compared 16 bytes at a time with memcmp (0x404c00).,verified
+0x4,u16,Data2,Win32 GUID layout (SDK); the code only copies and memcmps whole GUIDs.,inferred
+0x6,u16,Data3,Win32 GUID layout (SDK).,inferred
+0x8,u8[8],Data4,Win32 GUID layout (SDK); sizeof(GUID) = 0x10 is the memcmp length at 0x404c00.,verified

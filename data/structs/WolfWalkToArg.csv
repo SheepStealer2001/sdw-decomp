@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,Vec3s *,target,"msg 0x12 (scripted walk) argument: the destination, copied to Wolf.scriptWalkTarget (0x484fd8 mov ecx,[eax]; the Vec3s copied from [ecx])",verified
+0x4,Vec3s *,rot,"optional: the final rotation; its y (facing) goes to Wolf.scriptWalkHeading, 0 when null (0x485105 cmp [ecx+4],0; 0x48511a mov dx,[eax+2])",verified
+0x8,Box *,dropZone,"optional: a box whose centre becomes Wolf.carryDropPos when Ralph carries a sheep (0x485039 cmp [edx+8],0; min +4 / max +0xa averaged at 0x485064-0x4850cc)",verified

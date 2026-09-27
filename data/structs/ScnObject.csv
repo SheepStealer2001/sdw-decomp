@@ -1,0 +1,23 @@
+offset,ctype,name,meaning,confidence
+0x0,void **,vtbl,vtable,verified
+0x4,u16,inst.flags,"Instance flags: 1 drawn/visible last render, 2 (mode bit 5), 4 animated, 8 attached to parent, 0x10 tint override, 0x40 has secondary resource",verified
+0x6,u8,inst.mode,"Instance_InitBase stores its mode argument here: 0xFF ScnBody, 0xFE ScnLogic, or for world objects the WAR resource type (3, 4, 0xB, 0x26). Bit 5 set (0xFE/0xFF/0x26) makes Instance_InitBase set inst flag 2. Game_Frame picks out sky meshes with == 0x26.",verified
+0x7,u8,inst.kind,"0 = rigid scenaric instance, 4 = animated (set by Animator_Init). World objects use 1/2/3 for resource types 3/0xB/0x26 as the draw-table index (g_worldObjDrawFns); 0 hides a world mesh, and the draw functions skip kind 0.",verified
+0x8,Model *,inst.model,"model resource; model+0xc box list {s32 n; Box16[n]}, +0x10 anim table, +0x14 joints (10 B each), +0x18 u16 nbJoints",verified
+0xc,Vec3s,pos,world position (y down),verified
+0x12,u8,attachedChildCount,Also the length of this parent's run of consecutive AttachLink slots in g_attachLinkPool. AttachLink_Alloc appends when it is 0 and inserts after the run otherwise. Instance_DrawAnimParts and Scn_RenderIfVisible walk that many slots from AttachLink_FindFirstChildSlot. Zeroed by Instance_InitFromWarRecord.,verified
+0x13,u8,partHeight,"height in sixteenths (inferred: the classes store value >> 4, e.g. Train 0x80, Wolf 0x100, Bees 0x180); initialised to 0x10",inferred
+0x14,Vec3s,rot,"rotation, +0x16 = facing (4096/turn)",verified
+0x1a,s16,tintAmount,"colour tint strength 0..0x1000 (0x1000 burnt, 0xC00 shadow zone, glow by distance)",verified
+0x1c,u32,tintColor,"tint RGB (0 = black, 0x600060 for glow)",verified
+0x1c,u8[4],tintBytes,"the tint colour's bytes: [0] blue, [1] green, [2] red",verified
+0x20,u16 *,record,WAR scenaric record; designer properties at record+0x14,verified
+0x24,AttachLink *,attachLink,"parent attachment link (pool of 10 at 0x6e49e0; link+0x18 parent instance, +0x1c parent obj, +0x20 float matrix), NULL when free",verified
+0x28,Vec3s,boundCenter,model-space bounding centre,verified
+0x2e,u16,boundRadius,bounding half-extent used for render culling,verified
+0x30,void *,secondaryRes,"record u16[1] resource (type 3), set with inst flag 0x40",verified
+0x34,u32,camDist2,"squared distance to camera, written by Scenaric_UpdateAll",verified
+0x38,u16,classId,ScenaricClassId (0xffff = classless),verified
+0x3a,u16,flags,ScnObjFlags,verified
+0x3c,u16,weight,"Base field. Mass used by seesaw_Update: torque = Σ((axisCoord - centreOnAxis) * weight * contactSpeed) >> 16. Word writes: Wolf_Init 0x4883d1 = 60, Sheep_PostLoadInit 0x47d047 = 40, Robot init 0x461d24 = 40, Rock_Init 0x4e44af = 120, SmallRock 0x4f537b = 120, Snowball 0x4f585c = 120, HoneyPot 0x4ca7cd = 20, Mailbox_Init (on the Mailbox's box objects, not the Mailbox) 0x4d3018 = 60. ScnBody_Init sets 0. Only known reader: seesaw_Update 0x4ec622 (movzx word).",verified
+0x3e,u16,pad3e,"tail padding: derived-class fields start at +0x40 (ScnLogic/ScnBody); makes Ghidra print +0x44 as a field, not param_1[1]",inferred

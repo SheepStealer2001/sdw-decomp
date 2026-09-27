@@ -1,0 +1,4 @@
+value,name,meaning
+#,SensibleButtonFlags,SensibleButton +0x72.
+0x1,SBTN_PRESSED,occupied last frame (edge detection for the click sound)
+0x2,SBTN_ENABLED,Update runs; cleared for TYPE 12 until msg 0x1000

@@ -1,0 +1,48 @@
+value,name,meaning
+#,SheepState,"sheep+0x106; row index of g_sheepStateTable (anim in brackets). 0x15,0x1A,0x24 have no Update case."
+0x00,SHEEP_ST_IDLE,[2] idle/graze; per-second think
+0x01,SHEEP_ST_SLEEP,"[0, model 1] sleepy prop or msg 0x983; snore sfx 0x112"
+0x02,SHEEP_ST_CARRIED,[3] held by Wolf / class 0x52 Crane
+0x03,SHEEP_ST_CARRIED_BY_SAM,[18->0x14] held by Sam
+0x04,SHEEP_ST_FALL,"[3] ramped fall, lands -> idle"
+0x05,SHEEP_ST_ATTR_TURN,[4] turn to attractor -> 6
+0x06,SHEEP_ST_ATTR_LOOK,"[3] re-evaluate attractor, dispatch on kind at anim end"
+0x07,SHEEP_ST_ATTR_WALK,[6] walk to attractor (stop 80/120/100)
+0x08,SHEEP_ST_SCENT_TURN,[4] turn to perfume source
+0x09,SHEEP_ST_SCENT_SNIFF,"[0] sniff, claim scent if nearest sheep"
+0x0A,SHEEP_ST_SCENT_WALK,[5] walk to perfume
+0x0B,SHEEP_ST_EAT,"[2] eating salad: msg 1 each frame, sfx 0x3D"
+0x0C,SHEEP_ST_EAT_ALIGN,[3/4] face salad before eating
+0x0D,SHEEP_ST_EAT_BUSH,[2] eating at bush (kind 0x26)
+0x0E,SHEEP_ST_WALK_TO_LAST_FOOD,[6] walk to lastFoodPos
+0x0F,SHEEP_ST_BUTTON_WALK,[4] step onto SensibleButton
+0x10,SHEEP_ST_BUTTON_STAND,[3] standing on button
+0x11,SHEEP_ST_BUTTON_FIDGET,[4] random fidget then back to 0x10
+0x12,SHEEP_ST_RETURN_HOME,[6] in-zone sheep walks back to homePos
+0x13,SHEEP_ST_ATTR_WALK_FAR,[6] walk toward next food until within 600
+0x14,SHEEP_ST_DIE_FALL,"[8] death-zone fall to fallLimitY, restart fade 0x1000"
+0x15,SHEEP_ST_DIE_CRUSH,"[13] msg 0 arg 2, restart 0x3000"
+0x16,SHEEP_ST_DIE_FADE,"[3] fade out, restart 0x3000"
+0x17,SHEEP_ST_DIE_FALL_NOCOLLIDE,"[3] msg 0 arg 1, restart 0x7000"
+0x18,SHEEP_ST_LEAVE_REPEL_BOX,[6] walk out of SHEEPREPELBOX after 0x5000 ticks inside
+0x19,SHEEP_ST_WALK_TO_POINT,[6] msg 0x981 from Wolf; on arrival/timeout sends Wolf msg 0x406
+0x1A,SHEEP_ST_SCRIPT_HELD,"[2] msg 0x23 (hypnotised/controlled), no AI"
+0x1B,SHEEP_ST_LOOK_AT_WOLF,[4] alerted flock tracks the Wolf
+0x1C,SHEEP_ST_RETURN_TO_ANCHOR,[6] walk back inside leash (msg 0x2E)
+0x1D,SHEEP_ST_CALL_TURN,[4] answered Wolf call 0x69
+0x1E,SHEEP_ST_CALL_WAIT,"[3] near leader, wait until dist^2 >= 40000"
+0x1F,SHEEP_ST_CALL_FOLLOW,[5] follow leader until dist^2 <= 10000
+0x20,SHEEP_ST_LAUNCHED,"entered on msg 0xC MSG_LAUNCH (bull toss or seesaw launch), not from SensibleButton"
+0x21,SHEEP_ST_DROWN,"[3] sinking, restart 0x3000"
+0x22,SHEEP_ST_FROZEN_FLOAT,[27] ice cube rising/floating; restart after 0x14000 if not river cargo
+0x23,SHEEP_ST_FROZEN_FALL,[27] ice cube falling at 1400
+0x24,SHEEP_ST_FROZEN_REST,[27] ice cube on ground; msg 0x41 thaws
+0x25,SHEEP_ST_FROZEN_CARRIED,[27] ice cube held by Wolf
+0x26,SHEEP_ST_THAW,"[27] ice breaking, 0x2000 ticks"
+0x27,SHEEP_ST_SHIVER,[33] shivering sfx 0x28 -> FALL
+0x28,SHEEP_ST_GEYSER_IN,[10] sucked into geyser (msg 0x31)
+0x29,SHEEP_ST_GEYSER_OUT,[11] ejected (msg 0x30)
+0x2A,SHEEP_ST_FROZEN_GEYSER_IN,[34] frozen variant of 0x28
+0x2B,SHEEP_ST_IN_CANNON,[36] msg 0x985 from CanonSheep
+0x2C,SHEEP_ST_RUN_TO_SAM,[5] msg 0x987 (Train): 500 u/s toward Sam
+0x2D,SHEEP_ST_WALK_TO_SAM,[6] walk to within 100 of Sam

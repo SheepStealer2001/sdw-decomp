@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x0,void *,vtbl,"RenderPoly vtable 0x5743f8 (one slot, the vector deleting dtor 0x415540): stored by RenderPoly_Ctor at 0x41aae7 after the embedded PolyTri is built, and by RenderPoly_Dtor at 0x41ac10",verified
+0x4,u32,type,"1 opaque untextured, 2/3 sorted blend modes, >=4 texture index+4 (bit 0x8000 masked off)",verified
+0x8,PolyTri,poly,"the embedded PolyTri (vptr 0x5743f4, constructed at this+8 by RenderPoly_Ctor 0x41aadf); its three vertex indices are the old field_0xc/0x10/0x14",verified
+0x18,float *,verts,0x60-byte vertex block (3 x 0x18 untextured or 3 x 0x20 textured TL vertices),verified
+0x1c,float,sortZ,depth key for the sorted list (sum of vertex z when batcher+0x40 == 1),verified

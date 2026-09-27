@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x7c,u8,state,"BulletState: 1 homing flight, 2 hit (attached to Ralph, playing anim 4), 3 final anim 1 then gone, 5 dormant/hidden. Set by Bullet_SetState 0x49e6c6 (0x49e6d5) and read by Update 0x49e167",verified
+0x80,ScnObject *,elmer,"Elmer (class 90), found by Scenaric_FindByClass(0x5a, &elmer, 1) in PostLoadInit 0x49e036; told msg 0x6f when the bullet lands (0x49e909)",verified
+0x84,ScnObject *,swirlSign,"SwirlSign (class 89), found by Scenaric_FindByClass(0x59, &swirlSign, 1) in PostLoadInit 0x49e04c; never read by this class",verified
+0x88,s16,yawOffset,"bearing of the bullet from Ralph relative to Ralph's own facing, computed when state 2 is entered (0x49e86d); the bullet is then held at 0x5a units on that bearing while he turns (0x49e2b9)",verified
+0x8c,s32,dist,XZ distance to Ralph measured every frame of state 1 (0x49e1f8); divides the 1000 u/s flight velocity in Bullet_AimAt (0x49e580),verified

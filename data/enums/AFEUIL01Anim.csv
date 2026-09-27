@@ -1,0 +1,4 @@
+value,name,meaning
+#,AFEUIL01Anim,animation ids of WAR model AFEUIL01 (its WAR type-0x86 table; names verified from the level files). Played by: Wolf
+0x1,AFEUIL01_ANIM_ACTION1,WAR name ACTION1
+0x2,AFEUIL01_ANIM_ACTION2,WAR name ACTION2

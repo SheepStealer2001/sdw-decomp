@@ -1,0 +1,9 @@
+value,name,meaning
+#,DoorWorldState,state field of DoorWorld
+0x0,DOORWORLD_ST_INIT,"Update 0: asks the DoorLevel (msg 0x5900); closed -> 6, else hidden and never updated -> 1 (inferred)"
+0x1,DOORWORLD_ST_IDLE,set from 0 and 6; no Update case (inferred)
+0x2,DOORWORLD_ST_OPEN_CAMERA,"Update 2: starts the open camera, -> 3 (inferred)"
+0x3,DOORWORLD_ST_OPEN_DELAY,"Update 3: after 1000 ms anim OPEN1, -> 4 (inferred)"
+0x4,DOORWORLD_ST_OPENING,"Update 4: on anim end hide, -> 5 (inferred)"
+0x5,DOORWORLD_ST_OPENED,Update 5: after 1000 ms notifies the requester (msg 0x4e00) and stops updating (inferred)
+0x6,DOORWORLD_ST_CLOSE,"Update 6: normal update mode, anim CLOSE1, visible, -> 1 (inferred)"

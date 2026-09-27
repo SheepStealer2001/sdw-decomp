@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x0,u16,durationMs,"key duration in ms; the animator accumulator counts 1/1024 ms, so a key lasts durationMs << 10 accumulator units",verified
+0x2,u16,entryCount,number of packed joint entries that follow,verified
+0x4,u16,payloadWords,"payload size in u16 words, used only to find the next record (never reconciled with entryCount)",verified
+0x6,u16,eventId,event/sound id raised into animator +0x14,verified
+0x8,u16[],entries,"packed entries: u16 control word (AnimKeyChannel) followed by its present channel values (s16/u16, or bytes when ctrl & 0x8000)",verified

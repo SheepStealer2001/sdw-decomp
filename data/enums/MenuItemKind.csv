@@ -1,0 +1,4 @@
+value,name,meaning
+#,MenuItemKind,"MenuPage.kind (bits 0-1 of MenuPage.flags, MENU_F_KIND_MASK): Menu_AddPage writes 0, Menu_AddItems 1, and Menu_Update's switch on it gives each kind its input"
+0x0,MENU_KIND_PAGE,page/submenu: CROSS enters it (Menu_Update case 0; Menu_AddPage 0x54eb76)
+0x1,MENU_KIND_ITEM,leaf item: LEFT/RIGHT/CROSS become MENU_MSG_LEFT/RIGHT/CONFIRM to its handler (Menu_Update case 1; Menu_AddItems 0x54ea70)

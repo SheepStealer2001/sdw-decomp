@@ -1,0 +1,11 @@
+value,name,meaning
+#,HairDryerMsg,Messages handled by HairDryer_HandleMessage 0x4c89c1
+0x2,MSG_QUERY_ACTION,Wolf only -> 4
+0x4,MSG_PICKUP,"SetState(HELD), attach, shadow hidden, anim 1"
+0x5,MSG_DROP,"SetState(WORLD), detach, SetPosition(arg), anim 0"
+0x9,MSG_CONTAINER_STATE,arg 1: homePos = pos
+0x10,MSG_CARRY_ANIM,"state 2 only: arg 1 -> anim 3, else anim 2 (restarted each time)"
+0x15,MSG_HELD_STATE_BEGIN,"anim 2, SetState(BLOWING)"
+0x16,MSG_HELD_STATE_END,"anim 1, SetState(HELD)"
+0x17,MSG_QUERY_HELD_ACTION,5 (HELD_FAN)
+0x55,MSG_CHECKPOINT_ROLLBACK,vtable Reset

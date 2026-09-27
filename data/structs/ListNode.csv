@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,void *,data,"the node's payload: the ScnObject of an object-grid cell list (ObjGrid_QueryGroundY 0x47246f), the object of an inventory list (Inventory_Add 0x50c4ac)",verified
+0x4,ListNode *,prev,previous node (List_Remove 0x547378; List_PushFront 0x547310 zeroes it),verified
+0x8,ListNode *,next,next node (List_Remove 0x547378; ObjGrid_QueryGroundY 0x472511),verified

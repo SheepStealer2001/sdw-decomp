@@ -1,0 +1,4 @@
+value,name,meaning
+#,ATUYAU01Anim,animation ids of WAR model ATUYAU01 (its WAR type-0x86 table; names verified from the level files). Played by: Pipe
+0x1,ATUYAU01_ANIM_THROW,WAR name THROW
+0x2,ATUYAU01_ANIM_THROW2,WAR name THROW2

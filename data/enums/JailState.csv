@@ -1,0 +1,7 @@
+value,name,meaning
+#,JailState,state field of Jail
+0x0,JAIL_ST_MOVING,"SetState 0: sound 0xb2; Update: moves to the target height, -> 1 (inferred)"
+0x1,JAIL_ST_AT_HEIGHT,Update 1: -> 0 when the target height changes (inferred)
+0x2,JAIL_ST_OPEN,"SetState 2: anim OPEN, boxes 8 disabled (inferred)"
+0x3,JAIL_ST_STAND,SetState 3: anim STAND (inferred)
+0x4,JAIL_ST_CLOSE,"SetState 4: anim CLOSE, boxes 8 enabled (inferred)"

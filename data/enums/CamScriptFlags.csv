@@ -1,0 +1,6 @@
+value,name,meaning
+#,CamScriptFlags,g_camScriptFlags 0x6e438c = arg 8 of Camera_StartScripted
+0x1,CAMSCR_BLEND_IN,enter via mode 9 (eased) instead of mode 7 (cut)
+0x2,CAMSCR_BLEND_OUT,on release (SetMode 0/6) go through mode 8
+0x4,CAMSCR_CHAIN,"when a script is already active, blend from the current pose (mode 10)"
+0x8,CAMSCR_BLEND_OUT_KEEP_ROT,"mode 8 as with 0x2, but returns to the pre-script rotation instead of re-aiming"

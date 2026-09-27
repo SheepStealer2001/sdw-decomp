@@ -1,0 +1,17 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,idle,1 when no delivery camera is running,verified
+0x68,u32,hasRock,LVL03ROCK != 0 (only the Lvl-03 mailbox with designer boxes),verified
+0x6c,ScnObject *,rock,Scenaric_FindByIdList(LVL03ROCK); sent msg 0x1B at delivery,verified
+0x70,u8,deliveryPending,set to request a delivery; consumed by Mailbox_Update when no cinematic is active,verified
+0x71,MailboxFlagBits,mbFlags,"MailboxFlags: 1 GENERATED_BOXES (no BOX1-4), 2 OPENED, 4 COMMITTED",verified
+0x74,ScnObject *[4],boxes,"container per item: the BOX1..4 designer objects, or the box/FloatingBox objects created at init from the records at +0x9c/+0x11c",verified
+0x84,u16[4],itemIds,O1..O4 object-link ids (0 = unused slot),verified
+0x8c,ScnObject *[4],items,"the O1..O4 objects, removed from the world at init and handed to the boxes at delivery",verified
+0x9c,u8[4][24],boxRecords,"synthesised WAR records for box_Create, built by 0x49d27d(rec, &itemSpawnPos[n], itemId) when !floatingBoxes",verified
+0xfc,Vec3s[4],itemSpawnPos,copy of each item's record+4 (designer position); where generated boxes are added to the world,verified
+0x114,ScnObject *,opener,"the sender of msg 1 (Wolf or Robot). Frozen with msg 0xE when the delivery camera starts, unfrozen with msg 0xF when cameraTimer > cameraTimeMs or on Reset. Cleared by msg 0xE (e.g. when a cinematic takes the Wolf). Not the delivered item",verified
+0x118,u32,floatingBoxes,(u16)FLOATINGBOXES: generated containers are FloatingBox (class 143) instead of box (class 14). Set on one mailbox in Lvl-15,verified
+0x11c,u8[4][24],floatingBoxRecords,"synthesised records for FloatingBox_Create, built by 0x4c1e2a when floatingBoxes",verified
+0x17c,u32,cameraTimeMs,PROPERTY_MAILBOX_TIMERCAMERA (ms),verified
+0x180,u32,cameraTimer,accumulates g_dtMs while the delivery camera runs (double-truncated ms: runs ~4% slow at 60 FPS),verified
+0x184,CamSetup *,camera,"IDCAMERA list[0] camera resource {u16 focal +0; s16 [3] +2..+6; data +8}, passed to Camera_StartScripted with flags 3 and duration 0x1000. NULL = no freeze and no camera (one mailbox in Lvl-09)",verified

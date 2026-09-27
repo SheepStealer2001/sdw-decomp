@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,u32,key,group<<24 | index<<8 | languageMask (single AppLanguageMask bit),verified
+0x4,u32,len,byte length of text including its NUL,verified
+0x8,char *,text,operator-new copy of the string made by TextResBank_Load (NULL when len == 0),verified

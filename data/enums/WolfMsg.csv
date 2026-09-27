@@ -1,0 +1,78 @@
+value,name,meaning
+#,WolfMsg,"Messages handled by Wolf_HandleMessage 0x484550 (sender, id, arg). Return value in brackets where meaningful."
+0x0,MSG_KILL,"arg = WolfKillType; ignored if dead or state flag 0x2000000 (unless 0x80000000), or when attached with modelSet!=0"
+0x1,MSG_USE,"from Sheep while state flag 0x10000 (0x64): accumulates +0x6D8, shows prop 5; after 0x14000 ticks -> state 0xA"
+0x2,MSG_QUERY_ACTION,from Sheep: returns 0x26 (flag 0x10000 state older than 0x3000) or 0x28 (modelSet 3)
+0x4,MSG_PICKUP,from Sam(1)/InstantMartian(0x91)/Crane(0x52): attach to sender joint arg; iced -> state 0x4D facing 0x900; modelSet 3 -> 0x8D
+0x5,MSG_DROP,detach; SetPosition unless arg flag bit1; iced -> 0x4B; modelSet 3 -> 0x85
+0xb,MSG_SEESAW_TOUCH,"FB |= 0x400 (camera bit, cleared on landing)"
+0xc,MSG_LAUNCH,arg = 0x38-byte trajectory -> +0x66C; DropHeld(0); state 0x18
+0xe,MSG_FREEZE,"grabber = sender, FB |= FROZEN (refused in state flag 0x200 states); caps speed below run"
+0xf,MSG_UNFREEZE,Wolf_Unfreeze 0x48d3ee
+0x12,MSG_CINE_PLACE,"arg 0: stop, SetMode(0,0), ready flag 0x80; else walk to arg[0] pos with facing arg[1] (state 0x13), optional sheep drop box arg[2]"
+0x13,MSG_CINE_END,"iced -> 0x4B else DropHeld(5), ResetState, SetMode(0,0), snap to ground"
+0x18,MSG_RIDER_ADD,0x491f32 (rider list)
+0x19,MSG_RIDER_REMOVE,0x491fc2
+0x1c,MSG_QUERY_MOVED,[FB 0x100 moved this frame]
+0x27,MSG_SEESAW_DRIFT,FB |= 0x2000 for this frame
+0x2d,MSG_SET_ACTION_HEADING,"computes +0x6F6 along segment arg[1]->arg[2], side by Wolf position, flipped if arg[0]"
+0x2e,MSG_SET_ANCHOR,"modelSet 5 only: if outside radius, walk to point (state 0xC0)"
+0x30,MSG_GEYSER_OUT,"DropHeld(4), state 0x1A, optional rot copy [anim ms]"
+0x31,MSG_GEYSER_IN,"state 0x19 (mode 1 sheep refusing -> SetMode(0,0x19)); iced -> 0xDB [2000]"
+0x33,MSG_TRAP_STATE,arg 0: FB &= ~0x30000
+0x35,MSG_DRAGON_BURN,"DropHeld(1), SetMode(0,0x9F) (WOLF_ST_BURNT). The only senders are Dragon_SetState states 1 (0x4460aa) and 3 (0x446180), each after checking MSG_WOLF_IS_DEAD == 0. The dragon's fire makes Ralph drop what he carries."
+0x39,MSG_TIMEMACHINE_LOCK,"state 0x9D, anim 0x88/0x8A by 0x4fba8e"
+0x3a,MSG_TIMEMACHINE_ARRIVE,"SetPosition (ground snap within 50), DropHeld(5), SetMode(0,0x9E)"
+0x40,MSG_STRUGGLE,FB |= 0x10000
+0x44,MSG_AXIS_LOCK,"arg 0: FB|=0x200000, arg 1: FB|=0x400000 (per frame; snaps stick heading)"
+0x4a,MSG_BEES_STING,state 0xCD + sfx 0x4B (knocked run)
+0x4b,MSG_BOUNCE,state 0x16 (ascend 600/0xC00)
+0x4c,MSG_QUERY_CONTROLLED,[(FB&0x40)==0]
+0x4e,MSG_WOLF_HOOVER_HOLD,arg!=0 & mode 0 -> 0xCA; arg 0 in 0xCA -> idle
+0x53,MSG_MAGNET_PULL,"from Magnet_Update to the Wolf holding the magnet: arg {caught candidate, reply}; the Wolf stores arg[0] at +0x63c"
+0x54,MSG_WOLF_DIE_HOOVERED,"Wolf_Die(0x1B,4,0x1000)"
+0x56,MSG_SET_SIZE,"arg!=0 shrink to 0x155, arg 0 restore 0x400 [1 if changed]"
+0x57,MSG_QUERY_SIZE,"[0 normal, 1 small, 2 big]"
+0x6d,MSG_SCARE,"+0x706 = angle to sender, deathY 32000, state 0xDA (0xBF in set 5)"
+0x74,MSG_MIRROR_RENDER,0x48d74e(arg) (prop body related)
+0x400,MSG_WOLF_CAUGHT,"arg 0 grab (FB DEAD, state 0x31), 2 hit (Die 0x33), 1 Die 0x32, 3 release; modelSet 3 -> Die 0x8E"
+0x401,MSG_WOLF_WIN,"FB|=WON, camOverride 0x12, Fade_StartLevelExit"
+0x402,MSG_WOLF_SAVE_RESPAWN,arg = pos + facing; 0x50d37f marks inventory
+0x403,MSG_WOLF_IS_NOISY,[state flags & 6 == 0]
+0x404,MSG_WOLF_IS_VISIBLE,"[0 in shadow zone; 1 unless state flag 0x8000, then 0x491c55(sender,target)]"
+0x405,MSG_WOLF_DAZE,state 0x56
+0x406,MSG_WOLF_SET_CINE_READY,"FB |= 0x80, reset fx"
+0x407,MSG_WOLF_IS_CINE_READY,[FB & 0x80]
+0x408,MSG_WOLF_TAKE_ITEM_CLASS,arg = class id: remove that item from hand/inventory [found]
+0x409,MSG_WOLF_IS_IN_BUSH,"returns modelSet == 2, and WolfModelSet 2 is WMS_BUSH (not 'carrying sheep'). Queried by DaffyLevel02_Update 0x438eea/0x438fd7"
+0x40a,MSG_WOLF_ALLOW_LOOK,FB bit 0x800 = arg!=0
+0x40b,MSG_WOLF_IS_SHEEPCOSTUME,[modelSet==3] (Sam: hidden)
+0x40c,MSG_WOLF_IS_RUNNING,[state flag 0x40]
+0x40d,MSG_WOLF_IS_DEAD,[FB & 1]
+0x40e,MSG_WOLF_IS_GROUNDED,[state flag 0x80 and not FB 0x20]
+0x40f,MSG_WOLF_GOSSAMER_SCRIPT,arg 0..4 -> states 0x97/0x98/0x99/0x9B/idle
+0x410,MSG_WOLF_IS_RABBITCOSTUME,[modelSet==4]
+0x411,MSG_WOLF_SET_INVISIBLE,"arg 0 hide (FB|=0x100000), else show"
+0x412,MSG_WOLF_IS_GHOSTCOSTUME,[modelSet==5]
+0x413,MSG_WOLF_IS_CARRYING_SHEEP_M1,[mode 1 and held class 0xB]
+0x414,MSG_WOLF_DISABLE_PROMPT,FB bit 0x1000000 = arg==0
+0x415,MSG_WOLF_STRIP,"costume=0, DropHeld(1), SetMode(0,0)"
+0x416,MSG_WOLF_GHOST_CARRY,set5: 0xBE/0xBA; mode 0: 0xC4/6 by arg
+0x417,MSG_WOLF_HIT_BY_BIPBIP,state 0xC7
+0x418,MSG_WOLF_FORCE_FALL,FB |= 0x2000000 this frame
+0x419,MSG_WOLF_IS_CATCHABLE,[state flag 0x2000000 clear and DAT_0071c450==0]
+0x41a,MSG_WOLF_GET_DISTANCE,[+0x6D4]
+0x41b,MSG_WOLF_SQUASH,arg = duration; state 0xD4
+0x41c,MSG_WOLF_IS_SQUASHED,[state flag 0x8000000]
+0x41d,MSG_WOLF_SQUASH_LEAP,"squashed: face away from sender, state 0xD8"
+0x41e,MSG_WOLF_IS_FLYING,[state flag 0x10000000]
+0x41f,MSG_WOLF_IS_IN_WATER_STATE,[state flag 0x4000]
+0x420,MSG_WOLF_IS_SCARED,[state flag 0x20000000]
+0x421,MSG_WOLF_THROW,"state 0x1C leap with facing=arg, sfx 0x4B"
+0x422,MSG_WOLF_SET5_TURN,arg heading -> state 0xC1; 0 ends it
+0x423,MSG_WOLF_IS_USING_SPECIAL_OBJECT,[FB & 0x40000]
+0x424,MSG_WOLF_GLOW_DIST,"glowDist = min(glowDist, arg)"
+0x425,MSG_WOLF_NO_LOOK,FB |= 0x40000000 this frame
+0x426,MSG_WOLF_SET_OBJFLAG2,object flags +0x3A bit 2 = arg==0
+0x427,MSG_WOLF_IS_GROUNDED_OR_CONTACT,[state flag 0x80 or FB 0x20]
+0x428,MSG_WOLF_FORCE_STOW,"dropOffset = arg; costume 0; DropHeld(9); SetMode(0,0)"

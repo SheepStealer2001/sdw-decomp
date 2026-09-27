@@ -1,0 +1,6 @@
+value,name,meaning
+#,APONTS01Anim,animation ids of WAR model APONTS01 (its WAR type-0x86 table; names verified from the level files). Played by: bridge
+0x0,APONTS01_ANIM_POSE1,WAR name POSE1
+0x2,APONTS01_ANIM_BRAKE2,WAR name BRAKE2
+0x4,APONTS01_ANIM_FBRAKE2,WAR name FBRAKE2
+0x5,APONTS01_ANIM_POSE2,WAR name POSE2

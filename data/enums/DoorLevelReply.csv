@@ -1,0 +1,5 @@
+value,name,meaning
+#,DoorLevelReply,
+0x0,DOORLEVEL_NOT_DONE,DoorLevel msg 0x5900 returns 0 when the level is not done
+0x1,DOORLEVEL_DONE,returns 1 when done and not current
+0x2,DOORLEVEL_CURRENT,returns 2 for the current level

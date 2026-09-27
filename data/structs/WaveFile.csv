@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x0,void **,vtable,0x5744DC holds ONE slot (0x421750 scalar deleting dtor); 0x421BC0 and 0x421DE0 belong to the adjacent vtables 0x5744E0 (VideoPlayer) and 0x5744E4 (checked against the image),verified
+0x4,WAVEFORMATEX *,format,Heap-allocated format block filled by the header parser 0x421A20; free()d by the dtors. NULL means 'not opened' and is the guard both CreateFromWave paths test.,inferred
+0x8,HMMIO__ *,hmmio,"(HMMIO) The multimedia file handle from mmioOpenA (MMIO_ALLOCBUF, or an in-memory 'MEM ' IOProc). [typed as the SDK handle type HMMIO__ * so it can be passed to the mmio imports]",inferred
+0xc,MMCKINFO,ckData,"The 'data' chunk descriptor (20 bytes, 0x0C..0x1F). WaveFile_ReadMmio decrements its cksize as a bytes-remaining counter, and WaveFile_ResetFile re-descends to restore it. [embedded MMCKINFO (overlay MMCKINFO.csv); the split cksize/dwDataOffset/dwFlags rows are now its members]",inferred
+0x20,MMCKINFO,ckRiff,"The RIFF/WAVE parent chunk descriptor (20 bytes, 0x20..0x33), filled by the header parser 0x421A20. Its presence puts sizeof(WaveFile) at exactly 0x34, matching operator_new(0x34) and the 0x34 stride of the .SND bank and the stream player's [embedded MMCKINFO (overlay MMCKINFO.csv); the split cksize/dwDataOffset/dwFlags rows are now its members]",inferred

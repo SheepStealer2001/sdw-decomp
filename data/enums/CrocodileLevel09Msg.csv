@@ -1,0 +1,3 @@
+value,name,meaning
+#,CrocodileLevel09Msg,CrocodileLevel09_HandleMessage 0x4335ff
+0x0,MSG_KILL,"from GroundMine/DefusableMine: blackened only. From CannonBall (0x5f), Rock (0x10) or SmallRock (0x41): dies (state 6), hides a dead Wolf if it was biting, returns 1"

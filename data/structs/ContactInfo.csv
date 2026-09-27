@@ -1,0 +1,8 @@
+offset,ctype,name,meaning,confidence
+0x0,ScnObject *,floorObj,object of a floor-class contact,verified
+0x4,ScnObject *,wallObj,object of a wall-class contact,verified
+0x8,ScnObject *,movableObj,contact object whose classFlags & 4,verified
+0xc,Vec3s,floorNormal,"init (0,-0x1000,0)",verified
+0x12,s16,minContactY,lowest contact Y seen (init box bottom),verified
+0x14,Vec3s,wallNormalMean,mean of wall normals,verified
+0x1a,s16,minAuxY,min of sweep out-param local_40,inferred

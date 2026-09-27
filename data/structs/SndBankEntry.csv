@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,u32,soundId,"Sample id from the .SND entry header, compared (as u32) against Sound_Play's soundId. Array g_sndBankEntries 0x6deff0, stride 0xc, capacity 256.",verified
+0x4,u32,dataSize,"Byte length of the RIFF/WAVE image following the 12-byte entry header in the .SND file. Passed to WaveFile_Open(mem, 1, size) and used to step to the next entry.",verified
+0x8,u32,loop,"== 1 forces StaticSound.looping on in Sound_Play, even without playFlags bit 1.",verified

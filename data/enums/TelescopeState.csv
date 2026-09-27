@@ -1,0 +1,5 @@
+value,name,meaning
+#,TelescopeState,Telescope +0x40
+0,TELESCOPE_VIEWING,UpdateView each frame + mask
+1,TELESCOPE_STARTING,"set by msg 1; draws the mask once, then 0"
+2,TELESCOPE_IDLE,Init/Reset/exit

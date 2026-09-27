@@ -1,0 +1,12 @@
+value,name,meaning
+#,CanonSheepState,state field of CanonSheep
+0x0,CANONSHEEP_ST_IDLE,"SetState 0: anim OPEN if not loaded, releases the Wolf and camera; Update: aims the dummy, fires (10) when the Wolf is in detectBox (inferred)"
+0x1,CANONSHEEP_ST_WOLF_INSIDE,"SetState 1: freezes the Wolf (msg 0xe) and hides him; Update: camera on the barrel, player fires (8) or ... (inferred)"
+0x2,CANONSHEEP_ST_FIRE,"SetState 2: rumble, MSG_CB_SET_LETHAL to the ball and launch at the Wolf; Update: -> 0 (inferred)"
+0x3,CANONSHEEP_ST_LOAD1,"SetState 3: anim LOAD1, Wolf visible again; Update: on anim end -> 4 (inferred)"
+0x4,CANONSHEEP_ST_LOAD2,SetState 4: anim LOAD2; Update: on anim end -> 5 (inferred)
+0x5,CANONSHEEP_ST_CLOSE,"SetState 5: anim CLOSE; Update: on anim end loaded = 1, -> 0 (inferred)"
+0x6,CANONSHEEP_ST_EXPLODE,SetState 6: anim EXPLODE (inferred)
+0x7,CANONSHEEP_ST_EXPLODE_END,SetState 7: anim EXPLODE1 (inferred)
+0x8,CANONSHEEP_ST_CINEMATIC,"SetState 8: StartCine(cine, cineFlag, cineText); Update: -> 0 when the cinematic finishes (inferred)"
+0xa,CANONSHEEP_ST_AIM,"SetState 10: dummy shown, MSG_CB_PLACE to the ball, aimTimeMs 400; Update: tracks the Wolf, then 2 (inferred)"

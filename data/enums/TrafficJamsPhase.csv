@@ -1,0 +1,4 @@
+value,name,meaning
+#,TrafficJamsPhase,TrafficJams +0x64
+0,JAMS_PHASE_TRAIN_HERE,train on this station's route: countdowns run
+1,JAMS_PHASE_TRAIN_AWAY,countdowns reloaded to full

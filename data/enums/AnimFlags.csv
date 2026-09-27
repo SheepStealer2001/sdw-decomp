@@ -1,0 +1,6 @@
+value,name,meaning
+#,AnimFlags,u16 at Animator+0x22 (obj+0x62)
+0x1,ANIM_F_PLAYING,Anim_Advance runs only if set; cleared at end of non-looping anim
+0x2,ANIM_F_LOOP,set from SetAnim mode bit 0
+0x4,ANIM_F_ALT_WRAP,initial value has it (5); selects buffer-swap wrap path
+0x8,ANIM_F_FINISHED,set when frame wraps to 0 / anim missing; cleared each advancing step

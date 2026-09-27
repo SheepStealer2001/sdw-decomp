@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x64,s32,ringTimer,"Milliseconds left of the ring, loaded with 0x1000 (4096 ms) when the bell starts and drained by g_dtMs; when it goes negative the bell stops at the next animation loop boundary.",verified
+0x68,u16,voice,"Handle of the ringing sound (id 0x14f); re-played whenever it is 0 or Sound_IsPlaying reports stopped, and stopped on every state change.",verified
+0x6a,u8,state,"1 silent/idle (anim 1, one shot), 2 ringing (anim 0 looping + sound 0x14f + ringTimer), 3 wind-down (anim 2, one shot, then back to 1).",verified

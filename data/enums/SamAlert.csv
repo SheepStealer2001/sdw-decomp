@@ -1,0 +1,6 @@
+value,name,meaning
+#,SamAlert,sam+0x82C zone / alert level
+0,SAM_ALERT_GREEN,Wolf in a GREENZONEBOX
+1,SAM_ALERT_ORANGE,also in an ORANGEZONEBOX; detection armed
+2,SAM_ALERT_RED,chasing / catching (msg 0x480 returns true)
+-1,SAM_ALERT_NONE,no indicator

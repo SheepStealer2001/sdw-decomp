@@ -1,0 +1,7 @@
+value,name,meaning
+#,GoldenCoinsState,GoldenCoins +0x64 (GoldenCoins_SetState 0x4c7a41)
+0,COIN_BURIED,"hidden (0x800) at homePos, scale and claim cleared; the only state msg 0x2f reveals from"
+1,COIN_HELD,"anim 1, attached to the Wolf"
+2,COIN_ON_GROUND,"visible, anim 0, claim cleared; pickable"
+3,COIN_APPEARING,"visible, anim 2, +0x68 = 0x3c00; becomes 2 at anim end"
+4,COIN_POCKETED,hidden (MSG_KILL from Sam); becomes 0 at anim end

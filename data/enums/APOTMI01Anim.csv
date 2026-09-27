@@ -1,0 +1,6 @@
+value,name,meaning
+#,APOTMI01Anim,animation ids of WAR model APOTMI01 (its WAR type-0x86 table; names verified from the level files). Played by: HoneyPot
+0x0,APOTMI01_ANIM_DEFAULT,WAR name DEFAULT
+0x1,APOTMI01_ANIM_BROKEN,WAR name BROKEN
+0x2,APOTMI01_ANIM_BREAK,WAR name BREAK
+0x3,APOTMI01_ANIM_LINK,WAR name LINK

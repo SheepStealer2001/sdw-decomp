@@ -1,0 +1,1095 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Level Editor</title>
+<style>
+:root {
+  --bg: #16181c; --panel: #1f2228; --line: #30343c; --text: #d8dce3; --dim: #8b929e; --accent: #e8b83a;
+  --accent-text: #1a1a1a; --new: #6fcf7a; --gone: #e06a6a; --changed: #6aa8e0; --input: #15171b;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text);
+  font: 13px/1.4 -apple-system, "Segoe UI", system-ui, sans-serif; }
+#app { display: flex; height: 100%; }
+#stage { position: relative; flex: 1; min-width: 0; }
+#view { width: 100%; height: 100%; display: block; outline: none; }
+#side { width: 360px; flex: none; background: var(--panel); border-left: 1px solid var(--line); overflow-y: auto; }
+#side section, #side header { padding: 10px 12px; border-bottom: 1px solid var(--line); }
+h3 { margin: 0 0 6px; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--dim); }
+.title { font-size: 15px; }
+.title span { color: var(--dim); }
+.path { color: var(--dim); font-size: 11px; word-break: break-all; margin: 2px 0 8px; }
+.row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+button { background: #2b2f37; color: var(--text); border: 1px solid #3a3f49; border-radius: 4px; padding: 4px 10px;
+  font: inherit; cursor: pointer; }
+button:hover { background: #343944; }
+button:disabled { opacity: .45; cursor: default; }
+button.primary { background: var(--accent); color: var(--accent-text); border-color: var(--accent); font-weight: 600; }
+input, select, textarea { background: var(--input); color: var(--text); border: 1px solid #3a3f49; border-radius: 4px;
+  font: inherit; padding: 3px 6px; min-width: 0; }
+input[type=checkbox] { padding: 0; }
+textarea { width: 100%; min-height: 70px; font: 12px/1.35 ui-monospace, Menlo, Consolas, monospace; resize: vertical; }
+label.check { display: inline-flex; align-items: center; gap: 4px; margin-right: 10px; }
+.grid { display: grid; grid-template-columns: 92px 1fr; gap: 4px 8px; align-items: center; margin-top: 6px; }
+.grid > span { color: var(--dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.xyz { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+.xyz input { width: 100%; }
+.props { max-height: 260px; overflow-y: auto; }
+.list { max-height: 260px; overflow-y: auto; margin-top: 6px; border: 1px solid var(--line); border-radius: 4px; }
+.item { padding: 3px 8px; cursor: pointer; display: flex; gap: 6px; white-space: nowrap; }
+.item:hover { background: #2a2e36; }
+.item.sel { background: #3b3522; }
+.item .n { color: var(--dim); margin-left: auto; font-variant-numeric: tabular-nums; }
+.mark { width: 12px; text-align: center; }
+.mark.new { color: var(--new); } .mark.changed { color: var(--changed); } .mark.gone { color: var(--gone); }
+.item.gone .c { text-decoration: line-through; color: var(--dim); }
+.hint { color: var(--dim); font-size: 12px; margin: 4px 0; }
+#status { color: var(--dim); font-size: 12px; }
+#status.bad { color: var(--gone); }
+#tip { position: absolute; pointer-events: none; background: rgba(20,22,26,.92); border: 1px solid var(--line);
+  padding: 2px 6px; border-radius: 3px; font-size: 12px; display: none; white-space: nowrap; }
+#loading { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--dim);
+  font-size: 15px; background: var(--bg); }
+#saved { white-space: pre-wrap; font: 12px/1.35 ui-monospace, Menlo, Consolas, monospace; color: var(--dim);
+  max-height: 180px; overflow: auto; margin: 6px 0 0; }
+kbd { background: #2b2f37; border: 1px solid #3a3f49; border-radius: 3px; padding: 0 4px; font: 11px ui-monospace, monospace; }
+dl.keys { display: grid; grid-template-columns: auto 1fr; gap: 3px 10px; margin: 0; font-size: 12px; }
+dl.keys dd { margin: 0; color: var(--dim); }
+#chooser { position: fixed; inset: 0; background: var(--bg); display: flex; align-items: center; justify-content: center;
+  padding: 16px; z-index: 10; }
+#chooser[hidden] { display: none; }
+#chooser .card { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 20px 22px;
+  width: 100%; max-width: 440px; }
+#chooser h1 { font-size: 18px; margin: 0 0 4px; }
+#chooser label { display: block; margin: 12px 0 4px; color: var(--dim); font-size: 12px; }
+#chooser select, #chooser input { width: 100%; }
+#chooser .row { margin-top: 16px; }
+@media (max-width: 760px) {
+  #app { flex-direction: column; }
+  #stage { height: 55vh; flex: none; }
+  #side { width: 100%; border-left: 0; border-top: 1px solid var(--line); }
+}
+</style>
+</head>
+<body>
+<div id="chooser" hidden>
+  <div class="card">
+    <h1>Level Editor</h1>
+    <div class="hint">Pick a level, and the mod its changes are saved in.</div>
+    <label for="cLevel">Level</label>
+    <select id="cLevel"></select>
+    <label for="cMod">Mod</label>
+    <select id="cMod"></select>
+    <input id="cNew" placeholder="The new mod's name: letters, digits, - and _" hidden style="margin-top:6px">
+    <div class="path" id="cDir" style="margin-top:10px"></div>
+    <div class="row"><button class="primary" id="cOpen">Open</button> <span id="cStatus"></span></div>
+  </div>
+</div>
+<div id="app">
+  <div id="stage">
+    <canvas id="view" tabindex="0"></canvas>
+    <div id="tip"></div>
+    <div id="loading">Loading the level…</div>
+  </div>
+  <aside id="side">
+    <header>
+      <div class="title"><b id="lvl"></b> <span id="comm"></span></div>
+      <div class="path" id="patchpath"></div>
+      <div class="row">
+        <button id="save" class="primary">Save</button>
+        <button id="undo" title="Ctrl+Z">Undo</button>
+        <button id="redo" title="Ctrl+Shift+Z">Redo</button>
+        <button id="change">Change level</button>
+        <span id="status"></span>
+      </div>
+      <pre id="saved" hidden></pre>
+    </header>
+    <section>
+      <h3>View</h3>
+      <label class="check"><input type="checkbox" id="showScenery" checked> Scenery</label>
+      <label class="check"><input type="checkbox" id="showCollision"> Collision</label>
+      <label class="check"><input type="checkbox" id="showSky"> Sky</label>
+      <label class="check"><input type="checkbox" id="showObjects" checked> Objects</label>
+      <div style="margin-top:6px"><label class="check"><input type="checkbox" id="snap" checked> Drag along the ground</label></div>
+    </section>
+    <section>
+      <h3>Selected</h3>
+      <div id="selpanel" class="hint">Click an object in the view or the list.</div>
+    </section>
+    <section>
+      <h3>This level's objects</h3>
+      <input id="filter" placeholder="Filter: class, number or name" style="width:100%">
+      <div id="list" class="list"></div>
+    </section>
+    <section>
+      <h3>Bring an object from another level</h3>
+      <div class="row"><select id="olevel" style="flex:1"></select></div>
+      <input id="ofilter" placeholder="Filter: class or number" style="width:100%;margin-top:6px">
+      <div id="olist" class="list"></div>
+      <p class="hint">Click one to add a copy where the view is looking. Its model, animations, sounds, icon and text
+        come with it.</p>
+    </section>
+    <section>
+      <h3>Other patch lines</h3>
+      <p class="hint">Lines this editor does not change (import, sound, text, comments), kept as written. An
+        <code>import name from Lvl-02 82</code> line here makes <code>name</code> a model to choose.</p>
+      <textarea id="kept" spellcheck="false"></textarea>
+    </section>
+    <section>
+      <h3>Settings</h3>
+      <div class="grid">
+        <span>Left drag</span><select id="setLeft"><option value="rotate">Turn the view</option><option value="pan">Pan the view</option></select>
+        <span>Middle drag</span><select id="setMiddle"><option value="rotate">Turn the view</option><option value="pan">Pan the view</option></select>
+        <span>Right drag</span><select id="setRight"><option value="rotate">Turn the view</option><option value="pan">Pan the view</option></select>
+        <span>Wheel step</span><input id="setStep" type="text" inputmode="numeric" title="how far one notch of the wheel moves the view">
+      </div>
+      <p class="hint">Kept on this computer: they are the same the next time the editor opens. A left click on an object
+        always picks it, and dragging it moves it.</p>
+    </section>
+    <section>
+      <h3>Controls</h3>
+      <dl class="keys">
+        <dt>Left drag</dt><dd><span id="helpLeft"></span>, or move the object under the cursor</dd>
+        <dt>Middle drag</dt><dd id="helpMiddle"></dd>
+        <dt>Right drag</dt><dd id="helpRight"></dd>
+        <dt>Click again</dt><dd>pick the object behind the one picked</dd>
+        <dt>Wheel</dt><dd>move the view forward and back</dd>
+        <dt>Double-click</dt><dd>look at that point</dd>
+        <dt><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></dt><dd>move the view</dd>
+        <dt><kbd>Shift</kbd>+drag</dt><dd>move the object up and down</dd>
+        <dt><kbd>Q</kbd> <kbd>E</kbd></dt><dd>turn the object (with Shift: finely)</dd>
+        <dt>Arrows</dt><dd>nudge the object (with Shift: further)</dd>
+        <dt><kbd>G</kbd></dt><dd>drop the object to the ground</dd>
+        <dt><kbd>F</kbd></dt><dd>look at the object</dd>
+        <dt><kbd>Ctrl</kbd>+<kbd>D</kbd></dt><dd>copy the object</dd>
+        <dt><kbd>Delete</kbd></dt><dd>remove it (again: bring it back)</dd>
+        <dt><kbd>Ctrl</kbd>+<kbd>S</kbd></dt><dd>save</dd>
+      </dl>
+    </section>
+  </aside>
+</div>
+<script>
+'use strict';
+const $ = s => document.querySelector(s);
+const canvas = $('#view');
+const gl = canvas.getContext('webgl', { antialias: true });
+const FULL_TURN = 4096;           // the game's angles: 4096 = a full turn
+const UNSET = -842150451;         // 0xCDCDCDCD: a property the level's designers left unset
+
+let D = null;                     // /api/start
+let state = [], kept = [], imports = {}, texts = {};  // texts: {class: {n: string}} the patch gives signs
+let sel = null, hover = null, dirty = false, counter = 0;
+const undoStack = [], redoStack = [];
+const show = { scenery: true, collision: false, sky: false, objects: true };
+
+// ---------------------------------------------------------------- vectors and matrices (column-major 4x4)
+const add = (a, b) => [a[0] + b[0], a[1] + b[1], a[2] + b[2]];
+const sub = (a, b) => [a[0] - b[0], a[1] - b[1], a[2] - b[2]];
+const mulv = (a, s) => [a[0] * s, a[1] * s, a[2] * s];
+const dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+const cross = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
+const norm = a => { const l = Math.hypot(a[0], a[1], a[2]) || 1; return [a[0] / l, a[1] / l, a[2] / l]; };
+// game space -> view space: the game's y points down, and z is turned too so the view is not a mirror image
+const toGL = v => [v[0], -v[1], -v[2]];
+const fromGL = toGL;
+const clamp16 = v => Math.max(-32768, Math.min(32767, Math.round(v)));
+const clone = o => JSON.parse(JSON.stringify(o));
+
+function mmul(a, b) {
+  const o = new Float32Array(16);
+  for (let c = 0; c < 4; c++) for (let r = 0; r < 4; r++) {
+    let s = 0;
+    for (let k = 0; k < 4; k++) s += a[k * 4 + r] * b[c * 4 + k];
+    o[c * 4 + r] = s;
+  }
+  return o;
+}
+function perspective(fovy, aspect, near, far) {
+  const t = 1 / Math.tan(fovy / 2), m = new Float32Array(16);
+  m[0] = t / aspect; m[5] = t; m[10] = (far + near) / (near - far); m[11] = -1; m[14] = 2 * far * near / (near - far);
+  return m;
+}
+function lookAt(eye, at, up) {
+  const z = norm(sub(eye, at)), x = norm(cross(up, z)), y = cross(z, x);
+  return new Float32Array([x[0], y[0], z[0], 0, x[1], y[1], z[1], 0, x[2], y[2], z[2], 0,
+    -dot(x, eye), -dot(y, eye), -dot(z, eye), 1]);
+}
+const IDENT = new Float32Array([1, 0, 0, 0, 0, -1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1]);  // game space -> view space
+
+// Mat44::SetRotYXZ (row vectors, v' = v * m): an object's rotation
+function rotYXZ(x, y, z) {
+  const cx = Math.cos(x), sx = Math.sin(x), cy = Math.cos(y), sy = Math.sin(y), cz = Math.cos(z), sz = Math.sin(z);
+  return [[cy * cz - sx * sy * sz, cy * sz + sx * sy * cz, -cx * sy],
+          [-cx * sz, cx * cz, sx],
+          [sy * cz + sx * cy * sz, sy * sz - sx * cy * cz, cx * cy]];
+}
+// the classes whose Render draws them turned to face the camera (ScnObject::RenderFacingCamera): their models are
+// flat cards. CannonBall does so only while flying; at rest the game does not draw it at all.
+const FACING = new Set(['Bees', 'BlackHole', 'CannonBall', 'CannonBall2', 'FacingCamera', 'FireBall', 'TimeMachineSphere']);
+const facing = o => FACING.has(className(o.class));
+function objectRot(o) {
+  if (facing(o)) {  // model x to the view's right, model y (down) to its down, model z towards the view
+    const f = norm(sub(cam.target, eye())), right = norm(cross(f, [0, 1, 0])), up = cross(right, f);
+    return [fromGL(right), fromGL(mulv(up, -1)), fromGL(mulv(f, -1))];
+  }
+  const k = 2 * Math.PI / FULL_TURN;
+  return rotYXZ(o.rot[0] * k, o.rot[1] * k, o.rot[2] * k);
+}
+// an object's model space -> view space
+function objectMatrix(o) {
+  const m = objectRot(o), a = new Float32Array(16);
+  for (let c = 0; c < 3; c++) for (let r = 0; r < 3; r++) a[c * 4 + r] = (r === 0 ? 1 : -1) * m[c][r];
+  a[12] = o.pos[0]; a[13] = -o.pos[1]; a[14] = -o.pos[2]; a[15] = 1;
+  return a;
+}
+// a point or direction in view space -> the object's model space
+function toObject(o, p, isDir) {
+  const m = objectRot(o);
+  const g = fromGL(p), q = isDir ? g : sub(g, o.pos);
+  return [0, 1, 2].map(r => m[r][0] * q[0] + m[r][1] * q[1] + m[r][2] * q[2]);
+}
+
+// ---------------------------------------------------------------- GL
+const VS = `
+attribute vec3 aPos; attribute vec2 aUV; attribute vec3 aCol;
+uniform mat4 uVP; uniform mat4 uModel;
+varying vec2 vUV; varying vec3 vCol;
+void main() { gl_Position = uVP * uModel * vec4(aPos, 1.0); vUV = aUV; vCol = aCol; }`;
+const FS = `
+precision mediump float;
+uniform sampler2D uTex; uniform float uTextured; uniform float uColScale; uniform vec4 uTint;
+varying vec2 vUV; varying vec3 vCol;
+void main() {
+  vec3 c = vCol * uColScale;
+  float a = 1.0;
+  if (uTextured > 0.5) { vec4 t = texture2D(uTex, vUV); c = t.rgb * c; a = t.a; if (a < 0.03) discard; }
+  gl_FragColor = vec4(mix(min(c, vec3(1.0)), uTint.rgb, uTint.a), a);
+}`;
+function shader(type, src) {
+  const s = gl.createShader(type);
+  gl.shaderSource(s, src); gl.compileShader(s);
+  if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s));
+  return s;
+}
+const prog = gl.createProgram();
+gl.attachShader(prog, shader(gl.VERTEX_SHADER, VS));
+gl.attachShader(prog, shader(gl.FRAGMENT_SHADER, FS));
+gl.linkProgram(prog);
+gl.useProgram(prog);
+const A = { pos: gl.getAttribLocation(prog, 'aPos'), uv: gl.getAttribLocation(prog, 'aUV'), col: gl.getAttribLocation(prog, 'aCol') };
+const U = {};
+for (const n of ['uVP', 'uModel', 'uTex', 'uTextured', 'uColScale', 'uTint']) U[n] = gl.getUniformLocation(prog, n);
+gl.enableVertexAttribArray(A.pos); gl.enableVertexAttribArray(A.uv); gl.enableVertexAttribArray(A.col);
+gl.enable(gl.DEPTH_TEST);
+
+function buffer(arr) {
+  const b = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, b);
+  gl.bufferData(gl.ARRAY_BUFFER, arr instanceof Float32Array ? arr : new Float32Array(arr), gl.STATIC_DRAW);
+  return { buf: b, count: arr.length / 8 };
+}
+function bindBuffer(b) {
+  gl.bindBuffer(gl.ARRAY_BUFFER, b.buf);
+  gl.vertexAttribPointer(A.pos, 3, gl.FLOAT, false, 32, 0);
+  gl.vertexAttribPointer(A.uv, 2, gl.FLOAT, false, 32, 12);
+  gl.vertexAttribPointer(A.col, 3, gl.FLOAT, false, 32, 20);
+}
+// {page: [x, y, z, u, v, r, g, b, ...]} -> [{page, buf, count}]
+function groupBuffers(groups) {
+  return Object.entries(groups).filter(([, a]) => a.length).map(([p, a]) => Object.assign(buffer(a), { page: +p }));
+}
+
+// texture pages per source (a level, or mod:<file>) as {tex, kind}: PolyBatcher::LoadTexturePages' format, bits 0x1c the
+// kind (4 opaque: drawn without alpha, 8 blended, 0x10 added), bits 3 the pixels (0 RGB565, 1 ARGB1555, 2 ARGB4444).
+// The game blends with the alpha inverted (SRCBLEND INVSRCALPHA, DESTBLEND SRCALPHA or ONE: draw2d.cpp, mesh.cpp):
+// a full alpha is see-through and 0 is solid, so the alpha is turned round here.
+const OPAQUE = 4, BLEND = 8, ADD = 0x10;
+const textures = {};
+async function loadPages(source) {
+  if (textures[source]) return textures[source];
+  const promise = (async () => {
+    const r = await fetch('/api/pages?source=' + encodeURIComponent(source));
+    if (!r.ok) return [];
+    const dv = new DataView(await r.arrayBuffer());
+    const n = dv.getUint16(0, true), out = [];
+    let o = 2;
+    for (let i = 0; i < n; i++) {
+      const w = dv.getUint16(o, true), h = dv.getUint16(o + 2, true), fmt = dv.getUint16(o + 4, true);
+      const kind = fmt & 0x1c, pixels = fmt & 3;
+      o += 6;
+      const px = new Uint8Array(w * h * 4);
+      for (let k = 0; k < w * h; k++) {
+        const v = dv.getUint16(o + 2 * k, true), q = 4 * k;
+        if (pixels === 2) {
+          px[q] = ((v >> 8) & 15) * 17; px[q + 1] = ((v >> 4) & 15) * 17; px[q + 2] = (v & 15) * 17; px[q + 3] = (v >> 12) * 17;
+        } else if (pixels === 1) {
+          px[q] = ((v >> 10) & 31) * 255 / 31; px[q + 1] = ((v >> 5) & 31) * 255 / 31; px[q + 2] = (v & 31) * 255 / 31;
+          px[q + 3] = v & 0x8000 ? 255 : 0;
+        } else {
+          px[q] = (v >> 11) * 255 / 31; px[q + 1] = ((v >> 5) & 63) * 255 / 63; px[q + 2] = (v & 31) * 255 / 31; px[q + 3] = 255;
+        }
+        px[q + 3] = kind === OPAQUE ? 255 : 255 - px[q + 3];
+      }
+      o += 2 * w * h;
+      const t = gl.createTexture();
+      gl.bindTexture(gl.TEXTURE_2D, t);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, w, h, 0, gl.RGBA, gl.UNSIGNED_BYTE, px);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+      out.push({ tex: t, kind });
+    }
+    textures[source] = out;
+    redraw();
+    return out;
+  })();
+  textures[source] = [];
+  return promise;
+}
+
+// ---------------------------------------------------------------- the level
+let scenery = { main: [], sky: [] }, collision = null;
+let groundTris = null, groundKind = null, sceneryTris = null;   // view-space triangles for picking
+
+function buildCollision() {
+  const g = D.ground, n = g.length / 9;
+  groundTris = new Float32Array(g.length);
+  for (let i = 0; i < g.length; i += 3) { groundTris[i] = g[i]; groundTris[i + 1] = -g[i + 1]; groundTris[i + 2] = -g[i + 2]; }
+  groundKind = D.kind;
+  const colours = [[112, 170, 104], [168, 180, 90], [200, 140, 70], [110, 120, 140], [150, 100, 160]];
+  const light = norm([0.4, 1, 0.3]), out = new Float32Array(n * 24);
+  for (let t = 0; t < n; t++) {
+    const p = [0, 1, 2].map(k => [groundTris[9 * t + 3 * k], groundTris[9 * t + 3 * k + 1], groundTris[9 * t + 3 * k + 2]]);
+    const nn = norm(cross(sub(p[1], p[0]), sub(p[2], p[0])));
+    const lit = 0.45 + 0.55 * Math.abs(dot(nn, light)), c = colours[groundKind[t]] || colours[3];
+    for (let k = 0; k < 3; k++) {
+      out.set([g[9 * t + 3 * k], g[9 * t + 3 * k + 1], g[9 * t + 3 * k + 2], 0, 0, c[0] * lit, c[1] * lit, c[2] * lit], (3 * t + k) * 8);
+    }
+  }
+  collision = Object.assign(buffer(out), { page: -1 });
+}
+function buildScenery(s) {
+  scenery = { main: groupBuffers(s.main), sky: groupBuffers(s.sky) };
+  const all = [].concat(...Object.values(s.main));
+  sceneryTris = new Float32Array(all.length / 8 * 3);
+  for (let i = 0, j = 0; i < all.length; i += 8, j += 3) { sceneryTris[j] = all[i]; sceneryTris[j + 1] = -all[i + 1]; sceneryTris[j + 2] = -all[i + 2]; }
+}
+
+// models by source and resource; a model a patch imports by name is looked up in `imports`
+const models = {};
+function modelOf(o) {
+  let source = D.level, res = o.model;
+  if (typeof o.model === 'string') {
+    const imp = imports[o.model];
+    if (!imp) return null;
+    source = imp.source; res = imp.res;
+  } else if (o.source && o.source.level && o.model === o.base.model) {
+    source = o.source.level;
+  } else if (!D.models[String(o.model)]) {
+    return null;
+  }
+  const key = source + '|' + res;
+  if (!models[key]) {
+    models[key] = { loading: true };
+    loadPages(source);
+    fetch(`/api/model?source=${encodeURIComponent(source)}&res=${res}`).then(r => r.json()).then(g => {
+      models[key] = g.error ? { error: g.error } : { groups: groupBuffers(g.groups), lo: g.lo, hi: g.hi, source };
+      redraw();
+    });
+  }
+  return models[key];
+}
+const MARKER = { lo: [-60, -120, -60], hi: [60, 0, 60] };
+function boundsOf(o) {
+  const m = modelOf(o), b = m && m.groups && m.groups.length ? m : MARKER;
+  if (!facing(o)) return b;
+  const r = Math.max(b.hi[0] - b.lo[0], b.hi[1] - b.lo[1]) / 2;  // a flat card: as deep as it is wide, to pick it
+  return { lo: [b.lo[0], b.lo[1], -r], hi: [b.hi[0], b.hi[1], r] };
+}
+// the 12 edges of a box, as lines
+function boxLines(b, rgb) {
+  const [x0, y0, z0] = b.lo, [x1, y1, z1] = b.hi, out = [];
+  const c = [[x0, y0, z0], [x1, y0, z0], [x1, y1, z0], [x0, y1, z0], [x0, y0, z1], [x1, y0, z1], [x1, y1, z1], [x0, y1, z1]];
+  for (const [a, b2] of [[0, 1], [1, 2], [2, 3], [3, 0], [4, 5], [5, 6], [6, 7], [7, 4], [0, 4], [1, 5], [2, 6], [3, 7]])
+    for (const k of [a, b2]) out.push(...c[k], 0, 0, ...rgb);
+  return out;
+}
+function boxSolid(b, rgb) {
+  const [x0, y0, z0] = b.lo, [x1, y1, z1] = b.hi, out = [];
+  const c = [[x0, y0, z0], [x1, y0, z0], [x1, y1, z0], [x0, y1, z0], [x0, y0, z1], [x1, y0, z1], [x1, y1, z1], [x0, y1, z1]];
+  const faces = [[0, 1, 2, 3, 0.8], [4, 5, 6, 7, 0.8], [0, 1, 5, 4, 1], [3, 2, 6, 7, 0.6], [0, 3, 7, 4, 0.7], [1, 2, 6, 5, 0.7]];
+  for (const [a, b2, c2, d, l] of faces)
+    for (const k of [a, b2, c2, a, c2, d]) out.push(...c[k], 0, 0, rgb[0] * l, rgb[1] * l, rgb[2] * l);
+  return out;
+}
+let markerBuf = null, dynBuf = null;
+
+// ---------------------------------------------------------------- camera
+const cam = { target: [0, 0, 0], yaw: 0.6, pitch: 0.55, dist: 3000, fov: 55 * Math.PI / 180 };
+function eye() {
+  return add(cam.target, mulv([Math.cos(cam.pitch) * Math.sin(cam.yaw), Math.sin(cam.pitch), Math.cos(cam.pitch) * Math.cos(cam.yaw)], cam.dist));
+}
+function viewProj() {
+  const w = canvas.width, h = canvas.height;
+  return mmul(perspective(cam.fov, w / h, Math.max(5, cam.dist / 400), 120000), lookAt(eye(), cam.target, [0, 1, 0]));
+}
+function rayAt(px, py) {
+  const r = canvas.getBoundingClientRect();
+  const x = (px - r.left) / r.width * 2 - 1, y = 1 - (py - r.top) / r.height * 2;
+  const e = eye(), f = norm(sub(cam.target, e)), right = norm(cross(f, [0, 1, 0])), up = cross(right, f);
+  const t = Math.tan(cam.fov / 2);
+  return { o: e, d: norm(add(f, add(mulv(right, x * t * r.width / r.height), mulv(up, y * t)))) };
+}
+
+// ---------------------------------------------------------------- picking
+function hitTri(o, d, tris, i) {
+  const a = [tris[i], tris[i + 1], tris[i + 2]], e1 = [tris[i + 3] - a[0], tris[i + 4] - a[1], tris[i + 5] - a[2]];
+  const e2 = [tris[i + 6] - a[0], tris[i + 7] - a[1], tris[i + 8] - a[2]];
+  const p = cross(d, e2), det = dot(e1, p);
+  if (Math.abs(det) < 1e-9) return Infinity;
+  const inv = 1 / det, s = sub(o, a), u = dot(s, p) * inv;
+  if (u < 0 || u > 1) return Infinity;
+  const q = cross(s, e1), v = dot(d, q) * inv;
+  if (v < 0 || u + v > 1) return Infinity;
+  const t = dot(e2, q) * inv;
+  return t > 0.01 ? t : Infinity;
+}
+// the nearest surface along a ray: the collision mesh (with `kinds`, only those surfaces) and, when shown, the scenery
+function hitSurface(ray, kinds, withScenery) {
+  let best = Infinity;
+  for (let t = 0, i = 0; i < groundTris.length; t++, i += 9) {
+    if (kinds && !kinds.includes(groundKind[t])) continue;
+    const h = hitTri(ray.o, ray.d, groundTris, i);
+    if (h < best) best = h;
+  }
+  if (withScenery && sceneryTris) for (let i = 0; i < sceneryTris.length; i += 9) {
+    const h = hitTri(ray.o, ray.d, sceneryTris, i);
+    if (h < best) best = h;
+  }
+  return best;
+}
+function hitBox(ray, o) {
+  const b = boundsOf(o), lo = toObject(o, ray.o), d = toObject(o, ray.d, true);
+  let t0 = 0, t1 = Infinity;
+  for (let k = 0; k < 3; k++) {
+    if (Math.abs(d[k]) < 1e-9) { if (lo[k] < b.lo[k] || lo[k] > b.hi[k]) return Infinity; continue; }
+    let a = (b.lo[k] - lo[k]) / d[k], c = (b.hi[k] - lo[k]) / d[k];
+    if (a > c) [a, c] = [c, a];
+    t0 = Math.max(t0, a); t1 = Math.min(t1, c);
+    if (t0 > t1) return Infinity;
+  }
+  return t0;
+}
+// the objects along a ray, nearest first, up to the first wall
+function objectsAlong(ray) {
+  if (!show.objects) return [];
+  const wall = hitSurface(ray, null, show.scenery), hits = [];
+  for (const o of state) {
+    if (o.removed && o.res === null) continue;
+    const t = hitBox(ray, o);
+    if (t <= wall + 50) hits.push([t, o]);
+  }
+  return hits.sort((a, b) => a[0] - b[0]).map(h => h[1]);
+}
+const pickObject = ray => objectsAlong(ray)[0] || null;
+// the ground under a point of the game (the first floor at or below it), or null
+function groundBelow(p) {
+  const ray = { o: toGL([p[0], p[1] - 60, p[2]]), d: [0, -1, 0] };
+  const t = hitSurface(ray, [0, 1, 2], false);
+  return t === Infinity ? null : p[1] - 60 + t;
+}
+
+// ---------------------------------------------------------------- drawing
+let pending = false;
+function redraw() { if (!pending) { pending = true; requestAnimationFrame(draw); } }
+function resize() {
+  const dpr = window.devicePixelRatio || 1, w = Math.round(canvas.clientWidth * dpr), h = Math.round(canvas.clientHeight * dpr);
+  if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; }
+}
+// pass 0: the opaque polygons; pass 1: the blended and added ones, after everything opaque, without writing depth
+function drawGroups(groups, source, model, tint, pass) {
+  const tex = textures[source] || [];
+  gl.uniformMatrix4fv(U.uModel, false, model);
+  gl.uniform4fv(U.uTint, tint || [0, 0, 0, 0]);
+  for (const g of groups) {
+    const t = g.page >= 0 ? tex[g.page] : null, kind = t ? t.kind : OPAQUE;
+    if ((kind !== OPAQUE) !== (pass === 1)) continue;
+    if (pass === 1) gl.blendFunc(gl.SRC_ALPHA, kind === ADD ? gl.ONE : gl.ONE_MINUS_SRC_ALPHA);
+    gl.uniform1f(U.uTextured, t ? 1 : 0);
+    gl.uniform1f(U.uColScale, g.page >= 0 ? (t ? 1 / 128 : 1 / 200) : 1 / 255);
+    if (t) gl.bindTexture(gl.TEXTURE_2D, t.tex);
+    bindBuffer(g);
+    gl.drawArrays(gl.TRIANGLES, 0, g.count);
+  }
+}
+function drawLines(arr, model, onTop) {
+  if (!dynBuf) dynBuf = { buf: gl.createBuffer(), count: 0 };
+  gl.bindBuffer(gl.ARRAY_BUFFER, dynBuf.buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(arr), gl.DYNAMIC_DRAW);
+  dynBuf.count = arr.length / 8;
+  gl.uniformMatrix4fv(U.uModel, false, model);
+  gl.uniform4fv(U.uTint, [0, 0, 0, 0]);
+  gl.uniform1f(U.uTextured, 0);
+  gl.uniform1f(U.uColScale, 1 / 255);
+  bindBuffer(dynBuf);
+  if (onTop) gl.disable(gl.DEPTH_TEST);
+  gl.drawArrays(gl.LINES, 0, dynBuf.count);
+  if (onTop) gl.enable(gl.DEPTH_TEST);
+}
+function draw() {
+  pending = false;
+  resize();
+  gl.viewport(0, 0, canvas.width, canvas.height);
+  gl.clearColor(0.52, 0.66, 0.82, 1);
+  gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+  if (!D) return;
+  gl.uniformMatrix4fv(U.uVP, false, viewProj());
+  for (const pass of [0, 1]) {
+    if (pass === 1) { gl.enable(gl.BLEND); gl.depthMask(false); }
+    if (show.scenery) drawGroups(scenery.main, D.level, IDENT, null, pass);
+    if (show.sky) drawGroups(scenery.sky, D.level, IDENT, null, pass);
+    if (show.collision && collision && pass === 0) {
+      if (show.scenery) { gl.enable(gl.POLYGON_OFFSET_FILL); gl.polygonOffset(-1, -1); }
+      drawGroups([collision], D.level, IDENT, null, 0);
+      gl.disable(gl.POLYGON_OFFSET_FILL);
+    }
+    if (show.objects) for (const o of state) {
+      if (o.removed) continue;
+      const m = modelOf(o), M = objectMatrix(o);
+      const tint = o.id === sel ? [1, 0.8, 0.2, 0.18] : o.id === hover ? [1, 1, 1, 0.12] : null;
+      if (m && m.groups && m.groups.length) drawGroups(m.groups, m.source, M, tint, pass);
+      else if (pass === 0) drawGroups([markerBuf], D.level, M, tint, 0);
+    }
+  }
+  gl.disable(gl.BLEND); gl.depthMask(true);
+  for (const o of state) {
+    if (!show.objects || !o.removed || o.res === null) continue;
+    drawLines(boxLines(boundsOf(o), [230, 90, 90]), objectMatrix(o), false);
+  }
+  const s = selected();
+  if (s && show.objects) drawLines(boxLines(boundsOf(s), s.removed ? [240, 100, 100] : [255, 210, 60]), objectMatrix(s), true);
+}
+
+// ---------------------------------------------------------------- state and history
+const selected = () => state.find(o => o.id === sel) || null;
+function snapshot() { return JSON.stringify({ state, kept, sel, texts }); }
+function remember() {
+  undoStack.push(snapshot());
+  if (undoStack.length > 300) undoStack.shift();
+  redoStack.length = 0;
+  dirty = true;
+  updateButtons();
+}
+function restore(s) {
+  const v = JSON.parse(s);
+  state = v.state; kept = v.kept; sel = v.sel; texts = v.texts || {};
+  $('#kept').value = kept.join('\n');
+  parseImports();
+  dirty = true;
+  refreshAll();
+}
+function undo() { if (undoStack.length) { redoStack.push(snapshot()); restore(undoStack.pop()); } }
+function redoIt() { if (redoStack.length) { undoStack.push(snapshot()); restore(redoStack.pop()); } }
+function updateButtons() {
+  $('#undo').disabled = !undoStack.length;
+  $('#redo').disabled = !redoStack.length;
+  setStatus(dirty ? 'unsaved changes' : '');
+}
+function setStatus(text, bad) { const s = $('#status'); s.textContent = text; s.className = bad ? 'bad' : ''; }
+function parseImports() {
+  imports = {};
+  for (const line of kept) {
+    const m = /^\s*import\s+(\S+)\s+from\s+(\S+)\s+(\S+)/.exec(line.split('#')[0]);
+    if (m) imports[m[1]] = { source: m[2], res: parseInt(m[3]) };
+  }
+}
+const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+function changed(o) {
+  return o.res === null || o.removed || !same(o.pos, o.base.pos) || !same(o.rot, o.base.rot) || o.model !== o.base.model ||
+    o.class !== o.base.class || Object.keys(o.props).some(k => o.props[k] !== o.base.props[k]) ||
+    (signProp(o) && signText(o.class, signIndex(o)) !== ((D.signText[String(o.class)] || [])[signIndex(o)] || ''));
+}
+const className = c => (D.classes[String(c)] || { name: 'class ' + c }).name;
+function label(o) {
+  return o.res !== null ? `${className(o.class)} ${o.res}` : `${className(o.class)} “${o.name}”`;
+}
+function uniqueName(want) {
+  let base = (want || 'obj').replace(/[^A-Za-z0-9_]/g, '').slice(0, 20).toLowerCase() || 'obj';
+  if (/^\d/.test(base)) base = 'o' + base;
+  let name = base, k = 2;
+  const used = new Set(state.filter(o => o.res === null).map(o => o.name));
+  while (used.has(name)) name = base + k++;
+  return name;
+}
+
+// the actions
+function select(id, focus) {
+  sel = id;
+  refreshPanel(); refreshList();
+  if (focus) focusOn(selected());
+  redraw();
+}
+function focusOn(o) {
+  if (!o) return;
+  const b = boundsOf(o);
+  cam.target = toGL([o.pos[0], o.pos[1] + (b.lo[1] + b.hi[1]) / 2, o.pos[2]]);
+  cam.dist = Math.max(600, Math.min(6000, 3 * Math.hypot(b.hi[0] - b.lo[0], b.hi[1] - b.lo[1], b.hi[2] - b.lo[2])));
+  redraw();
+}
+// signs: a sign shows string n (its INDEXTEXT, or TEXTNUM) of its class's list in the level's text; the editor shows
+// the English one, and a patch's `text <class> <n> "..."` lines change or add strings in the game's language
+const signProp = o => D.signs[String(o.class)];
+const signIndex = o => signProp(o) ? o.props[signProp(o)] : undefined;
+function signText(cls, n) {
+  const e = (texts[cls] || {})[n];
+  return e !== undefined ? e : ((D.signText[String(cls)] || [])[n] || '');
+}
+function setSignText(cls, n, s) { (texts[cls] = texts[cls] || {})[n] = s; }
+function nextSignIndex(cls) {  // after the level's strings, the edited ones and those signs point at
+  const used = state.filter(o => o.class === cls).map(signIndex).filter(n => typeof n === 'number');
+  return Math.max((D.signText[String(cls)] || []).length, ...Object.keys(texts[cls] || {}).map(n => +n + 1),
+    ...used.map(n => n + 1));
+}
+function newSignText(c, cls, s) {  // a new sign gets a string of its own
+  const n = nextSignIndex(cls);
+  if (n > 254) return setStatus('no room for another sign text in this class (255 at most)', true);
+  c.props[D.signs[String(cls)]] = n;
+  setSignText(cls, n, s);
+}
+
+function duplicate(o) {
+  if (!o) return;
+  remember();
+  const c = clone(o);
+  if (signProp(o)) newSignText(c, o.class, signText(o.class, signIndex(o)));
+  Object.assign(c, {
+    id: 'e' + counter++, res: null, removed: false, name: uniqueName(className(o.class)),
+    source: o.res !== null ? { res: o.res } : clone(o.source), base: clone(o.base),
+  });
+  c.pos = [clamp16(o.pos[0] + 150), o.pos[1], clamp16(o.pos[2] + 150)];
+  const g = groundBelow(c.pos);
+  if (g !== null) c.pos[1] = clamp16(g);
+  state.push(c);
+  select(c.id);
+  refreshAll();
+}
+function toggleRemove(o) {
+  if (!o) return;
+  remember();
+  if (o.res === null) { state = state.filter(x => x !== o); sel = null; }
+  else o.removed = !o.removed;
+  refreshAll();
+}
+function dropToGround(o) {
+  if (!o) return;
+  const g = groundBelow(o.pos);
+  if (g === null) return setStatus('no ground below it', true);
+  remember();
+  o.pos[1] = clamp16(g);
+  refreshAll();
+}
+function setField(o, apply) { remember(); apply(o); refreshList(); refreshPanelMarks(); redraw(); }
+async function addFrom(level, obj) {
+  remember();
+  const theirs = D.signs[String(obj.class)] ? await (await fetch('/api/signtext?level=' + encodeURIComponent(level))).json() : null;
+  const view = rayAt(canvas.getBoundingClientRect().left + canvas.clientWidth / 2, canvas.getBoundingClientRect().top + canvas.clientHeight / 2);
+  const t = hitSurface(view, [0, 1, 2], false);
+  const p = t < Infinity ? add(view.o, mulv(view.d, t)) : cam.target;
+  const v = { class: obj.class, model: obj.model, pos: fromGL(p).map(clamp16), rot: obj.rot.slice(), props: clone(obj.props) };
+  const o = Object.assign(v, {
+    id: 'e' + counter++, res: null, removed: false, name: uniqueName(className(obj.class)),
+    source: { level, res: obj.res }, base: { class: obj.class, model: obj.model, pos: obj.pos.slice(), rot: obj.rot.slice(), props: clone(obj.props) },
+  });
+  if (theirs) newSignText(o, obj.class, (theirs[String(obj.class)] || [])[obj.props[D.signs[String(obj.class)]]] || '');
+  state.push(o);
+  select(o.id);
+  refreshAll();
+}
+
+// ---------------------------------------------------------------- the panel
+function refreshAll() { refreshPanel(); refreshList(); updateButtons(); redraw(); }
+function el(tag, attrs, ...kids) {
+  const e = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs || {})) {
+    if (k === 'on') for (const [ev, f] of Object.entries(v)) e.addEventListener(ev, f);
+    else if (k in e && k !== 'list') e[k] = v; else e.setAttribute(k, v);
+  }
+  for (const k of kids) if (k != null) e.append(k);
+  return e;
+}
+function numberInput(value, onSet, placeholder) {
+  return el('input', {
+    type: 'text', inputMode: 'numeric', value: value === undefined || value === UNSET ? '' : String(value),
+    placeholder: placeholder || '', on: {
+      change: e => {
+        const t = e.target.value.trim(), v = /^-?(0x[0-9a-f]+|\d+)$/i.test(t) ? parseInt(t) : NaN;
+        if (Number.isNaN(v)) { e.target.value = value === undefined || value === UNSET ? '' : String(value); return; }
+        onSet(v);
+      },
+    },
+  });
+}
+function xyzInputs(o, key) {
+  return el('div', { className: 'xyz' }, ...[0, 1, 2].map(k => numberInput(o[key][k], v => setField(o, x => { x[key][k] = clamp16(v); }))));
+}
+function refreshPanelMarks() {
+  const o = selected(), m = $('#selmark');
+  if (o && m) m.textContent = o.removed ? 'removed' : o.res === null ? 'new' : changed(o) ? 'changed' : 'unchanged';
+}
+function refreshPanel() {
+  const box = $('#selpanel'), o = selected();
+  box.className = o ? '' : 'hint';
+  box.replaceChildren();
+  if (!o) { box.textContent = 'Click an object in the view or the list.'; return; }
+  const from = o.res !== null ? `this level's object ${o.res}` :
+    o.source.level ? `a copy of ${o.source.level} object ${o.source.res}` : `a copy of object ${o.source.res}`;
+  box.append(el('div', { className: 'title' }, el('b', {}, className(o.class)), ' ', el('span', { id: 'selmark' })),
+    el('div', { className: 'hint' }, from));
+  const g = el('div', { className: 'grid' });
+  if (o.res === null) g.append(el('span', {}, 'Name'), el('input', {
+    value: o.name, on: { change: e => setField(o, x => { x.name = uniqueName(e.target.value); e.target.value = x.name; }) },
+  }));
+  g.append(el('span', {}, 'Position'), xyzInputs(o, 'pos'));
+  g.append(el('span', { title: '4096 is a full turn' }, 'Rotation'), xyzInputs(o, 'rot'));
+  g.append(el('span', {}, 'Facing'), el('div', { className: 'hint', style: 'margin:0' },
+    `${Math.round(((o.rot[1] % FULL_TURN) + FULL_TURN) % FULL_TURN * 360 / FULL_TURN)}° (Q and E turn it)`));
+  // model
+  const ms = el('select', { on: { change: e => setField(o, x => { const v = e.target.value; x.model = v === 'base' ? x.base.model : /^\d+$/.test(v) ? +v : v; }) } });
+  if (o.source && o.source.level) ms.append(el('option', { value: 'base' }, `its own (${o.source.level} model ${o.base.model})`));
+  for (const [r, m] of Object.entries(D.models))
+    ms.append(el('option', { value: r }, `${r}: ${m.animated ? 'animated' : 'static'}${m.users.length ? ' — ' + m.users.slice(0, 3).join(', ') : ''}`));
+  for (const name of Object.keys(imports)) ms.append(el('option', { value: name }, `${name}: imported`));
+  ms.value = o.source && o.source.level && o.model === o.base.model ? 'base' : String(o.model);
+  g.append(el('span', {}, 'Model'), ms);
+  // class
+  const cs = el('select', { on: { change: e => { setField(o, x => { x.class = +e.target.value; }); refreshPanel(); } } });
+  for (const [id, c] of Object.entries(D.classes).sort((a, b) => a[1].name.localeCompare(b[1].name)))
+    cs.append(el('option', { value: id }, `${c.name} (${id})`));
+  cs.value = String(o.class);
+  g.append(el('span', {}, 'Class'), cs);
+  if (signProp(o)) {
+    const n = signIndex(o);
+    g.append(el('span', { title: `string ${n} of the class's text` }, 'Text'), el('textarea', {
+      value: signText(o.class, n), rows: 5, spellcheck: false,
+      on: { change: e => { remember(); setSignText(o.class, n, e.target.value); refreshPanelMarks(); refreshList(); } },
+    }));
+  }
+  box.append(g);
+  if (signProp(o)) box.append(el('p', { className: 'hint' }, 'The text is shown here in English; the game shows it in ' +
+    'whichever language it runs in. Signs with the same text number share their text.'));
+  // properties
+  const props = (D.classes[String(o.class)] || { props: [] }).props;
+  if (props.length) {
+    const pg = el('div', { className: 'grid props' });
+    for (const [off, name] of props) {
+      const v = o.props[off];
+      pg.append(el('span', { title: `${name} (+${off})` }, name),
+        numberInput(v, nv => setField(o, x => { x.props[off] = nv | 0; }), v === UNSET ? 'unset' : v === undefined ? '?' : ''));
+    }
+    box.append(el('h3', { style: 'margin-top:10px' }, 'Properties'), pg);
+  }
+  box.append(el('div', { className: 'row', style: 'margin-top:10px' },
+    el('button', { on: { click: () => focusOn(o) } }, 'Look at'),
+    el('button', { on: { click: () => dropToGround(o) } }, 'Drop to ground'),
+    el('button', { on: { click: () => duplicate(o) } }, 'Copy'),
+    el('button', { on: { click: () => toggleRemove(o) } }, o.removed ? 'Bring back' : 'Remove'),
+    o.res !== null && changed(o) && !o.removed ? el('button', {
+      on: { click: () => { remember(); Object.assign(o, clone(o.base)); refreshAll(); } },
+    }, 'Undo its changes') : null));
+  if (o.res !== null) box.append(el('p', { className: 'hint' }, 'Removing an object that another one refers to (a switch target, a path) can crash the game.'));
+  refreshPanelMarks();
+}
+function refreshList() {
+  const f = $('#filter').value.trim().toLowerCase(), list = $('#list');
+  list.replaceChildren();
+  for (const o of state) {
+    const name = label(o);
+    if (f && !name.toLowerCase().includes(f)) continue;
+    const mark = o.removed ? ['gone', '×'] : o.res === null ? ['new', '+'] : changed(o) ? ['changed', '●'] : ['', ''];
+    list.append(el('div', {
+      className: 'item' + (o.id === sel ? ' sel' : '') + (o.removed ? ' gone' : ''), on: { click: () => select(o.id, true) },
+    }, el('span', { className: 'mark ' + mark[0] }, mark[1]), el('span', { className: 'c' }, name),
+      el('span', { className: 'n' }, `${o.pos[0]}, ${o.pos[1]}, ${o.pos[2]}`)));
+  }
+}
+let others = [];
+async function loadOthers() {
+  const level = $('#olevel').value;
+  $('#olist').replaceChildren(el('div', { className: 'item' }, 'Loading…'));
+  const r = await fetch('/api/objects?level=' + encodeURIComponent(level));
+  others = r.ok ? await r.json() : [];
+  refreshOthers();
+}
+function refreshOthers() {
+  const f = $('#ofilter').value.trim().toLowerCase(), level = $('#olevel').value, list = $('#olist');
+  list.replaceChildren();
+  for (const o of others) {
+    const name = `${className(o.class)} ${o.res}`;
+    if (f && !name.toLowerCase().includes(f)) continue;
+    list.append(el('div', { className: 'item', title: 'Add a copy here', on: { click: () => addFrom(level, o) } },
+      el('span', { className: 'mark new' }, '+'), el('span', { className: 'c' }, name),
+      el('span', { className: 'n' }, `${o.pos[0]}, ${o.pos[1]}, ${o.pos[2]}`)));
+  }
+}
+
+// ---------------------------------------------------------------- settings (kept by the server in a file on this computer)
+const settings = { left: 'rotate', middle: 'pan', right: 'pan', step: 150 };
+const BUTTONS = ['left', 'middle', 'right'];
+function showSettings() {
+  $('#setLeft').value = settings.left; $('#setMiddle').value = settings.middle; $('#setRight').value = settings.right;
+  $('#setStep').value = String(settings.step);
+  const say = { rotate: 'turn the view', pan: 'pan the view' };
+  $('#helpLeft').textContent = say[settings.left];
+  $('#helpMiddle').textContent = say[settings.middle];
+  $('#helpRight').textContent = say[settings.right];
+}
+async function loadSettings() {
+  try { Object.assign(settings, await (await fetch('/api/settings')).json()); } catch (e) { /* the defaults */ }
+  showSettings();
+}
+function saveSettings() {
+  fetch('/api/settings', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(settings) });
+  showSettings();
+}
+for (const [id, key] of [['setLeft', 'left'], ['setMiddle', 'middle'], ['setRight', 'right']])
+  $('#' + id).addEventListener('change', e => { settings[key] = e.target.value; saveSettings(); });
+$('#setStep').addEventListener('change', e => {
+  const v = parseInt(e.target.value, 10);
+  if (v >= 1 && v <= 100000) settings.step = v;
+  saveSettings();
+});
+loadSettings();
+
+// ---------------------------------------------------------------- input
+let drag = null;
+canvas.addEventListener('contextmenu', e => e.preventDefault());
+canvas.addEventListener('mousedown', e => {
+  canvas.focus();
+  const ray = rayAt(e.clientX, e.clientY);
+  const button = BUTTONS[e.button];
+  if (!button) return;
+  const hits = e.button === 0 ? objectsAlong(ray) : [];
+  if (hits.length) {
+    // a press on the selected object grabs it; a click on it (no drag) picks the one behind it
+    const mine = hits.find(x => x.id === sel), o = mine || hits[0];
+    {
+      if (o.id !== sel) select(o.id);
+      const plane = -o.pos[1];
+      const t = Math.abs(ray.d[1]) > 1e-6 ? (plane - ray.o[1]) / ray.d[1] : 0;
+      const hit = add(ray.o, mulv(ray.d, t));
+      drag = { kind: 'object', o, hits, cycle: !!mine, x: e.clientX, y: e.clientY, moved: false, start: o.pos.slice(), grab: [o.pos[0] - fromGL(hit)[0], o.pos[2] - fromGL(hit)[2]] };
+    }
+  } else {
+    drag = { kind: settings[button] === 'pan' ? 'pan' : 'orbit', left: e.button === 0, x: e.clientX, y: e.clientY, moved: false };
+  }
+});
+window.addEventListener('mouseup', () => {
+  if (drag && drag.left && !drag.moved) select(null);  // a left click on nothing
+  if (drag && drag.kind === 'object' && drag.moved) { refreshPanel(); refreshList(); }
+  if (drag && drag.kind === 'object' && !drag.moved && drag.cycle && drag.hits.length > 1)
+    select(drag.hits[(drag.hits.indexOf(drag.o) + 1) % drag.hits.length].id);
+  drag = null;
+});
+window.addEventListener('mousemove', e => {
+  if (!drag) return hoverAt(e);
+  const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+  if (!drag.moved && Math.hypot(dx, dy) < 4) return;
+  if (drag.kind === 'orbit') {
+    drag.moved = true;
+    cam.yaw -= dx * 0.006; cam.pitch = Math.max(-1.5, Math.min(1.5, cam.pitch + dy * 0.006));
+    drag.x = e.clientX; drag.y = e.clientY;
+  } else if (drag.kind === 'pan') {
+    drag.moved = true;
+    const f = norm(sub(cam.target, eye())), right = norm(cross(f, [0, 1, 0])), up = cross(right, f);
+    const s = cam.dist * 0.0013;
+    cam.target = add(cam.target, add(mulv(right, -dx * s), mulv(up, dy * s)));
+    drag.x = e.clientX; drag.y = e.clientY;
+  } else {
+    const o = drag.o, ray = rayAt(e.clientX, e.clientY);
+    if (!drag.moved) { drag.moved = true; remember(); }
+    if (e.shiftKey) {                       // up and down: a vertical plane facing the view
+      const f = norm([ray.d[0], 0, ray.d[2]]), p = toGL(o.pos);
+      const den = dot(ray.d, f);
+      if (Math.abs(den) > 1e-6) {
+        const t = dot(sub(p, ray.o), f) / den;
+        o.pos[1] = clamp16(-(ray.o[1] + ray.d[1] * t));
+      }
+    } else if ($('#snap').checked) {        // along the ground under the cursor
+      const t = hitSurface(ray, [0, 1, 2], false);
+      if (t < Infinity) {
+        const p = add(ray.o, mulv(ray.d, t));
+        o.pos = fromGL(p).map(clamp16);
+      }
+    } else {                                // in the horizontal plane at its height
+      const plane = -drag.start[1];
+      if (Math.abs(ray.d[1]) > 1e-6) {
+        const t = (plane - ray.o[1]) / ray.d[1];
+        if (t > 0) {
+          const p = fromGL(add(ray.o, mulv(ray.d, t)));
+          o.pos[0] = clamp16(p[0] + drag.grab[0]); o.pos[2] = clamp16(p[2] + drag.grab[1]);
+        }
+      }
+    }
+    refreshPanelMarks();
+  }
+  redraw();
+});
+let hoverTimer = 0;
+function hoverAt(e) {
+  if (e.target !== canvas) { if (hover) { hover = null; $('#tip').style.display = 'none'; redraw(); } return; }
+  const now = performance.now();
+  if (now - hoverTimer < 40) return;
+  hoverTimer = now;
+  const o = pickObject(rayAt(e.clientX, e.clientY)), tip = $('#tip');
+  const id = o ? o.id : null;
+  if (o) {
+    const r = canvas.getBoundingClientRect();
+    tip.textContent = label(o) + (o.removed ? ' (removed)' : '');
+    tip.style.left = (e.clientX - r.left + 14) + 'px'; tip.style.top = (e.clientY - r.top + 10) + 'px';
+    tip.style.display = 'block';
+  } else tip.style.display = 'none';
+  if (id !== hover) { hover = id; redraw(); }
+}
+canvas.addEventListener('wheel', e => {
+  // the view moves forward and back along where it looks, the same distance per notch, with no end
+  e.preventDefault();
+  const f = norm(sub(cam.target, eye())), notches = e.deltaMode === 1 ? e.deltaY / 3 : e.deltaY / 100;
+  cam.target = add(cam.target, mulv(f, -notches * settings.step));
+  redraw();
+}, { passive: false });
+canvas.addEventListener('dblclick', e => {
+  const ray = rayAt(e.clientX, e.clientY), t = hitSurface(ray, null, show.scenery);
+  if (t < Infinity) {
+    const p = add(ray.o, mulv(ray.d, t));
+    cam.dist = Math.max(300, Math.min(cam.dist, Math.hypot(...sub(p, ray.o))));
+    cam.target = p;
+    redraw();
+  }
+});
+window.addEventListener('keydown', e => {
+  const typing = /INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName);
+  const mod = e.ctrlKey || e.metaKey, k = e.key.toLowerCase();
+  if (mod && k === 's') { e.preventDefault(); save(); return; }
+  if (typing) return;
+  const o = selected();
+  if (mod && k === 'z') { e.preventDefault(); e.shiftKey ? redoIt() : undo(); return; }
+  if (mod && k === 'y') { e.preventDefault(); redoIt(); return; }
+  if (mod && k === 'd') { e.preventDefault(); duplicate(o); return; }
+  if (mod) return;
+  if ((k === 'delete' || k === 'backspace') && o) { e.preventDefault(); toggleRemove(o); return; }
+  if (k === 'f') return focusOn(o);
+  if (k === 'g') return dropToGround(o);
+  if ((k === 'q' || k === 'e') && o) {
+    const step = (e.shiftKey ? 16 : 256) * (k === 'q' ? 1 : -1);
+    setField(o, x => { x.rot[1] = ((x.rot[1] + step) % FULL_TURN + FULL_TURN) % FULL_TURN; });
+    refreshPanel();
+    return;
+  }
+  const f = norm([cam.target[0] - eye()[0], 0, cam.target[2] - eye()[2]]), r = [-f[2], 0, f[0]];
+  const arrows = { arrowup: f, arrowdown: mulv(f, -1), arrowleft: mulv(r, -1), arrowright: r };
+  if (arrows[k] && o) {
+    e.preventDefault();
+    const d = fromGL(mulv(arrows[k], e.shiftKey ? 100 : 10));
+    setField(o, x => { x.pos[0] = clamp16(x.pos[0] + d[0]); x.pos[2] = clamp16(x.pos[2] + d[2]); });
+    refreshPanel();
+    return;
+  }
+  const moves = { w: f, s: mulv(f, -1), a: mulv(r, -1), d: r };
+  if (moves[k]) { cam.target = add(cam.target, mulv(moves[k], cam.dist * 0.06)); redraw(); }
+});
+
+// ---------------------------------------------------------------- save
+async function save() {
+  kept = $('#kept').value.split('\n').filter((l, i, a) => l.trim() || i < a.length - 1);
+  setStatus('saving…');
+  const r = await fetch('/api/save', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ state, kept, texts }) });
+  const v = await r.json();
+  if (!r.ok || v.error) return setStatus('not saved: ' + (v.error || r.status), true);
+  dirty = false;
+  updateButtons();
+  setStatus('saved');
+  const out = $('#saved');
+  out.hidden = false;
+  out.textContent = v.saved + '\n\n' + v.text;
+}
+window.addEventListener('beforeunload', e => { if (dirty) { e.preventDefault(); e.returnValue = ''; } });
+
+// ---------------------------------------------------------------- start
+// the start screen: a level, and the mod (one of the Mods folder's, or a new one) its patch is saved in
+async function showChooser() {
+  const c = await (await fetch('/api/choices')).json();
+  $('#cLevel').replaceChildren(...c.levels.map(([l, n]) => el('option', { value: l }, n === l ? l : `${n} (${l})`)));
+  $('#cLevel').value = c.level || 'Lvl-03';
+  $('#cMod').replaceChildren(...c.mods.map(m => el('option', { value: m }, m)), el('option', { value: '' }, 'A new mod…'));
+  $('#cMod').value = c.mod && c.mods.includes(c.mod) ? c.mod : c.mods.length ? c.mods[0] : '';
+  $('#cNew').hidden = $('#cMod').value !== '';
+  $('#cDir').textContent = 'Mods folder: ' + c.modsDir;
+  $('#loading').style.display = 'none';
+  $('#chooser').hidden = false;
+}
+$('#cMod').addEventListener('change', () => { $('#cNew').hidden = $('#cMod').value !== ''; if (!$('#cNew').hidden) $('#cNew').focus(); });
+$('#cOpen').addEventListener('click', async () => {
+  const mod = $('#cMod').value || $('#cNew').value.trim();
+  if (!/^[A-Za-z0-9_-]{1,32}$/.test(mod)) { $('#cStatus').textContent = 'A mod’s name is letters, digits, - and _'; return; }
+  const r = await fetch('/api/open', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ level: $('#cLevel').value, mod }) });
+  const v = await r.json();
+  if (!r.ok || v.error) { $('#cStatus').textContent = v.error || 'Could not open it'; return; }
+  location.href = '/';
+});
+$('#change').addEventListener('click', () => {
+  if (dirty && !confirm('Leave without saving your changes?')) return;
+  dirty = false;
+  location.href = '/?choose';
+});
+// the editor stops when its page has been closed for a while (started from a launcher): tell it the page is open
+fetch('/api/ping').catch(() => {});
+setInterval(() => fetch('/api/ping').catch(() => {}), 5000);
+
+async function start() {
+  if (location.search.includes('choose')) return showChooser();
+  const r = await fetch('/api/start');
+  D = await r.json();
+  if (D.choose) return showChooser();
+  if (D.error) { $('#loading').textContent = D.error; return; }
+  state = D.state; kept = D.kept; texts = D.texts || {};
+  $('#lvl').textContent = D.level; $('#comm').textContent = D.title;
+  $('#patchpath').textContent = 'Saves ' + D.patch;
+  document.title = `${D.title} – Level Editor`;
+  $('#kept').value = kept.join('\n');
+  parseImports();
+  buildCollision();
+  markerBuf = Object.assign(buffer(boxSolid(MARKER, [235, 150, 60])), { page: -1 });
+  for (const [l, c] of D.levels) if (l !== D.level) $('#olevel').append(el('option', { value: l }, c === l ? l : `${c} (${l})`));
+  const wolf = state.find(o => o.class === 0) || state[0];
+  if (wolf) { cam.target = toGL(wolf.pos); cam.dist = 2500; }
+  loadPages(D.level);
+  const sr = await fetch('/api/scenery');
+  buildScenery(await sr.json());
+  $('#loading').style.display = 'none';
+  refreshAll();
+  dirty = false; updateButtons();
+  loadOthers();
+}
+for (const [id, key] of [['showScenery', 'scenery'], ['showCollision', 'collision'], ['showSky', 'sky'], ['showObjects', 'objects']])
+  $('#' + id).addEventListener('change', e => { show[key] = e.target.checked; redraw(); });
+$('#save').addEventListener('click', save);
+$('#undo').addEventListener('click', undo);
+$('#redo').addEventListener('click', redoIt);
+$('#filter').addEventListener('input', refreshList);
+$('#ofilter').addEventListener('input', refreshOthers);
+$('#olevel').addEventListener('change', loadOthers);
+$('#kept').addEventListener('change', e => {
+  remember();
+  kept = e.target.value.split('\n');
+  parseImports();
+  refreshAll();
+});
+window.addEventListener('resize', redraw);
+start().catch(err => { $('#loading').textContent = 'Could not load the level: ' + err; });
+</script>
+</body>
+</html>

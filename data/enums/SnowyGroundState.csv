@@ -1,0 +1,5 @@
+value,name,meaning
+#,SnowyGroundState,state field of SnowyGround
+0x0,SNOWYGROUND_ST_INTACT,state after 2 (inferred)
+0x1,SNOWYGROUND_ST_BREAK,Update 1: anim EXPLOD1 when something stands on top (inferred)
+0x2,SNOWYGROUND_ST_BROKEN_ANIM,"Update 2: on anim end -> 0, camera released (inferred)"

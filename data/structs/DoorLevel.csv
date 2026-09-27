@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x64,Box *,backBox,"PROPERTY_DOORLEVEL_IDBOXBACK (prop 0); standing in it means Ralph approaches the door from the back, which selects the next level up. Null-checked at 0x4b3ee7 before the six-way containment test.",verified
+0x68,s8,state,"0 uninitialised (Update starts the idle animation and moves to 1), 1 idle, 3 walk-through requested by MSG_USE, 5 walk-through playing. Only 0, 3 and 5 are dispatched, so 1 is the idle sink.",verified
+0x69,s8,levelNumber,"PROPERTY_DOORLEVEL_LEVELNUMBER (prop 4), a disc level index 0..17 indexed into g_levelLabels. It is also the render gate: a door with 0 here is never drawn. Read with movsx everywhere.",verified
+0x6a,s8,enteredFromBack,"Set by MSG_QUERY_ACTION when Ralph stands inside backBox; with it set AND levelNumber non-zero, Update writes levelNumber+1 as the level to load, so one door object serves two adjacent levels. The banner path increments a LOCAL copy with no levelNumber check, so the two can disagree at level 0.",verified
+0x6b,s8,wolfFacingDoor,Set by MSG_USE to 1 when the heading from the door to Ralph is within 0x400 (90 degrees) of the door's own facing (`setl` at 0x4b413e); picks the walk-through animation pair 5/6 instead of 4/2.,verified

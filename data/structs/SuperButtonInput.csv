@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x0,ScnObject *,sender,"The button that owns this slot; claimed the first time that sender sends MSG_SWITCH_ON/OFF (insert at 0x4f89e2, guarded by `cmp ecx,2; jge` at 0x4f89d3). A third distinct sender is silently dropped.",verified
+0x4,s32,value,"Last value that sender reported: 1 from MSG_SWITCH_ON 0x1f, 0 from MSG_SWITCH_OFF 0x20 (stored at 0x4f89b0). SuperButton_AreInputsOn reads the two concrete slots at +0x48 and +0x50.",verified

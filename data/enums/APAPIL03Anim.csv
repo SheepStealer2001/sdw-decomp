@@ -1,0 +1,6 @@
+value,name,meaning
+#,APAPIL03Anim,animation ids of WAR model APAPIL03 (its WAR type-0x86 table; names verified from the level files). Played by: Butterfly; the model of Butterfly is inferred (the only table whose ids match what the class plays)
+0x0,APAPIL03_ANIM_FLY,WAR name FLY
+0x1,APAPIL03_ANIM_FLY1,WAR name FLY1
+0x2,APAPIL03_ANIM_FLY2,WAR name FLY2
+0x3,APAPIL03_ANIM_FLY1A,WAR name FLY1A

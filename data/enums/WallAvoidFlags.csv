@@ -1,0 +1,4 @@
+value,name,meaning
+#,WallAvoidFlags,"WallAvoid.flags (+6), Sheep+0xCA / Wolf+0x2B6"
+0x1,WALLAV_ACTIVE,last move reported a wall hit (moveResult & 2); the steer heading is replaced by wall normal ±0x300
+0x2,WALLAV_TURN_POSITIVE,"turn side: +0x300 when set, -0x300 when clear. Set when wrap(steer - wall) > 0x200, cleared when < -0x200"

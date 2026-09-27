@@ -1,0 +1,6 @@
+value,name,meaning
+#,FallingGate2State,state field of FallingGate2
+0x0,FGATE2_ST_IDLE,"SetState 0: anim CLOSED (closed) or OPEN (hidden, contact off) (inferred)"
+0x1,FGATE2_ST_OPENING,"SetState 1: anim MV_OPEN, one-shot freezes the Wolf and locks the button; Update: raises the box, -> 0 (inferred)"
+0x2,FGATE2_ST_FALLING,SetState 2: anim MCLOSE2A at openAnimMs/fallingTimeMs speed; Update: -> 3 when the area is clear (inferred)
+0x3,FGATE2_ST_SLAM,"SetState 3: anim MCLOSE2B, box lowered, closed = 1; Update: on anim end -> 0 (inferred)"

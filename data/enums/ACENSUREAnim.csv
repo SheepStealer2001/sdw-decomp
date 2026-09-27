@@ -1,0 +1,4 @@
+value,name,meaning
+#,ACENSUREAnim,animation ids of WAR model ACENSURE (its WAR type-0x86 table; names verified from the level files). Played by: Wolf
+0x0,ACENSURE_ANIM_APPEAR,WAR name APPEAR
+0x2,ACENSURE_ANIM_DAPPEAR,WAR name DAPPEAR

@@ -1,0 +1,8 @@
+value,name,meaning
+#,CamRequestFlags,"Bits of g_camReqFlags 0x6e45be, set by Wolf_UpdateCamera / Robot_UpdateCamera (reset value 0x10)"
+0x1,CAMREQ_LEDGE_PROBE,Camera_ProbeLedgeAhead may fire (Wolf state flag 0x10 and not Wolf flags_ 0x20)
+0x2,CAMREQ_SNAP_YAW,"Wolf flags_ 0x400: yaw snaps to 90-degree steps with edge-triggered camL/camR, and cuts are disabled (the solver's local_54 = 0)"
+0x4,CAMREQ_USE_PITCH,desired pitch = request pitch 0x6e45b8
+0x8,CAMREQ_USE_YAW,desired yaw = request yaw 0x6e45ba
+0x10,CAMREQ_PAD_ROTATE,mode 5: player may turn the camera
+0x20,CAMREQ_RESTRICT,mode 5: apply g_camRestriction and its trajectory

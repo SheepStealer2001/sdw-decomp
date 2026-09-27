@@ -1,0 +1,8 @@
+offset,ctype,name,meaning,confidence
+0x0,char *,text,question / body string,verified
+0x4,MenuPage *,pages,"the choice node array whose root the attached list walks (PorkyLevel01_PostLoadInit 0x45ab26-0x45ab32 stores &choicePages here, &choiceMenu at +8)",verified
+0x8,Menu *,list,attached choice list; its s16 at +4 is the row count and its u16 at +8 the cursor row,verified
+0xc,u8,cursorRow,"highlighted choice row, derived from list[+8]-1",verified
+0x10,s32,fits,1 when body plus list fits the window,verified
+0x14,s16[4],rect,"{x,y,w,h}, frame inflated by 4",verified
+0x1c,u32,bgColor,panel fill colour passed to Ui_DrawPanelFill,verified

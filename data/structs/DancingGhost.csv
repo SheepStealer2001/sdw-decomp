@@ -1,0 +1,17 @@
+offset,ctype,name,meaning,confidence
+0x64,DanceStep[6],steps,"the step queue (queueCount +0xdc counts it, max 6)",verified
+0xdc,u16,queueCount,0..6; PushStep refuses at 6 (0x4414eb cmp 6/jl); the PopStep decrement is 0x4414b3,verified
+0xe0,s32,newStep,set to 1 when a step is pushed (0x4414bd),verified
+0xe4,s32,stepDone,cleared on a new step (0x4414ca),verified
+0xe8,u32,elapsedMs,"step clock, accumulated only while unpaused (UpdateState 0x4429a0); compared unsigned",verified
+0xec,u16,soundHandle,"cleared by Init (0x44170c), stopped and cleared by Despawn (0x441bd3)",verified
+0xf0,Box *,chatBox,Scn_GetPropBox result stored by Init (0x44177c),verified
+0xf4,DancingGhostFlagBits,danceFlags,"flag byte; bit view DancingGhostFlagBits (bit 0 tambourine, bits 1/2 partner coordination)",verified
+0xf8,AltModel,altTambourine,"AltModel: outAlts for id-list 0xc0 (0x442829 add edx,0xf8, nbAlt 1)",verified
+0x108,AltModel,model,"AltModel: outMain (0x442839 add ecx,0x108); 0x108+0x10 = 0x118 = carryPhase",verified
+0x118,u16,carryPhase,UpdateCarry compares with 0/1 and writes 1 (0x44235f),verified
+0x11a,u16,animPhase,UpdateState case 13 clears and increments it,verified
+0x11c,Vec3s,homePos,copied from pos by Init (0x44171e-0x44172c),verified
+0x122,Vec3s,homeRot,copied from rot by Init (0x441739-0x441746),verified
+0x128,TrajFollower,traj,"TrajFollower: TrajFollower_Init(this+0x128, g_dgTrajectory, 500, 0x800, 1, 1, 0x32); 0x128+0x20 = 0x148 = prevStep",verified
+0x148,Vec3s,previousStep,cleared by Init (0x4416e8/6f4/700); StepToward stores the per-axis movement (0x441c8e),verified

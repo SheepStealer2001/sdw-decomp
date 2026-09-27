@@ -1,0 +1,2 @@
+offset,ctype,name,meaning,confidence
+0x0,u8:1,active,"an emitter's flags byte (+0x22) as the code reads it: Wolf_ClearEffects tests it with a byte load, and dl,1 and a byte-to-int zero extension (0x48e1fd), VC6's code for a u8 bitfield",verified

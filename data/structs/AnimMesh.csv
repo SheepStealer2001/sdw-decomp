@@ -1,0 +1,14 @@
+offset,ctype,name,meaning,confidence
+0x20,MeshPart *,parts,"array of partCount hierarchy parts, 0x70 bytes each (new MeshPart[n] in AnimMesh_Load 0x40b72b-0x40b76c: count cookie, MeshPart_Ctor 0x41a070 per element); +0x04 = parent index, +0x0c = vertex count, +0x10 = part matrix, +0x14/+0x18 = the pose inputs for 0x41a4da",verified
+0x24,u32,partCount,"number of hierarchy parts, read from the resource by 0x41be6d",verified
+0x28,MeshAnimSeq *,sequences,"array of seqCount 0x14-byte sequence records; +0x0c = frame array (0xc bytes per frame, the u16 at +4 being half the frame duration in ms), +0x10 = frame count",verified
+0x2c,u32,seqCount,"number of animation sequences, read from the resource by 0x41bf4e",verified
+0x30,u8,playing,0 means the next update does the first-frame initialisation; cleared from the loop flag when a non-looping sequence ends,verified
+0x34,Timer *,animTimer,"a privately owned Timer (operator new 0x28) that drives the animation in wall-clock milliseconds, independent of g_dt, g_timeScale and the pause flag",verified
+0x38,u8,loop,1 keeps the sequence repeating when its last frame is reached,verified
+0x39,u8,blend,1 cross-fades into a newly requested sequence using elapsedMs/frameDurationMs as the weight instead of snapping,verified
+0x3c,s32,currentSeq,"sequence being played; -1 at construction, compared against requestedSeq to detect a change",verified
+0x40,s32,frameIndex,index of the NEXT frame to apply (it is incremented immediately after each frame is applied),verified
+0x44,s32,requestedSeq,"sequence requested by AnimMesh_SetSequence, latched into currentSeq by the update",verified
+0x48,float,elapsedMs,milliseconds accumulated in the current frame from the private Timer; frameDurationMs is subtracted on each advance so the remainder is carried,verified
+0x4c,float,frameDurationMs,"duration of the current frame, computed as 2 * (u16 at frameRecord+4), so frame times are authored in half-milliseconds",verified

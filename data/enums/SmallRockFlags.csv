@@ -1,0 +1,7 @@
+value,name,meaning
+#,SmallRockFlags,SmallRock +0x174 rockFlags
+0x1,SROCKF_THROWN,"thrown (drop with fall flag) or launched; enables shatter on msg 0x25, DEATHBOX return and MSG_KILL return"
+0x2,SROCKF_FLOATING,ice-floe mode: renders iceBody and collides with its boxes
+0x4,SROCKF_HAS_ICE_BODY,AGLACON1 body built at Init
+0x8,SROCKF_IN_WATER,touched a water zone; ReturnHome after 4 s of fall
+0x10,SROCKF_INIT_AT_RESET,PROPERTY_SMALLROCK_INITATRESET: Reset returns it home

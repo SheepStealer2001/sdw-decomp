@@ -1,0 +1,6 @@
+value,name,meaning
+#,RaftFlags,u8 Raft+0x13e
+0x1,RAFT_FAN_BLOWN,msg 0x14 received since the last update; cleared at the end of each afloat update
+0x2,RAFT_RESET_PROP,RESET property: Reset moves the raft back to startPos; a sunk raft becomes non-solid (0x400)
+0x4,RAFT_AFLOAT,set by Init/Reset; cleared when hit with the Wolf aboard (sinks)
+0x8,RAFT_HIT,"msg 0 from CannonBall (0x5F) or WaterMine (0xB1); acted on only if the Wolf is aboard, cleared each afloat update"

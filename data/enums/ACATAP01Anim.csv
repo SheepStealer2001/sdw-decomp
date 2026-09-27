@@ -1,0 +1,3 @@
+value,name,meaning
+#,ACATAP01Anim,animation ids of WAR model ACATAP01 (its WAR type-0x86 table; names verified from the level files). Played by: Catapult
+0x0,ACATAP01_ANIM_STAND1,WAR name STAND1

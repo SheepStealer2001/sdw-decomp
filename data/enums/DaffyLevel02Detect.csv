@@ -1,0 +1,6 @@
+value,name,meaning
+#,DaffyLevel02Detect,"Return value of DaffyLevel02_DetectWolf, stored in +0xb6."
+0,DAFFY2_DET_NONE,
+1,DAFFY2_DET_HEARD,Wolf msg 0x403 (noisy) anywhere
+2,DAFFY2_DET_MOVED,in beam and msg 0x1C (moved this frame)
+3,DAFFY2_DET_SEEN,in beam and msg 0x404 (visible)

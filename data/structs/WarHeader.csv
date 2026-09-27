@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x4,char[4],version,"'V2.6'. Load_WAR prefix-compares it with sprintf('V%u.%u', 2, 6), temporarily NUL-ing +8. The same magic BsFile_Open validates, which is why Load_WarMeshes can open the WAR as a BsFile.",verified
+0x8,u8,clearR,red of the level clear/fog colour. Load_DAVnWAR builds (r>>1)<<16 | (g>>1)<<8 | (b>>1) and passes it to PolyBatcher_SetClearColor and Frustrum_SetFogColor.,verified
+0x9,u8,clearG,green of the clear/fog colour (halved at use),verified
+0xa,u8,clearB,blue of the clear/fog colour (halved at use),verified
+0xc,u32,resourceCount,"number of u32 entries in the table at +0x10; the loop bound of Load_WAR, Load_WarMeshes and every Load_DAVnWAR pass",verified

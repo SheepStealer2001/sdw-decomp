@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,CamSetup *,camera,camera setup record {u16 focal; s16 rot[3]; Vec3s eye},verified
+0x4,Box *,box,"CAMERAnnBOX (Wolf pos tested on 3 axes, inclusive)",verified
+0x8,u32,blendIn,CAMERAnnINTB; nonzero gives CAMSCR_BLEND_IN (1),verified
+0xc,u32,blendOut,CAMERAnnINTE; nonzero gives CAMSCR_BLEND_OUT (2),verified

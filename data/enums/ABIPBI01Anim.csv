@@ -1,0 +1,7 @@
+value,name,meaning
+#,ABIPBI01Anim,animation ids of WAR model ABIPBI01 (its WAR type-0x86 table; names verified from the level files). Played by: BipbipLevel14
+0x0,ABIPBI01_ANIM_RUN1,WAR name RUN1
+0x4,ABIPBI01_ANIM_EAT,WAR name EAT
+0x5,ABIPBI01_ANIM_START,WAR name START
+0x6,ABIPBI01_ANIM_STOP2,WAR name STOP2
+0x7,ABIPBI01_ANIM_STAND,WAR name STAND

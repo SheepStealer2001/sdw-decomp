@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x0,void *,texture,non-NULL means the sprite is loadable; Sprite_Draw returns immediately when it is 0,verified
+0x6,u16,texPage,texture page index; +4 gives the RenderPoly.type written to g_draw2dPolyType,verified
+0x8,s16,widthMinus1,"the stored value is (bitmap width - 1), not the width. Same for +0xA",verified
+0xa,s16,height,sprite height in texels,verified
+0xc,u8,u,sub-rect origin U within the 256px texture page,verified
+0xd,u8,v,sub-rect origin V within the 256px texture page,verified

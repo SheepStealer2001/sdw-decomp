@@ -1,0 +1,8 @@
+offset,ctype,name,meaning,confidence
+0x0,u8:1,pushed,"bit 0 (1-byte unsigned unit) | Rock +0x185: seven unsigned one-bit fields, accessed through r8",verified
+0x0,u8:1,moving,bit 1 (1-byte unsigned unit),verified
+0x0,u8:1,allowZ,bit 2 (1-byte unsigned unit),verified
+0x0,u8:1,allowX,bit 3 (1-byte unsigned unit),verified
+0x0,u8:1,reset,bit 4 (1-byte unsigned unit),verified
+0x0,u8:1,fallsAtInit,bit 5 (1-byte unsigned unit),verified
+0x0,u8:1,debrisValid,bit 6 (1-byte unsigned unit),verified

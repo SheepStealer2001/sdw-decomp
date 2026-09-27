@@ -1,0 +1,4 @@
+value,name,meaning
+#,CineKeyKind,top two bits of a key's u16 time word (key >> 14); time = (key & 0x3fff) * 16 ms
+1,CINE_KEY_STEP,hold the key's value
+2,CINE_KEY_LERP,interpolate to the next key (angles take the shortest path)

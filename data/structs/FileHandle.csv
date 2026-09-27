@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,s32,fd,_open handle; File_Open 0x531f00 returns -1 when it is -1,verified
+0x4,s32,size,file size from lseek(end) in File_Open 0x531f00 (also returned),verified
+0x8,u32,remaining,"bytes not yet read; File_Open sets it to size. Load_MLT compares it unsigned (cmp [ebp-0x18],4 / jbe at 0x548c2d) and allocates remaining-4 for the second checked read",verified
+0xc,u32,field_0c,"never read or written by File_Open/Read/ReadAt/Seek/ReadChecked/Close; INFERRED from the frames: Load_MLT's FileHandle local ends exactly 0x10 bytes below its neighbours ([ebp-0x20], next local at -0x10, 0x548bc6), and File_LoadWhole/Load_DAV leave room for >= 16 bytes too",inferred

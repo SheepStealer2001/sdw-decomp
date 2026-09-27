@@ -1,0 +1,6 @@
+value,name,meaning
+#,MCardResult,Card_StateMachine return value / g_mcardResult 0x6e3690
+0x2648,MCARD_RUNNING,session still running
+0x2649,MCARD_FAILED,"autosave failed / disabled (0x1798, 0x179a, 0x179c)"
+0x264a,MCARD_CANCELLED,player backed out (screen 6000)
+0x264b,MCARD_DONE,"finished (saved, loaded, new game, or continued without save)"

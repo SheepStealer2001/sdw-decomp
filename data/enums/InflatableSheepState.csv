@@ -1,0 +1,16 @@
+value,name,meaning
+#,InflatableSheepState,InflatableSheep.state (+0x106); anim ids and flags from g_inflatableSheepStateTable 0x57b678
+0,INFSHEEP_ST_FLAT,"deflated on the ground, anim 0, not solid; pickable (msg 2 -> 4)"
+1,INFSHEEP_ST_CARRIED_FLAT,"deflated in the Wolf's/Robot's hand, anim 5, no shadow"
+2,INFSHEEP_ST_FALL_FLAT,deflated falling to the ground (anim 0); has an Update case but nothing ever enters it
+3,INFSHEEP_ST_INFLATING,"msg 0x4600, anim 2; on anim end SetInflated, re-attach, state 4"
+4,INFSHEEP_ST_CARRIED_INFLATED,"inflated in the Wolf's hands, anim 6, not solid, no shadow"
+5,INFSHEEP_ST_CARRIED_BY_SAM,"inflated and picked up by Sam, anim 7"
+6,INFSHEEP_ST_STANDING,"inflated on the ground, anim 6, SOLID; squash / ground-loss / water checks"
+7,INFSHEEP_ST_FALLING,"inflated falling, anim 6, solid; lands to 6 or floats to 8"
+8,INFSHEEP_ST_FLOATING,"inflated in a water zone, drifts with the flow"
+9,INFSHEEP_ST_DEFLATING,"anim 4, then state 0 (squashed / 0x4602)"
+10,INFSHEEP_ST_POPPING,"anim 4, then Respawn"
+11,INFSHEEP_ST_RESPAWN_HIDDEN,hidden at home for 0x3000 ticks (3 s)
+12,INFSHEEP_ST_RESPAWN_WOBBLE,"drawn with ScnObject_RenderRespawnWobble for 1 s, then state 0"
+13,INFSHEEP_ST_GRABBED_BY_SAM,"msg 0x23 (script hold), anim 6, solid; no Update case; msg 0x24 releases to 7"

@@ -1,0 +1,21 @@
+offset,ctype,name,meaning,confidence
+0x7c,char[64],actionPromptText,cached HUD action prompt string,verified
+0xbc,u32,actionPromptTimeMs,g_gameTimeMs when the prompt text was last rebuilt (500 ms refresh),verified
+0xc0,s32,airTime,"ticks since ground contact, cap 0x1E000",verified
+0xc4,s32,slopeTime,ticks on steep slope/slide zone,verified
+0xc8,s32,stickX,filtered stick X,verified
+0xcc,s32,stickY,filtered stick Y,verified
+0xd0,s32,stickMag,stick magnitude (0 = neutral),verified
+0xd4,u32,padBits,"0x1 jump, 0x8 run held, 0x10 sneak, 0x20 jump edge, 0x40 action, 0x80, 0x2 (swim)",verified
+0xd8,Vec3s,velocity,"units/s (x,+0xDA y,+0xDC z)",verified
+0xde,s16,moveDir,"heading of motion, 12-bit",verified
+0xe0,Vec3s,bounceNormal,last wall/floor contact normal used for rocket bounce,verified
+0xe6,s16,wantedDir,desired heading,verified
+0xe8,s32,facingAngVel,angular velocity state for facing (+0x16),verified
+0xec,s32,moveDirAngVel,angular velocity state for moveDir,verified
+0xf0,s16,speed,horizontal speed u/s,verified
+0xf2,s16,bounceSpeed,"extra speed along bounceNormal, decays with rec accel; zeroed by all ground steps",verified
+0xf4,Vec3s,groundNormal,"4.12 normal, flat = (0,-4096,0)",verified
+0xfc,ScnObject *[8],riders,objects attached to/riding the controllable; receive msg 0x6A,inferred
+0x11c,u8,riderCount,count for riders[]; also gates platform-motion query,verified
+0x11d,u8,idleLoopCount,loops left before next idle variant (RNG),verified

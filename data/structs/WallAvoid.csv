@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x0,Vec3s,wallNormal,mean wall normal copied from ContactInfo.wallNormalMean on a wall hit,verified
+0x6,WallAvoidFlagBits,flags,"WallAvoidFlags as u16 one-bit fields (WallAvoidFlagBits): 1 active (last move hit a wall), 2 turn side (+0x300 instead of -0x300), with ±0x200 hysteresis",verified

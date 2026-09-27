@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,u16,rodClass,class id of the rod part (0x43 = FishingRod),verified
+0x2,u16,baitClass,class id of the bait part (Magnet or Salad),verified
+0x4,ScnObject *,rod,the rod part object,verified
+0x8,ScnObject *,bait,the bait part object,verified

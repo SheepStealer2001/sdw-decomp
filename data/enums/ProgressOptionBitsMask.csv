@@ -1,0 +1,4 @@
+value,name,meaning
+#,ProgressOptionBitsMask,"mask constants for the bitfield view ProgressOptionBits of Progress.optionFlags (a mask access and a bitfield access compile differently, so the mask stays a mask)"
+0x4,OPT_GATE,member 'gate' (bit 2) of data/structs/ProgressOptionBits.csv
+0x18,OPT_SOUNDMODE_MASK,member 'soundMode' (bits 3-4): non-zero = no voices/music (StreamPlayer)

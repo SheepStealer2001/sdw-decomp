@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,u8:1,generated,bit 0 (1-byte unsigned unit) | 4d3aba..4d3ac4 and 4d3c17..4d3c20 establish byte bitfields at +0x71.,verified
+0x0,u8:1,opened,bit 1 (1-byte unsigned unit),verified
+0x0,u8:1,committed,bit 2 (1-byte unsigned unit),verified

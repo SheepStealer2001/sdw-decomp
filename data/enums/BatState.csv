@@ -1,0 +1,6 @@
+value,name,meaning
+#,BatState,state field of Bat
+0x0,BAT_ST_PERCHED,SetState 0: anim STAND at homePos; Update: takes off (1) when the target is within 800 units (inferred)
+0x1,BAT_ST_APPROACH,"SetState 1: anim FLY + flap sound 0xfe; Update: flies toward the target, circles (2) inside approachRadius, returns (3) beyond 1000 (inferred)"
+0x2,BAT_ST_CIRCLE,"SetState 2: anim FLY, orbit set up; Update: orbits until circleTimeMs runs out, then 3 (inferred)"
+0x3,BAT_ST_RETURN,SetState 3: anim FLY2; Update: on anim end -> 0 (inferred)

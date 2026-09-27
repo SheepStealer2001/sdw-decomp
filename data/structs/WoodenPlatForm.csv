@@ -1,0 +1,8 @@
+offset,ctype,name,meaning,confidence
+0x40,Box *,activationZone,ACTIVATIONZONE box; its y extent is moved in place with the platform; objects overlapping it are carried,verified
+0x44,Box *,bodyBox,model box 0 (model-space) used by the load test,verified
+0x48,ScnObject *,door,"DOOR object, translated by -delta (moves opposite the platform)",verified
+0x4c,ScnObject *,mechanism,"IDMECHANISM object (DoorMechanism): msg 0x21 while moving, 0x22 on arrival",verified
+0x50,s16[3],targetY,"indexed by WoodenPlatForm_GetLoad: [0] rest (start pos.y), [1] halfway, [2] -MINZVALUE",verified
+0x56,s16,speed,STEP*30 units/s; step = speed*g_dt>>12,verified
+0x58,u8,disabled,1 when there is no ACTIVATIONZONE; Update does nothing,verified

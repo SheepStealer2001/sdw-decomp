@@ -1,0 +1,9 @@
+offset,ctype,name,meaning,confidence
+0x0,MenuPage *,items,"node array of this menu, loaded into g_menuPages by Menu_SetCurrent (e.g. 0x6dedf8 for g_pauseMenu, 0x6de104 for the confirm menu)",verified
+0x4,s16,count,"nodes in use; incremented directly through g_curMenu+4 by Menu_AddItems/Menu_AddPage, zeroed by 0x542d98 for the pause menu",verified
+0x6,s16,capacity,"size of items[]: 50 for g_pauseMenu/g_pausedMenu, 4 for the confirm menu, n+2 in 0x539199. Only 0x542d98 reads it (memset capacity*8); the add functions never check it",verified
+0x8,s16,cursor,saved g_menuCursor (highlighted node index),verified
+0xa,s16,lastCursor,saved g_menuLastCursor (node that had focus last frame),verified
+0xc,s16,curPage,"saved g_menuCurPage: index of the open page, whose children are the listed entries",verified
+0xe,s16,prevPage,"saved g_menuPrevPage: page left last, receives UNFOCUS in Menu_NotifyPageChange",verified
+0x10,u32,unused10,"zero in every initialiser (0x5390e9, 0x539199, .data 0x57c138); not read by the menu engine. The record is 0x14 bytes because the builders copy 5 dwords",inferred

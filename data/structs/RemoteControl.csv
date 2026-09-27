@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x7c,Vec3s,homePos,"ground-snapped position at Init, updated by msg 9 arg 1; Reset returns here when in world",verified
+0x8c,ScnObject *,target,"RemoteControlProps.TARGET via Scn_GetPropObject(record, 4): the robot (or other object) receiving msg 0x3F on/off",verified
+0x90,u32,switchOnOff,"raw RemoteControlProps.SWITCHONOFF (record+0x14). Nonzero → msg 0x17 answers 0x10 (HELD_REMOTE), zero → 0x12 (HELD_REMOTE_ALT). 0 in every level.",verified

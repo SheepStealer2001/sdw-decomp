@@ -1,0 +1,2 @@
+offset,ctype,name,meaning,confidence
+0x0,u8:1,registered,"bit view of BlackHole.flags (+0x65): the hole is in the Wolf's move-modifier list. Read as a one-bit field (mov al,[+0x65]; and al,1; xor ecx,ecx; mov cl,al at 0x49ae26-0x49ae2d), set with or 1 (0x49ae55), cleared with and 0xfe (0x49afde)",verified

@@ -1,0 +1,9 @@
+value,name,meaning
+#,DSBufferCaps,The DSBCAPS bits this module actually writes into DSBUFFERDESC.dwFlags. StaticSound uses SoundDevice_GetBufferLocFlags() | 0xE0; StreamSound hard-codes 0x101E0.
+0x00000020,DSBCAPS_CTRLFREQUENCY,Required by Sound_SetBufferFrequency; set on every buffer this module creates.
+0x00000040,DSBCAPS_CTRLPAN,Required by Sound_SetBufferPan.
+0x00000080,DSBCAPS_CTRLVOLUME,Required by Sound_SetBufferVolume.
+0x00000100,DSBCAPS_CTRLPOSITIONNOTIFY,Streaming buffers only; required for IDirectSoundNotify.
+0x00010000,DSBCAPS_GETCURRENTPOSITION2,"Streaming buffers only; makes GetCurrentPosition report the accurate emulated cursor, which the playProgress accounting depends on."
+0x000000e0,SOUNDFLAGS_STATIC_CTRL,The CTRLFREQUENCY|CTRLPAN|CTRLVOLUME mask that StaticSound ORs onto the device's location flags.
+0x000101e0,SOUNDFLAGS_STREAM,The complete hard-coded flag word for every streaming buffer.

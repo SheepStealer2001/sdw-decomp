@@ -1,0 +1,49 @@
+offset,ctype,name,meaning,confidence
+0x64,Vec3s,homePos,return position: set to pos by elastic_Init (after SnapToGround) and by msg 9 arg 1; elastic_Reset puts it back there when state < 4 and the object is in the world,verified
+0x174,u32[59],tensionColourTable,"30 dwords at stride 8 (0x174 + 8*i, i < 30) set to bandColour every frame by elastic_UpdateTensionColour; the odd dwords are never written. No reader found (the band mesh uses the constant diffuse 0x006B1917).",inferred
+0x260,u8[16],bandMeshKey,"16 bytes copied from the item model. Its address is the key of the elastic's private Mesh in g_texKeys, and inst.model points here in band mode.",verified
+0x270,Model *,itemModel,"the original (coiled item) model, restored by elastic_SetBandMode(0)",verified
+0x274,u32,bandColour,"Rgb24_Lerp(0x10040ff, 0x10000d0, tension); written only",verified
+0x278,ScnObject *,tree1,"ElasticTree the first end is tied to (msg 0x17 finds it; msg 0x15 ties). When tree1 is untied while strung, tree2 takes its place.",verified
+0x27c,ScnObject *,tree2,second ElasticTree: the nearest tree found by the state-3 msg-2 query; set as the second anchor by msg 1,verified
+0x280,ScnObject *,launched,object being thrown in state 6: the Wolf (state-4 launch) or the nearest candidate found by elastic_LaunchTargetScoreCB (state-5 release). Not cleared in state 7.,verified
+0x284,ScnObject *,camRestrict1,"CameraRestriction (IDCAMREST) of tree1, from msg 0x1a80; switched with msg 0xd80",verified
+0x288,ScnObject *,camRestrict2,"CameraRestriction of tree2, from msg 0x1a80",verified
+0x28c,Vec3s,anchorA,tree1.pos with 0x50 subtracted from the vertical (80 above the tree base),verified
+0x292,Vec3s,anchorB,tree2.pos with 0x50 subtracted from the vertical,verified
+0x298,Vec3s,bandMid,(A+B)/2: centre of the vibration after a release or launch,verified
+0x2a4,Vec3s,wolfPrevPos,Wolf position copied every Update in state 3; msg 0x1a subState 1 adds (Wolf pos - wolfPrevPos) to the step before applying tension,verified
+0x2ac,Mat34s,bandFrame,"yaw-only frame of the A→B line (heading + 0x800), built by elastic_BuildBandFrame; trans at +0x2c0 is zero. Used by elastic_ProjectOntoBand.",verified
+0x2cc,s16,perpDist,"|perpendicular distance| of the last projected point from the band line; 0 when outside the span. More than 100 is needed for a launch, less than 100 lets the query return CTX 0x16.",verified
+0x2ce,s8,engagedSide,ElasticSide (+0x2c / -0x2c) of the side the Wolf pushed into; 0x4d = none,verified
+0x2cf,u8,engaged,1 while the Wolf has crossed into the strung band and it follows him,verified
+0x2d0,Vec3s *,pullUpTarget,ElasticTree pullUpPoint (&IDPOINTUP box.min) from msg 0x1a80: where the bungee pull-up takes Ralph,verified
+0x2d4,Vec3s,pullUpStart,position at which the pull-up began,verified
+0x2da,s16,tension,"4.12: (len - max/2)/(max/2), clamped at 0 or above (0x1000 = LONGUEUR_MAX). Decays 0x40 per frame in Update.",verified
+0x2dc,s16,pullUpAngle,"eased pull-up phase, 0..0xa00",verified
+0x2de,s16,pullUpRate,"angle per ms << 12, from a pull speed of 614 u/s",verified
+0x2e0,s16,launchTension,tension latched at launch or release; scales DISTANCE and HAUTEUR,verified
+0x2e2,s16,holdMs,ms held at tension >= 0xe00 while grounded; the launch fires above 999,verified
+0x2e4,s8,overstretched,set when the stretch exceeds LONGUEUR_MAX (elastic_ApplyTension),verified
+0x2e5,u8,unk2e5,zeroed by elastic_ResetToItem only; no reader found,inferred
+0x2e8,Vec3s,launchDir,"4.12 horizontal unit vector (x, 0, z) = -stretch/|stretch|",verified
+0x2ee,s16,launchTravelled,horizontal distance covered by the launch,verified
+0x2f0,s16,launchSpeed,VITESSE_PROJECTION*1024/1000; the step is launchSpeed*g_dtMs>>10,verified
+0x2f2,s16,launchAnglePerUnit,"0x800000/distance, so the sine hump ends at 0x800; wraps for distance <= 256, and distance 0 is an idiv fault at 0x4b627b",verified
+0x2f4,s16,launchBaseY,vertical position of the launched object at the start,verified
+0x2f6,s16,launchHeight,"HAUTEUR_PROJECTION*T>>12, the arc apex",verified
+0x2f8,Vec3s,vibFrom,vibration end point 1 (release position),verified
+0x2fe,Vec3s,vibTo,"vibration end point 2 = 2*mid - from, with +0xa0 on the vertical",verified
+0x304,s16,vibT,lerp parameter around 0x800,verified
+0x306,s16,vibRate,(rate<<12)/1000 truncated to s16 (0x2000 → -31982); sign flips at each end,verified
+0x308,s16,vibAmp,"amplitude, starts at 0x800 and is multiplied by 3/4 at each end; the vibration stops below 1",verified
+0x30a,Vec3s,stretch,state 3: Wolf - A. States 4 and 5: 2*Wolf - (A+B). Input of elastic_ApplyTension and the launch direction.,verified
+0x310,s16,VITESSE_PROJECTION,"designer property: launch speed, units/s",verified
+0x312,s16,DISTANCE_PROJECTION,designer property: launch distance at full tension,verified
+0x314,s16,HAUTEUR_PROJECTION,designer property: launch arc height at full tension,verified
+0x316,s16,LONGUEUR_MAX,designer property: maximum stretch length,verified
+0x318,CamSetup *,camera,IDCAMERA setup {u16 focal; u16 rot[3]; Vec3s pos}; the launch of a non-Wolf object is followed from here,verified
+0x31c,u8,state,ElasticState,verified
+0x31d,u8,subState,ElasticSubState (state 3 only),verified
+0x31e,u8,isWolfRider,registered in the Wolf rider list (msg 0x18) and therefore receives msg 0x1a,verified
+0x31f,u8,wolfFrozen,1 if this elastic froze the Wolf (msg 0xe) for its launch camera,verified

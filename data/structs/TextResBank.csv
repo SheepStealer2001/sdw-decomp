@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,void **,vtbl,"0x5771bc, one slot: TextResBank_DeletingDtor 0x54fe20",verified
+0x4,u8,loaded,must be 1 or TextRes_LoadString returns NULL without searching,verified
+0x6,u16,count,number of entries in the table,verified
+0x8,TextResEntry *,entries,array of 0xC-byte entries {u32 key; u32 len; char *data} where key = (group << 24) + (sub << 8) + id,verified

@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,u8:1,tambourine,"bit view of DancingGhost.danceFlags (+0xf4): a tambourine ghost (mov cl,[+0xf4]; and cl,1 at 0x44174d/0x441753; manager Init tests it at 0x4b0b8d)",verified
+0x0,u8:1,paired,partner coordination bit (UpdateState),inferred
+0x0,u8:1,leader,partner coordination bit (UpdateState),inferred
+0x0,u8:5,reserved,remaining bits,inferred

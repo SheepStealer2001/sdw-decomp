@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x0,float[3],rot,"joint Euler angles in radians [0, 2PI), used by Mat44_SetRotYXZ in Instance_DrawAnimParts",verified
+0xc,float[3],pos,"joint translation in model units, added to the hierarchy offset",verified
+0x18,float[3],scale,"joint scale, 1.0 default; scales this joint (second pass) and its children's base offsets",verified
+0x24,u16,channels,copy of the entry control word; & 0x7000 gates the per-part scale pass,verified
+0x26,u16,pad26,never written by the decoders or the interpolator (only carried by memcpy); size 0x28,verified

@@ -1,0 +1,5 @@
+value,name,meaning
+#,InputDeviceVMethod,"Byte offsets of the three virtuals shared by the four input vtables, read from .rdata: base 0x5742D0 {0x404490,0x404185,0x404194}, Joystick 0x574308 {0x407180,0x406f29,0x406f85}, Keyboard 0x574314 {0x4077c0,0x4073db,0x407437}, mouse 0x574334 {0x40a110,0x409fa2,0x409ffe}."
+0x0,INPUTV_DTOR,Scalar deleting destructor (flags & 1 => operator delete).
+0x4,INPUTV_SET_ACQUIRED,SetAcquired(char acquire); ret 0x4.
+0x8,INPUTV_UPDATE,"Update(void): read device state, then InputDevice_Update."

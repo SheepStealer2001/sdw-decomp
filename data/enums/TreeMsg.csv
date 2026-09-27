@@ -1,0 +1,5 @@
+value,name,meaning
+#,TreeMsg,messages handled or sent by Tree
+0x2,MSG_QUERY_ACTION,returns 0xF CTX_CLIMB when visible
+0x3b,MSG_TIMEMACHINE_SWAP,"asks the Seed partner for its position (0x3280); shows the tree there + present offset, or hides it"
+0x3300,MSG_TREE_SET_VISIBLE,"from the Seed (0x4ea560), arg = (seed state == 4)"

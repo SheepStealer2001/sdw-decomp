@@ -1,0 +1,26 @@
+value,name,meaning
+#,WolfHeldAction,wolf+0x648: reply of held object to msg 0x17 (item identities from the replying class).
+0x0,HELD_NONE,"reset value (ResetState, ScanContextActions)"
+0x1,HELD_USE,DoAction case 1: MSG_HELD_STATE_BEGIN arg 0 (inferred)
+0x02,HELD_THROWABLE,"->0x29 (mode 1: 0x12). Dynamite, Salad, SmallRock, Perfume, HoneyPot..."
+0x03,HELD_ROCKET,->0x52 ground / 0x53 air
+0x4,HELD_ROCKET_ACTIVE,set in WOLF_ST_ROCKET_FLY (HELD_ROCKET + 1)
+0x05,HELD_FAN,"->0x5a (Fan, HairDryer)"
+0x6,HELD_FAN_ACTIVE,set in FAN_IDLE/FAN_TURN
+0x07,HELD_FLUTE,->0x6e
+0x8,HELD_FLUTE_ACTIVE,set in FLUTE_IDLE/FLUTE_WALK
+0x09,HELD_DROP_IN_PLACE,released immediately (msg 5 + 0x15)
+0xa,HELD_DROP_ACTIVE,IsActionAvailable groups it with the other N+1 values; no setter found (inferred)
+0x0c,HELD_MINEDETECTOR,->0x74
+0xd,HELD_DETECTOR_ACTIVE,set in DETECTOR_IDLE/WALK
+0x0e,HELD_UMBRELLA,->0x78 ground / 0x81 air
+0xf,HELD_UMBRELLA_OPEN,set in UMBRELLA_OPEN_AIR/HOP_FALL and the slow-fall steps
+0x10,HELD_REMOTE,->0xa5
+0x11,HELD_REMOTE_ACTIVE,set in REMOTE_DRIVE
+0x12,HELD_REMOTE_ALT,->0xa4 on ground
+0x13,HELD_TIMEMACHINE,->0x9c
+0x14,HELD_FISHINGROD,->0xac
+0x15,HELD_FISHINGROD_ACTIVE,set by SidestepHeldStep (rod sidestep) (inferred)
+0x16,HELD_INFLATABLE_SHEEP,->0xc5
+0x17,HELD_KEY_USE,item msg 0x15 only (Key near lock)
+0x18,HELD_SEED_PLANT,"Seed, when the Wolf's pos is inside one of its BOXES; Wolf_DoAction treats it like 2 (state 0x29/0x12 put-down plus msg 0x15), and the put-down with drop flag bit 0 plants the seed"

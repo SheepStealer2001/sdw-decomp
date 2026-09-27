@@ -1,0 +1,5 @@
+value,name,meaning
+#,BoxState,state field of box
+0x0,BOX_ST_IDLE,set by Update 2 (inferred)
+0x1,BOX_ST_FALL,"Update 1: anim OPEN1, falls at 800 u/s until it lands (inferred)"
+0x2,BOX_ST_OPENED,"Update 2: on anim end RemoveFromWorld, -> 0 (inferred)"

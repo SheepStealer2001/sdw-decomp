@@ -1,0 +1,17 @@
+value,name,meaning
+#,ElmerState,state field of Elmer
+0x0,ELMER_ST_HIDDEN,"SetState 0: anim STAND, invisible; Update: -> 1 when the Wolf is spotted (inferred)"
+0x1,ELMER_ST_APPEAR,"SetState 1: scripted camera, Wolf frozen, anim APPEAR (inferred)"
+0x2,ELMER_ST_CHASE,"SetState 2: anim RUN or RUN2 (rabbit costume); Update: chases, shoots (7) or hits (0xa) (inferred)"
+0x3,ELMER_ST_SHOOT_END,"SetState 3: anim SHOOT3, bullet fired (msg 0x3200 series); Update: releases camera and Wolf (inferred)"
+0x4,ELMER_ST_RUN,SetState 4: anim RUN/RUN2 when changing state (inferred)
+0x5,ELMER_ST_PATROL,"SetState 5: anim SNEAK, walks the trajectory, sweeps with STAND2/SNEAK (inferred)"
+0x6,ELMER_ST_BLOCKED,SetState 6: anim STAND2; Update: -> 5 when the blocker moves away (inferred)
+0x7,ELMER_ST_SHOOT,SetState 7: anim SHOOT1 facing the Wolf; Update: on anim end -> 3 (inferred)
+0x8,ELMER_ST_AMBUSH,"SetState 8: freezes the Wolf, 0xfa0 ms wait; Update: anim STAND3 and reach toward the Wolf (inferred)"
+0xa,ELMER_ST_HIT,SetState 0xa: anim HIT facing the Wolf (inferred)
+0xb,ELMER_ST_HIT2,SetState 0xb: anim HIT1; Update: -> 2 on anim end (inferred)
+0xc,ELMER_ST_HIT3,SetState 0xc: anim HIT2 (inferred)
+0xd,ELMER_ST_CHASE_CLOSE,"SetState 0xd: releases the scripted camera, anim RUN/RUN2 (inferred)"
+0xe,ELMER_ST_LOOK_AROUND,SetState 0xe: anim STAND; Update: back to patrol or shoot (inferred)
+0xf,ELMER_ST_GO_HOME,"SetState 0xf: anim STAND; Update: walks back, -> 2 on arrival (inferred)"

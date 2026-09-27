@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,Vec3s *,pos,"first position key of the Wolf's track (Cine_FindFirstPosKey), sent with msg 0x12 by Cine_NotifyActors 0x561ec9",verified
+0x4,Vec3s *,rot,first rotation key of the Wolf's track (Cine_FindFirstRotKey) 0x561ed1,verified
+0x8,Box *,box,Cine.sheepBox (0x561eed),verified

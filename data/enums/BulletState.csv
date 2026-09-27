@@ -1,0 +1,6 @@
+value,name,meaning
+#,BulletState,state field of Bullet
+0x1,BULLET_ST_FLY,"SetState 1: anim RUN, visible; Update: homes on the Wolf, -> 2 within 0x6e, -> 5 if he is dead (inferred)"
+0x2,BULLET_ST_HIT,"SetState 2: anim ACTION, records the yaw offset around the Wolf; Update: sticks, -> 3 on anim end (inferred)"
+0x3,BULLET_ST_ORBIT_KILL,"SetState 3: anim ACTION1, MSG_KILL arg 7 to the Wolf, msg 0x6f to Elmer; Update: circles the Wolf (inferred)"
+0x5,BULLET_ST_GONE,SetState 5: SetVisible(0) (inferred)

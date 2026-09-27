@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x0,Vec3f,pos,"world position, advanced by vel * g_dtMs / 1000 (Weather_Advance 0x52e8bf)",verified
+0xc,Vec3f,viewPos,last camera-space position (Weather_WrapToVolume 0x531e86); a particle that leaves the volume is mirrored through the centre from it,verified
+0x18,Vec3f,vel,velocity in units per second (SfxParticles_InitRandom 0x52e85b),verified
+0x24,float,alpha,1.0 in the air; DrawRain / DrawSnow fade it below a water surface,verified
+0x28,u8,inAir,"1 = drawn with the first texture (not under water), 0 = the second one (DrawRain 0x52eb66 / 0x52ec76)",verified
+0x29,u8[3],_pad29,padding to the 0x2c stride,inferred

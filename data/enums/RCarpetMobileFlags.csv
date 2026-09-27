@@ -1,0 +1,8 @@
+value,name,meaning
+#,RCarpetMobileFlags,u8 RCarpetMobile+0xa8
+0x1,RCM_COLLIDE,Move runs Collide_ResolveMove (set by Init and 0x1F/0x20; never cleared)
+0x2,RCM_REVERSED,travelling toward lower waypoint indices
+0x4,RCM_CLAMP_ENDS,stop at the trajectory ends instead of wrapping
+0x8,RCM_DRIVEN,driven by a RollingCarpet/SensibleButton message; one-frame latch
+0x10,RCM_SNAPPED,a waypoint was consumed this step; Move snaps onto snapPoint
+0x20,RCM_IN_RADIUS,scratch: current waypoint within the arrive radius

@@ -1,0 +1,8 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,state,"0 armed/waiting for the Wolf, 1 falling, 2 landed (camera hold), 3 finished. Set to 3 at init when the ACTIVATIONBOX property is missing.",verified
+0x68,CamSetup *,camRecord,PROPERTY_FALLINGROCK_CAMERA (4): the camera setup {u16 focal; u16 rot[3]; Vec3s pos} used for the scripted shot. NULL means no cutaway.,verified
+0x6c,Box *,activationBox,PROPERTY_FALLINGROCK_ACTIVATIONBOX (0). Triggers on the Wolf's x and z only — the vertical pair (+6/+0xc) is never tested. NULL disables the rock.,verified
+0x70,u32,camHoldMs,How long the scripted camera is held after landing. Hard-coded to 500 at 0x4bb16c; the designers' PROPERTY_TIMERCAMERA (8) is never read by the class. Unsigned compare (jbe) at 0x4bb358.,verified
+0x74,u32,camElapsedMs,"Milliseconds accumulated (g_dtMs) since the rock landed, compared against camHoldMs to end the shot.",verified
+0x78,u16,fallTicksLeft,"Remaining descent steps. Init 5; each Update tick in state 1 translates 400 units DOWN, undoing exactly the 2000-unit lift. TICK-counted, not time-scaled, so the rock lands sooner in wall-clock time at a higher frame rate. The type is u16: the read at 0x4bb277 is movzx, so the guard can never ",verified
+0x7a,u16,impactSoundHandle,"Sound_Play handle for the impact sound (id 0x44). Zeroed at init and stored on landing, but never read anywhere in the class (exactly 2 references), so the rock can neither stop nor re-query the voice.",verified

@@ -1,0 +1,6 @@
+value,name,meaning
+#,ALAITU01Anim,"animation ids of WAR model ALAITU01 (its WAR type-0x86 table; names verified from the level files). Played by: PorkyLevel01, Salad"
+0x0,ALAITU01_ANIM_APPEAR,WAR name APPEAR
+0x1,ALAITU01_ANIM_OBJET,WAR name OBJET
+0x2,ALAITU01_ANIM_LINK,WAR name LINK
+0x4,ALAITU01_ANIM_CANLINK,WAR name CANLINK

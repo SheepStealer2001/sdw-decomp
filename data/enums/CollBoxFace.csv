@@ -1,0 +1,9 @@
+value,name,meaning
+#,CollBoxFace,"return bits of Collide_SweepBoxVsBox (contact normal chosen by priority 0x20,0x10,1,2,8,4)"
+0x01,CBF_HIT_MINX,"moving +x into target min-x face; normal (-0x1000,0,0)"
+0x02,CBF_HIT_MAXX,"moving -x; normal (+0x1000,0,0)"
+0x04,CBF_HIT_MINY,"moving +y (down) onto the top face; normal (0,-0x1000,0)"
+0x08,CBF_HIT_MAXY,"moving up into the underside; normal (0,+0x1000,0)"
+0x20,CBF_HIT_MINZ,"moving +z; normal (0,0,-0x1000)"
+0x10,CBF_HIT_MAXZ,"moving -z; normal (0,0,+0x1000)"
+0x3f,CBF_ALREADY_INSIDE,"overlapping at start: frac 0, no contact normal written (record left with stale normal)"

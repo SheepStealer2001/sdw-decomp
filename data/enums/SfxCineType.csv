@@ -1,0 +1,5 @@
+value,name,meaning
+#,SfxCineType,SfxCineManager TYPESFX property (+0x24): which particle effect the emitter runs
+0x1,SFXCINE_TYPE_SMOKE,"TYPESFX 1: rising, growing puffs - driftParams (vSpeed -60, size SIZE to FINALSIZE, sprite sheet 0), Emitter_UpdateDrift along the target's facing, drawn by Emitter_Render. The behaviour is verified; ""smoke"" is inferred from sheet 0, the puff sheet of the Train's chimney smoke and the dust of Bull, bipbip and Dragon"
+0x2,SFXCINE_TYPE_RIPPLES,"TYPESFX 2: flat fading rings - fadeParams (size SIZE to FINALSIZE, sprite sheet 1), Emitter_UpdateFade, drawn flat by Emitter_RenderFlat_Fwd. The behaviour is verified; ""ripples"" is inferred from sheet 1, the ring sheet of the Shark, Piranhas and FloatingBox water rings"
+0x4,SFXCINE_TYPE_BUBBLES,"TYPESFX 4: rising particles of one size - riseParams (riseSpeed -120, size SIZE, sprite sheet 2), Emitter_UpdateRiseToCap, drawn by Emitter_Render. The behaviour is verified; ""bubbles"" is inferred from sheet 2, the bubble sheet of the Sheep, Piranhas and Shark"

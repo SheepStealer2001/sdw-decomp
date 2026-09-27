@@ -1,0 +1,7 @@
+value,name,meaning
+#,CamSettingsFlags,"Bits of g_camSettings 0x6e45e4 (value 0x2E), tested by absolute address in this module"
+0x2,CAMSET_COLLISION,"eye sweep, TOO-FAR and cut logic enabled (Camera_SolveCollision)"
+0x4,CAMSET_UNUSED_4,set in 0x2E but never tested
+0x8,CAMSET_LEDGE_LOOK,enables Camera_UpdateLedgeLook in UpdateFollow
+0x10,CAMSET_LEDGE_PROBE_CAMYAW,ledge probe uses the camera yaw instead of the request yaw (clear in 0x2E)
+0x20,CAMSET_AUTO_YAW_FOLLOW,"with no input, yaw swings behind the target's velocity at a rate proportional to the angle error * g_camAutoYawGain * speed factor"

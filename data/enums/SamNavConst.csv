@@ -1,0 +1,5 @@
+value,name,meaning
+#,SamNavConst,constants in the nav helpers
+0x65,SAMNAV_EDGE_SNAP_DIST,edge counts as near when distance < 101
+300,SAMNAV_BBOX_GROW,node bbox margin; also near radius in SamNav_IsGoalOffPath (90000 = 300^2)
+600,SAMNAV_GOAL_FAR_RADIUS,360000 = 600^2 outer radius in SamNav_IsGoalOffPath

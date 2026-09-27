@@ -1,0 +1,12 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,locked,"1 = no detection (no targets, or msg 0x4D arg 1 which also shows the pressed anim)",verified
+0x65,u8,type,"PROPERTY_SENSIBLEBUTTON_TYPE: 10/14 ground-snap ignoring objects, 12 starts hidden and disabled, 14 makes msg 2 answer 0 instead of 0x27, so the button does not attract sheep; data uses 0, 1, 12",verified
+0x68,CollBox *,pressBox,model box 0; translated to pos for the occupancy grid query,verified
+0x6c,Vec3s,homePos,pos after the Init ground snap; restored by Reset (unless a Train exists) and msg 0x1000,verified
+0x72,SensibleButtonFlagBits,buttonFlags,SensibleButtonFlags,verified
+0x74,ScnObject *[4],occupants,objects on the plate this frame (zeroed each Update); passed as arg of MSG_SWITCH_ON,verified
+0x84,u16,clickSound,channel of sfx 0x36 (press and release click),verified
+0x88,ScnObject *[8],targets,objects from the TARGET id list,verified
+0xa8,ScnObject *[8],targets2,objects from the TARGET2 id list,verified
+0xc8,u16,targetCount,entries in targets (Scn_FindIdList count; not clamped to 8),verified
+0xca,u16,target2Count,entries in targets2 (not clamped to 8),verified

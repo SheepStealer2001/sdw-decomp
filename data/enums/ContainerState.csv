@@ -1,0 +1,4 @@
+value,name,meaning
+#,ContainerState,
+0x0,CONTAINER_STORED,ScnMsg doc MSG_CONTAINER_STATE: arg 0 = put in a container and removed
+0x1,CONTAINER_RELEASED,arg 1 = released into the world (homePos = pos in every handler)

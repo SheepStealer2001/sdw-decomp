@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x0,s32,riseSpeed,"vertical speed per second (Emitter_UpdateRiseToCap 0x52cd1a mov edx,[ecx]; imul g_dt); negative = up",verified
+0x4,s32,life,maximum particle life in ticks (0x52cc9b idiv [ecx+4]),verified
+0x8,s32,spawnInterval,"passed to the spawner (0x52ccf8 mov eax,[edx+8])",inferred
+0xc,s16,size,"particle size (0x52cd04 mov dx,[ecx+0xc]); Wolf_UpdateTrailFx randomises it 10..20 (0x48e492)",verified
+0xe,s16,cap,height above which (smaller vertical) particles die; Wolf_UpdateTrailFx sets it to the water top (0x48e480),verified
+0x10,u8,sheetIndex,"sprite sheet copied to emitter+0x20 (0x52ccc6 mov dl,[ecx+0x10])",verified

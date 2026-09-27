@@ -1,0 +1,41 @@
+value,name,meaning
+#,DragonState,"Dragon +0x270 (SetState table 0x446b53, UpdateState table 0x445e5e). Flying set = Dragon_IsFlying."
+0x0,DRAGON_ST_IDLE,"Anim 7 loop, faces the Wolf. Also the landing point of msg 0x75 and of 0x23, whatever the altitude."
+0x1,DRAGON_ST_FIRE,"Wolf msg 0x35 (burn, WOLF_ST_BURNT) if the Wolf is not dead; anim 0xd; -> 0."
+0x2,DRAGON_ST_INHALE,"Anim 0xc, faces the Wolf. At the end -> 1 if IsWolfInFireReach, else 0."
+0x3,DRAGON_ST_FLY_FIRE,"Airborne burn: msg 0x35, anim 0x19; -> 0x13."
+0x4,DRAGON_ST_FLY_INHALE,"Airborne inhale, anim 0x15. At the end -> 3 if in reach, else 0x13."
+0x5,DRAGON_ST_BACK_AWAY,"Anim 1 once, faces the Wolf, retreats at 300 u/s (ZONE-leashed); -> 0. Entered when a non-running Wolf is within 300."
+0x6,DRAGON_ST_FLY_BACK_AWAY,"Airborne version, anim 0x16; -> 0x13."
+0x7,DRAGON_ST_CHASE,"Walk (anim 1, 600 u/s) or run (anim 2, 1200 u/s, dust) toward the Wolf while he is within 1280. Advances only while dist >= 350."
+0x8,DRAGON_ST_SKID1,Anim 0xe. Per-frame halving skid after a run; -> 9 when the skid ends OR the anim finishes.
+0x9,DRAGON_ST_SKID2,Anim 0xf; the same exit test -> 0xa.
+0xa,DRAGON_ST_SKID3,Anim 0x10; -> 0 when the skid has ended AND the anim finished.
+0xb,DRAGON_ST_IDLE_PICK,"Transient: Rand_Bounded(5) == 0 -> 0xc, else 0xf."
+0xc,DRAGON_ST_IDLE_A1,"Faces the Wolf once, idleLoopsLeft = Rand(3)+1, anim 4 loop; one loop -> 0xd."
+0xd,DRAGON_ST_IDLE_A2,"Anim 5 loop, idleLoopsLeft loops -> 0xe."
+0xe,DRAGON_ST_IDLE_A3,"Anim 6 loop, one loop -> 0."
+0xf,DRAGON_ST_IDLE_B,idleLoopsLeft = Rand(12)+1 loops of anim 7 -> 0.
+0x10,DRAGON_ST_FLY_WAIT,Hover (anim 0x16 loop) facing the Wolf while he is outside ZONE; his x/z in ZONE -> 0x13.
+0x11,DRAGON_ST_TAKEOFF,"flyHeight = 0, anim 0x12; -> 0x12."
+0x12,DRAGON_ST_RISE,"Anim 0x11, climbs up to 160; -> 0x14 if flyToRockZone, else 0x13."
+0x13,DRAGON_ST_FLY_CHASE,"Anim 8/9, faces the Wolf, hover-chases at 600 u/s (ZONE-leashed)."
+0x14,DRAGON_ST_FLY_TO_ROCKZONE,"Faces rockZoneTarget and flies there at 1800 u/s, ignoring ZONE; dragon x/z in ROCKZONE -> 0x13."
+0x15,DRAGON_ST_FLY_TO_SPHERE,"Accepted time-machine call while flying: faces and approaches sphereTarget, ignoring ZONE. Left only by msg 0x39/0x75."
+0x16,DRAGON_ST_LAND,Anim 0xa; -> 0x17.
+0x17,DRAGON_ST_DESCEND,Anim 0x14; descends until flyHeight < 0 or a non-Wolf floor contact; -> 0x18.
+0x18,DRAGON_ST_TOUCHDOWN,"SnapToGround(1), anim 0xb; -> 0."
+0x19,DRAGON_ST_WAIT_FIRST_CONTACT,"Initial state: anim 7, faces the Wolf; his x/z in BOXFIRSTCONTACT -> 0x1a. Messages refused."
+0x1a,DRAGON_ST_CINE_FIRST_CONTACT,"Cine_Start(CINEFIRSTCONTACT, FLAGFIRSTCONTACT); when g_cinePlayer.active == 0 -> SnapToGround, 0. Messages refused."
+0x1b,DRAGON_ST_WALK_TO_SPHERE,"Accepted call while grounded: faces sphereTarget, anim 1, ZONE-leashed approach. Unreachable with the Lvl-09 layout."
+0x1c,DRAGON_ST_TIMEWARP,"msg 0x39 while grounded: box collision off, anim 0x17; -> 0x1e."
+0x1d,DRAGON_ST_FLY_TIMEWARP,msg 0x39 while flying: anim 0x1a; -> 0x1e.
+0x1e,DRAGON_ST_IN_TRANSIT,Inert until msg 0x3a.
+0x1f,DRAGON_ST_ARRIVE,"msg 0x3a: collision on, SetPosition(arrival), anim 0x18; -> 0x20."
+0x20,DRAGON_ST_CINE_CHRONOBALL,"Cine_Start(CINECHRONOBALL, FLAGCHRONOBALL); when the cine is inactive -> 0x25. Messages refused."
+0x21,DRAGON_ST_TAKEOFF_TO_SPHERE,Call accepted during 0x11: keeps the take-off anim; -> 0x22.
+0x22,DRAGON_ST_RISE_TO_SPHERE,"Anim 0x11, climbs; -> 0x15."
+0x23,DRAGON_ST_WAIT_PRESENT,"Call refused while grounded: anim 7, frozen (no AI) until TimeMachine_IsInPresent(Wolf); then 0."
+0x24,DRAGON_ST_FLY_WAIT_PRESENT,"Call refused while flying: anim 0x16, frozen until the Wolf is in the present; then savedState."
+0x25,DRAGON_ST_GONE,"After the CHRONOBALL cine: hidden (0x800), no box collision, no Update, all messages refused. Permanent, survives Reset."
+0x26,DRAGON_ST_NONE,Sentinel written by Init before SetState(0x19).

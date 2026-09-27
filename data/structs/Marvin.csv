@@ -1,0 +1,10 @@
+offset,ctype,name,meaning,confidence
+0x7c,u8,state,state byte,verified
+0x7d,MarvinFlagBits,dialogueFlags,"flag byte; bit view MarvinFlagBits (bits 0-3 set with or, cleared with and, read by shr/and 1)",verified
+0x7e,u8,tauntIndex,"taunt index, read with movzx",verified
+0x80,char *[2],mockeryLine,"MOCKERYID1/2 (props 0x10/0x14) via Text_GetClassString. DEFECT: the empty-string checks for the SUCCESS lines write here — 0x458d07 tests successLine[0] but 0x458d17 clears +0x80, and 0x458d24/0x458d34 do the same for +0x84. Blank SUCCESSID strings silently delete Marvin's taunts",verified
+0x88,s32[2],mockeryVoice,voices of the two mockery lines,verified
+0x90,u8,successIndex,read with movzx,verified
+0x94,char *[2],successLine,the two success lines,verified
+0x9c,s32[2],successVoice,voices of the success lines,verified
+0xa4,Box *,cineBox,the cinematic trigger box,verified

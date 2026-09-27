@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,u32,flags,"COLLBOX_* bits: 1 non-solid, 2 cone, 4 ellipsoid, 0x10 cylinder; on the mover any of 0x16 enables shaped tests",verified
+0x4,Vec3s,min,"min corner (x, y, z); object-local in the object's box list, world after Box_Translate",verified
+0xa,Vec3s,max,max corner; +0xC = maxY = bottom (Y points down),verified

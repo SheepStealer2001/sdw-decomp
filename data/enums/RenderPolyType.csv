@@ -1,0 +1,8 @@
+value,name,meaning
+#,RenderPolyType,"RenderPoly field +0x04, the dispatch value of PolyBatcher_SubmitPoly 0x415c80 and of the state-flag slot accessors 0x416d04 / 0x416d73 / 0x416df2. Extends the existing RenderPoly.type comment with the type-0 line case."
+0,RPOLY_LINE,"line-list primitive; appended to the 4000-vertex buffer at PolyBatcher+0x58, drawn as D3DPT_LINELIST with FVF 0xc4 and state flags +0x60 (0x121). Only the flush path draws it."
+1,RPOLY_OPAQUE,"untextured opaque triangle; 0x48 bytes appended to PolyBatcher+0x2c, drawn as TRIANGLELIST with FVF 0xc4 and state flags +0x34 (0x120)"
+2,RPOLY_BLEND,untextured alpha-blended triangle; always deferred to the depth-sorted list and drawn with state flags +0x50 (RSF_BLEND_ALPHA)
+3,RPOLY_ADD,untextured additive triangle; always deferred and drawn with state flags +0x54 (RSF_BLEND_ADD)
+4,RPOLY_TEXTURED_BASE,"values >= 4 are a texture page index plus 4; bit 0x8000 is masked off with & 0xFFFF7FFF at every use. Index < immediateTexCount goes into that page's own batch (FVF 0x1c4), otherwise it is deferred and depth-sorted."
+0x8000,RPOLY_F_8000,RenderPoly::InitFromBsTexGouraud sets type |= 0x8000; every user masks it with & 0xffff7fff (RenderPolyType doc)

@@ -1,0 +1,3 @@
+value,name,meaning
+#,CamFlags2BitsMask,"mask constants for the bitfield view CamFlags2Bits (a mask access and a bitfield access compile differently, so the mask stays a mask)"
+0x1,CAMF2_OVERHEAD,member 'overhead' of the bitfield view CameraOverheadBit in src/objects/camera.cpp

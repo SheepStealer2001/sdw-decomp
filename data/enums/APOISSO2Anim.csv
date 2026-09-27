@@ -1,0 +1,5 @@
+value,name,meaning
+#,APOISSO2Anim,animation ids of WAR model APOISSO2 (its WAR type-0x86 table; names verified from the level files). Played by: Fish
+0x0,APOISSO2_ANIM_SWIM,WAR name SWIM
+0x1,APOISSO2_ANIM_SWIM2,WAR name SWIM2
+0x2,APOISSO2_ANIM_SWIM3,WAR name SWIM3

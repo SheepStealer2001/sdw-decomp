@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,u32,sizeFlags,"Block size in bytes including this 8-byte header (bits 2..27, mask 0x0ffffffc) | 2 = this block is free | 1 = the block before it is free (its size is then in the u32 just before this header). Bits 28..31 = log2(align)-2, written only by Heap_AllocAligned and never read.",verified
+0x4,HeapBlock *,next,"Free block: next on the free list (the sentinel's points to itself). Allocated block: the magic 0x98765432, written by Heap_Alloc/Heap_AllocAligned and never checked.",verified
+0x8,HeapBlock *,prev,Free block: previous on the free list (the head's points to itself). Allocated block: first word of user data; the user pointer is block+8.,verified

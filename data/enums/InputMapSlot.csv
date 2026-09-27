@@ -1,0 +1,18 @@
+value,name,meaning
+#,InputMapSlot,
+0x0,INPUT_SLOT_SELECT,slot 0 = PAD_SELECT
+0x1,INPUT_SLOT_L3,slot 1 = PAD_L3
+0x2,INPUT_SLOT_R3,slot 2 = PAD_R3
+0x3,INPUT_SLOT_START,slot 3 = PAD_START
+0x4,INPUT_SLOT_UP,slot 4 = PAD_UP (CanonSimple::UpdateAim reads it as &g_inputMap[4] + 0)
+0x5,INPUT_SLOT_RIGHT,slot 5 = PAD_RIGHT
+0x6,INPUT_SLOT_DOWN,slot 6 = PAD_DOWN
+0x7,INPUT_SLOT_LEFT,slot 7 = PAD_LEFT
+0x8,INPUT_SLOT_L2,slot 8 = PAD_L2
+0x9,INPUT_SLOT_R2,slot 9 = PAD_R2
+0xa,INPUT_SLOT_L1,g_inputMap default: slot i holds ~(1 << i); slot 10 = PAD_L1
+0xb,INPUT_SLOT_R1,slot 11 = PAD_R1
+0xc,INPUT_SLOT_TRIANGLE,slot 12 = PAD_TRIANGLE
+0xd,INPUT_SLOT_CIRCLE,slot 13 = PAD_CIRCLE
+0xe,INPUT_SLOT_CROSS,slot 14 = PAD_CROSS
+0xf,INPUT_SLOT_SQUARE,slot 15 = PAD_SQUARE

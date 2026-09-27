@@ -1,0 +1,4 @@
+value,name,meaning
+#,SeesawFlags,seesaw +0xa34 = FLAGS property
+0x1,SEESAW_F_SLIDE,|tilt| > 0x38: bodies get msg 0x27 {sin*100>>12 along the axis} (Wolf: forced slide)
+0x2,SEESAW_F_NO_FREEZE,CamShot_Init noFreeze: the launch camera does not freeze the Wolf

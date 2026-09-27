@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,u8,preset,"0..2 fixed layouts, 3 = custom (switch at 0x55eccf); = Progress+0x9a",verified
+0x1,u8,actuatorEnable,= Progress+0x9b,inferred
+0x2,u8,padIsAnalog,= Progress+0x9c,inferred
+0x4,u16[6],remap,"custom map, slots 0xe 0xf 0xc 0xd 0xb 0xa (Input_ApplyControlConfig 0x55ed64, Input_StoreControlConfig 0x55edbd); = Progress+0x9e",verified

@@ -1,0 +1,10 @@
+value,name,meaning
+#,ABTIME01Anim,animation ids of WAR model ABTIME01 (its WAR type-0x86 table; names verified from the level files). Played by: TimeMachineSphere
+0x0,ABTIME01_ANIM_CHRONO,WAR name CHRONO
+0x1,ABTIME01_ANIM_APPEAR,WAR name APPEAR
+0x2,ABTIME01_ANIM_OUT,WAR name OUT
+0x3,ABTIME01_ANIM_OUT2,WAR name OUT2
+0x4,ABTIME01_ANIM_OUT1,WAR name OUT1
+0x5,ABTIME01_ANIM_STAND,WAR name STAND
+0x6,ABTIME01_ANIM_INSIDE,WAR name INSIDE
+0x7,ABTIME01_ANIM_STAND2,WAR name STAND2

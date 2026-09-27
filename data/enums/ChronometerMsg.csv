@@ -1,0 +1,5 @@
+value,name,meaning
+#,ChronometerMsg,"sent by TrafficJams to the Chronometer (class 134, handler 0x4ac217)"
+0x4701,MSG_CHRONO_SHOW_DEPARTURE,arg ticks = train break remaining; colour 0x5050dd
+0x4702,MSG_CHRONO_SHOW_ARRIVAL,arg ticks = ETA; colour 0xdd5050
+0x4703,MSG_CHRONO_VISIBLE,"arg 1 show, 0 hide (Wolf entering/leaving BOXSTATION)"

@@ -1,0 +1,4 @@
+value,name,meaning
+#,BlackHoleState,state field of BlackHole
+0x0,BLACKHOLE_ST_ACTIVE,Update 0: anim HOLE; pulls the Wolf within 1000 units (msg 0x18 to register) (inferred)
+0x1,BLACKHOLE_ST_SPENT,"Update 1: anim STAND after the pull, MSG_WOLF_GLOW_DIST to the Wolf (inferred)"

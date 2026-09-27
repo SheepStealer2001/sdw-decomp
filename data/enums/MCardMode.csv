@@ -1,0 +1,6 @@
+value,name,meaning
+#,MCardMode,"g_mcardMode 0x6e38a2, set by MCard_SetMode 0x54a968"
+0,MCARD_MODE_NONE,idle; g_pGetUiString = NULL
+1,MCARD_MODE_LOAD,"start-of-game screen: load a slot, or create a new game (0x4d4a66 message 1 outside levels -3/-4)"
+2,MCARD_MODE_SAVE,manual save (0x4d4a66 message 1 when currentLevel is -3 or -4)
+3,MCARD_MODE_AUTOSAVE,autosave (MCardManager on message 0x3500 when Progress runtimeBits saveSlotValid and autoSaveOn are set)

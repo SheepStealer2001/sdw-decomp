@@ -1,0 +1,12 @@
+offset,ctype,name,meaning,confidence
+0x7c,u16,soundHandle,"channel of the calling sound 0x25 started in state 0 (Sound_Play 0x4364be, stored as a word 0x4364c9); stopped and zeroed by SetState and Reset",verified
+0x7e,u8,state,"DaffyElf state: 0 calling (faces Ralph, sound 0x25), 1 question box open, 2 waiting for the cinematic to finish, 3 waiting for Ralph in CINEBOX, 4 answer being replayed (byte store 0x43677f, movzx switch 0x436335)",verified
+0x80,u32,cineId,PROPERTY CINE (record +0x08); first argument of Cine_Start 0x43644d,verified
+0x84,u32,cineTextIndex,PROPERTY CINETEXT (+0x18); its low byte is the class string index of cineText (0x436249),verified
+0x88,u32,cineFlags,PROPERTY CINEFLAGS (+0x10); Cine_Start flags,verified
+0x8c,char *,cineText,"Text_GetClassString(cineTextIndex) (0x43625b), passed to Cine_Start as its text",verified
+0x90,Box *,cineBox,PROPERTY CINEBOX (Scn_GetPropBox +0x0c): in state 3 Ralph's x/z inside it starts the cinematic; also Cine_Start's box,verified
+0x94,Box *,cineSheepBox,PROPERTY CINESHEEPBOX (+0x14): Cine_Start's sheep box,verified
+0x98,u32,answerTextIndex,PROPERTY ANSWERTEXTINDEX (+0x04): first class string of the question box (Dialog_Begin 0x4367f5),verified
+0x9c,u8,answerCount,PROPERTY ANSWERNUMBER (+0x00) truncated to a byte (0x4362c7): Dialog_Begin's answer count,verified
+0xa0,DialogBox,dialog,the question box: Dialog_Begin / Dialog_Update / Dialog_UpdateAnswer; answerText[] is what the choice handlers print (g_pDaffyElf+0xb0+4i),verified

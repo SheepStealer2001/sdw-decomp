@@ -1,0 +1,7 @@
+value,name,meaning
+#,APORTE01Anim,animation ids of WAR model APORTE01 (its WAR type-0x86 table; names verified from the level files). Played by: DoorLevel
+0x1,APORTE01_ANIM_CLOSE2,WAR name CLOSE2
+0x2,APORTE01_ANIM_OPEN1,WAR name OPEN1
+0x4,APORTE01_ANIM_OPEN,WAR name OPEN
+0x5,APORTE01_ANIM_BACK,WAR name BACK
+0x6,APORTE01_ANIM_BACK1,WAR name BACK1

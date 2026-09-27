@@ -1,0 +1,7 @@
+value,name,meaning
+#,Pipe2State,
+0x0,PIPE2_ST_IDLE,Update 0: captures a ball at an open mouth (inferred)
+0x2,PIPE2_ST_LAUNCH_WAIT,"Update 2: after launchDelay MSG_CB_LAUNCH, -> 0 (inferred)"
+0x3,PIPE2_ST_EJECT,SetState 3: anim 1/2 by exit axis; Update: sound 0x8c (inferred)
+0x4,PIPE2_ST_SPIN_RESET,SetState 4: spinAngle = 0 (inferred)
+0x5,PIPE2_ST_INIT_MOUTHS,SetState 5: computes the mouth centres (inferred)

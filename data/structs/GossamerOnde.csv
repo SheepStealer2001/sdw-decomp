@@ -1,0 +1,11 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,state,"0 = shockwave expanding (animation playing), 1 = idle/hidden. Only GossamerOnde_SetState writes it, and only state 0 starts animation 1.",verified
+0x66,u16,radius,"Current radius of the expanding ring, growing by g_dt*0x36b>>12 (875 u/s) per frame; a candidate is hit when its horizontal distance is within +/-50 of it. Zeroed when the wave is launched.",verified
+0x68,u16,vertTolerance,Maximum absolute vertical difference for the wave to knock Ralph over; set to 0xB4 (180) on launch. Only the Wolf branch tests it - the sheep branch has no vertical test at all.,verified
+0x6c,MoveModifyArg *,moveArg,The MSG_MODIFY_MOVE 0x1a payload (MoveModifyArg {Vec3s delta; u16 flags; Vec3s velocity}) cached on entry; this class writes only delta.x (+0) and delta.z (+4) through it and deliberately leaves the vertical at +2 alone.,verified
+0x70,Vec3s,wolfPush,"Radial push applied to Ralph, normalised to magnitude 40 away from the wave centre with the vertical element +0x72 forced to 0. Latched once and re-applied every frame afterwards.",verified
+0x76,Vec3s,sheepPush,"The same 40-unit radial push for the sheep, but run through Collide_ResolveMove 0x50e6b7 on the sheep (floorNormalCutoff 0xb54, flags 7, stepHeight 0xa) before it is committed.",verified
+0x7c,s32,dist,"Scratch: horizontal distance from the wave centre to the candidate, from sqrt(dx^2+dz^2) via __ftol 0x565d1c; used as the divisor that normalises both pushes.",verified
+0x80,s32,wolfPushed,"Set to 1 the frame the ring passes Ralph; afterwards the stored wolfPush keeps being applied, and MSG_WOLF_FORCE_FALL 0x418 keeps being re-sent, without re-testing the radius, the vertical tolerance or collision. Cleared on launch, on Reset and when the animation ends.",verified
+0x84,s32,sheepPushed,"The same latch for the sheep (set 0x4c867e, tested 0x4c8544).",verified
+0x88,ScnObject *,sheep,"g_pSheepOutOfZone 0x6cf264 captured when the wave launches; the wave registers itself as a rider on it as well as on Ralph, so it can shove the stolen sheep too. Selects the sheep branch of msg 0x1a at 0x4c8535.",verified

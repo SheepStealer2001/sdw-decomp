@@ -1,0 +1,6 @@
+value,name,meaning
+#,DoorLevelState,state field of DoorLevel
+0x0,DOORLEVEL_ST_INIT,Update 0: anim CLOSE2 and -> 1 (inferred)
+0x1,DOORLEVEL_ST_CLOSED,entered from 0 and 5; no Update case (inferred)
+0x3,DOORLEVEL_ST_OPEN,"Update 3: anim OPEN or BACK (by the Wolf's side), sets the scene exit target and starts the fade, -> 5 (inferred)"
+0x5,DOORLEVEL_ST_OPENED,"Update 5: on anim end anim OPEN1/BACK1, -> 1 (inferred)"

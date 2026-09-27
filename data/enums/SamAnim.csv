@@ -1,0 +1,27 @@
+value,name,meaning
+#,SamAnim,logical animation index into animTable (+0x7c)
+0,SAM_ANIM_JUMP_START,jump phase 1
+1,SAM_ANIM_JUMP_AIR,jump phase 3; its duration = jumpDurationMs
+2,SAM_ANIM_JUMP_LAND,jump phase 5
+3,SAM_ANIM_GRAB,catch grab
+4,SAM_ANIM_HIT,catch punch
+5,SAM_ANIM_RUN,run (carry variants 36/41)
+6,SAM_ANIM_IDLE,state 0
+7,SAM_ANIM_LOOKAFTER,states 6/7
+8,SAM_ANIM_WALK,patrol walk
+9,SAM_ANIM_INVESTIGATE_WALK,state 10 moving
+10,SAM_ANIM_INVESTIGATE_START,state 10 entry
+11,SAM_ANIM_INVESTIGATE_IDLE,state 10 stopped
+12,SAM_ANIM_KO_FALL,
+13,SAM_ANIM_KO_LYING,
+14,SAM_ANIM_KO_GETUP,
+15,SAM_ANIM_PICKUP,state 0xD
+16,SAM_ANIM_LIFT,state 0xE
+17,SAM_ANIM_PUTDOWN,state 0xF
+18,SAM_ANIM_AFTERPUTDOWN,state 0x10
+19,SAM_ANIM_CATCHDONE,state 0x11
+20,SAM_ANIM_PATROL_FAST,state 0x12
+21,SAM_ANIM_ANGRY,states 0x15/0x16/0x13 loop
+22,SAM_ANIM_HIT_ROBOT,also costume grab
+23,SAM_ANIM_RUN_LOOP,started when anim 0x18 finishes
+24,SAM_ANIM_RUN_START,chase start

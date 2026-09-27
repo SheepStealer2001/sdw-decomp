@@ -1,0 +1,7 @@
+value,name,meaning
+#,GeyserInAnimState,
+0x5,GEYSERIN_AS_IDLE,SetAnimState 5 plays anim 1 STAND0 (ATORNA02); state IDLE uses it
+0x6,GEYSERIN_AS_ACTIVE,6 plays anim 2 TORNA3 + geyser sound 0x12f; state ACTIVE
+0x7,GEYSERIN_AS_CORKED,7 plays anim 0 TOSTAND1 looped; state CORKED
+0x8,GEYSERIN_AS_TRANSIT,8 plays anim 4 TORNA4A unless coming from 9; state TRANSIT
+0x9,GEYSERIN_AS_SUCK,9 plays anim 3 TORNA4; state SUCK

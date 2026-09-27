@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x7c,ScnObject *,contents,"The object this crate delivers. The crate never resolves it — Mailbox_Deliver 0x4d368b writes it at 0x4d3765/0x4d3826 (Mailbox_Init only builds the record and creates the crate). On landing box_Update adds it to the world with posOrNull = 0, sets its position, snaps it to ground only when the contac",verified
+0x80,u16,unk80,Zeroed at the moment the crate opens (0x49d106) and referenced nowhere else in 0x49ce30-0x49d301. Named by offset on purpose.,verified
+0x82,u8,state,"0 idle/parked, 1 falling (driven down 800/s with a landing test), 2 opening (waiting for the open animation, then it removes itself from the world and returns to 0).",verified
+0x84,s32,canRelease,"Gate on the release step: set by Init/Reset and by msg 0x30, cleared by msg 0x31. With it clear the crate does not sit quietly — the jump at 0x49d04e skips the state change too, so it stays in state 1 and keeps applying 800/s downward every frame.",verified

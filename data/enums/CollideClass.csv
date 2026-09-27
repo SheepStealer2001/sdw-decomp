@@ -1,0 +1,6 @@
+value,name,meaning
+#,CollideClass,contact classes / return bits of Collide_ResolveMove
+1,COLL_FLOOR,"normalY < -cutoff, corner not behind plane"
+2,COLL_WALL,normalY >= -cutoff
+4,COLL_FLOOR_EDGE,floor-type but leading corner > 0.5 unit behind plane (internal; folded into 1 or 2)
+0x10,COLL_10,InstantMartian::Update tests hitFlags & 0x10 from Collide_ResolveMove (not in CollideClass) (inferred)

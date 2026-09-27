@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x0,void *,texture,"the first frame's id-list entry; non-NULL once AnimSprite_InitFromRes found the bitmap group (0x53b5ef stores it, 0x53b672 tests it)",verified
+0x4,SpriteFrame[10],frames,"frame table, 4 bytes each: {u16 texPage; u8 u; u8 v}",verified
+0x2c,u16,frameCount,already known; AnimSprite_InitFromRes hard-clamps it to 10 frames,verified
+0x30,s16,width,"frame width in texels, used as the `size` argument to Tex_CornerUV",verified
+0x32,s16,height,frame height in texels,verified

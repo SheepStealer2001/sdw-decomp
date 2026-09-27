@@ -1,0 +1,5 @@
+value,name,meaning
+#,HooverState,"Hoover.state (+0x82), set by Hoover_SetState 0x4cb8bb"
+0,HOOVER_ST_ARMED,charged and in hand; ghosts get 0x4001 arg 1; Update scans for a ghost to suck
+1,HOOVER_ST_OFF,"sound stopped, ghosts get 0x4001 arg 0"
+2,HOOVER_ST_SUCKING,"sound 0x6B, battery 0x4404 arg 1, anim 2 once; back to 0 when the anim ends"

@@ -1,0 +1,14 @@
+offset,ctype,name,meaning,confidence
+0x0,fnptr *,vtable,"0x574304, a single slot: the scalar deleting destructor 0x406D80.",verified
+0x4,u8,initialized,Set to 1 once SoundDevice_Init has created the primary buffer.,verified
+0x8,IDirectSound *,pDS,"The IDirectSound object, handed to the sound layer by SoundDevice_GetDSound.",verified
+0xc,IDirectSoundBuffer *,pPrimaryBuffer,Primary (mixer) buffer; SetFormat is applied to it and it is left playing looped for the whole session.,verified
+0x10,u32,sampleRate,Primary-buffer sample rate; WinMain passes 22050.,verified
+0x14,u8,bitsPerSample,Primary-buffer sample width; WinMain passes 16.,verified
+0x15,u8,hasHwStreamingMixer,DSCAPS.dwMaxHwMixingStreamingBuffers != 0. Decides whether secondary buffers are created LOCDEFER or STATIC.,verified
+0x18,SoundDeviceEntry[20],devices,"Enumerated DirectSound devices (SoundDeviceEntry, 0x38 each: char description[0x28] then GUID guid at +0x28). A NULL GUID means the default device.",verified
+0x478,u32,deviceCount,Number of enumerated DirectSound devices (capped at 20 by DS_EnumCallback).,verified
+0x47c,u32,deviceIndex,Device chosen in the launcher.,verified
+0x480,StreamSound *[16],streamOwners,"Owner object of each of the 16 stream notification slots; NULL means free. Only StreamSound registers (stream_sound.cpp), and the device calls StreamSound methods on them.",verified
+0x4c0,void *[16],streamEvents,(HANDLE[16]; typed void *[16] by run3/snd_device so the source can index it: CreateEventA result stored at 0x4066a5) 16 manual CreateEventA handles that DirectSound position notifications signal; Main_Loop waits on all of them every frame with a zero timeout.,verified
+0x500,s32,streamCount,"Number of registered streams. Incremented on register, decremented on unregister; SoundDevice_GetVoiceAmplitude 0x406a8f (and its unused twin 0x406ade) index streamOwners with it.",verified

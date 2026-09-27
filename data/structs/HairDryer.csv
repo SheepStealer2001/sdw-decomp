@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x7c,Vec3s,homePos,spawn position (Init; msg 9 arg 1); Reset returns here when IN_WORLD,verified
+0x82,u16,blowSound,handle of the looping blow sound 0x11b (requested every frame in state 2); stopped by HairDryer_SetState,verified
+0x84,u8,state,"HairDryerState: 0 world, 1 held, 2 blowing",verified
+0x85,u8[3],pad85,tail padding to sizeof 0x88,inferred

@@ -1,0 +1,6 @@
+value,name,meaning
+#,HeapBlockFlags,Bits of HeapBlock.sizeFlags (u32 at block+0)
+0x1,HEAPBLK_PREV_FREE,"The block before this one is free; its size is in the u32 at header-4 (footer). Set by writeFree on the following block, cleared by CarveBlock's decrement."
+0x2,HEAPBLK_FREE,This block is on the free list.
+0x0ffffffc,HEAPBLK_SIZE_MASK,"Block size in bytes including the 8-byte header; 28 bits, so at most 256 MB."
+0xf0000000,HEAPBLK_ALIGN_MASK,"(log2(align)-2) << 28, written only by Heap_AllocAligned; never read."

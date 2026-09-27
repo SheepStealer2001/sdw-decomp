@@ -1,0 +1,5 @@
+value,name,meaning
+#,ARADEA01Anim,animation ids of WAR model ARADEA01 (its WAR type-0x86 table; names verified from the level files). Played by: Raft
+0x1,ARADEA01_ANIM_STAND1,WAR name STAND1
+0x2,ARADEA01_ANIM_ACTION1,WAR name ACTION1
+0x3,ARADEA01_ANIM_DEAD1,WAR name DEAD1

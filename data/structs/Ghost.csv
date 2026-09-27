@@ -1,0 +1,43 @@
+offset,ctype,name,meaning,confidence
+0x7c,s16,curNode,index into g_ghostNodes of the node the ghost last reached; set from Ghost_FindNearestNode at init/reset (0x44b1c1) and from nextNode on arrival (0x44bdb8),verified
+0x7e,s16,nextNode,"index of the node being travelled to (Ghost_PickNextNode result, 0x44bc82); node pair used for the patrol segment and the capture camera",verified
+0x80,s16,avoidNode,"node index the picker must not turn back to; 0x25 (= no node) at init, reset and on msg 0x4001 (0x44d101), set to curNode when a node is reached (0x44bda1)",verified
+0x88,Box *,activationBox,"PROPERTY_GHOST_ACTIVATIONBOX via Scn_GetPropBox(record, 0) (0x44b153); only ever tested against the Wolf into wolfInBox",verified
+0x8c,GhostTravel,travel,"current travel leg: target point, speed, heading and arrive radius; filled by Ghost_SetTravel (0x44e947), consumed by Ghost_StepTravel (0x44ea01)",verified
+0x98,s32,chaseRange,state 7 leash: set to 99999 on entering the chase (0x44d60a) and then to wolfDist every frame (0x44c9c5); the chase gives up when wolfDist grows past it,verified
+0x9c,u8,state,"0 idle .. 9 boo-wait; written by Ghost_SetState (0x44d276) and twice directly in Update (0x44c715 = 3, 0x44c848 = 1, 0x44ce68 = 2)",verified
+0x9d,u8,prevState,state before the last Ghost_SetState (0x44d26a); Ghost_PickNextNode treats prevState == 1 specially and Update sets it to 1 at 0x44c16c,verified
+0xa0,s32,rethink,set by message 0x4002 (0x44d11e); Ghost_PickNextNode consumes it (0x44e8d2-0x44e8de) and then returns the runner-up neighbour instead of the best one,verified
+0xa4,ScnObject *,hoover,the Hoover (class 131) found by Scenaric_FindByClass at init (0x44b185); told 0x4583 when the suck finishes (0x44ca32),verified
+0xa8,Vec3s,homePos,"position of the nearest node at init, pushed through SetPosition (0x44b3c9) and re-applied on reset (0x44b49d)",verified
+0xae,Vec3s,capturePos,the Wolf's position when the capture (state 4) started (0x44d686); the capture step holds him there (0x44c412-0x44c44b),verified
+0xb4,s32,vulnerable,argument of message 0x4001 from the Hoover (0x44d0ee); non-zero makes the ghost blue and sends it to the flee state 3 instead of chasing,verified
+0xb8,s32,wolfInBox,"whether the Wolf was inside activationBox on x and z when Init/Reset ran (0x44b2a4, 0x44b54f); never read anywhere in the class",verified
+0xbc,s32,beingSucked,1 from the Hoover's suck message 0 (0x44d184) until the next reset; blocks the idle state's SetVisible and the patrol transitions,verified
+0xc0,u32,master,"PROPERTY_GHOST_MASTER (record property +4, read in Ghost_Create 0x44da00); non-zero on exactly one ghost, which builds the shared node graph",verified
+0xc4,s32,wolfBooed,set by message 0x70 (the Wolf's boo broadcast) in states 8/9 (0x44d086); polled as Wolf message 0x412 each frame (0x44b6e2),verified
+0xc8,s32,cameraArmed,"1 at init and reset (0x44b481); the capture state starts the scripted camera only while it is set (0x44d774) and clears it on the boo path (0x44cad4, 0x44cb65, 0x44cd52, 0x44cead, 0x44d87f)",verified
+0xcc,s32,unkCC,"zeroed by Init, Reset and message 0xE (0x44d130); nothing in the class ever sets it",verified
+0xd0,u8,booCount,number of boos answered; incremented on entering state 9 (0x44d861) and at 3 the ghost gives up and captures (0x44d87a),verified
+0xd2,s16,fadeDir,"+1 fading to the vulnerable blue, -1 fading back, 0 idle; set from the 0x4001 argument (0x44d0c5 / 0x44d0d9)",verified
+0xd4,u8,tintR,low byte of the tint colour being faded (0x44b80c),verified
+0xd5,u8,tintG,middle byte of the faded tint colour (0x44b84c),verified
+0xd6,u8,tintB,high byte of the faded tint colour (0x44b88c),verified
+0xd8,u8,baseR,"the model's own tint bytes, saved at init (0x44b2cd) and restored when the fade ends (0x44bb86)",verified
+0xd9,u8,baseG,saved tint byte 1 (0x44b2dc),verified
+0xda,u8,baseB,saved tint byte 2 (0x44b2eb),verified
+0xdc,u8,fadeSteps,"10 when a fade starts (0x44d0f7), decremented once per frame (0x44b89e); at 0 the end colour is written outright",verified
+0xe0,u32,tintScratch,member used as scratch while packing tintB/tintG/tintR into the tint colour (0x44b8c0-0x44b944),verified
+0xe8,s32,wolfDist,"Vec3s_DistXZ(wolf.pos, pos) each frame (0x44b6a8), forced to 3000 while the Wolf is in the ghost costume (0x44b6fd)",verified
+0xec,s16,stepR,per-frame tint delta toward the vulnerable blue 0x6E (0x44b302): 0x6E - baseR,verified
+0xee,s16,stepG,0xB4 - baseG (0x44b31a),verified
+0xf0,s16,stepB,0xFA - baseB (0x44b332),verified
+0xf4,s32,turnRate,angular velocity accumulator handed to Math_ApproachAngle by Ghost_TurnToward (0x44eada),verified
+0xf8,ScnObject *[15],ghosts,the other Ghosts (class 120) from Scenaric_FindByClass (0x44b167); messaged 0x4002 when one comes within 240 units and 0x4003 when this one captures,verified
+0x134,u16,ghostCount,count written by Scenaric_FindByClass (0x44b172),verified
+0x138,ScnBody,capturedSheep,embedded ScnBody built from export 0xBF (0x44b3d8); shown at the ghost's position during the capture animation,verified
+0x19c,ScnRecordSynth,capturedSheepRecord,synthetic record for that body (Scn_BuildRecordFromExport 0x44b3de),verified
+0x1b0,s32,hasCapturedSheep,1 when the export resolved and the body was initialised (0x44b40e),verified
+0x1b4,s32,showCapturedSheep,1 while the capture animation runs (0x44d767); Render draws the embedded body only then and only in state 4 (0x44d92d),verified
+0x1b8,s32,fireballTimerMs,"1150 ms at capture (0x44d66b), counted down by g_dtMs; at 0 the FireBall is told 0x5981 every frame (0x44c3ab)",verified
+0x1bc,u16,soundHandle,"handle of the last Sound_Play (0x44d384, 0x44d7fb), stopped before the next one",verified

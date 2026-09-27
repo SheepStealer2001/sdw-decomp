@@ -1,0 +1,10 @@
+value,name,meaning
+#,SelectMenuState,"g_selectMenuState 0x6de5d5 = g_map.state; read with 0x5428a0, written with 0x542893. Values 1..6 are all driven by PER-FRAME counters, never by g_dt."
+0,SEL_CLOSED,map not open; the game runs normally
+1,SEL_OPEN_WIPE,curtain bars growing +7 px per frame from top and bottom (0x542759); at height > 0x7F calls Map_Open. ~19 frames
+2,SEL_OPEN_HOLD,"phaseCounter counts down from 0xF, one per frame, fading the map in; ~15 frames"
+3,SEL_INTERACTIVE,"the player can move the cursor, use, combine, split and read help"
+4,SEL_CLOSE_HOLD,phaseCounter counts up to 0xF fading the map out; ~15 frames
+5,SEL_CLOSE_WIPE,closeCounter 0..10; at 5 SelectMenu_RestoreFlags puts g_gameFlags 0xC000 back while the curtain is still drawn
+6,SEL_CLOSE_TAIL,curtain shrinking again in 0x542759; at the end sets g_gameFlags |= 0x4000 and returns to SEL_CLOSED. ~18 frames
+7,SEL_SUPPRESSED,sentinel checked by Map_Open / SelectMenu_RestoreFlags / Game_Frame_2 to mean 'do not touch the map'

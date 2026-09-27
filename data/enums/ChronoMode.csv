@@ -1,0 +1,5 @@
+value,name,meaning
+#,ChronoMode,"Chronometer.mode (+0x64): doc 0 parked, 1 sliding in, 2 sliding out"
+0x0,CHRONO_PARKED,doc + Update case 0
+0x1,CHRONO_SLIDE_IN,case 1: slideOffset -= 4
+0x2,CHRONO_SLIDE_OUT,"case 2: slideOffset += 4, alarm when time is up"

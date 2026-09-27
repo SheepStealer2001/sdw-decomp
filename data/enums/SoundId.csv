@@ -1,0 +1,103 @@
+value,name,meaning
+#,SoundId,sound sample ids (Sound_Play arg 0; .SND entry header id)
+0x4,SND_SCOATTPD,Lvl-03.SoundIndex: 4 -> SCOATTPD.WAV; the Wolf's plain footstep (Wolf::FootstepSound)
+0x1e,SND_WOLF_BUSH_STEP,inferred: Wolf::FootstepSound in the bush model set (WMS_BUSH) (inferred)
+0x23,SND_WOLF_SWIM_LOOP,"inferred: Wolf::StateMachine WOLF_ST_SWIM: PlayLoopSound (in Lvl-02,Lvl-04,Lvl-05,Lvl-08,Lvl-09,Lvl-10,Lvl-12,Lvl-15) (inferred)"
+0x25,SND_FLUTE_TUNE,"inferred: Flute msg 0x15 (held-state begin) plays it; DaffyElf state 0 plays it at half volume (the elf's flute) (in Lvl-04,Lvl-06) (inferred)"
+0x28,SND_SCOCOLD,Lvl-03.SoundIndex: 40 -> SCOCOLD.WAV; same content in 23 level SND files
+0x36,SND_SBONMBTN,Lvl-03.SoundIndex: 54 -> SBONMBTN.WAV; same content in 22 level SND files
+0x3d,SND_SMOEATIN,Lvl-03.SoundIndex: 61 -> SMOEATIN.WAV; same content in 21 level SND files
+0x3e,SND_SMOJPMOV,Lvl-03.SoundIndex: 62 -> SMOJPMOV.WAV; same content in 23 level SND files
+0x3f,SND_CLOCK_TICK,"inferred: Chronometer MSG_CHRONO_VISIBLE and Watch msg 0x3782 tick loops; Gossamer_Boss spin (state 9) (in Lvl-00,Lvl-12,Lvl-16,Lvl-17) (inferred)"
+0x44,SND_SR2ROFA2,Lvl-03.SoundIndex: 68 -> SR2ROFA2.WAV; same content in 12 level SND files
+0x45,SND_GOSSBOSS_SPIN,"inferred: Gossamer_Boss Update state 9 (spin attack) (in Lvl-00,Lvl-12,Lvl-16,Lvl-17) (inferred)"
+0x48,SND_SCOSTEP1,Lvl-03.SoundIndex: 72 -> SCOSTEP1.WAV; same content in 23 level SND files
+0x4b,SND_WOLF_HURT,"inferred: Wolf::HandleMessage KILL_BURN_RUN / MSG_ENTER_CD / MSG_WOLF_THROW (in Lvl-09,Lvl-10,Lvl-12) (inferred)"
+0x4f,SND_WOLF_IDLE_BB,inferred: Wolf::IdleAnimStep while anim 0xbb (STANDV1B idle) (in Lvl-11) (inferred)
+0x51,SND_SCOCHOLE,Lvl-03.SoundIndex: 81 -> SCOCHOLE.WAV; same content in 23 level SND files
+0x57,SND_SCORECPT,Lvl-03.SoundIndex: 87 -> SCORECPT.WAV; same content in 23 level SND files
+0x5a,SND_SGLCHGLI,Lvl-03.SoundIndex: 90 -> SGLCHGLI.WAV; same content in 22 level SND files
+0x5e,SND_SPFASCEN,Lvl-03.SoundIndex: 94 -> SPFASCEN.WAV; same content in 8 level SND files
+0x62,SND_SDYMECHE,Lvl-03.SoundIndex: 98 -> SDYMECHE.WAV; same content in 2 level SND files
+0x65,SND_WOLF_GHOST_STEP,inferred: Wolf::FootstepSound in the ghost costume (WMS_GHOSTCOSTUME) (inferred)
+0x6a,SND_DAFFY09_PLACARD,inferred: DaffyLevel09 SetState 0 (placard appears/burns) (in Lvl-09) (inferred)
+0x6b,SND_FAN_BLOW,"inferred: Fan::UpdateSound; Hoover state 2 suction at low volume (in Lvl-02,Lvl-04,Lvl-05,Lvl-14,Lvl-15) (inferred)"
+0x6c,SND_FAN_BLOW_LOOP,"inferred: Fan::UpdateSound loop (in Lvl-02,Lvl-04,Lvl-05,Lvl-14,Lvl-15) (inferred)"
+0x6e,SND_SFUNTEUF,Lvl-03.SoundIndex: 110 -> SFUNTEUF.WAV; same content in 3 level SND files
+0x76,SND_CATAPULT_POWER,"inferred: Catapult::UpdatePowerInput (power charging) (in Lvl-05,Lvl-06,Lvl-15,Lvl-16) (inferred)"
+0x78,SND_S07NWALK,Lvl-03.SoundIndex: 120 -> S07NWALK.WAV; the Wolf's footstep in snow (Wolf::FootstepSound)
+0x7b,SND_SNOWBALL_ROLL,inferred: Snowball Update state 1 (rolling) (in Lvl-07) (inferred)
+0x7c,SND_ICE_SLIDE,"inferred: SlidingIceCube::PlaySlideSound; Wolf WOLF_ST_FROZEN_BREAK loop (in Lvl-06,Lvl-07,Lvl-08) (inferred)"
+0x7d,SND_MINE_BEAT,"inferred: DefusableMine::Update beat (in Lvl-06,Lvl-07,Lvl-11,Lvl-13) (inferred)"
+0x7e,SND_MINE_BEAT_LIGHT,"inferred: DefusableMine::DrawBeatLights (in Lvl-06,Lvl-07,Lvl-11,Lvl-13) (inferred)"
+0x7f,SND_ICE_HIT,"inferred: Wolf/Sheep FROZEN_FALL, SlidingIceCube sliding/falling/bump (in Lvl-06,Lvl-07,Lvl-08) (inferred)"
+0x80,SND_UNDERWATER,"inferred: Camera_UpdateUnderwater loop (in Lvl-02,Lvl-04,Lvl-05,Lvl-08,Lvl-09,Lvl-10,Lvl-12,Lvl-15) (inferred)"
+0x81,SND_S04FEMOR,Lvl-03.SoundIndex: 129 -> S04FEMOR.WAV; same content in 22 level SND files
+0x83,SND_MINE_DEFUSE_STEP,"inferred: DefusableMine Update states 7/8 (in Lvl-06,Lvl-07,Lvl-11,Lvl-13) (inferred)"
+0x84,SND_MINE_DEFUSE_FINAL,"inferred: DefusableMine Update state 7 (final) (in Lvl-06,Lvl-07,Lvl-11,Lvl-13) (inferred)"
+0x8c,SND_PIPE_EJECT,inferred: Pipe state 4 / Pipe2 state 3 (ball ejected) (in Lvl-12) (inferred)
+0x8d,SND_WHEEL_ROLL,inferred: Wheel SetState 1 / 4 (rolling along the rail) (in Lvl-12) (inferred)
+0x8e,SND_CARPET_MOTOR,inferred: RollingCarpet SetState 4 (in Lvl-13) (inferred)
+0x8f,SND_DIAMOND_SEAT,"inferred: Diamond SetState 1 (gem seated, zone teleports) (in Lvl-12) (inferred)"
+0x92,SND_MAGNET_HUM,inferred: Magnet::UpdateCaughtList (in Lvl-13) (inferred)
+0x93,SND_BATTERY_PICKUP,inferred: Battery SetState 3; DancingGhostManager beat (in Lvl-14) (inferred)
+0x95,SND_DIAMOND_SLIDE,inferred: Diamond msg 0x42 while sliding (in Lvl-12) (inferred)
+0x96,SND_MINE_BEEP,"inferred: GroundMine::Update beep (in Lvl-07,Lvl-11,Lvl-13,Lvl-15) (inferred)"
+0x97,SND_ROBOT_WALK,"inferred: Robot Update ROBOT_ST_WALK loop (in Lvl-11,Lvl-13,Lvl-14) (inferred)"
+0x98,SND_ROBOT_DASH,"inferred: Robot Update ROBOT_ST_DASH loop (in Lvl-11,Lvl-13,Lvl-14) (inferred)"
+0xa6,SND_HONEYPOT_LAUNCH,inferred: HoneyPot MSG_LAUNCH (in Lvl-12) (inferred)
+0xa7,SND_HONEYPOT_LAND,inferred: HoneyPot MSG_LANDED (in Lvl-12) (inferred)
+0xaa,SND_GHOST_SUCKED,inferred: Ghost SetState 5 (sucked by the hoover) (in Lvl-14) (inferred)
+0xae,SND_ROBOT_JUMP,"inferred: Robot Update FALL / JUMP_RISE / JUMP_APEX (in Lvl-11,Lvl-13,Lvl-14) (inferred)"
+0xb2,SND_JAIL_MOVE,inferred: Jail state 0 (moving) (in Lvl-14) (inferred)
+0xc4,SND_SCOSRUN1,Lvl-03.SoundIndex: 196 -> SCOSRUN1.WAV; same content in 23 level SND files
+0xc7,SND_SCOSRUN4,Lvl-03.SoundIndex: 199 -> SCOSRUN4.WAV; same content in 23 level SND files
+0xca,SND_SCOFALL,Lvl-03.SoundIndex: 202 -> SCOFALL.WAV; same content in 23 level SND files
+0xcd,SND_TIMEMACHINE_HUM,"inferred: TimeMachineSphere SetState 6 (in Lvl-09,Lvl-10) (inferred)"
+0xd6,SND_MINE_DEFUSE_FAIL,"inferred: DefusableMine Update state 8 (in Lvl-06,Lvl-07,Lvl-11,Lvl-13) (inferred)"
+0xdb,SND_LAZERROBOT_VOICE_B,inferred: LazerRobot msg 0x1f (in Lvl-17) (inferred)
+0xdc,SND_LAZERROBOT_VOICE_A,inferred: LazerRobot PostLoadInit / msg 0x1f (in Lvl-17) (inferred)
+0xdf,SND_MARTIAN_VOICE,"inferred: InstantMartian idle variant (SetState 0 case 2) (in Fend,Lvl-17) (inferred)"
+0xe3,SND_TRAIN_WHISTLE,inferred: Train SetState 1 in the off-train zone at volume 0x3ff (in Lvl-16) (inferred)
+0xe4,SND_CHRONO_ALARM,inferred: Chronometer Update state 2 (in Lvl-16) (inferred)
+0xe6,SND_TRAIN_RUN,inferred: Train Update state 2 overlapping the off-train zones (in Lvl-16) (inferred)
+0xeb,SND_SEAELAST,Lvl-03.SoundIndex: 235 -> SEAELAST.WAV; same content in 4 level SND files
+0xec,SND_SCOGLISS,Lvl-03.SoundIndex: 236 -> SCOGLISS.WAV; same content in 23 level SND files
+0xed,SND_SBUSAUT,"Lvl-03.SoundIndex: 237 -> SBUSAUT.WAV; the Wolf's hop in the rabbit costume, once per cycle (Wolf::FootstepSound)"
+0xf2,SND_MONOLITH_SPIN,inferred: Monolithe SetState 1 (in Lvl-14) (inferred)
+0xf4,SND_PIRATE_SHOT,inferred: Sam_Pirate SetState 7 (shoot) (in Lvl-15) (inferred)
+0xf5,SND_WHEEL_SPIN,inferred: Wheel::UpdateSpin (in Lvl-12) (inferred)
+0xf8,SND_SPTAIGU,Lvl-03.SoundIndex: 248 -> SPTAIGU.WAV; same content in 18 level SND files
+0xfb,SND_SGLPLANE,Lvl-03.SoundIndex: 251 -> SGLPLANE.WAV; same content in 22 level SND files
+0xfd,SND_BULL_CHARGE,"inferred: bull SetState 1/6 (charge loop) (in Lvl-04,Lvl-05,Lvl-09) (inferred)"
+0xfe,SND_BAT_FLAP,inferred: Bat SetState 1/2 (in Lvl-14) (inferred)
+0xff,SND_LASER_HUM,inferred: Laser Update state 3 near the Wolf (in Lvl-17) (inferred)
+0x100,SND_RUN_LOOP_ELMER,"inferred: Elmer::MoveToward; Gossamer_Lev08 SetState 0 (in Lvl-09,Lvl-11,Lvl-12) (inferred)"
+0x102,SND_DETECTOR_SCAN,"inferred: MineDetector MD_ST_RAISING (in Lvl-07,Lvl-15) (inferred)"
+0x106,SND_SCOPUSH,Lvl-03.SoundIndex: 262 -> SCOPUSH.WAV; same content in 11 level SND files
+0x107,SND_CATAPULT_FIRE,"inferred: Catapult SetState 2 (in Lvl-05,Lvl-06,Lvl-15,Lvl-16) (inferred)"
+0x108,SND_SBSTIMOV,Lvl-03.SoundIndex: 264 -> SBSTIMOV.WAV; same content in 9 level SND files
+0x110,SND_BALL_MAGNET,"inferred: CannonBall2 state 1 on magnet contact (in Lvl-12,Lvl-13) (inferred)"
+0x112,SND_SMOSLEEP,Lvl-03.SoundIndex: 274 -> SMOSLEEP.WAV; same content in 9 level SND files
+0x118,SND_SRBELECT,Lvl-03.SoundIndex: 280 -> SRBELECT.WAV; same content in 23 level SND files
+0x119,SND_ROBOT_IDLE,"inferred: Robot ROBOT_ST_CTRL_IDLE loop (in Lvl-11,Lvl-13,Lvl-14) (inferred)"
+0x11b,SND_HAIRDRYER_BLOW,"inferred: HairDryer HAIRDRYER_ST_BLOWING (in Lvl-06,Lvl-08) (inferred)"
+0x11c,SND_SEABOUCL,Lvl-03.SoundIndex: 284 -> SEABOUCL.WAV; same content in 4 level SND files
+0x124,SND_CRANE_IDLE,inferred: Crane SetState 0 (in Lvl-08) (inferred)
+0x128,SND_SFUTKFRK,Lvl-03.SoundIndex: 296 -> SFUTKFRK.WAV; same content in 3 level SND files
+0x12f,SND_GEYSER,inferred: GeyserIn/GeyserOut near the camera (in Lvl-08) (inferred)
+0x131,SND_WATERGEYSER_WHIRL,inferred: WaterGeyser SetState 3 (in Lvl-08) (inferred)
+0x136,SND_ROADRUNNER_RUN,"inferred: BipbipLevel14 SetState 2/3 (in Lvl-00,Lvl-16) (inferred)"
+0x137,SND_SGORUN,Lvl-03.SoundIndex: 311 -> SGORUN.WAV; same content in 18 level SND files
+0x13c,SND_WOLF_SKID_ICE,inferred: Wolf WOLF_ST_SKID_ICE loop (in Lvl-07) (inferred)
+0x13e,SND_TIMEMACHINE_OPEN,"inferred: TimeMachineSphere SetState 2 (in Lvl-09,Lvl-10) (inferred)"
+0x13f,SND_WOLF_FX8,inferred: Wolf::Fx8_Start (in Lvl-17) (inferred)
+0x141,SND_BEES_BUZZ,inferred: Bees SetState 9/0xf/0x12 (in Lvl-12) (inferred)
+0x142,SND_SMOBLONE,Lvl-03.SoundIndex: 322 -> SMOBLONE.WAV; same content in 21 level SND files
+0x14d,SND_DANCE_STEP,inferred: DancingGhost::UpdateState partner sound (in Lvl-14) (inferred)
+0x14f,SND_BELL_RING,inferred: Bell Update state 2 (in Lvl-11) (inferred)
+0x151,SND_WOLF_ITEM_ACTION,"inferred: Wolf::DoAction 0x16 (in Lvl-14,Lvl-15) (inferred)"
+0x152,SND_WOLF_INFLATE,"inferred: Wolf WOLF_ST_INFLATE loop (in Lvl-14,Lvl-15) (inferred)"
+0x153,SND_GHOST_BOO,inferred: Ghost SetState 8 (anim HOO) (in Lvl-14) (inferred)
+0x154,SND_WOLF_GHOST_BOO,inferred: Wolf::GhostCostumeGroundStep (broadcasts MSG_GHOST_BOO) (in Lvl-14) (inferred)
+0x158,SND_RUMBLE,sound_mgr.cpp: Sound_Play always refuses id 0x158; scenaric.cpp 0x378 comment: id 0x158 is a rumble (empty on PC) instead of a sound

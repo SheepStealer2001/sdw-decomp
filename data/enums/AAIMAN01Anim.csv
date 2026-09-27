@@ -1,0 +1,5 @@
+value,name,meaning
+#,AAIMAN01Anim,animation ids of WAR model AAIMAN01 (its WAR type-0x86 table; names verified from the level files). Played by: Magnet
+0x0,AAIMAN01_ANIM_LINK,WAR name LINK
+0x1,AAIMAN01_ANIM_OBJET,WAR name OBJET
+0x2,AAIMAN01_ANIM_MAGNET,WAR name MAGNET

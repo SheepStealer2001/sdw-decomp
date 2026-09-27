@@ -1,0 +1,4 @@
+value,name,meaning
+#,AFANTB01Anim,"animation ids of WAR model AFANTB01 (its WAR type-0x86 table; names verified from the level files). Played by: Ghost, PrayingGhost"
+0x0,AFANTB01_ANIM_KILL,WAR name KILL
+0x2,AFANTB01_ANIM_KILL3,WAR name KILL3

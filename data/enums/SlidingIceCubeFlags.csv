@@ -1,0 +1,5 @@
+value,name,meaning
+#,SlidingIceCubeFlags,u8 SlidingIceCube+0x83
+0x1,SIC_PUSH_X,ALLOWPUSHONXAXIS: slides at 0x400/0xC00 allowed
+0x2,SIC_PUSH_Y2,ALLOWPUSHONYAXIS: slides at 0/0x800 allowed
+0x4,SIC_BOUNCED,already reversed off a wall; decelerating

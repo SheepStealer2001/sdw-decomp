@@ -1,0 +1,5 @@
+value,name,meaning
+#,RCarpetMobileMode,s32 RCarpetMobile+0xac
+1,RCM_MODE_LOOP,Create default / msg 0x68 arg 1: wraps around the trajectory
+2,RCM_MODE_ONEWAY,msg 0x68 arg 2: stops at the ends
+4,RCM_MODE_RETURN,"msg 0x68 arg 4 or 0x1F/0x20: one-way; when not driven it returns home at 400*ratio/100, then sleeps (update NEVER)"

@@ -1,0 +1,6 @@
+value,name,meaning
+#,AutomaticDoorState,state field of AutomaticDoor
+0x0,AUTODOOR_ST_CLOSED,"SetState 0: anim 2, no collision change; Update: opens (2) when occupied (inferred)"
+0x1,AUTODOOR_ST_OPEN,SetState 1: anim 4; Update: when no longer occupied re-enables collision and closes (3) unless a body is in the way (inferred)
+0x2,AUTODOOR_ST_OPENING,SetState 2: anim 3 and SetCollision(0); Update: on anim end -> 1 (inferred)
+0x3,AUTODOOR_ST_CLOSING,SetState 3: anim 1 and SetCollision(1); Update: on anim end -> 0 (inferred)

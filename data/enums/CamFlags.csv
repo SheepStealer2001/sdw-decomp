@@ -1,0 +1,7 @@
+value,name,meaning
+#,CamFlags,g_camFlags 0x6e4384
+0x1,CAMF_MANUAL,player turned the camera (look / mode 5); cleared by SetMode. Wolf_UpdateCamera turns Ralph to the camera yaw when set and dist < 0x15
+0x2,CAMF_SMOOTH,smoothing active; SetMode's second argument; when clear Camera_SmoothToDesired snaps once
+0x4,CAMF_SNAP,set by Camera_Reset; cleared at the end of each Camera_Update; forces snap and disables collision in several modes
+0x8,CAMF_TOO_FAR,current dist >= 2 * desired
+0x10,CAMF_TOOFAR_CUT,TOO-FAR cut requested this frame (cleared when the sweep has no contact)

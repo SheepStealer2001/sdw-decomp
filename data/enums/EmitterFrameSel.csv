@@ -1,0 +1,4 @@
+value,name,meaning
+#,EmitterFrameSel,"frameSel argument of ParticleEmitter::Sfx_SpawnBillboard 0x52c763: a sprite frame index, or one of these selectors"
+0xfe,EMITTER_FRAME_CYCLE,(-2) each particle takes the ring slot index modulo the frame count; Emitter_UpdateTrail (footprints) passes it
+0xff,EMITTER_FRAME_RANDOM,(-1) each particle takes Rand_Bounded(frameCount); the other Emitter_Update* functions pass it

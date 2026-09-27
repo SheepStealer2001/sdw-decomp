@@ -1,0 +1,29 @@
+offset,ctype,name,meaning,confidence
+0x64,CollBox *[2],mouths,name and access width as src/objects/pipe2.cpp uses the field,verified
+0x6c,CollBox,queryBox,"16-byte scratch Box: the mouth being scanned, then the model box, then the exit mouth; handed to ObjGrid_QueryBoxOverlap at 0x4dc7a1. min at +0x70, max at +0x76",verified
+0x7c,CollBox,savedMouth,name and access width as src/objects/pipe2.cpp uses the field,verified
+0x8c,CollBox *,modelBox,name and access width as src/objects/pipe2.cpp uses the field,verified
+0xb0,CollBox *[2],originalMouths,name and access width as src/objects/pipe2.cpp uses the field,verified
+0xb8,ScnObject *,ball,name and access width as src/objects/pipe2.cpp uses the field,verified
+0xbc,Vec3s,entryPos,name and access width as src/objects/pipe2.cpp uses the field,verified
+0xc2,Vec3s,launchDir,name and access width as src/objects/pipe2.cpp uses the field,verified
+0xc8,Vec3s,exitPos,name and access width as src/objects/pipe2.cpp uses the field,verified
+0xce,Vec3s,centerPos,name and access width as src/objects/pipe2.cpp uses the field,verified
+0xd4,Vec3s,homePos,name and access width as src/objects/pipe2.cpp uses the field,verified
+0xe6,Vec3s,mouthCenter1,name and access width as src/objects/pipe2.cpp uses the field,verified
+0xec,Vec3s,mouthCenter2,name and access width as src/objects/pipe2.cpp uses the field,verified
+0xf2,Vec3s,turnOffset1,name and access width as src/objects/pipe2.cpp uses the field,verified
+0xf8,Vec3s,turnOffset2,name and access width as src/objects/pipe2.cpp uses the field,verified
+0xfe,Vec3s,turnPivot,name and access width as src/objects/pipe2.cpp uses the field,verified
+0x104,u8,occupied,name and access width as src/objects/pipe2.cpp uses the field,verified
+0x108,s32,armed,"gate on the whole state machine (0x4dc6af cmp/je at the top of Update). Set by msg 0x66 from CanonSimple_SetState; ALSO cleared by msg 0x4f at 0x4dda4a, so an explosion disarms the pipe and it needs a fresh 0x66",verified
+0x10c,s32,wolfFrozen,name and access width as src/objects/pipe2.cpp uses the field,verified
+0x110,u8,mouthIndex,name and access width as src/objects/pipe2.cpp uses the field,verified
+0x111,u8,objectIndex,name and access width as src/objects/pipe2.cpp uses the field,verified
+0x112,u8,pipeState,name and access width as src/objects/pipe2.cpp uses the field,verified
+0x113,u8,exitAxis,name and access width as src/objects/pipe2.cpp uses the field,verified
+0x114,s16,spinAngle,"visual turn accumulator, +0x20 per frame, ending on `spinAngle == 0x400` (0x4dd820 jne — exact equality). The collision geometry is rotated by the full 0x400 in a single frame by SetState case 5, so the boxes snap while the model takes 32 frames regardless of frame rate",verified
+0x116,s16,unk116,zeroed beside spinAngle by SetState case 4 (0x4ddc48) and read nowhere in 0x4dc4e0-0x4de000,verified
+0x118,s32,exitBoxSpan,name and access width as src/objects/pipe2.cpp uses the field,verified
+0x11c,u32,launchDelay,name and access width as src/objects/pipe2.cpp uses the field,verified
+0x120,u32,launchStart,name and access width as src/objects/pipe2.cpp uses the field,verified

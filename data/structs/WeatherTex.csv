@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x0,u32,page,"texture page of the bitmap record (DavBitmapRec.page, 0x52e3a1); DrawRain/DrawSnow write page + 4 as the RenderPoly type",verified
+0x4,u32,color,"RGB of the drops, argument & 0xffffff (0x52e488)",verified
+0x4,u8[4],colorBytes,"the bytes of color, low byte first; Weather_DrawRain scales bytes 0..2 by the particle alpha",verified
+0x8,float,width,quad width in world units (0x52e479),verified
+0xc,float,height,quad height in world units (0x52e482),verified
+0x10,float[8],uv,"four half-texel-corrected (u,v) corners from Tex_CornerUV: (0,0) (w,0) (0,h) (w,h) (0x52e3c0-0x52e470)",verified

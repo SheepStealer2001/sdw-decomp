@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x0,u16,listCount,"number of string lists; list 0 is the UI list, list 1+classId belongs to scenaric class classId. Instance lives at g_pDav + 0x14.",verified
+0x4,char **,lists,array of pointers to string lists; each list is a u8 count followed by that many NUL-terminated strings,verified

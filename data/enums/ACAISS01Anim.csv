@@ -1,0 +1,4 @@
+value,name,meaning
+#,ACAISS01Anim,animation ids of WAR model ACAISS01 (its WAR type-0x86 table; names verified from the level files). Played by: box
+0x0,ACAISS01_ANIM_OPEN1,WAR name OPEN1
+0x2,ACAISS01_ANIM_STAND0,WAR name STAND0

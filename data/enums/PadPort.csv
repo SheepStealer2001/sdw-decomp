@@ -1,0 +1,4 @@
+value,name,meaning
+#,PadPort,the port argument of Pad::Open 0x55f0a8: the PlayStation libpad port id (port << 4); Input_Init opens g_pad on port 1 and g_pad2 on port 2. The PC Pad::Open ignores it
+0x00,PAD_PORT_1,the first controller port (g_pad) (inferred from the libpad convention)
+0x10,PAD_PORT_2,the second controller port (g_pad2) (inferred from the libpad convention)

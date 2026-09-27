@@ -1,0 +1,13 @@
+offset,ctype,name,meaning,confidence
+0x7c,Vec3s,homePos,Init pos or pos at msg 9 arg 1 (the sender's pos); Reset and Update state 2 (crash respawn) return the rocket here.,verified
+0x82,u8,state,"RocketState 0..7 (Rocket_SetState, table 0x576960). Rocket_Render: 4 draws the respawn wobble, 7 draws the gauges.",verified
+0x83,u8:1,active,"bit 0 of the flag byte +0x83, a one-bit field: Bit 0 is ACTIVE: set by msg 0x15 (start using), cleared by msg 0x16, Init and Reset. Gates msg 0x10 (carry pose 1 gives state 7 flying plus engine sound 0x6e; pose 2 gives state 6).",verified
+0x84,s32,fuel,"remaining fuel in 1/4096 s ticks; msg 0x900 subtracts its arg (g_dt, or g_dt*2 while boosting) and returns 0 when empty; the write is at 0x4e5165",verified
+0x88,s32,fuelMax,PROPERTY_ROCKET_FUEL << 12,verified
+0x8c,s32,hits,"remaining hit points; msg 0x901 subtracts its arg, returns 0 when destroyed; the write is at 0x4e519e",verified
+0x90,s32,hitsMax,(PROPERTY_ROCKET_HITS << 13) / 100,verified
+0x94,u32,stateTime,g_gameTime stamp: set on entering states 3 and 4 (and 0 in Init). State 3 waits 0x3000 (3 s) hidden; state 4 lasts until ScnObject_IsRespawnWobbleDone (1 s).,verified
+0x98,u32,fuelColor,PROPERTY_ROCKET_FUELCOLOR,verified
+0x9c,u32,hitsColor,PROPERTY_ROCKET_HITSCOLOR,verified
+0xa0,s16,engineSoundHandle,looping sound handle; non-zero while the engine sound plays,verified
+0xa4,s32,enginePitch,"4.12 pitch/speed factor 0x1000..0x2000, moves by g_dt/2 per frame toward boost / cruise (2.0 s full ramp)",verified

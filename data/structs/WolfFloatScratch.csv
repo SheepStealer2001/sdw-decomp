@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x0,s32[3],sq,squares of vel's components (0x48b448..0x48b497); x and z give the speed by sqrt,verified
+0xc,Vec3s,vel,"velocity (0,-200,0) plus the water current; Wolf_WaterFloatUpStep's view of g_collScratchA 0x6d5468 (0x48b3c5)",verified
+0x14,Vec3s,rot,"new rotation, facing kept (0x48b632 word [edx+0x16])",verified
+0x1c,Vec3s,flow,"water current (0x48b3e3 add eax,0x1c into Zone_GetFlowVelocity)",verified
+0x24,Vec3s,step,"this frame's displacement (0x48b512 add eax,0x24 into Vec3s_ScaleByDt)",verified

@@ -1,0 +1,5 @@
+value,name,meaning
+#,MailboxFlags,Mailbox.mbFlags (+0x71)
+0x1,MB_GENERATED_BOXES,no BOX1-4 given: containers are created from synthesised records and added at the items' positions on delivery. Rollback only applies in this mode
+0x2,MB_OPENED,set by msg 1; blocks re-opening and the msg 2 prompt; cleared only by Mailbox_Rollback
+0x4,MB_COMMITTED,set by msg 0x600 (checkpoint commit) when opened; prevents rollback

@@ -1,0 +1,6 @@
+value,name,meaning
+#,LaunchArcFlags,LaunchArc +0x34.
+0x1,LAF_NO_FREEZE,"Rock: CamShot noFreeze = -(flags&1). Never set in practice: seesaw_LaunchObject computes it as (seesaw FLAGS & 2) & 1 = 0 (0x4ef2ad-0x4ef2c7), so a seesaw launch shot always freezes Ralph"
+0x2,LAF_2D_ZY,"outputs are (z, y); x stays obj.x"
+0x4,LAF_3D,"outputs are (x, y, z); set by seesaw_LaunchObject. Neither bit: (x, y) with z = obj.z"
+0x8,LAF_SKIP_SHEEP,copied from seesaw_LaunchObject's last argument; the seesaw_AddBody branch that would skip Sheep carrying it is dead code; the seesaw_AddBody branch that would skip Sheep carrying it is dead code (inferred)

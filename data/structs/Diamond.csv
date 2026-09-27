@@ -1,0 +1,17 @@
+offset,ctype,name,meaning,confidence
+0x64,u16,soundHandle,"Sound_Play channel: 0x95 while the gem slides (0x4b36ed), 0x8f once it is seated (0x4b38d1); Update stops it when the slide flag drops (0x4b3645)",verified
+0x66,u8[2],pad066,alignment before the box pointer,inferred
+0x68,Box *,zone,"ZONE property (Scn_GetPropBox prop 8, 0x4b33f4-0x4b3405); the rectangle whose objects the seated gem teleports (0x4b3903-0x4b393b)",verified
+0x6c,u8[0x20],unk06c,never read or written by the class,inferred
+0x8c,Trajectory *,traj,"TRAJ property (Scn_GetPropTrajectory prop 4, 0x4b328c-0x4b329d); only its first and last points are used",verified
+0x90,u8:1,sliding,"bit 0 of the byte at +0x90: set while a non-zero turn arrives (or al,1 0x4b36c2), cleared by PostLoadInit / Reset / a zero turn (and al,-2)",verified
+0x92,Vec3s,startPos,traj->pts[0] (0x4b32a3-0x4b32e1); the gem interpolates from here,verified
+0x98,Vec3s,endPos,traj->pts[count-1] (0x4b32e8-0x4b335f); SetPosition target once progress reaches 0xc00 (0x4b37d0),verified
+0x9e,Vec3s,delta,"endPos - startPos, per axis (0x4b3366-0x4b33bf)",verified
+0xa4,s16,progress,sum of the signed turn amounts of msg 0x42 (0x4b3707-0x4b371a); the gem is seated at 0xc00,verified
+0xa8,s32,percent,"progress * 100 / 0xc00 (0x4b3737-0x4b374f); the interpolation weight, in percent",verified
+0xac,Vec3s,homePos,pos at load with the vertical replaced by endPos.y (0x4b3433-0x4b345b); Reset puts the gem back here,verified
+0xb2,u8[2],pad0b2,alignment after the home position,inferred
+0xb4,s32,teleported,"0 at load, 1 once the zone has been teleported (0x4b39e8); never read by this class",verified
+0xb8,u8,state,"0 loose, 1 seated; compared and stored by SetState (0x4b387e-0x4b3895) and tested by HandleMessage (0x4b368c)",verified
+0xba,s16,teleportDx,"width in x of BOXTELEPORT (max.x - min.x, 0x4b3419-0x4b342c): the offset every object in the zone is moved by, and the argument of msg 0x43",verified

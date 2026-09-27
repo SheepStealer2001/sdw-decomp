@@ -1,0 +1,8 @@
+value,name,meaning
+#,AMOUGO01Anim,"animation ids of WAR model AMOUGO01 (its WAR type-0x86 table; names verified from the level files). Played by: InflatableSheep, InflatableSheep (g_inflatableSheepStateTable)"
+0x0,AMOUGO01_ANIM_OBJET,WAR name OBJET
+0x2,AMOUGO01_ANIM_INFLAT2,WAR name INFLAT2
+0x4,AMOUGO01_ANIM_INFLAT4,WAR name INFLAT4
+0x5,AMOUGO01_ANIM_LINK,WAR name LINK
+0x6,AMOUGO01_ANIM_INFLAT5,WAR name INFLAT5
+0x7,AMOUGO01_ANIM_LINK2,WAR name LINK2

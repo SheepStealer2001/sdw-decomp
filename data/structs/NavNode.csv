@@ -1,0 +1,16 @@
+offset,ctype,name,meaning,confidence
+0x0,s16,x,node x; +2 z; +4 y,verified
+0x2,s16,z,node Z,verified
+0x4,s16,groundY,"ground query (Coll_BoxGroundQuery 0x51a9de) at build time, NOT the trajectory third value: a new node for a trajectory POINT 0 falls back to 32000 when the query fails, later points fall back to the authored vertical",verified
+0x8,NavNode *[8],sons,neighbour pointers,verified
+0x28,s16[8][2],edgeNormal,"per-edge 4.12 unit normal (nx, nz)",verified
+0x28,SamEdgeNormal[8],edgeNormals,edgeNormal as SamEdgeNormal pairs (sam.cpp copies one into Sam.followEdgeNormal as a struct),verified
+0x48,s16[4],bbox,"minX, minZ, maxX, maxZ over node + neighbours, grown by 300",verified
+0x50,u8,nbSons,neighbour count,verified
+0x54,NavNode *,parent,A* parent,verified
+0x58,u32,g,cost so far; +0x5c h (Manhattan); +0x60 f,verified
+0x5c,u32,h,Manhattan distance to the search goal (NavPath_BeginSearch 0x512900),verified
+0x60,u32,f,g + h; the open list is kept sorted on this (NavPath_OpenListInsert 0x511f50 compares +0x60),verified
+0x64,u8,listState,"0 none, 1 open, 2 closed; +0x68 next, +0x6c prev",verified
+0x68,NavNode *,next,next in the search list (walked by NavPath_ClearSearch),verified
+0x6c,NavNode *,prev,previous in the search list; completes the 0x70 stride that g_samNavNodes[120] uses,verified

@@ -1,0 +1,67 @@
+offset,ctype,name,meaning,confidence
+0x7c,Vec3s,homePos,home position: CannonBall_Reset passes &this->homePos to SetPosition (vtable +0x1c) at 0x4a1b50-0x4a1b5c,inferred
+0x82,Vec3s,curPos,pos copied at the start of each flight step (the kill test uses this previous-frame position); set by msg 0x3382,verified
+0x88,Vec3s,targetPos,"pipe entry point (msg 0x3383, approached in state 4); msg 0x3384 overwrites it with the current pos (transit end)",verified
+0x8e,Vec3s,camGoal,"chase-camera end position for pipe transit (msg 0x3385: target - dir/8, vertical target-200, clamped +-200); copied to camPos on a 0x3381 from a non-cannon sender",verified
+0x94,Vec3s,launchDir,launch vector; velocity = launchDir*1000/0xfff u/s (a 4.12 unit vector gives ~1000 u/s); set by 0x3381/0x3383/0x3385/0x3389/0x338a,verified
+0x9a,Vec3s,velocity,units/s for this frame (per-state formula),verified
+0xa0,Vec3s,frameDelta,"Vec3s_ScaleByDt(velocity), the move applied this frame; stored as hitDir when the lifetime expires",verified
+0xa6,Vec3s,homingTarget,"state-2 target point (msg 0x338a from Rook: Wolf pos, 120 up)",verified
+0xac,s32,distSq,state 4: squared distance to targetPos this frame,verified
+0xb0,s32,prevDistSq,state 4: previous distSq; entry completes once distSq >= prevDistSq,verified
+0xb4,ScnObject *,pipe,sender of 0x3383; gets when the entry point is reached,verified
+0xb8,ScnObject *,launcher,"cannon that owns the ball (class 97/146/178 sender of 0x3381/0x3382/0x338a); gets msg 0x4f (arg hitClassId) when the explosion ends, and msg 0xe on a Hive hit",verified
+0xbc,u16,hitClassId,class id of what the ball hit (0xffff = static geometry); argument of msg 0x4f,verified
+0xc0,ContactInfo,contact,"Collide_ResolveMove output (0xc0 floorObj, 0xc4 wallObj, 0xc8 movableObj, 0xd4 wallNormalMean); 0x1c bytes",verified
+0xdc,u8,state,CannonBallState,verified
+0xe0,u32,cameraReleased,1 after msg 0x3386; suppresses CannonBall_UpdateChaseCamera; cleared by SetState(0) and Reset,verified
+0xe4,u32,lethal,"msg 0x3388 arg; enables the state-1 proximity kill (CanonSheep sends 1, CanonSimple 0)",verified
+0xe8,u32,firedByCannon,1 when 0x3381 came from class 97/146/178; the sweep then passes through cannon objects (97/105/146),verified
+0xec,u32,hitPipe,set by the sweep on touching a Pipe/Pipe2 wall; cleared by 0x3383/SetState(1)/Reset; still set on the next state-1 frame -> explode,verified
+0xf0,u32,fxActive,explosion/splash body is animating; cleared when its anim ends,verified
+0xf4,u32,hitWolf,"1 when the ball killed the Wolf: it follows the Wolf during the explosion, stays drawn, and plays no explosion sound or model",verified
+0xf8,s32,explodeTimerMs,"state 5 countdown, 2500 ms, g_dtMs",verified
+0xfc,ScnObject *[8],pipes,Pipe (class 96) objects found at Init; each gets msg 0x4f at the end of an explosion,verified
+0x11c,ScnObject *[8],pipes2,Pipe2 (class 163) objects found at Init; also get msg 0x4f,verified
+0x13c,u32,pipeCount,count for pipes[],verified
+0x140,u32,pipe2Count,count for pipes2[],verified
+0x144,u32,flightTimeMs,"PARABOLIC flight time, g_dtMs accumulated in state 1",verified
+0x148,s32,lifetimeMs,PROPERTY LIFETIME (level data 5000/7000),verified
+0x14c,s32,lifeLeftMs,state-1 countdown from lifetimeMs; at <= 0 the ball explodes in mid-air,verified
+0x158,Vec3s,camPos,chase-camera eye; clamped to +-200 of the ball in flight,verified
+0x160,Vec3s,transitStart,pipe entry point (set when state 4 completes); start of the state-6 interpolation,verified
+0x166,Vec3s,camTransitStart,camPos at msg 0x3384,verified
+0x16c,Vec3s,transitDelta,exit - entry for state 6,verified
+0x172,Vec3s,camTransitDelta,camGoal - camTransitStart,verified
+0x178,u16,camPitch,chase-camera pitch passed to Camera_StartScripted,verified
+0x17a,u16,camYaw,chase-camera yaw,verified
+0x180,s32,transitStartTime,g_gameTime at msg 0x3384,verified
+0x184,s32,transitDuration,"msg 0x3384 arg, in g_gameTime ticks (1/4096 s)",verified
+0x188,u32,ownsCamera,"msg 0x3387 arg (CanonSimple 1, Rook 0); enables the chase camera; releases it after the explosion; cleared on a Hive hit",verified
+0x18c,InlineEmitter16,trailSmokeFx,"emitter 0 of 10 (trail smoke), inline storage. Factory 0x4a4928 constructs each of the ten separately (add 0x18c, pools +0x24/+0xe4, count 0x10, Emitter_Reset 0x52dbe3), so they are ten members, not an array: an array of a constructor-bearing type would emit a loop",verified
+0x2f0,InlineEmitter16,debrisSmokeFx0,"emitter 1 of 10 (debris 0 smoke), inline storage. Factory 0x4a4928 constructs each of the ten separately (add 0x2f0, pools +0x24/+0xe4, count 0x10, Emitter_Reset 0x52dbe3), so they are ten members, not an array: an array of a constructor-bearing type would emit a loop",verified
+0x454,InlineEmitter16,debrisSmokeFx1,"emitter 2 of 10 (debris 1 smoke), inline storage. Factory 0x4a4928 constructs each of the ten separately (add 0x454, pools +0x24/+0xe4, count 0x10, Emitter_Reset 0x52dbe3), so they are ten members, not an array: an array of a constructor-bearing type would emit a loop",verified
+0x5b8,InlineEmitter16,debrisSmokeFx2,"emitter 3 of 10 (debris 2 smoke), inline storage. Factory 0x4a4928 constructs each of the ten separately (add 0x5b8, pools +0x24/+0xe4, count 0x10, Emitter_Reset 0x52dbe3), so they are ten members, not an array: an array of a constructor-bearing type would emit a loop",verified
+0x71c,InlineEmitter16,debrisSmokeFx3,"emitter 4 of 10 (debris 3 smoke), inline storage. Factory 0x4a4928 constructs each of the ten separately (add 0x71c, pools +0x24/+0xe4, count 0x10, Emitter_Reset 0x52dbe3), so they are ten members, not an array: an array of a constructor-bearing type would emit a loop",verified
+0x880,InlineEmitter16,trailBubbleFx,"emitter 5 of 10 (trail bubbles), inline storage. Factory 0x4a4928 constructs each of the ten separately (add 0x880, pools +0x24/+0xe4, count 0x10, Emitter_Reset 0x52dbe3), so they are ten members, not an array: an array of a constructor-bearing type would emit a loop",verified
+0x9e4,InlineEmitter16,debrisBubbleFx0,"emitter 6 of 10 (debris 0 bubbles), inline storage. Factory 0x4a4928 constructs each of the ten separately (add 0x9e4, pools +0x24/+0xe4, count 0x10, Emitter_Reset 0x52dbe3), so they are ten members, not an array: an array of a constructor-bearing type would emit a loop",verified
+0xb48,InlineEmitter16,debrisBubbleFx1,"emitter 7 of 10 (debris 1 bubbles), inline storage. Factory 0x4a4928 constructs each of the ten separately (add 0xb48, pools +0x24/+0xe4, count 0x10, Emitter_Reset 0x52dbe3), so they are ten members, not an array: an array of a constructor-bearing type would emit a loop",verified
+0xcac,InlineEmitter16,debrisBubbleFx2,"emitter 8 of 10 (debris 2 bubbles), inline storage. Factory 0x4a4928 constructs each of the ten separately (add 0xcac, pools +0x24/+0xe4, count 0x10, Emitter_Reset 0x52dbe3), so they are ten members, not an array: an array of a constructor-bearing type would emit a loop",verified
+0xe10,InlineEmitter16,debrisBubbleFx3,"emitter 9 of 10 (debris 3 bubbles), inline storage. Factory 0x4a4928 constructs each of the ten separately (add 0xe10, pools +0x24/+0xe4, count 0x10, Emitter_Reset 0x52dbe3), so they are ten members, not an array: an array of a constructor-bearing type would emit a loop",verified
+0xf74,EmitterDriftParams,trailSmokeParams,"Emitter_UpdateDrift params {s32 50, -10, 0xa30, 0x146; u16 size 40->100; u8 0}",verified
+0xf8c,EmitterDriftParams,debrisSmokeParams,"drift params {50,-10,0xa30,0x146; size 20->50 (reset by SetState(5), shrunk 1 per frame in state 5); 0}",verified
+0xfa4,EmitterRiseParams,trailBubbleParams,"Emitter_UpdateRiseToCap params {s32 -120, 0xa30, 0x146; u16 15; u16 cap 0; u8 frame 2}",verified
+0xfb8,EmitterRiseParams,debrisBubbleParams,"rise params {-120, 0xa30, 0x32f; 10; cap 0; 2}",verified
+0xfcc,Vec3s[5],debrisPos,explosion debris positions (start at the ball pos),verified
+0xfea,Vec3s[5],debrisVel,"debris velocities, Rand_Range(-800,800) per axis; wall bounce = normal/5",verified
+0x1008,s32,gravityTicks,state 1 PARABOLIC: flightTimeMs/40 (x WEIGHT = downward u/s); state 5: +1 per frame (debris gravity x15/2),verified
+0x100c,u16,gravityWeight,PROPERTY WEIGHT (gravity multiplier),verified
+0x1010,u32,parabolic,PROPERTY PARABOLIC (gravity on in state 1),verified
+0x101a,u8[2],rumbleMotors,"{0xfe,0xff} passed to Pad_Rumble_stub",verified
+0x101c,ScnBody,explosionFx,"embedded explosion/splash model (WAR_IDO_AEXPLOS1 = 3); anim 1 undirected, anim 2 oriented by hitDir; pos at +0x1028, yaw +0x1032, anim flags +0x107e",verified
+0x1080,ScnRecordSynth,explosionRecord,record synthesised by Scn_BuildRecordFromExport(3),verified
+0x1094,u32,hasExplosionFx,1 if the export existed and explosionFx was initialised,verified
+0x1098,u32,inWater,set once the ball enters a g_waterZones box in flight (bubbles on; no second splash),verified
+0x109c,u32,noHitDir,static hit with a zero normal: the explosion plays undirected anim 1,verified
+0x10a0,Vec3s,hitDir,orientation for the anim-2 explosion (hit normal or last frameDelta),verified
+0x10a6,u16,explodeSound,Sound_Play(0x44) handle,verified

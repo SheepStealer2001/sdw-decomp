@@ -1,0 +1,4 @@
+value,name,meaning
+#,TelescopeMode,"Telescope +0x66, chosen by msg 2"
+0,TELESCOPE_NORMAL,"NORMALBOXID, NORMALFOCAL, CAMDISTNORMAL, baseYaw 0x800-rot.y"
+1,TELESCOPE_REVERSE,"REVERSEBOXID, REVERSEFOCAL, CAMDISTREVERSE, baseYaw -rot.y, pitch offset negated"

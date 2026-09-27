@@ -1,0 +1,5 @@
+value,name,meaning
+#,ObjMgrCamZone,ObjectManager +0x1da
+0,OBJMGR_ZONE_UNSET,after Init; the first Update always applies
+1,OBJMGR_ZONE_OUTSIDE,camera outside all boxes: objects hidden (and frozen when ACTION=0)
+2,OBJMGR_ZONE_INSIDE,camera inside a box: objects shown/restored

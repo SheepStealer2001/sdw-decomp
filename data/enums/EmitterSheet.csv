@@ -1,0 +1,3 @@
+value,name,meaning
+#,EmitterSheet,"ParticleEmitter.sheetIndex (+0x20): an index into the 11 effect sprite sheets (s_spriteSheets 0x6d8078, loaded from s_effectSheetRes), or this sentinel"
+0xff,EMITTER_SHEET_NONE,unset: Emitter_Reset 0x52dbe3 stores it; every Emitter_Update* sets the sheet from its parameter block

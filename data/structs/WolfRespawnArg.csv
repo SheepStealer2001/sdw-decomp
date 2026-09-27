@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x0,Vec3s,pos,"msg 0x402 argument (sent by the CheckpointManager 0x4ab5de, built on its stack): the respawn position, copied to Wolf.savedRespawnPos (0x485f45)",verified
+0x6,s16,facing,"the respawn facing, copied to Wolf.savedRespawnFacing (0x485f5a mov dx,[ecx+6])",verified

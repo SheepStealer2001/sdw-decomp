@@ -1,0 +1,4 @@
+value,name,meaning
+#,AREDUC01Anim,animation ids of WAR model AREDUC01 (its WAR type-0x86 table; names verified from the level files). Played by: Resizer
+0x0,AREDUC01_ANIM_STAND,WAR name STAND
+0x1,AREDUC01_ANIM_ACTION1,WAR name ACTION1

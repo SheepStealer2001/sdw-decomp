@@ -1,0 +1,6 @@
+value,name,meaning
+#,MenuItemFlags,bits of MenuPage.flags (+0)
+0x03,MENU_F_KIND_MASK,"kind: 0 = page/submenu (CROSS enters it), 1 = leaf item (LEFT/RIGHT/CROSS messages); 2 and 3 get no input handling"
+0x04,MENU_F_HAS_HANDLER,"+4 is a MenuHandler, otherwise a char* label"
+0x08,MENU_F_DISABLED,"greyed (0xA0A0A0), skipped by navigation, cannot be entered"
+0x10,MENU_F_SELECTED,set on the cursor node by Menu_Update; Menu_Printf blinks it

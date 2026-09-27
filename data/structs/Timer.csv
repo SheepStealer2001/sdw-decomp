@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x0,fnptr *,vtbl,"points at Timer_vtbl 0x574350, whose single entry is the scalar deleting destructor 0x40b5d0. MSVC pads the vtable pointer to the class's 8-byte alignment (its LONGLONG members, /Zp8), so +0x04..+0x07 is compiler padding, never written",verified
+0x8,u8,running,1 between Timer_Start and Timer_Stop; GetDelta returns 0.0 and GetElapsed skips the TSC sample when it is 0,verified
+0xc,u8[4],pad_0x0c,padding that aligns the three LONGLONGs to 8 bytes,inferred
+0x10,s64,baseTsc,TSC value captured by Timer_Start; Timer_OffsetBase shifts it to compensate for paused intervals,verified
+0x18,s64,elapsedTsc,ticks from baseTsc to the last sample; returned by Timer_GetElapsed,verified
+0x20,s64,deltaTsc,"elapsedTsc minus the previous elapsedTsc, i.e. the ticks since the previous sample; returned by Timer_GetDelta. Exact 64-bit arithmetic, so no time is lost inside the timer.",verified

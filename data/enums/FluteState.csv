@@ -1,0 +1,5 @@
+value,name,meaning
+#,FluteState,Flute state (u8 at Flute+0x1ec)
+0,FLUTE_ST_WORLD,"on the ground, anim 4"
+1,FLUTE_ST_HELD,held and silent; notes already in the air keep ageing
+2,FLUTE_ST_PLAYING,"tune 0x25; msg 0x481 to Sam within 300, 0x1D broadcast within 600, notes spawned"

@@ -1,0 +1,5 @@
+value,name,meaning
+#,CannonBall2State,state field of CannonBall2
+0x0,CB2_ST_REST,Update 0: timer 0; -> 1 when a move modifier (MSG_MODIFY_MOVE) arrives (inferred)
+0x1,CB2_ST_SLIDE,Update 1: slides; magnet contact sound 0x110; the state byte tested by MSG_MAGNET_QUERY (inferred)
+0x2,CB2_ST_SINK,"Update 2: moves down at 100 u/s for one second, then Reset (inferred)"

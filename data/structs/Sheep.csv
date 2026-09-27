@@ -1,0 +1,29 @@
+offset,ctype,name,meaning,confidence
+0x7c,s16,slopeLimit,"4.12 min ground-normal passed to collision sweep 0x50e6b7; default 0xB54, 0x1000 after seesaw launch (moved from ScnMobile: only Sheep code writes it, e.g. 0x478db2)",verified
+0x7e,s16,slopeOverrideMs,"ms countdown (g_dtMs) after which slopeLimit returns to 0xB54; set 500 by msg 0x27 (moved from ScnMobile: only Sheep code writes it, e.g. 0x478db2)",verified
+0x80,ScnObject *,pTarget,current attractor / scent source / leader; reserved in g_flockReservedTargets when flag 2,verified
+0x84,ScnObject *,pPlatform,"object that claimed the sheep via msg 0x18 (carpet, train, elastic, magnet, GossamerOnde...); gets msg 0x1A on each move; keeps gravity active",verified
+0x88,ScnObject *,pScriptHolder,sender of msg 0x23 (Sam/Monolithe/PrayingGhost); only it may grab while flag 0x20,verified
+0x8c,s32,fallTime,time falling in 1/4096 s; fall speed = fallTime*1500>>12 capped 1400; tested by 0x477c7f to enter FALL,verified
+0x90,s32,stateTime,"time in current state, 1/4096 s; zeroed by Sheep_SetState",verified
+0x94,s32,gravityTimer,while >0 the update tail keeps applying Sheep_FallStep; reloaded to 0x5000 by movers,verified
+0x98,Vec3s,lastFoodPos,position of the salad being eaten; next-food search origin and WALK_TO_LAST_FOOD destination,verified
+0x9e,s16,carryHeadingOffset,heading relative to carrier at pickup; restored on drop,verified
+0xa0,Vec3s,homePos,"home: set to spawn position (ground-snapped) by Sheep_PostLoadInit; idle in-zone sheep walk back to it (state 0x12, Sheep_Update); Sheep_Reset teleports every sheep EXCEPT g_pCheckpointSheep here, so it is also the death-reset position. Observed in game: a sheep with this written walks there, and a Ralph death respawns it there",verified
+0xa6,s16,homeHeading,heading applied with homePos by Sheep_Reset,verified
+0xa8,Vec3s,respawnPos,"checkpoint respawn position, used ONLY while this sheep is g_pCheckpointSheep: written by msg 0x980 (which also sets g_pCheckpointSheep), read only by Sheep_Reset; initialised from homePos at load",verified
+0xae,s16,respawnHeading,heading applied with respawnPos by Sheep_Reset for the checkpoint sheep,verified
+0xb0,Vec3s,walkDest,"destination for WALK_TO_POINT 0x19 (msg 0x981), y re-queried from ground",verified
+0xb6,s16,fallLimitY,Y cap for death fall state 0x14 (from death zone +0xC); default 32000,verified
+0xb8,Vec3s,anchorPos,"leash centre set by msg 0x2E (platforms, raft, lift...)",verified
+0xc0,s32,anchorRadiusSq,leash radius squared; beyond it -> state 0x1C,verified
+0xc4,WallAvoid,wallAvoid,"{Vec3s wallNormal; u16 flags (bit0 active, bit1 turn side)} steering helper shared with Wolf (+0x2B0), used by 0x493ecb/0x494116/0x493e80; flags word at +0xCA",verified
+0xcc,AltModel[3],models,"0x10-byte model slots: [0] main, [1] WAR 0x52 AMOUTO03 (sleeping), [2] WAR 0xE4 AMOUTO04 (variant, flag 0x4000). s16 resId at +0 (-1 = absent)",verified
+0xfc,Box *,pRepelZone,SHEEPREPELBOX (WAR id 0x35) box containing the sheep; its flag bits 0x40000000/0x20000000/0x10000000/0x08000000 choose the escape direction (+-500 z/x) in state 0x18,verified
+0x100,Box *,pWaterZone,"water box (list 0x6d0c58) containing pos.y-60; flags 0x1000000 = freezing water, 0x2000000 = no-float; +6 = surface Y; supplies current",verified
+0x104,u16,sfxHandle,"handle of looping/voice sfx (0x142 bleat, 0x112 snore, 0x3D eat, 0x28 shiver); stopped on state change",verified
+0x106,u8,state,enum SheepState,verified
+0x107,u8,modelIdx,currently loaded entry of models[],verified
+0x108,s8,index,"index in g_sheepTable, bit number in the flock masks and think frame slot",verified
+0x109,s8,idleLoops,remaining idle animation loops before switching variant,verified
+0x10c,u32,flags,enum SheepFlags,verified

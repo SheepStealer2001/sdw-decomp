@@ -1,0 +1,10 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,state,"PiranhasState (1 bite, 2 attack wait, 3 swim, 4 leap)",verified
+0x65,u8,attackOrder,g_piranhaAttackCount after this piranha's increment; only 1 sends the kill,verified
+0x6c,s32,attackTimerMs,1000 ms between freezing Ralph and the bite,verified
+0x74,Box *,waterBox,water zone containing the spawn point; min.y = surface; the attack and target area,verified
+0x78,ScnObject *,inflatableSheep,"first InflatableSheep (class 0x84) in the level, or NULL; sent msg 0 arg 9 while inside waterBox",verified
+0x7c,u32,submerged,1 = draw with the water tint (tintAmount 0x800 of g_waterColor); 0 while leaping out or attacking,verified
+0x80,Trajectory,path,"the inline trajectory the follower runs on: count (2 for swim, 4 for leap), then the points (start, [surface skim in/out], target), pts[1..3] running on into pathMorePts",verified
+0x88,Vec3s[3],pathMorePts,path.pts[1..3]: where the inline trajectory's points continue past its one declared point; written as path.pts[i],verified
+0x9c,TrajFollower,follower,"0x20-byte follower over path (speed 500, arrive radius 50, 3D); +0xa0 pointIndex drives the leap anim switches",verified

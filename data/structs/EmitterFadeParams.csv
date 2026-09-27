@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x0,s32,life,"particle life in ticks (Emitter_UpdateFade 0x52d599 mov ecx,[edx])",verified
+0x4,s32,fadeStart,age at which the fade to 0 begins (comment of Emitter_UpdateFade; read later in it),inferred
+0x8,s32,spawnInterval,"ticks between spawns (0x52d600 mov eax,[edx+8]); Wolf_UpdateTrailFx sets 0x4b000 / speed (0x48ee67)",inferred
+0xc,s16,sizeStart,"size at birth (0x52d6fb movsx edx,[edx+0xc])",verified
+0xe,s16,sizeEnd,"size at death (0x52d6f4 movsx eax,[edx+0xe])",verified
+0x10,u8,sheetIndex,"sprite sheet (0x52d5ce mov dl,[ecx+0x10])",verified

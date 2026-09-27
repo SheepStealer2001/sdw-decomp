@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x0,u16,modelResIndex,"DAV resource index of the exported model, or 0xFFFF when the export list was empty. Instances live in the owning object (e.g. Wolf::splashRecord, Wolf::propRecord).",verified
+0x2,u16,secondaryRes,always set to 0xFFFF = no secondary resource,verified
+0x4,Vec3s,pos,"spawn position, copied from the caller's Vec3s when non-NULL (4 bytes + 2 bytes)",verified
+0xa,u16,classId,"not rotOrFlags: the class id. ScnBody_Init 0x50dcb5 mov cx,[record+0xa] then 0x50dcb9 stores it in ScnObject.classId (+0x38); tools/war_objects.py reads the on-disc type-5 record the same way.",verified
+0xc,Vec3s,rot,"not pad: the record rotation (x, y, z), s16[3] at +0x0C on disc as well as in the synthetic copies.",verified

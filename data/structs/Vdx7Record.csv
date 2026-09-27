@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x0,s16,x,U origin in texels of a texture rectangle: Bs_TexelToUV's origin argument for every U coordinate (BsDecode_Stride24_Pass1 0x41d1e7),verified
+0x2,s16,w,U size in texels: Bs_TexelToUV's size argument for U (0x41d1ee; Bs_TexelToUV reads it with movsx 0x41fc54),verified
+0x4,s16,y,V origin in texels (0x41d212),verified
+0x6,s16,h,V size in texels (0x41d21a),verified
+0x8,u16,page,"texture page, zero-extended into the polygon's texIndex (movzx 0x41d2ec)",verified

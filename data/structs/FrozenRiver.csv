@@ -1,0 +1,18 @@
+offset,ctype,name,meaning,confidence
+0x40,Trajectory *,path,Scn_GetPropTrajectory(IDWATERTRAJ) (0x4c2a12): the course from the water to the crane; the last point is where the crane is called,verified
+0x44,RiverCargo[2],cargo,"[0] the Wolf, [1] a Sheep (FrozenRiver_AddCargo 0x4c3523, 0x4c35ba)",verified
+0x74,RiverCargo[3],floes,"the level's SlidingIceCubes (Scenaric_FindByClass(0x4f, 3) 0x4c2b75)",verified
+0xbc,ScnObject *,crane,the level's Crane (Scenaric_FindByClass(0x52) 0x4c2b4f); none disables the river (0x4c2b66). Sent msg 0x37 with the cargo at the last point (0x4c3b24),verified
+0xc0,u32,nodeDist,"Vec3s_DistXZ from the moved cargo to its node, written by every FrozenRiver_MoveCargo (0x4c396c); compared unsigned with 50 (0x4c3983), divided signed (0x4c3b44)",verified
+0xc4,u32,floeTimer,"ms since the last floe launch (+= g_dtMs 0x4c3e91); a floe launches once it passes 10000 (0x4c3c0f, unsigned)",verified
+0xcc,ZoneList,waterBoxes,"IDWATERBOX list (Scn_FindIdList 0x4c2c93): msg 0x36 registers a sender inside one of them (0x4c2efd, 2-D)",verified
+0xd4,CamSetup *,camera,Scn_GetPropCamera(CAMERA) (0x4c2b2f): started once when the Wolf reaches the last point (0x4c3a4b),verified
+0xd8,Vec3s,floeStart,"where floes are put in: path point 0 (0x4c2a27) with y = top of waterBoxes[0] + 110 (0x4c2ce2), or 110 without boxes",verified
+0xde,u8,floesActive,"floes in the water (LaunchFloe ++ 0x4c3c6f, -- when the crane takes one 0x4c30c5); FrozenRiver_UpdateCargo walks floes[0..floesActive)",verified
+0xdf,u8,floeCount,"SlidingIceCubes found (0x4c2b80, 0x4c32d0)",verified
+0xe0,u8,enabled,"1 from PostLoadInit (0x4c29f1), 0 without a Crane; Update does nothing unless it is 1 (0x4c2ea0)",verified
+0xe1,u8:1,floeOnCrane,"set when the crane takes a floe (msg 0x3e 0x4c30f6), cleared by a SlidingIceCube's msg 0x36 (0x4c3638); stops floe launches and the floes' crane call",verified
+0xe1,u8:1,wolfInRiver,cargo[0] holds the Wolf (0x4c3579); cleared when the crane takes him (0x4c2ffe),verified
+0xe1,u8:1,sheepInRiver,cargo[1] holds a Sheep (0x4c3610); cleared when the crane takes it (0x4c3014),verified
+0xe1,u8:1,craneBusy,msg 0x3e's argument bit 0 (0x4c2f26): the crane has its hook on a cargo; no crane call while set (0x4c3aff),verified
+0xe1,u8:1,camStarted,the river camera was started for the Wolf at the last point (0x4c3ad6); cleared by msg 0x3e (0x4c2f86),verified

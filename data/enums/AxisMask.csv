@@ -1,0 +1,5 @@
+value,name,meaning
+#,AxisMask,axis-selection mask (Wolf::ClampDeltaToBox)
+0x1,AXIS_X,ClampDeltaToBox: axes & 1 clamps x (inferred)
+0x2,AXIS_Y_MIN,axes & 2 -> y = box->min[1]
+0x4,AXIS_Y_MAX,axes & 4 -> y = box->max[1]

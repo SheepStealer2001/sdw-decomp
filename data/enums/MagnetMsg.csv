@@ -1,0 +1,9 @@
+value,name,meaning
+#,MagnetMsg,Messages handled by Magnet_HandleMessage 0x4d27cf (jump table 0x4d29f9 / 0x4d2a19)
+0x2,MSG_QUERY_ACTION,4 (CTX_PICKUP) for the Wolf only
+0x4,MSG_PICKUP,attach to sender joint arg; shadow hidden unless the sender is a MagnetRod; anim 0
+0x5,MSG_DROP,"detach and SetPosition(arg->pos), ignoring the keep-position bit; anim 1"
+0x7,MSG_INVENTORY_STORED,stored: Magnet_ReleaseAll
+0x9,MSG_CONTAINER_STATE,arg 1: homePos = pos
+0x1a,MSG_MODIFY_MOVE,Magnet_PullMover unless arg flags bit 1
+0x55,MSG_CHECKPOINT_ROLLBACK,vtable Reset

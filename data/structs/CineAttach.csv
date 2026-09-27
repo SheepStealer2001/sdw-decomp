@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x0,ScnObject *,child,the object to attach: Cine_AttachEntry 0x56266b loads it and tests its inst_flags & 8 (0x562671),verified
+0x4,ScnObject *,parent,the object to attach to (pushed at 0x56269d); compared with the script target by Cine_OpToggleActorEntry 0x56309d,verified
+0x8,Vec3s,offset,&entry+8 passed as the offset (0x562687),verified
+0xe,Vec3s,rot,&entry+0xe passed as the rotation (0x562680),verified
+0x14,u8,joint,"parent joint index, zero-extended byte (0x562690)",verified
+0x18,u32,arg,ScnObject_AttachTo's fifth argument (0x562677),verified

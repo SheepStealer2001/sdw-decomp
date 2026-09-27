@@ -1,0 +1,9 @@
+value,name,meaning
+#,CrocodileLevel11State,"CrocodileLevel11 +0x64 (Update table 0x435318, SetState table 0x435ba1)"
+0,CROC11_ST_IDLE,Random idle anims 4/5/6 every 0..5 s. Plays the one-time cine when the Wolf enters ACTIVATIONBOX. Queries curBox and scans when anything besides itself is inside.
+1,CROC11_ST_CINE,"Cine_Start(CINE, CINEFLAG, CINEBOX, CINESHEEPBOX, CINETEXT string). Waits for g_cinePlayer.finished, then state 0 and cinePlayed = 1."
+2,CROC11_ST_SCAN,"One-frame classification of boxObjects: Wolf -> 3, CannonBall -> 4, else 0."
+3,CROC11_ST_THREATEN_WOLF,"Faces the Wolf (anim 0 turn then a snap, anim 5). MSG_KILL arg 10 + anim 8 every frame while the Wolf's origin is in biteBox. Back to 0 when he dies or leaves curBox."
+4,CROC11_ST_WATCH_BALL,"CannonBall in curBox: takes the camera (ball msg 0x3387 arg 0, own CAMERA every frame), anim 6. When the ball leaves curBox, picks a random other box -> 5."
+5,CROC11_ST_RELOCATE,"Wolf frozen (MSG_FREEZE). Turns from Daffy toward the new box (anim 10/11), walks there (anim 3, 430 u/s), turns back to Daffy. Then MSG_UNFREEZE, releases the camera, -> 0."
+6,CROC11_ST_DEAD,"MSG_KILL from a CannonBall. Anim 2; the camera is released at its end. The corpse bounces a live Wolf dropping into biteBox (MSG_BOUNCE 0x4B, anim 9). Kept through Reset."

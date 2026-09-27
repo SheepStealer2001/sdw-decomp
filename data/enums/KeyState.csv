@@ -1,0 +1,4 @@
+value,name,meaning
+#,KeyState,Key +0x82 (Key_SetState 0x4d00e3)
+0,KEY_ON_GROUND,anim 0
+1,KEY_HELD,attached; shadow hidden

@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,wantAnimId,"Animation the crowd should be playing; Update starts it whenever it differs from anim.animId (+0x5a). HandleMessage picks it at random from a pair: 0/2 for msg 0x6580, 1/3 for msg 0x6581.",verified
+0x68,s32,reactionTimerMs,"Random 0..1499 ms value stored on each reaction message and decremented by g_dtMs, but only on the single frame the animation actually changes. All four references are writes or a read-modify-write — no instruction reads it for a decision, so the intended randomised reaction delay never happens and ",verified

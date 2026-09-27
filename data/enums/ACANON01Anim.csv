@@ -1,0 +1,6 @@
+value,name,meaning
+#,ACANON01Anim,animation ids of WAR model ACANON01 (its WAR type-0x86 table; names verified from the level files). Played by: CanonDummy
+0x0,ACANON01_ANIM_STAND,WAR name STAND
+0x1,ACANON01_ANIM_SHOOT,WAR name SHOOT
+0x2,ACANON01_ANIM_APPEAR,WAR name APPEAR
+0x3,ACANON01_ANIM_OUT,WAR name OUT

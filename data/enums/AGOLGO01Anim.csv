@@ -1,0 +1,4 @@
+value,name,meaning
+#,AGOLGO01Anim,animation ids of WAR model AGOLGO01 (its WAR type-0x86 table; names verified from the level files). Played by: LazerRobot
+0x0,AGOLGO01_ANIM_STAND,WAR name STAND
+0x1,AGOLGO01_ANIM_STANDLZR,WAR name STANDLZR

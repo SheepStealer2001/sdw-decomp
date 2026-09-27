@@ -1,0 +1,11 @@
+offset,ctype,name,meaning,confidence
+0xa8,InlineEmitter1,ringFx,1-slot ground ring pulse (Emitter_UpdateFade with g_defusableMineRingFxParams) spawned only in state 2 during the active half,verified
+0xe0,u32,phaseOffset,0x3000 - ((CODEINIT<<12)/100 % 0x3000); phase = (g_gameTime + phaseOffset) % 0x3000. CODEINIT is in centiseconds,verified
+0xe4,u32,code,"CODE: packed 2-bit DefuseSymbols, symbol i = (code >> (2i & 31)) & 3, first symbol in the low bits",verified
+0xe8,u32,seqIndex,current step of the playback/input sequence (reset by SetState(7/8)),verified
+0xec,u32,codeLength,CODELENGTH (2-4 in shipped levels); compared unsigned,verified
+0xf0,u32,stepStart,g_gameTime when the current step began; beat = stepStart + 0x1000,verified
+0xf4,u16,finalSound,handle of sound 0x84 played in the final playback step's 2 s post-wait; stopped by SetState,verified
+0xf6,u8,dormant,1 while phase < 0x1800 (first 1.5 s of each 3 s cycle): no proximity check and the DEFUSE prompt is offered; 0 in the active half,verified
+0xf7,u8,lightsShown,last beat-light count that played the 0x7e tick; 0xff at each step start,verified
+0xf8,DefusableMineBits,dmFlags,DefusableMineFlags,verified

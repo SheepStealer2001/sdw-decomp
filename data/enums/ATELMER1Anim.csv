@@ -1,0 +1,5 @@
+value,name,meaning
+#,ATELMER1Anim,animation ids of WAR model ATELMER1 (its WAR type-0x86 table; names verified from the level files). Played by: TreeSection
+0x0,ATELMER1_ANIM_STAND,WAR name STAND
+0x1,ATELMER1_ANIM_STAND1,WAR name STAND1
+0x5,ATELMER1_ANIM_APPEAR,WAR name APPEAR

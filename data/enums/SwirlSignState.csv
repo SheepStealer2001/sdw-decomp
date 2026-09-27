@@ -1,0 +1,6 @@
+value,name,meaning
+#,SwirlSignState,state field of SwirlSign
+0x0,SWIRLSIGN_ST_FACE_A,SetState 0: anim STAND2 (inferred)
+0x1,SWIRLSIGN_ST_FACE_B,SetState 1: anim STAND1 (inferred)
+0x2,SWIRLSIGN_ST_TURN_TO_B,SetState 2: anim TURN1; Update: -> 1 (inferred)
+0x3,SWIRLSIGN_ST_TURN_TO_A,SetState 3: anim TURN2; Update: -> 0 (inferred)

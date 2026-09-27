@@ -1,0 +1,15 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,state,"GeyserOutState: 0 idle, 1 erupting (the spit logic), 2 stopping (passenger released, end anim), 3 disabled (msg 0x2881). Written only by SetState 0x4c6792; the Update switch is at 0x4c5ff5",verified
+0x65,u8,animState,"3 idle (anim 1), 4 erupt start (anim 2), 5 jet loop (anim 0, looping), 6 end (anim 3, update mode 0). Written only by SetAnimState 0x4c6846; a change stops the jet sound (0x4c6861)",verified
+0x68,s32,timer,"ms countdown to the automatic stop: set to spitDelay by SetState(1) (0x4c67c4), decremented by g_dtMs every frame in state 1 (0x4c6070); at <= 0 and ALWAYSSPIT clear it calls SetState(2) (0x4c60c2)",verified
+0x6c,s32,wolfSpeedPerUnit,"4000 / |TRAJECTORYWOLF[1] - TRAJECTORYWOLF[0]| (0x4c5d63): the per-unit speed falloff used for the Wolf (class 0), speed = 4000 - this * dist(obj, startPoint)",verified
+0x70,s32,objSpeedPerUnit,"the same quotient computed a second time (0x4c5d89); used for every other class, speed = 2500 - this * dist(obj, startPoint)",verified
+0x74,Vec3s,startPoint,TRAJECTORYWOLF's first point (0x4c5d27): the geyser mouth. The distance from a carried object to it scales the follower speed,verified
+0x7c,CollBox *,spitBox,"PROPERTY SPITBOX (Scn_GetPropBox(record, 0x10) 0x4c5d9d): the box the eruption carries objects in; queried with ObjGrid_QueryBoxOverlap every frame of state 1",verified
+0x80,TrajFollower,objPath,"follower over PROPERTY TRAJECTORY (0x4c5ce9), speed 0, heading bias 0x800, continuous heading, 3-D distance, arrive radius 0x32: the path every non-Wolf object is pushed along",verified
+0xa0,TrajFollower,wolfPath,"follower over PROPERTY TRAJECTORYWOLF (0x4c5d1c), same settings: the path Ralph is pushed along",verified
+0xc0,ScnObject *,passenger,"the object the vortex handed over (msg 0x2886 argument, 0x4c6b8a); cleared by SetState(2) (0x4c6807). Objects in the spit box other than this one get msg 0x30 with 0 (0x4c61bb), this one with 1 (0x4c67e3)",verified
+0xc4,void *,camera,"PROPERTY CAMERA (Scn_GetPropCamera(record, 4) 0x4c5db1); returned to msg 0x2885 (0x4c6b79), never used here",verified
+0xc8,s32,spitDelay,"how long one eruption lasts, in ms: set by msg 0x2883 (0x4c6b6b) and copied into timer by SetState(1)",verified
+0xcc,u32,flags,"GeyserOutFlags: 1 ALWAYSSPIT, 2 CAMERAFORSALAD, 4 camera taken, 8 held off by msg 0x2881, 0x10 the UI is frozen (msg 0xe accepted), 0x20 tilted mouth, 0x40 CAMINTERPOLATE. Every write truncates to a byte (0x4c5de7 and 19 more)",verified
+0xd0,u16,soundHandle,"handle of the looping jet sound 0x12f, started when the camera is within 0x5f5e10 (squared) and stopped past 0x736504 (0x4c5f2e-0x4c5f96); also stopped by every animState change",verified

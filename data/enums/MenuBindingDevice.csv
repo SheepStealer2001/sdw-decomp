@@ -1,0 +1,5 @@
+value,name,meaning
+#,MenuBindingDevice,Device class byte returned in out[0] by the binding query 0x528026 and switched on by Menu_DrawBindingText.
+1,BINDDEV_KEYBOARD,keyboard; the code is a DirectInput scancode resolved through Input_GetKeyName and drawn in yellow (0xFFFF50). Also the only class accepted by the keyboard-only rebinding path 0x527ECD.
+2,BINDDEV_JOYSTICK,"joystick; drawn as ""JOY %d"" in green (0x50FF50) and exempted from the allowed-key filter in Menu_RebindControl"
+4,BINDDEV_MOUSE,"mouse; drawn as ""MOUSE %d"" in green (0x50FF50)"

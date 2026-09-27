@@ -1,0 +1,2 @@
+offset,ctype,name,meaning,confidence
+0x10,u32,colour,"flat colour from BsFile_ReadRgbHalved, stored at 0x41c297",verified

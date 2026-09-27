@@ -1,0 +1,6 @@
+value,name,meaning
+#,MonolitheState,state field of Monolithe
+0x0,MONOLITH_ST_IDLE,SetState 0: anim STAND; Update: puts sheep in sheepBox to sleep (MSG_SHEEP_SLEEP) (inferred)
+0x1,MONOLITH_ST_SPIN,SetState 1: gathers riders; Update: spins 0x80 per tick with camera (inferred)
+0x2,MONOLITH_ST_WOLF_ON,SetState 2: previousState saved; Update: restores it when the Wolf leaves sheepBox (inferred)
+0x3,MONOLITH_ST_SLEEP_SHEEP,Update 3: like 0 (MSG_SHEEP_SLEEP) (inferred)

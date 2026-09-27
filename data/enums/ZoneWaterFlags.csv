@@ -1,0 +1,4 @@
+value,name,meaning
+#,ZoneWaterFlags,"Box.flags of a water zone (Zones_Get(ZONE_WATER), wolf waterZone)"
+0x1000000,ZONE_WATER_FREEZING,Wolf::WaterSinkStep: stopped in a 0x1000000 zone -> DropHeld + frozen float; Sheep_Update -> SHEEP_ST_FROZEN_FLOAT (docs: freezing water)
+0x2000000,ZONE_WATER_NO_SURFACE,Wolf_WaterCommon: 0x2000000 -> plunge/sink state 0x49; FROZEN_FALL instead of FROZEN_FLOAT; Weather::DrawRain skips the splash (inferred)

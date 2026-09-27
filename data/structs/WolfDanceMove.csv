@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x0,u16,padMask,"active-low mask of the button that starts the move (Wolf_StateMachine 0x48207c movzx edx,word [4*ecx+0x5758c8]; not edx; and with pad cur/prev buttons)",verified
+0x2,u16,animId,"animation of the dance move (0x4820b7 mov dx,word [4*ecx+0x5758ca], Wolf's PlayAnim id)",verified

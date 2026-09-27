@@ -1,0 +1,9 @@
+value,name,meaning
+#,DynamiteState,state field of Dynamite
+0x0,DYNAMITE_ST_ON_GROUND,"HandleMessage 5 unlit and Update 6: back in the world, pick-up allowed (g_dynamiteStates[0].flags & 1) (inferred)"
+0x1,DYNAMITE_ST_HELD_BY_WOLF,"HandleMessage 4 from the Wolf: attached, SetState(1) (inferred)"
+0x2,DYNAMITE_ST_HELD,"HandleMessage 4 from another class: attached, SetState(2) (inferred)"
+0x3,DYNAMITE_ST_LIT,"HandleMessage 5 with lit: fuse sound 0x62; Update 3: fuse burns down, then the blast broadcasts (inferred)"
+0x4,DYNAMITE_ST_EXPLODING,"Update 3 on fuse end: exploded model, SetState(4); Update 4: on anim end hides and returns home (inferred)"
+0x5,DYNAMITE_ST_RESPAWN_WAIT,Update 5: waits 0x3000 ticks hidden (inferred)
+0x6,DYNAMITE_ST_RESPAWN_WOBBLE,"Update 6: visible, wobble until IsRespawnWobbleDone, then 0 (inferred)"

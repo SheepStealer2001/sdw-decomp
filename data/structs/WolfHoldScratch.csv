@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,Mat34s,m,"the Wolf's rotation matrix, Mat34s_FromEulerScaled(&rot, m, 0) (Wolf_CalcHeldObjWorldPos 0x490fb5); Wolf_CalcHeldObjWorldPos's view of g_collScratchA 0x6d5468",verified
+0x20,Vec4s,out,"rotated offset, output of Mat34s_TransformVec3s (0x491030 add edx,0x20)",verified
+0x28,Vec3s,in,local offset + held object's attach-link offset (0x490fdd word [ecx+0x28]),verified

@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,s16[9],rot,"3x3 rotation, 4.12",verified
+0x0,Vec3s[3],rows,rot as its three rows (rows[2] is the view direction the weather code reads),verified
+0x14,s32[3],trans,translation,verified

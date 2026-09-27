@@ -1,0 +1,32 @@
+value,name,meaning
+#,RobotState,"u8 Robot+0x2d8. States 0-2 are passive (state-flag 8 clear); the rest run the driven switch in Robot_Update (jump table 0x460b27, index state-3)."
+0x0,ROBOT_ST_DORMANT,"anim 9; no ALWAYS_UPDATE, no gravity; a rider (move modifier) wakes it to 1"
+0x1,ROBOT_ST_IDLE,"anim 9; gravity via FallStep; settles to 0 when landed, untouched, riderless and smoke gone"
+0x2,ROBOT_ST_CARRIED,anim 1 loop; carried by Ralph (msg 4); NO_BOX_COLLIDE
+0x3,ROBOT_ST_POWER_ON,anim 0xE; first activation (sets POWERED_ON)
+0x4,ROBOT_ST_CTRL_IDLE,anim 0xA (0xB holding); hum sfx 0x119
+0x5,ROBOT_ST_WALK,anim 8; motor sfx 0x97; 300 u/s
+0x6,ROBOT_ST_DASH,"anim 0x12; sfx 0x98; 600 u/s; smoke; at least 0x400 ticks, continues while run held"
+0x7,ROBOT_ST_FALL,anim 0xA; landing → EnterIdle + sfx 0xAE
+0x8,ROBOT_ST_JUMP_START,anim 6; wind-up
+0x9,ROBOT_ST_JUMP_RISE,anim 7; 0x4cc-tick rise
+0xa,ROBOT_ST_JUMP_APEX,anim 0xF
+0xb,ROBOT_ST_PICKUP_REACH,anim 0xD; ctx 4
+0xc,ROBOT_ST_PICKUP_END,anim 0x10
+0xd,ROBOT_ST_PUTDOWN,anim 0x11; held action 2
+0xe,ROBOT_ST_PUTDOWN_END,anim 0x17
+0xf,ROBOT_ST_DIE,anim 0xA; msg 0 arg 0 from anything but FireBall/Sam-with-traj
+0x10,ROBOT_ST_DIE_BURN_DROWN,"anim 0x15; FireBall kill, death box or water"
+0x11,ROBOT_ST_KICKED,anim 0x16; turns to face Sam
+0x12,ROBOT_ST_EJECT_FLIGHT,"anim 0x18 loop; 2 s scripted parabola, eject camera"
+0x13,ROBOT_ST_EJECT_FALL,anim 0x18 loop; gravity until landing
+0x14,ROBOT_ST_EJECT_LAND,table anim 0x19 (never started); → 7 if controllable else 1
+0x15,ROBOT_ST_LAUNCHED,"anim 0xA; msg 0xC; no update code, exits via msg 0xB/0x25"
+0x16,ROBOT_ST_TRAP_REACH,"anim 0xD; ctx 0x19, springs the WolfTrap"
+0x17,ROBOT_ST_TRAPPED_START,anim 2
+0x18,ROBOT_ST_TRAPPED,anim 3 loop
+0x19,ROBOT_ST_TRAPPED_STRUGGLE,anim 4; entered on msg 0x40 (each Action press relayed by the WolfTrap)
+0x1a,ROBOT_ST_TRAP_FREED,anim 5; entered when TRAPPED clears
+0x1b,ROBOT_ST_ACTIVATE,"anim 0xD; ctx 3 (e.g. Mailbox), sends msg 1 at anim end"
+0x1c,ROBOT_ST_ACTIVATE_END,anim 0x10
+0x1d,ROBOT_ST_TIMEKEEPER,"anim 0xD; ctx 0x1E, msg 1 already sent"

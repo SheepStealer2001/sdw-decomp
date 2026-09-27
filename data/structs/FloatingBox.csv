@@ -1,0 +1,29 @@
+offset,ctype,name,meaning,confidence
+0x7c,u32,boxFlags,named from its uses in src/objects/floatingbox.cpp (the name and access width come from the code there),verified
+0x80,u8,state,"state 4 runs anim 0, started by the CALLER at 0x4c0376; SetState case 4 (0x4c1cdf) starts no animation and only sets SCN_OF_NO_BOX_COLLIDE. 0 falling/bouncing, 1 grounded, 2 floating, 3 worn, 5 removed",verified
+0x84,Box *,waterBox,named from its uses in src/objects/floatingbox.cpp (the name and access width come from the code there),verified
+0x88,CollBox,worldBox,named from its uses in src/objects/floatingbox.cpp (the name and access width come from the code there),verified
+0x98,ScnObject *[64],overlapList,"in Update state 2 the loop at 0x4c0c9c-0x4c0ceb skips every entry whose classId is not 0, so only the Wolf is carried; the all-objects lift is in SetState case 2 (0x4c1c42-0x4c1cd8). The 64 bound is the gap to overlapCount, not proven",verified
+0x198,s32,overlapCount,named from its uses in src/objects/floatingbox.cpp (the name and access width come from the code there),verified
+0x19c,ScnObject *,content,"ReleaseContents places it 30 units ABOVE the crate — 0x4bf7da is `sub ecx,0x1e` and the vertical axis is down-positive",verified
+0x1a0,AltModel,mainModel,named from its uses in src/objects/floatingbox.cpp (the name and access width come from the code there),verified
+0x1b0,AltModel,floatModel,named from its uses in src/objects/floatingbox.cpp (the name and access width come from the code there),verified
+0x1c2,u16,hitClass,named from its uses in src/objects/floatingbox.cpp (the name and access width come from the code there),verified
+0x1c4,s32,bounceTime,named from its uses in src/objects/floatingbox.cpp (the name and access width come from the code there),verified
+0x1c8,Vec3s,bounceVelocity,named from its uses in src/objects/floatingbox.cpp (the name and access width come from the code there),verified
+0x1ce,Vec3s,savedRotation,named from its uses in src/objects/floatingbox.cpp (the name and access width come from the code there),verified
+0x1d4,Vec3s,bounceRotation,named from its uses in src/objects/floatingbox.cpp (the name and access width come from the code there),verified
+0x1da,s16,pushSpeed,named from its uses in src/objects/floatingbox.cpp (the name and access width come from the code there),verified
+0x1dc,s16,pushAngle,named from its uses in src/objects/floatingbox.cpp (the name and access width come from the code there),verified
+0x1de,u16,lastMoveResult,"u16, not s16: both writers store AX from Collide_ResolveMove (documented u16) and every read is movzx (0x4bff72, 0x4c00cd, 0x4c041d)",verified
+0x1e0,ContactInfo,contact,named from its uses in src/objects/floatingbox.cpp (the name and access width come from the code there),verified
+0x1fc,Vec3s,frameMove,named from its uses in src/objects/floatingbox.cpp (the name and access width come from the code there),verified
+0x202,Vec3s,velocity,named from its uses in src/objects/floatingbox.cpp (the name and access width come from the code there),verified
+0x208,s32,restoreUnset,named from its uses in src/objects/floatingbox.cpp (the name and access width come from the code there),verified
+0x20c,u8,restoreState,named from its uses in src/objects/floatingbox.cpp (the name and access width come from the code there),verified
+0x20e,Vec3s,restorePos,named from its uses in src/objects/floatingbox.cpp (the name and access width come from the code there),verified
+0x214,Vec3s,emitPos,named from its uses in src/objects/floatingbox.cpp (the name and access width come from the code there),verified
+0x21a,Vec3s,floatOffset,named from its uses in src/objects/floatingbox.cpp (the name and access width come from the code there),verified
+0x220,InlineEmitter4,splashEmitter,"4-slot inline emitter; the count byte is the emitter's own +0x21, i.e. this+0x241 (0x4c1d91), not this+0x221",verified
+0x294,EmitterFadeParams,splashParams,"PostLoadInit sets sheetIndex = 1 (0x4bf8fe), not 0 — SetState(1) is the one that sets 0 (0x4c1975) and SetState(2) sets 1 (0x4c1abd). Layout matches EmitterFadeParams.csv and ends at 0x2a8",verified
+0x2a8,u32,splashTime,named from its uses in src/objects/floatingbox.cpp (the name and access width come from the code there),verified

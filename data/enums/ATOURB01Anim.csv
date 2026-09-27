@@ -1,0 +1,6 @@
+value,name,meaning
+#,ATOURB01Anim,animation ids of WAR model ATOURB01 (its WAR type-0x86 table; names verified from the level files). Played by: WaterGeyser
+0x0,ATOURB01_ANIM_WHIRL,WAR name WHIRL
+0x1,ATOURB01_ANIM_WHIRL2,WAR name WHIRL2
+0x2,ATOURB01_ANIM_STAND,WAR name STAND
+0x3,ATOURB01_ANIM_WHIRL1,WAR name WHIRL1

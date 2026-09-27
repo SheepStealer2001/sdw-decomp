@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,u16,inst.flags,"Instance flags: 1 drawn/visible last render, 2 (mode bit 5), 4 animated, 8 attached to parent, 0x10 tint override, 0x40 has secondary resource",verified
+0x2,u8,inst.mode,"Instance_InitBase stores its mode argument here: 0xFF ScnBody, 0xFE ScnLogic, or for world objects the WAR resource type (3, 4, 0xB, 0x26). Bit 5 set (0xFE/0xFF/0x26) makes Instance_InitBase set inst flag 2. Game_Frame picks out sky meshes with == 0x26.",verified
+0x3,u8,inst.kind,"0 = rigid scenaric instance, 4 = animated (set by Animator_Init). World objects use 1/2/3 for resource types 3/0xB/0x26 as the draw-table index (g_worldObjDrawFns); 0 hides a world mesh, and the draw functions skip kind 0.",verified
+0x4,Model *,inst.model,"model resource; model+0xc box list {s32 n; Box16[n]}, +0x10 anim table, +0x14 joints (10 B each), +0x18 u16 nbJoints",verified

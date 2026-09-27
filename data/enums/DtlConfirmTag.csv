@@ -1,0 +1,5 @@
+value,name,meaning
+#,DtlConfirmTag,"DaffyTrainingLevel.confirmTag (+0xb1): the yes/no box asked after a help line (ParseTextTags, Update talk mode)"
+0x0,DTL_CONFIRM_NONE,no box: the line has no $CONF$ tag (and after an answer)
+0x1,DTL_CONFIRM_AFTER_LINE,the line has a $CONF$ tag: ask when it has been said
+0x2,DTL_CONFIRM_ASKING,the box is up; talk mode draws it and waits for the confirm button

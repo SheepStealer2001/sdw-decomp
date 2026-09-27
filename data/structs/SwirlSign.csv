@@ -1,0 +1,2 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,state,"0 DUCK SEASON at rest (anim 2), 1 RABBIT SEASON at rest (anim 1), 2 flipping 0->1 (anim 3), 3 flipping 1->0 (anim 4). The class's only field: obj_size 0x68 = ScnBody 0x64 + this byte + padding.",verified

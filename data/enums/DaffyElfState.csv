@@ -1,0 +1,7 @@
+value,name,meaning
+#,DaffyElfState,state field of DaffyElf
+0x0,DAFFYELF_ST_WATCH,"Update 0: faces the Wolf, plays voice sound 0x25 (inferred)"
+0x1,DAFFYELF_ST_DIALOG,"SetState 1: Dialog_Begin(answer text, g_daffyElfChoiceHandlers); Update: answer 2 -> 4, answer 1 -> 0 (inferred)"
+0x2,DAFFYELF_ST_CINEMATIC,Update 2: -> 0 when the cinematic finishes (inferred)
+0x3,DAFFYELF_ST_WAIT_CINE_BOX,"SetState 3: anim STAND; Update: plays the cinematic when the Wolf enters cineBox, -> 2 (inferred)"
+0x4,DAFFYELF_ST_ANSWER,SetState 4: anim TALK1; Update: random TALK1/TALK2/TALK4 while Dialog_UpdateAnswer runs (inferred)

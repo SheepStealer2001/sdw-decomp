@@ -1,0 +1,9 @@
+offset,ctype,name,meaning,confidence
+0x7c,u8,state,"TriggedStone state: 1 resting on the cliff (anim 1), 0 triggered (waiting TIMER ms), 2 rolling (anim 0; crushes once past crushTimeMs), 3 landed (anim 2, then back to 1). Byte stores 0x50236e/0x50247b, byte switch 0x50243f",verified
+0x80,u32,timer,"ms accumulated with g_dtMs in states 0 and 2, zeroed on each state change; compared unsigned (jbe 0x502476, 0x502501)",verified
+0x84,u32,triggerDelayMs,PROPERTY TIMER (record +0x08): delay between the trigger and the roll,verified
+0x88,u32,crushTimeMs,"Anim_GetDurationMs(anim 0, all tracks) * 11 / 16 (0x50233a-0x502345): how far into the roll the stone reaches CRASHINGZONE; from then on every frame crushes what is inside",verified
+0x8c,s32,triggered,"set by msg 0x1F when it starts the fall from state 1, cleared by msg 0x20 and Reset: a second 0x1F cannot re-trigger until the button is released",verified
+0x90,s32,wolfOnButton,set when Ralph is in the msg 0x1F object list (0x502755); gates the scripted camera; cleared by msg 0x20 and Reset,verified
+0x94,Box *,crushZone,PROPERTY CRASHINGZONE (Scn_GetPropBox +0x00): the box whose objects are crushed (ObjGrid_QueryBoxPoints 0x502626),verified
+0x98,CamSetup *,camera,PROPERTY IDCAMERA (Scn_GetPropCamera +0x04): camera setup {u16 focal; u16 rot[3]; Vec3s pos} for Camera_StartScripted (0x5027cb-0x502845),verified

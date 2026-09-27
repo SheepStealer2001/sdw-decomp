@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x0,s32:1,noFreeze,"signed bit view of LaunchArc.flags (+0x34), bit order from the LaunchArcFlags enum: LAF_NO_FREEZE",verified
+0x0,s32:1,planeYZ,LAF_2D_ZY; read signed shl 30 / sar 31 at 0x503e33-0x503e39,verified
+0x0,s32:1,full3D,LAF_3D,verified
+0x0,s32:1,seesawBit3,LAF_SEESAW_BIT3,verified
+0x0,s32:28,reserved,remaining bits,inferred

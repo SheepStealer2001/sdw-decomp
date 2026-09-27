@@ -1,0 +1,5 @@
+value,name,meaning
+#,DynamiteStateFlags,g_dynamiteStates[].flags
+0x1,DYN_SF_PICKUP,HandleMessage 2 from the Wolf/0x65 returns 4 (CTX_PICKUP) only when set
+0x2,DYN_SF_SHADOW,SetState: shadow.SetVisible(entry->flags & 2)
+0x4,DYN_SF_LOOP,"SetState: PlayAnim(entry->anim, entry->flags & 4, 0)"

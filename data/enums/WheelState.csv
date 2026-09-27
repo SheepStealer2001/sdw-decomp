@@ -1,0 +1,7 @@
+value,name,meaning
+#,WheelState,state field of Wheel
+0x0,WHEEL_ST_AT_START,"SetState 0: records railStart, sound stopped (inferred)"
+0x1,WHEEL_ST_ROLL_OUT,"SetState 1: rolling sound 0x8d; Update: MoveAlongRail(+1), -> 2 (inferred)"
+0x2,WHEEL_ST_AT_END,"SetState 2: msg 0x42 on to the boss, sound stopped (inferred)"
+0x3,WHEEL_ST_STOPPED,SetState 3: sound stopped (inferred)
+0x4,WHEEL_ST_ROLL_BACK,"SetState 4: msg 0x42 off to the boss, sound 0x8d; Update: MoveAlongRail(-1), -> 0 (inferred)"

@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,char[4],version,'v1.2' in the shipped Levels/*/*.MLT files; never checked by Load_MLT 0x548bb9,verified
+0x4,u16,blockCount,number of language blocks (7 in the shipped files); Load_MLT warns when the UNMAPPED config language is >= it (0x548c84),verified
+0x6,u16,listCount,string lists per language block (0xa9 in Lvl-14.MLT); copied to StringBank.listCount (0x548c9d),verified

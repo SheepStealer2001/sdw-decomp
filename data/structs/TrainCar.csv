@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,u16,exportId,"WAR export the car is built from: 0xa8 ALOCOM1B, 0xb4 AWAGON2A, 0xb5 AWAGON2B, 0xb3 AWAGON1B, 0xb2 AWAGON1A (Train_PostLoadInit 0x4ff1e0)",verified
+0x4,u32,flags,"1 = the export existed and the body was built and added to the world; 4 = loads from DOCKA, 8 = from DOCKB (read as & 0xc then & 4 in Train_PlaceCars 0x4fd816); 2 and 0x10 are set by PostLoadInit but never read",verified
+0x8,TrainCarBody,body,"the car's own scenaric body, vtable 0x576e7c: a ScnBody with only HandleMessage (+0x10) overridden, 0x501110. Train_Create 0x4fd5b0 constructs it as a real member",verified
+0x6c,ScnRecordSynth,record,the synthesised WAR record Scn_BuildRecordFromExport writes and the body is initialised from,verified

@@ -1,0 +1,6 @@
+value,name,meaning
+#,AnvilState,state field of Anvil
+0x0,ANVIL_ST_WAIT,"Update case 0: waits for `dropping` and the end of the anim, then starts ANVIL2 and goes to 2 (inferred)"
+0x1,ANVIL_ST_LIFT,"Update case 1: on anim end starts STAND0, hides the anvil and goes to 3 (inferred)"
+0x2,ANVIL_ST_HOLD,"Update case 2: holds 2000 ms after the drop, then releases the scripted camera and goes to 1 (inferred)"
+0x3,ANVIL_ST_DONE,entered hidden from 1; Update has no case 3 (inferred)

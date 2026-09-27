@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,ScnObject *,obj,"the scent source (Perfume bottle, etc.) registered by Flock_AddScentSource",verified
+0x4,u32,rangeSq,squared attraction range,verified
+0x8,s16,heading,heading of the scent cone,verified
+0xa,u16,pad0a,padding to the 0xc-byte entry stride of g_flockScentSources 0x6cefd8,inferred

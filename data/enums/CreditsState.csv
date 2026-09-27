@@ -1,0 +1,6 @@
+value,name,meaning
+#,CreditsState,CreditsManager +0x56
+0,CREDITS_WAIT,waits for the object to become visible (0x804 clear)
+1,CREDITS_FADE_IN,colour * t/TIME_APP
+2,CREDITS_SHOWN,full COLOR until the cinematic hides the object
+3,CREDITS_FADE_OUT,"colour * (1 - t/TIME_APP) for TIME_DIS ms, then inactive"

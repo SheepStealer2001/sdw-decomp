@@ -1,0 +1,6 @@
+value,name,meaning
+#,DtlJumpPhase,"DaffyTrainingLevel.initFlag (+0x22c): the phase of a hop in DaffyTrainingLevel::MoveTo (gait DTL_GAIT_JUMP from help point 3 on). PostLoadInit, SetMode 0, a finished move and each new help point set it back to 1"
+0x1,DTL_JUMP_TAKEOFF,JUMP3 until it finishes (no arc movement yet); a jump that starts closer than 50 lands at once
+0x2,DTL_JUMP_RISE,JUMP4 on the arc until it passes its top (sine index > 0x400)
+0x3,DTL_JUMP_FALL,"JUMP5 on the arc until within 50 of the node or past the jump time; then the next node, or DTL_JUMP_LAND at the last one"
+0x4,DTL_JUMP_LAND,JUMP6 at the last node until it finishes (the switch default)

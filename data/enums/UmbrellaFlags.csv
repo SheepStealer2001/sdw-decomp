@@ -1,0 +1,3 @@
+value,name,meaning
+#,UmbrellaFlags,Umbrella+0x83
+0x1,UMBRELLA_F_OPEN,fully open; enables the msg 0x10 anim mapping

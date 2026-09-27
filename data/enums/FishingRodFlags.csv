@@ -1,0 +1,3 @@
+value,name,meaning
+#,FishingRodFlags,FishingRod +0x85
+0x1,FR_F_LINE_OUT,"between BeginFishing and EndFishing; enables line length changes, the line update and render, the msg 0x10 anims and the msg 6 forward (does not gate msgs 0x61/0x62)"

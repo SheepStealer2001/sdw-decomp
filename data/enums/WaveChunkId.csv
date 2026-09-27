@@ -1,0 +1,4 @@
+value,name,meaning
+#,WaveChunkId,"FOURCCs the wave reader compares against, stored as little-endian dwords in the code."
+0x61746164,MMCK_DATA,'data' - preset into ckData.ckid before every mmioDescend in WaveFile_Open and WaveFile_ResetFile.
+0x204d454d,MMIO_FOURCC_MEM,'MEM ' - MMIOINFO.fccIOProc for the in-memory open path of WaveFile_Open. No caller uses it.

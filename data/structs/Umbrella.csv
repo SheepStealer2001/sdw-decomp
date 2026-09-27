@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x7c,Vec3s,homePos,spawn position (Init; msg 9 arg 1); Reset returns here when IN_WORLD,verified
+0x82,u8,state,"UmbrellaState: 0 closed, 1 opening on the ground, 2 opening in the air, 3 open, 4 closing",verified
+0x83,UmbrellaFlagBits,umbrellaFlags,"bit 0 = open (set when an opening anim ends, cleared by msg 0x16, Reset and Init); gates the msg 0x10 animation switch",verified

@@ -1,0 +1,7 @@
+value,name,meaning
+#,BirdState,Bird +0x64
+0,BIRD_ST_APPEAR_WAIT,"teleported to the appear-box centre, visible; waits for 2 not-drawn updates, then circles"
+1,BIRD_ST_CIRCLE,"quarter-turn orbits (radius 400 at first, anim 0); then re-circle or take off"
+2,BIRD_ST_TAKEOFF,"1 s straight flight at 500 u/s on the facing-quadrant axis, climbing 100 u/s (anim 2)"
+3,BIRD_ST_DESCEND,"1.5 s at 400 u/s, descending 66 u/s (anim 3); then re-centre the orbit and circle"
+4,BIRD_ST_LEAVE,anim 1 once; then waits until Ralph is inside an APPEARBOX. Entered when the bird is outside its box at a state change

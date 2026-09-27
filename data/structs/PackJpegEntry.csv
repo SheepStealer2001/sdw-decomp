@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,u32,fileOffset,offset of the image in the pack file,verified
+0x4,u8[5],unknown04,not established,inferred
+0x9,char[15],name,"image name, scanned by SelectByName (0x55db94); entry stride 24",verified

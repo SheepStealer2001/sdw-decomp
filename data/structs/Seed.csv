@@ -1,0 +1,11 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,state,SeedState 0..4 (Seed_SetState).,verified
+0x66,Vec3s,homePos,Init pos (when in the world) or pos at msg 9 arg 1; restored by msg 0x55.,verified
+0x6c,Vec3s *,treePosReply,"Scratch: the msg 0x3280 reply pointer (Tree.seedPos), filled with the tree position.",verified
+0x70,TimeTravelArg *,arrivalQuery,Scratch: the msg 0x3281 argument (sphere's wolf/gossamer arrival query); .pos is written with a box corner.,verified
+0x74,ScnObject *,sphere,"the TimeMachineSphere: FindByClass(0x56) in Init, or NULL; no reader in the Seed code.",verified
+0x78,Tree *,tree,TREE property (Scn_GetPropObject offset 4); receives msg 0x3300 (visible = state 4) on every msg 0x3c. Not NULL-checked.,verified
+0x7c,Sheep *,sheepScratch,Scratch copy of g_pSheepOutOfZone (0x6cf264) during msg 0x3c; the sheep that gets moved out of a tree spot.,verified
+0x80,ScnObject *,gossamer,"Gossamer_Lev08 (class 0x57) from FindByClass, or NULL. Moved to a box corner by msg 0x3c.",verified
+0x84,ZoneList,zones,"zone list {boxes, count}: BOXES id list (past-era planting boxes, 16-byte Box). Used for the plant test (msg 0x17), the tree position (0x3280) and the arrival corner (0x3281). | count (+4): Entry count of boxes (5 in Lvl-09, 7 in Lvl-10).",verified
+0x8c,Box[10],presentBoxes,"Copies of boxes[i] with min and max shifted by g_timeMachineOffsetToPresent; used only by msg 0x3c (sheep/Gossamer relocation). The array has 10 slots up to the object end 0x12c, and Init has no bound check.",verified

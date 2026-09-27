@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x0,s16,x,"x of an edge's 4.12 unit normal (NavNode.edgeNormal, Sam.followEdgeNormal); SamNav_DistToEdge reads the pair as one struct",verified
+0x2,s16,z,z of the normal,verified

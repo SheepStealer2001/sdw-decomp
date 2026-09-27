@@ -1,0 +1,27 @@
+offset,ctype,name,meaning,confidence
+0x7c,Box *,boxFirstContact,Scn_GetPropBox(BOXFIRSTCONTACT). The Wolf's x/z inside it ends state 0x19 (first-contact cinematic).,verified
+0x80,u32,flagFirstContact,"PROPERTY_DRAGON_FLAGFIRSTCONTACT, Cine_Start flags for state 0x1a (42 in Lvl-09).",verified
+0x84,u16,cineFirstContact,"PROPERTY_DRAGON_CINEFIRSTCONTACT, cine id for state 0x1a (0 in Lvl-09).",verified
+0x8c,u32,flagChronoBall,"PROPERTY_DRAGON_FLAGCHRONOBALL, Cine_Start flags for state 0x20 (2090).",verified
+0x90,u16,cineChronoBall,"PROPERTY_DRAGON_CINECHRONOBALL, cine id for state 0x20 (1).",verified
+0x94,s32,wolfDistXZ,"Vec3s_DistXZ(pos, Wolf pos), computed at the start of every Update. Used for all range tests (300/350/1280) and as the divisor for chase and back-away.",verified
+0x98,s32,runLatch,"Cleared by every SetState. State 7 sets it to the Wolf's running flag (run anim 2, speed 1200, dust); updated at loop ends in 7 and 0x13. A set latch lets MoveToTarget start a skid when the Wolf stops running.",verified
+0x9c,s32,idleLoopsLeft,Anim loops left in idle states 0xd (1..3) and 0xf (1..12).,verified
+0xa0,Box *[5],flyBoxes,Scn_GetPropBox(BOXFLY1..BOXFLY5). The dragon inside any of them makes ShouldFly true. All 0 in Lvl-09.,verified
+0xb4,Box *,zone,Scn_GetPropBox(ZONE): the leash. TryMoveInZone and UpdateSkid drop any move ending outside it (3-D). The Wolf outside it (3-D) calms the dragon; the Wolf's x/z in it wakes a hover-waiting one.,verified
+0xb8,Box *,rockZone,Scn_GetPropBox(ROCKZONE). The Wolf or the dragon in it (x/z) triggers flight; the Wolf in it at >= 1280 triggers the dash to its centre.,verified
+0xbc,Vec3s,rockZoneTarget,"(centre x, min.y = top, centre z) of ROCKZONE; target of state 0x14 (horizontal only). (6801,-414,-1515) in Lvl-09.",verified
+0xc4,s16,flyHeight,Height climbed since take-off (0 at SetState(0x11)). The rise stops at >= 160; the descent stops below 0.,verified
+0xc8,u32,riseAnimMs,Anim_GetDurationMs(anim 0x11). The climb covers 160 units over this duration.,verified
+0xcc,u32,descendAnimMs,Anim_GetDurationMs(anim 0x14). The descent covers 160 units over this duration.,verified
+0xd0,s32,flyToRockZone,"Set when the Wolf is in ROCKZONE far away, or a flying dragon is outside ROCKZONE while the Wolf is out of ZONE. Makes the rise end in 0x14 instead of 0x13, and makes SetState(0x13/0x14) use anim 8 instead of 9.",verified
+0xd4,s32,landTimerMs,-1 = idle; set to 5000 on the first frame the dragon flies without a reason (ShouldFly false); -= g_dtMs; below 0 -> land. Only reset to -1 after a landing starts.,verified
+0xd8,InlineEmitter16,dustEmitter,"dust emitter with inline storage (0xd8..0x23c): the factory forms it at 0x448654, slotPool = +0x24 (0x448665), particles = +0xe4 (0x448672), count 0x10 (0x448678), Emitter_Reset (0x44867f) before the final Dragon vtable",verified
+0x23c,EmitterDriftParams,dustParams,"Emitter_UpdateDrift params {s32 100, -20, 0xa30, 0x146; u16 sizeStart 40 (+0x24c), sizeEnd 120 (+0x24e); u8 0 (+0x250)}.",verified
+0x254,Vec3s,skidStep,Last frame step kept when a skid starts; halved each frame by UpdateSkid.,verified
+0x25a,Vec3s,skidDirSign,"NegSign of each skidStep component, written by StartSkid and never read (dead).",verified
+0x260,Vec3s,sphereTarget,Time-machine sphere position from msg 0x38. Face and approach target in states 0x15 and 0x1b.,verified
+0x266,Vec3s,arrivePos,"Arrival point from msg 0x3a, passed to SetPosition.",verified
+0x26c,s32,sphereDist,"Vec3s_Dist(pos, sphereTarget) when msg 0x38 arrived. Acceptance test (499/999) and ApproachSphere divisor.",verified
+0x270,u8,state,DragonState. SetState returns early if unchanged; Init sets the sentinel 0x26 first.,verified
+0x271,u8,savedState,State saved by the msg 0x38 wait branch; restored by state 0x24 only (0x23 always resumes in 0).,verified

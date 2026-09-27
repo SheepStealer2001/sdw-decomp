@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x64,u32,stateTime,"g_gameTime at the last state change (respawn timers, the 3 s sheep-attraction delay)",verified
+0x68,s32,eatenTime,sum of g_dt over msg 1 from sheep in state 0; >= 0x14000 (20 s) = eaten -> respawn. Zeroed only by Init/Reset/StartRespawn,verified
+0x6c,Vec3s,homePos,ground-snapped placed position (ScnObject_QueryGroundY at Init); respawn point,verified
+0x72,u8,state,"BushState (0 idle, 1 respawn hidden, 2 respawn wobble, 3 worn by Ralph)",verified
+0x73,BushFlagBits,bushFlags,"BushFlags: 1 fan-blown this frame, 2 lift lock (1 s), 4 Ralph within 50 last frame",verified
+0x74,u32,liftLockMs,ms since MSG_LIFT_CRUSH; bushFlags bit 1 is cleared above 1000,verified

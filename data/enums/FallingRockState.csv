@@ -1,0 +1,6 @@
+value,name,meaning
+#,FallingRockState,state field of FallingRock
+0x0,FALLINGROCK_ST_WAIT,Update 0: visible and Trigger() when the Wolf enters activationBox (inferred)
+0x1,FALLINGROCK_ST_FALL,"Update 1: falls 400 per tick, then anim STAND2, impact sound 0x44 and camera shake (inferred)"
+0x2,FALLINGROCK_ST_LANDED,"Update 2: contact on, releases the camera after camHoldMs, -> 3 (inferred)"
+0x3,FALLINGROCK_ST_DONE,set by Update 2 (inferred)

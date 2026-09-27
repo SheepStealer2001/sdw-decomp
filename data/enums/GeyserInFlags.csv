@@ -1,0 +1,7 @@
+value,name,meaning
+#,GeyserInFlags,GeyserIn.flags (u16)
+0x1,GEYSERIN_F_ROCK_CORK,"Update 4: set while a Rock plugs the geyser, cleared otherwise (inferred)"
+0x4,GEYSERIN_F_CONTROLLED_ON,PostLoadInit sets it; msg 0x2800 sets/clears it; Update: activation needs it
+0x8,GEYSERIN_F_Z_ONLY,PostLoadInit: rot.x == rot.y == 0 && rot.z != 0; Update zeroes frameDelta.x
+0x10,GEYSERIN_F_CAM_WOLF,set from GeyserOut msg 0x2887; camera for the Wolf transit
+0x20,GEYSERIN_F_CAM_OBJ,set from GeyserOut msg 0x2888; camera for sheep/salad transit

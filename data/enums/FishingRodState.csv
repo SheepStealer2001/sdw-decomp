@@ -1,0 +1,6 @@
+value,name,meaning
+#,FishingRodState,FishingRod +0x84 (also used by MagnetRod/SaladRod)
+0,FR_ST_IDLE,carried (anim 6) or lying on the ground (anim 7)
+1,FR_ST_CASTING,msg 0x15 (held-state begin): anim 0; at the anim end -> 2 plus BeginFishing
+2,FR_ST_FISHING,"line out: anim 1 loop, or 2/3/4 via msg 0x10"
+3,FR_ST_RETRACTING,"msg 0x16 while fishing: EndFishing, anim 5; at the anim end -> 0 with anim 6"

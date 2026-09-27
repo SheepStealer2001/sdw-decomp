@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x0,u8:1,collide,"bit 0 (1-byte unsigned unit): collide with the world | RCarpetMobile +0xa8, read and written as r8",verified
+0x0,u8:1,reversed,bit 1 (1-byte unsigned unit): travelling the waypoints in reverse,verified
+0x0,u8:1,clampEnds,bit 2 (1-byte unsigned unit): clamp at the ends (one-way),verified
+0x0,u8:1,driven,bit 3 (1-byte unsigned unit): driven this frame,verified
+0x0,u8:1,snap,bit 4 (1-byte unsigned unit): snapped to a waypoint,verified
+0x0,u8:1,arrived,bit 5 (1-byte unsigned unit): scratch: within the arrival radius,verified

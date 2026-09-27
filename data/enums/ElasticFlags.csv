@@ -1,0 +1,3 @@
+value,name,meaning
+#,ElasticFlags,elastic.flags
+0x10,ELASTIC_F_BAND_VISIBLE,SetBandMode sets/clears it; Render draws the band when set

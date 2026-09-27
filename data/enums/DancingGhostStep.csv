@@ -1,0 +1,19 @@
+value,name,meaning
+#,DancingGhostStep,"DancingGhost queued step (steps[0].step, PushStep arg 0; DancingGhost::UpdateState switch)"
+0x0,DG_STEP_WATCH_WOLF,"case 0: STAND, faces the Wolf"
+0x1,DG_STEP_STAND,case 1: STAND
+0x2,DG_STEP_ESCORT,case 2: walks (anim 6 WALK) with the partner to the Wolf's sides
+0x3,DG_STEP_NOP,case 3: done at once
+0x4,DG_STEP_FAIL_LINE_1,case 4: says g_dgFailedLines[1]
+0x5,DG_STEP_FAIL_LINE_2,case 5: g_dgFailedLines[2]
+0x6,DG_STEP_FAIL_LINE_3,case 6: g_dgFailedLines[3]
+0x7,DG_STEP_KILL_WOLF,"case 7: STAND1/KILL, fireball after 4300 ms, kill msg 0 arg 8 after 20 s"
+0x8,DG_STEP_CARRY_WOLF,case 8: carries the Wolf with the partner (msg 0x416)
+0x9,DG_STEP_FOLLOW_PATH,case 9: follows path index argument
+0xa,DG_STEP_WALK_TO,"case 10: StepToward(point, 500, argument)"
+0xb,DG_STEP_POSE_STANDV2,case 11: anim 7 STANDV2 until the next step
+0xc,DG_STEP_POSE_KILL,case 12: anim 8 KILL until the next step
+0xd,DG_STEP_DANCE,"case 13: anim argument, then 13 DANCE5"
+0xe,DG_STEP_APPLAUD,case 14: anim 14 APPLAUSE for 2 s
+0xf,DG_STEP_FINAL_LINE,"case 15: Wolf frozen, Dialogue_Show(g_dgFailedLines[4])"
+0x10,DG_STEP_PAIR_DANCE,case 16: pairs with the nearest dancer (danceFlags.paired/leader)

@@ -1,0 +1,5 @@
+value,name,meaning
+#,NavSearchResult,NavPath_StepSearch return
+0x0,NAV_SEARCH_RUNNING,return 0 after expanding a node
+0x1,NAV_SEARCH_FOUND,return 1 when within 200 of the goal
+0x2,NAV_SEARCH_FAILED,return 2 when the open list is empty

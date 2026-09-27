@@ -1,0 +1,5 @@
+value,name,meaning
+#,WoodenLiftFlags,WoodenLift.liftFlags (+0x5d)
+0x1,WLIFT_ACTIVE,"set by msg 0x1f, cleared by msg 0x20 or when the lift passes below cameraChangeY; arms the scripted camera"
+0x2,WLIFT_CAM_RELEASED,"the scripted camera is not running (set after Camera_ReleaseScripted, cleared after Camera_StartScripted)"
+0x4,WLIFT_SOUND_ON,motor sound 0x5e playing

@@ -1,0 +1,6 @@
+value,name,meaning
+#,GroundMineFlags,GroundMine +0x120 gmFlags
+0x1,GM_ON_CARRIER,last move's ContactInfo.movableObj was non-NULL (standing on a class-flag-4 carrier); keeps the fall stage alive
+0x2,GM_FALLING,"fall/move stage active: set by msg 0xb/0x25 when not attached, or whenever a mover is linked; cleared on a static-floor landing with no carrier and no mover"
+0x4,GM_FORCED,magnet pull (msg 0x53) this frame: triggers without a target and blocks the cancel check; cleared at the end of every proximity-mode update
+0x8,GM_COUNTDOWN,proximity fuse running (cancellable); cleared whenever state != 3

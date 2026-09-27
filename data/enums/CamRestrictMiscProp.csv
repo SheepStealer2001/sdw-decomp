@@ -1,0 +1,6 @@
+value,name,meaning
+#,CamRestrictMiscProp,CameraRestriction MISCFLAGS designer property bits (decoded into CamRestrict.flags)
+0x1,CAMR_MISC_FOLLOW,PostLoadInit: d & 1 -> limits.flags.modeFollow (CamRestrictFlags CAMR_MODE_FOLLOW doc: MISCFLAGS bit0)
+0x2,CAMR_MISC_ROBOT,d & 2 -> modeRobot (MISCFLAGS bit1)
+0x4,CAMR_MISC_RUN,d & 4 -> modeRun (MISCFLAGS bit2)
+0x8,CAMR_MISC_NOTIFY_WOLF,d & 8 -> notifyWolf (MISCFLAGS bit3)

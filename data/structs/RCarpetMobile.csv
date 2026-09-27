@@ -1,0 +1,13 @@
+offset,ctype,name,meaning,confidence
+0x40,u16,senderClass,classId of the last message sender (written for every message with a sender); Init sets 0x73. Tested for 0x73/0x18 in the drive messages.,verified
+0x44,ContactInfo,contact,Collide_ResolveMove contact output for the carpet's own sweep.,verified
+0x60,TrajFollower,follower,"Trajectory follower (arrive radius 30, use3d 1, speed 0). pointIndex +0x64 is moved both ways by HandleMessage and Update.",verified
+0x80,Trajectory *,traj,TRAJECTORY property resource {u16 count; Vec3s pts[]}; the carpet starts on pts[0].,verified
+0x84,CollBox,rideBox,Model box 0 + pos with the top raised by 30. Objects overlapping it are carried and Sheep in it are anchored. Rebuilt only by Init and Move.,verified
+0x94,s32,speed,"Signed drive speed from the last message (0x47 arg, ±400 for 0x1F/0x20, 400 when returning), multiplied in place by speedRatio/100 in TrajStep. Positive values above 1200 are zeroed.",verified
+0x98,s32,speedRatio,"SPEEDRATIO property, a percentage (50/70 in Lvl-13, 100 in Lvl-05).",verified
+0x9c,Vec3s,homePos,Position after Init (trajectory point 0); the return target in mode 4 and the Reset position.,verified
+0xa2,Vec3s,snapPoint,The waypoint consumed in this TrajStep; Move snaps onto it that frame.,verified
+0xa8,RCarpetFlagBits,carpetFlags,"RCarpetMobileFlags: 1 collide, 2 reversed, 4 clamp at ends (one-way), 8 driven this frame, 0x10 snapped to waypoint, 0x20 scratch in-radius.",verified
+0xaa,u16,motorSound,Channel of motor sound 0x5E.,verified
+0xac,s32,mode,"RCarpetMobileMode: 1 loop (Create default), 2 one-way, 4 one-way and return home when not driven. Set by msg 0x68 (the RollingCarpet's MOVING property) or by 0x1F/0x20 (4).",verified

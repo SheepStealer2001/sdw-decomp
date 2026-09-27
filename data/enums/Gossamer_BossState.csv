@@ -1,0 +1,24 @@
+value,name,meaning
+#,Gossamer_BossState,state field of Gossamer_Boss
+0x0,GOSSBOSS_ST_RUN,"SetState 0: anim RUN1, turn budget 0x1000; Update: ChaseStep (inferred)"
+0x1,GOSSBOSS_ST_LIGHT,"SetState 1: anim LIGHT looped; Update: on anim end turns around, -> 2 (inferred)"
+0x2,GOSSBOSS_ST_WALK_HOME,"SetState 2: anim RUN2; Update: WalkHome, -> 6 at hitIndex 2 (inferred)"
+0x3,GOSSBOSS_ST_DEFEATED,set by Update 7; no Update case (inferred)
+0x4,GOSSBOSS_ST_STOP,SetState 4: anim STOP; Update: -> 0x12 (inferred)
+0x5,GOSSBOSS_ST_WAIT,SetState 5: anim STAND1; Update: timer -> 0 (inferred)
+0x6,GOSSBOSS_ST_FALL,SetState 6: anim RUN2; Update: falls from the phase box (inferred)
+0x7,GOSSBOSS_ST_BRIDGE,"SetState 7: anim BRIDGE; Update: releases the Wolf and camera, -> 3 (inferred)"
+0x8,GOSSBOSS_ST_SPIN,"SetState 8: anim TURN1, turn budget 0x3000; Update: TurnStep(9) (inferred)"
+0x9,GOSSBOSS_ST_SPIN_ATTACK,"SetState 9: anim TURN, phase timer, spin sound 0x3f (inferred)"
+0xa,GOSSBOSS_ST_SPIN_END,SetState 0xa: anim TURN3; Update: -> 0 (inferred)
+0xb,GOSSBOSS_ST_SMASH,"SetState 0xb: MSG_WOLF_FORCE_STOW; Update: PUNCH then STAND3, MSG_WOLF_SQUASH (inferred)"
+0xc,GOSSBOSS_ST_SHAKE,SetState 0xc: anim SHAKE; Update: onde shockwave (msg 0x6c) and camera shake (inferred)
+0xd,GOSSBOSS_ST_KICK,SetState 0xd: anim KICK; Update: -> 0xe (inferred)
+0xe,GOSSBOSS_ST_KICK2,"SetState 0xe: anim KICK2, MSG_WOLF_SQUASH_LEAP within 100 (inferred)"
+0xf,GOSSBOSS_ST_PAUSE,Update 0xf: timer -> 0 (inferred)
+0x10,GOSSBOSS_ST_GUARD,"SetState 0x10: anim STAND1 2000 ms; Update: faces the Wolf, shakes or chases (inferred)"
+0x11,GOSSBOSS_ST_CHASE_TARGET,SetState 0x11: anim RUN1; Update: MoveTo(chaseTarget) (inferred)
+0x12,GOSSBOSS_ST_RETURN_HOME,SetState 0x12: anim RUN1; Update: MoveTo(homePos) (inferred)
+0x13,GOSSBOSS_ST_BRIDGE_HIT,"SetState 0x13: anim TURN3; Update: hitBody BRIDGE1, -> 1 (inferred)"
+0x14,GOSSBOSS_ST_TAUNT,"SetState 0x14: anim STAND1, 5000 ms; Update: faces the Wolf until he stops running (inferred)"
+0x15,GOSSBOSS_ST_EXIT,Update 0x15: in the exit box sets g_gameFlags 0x10000 and reveals the buttons (inferred)

@@ -1,0 +1,6 @@
+value,name,meaning
+#,DragonMsg,Dragon_HandleMessage 0x447e10 (all from TimeMachineSphere: the Dragon is its follower slot +0x218)
+0x38,MSG_TIMEMACHINE_CALL,"arg = &sphere pos, sent when the Wolf enters the sphere's +-185 cube. Within 499 (3-D), or flying and within 999: approach (0x1b/0x15/0x21/0x22), returns 1. Else saves the state, waits (0x23/0x24), returns 0."
+0x39,MSG_TIMEMACHINE_LOCK,"Follower reached the sphere cube: box collision off, warp anim (0x1c/0x1d), returns 1."
+0x3a,MSG_TIMEMACHINE_ARRIVE,"arg = translated arrival point: collision on, SetPosition, state 0x1f, returns 1."
+0x75,MSG_TIMEMACHINE_RELEASE,"The sphere's 3000-ms follower wait expired: SetState(0) (even in the air), returns 0."

@@ -1,0 +1,12 @@
+offset,ctype,name,meaning,confidence
+0x4,s16,x,rect left in the texture page,verified
+0x6,s16,y,rect top,verified
+0x8,s16,w,rect width in texels,verified
+0xa,s16,h,rect height,verified
+0xc,s16,srcX,0: backup origin x,verified
+0xe,s16,srcY,0: first backup row copied,verified
+0x10,s16,srcW,= w; texels copied per row,verified
+0x12,s16,srcH,= h; row count,verified
+0x14,s8,offset,"current scroll offset in rows, (offset+step+H)%H each update",verified
+0x15,s8,step,"+1, or -1 when the list's reverse bit is set",verified
+0x16,u16,texPage,index into g_pPolyBatcher->+0x14 texture table,verified

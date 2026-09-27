@@ -1,0 +1,12 @@
+offset,ctype,name,meaning,confidence
+0x64,ZoneList,pushBoxes,"zone list {boxes, count}: ALLOWPUSHBOXES id list: the cube may only slide while its next position is inside one of these boxes. | count (+4): Entry count of pushBoxes; 0 means unrestricted.",verified
+0x6c,s32,slideSpeed,800 on a push; after the bounce it decelerates at 4000 u/s^2. In state 3 it accelerates to 800 at 400 u/s^2.,verified
+0x70,s32,fallTime,"Airborne time in g_dt ticks, reset on floor contact. Gravity = fallTime*4000>>12 clamped to [200,1500]; capped at 0x100 in water.",verified
+0x74,Vec3s,homePos,Position after the ground snap in Init; restored by Reset.,verified
+0x7a,s16,slideDir,"12-bit slide heading (away from the pusher, snapped to 90 degrees); reversed once on a wall.",verified
+0x7c,ScnObject *,frozenRiver,The level's FrozenRiver (class 0x53) if any. Non-NULL disables kicking and the kick prompt; it receives msg 0x36 when the cube sinks.,verified
+0x80,u16,slideSound,Channel of the scrape sound 0x7C.,verified
+0x82,u8,state,SlidingIceCubeState 0..3.,verified
+0x83,SlidingIceCubeFlagBits,cubeFlags,"SlidingIceCubeFlags: 1 ALLOWPUSHONXAXIS, 2 ALLOWPUSHONYAXIS (z), 4 already bounced.",verified
+0x84,u8,splashVisible,Draws and animates the shared splash body.,verified
+0x85,u8,splashReady,1 when the splash record (export 0x5A) was built in Init.,verified

@@ -1,0 +1,7 @@
+value,name,meaning
+#,SoundPlayFlags,SoundChannel.playFlags (+0xc) = Sound_Play's 4th argument
+0x01,SNDF_LOOP,Sound_Play sets StaticSound.looping (also forced by SndBankEntry.loop == 1)
+0x02,SNDF_POSITIONAL,Sound_UpdateChannelGain attenuates by distance from owner+0xc/+0xe/+0x10 to g_camPos
+0x04,SNDF_DIST_HORIZONTAL,distance uses x and z only (vertical ignored)
+0x08,SNDF_NO_RETRIGGER,Sound_Play returns the existing handle if the same owner already has this soundId active; the default Load_SND gives every channel
+0x10,SNDF_NO_ATTENUATION,overrides SNDF_POSITIONAL (distance gain stays 1.0)

@@ -1,0 +1,2 @@
+offset,ctype,name,meaning,confidence
+0x0,u8:1,shown,"g_dialogueShownFlags 0x6ddfb5 bit 0 as a bitfield VIEW of that u8 (the ProgressRuntimeFlagBits precedent): Dialogue_Show clears it with mov al / and al,0xfe (0x5395cd) and sets it with mov dl / or dl,1 (0x539664) - byte bitfield code, not the promoted movzx/and eax of a plain u8; Cine_Update reads it as & 1",verified

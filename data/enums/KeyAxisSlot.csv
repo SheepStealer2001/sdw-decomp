@@ -1,0 +1,8 @@
+value,name,meaning
+#,KeyAxisSlot,
+0x0,KB_AXIS_X_NEG,KB_AXISKEY macro comment: 0 X-
+0x1,KB_AXIS_X_POS,1 X+
+0x2,KB_AXIS_Y_NEG,2 Y-
+0x3,KB_AXIS_Y_POS,3 Y+
+0x4,KB_AXIS_Z_NEG,4 Z-
+0x5,KB_AXIS_Z_POS,5 Z+

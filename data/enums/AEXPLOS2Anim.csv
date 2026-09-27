@@ -1,0 +1,3 @@
+value,name,meaning
+#,AEXPLOS2Anim,animation ids of WAR model AEXPLOS2 (its WAR type-0x86 table; names verified from the level files). Played by: the Wolf in model set WMS_EXPLOSION (modelSets[1] = g_wolfAltModelIds[0] = WAR_IDO_AEXPLOS2): rows 0x0e (WOLF_ST_DIE_FELL) of both Wolf state tables
+0x0,AEXPLOS2_ANIM_BOOM,WAR name BOOM

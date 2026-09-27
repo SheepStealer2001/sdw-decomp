@@ -1,0 +1,21 @@
+offset,ctype,name,meaning,confidence
+0x0,PadFrame,raw,PS1-style receive buffer (34 bytes on the PS1: prev starts at 0x22); only the first 8 used. Filled by Pad_ReadRaw,verified
+0x22,PadFrame,prev,previous latched frame; struct-copied from cur by Pad_Latch (0x55eff1),verified
+0x2a,PadFrame,cur,current latched frame; struct-copied from raw by Pad_Latch (0x55f003),verified
+0x32,u16,menuCur,= g_padMenuCur 0x71965a: raw.buttons with the stick folded in as d-pad bits (Pad_AnalogToDpadBits 0x55f24e),verified
+0x34,u16,menuPrev,= g_padMenuPrev 0x71965c: previous menuCur (0x55f240),verified
+0x36,PadRepeat,btnRepeat,Pad_AutoRepeat state for cur.buttons (0x55efda),verified
+0x3c,PadRepeat,menuRepeat,Pad_AutoRepeat state for menuCur; output +0x40 = g_padMenuRepeat 0x719668 (0x55f313),verified
+0x44,u32,state44,cleared by Pad_ResetState and on every analog Pad_DetectType; no reader found,inferred
+0x48,u32,state48,cleared with +0x44; no reader found,inferred
+0x4c,u32,state4c,cleared with +0x44; no reader found,inferred
+0x50,u16,state50,set to 0x1000 (1.0 in 4.12) by Pad_ResetState,inferred
+0x54,u8,state54,cleared by Pad_ResetState / analog detect,inferred
+0x57,u8,padType,"controller type id: 4 digital (keyboard/digital device), 7 analog; source of the raw type nibble",verified
+0x58,u8,padTypeReq,written alongside +0x57 (4/7); Input_Init tests == 7 to set +0x5b,verified
+0x59,u8,state59,cleared by Pad_ResetState (0x55ee33) and analog detect (0x55e4aa); no reader found,verified
+0x5a,u8,state5a,cleared by Pad_ResetState (0x55ee3a) and analog detect (0x55e4b1); no reader found,verified
+0x5b,u8,actuatorEnable,"set 1 by Input_Init when +0x58 == 7, cleared on pause open and on every analog Pad_DetectType, restored from Progress+0x9b on pause exit; write-only in this exe (rumble is stubbed). Probably vibration enable",inferred
+0x5c,u8,state5c,cleared by Pad_ResetState (0x55ee41); no reader found,verified
+0x5d,u8,state5d,cleared by Pad_ResetState (0x55ee48); no reader found,verified
+0x60,u32,state60,cleared by Pad_ResetState / analog detect,inferred

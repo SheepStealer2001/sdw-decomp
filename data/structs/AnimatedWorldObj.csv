@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x0,Instance,inst,"the world object's instance: WorldObj's InstanceBase header, then pos/rot/record/attach fields; WorldObj_CreateFromResource 0x55b510 fills it for a WAR resource of type 4 (Instance_InitBase, then zeroes rot, pos, record, attachLink and attachedChildCount, and sets partHeight 0x10)",verified
+0x30,Animator,anim,"the animation state (Animator_Init, WorldObj_DrawAnimated); its three pose buffers are the nbJoints * 3 AnimJointPose that follow the object at +0x54, in the same allocation",verified

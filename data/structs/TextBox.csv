@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x0,char *,text,string to render,verified
+0x4,s8,confirmChoice,"s8: Prompt_Update reads it with movsx at 0x53ebd9 (not a scroll row). Written by Ui_DrawTextBox only when fits is set, as 2 - g_confirmPage.cursor (0x6de168) after it runs the confirm menu (Menu_SetCurrent(&g_confirmPage); Menu_Update(2,2)). It is the Yes/No answer: 1 = first row, 0 = second",verified
+0x8,s32,fits,1 when lineCount+3 fits in the font's row count; the paging UI is only run when set,verified
+0xc,s16[4],rect,"{x, y, w, h} in virtual HUD space; the frame is drawn inflated by 4 on every side",verified
+0x14,u32,bgColor,"panel fill colour, forced to 0x080808 by Ui_DrawTextBox",verified

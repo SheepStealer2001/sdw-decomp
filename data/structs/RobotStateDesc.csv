@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x0,u16,animId,"animation id of the Robot state (g_robotStateTable 0x57a880, 4 bytes per state: lea [4*state+0x57a880] at 0x45e641, 0x45f796, 0x4618ec); Robot_SetState 0x46191e mov dx,word [ecx] passes it to Anim_Start",verified
+0x2,u16,flags,"RobotStateFlags, read as movzx word [desc+2]: Robot_EnterState 0x461664 &1, SetState 0x461900 &4, Update 0x45f844 &8 (controllable), ScanContextActions 0x45ebde &0x10, UpdateCamera 0x45e7ff &0x20, Update 0x4607d0 &0x40 (dash smoke), Move 0x45ef45 &0x80, UpdateCamera 0x45e723 &0x100",verified

@@ -1,0 +1,26 @@
+offset,ctype,name,meaning,confidence
+0x0,void **,vtable,0x57449C. Slot 5 (Play) is _purecall 0x567340 - StreamSound_Play 0x421230 is called non-virtually instead.,inferred
+0x4,u8,looping,"Inherited from Sound. 1 makes ReadOrPadSilence rewind the file instead of padding silence, giving a gapless loop.",inferred
+0x8,WaveFile *,wave,Inherited. For the music/voice player this points at one of the two WaveFile objects at 0x71CDC0 / 0x71CDF4 (stride 0x34).,inferred
+0xc,u8,waveIsExternal,"Inherited. 1 on the CreateFromWaveEx path (the player owns the WaveFile), 0 on the unused CreateFromFile path.",inferred
+0x10,IDirectSoundBuffer *,buffer,Inherited. The circular streaming buffer.,inferred
+0x14,u32,bufferBytes,Inherited. notifySize * nNotifications; the modulus for writeOffset and for the play-cursor wrap in ServiceNotify.,inferred
+0x18,s32,volumeCb,Inherited attenuation in centibels. The stream player writes it through Sound_SetBufferVolume from Progress[0x95] (music) or Progress[0x96] (voice).,inferred
+0x1c,s32,panCb,Inherited pan in centibels.,inferred
+0x20,u32,baseFrequency,"Inherited. Only filled on the unused CreateFromFile path; CreateFromWaveEx never calls GetFrequency, so it stays 0 for streams.",inferred
+0x24,u8,stopped,"1 = the stream is not playing. Set by the ctor, by Create, by StreamSound_Stop and by ServiceNotify at end of file; cleared by StreamSound_Play. StreamSound_IsPlaying is exactly `buffer != NULL && stopped == 0`, so it does not survive an external Stop of the buffer.",inferred
+0x28,u32,lipSyncEnabled,StreamSound_Play's argument. Non-zero arms the amplitude meter: StreamSound_GetVoiceAmplitude returns 0 unless this is set. The stream player passes its +0x348 flag for voice clips and 0 for resumes.,inferred
+0x2c,SoundDevice *,pDevice,The SoundDevice this stream registered with; NULLed by StreamSound_Free after UnregisterStreamEvent. Non-NULL marks a stream that holds a stream slot.,inferred
+0x30,IDirectSoundNotify *,pNotify,"IID_IDirectSoundNotify {b0210783-89cd-11d0-af08-00a0c925cd16} interface on the buffer, used once for SetNotificationPositions and then held until Free.",inferred
+0x34,u32,notifySize,"Bytes per notification segment = round_down(nSamplesPerSec * nBlockAlign * fBufferSeconds / nNotifications, nBlockAlign). This is the Lock length in ServiceNotify. At 22050 Hz 16-bit mono with 2.0 s / 16 it is 5512 bytes = 125 ms.",inferred
+0x38,u8,eofReached,"1 once a non-looping read came up short. From then on every block is filled with the silence byte, and ServiceNotify auto-stops when playProgress catches up.",inferred
+0x3c,u32,playProgress,"Total bytes of audio the play cursor has passed since the last FillBuffer. Advanced by the cursor delta in BOTH ServiceNotify and GetVoiceAmplitude (they share lastPlayCursor, so the accounting stays consistent). Compared against wave->ckRiff.cksize for end of stream, and used as the mmioSeek offset by the amplitude meter.",inferred
+0x40,u32,writeOffset,Byte offset inside the circular buffer where the next segment will be written; advanced modulo bufferBytes after each Lock/Unlock.,inferred
+0x44,u32,lastPlayCursor,"Previous IDirectSoundBuffer::GetCurrentPosition play cursor, used to derive the delta added to playProgress.",inferred
+0x48,u8,bitsPerSample,Cached WAVEFORMATEX.wBitsPerSample.,inferred
+0x49,u8,blockAlign,Cached WAVEFORMATEX.nBlockAlign (truncated to a byte via __ftol of the double).,inferred
+0x4a,u8,channels,Cached WAVEFORMATEX.nChannels.,inferred
+0x4b,u8,bytesPerSampleChannel,"blockAlign / channels, i.e. bytes per sample for one channel. The amplitude meter mmioReads exactly this many bytes and branches on < 2 for the 8-bit path.",inferred
+0x4c,u32,samplesPerSec,Cached WAVEFORMATEX.nSamplesPerSec. The amplitude meter uses a 16-tap window at >= 44100 (0xAC44) and an 8-tap window below.,inferred
+0x50,u32[16],amplitudeWindow,"Moving-average ring of absolute sample magnitudes, shifted down by one each refresh with the newest value written at index window-1 (so at +0x6C for an 8-tap window, +0x8C for a 16-tap one). Only the older window-1 entries are summed.",inferred
+0x90,u32,voiceAmplitude,"Gated lip-sync level: 0 when the mouth should be closed, the averaged magnitude when it should be open. Hysteresis: turns on above 500, off below 400. This is exactly what SoundDevice_ServiceTopStream 0x406A8F returns. Zeroed by the ctor and by every Create.",inferred

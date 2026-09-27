@@ -1,0 +1,9 @@
+offset,ctype,name,meaning,confidence
+0x40,u32,winRadiusSq,winRadius squared; Ralph's horizontal dist^2 to the goal must be <= this,verified
+0x44,Box *,cinBox,PROPERTY_GOAL_CINBOX resolved (passed to Cine_Start),verified
+0x48,Box *,cinSheepBox,PROPERTY_GOAL_CINSHEEPBOX resolved,verified
+0x4c,char *,cinText,"PROPERTY_GOAL_TEXTFORCIN resolved: the class string Text_GetClassString returns, or 0 without CINE_HAS_TEXT",verified
+0x50,u32,cinFlags,PROPERTY_GOAL_FLAGSFORCIN,verified
+0x54,u16,cinId,PROPERTY_GOAL_CINEMATIC,verified
+0x56,u16,winRadius,modelBox.max.x * 90 / 128 = 138 for the standard goal; also the sheep search radius,verified
+0x58,GoalFlagBits,goalFlags,"bit0 use cinematic, bit1 no sheep required, bit2 already triggered",verified

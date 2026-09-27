@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,ScnFactoryFn,factory,class factory,verified
+0x4,void *,iconA,inventory icon image resource (first u16 = image index),verified
+0x8,void *,iconB,alternate icon,verified
+0xc,u32,classFlags,RegisterClass arg 3,verified

@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x40,u8,visible,"0 hidden and non-solid (flags 0x800|0x400), 1 shown. Gates the sidle prompt.",verified
+0x42,Vec3s,seedPos,"Filled by the Seed's reply to msg 0x3280 during the time-machine swap, then offset by g_timeMachineOffsetToPresent and used as the tree position.",verified
+0x48,u32,visibleDirectly,"VISIBLEDIRECTLY property (0 in Lvl-09, 1 in Lvl-10).",verified

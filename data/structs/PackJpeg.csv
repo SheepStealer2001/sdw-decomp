@@ -1,0 +1,8 @@
+offset,ctype,name,meaning,confidence
+0x0,u8[8],header,file header: Open reads 12 bytes straight over the object (header + count); no vptr,verified
+0x8,u32,count,number of images in the pack (read at 0x49bc27),verified
+0xc,FILE *,file,open file handle (the CRT FILE * of fopen; fread/fseek/fclose take it),verified
+0x10,u32,opaqueValue,its address is passed at 0x55dc29; role not established,inferred
+0x14,PackJpegEntry *,entries,directory of the pack,verified
+0x18,PackJpegImage *,image,the decoded current image,verified
+0x1c,u32,index,current image index (read at 0x49bbe0),verified

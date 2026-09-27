@@ -1,0 +1,10 @@
+value,name,meaning
+#,SignPostMsg,"Messages of the three sign classes (0x4f1a50, 0x4f1bea, 0x4f18c2)."
+0x1,MSG_USE,read: freeze Wolf (msg 0xE) and open. Sent by Wolf_DoAction 0x490c9a for ctx 1/7/9/0xA/0xB/0x1C/0x1D/0x21/0x24
+0x2,MSG_QUERY_ACTION,"-> 7 when idle, Wolf-sent and Manhattan XZ < DISTANCE"
+0x9,MSG_CONTAINER_STATE,"SignPostSimple only: arg 1 (released from a container) savedPos = pos. Not a checkpoint message (senders: Mailbox, box, FloatingBox)"
+0xe,MSG_FREEZE,close immediately (Simple keeps wolfFrozen; SignPost/Animated clear it)
+0x13,MSG_CINE_END,SignPostSimple: savedPos = pos
+0x43,MSG_TELEPORTED,"returns 1 (Simple, SignPost)"
+0xe81,MSG_SIGN_REVEAL,SignPostAnimated: unhide + pop-up anim (sender 0x43ef00)
+0x1280,MSG_ANVIL_DROP,sent by SignPost to its ID_ANVIL object

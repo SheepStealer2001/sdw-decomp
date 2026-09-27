@@ -1,0 +1,8 @@
+value,name,meaning
+#,InstFlags,u16 at obj+4
+0x01,INST_F_DRAWN,set by renderer when visible; gates shadow draw
+0x02,INST_F_SCN_OR_SKY,set by Instance_InitBase 0x55b224 when mode & 0x20 (0x55b248-0x55b266): scenaric instances (0xFE/0xFF) and sky meshes (0x26). No reader found yet; meaning open.; Instance_InitBase sets it when mode & 0x20: scenaric instances (0xFE/0xFF) and sky meshes (0x26); no reader (inferred)
+0x04,INST_F_ANIMATED,has animator
+0x08,INST_F_ATTACHED,attached to a parent via attachLink
+0x10,INST_F_TINT,tint override active
+0x40,INST_F_HAS_SECONDARY,secondary resource present

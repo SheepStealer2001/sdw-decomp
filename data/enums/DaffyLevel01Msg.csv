@@ -1,0 +1,8 @@
+value,name,meaning
+#,DaffyLevel01Msg,Messages handled by DaffyLevel01_HandleMessage 0x436e3a.
+0x0,MSG_KILL,"arg 0: burnt (black tint), returns 1"
+0x1,MSG_USE,"talk: freeze the Wolf, optional camera, question or burnt line"
+0x2,MSG_QUERY_ACTION,returns 8 (CTX_TALK) in state 0 with no cinematic
+0xe,MSG_FREEZE,clears the Wolf-frozen flag
+0x13,MSG_CINE_END,SetState(0)
+0x58,MSG_QUERY_TALK_ANIMS,returns (talkAnim<<16)|idleAnim for lip sync

@@ -1,0 +1,14 @@
+value,name,meaning
+#,SaladMsg,Messages handled by Salad_HandleMessage 0x4e8091.
+0x0,MSG_KILL,arg 2 (crush) or 0xB -> squash
+0x1,MSG_USE,"from Sheep: eatTime += g_dt, eaten at 3 s"
+0x2,MSG_QUERY_ACTION,Wolf/Robot -> 4 (pickup) in state 0; Sheep -> 0x25 (0 while liftBlocked)
+0x4,MSG_PICKUP,attach to sender joint arg
+0x5,MSG_DROP,detach; arg {Vec3s pos; u16 flags(bit1 keep pos)}
+0x6,MSG_QUERY_NEAREST_TARGET,"held-item query from Wolf_ScanContextActions: arg {u16 classId, u16 dist*0xffff/600}"
+0x9,MSG_CONTAINER_STATE,"arg 1 (released from a container): homePos = pos. Not a checkpoint message (senders: Mailbox, box, FloatingBox)"
+0x17,MSG_QUERY_HELD_ACTION,2 = HELD_THROWABLE
+0x25,MSG_LANDED,not attached -> squash (seesaw_RemoveLaunch sends it)
+0x30,MSG_GEYSER_OUT,"squash unless state 1/3, copy sender rot (sender 0x4c5f25)"
+0x55,MSG_CHECKPOINT_ROLLBACK,Reset
+0x79,MSG_LIFT_CRUSH,liftBlocked = 1 for 1 s

@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,u8:1,allowX,bit 0 (1-byte unsigned unit): ALLOWPUSHONXAXIS. +0x83 is byte bit storage: 0x4f2faa/0x4f3553/0x4f356d read bits 2/0/1; writes use byte masks.,verified
+0x0,u8:1,allowY,bit 1 (1-byte unsigned unit): ALLOWPUSHONYAXIS (z),verified
+0x0,u8:1,bounced,bit 2 (1-byte unsigned unit): already bounced,verified

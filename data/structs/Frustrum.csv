@@ -1,0 +1,20 @@
+offset,ctype,name,meaning,confidence
+0x0,fnptr *,vtbl,"0x5743b0, single entry = the deleting destructor 0x41a040",verified
+0x4,D3DApp *,d3dApp,the D3DApp the frustum pushes render states to; its +0x28 is the IDirect3DDevice7,verified
+0x8,float,nearZ,"near plane, 1.0f at construction",verified
+0xc,float,farZ,"far plane, 100.0f at construction",verified
+0x10,float,fovRad,"this is the HORIZONTAL field of view, not the vertical one. Screen_SetProjection sets tanHalfFov = 512/(2h), i.e. half of the 512-wide virtual screen over the projection distance (0x52a74b-0x52a762). Mat44_SetPerspective puts cot(fov/2) on _11 (x). Both cull tests in this module bound camera-space x by z*tanHalfFov.",verified
+0x14,float,tanHalfFov,tan(fovRad / 2.0) cached alongside the angle,verified
+0x18,u8,cullDisabled,"When non-zero, Instance_UpdateVisibility 0x55cae3 (movzx at 0x55caee) marks every instance visible (INST_F_DRAWN) without a frustum test. Zeroed by Frustrum_Construct. Game_Frame sets it to 1 while a cinematic is active (g_cinePlayer active 0x71c450; writes at 0x5604f1/0x560515) and to 0 otherwise (0x560521). A scan of the asm finds no other reader.",verified
+0x19,u8,flipWinding,inverts the signed-area facing test in the immediate mesh draw; 1 at construction,inferred
+0x1c,float,viewportWidth,"d3dApp rect right minus left, as a float",verified
+0x20,float,viewportHeight,"d3dApp rect bottom minus top, as a float",verified
+0x24,float,aspect,"holds viewportHeight/viewportWidth after Frustrum_Construct, but Screen_SetProjection overwrites it with viewportWidth/viewportHeight (fld +0x1C; fdiv +0x20; fstp +0x24 at 0x52a786-0x52a791), which is the value in effect during play. Cull_IsAabbVisible and Instance_UpdateVisibility multiply the horizontal half-extent by it to get the vertical bound.",verified
+0x28,float,viewDistance,"the reference draw distance the fog band is anchored to; 100.0f at construction, changed by Frustrum_SetViewDistance. Mesh_DrawImmediate rejects triangles using 1.0f/viewDistance.",verified
+0x2c,u8,fogEnabled,gate for Frustrum_GetFogValue and the D3DRENDERSTATE_FOGENABLE write; 0 at construction,verified
+0x30,u32,fogColor,"D3DRENDERSTATE_FOGCOLOR value, masked to 24 bits by Frustrum_SetFog",verified
+0x34,s32,fogMode,"selects the ramp curve in Frustrum_BuildFogRamp: 1 = exp, 2 = exp squared, 3 = linear (the construction default), anything else = no fog",verified
+0x38,float,fogStart,"near edge of the fog band, pushed as D3DRENDERSTATE_FOGSTART; 1.0f at construction",verified
+0x3c,float,fogEnd,"far edge of the fog band, pushed as D3DRENDERSTATE_FOGEND; 1.0f at construction",verified
+0x40,float,fogScale,"255.0f / (fogEnd - fogStart), cached for the per-vertex fog lookup in the mesh submission code. It is +INF between construction and the first Frustrum_SetFog because fogEnd == fogStart == 1.0.",verified
+0x44,u32[256],fogRamp,"precomputed vertex fog factors in the top byte of each word (0xFF000000 = no fog, 0 = fully fogged), indexed by trunc(normalised depth * 255)",verified

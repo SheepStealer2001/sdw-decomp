@@ -1,0 +1,3 @@
+value,name,meaning
+#,SamPatrolFlags,Sam.patrolFlags
+0x1,SAM_PATROL_STARTED,Update sets it; EnterFollowTrajectoryState clears it (inferred)

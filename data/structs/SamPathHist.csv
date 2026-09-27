@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x0,u8,type,"the entry kind, SAM_HIST_* (0 = empty; Sam_AddPathHistory 0x46361b stores its kind argument)",verified
+0x1,u8,pad,padding,verified
+0x2,s16,x,Sam's x when the entry was added,verified
+0x4,s16,z,Sam's z when the entry was added,verified
+0x6,s16,a,first argument of Sam_AddPathHistory (the search heading for kind 3),verified
+0x8,s16,b,second argument of Sam_AddPathHistory (the heading step for kind 3; the search reads it back negated),verified

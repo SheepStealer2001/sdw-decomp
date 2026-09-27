@@ -1,0 +1,6 @@
+value,name,meaning
+#,CamLedgeLookState,g_camLedgeLookState 0x6e4382 (Camera_UpdateLedgeLook) and the desired pitch UpdateFollow derives from it
+0,LEDGE_NONE,pitch = g_camMinPitch
+1,LEDGE_LOOKING,probe clear: pitch = 0x2aa (60 deg)
+2,LEDGE_BLOCKED_1,first blocked frame: hold pitch
+3,LEDGE_BLOCKED_2,second blocked frame: hold pitch; next blocked frame returns to 0

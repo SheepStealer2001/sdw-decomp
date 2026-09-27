@@ -1,0 +1,4 @@
+value,name,meaning
+#,SheepPropFlags,Sheep FLAGS designer property (Sheep::PostLoadInit w.flags)
+0x1,SHEEP_PROP_F_1,PostLoadInit: property bit 1 -> SheepFlags 0x10 (inferred)
+0x2,SHEEP_PROP_F_ALT_MODEL,PostLoadInit: property bit 2 and models[2] present -> SheepFlags 0x4000 (inferred)

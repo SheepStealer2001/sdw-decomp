@@ -1,0 +1,7 @@
+value,name,meaning
+#,SeedState,Seed +0x64 (Seed_SetState 0x4ea3f5)
+0,SEED_IDLE,"no anim change; not in the world at load, in a container (msg 9) or rolled back (0x55)"
+1,SEED_STORED,anim 0 loop; msg 7 (put into the inventory)
+2,SEED_HELD,anim 1 loop; msg 4 (attached to the Wolf/Robot)
+3,SEED_PLANTING,anim 2 blend; msg 5 with drop flag bit 0 (Wolf state 0x29 put-down); Update goes to 4 at anim end
+4,SEED_PLANTED,anim 3 loop|blend; also the state of any seed in the world at level load. Makes Tree msg 0x3280 succeed and msg 0x3300 arg 1

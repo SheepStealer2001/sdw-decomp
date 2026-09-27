@@ -1,0 +1,11 @@
+value,name,meaning
+#,SignTipsState,state field of SignTips
+0x1,SIGNTIPS_ST_WAIT_FADE,Update 1: -> 2 when the fade-in (GF_FADE_IN) ends (inferred)
+0x2,SIGNTIPS_ST_APPEAR,"SetState 2: anim 0, visible; Update: on anim end -> 4, releases camera and Wolf (inferred)"
+0x3,SIGNTIPS_ST_CLOSE_WAIT,"Update 3: waits for CROSS release, then 4 (inferred)"
+0x4,SIGNTIPS_ST_IDLE,SetState 4: anim 1 (inferred)
+0x5,SIGNTIPS_ST_OPEN_WAIT,"Update 5: waits for CROSS release, then 6 (inferred)"
+0x6,SIGNTIPS_ST_SHOW_TIP,"Update 6: draws the tip box, CROSS -> 3 (inferred)"
+0x7,SIGNTIPS_ST_COUNT_REBIRTHS,"PostLoadInit 7 when a CHECKPOINT box is set (hidden, not collidable): no Update case; Reset, once per respawn, counts the respawns with Ralph inside CHECKPOINT and, at NBREBIRTH of them, freezes the Wolf, starts the hint camera and goes to 1 (verified)"
+0x8,SIGNTIPS_ST_TRACK_BOXES,"Update 8: marks visited trajectory boxes, -> 9 when all are visited (inferred)"
+0x9,SIGNTIPS_ST_WAIT_DISTANCE,Update 9: -> 2 once the Wolf is triggerDist away (inferred)

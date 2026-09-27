@@ -1,0 +1,5 @@
+# the Mods menu and the load order read this (MODDING.md)
+name: Crate
+version: 1.0
+author: example mod
+description: A textured crate of the mod's own in Level 3, solid, made a Case.

@@ -1,0 +1,3 @@
+value,name,meaning
+#,MagnetFlags,Magnet +0x9a
+0x1,MAG_F_ON_ROD,"attached to a MagnetRod (class 0x44): attract point 75 below, picks objects up within 20 units, full pull inside 60, does not report catches to the holder, keeps its shadow"

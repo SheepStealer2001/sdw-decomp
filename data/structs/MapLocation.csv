@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x40,void *,props,copy of record (+0x20),the raw WAR record; MapLocation_AddSlot reads the properties through it at +0x14+off,confirmed
+0x44,UiQuad,marker,"HUD quad for the Wolf icon (color +0x44, drawFlags +0x4c, x/y +0x50/+0x52); drawn at layer 0xb",verified
+0x58,u32 *,markerBitmap,IdList_FindWithCount(0x8E = DAV_IDI_IGLCOYO1). Its first dword is the bitmap passed to UiQuad_SetFromBitmap,verified
+0x5c,MapLocSlot[15],slots,compacted BOXnn slots (12 bytes each),verified
+0x110,u16,slotCount,number of valid slots,verified

@@ -1,0 +1,9 @@
+value,name,meaning
+#,WaterGeyserState,state field of WaterGeyser
+0x0,WGEYSER_ST_IDLE,SetState 0: anim STAND; Update: catches the Wolf or the out-of-zone sheep in the water (inferred)
+0x1,WGEYSER_ST_SWALLOW,"SetState 1: anim STAND, swallowTimerMs 1500; Update: -> 2 (inferred)"
+0x2,WGEYSER_ST_WHIRL_IN,SetState 2: anim WHIRL (0 if the Wolf is dead) (inferred)
+0x3,WGEYSER_ST_WHIRL,"SetState 3: sound 0x131, msg 0x31 to the passenger, anim WHIRL1 (inferred)"
+0x4,WGEYSER_ST_WHIRL_OUT,"SetState 4: anim WHIRL2; Update: sheep -> 5, Wolf to the out-geyser (inferred)"
+0x5,WGEYSER_ST_SHEEP_OUT,SetState 5: anim WHIRL2; Update: msgs 0x2886/0x2880 to the GeyserOut (inferred)
+0x6,WGEYSER_ST_RESET,SetState 6: anim STAND; Update: -> 0 (inferred)

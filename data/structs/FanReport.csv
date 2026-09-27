@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x0,u16,classId,class id of the reporting object,verified
+0x2,u16,proximity,its proximity value,verified

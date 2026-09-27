@@ -1,0 +1,5 @@
+value,name,meaning
+#,RaftMsg,messages handled by Raft_HandleMessage
+0x0,MSG_KILL,"from class 0x5F CannonBall or 0xB1 WaterMine: set RAFT_HIT, return 1"
+0xd,MSG_GROUND_QUERY,Box_GroundQueryFlatTop on the first solid box
+0x14,MSG_FAN_BLOW,"arg = fan holder's facing (sent by the Fan blow routine 0x4bb62e to objects in a 400-unit ±0x19A cone or overlapping the holder); fanHeading = arg, set RAFT_FAN_BLOWN"

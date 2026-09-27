@@ -1,0 +1,3 @@
+value,name,meaning
+#,SamSheepBitsMask,"mask constants for the bitfield view SamSheepBits of Sam.sheepFlags (a mask access and a bitfield access compile differently, so the mask stays a mask)"
+0x1,SAM_SHEEP_HEARD_CALL,member 'heardCall' of data/structs/SamSheepBits.csv: Sam heard the sheep-costume bleat (MSG_SHEEP_CALL) in his orange zone

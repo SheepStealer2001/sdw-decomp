@@ -1,0 +1,10 @@
+value,name,meaning
+#,RocketState,"Rocket +0x82 (Rocket_SetState 0x4e4810, anim table 0x576960)"
+0,ROCKET_IDLE,"on the ground, anim 3, shadow shown; the only state msg 2 offers pickup in"
+1,ROCKET_HELD,worn by Ralph (msg 4; msg 0x16 while attached)
+2,ROCKET_CRASH,"anim 4; entered from msg 5 with drop flag bit 0 (rot = (0x400, sender facing, 0)). At anim end: hidden, back to homePos, full fuel and hits, state 3"
+3,ROCKET_RESPAWN_WAIT,"hidden for 0x3000 g_gameTime (3 s), then shown and state 4"
+4,ROCKET_RESPAWN_WOBBLE,"rendered with ScnObject_RenderRespawnWobble for 1 s, then state 0"
+5,ROCKET_ACTIVATE_A,anim 1; msg 0x15 arg 0 (+ sound 0x128)
+6,ROCKET_ACTIVATE_B,"anim 2 blend; msg 0x15 arg != 0, or msg 0x10 pose 2 while active"
+7,ROCKET_FLYING,anim 0 loop; msg 0x10 pose 1 while active; engine sound 0x6e; hits regenerate by g_dt>>2 per frame; gauges drawn

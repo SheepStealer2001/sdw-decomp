@@ -1,0 +1,19 @@
+value,name,meaning
+#,PadButton,"Bit layout of the pad word tested by Pad_MenuPressed/Held/Repeat, which take the INVERTED mask (Pad_MenuPressed(0xBFFF) tests bit 0x4000). Recovered from the masks used across this module; it is exactly the PlayStation digital-pad layout, which the PC port kept. Bits 0x2000 CIRCLE and 0x8000 SQUARE are confirmed in game by the level-skip cheat input."
+0x0001,PAD_SELECT,opens/closes the map (Game_Frame_2 tests 0xFFFE)
+0x2,PAD_L3,"InputMgr::Poll binding 10 clears 0xfffd; standard PS1 pad bit 1 (the named bits already follow the PS1 layout: SELECT 0, UP 4 .. LEFT 7, TRIANGLE 12 .. SQUARE 15) (inferred)"
+0x4,PAD_R3,binding 11 clears 0xfffb; PS1 pad bit 2 (inferred)
+0x8,PAD_START,"binding 9 clears 0xfff7; PS1 pad bit 3; ScnControllable::ReadPad PRESSED(pad, 9) -> WolfActionBits 4 (inferred)"
+0x0010,PAD_UP,mask 0xFFEF
+0x0020,PAD_RIGHT,mask 0xFFDF
+0x0040,PAD_DOWN,mask 0xFFBF
+0x0080,PAD_LEFT,mask 0xFF7F
+0x100,PAD_L2,binding 6 clears 0xfeff; PS1 pad bit 8 (inferred)
+0x200,PAD_R2,binding 7 clears 0xfdff; PS1 pad bit 9 (inferred)
+0x400,PAD_L1,Input_ApplyControlConfig passes 0xfbff as the 6th remap in every preset; PS1 pad bit 10 (inferred)
+0x800,PAD_R1,0xf7ff 5th remap; PS1 pad bit 11 (inferred)
+0x1000,PAD_TRIANGLE,cancel/back; mask 0xEFFF
+0x2000,PAD_CIRCLE,mask 0xDFFF. Confirmed in game: the 5th/6th press of the level-skip code
+0x4000,PAD_CROSS,confirm/validate; mask 0xBFFF
+0x8000,PAD_SQUARE,mask 0x7FFF. Confirmed in game: the 1st/2nd/4th press of the level-skip code
+0xffff,PAD_ALL_RELEASED,the raw active-low pad word with no button down (Cheat_CheckSequence tests cur/prev != 0xffff)

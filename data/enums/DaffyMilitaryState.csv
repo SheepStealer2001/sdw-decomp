@@ -1,0 +1,8 @@
+value,name,meaning
+#,DaffyMilitaryState,state field of DaffyMilitary
+0x0,DAFFYMIL_ST_HIDDEN,"SetState 0: box collision and shadow off, anim STAND1 once (inferred)"
+0x1,DAFFYMIL_ST_IDLE,SetState 1: anim STAND2 looped (inferred)
+0x2,DAFFYMIL_ST_CINEMATIC,"SetState 2: MSG_WOLF_STRIP, letterbox on, Cine_Play; Update: -> 1 when it ends (inferred)"
+0x3,DAFFYMIL_ST_DIALOG,"SetState 3: Dialog_Begin(talkAboutText); Update: answer 2 -> 4, 1 -> 1 (inferred)"
+0x4,DAFFYMIL_ST_ANSWER,SetState 4: anim STAND2; Update: Dialog_UpdateAnswer with g_daffyMilitaryAnswerVoices (inferred)
+0x5,DAFFYMIL_ST_PUNISH,"SetState 5: anim STAND2, freezes the Wolf; Update: Dialogue_Say(punishText, voice 0xd), then releases him (inferred)"

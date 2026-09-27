@@ -1,0 +1,21 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,state,"BipbipState 0-7; written at the end of SetState (mov byte [edx+0x64],al 0x42e8f4), read by Update's switch (movzx eax,byte [edx+0x64] 0x42dd65)",verified
+0x65,u8,stateAfterWait,"state SetState(4) waits for: written 3 (0x42dfaa) / 7 (0x42e0e5) as a byte, replayed by state 4 (mov dl,byte [ecx+0x65]; SetState 0x42e4dc)",verified
+0x66,u8[6],unk066,never read or written by the class,inferred
+0x6c,s32,waitLeftMs,countdown of state 4: -= g_dtMs each frame and SetState(stateAfterWait) at <= 0 (0x42e4c4-0x42e4d7),verified
+0x70,s32,waitTimeMs,"TIMEWAIT property (dword at record+0x14+12, 0x42db8c-0x42dba5); 10000 in Lvl-16. Loaded whole (0x42e0dc) or halved (sar after cdq/sub, 0x42df99) into waitLeftMs",verified
+0x74,ScnObject *,trainStation,"TRAINSTATION property (Scn_GetPropObject prop 16, 0x42db20-0x42db31); asked msg 0x4803 in states 2 and 5 (0x42e24e, 0x42e49a)",verified
+0x78,ScnObject *,button,"nearest SensibleButton (class 24) within 200 units, found when the outward path ends (0x42e081-0x42e0a8); the roadrunner is put on its position",verified
+0x7c,ScnObject *,gate,"nearest FallingGate (class 26) within 1200 units, refreshed twice in state 2 (0x42ddee, 0x42df28) and asked msg 0x72",verified
+0x80,s32,chased,"set 1 by state 5 (0x42e485), cleared by PostLoadInit / Reset / the gate branch / the path end; gates the 'turn round' test in state 2 (0x42df04)",verified
+0x84,s32,gateShut,"1 once a FallingGate answered msg 0x72 (0x42de41, 0x42df7f); cleared at 0x42df14 and 0x42e364. State 3 only gives up the chase while it is 0 (0x42e2e6)",verified
+0x88,s32,unk088,zeroed by PostLoadInit (0x42dc5f) and Reset (0x42eb7d); never read,verified
+0x8c,Vec3s,startPos,first point of GOTOTRAJECTORY snapped to the ground (0x42dbbf-0x42dc26); Reset and the end of the return path put the roadrunner back on it,verified
+0x92,u8[2],pad092,alignment before the box pointer,inferred
+0x94,Box *,stopBox,"BOXSTOPBIPBIP property (Scn_GetPropBox prop 0, 0x42dba8-0x42dbb9); state 2 tests pos against it in x and z (0x42e1d2-0x42e22b)",verified
+0x98,Trajectory *,gotoTraj,"GOTOTRAJECTORY property (Scn_GetPropTrajectory prop 4, 0x42daf2-0x42db03); walked forward in state 2 and backward in state 3",verified
+0x9c,TrajFollower,gotoFollower,"follower over gotoTraj: speed 0x514, bias 0x800, continuous heading, 2-D, arrive radius 0x32 (0x42db34-0x42db5b)",verified
+0xbc,Trajectory *,returnTraj,"RETURNTRAJECTORY property (Scn_GetPropTrajectory prop 8, 0x42db09-0x42db1a); walked by state 7",verified
+0xc0,TrajFollower,returnFollower,"follower over returnTraj, same settings, stepped by the shared TrajFollower_Step 0x51079b (0x42e4ff)",verified
+0xe0,u16,soundHandle,"Sound_Play(0x136) channel of the running loop (0x42e6e7, 0x42e75a); stopped through Sound_IsPlaying/Sound_Stop at every state change",verified
+0xe2,u8[2],pade2,tail padding to sizeof 0xe4,inferred

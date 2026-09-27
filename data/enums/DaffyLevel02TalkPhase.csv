@@ -1,0 +1,12 @@
+value,name,meaning
+#,DaffyLevel02TalkPhase,DaffyLevel02 +0xb4; the line shown is string(CINETEXT + phase).
+0,DAFFY2_PH_CINE,intro cinematic CINE
+1,DAFFY2_PH_CINE2,rules cinematic CINE2
+2,DAFFY2_PH_ASK,Yes/No text box
+3,DAFFY2_PH_CAUGHT_HEARD,noisy (voice 0x10 / 0x1c)
+4,DAFFY2_PH_CAUGHT_MOVED_SHEEP,moved in beam while carrying a sheep (0x11 / 0x1d)
+5,DAFFY2_PH_CAUGHT_SEEN_SHEEP,seen while carrying (0x12 / 0x1d)
+6,DAFFY2_PH_CAUGHT,moved/seen without a sheep (0x13 / 0x1d)
+7,DAFFY2_PH_GOAL,reached GOALBOX (0x14 / 0x1e)
+8,DAFFY2_PH_REMINDER,line when talked to between games (0x15 / 0x22)
+9,DAFFY2_PH_START_NAG,idle in STARTBOX longer than the timeout (0x16)

@@ -1,0 +1,10 @@
+offset,ctype,name,meaning,confidence
+0x64,u8,disabled,"set when IDPOLY is missing or has < 2 points, or GLOBALZONE is missing",verified
+0x66,u16,radius,max Manhattan XZ distance from pos to the polygon points (pre-test),verified
+0x68,Box *,zone,GLOBALZONE box; its x/z extent is the grid query rectangle,verified
+0x6c,ScnObject *,guardian,IDGUARDIAN; gets msg 0x1D on each rustle (the bull in Level 4 and B1),verified
+0x70,Trajectory *,polygon,"IDPOLY record, a Trajectory {u16 count; Vec3s pts[count]} used as a polygon (x/z used)",verified
+0x78,Vec3s *,pipPrev,scratch previous-vertex pointer of HeapOfLeaf_PointInPolygon,verified
+0x7c,Vec3s *,pipCur,scratch current-vertex pointer of HeapOfLeaf_PointInPolygon,verified
+0x80,EmitterDriftParams,driftParams,"EmitterDriftParams: hSpeed = EmitterDriftParams p[0] = 10 (horizontal drift per second); vSpeed = p[1] = 20 (vertical per second); life = p[2] = 0x800 ticks (0.5 s); spawnInterval = p[3] = 0x333 ticks (0.2 s), passed to Sfx_SpawnBillboard; sizeStart = 40; sizeEnd = 90; sheetIndex = sprite-sheet index 4 (copied to leafFx.sheetIndex)",verified
+0x98,InlineEmitter16,leafFx,"16-slot leaf-particle emitter with inline storage (0x98..0x1fc): factory 0x4c9890 sets slotPool = +0x24 (0x4c98cd), particles = +0xe4 (0x4c98d8), count 0x10 (0x4c98e7) and calls Emitter_Reset 0x52dbe3 (0x4c98ee) BEFORE the final HeapOfLeaf vtable (0x4c98f6)",verified

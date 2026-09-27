@@ -1,0 +1,9 @@
+value,name,meaning
+#,SpriteFlipMode,"Last argument of Sprite_Draw (0x53a7f7) and AnimSprite_Draw (0x53b67e); both implement the identical switch. Selects a permutation of the four screen corners and a rotation index 0..3 applied to the four UV pairs. Value set {0,1,2,3,4,8,0xC} read from the switch cases in 0x53a7f7 (verified). The rotation cases pivot about the quad CENTRE: the divisor at 0x574320 is 2.0f (exe bytes 00 00 00 40), so they are rotations, not diamonds built from the rect midpoints."
+0,SPRFLIP_NONE,"default: axis-aligned quad, UV rotation 0"
+1,SPRFLIP_ROT90,"quad rotated 90 degrees about its centre, UV rotation index 1. Handedness (CW vs CCW on a y-down screen) not checked."
+2,SPRFLIP_UV_ROT180,"UV rotation index 2 only - the geometry is identical to SPRFLIP_NONE (case 2 sets only the UV index), so this is a 180-degree rotation of the texture within a fixed quad"
+3,SPRFLIP_ROT270,"quad rotated about its centre the opposite way from mode 1, UV rotation index 3"
+4,SPRFLIP_MIRROR_X,"x0/x1 swapped, UV rotation 0"
+8,SPRFLIP_MIRROR_Y,"y0/y1 swapped, UV rotation 0"
+0xc,SPRFLIP_MIRROR_XY,"both axes swapped, UV rotation 0"

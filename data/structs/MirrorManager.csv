@@ -1,0 +1,8 @@
+offset,ctype,name,meaning,confidence
+0x40,ScnObject *[9],objects,"reflected objects: [0] = g_pWolf (filled by the update 0x4d8db1 once wolfLinked == 0), [1..] = the non-NULL ID_OBJECT01..08 objects, packed",verified
+0x64,ZoneList,zones,"zone list {boxes, count}: IDBOX id-list (NULL when IDBOX = 0) | count (+4): count for boxes",verified
+0x6c,u32,mirrorColor,MIRRORCOLOR,verified
+0x70,s16,mirrorPlaneVert2x,"not groundAltitude2x: the mirror constant K passed to ScnBody_RenderTinted, which keeps it in g_mirrorPlaneVert2x 0x6d6fea - the reflection replaces z with K - z. GROUNDALTITUDE * 2 is where the value comes from, not what it means.",verified
+0x72,s16,colorIntensity,COLORINTENSITY (level data 2048),verified
+0x74,s8,objectCount,entries used in objects[] (starts at 1: slot 0 is the Wolf),verified
+0x75,u8,wolfLinked,0 until the update stores g_pWolf in objects[0],verified

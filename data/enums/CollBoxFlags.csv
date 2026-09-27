@@ -1,0 +1,13 @@
+value,name,meaning
+#,CollBoxFlags,CollBox.flags (u32 at +0)
+0x01,COLLBOX_NONSOLID,ignored by all collision queries
+0x02,COLLBOX_CONE,target treated as a cone (Collide_SweepBoxVsCone)
+0x04,COLLBOX_ELLIPSOID,target treated as an ellipsoid
+0x8,COLLBOX_ALT_SET,Jail and InstantMartian switch the boxes tagged 8 with EnableBoxes/DisableBoxes (door bars / alternate body) (inferred)
+0x10,COLLBOX_CYLINDER,target treated as a vertical cylinder
+0x16,COLLBOX_SHAPED_MASK,on the MOVER box: shaped targets are honoured only if any of these bits is set
+0x40,COLLBOX_QUADRANT0,Train::PlaceCars 0x4fd6a6: the loco's and every car's box set for facing quadrant 0 (rot.y 0); it enables the set of the current quadrant and disables the other three (inferred)
+0x80,COLLBOX_QUADRANT1,Train::PlaceCars: the box set for facing quadrant 1 (rot.y 0x400) (inferred)
+0x100,COLLBOX_QUADRANT2,Train::PlaceCars: the box set for facing quadrant 2 (rot.y 0x800) (inferred)
+0x200,COLLBOX_QUADRANT3,Train::PlaceCars: the box set for facing quadrant 3 (rot.y 0xc00) (inferred)
+0x40000000,COLLBOX_DOOR_SET,AutomaticDoor::SetCollision toggles the boxes tagged 0x40000000; RollingCarpet skips them when picking its own box (inferred)

@@ -1,0 +1,6 @@
+value,name,meaning
+#,TextAlign,"The `align` byte threaded through Text_Printf / Text_PrintfStyled / Menu_Printf down to the glyph emitter at 0x535F03, where it selects the starting pen X for each line."
+0,TEXTALIGN_CONTINUE,start at the current g_textCursorX (continue after the previous text)
+1,TEXTALIGN_LEFT,start at window X = 0
+2,TEXTALIGN_CENTER,(windowW - lineChars * glyphWidth) / 2
+3,TEXTALIGN_RIGHT,windowW - lineChars * glyphWidth

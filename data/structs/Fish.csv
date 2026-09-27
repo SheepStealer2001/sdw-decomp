@@ -1,0 +1,9 @@
+offset,ctype,name,meaning,confidence
+0x64,Vec3s,homePos,placed position; the fish teleports back here in state 0,verified
+0x6a,Vec3s,swimVel,250 u/s along the facing-quadrant axis,verified
+0x70,Vec3s,frameStep,Vec3s_ScaleByDt(swimVel) this frame,verified
+0x76,Vec3s,leapOffset,489 along the same axis; applied when leap anim 2 ends,verified
+0x7c,u8,state,FishState,verified
+0x7d,u8,offscreenTicks,not-drawn updates in state 0; swims again at > 1,verified
+0x80,s32,disappearDistSq,DISAPPEAR_DIST squared; XZ distance from home that ends a swim,verified
+0x84,u32,wasOnScreen,"inst.flags & INST_F_DRAWN copied in Render, zeroed in Update",verified

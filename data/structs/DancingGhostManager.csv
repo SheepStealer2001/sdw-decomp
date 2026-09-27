@@ -1,0 +1,88 @@
+offset,ctype,name,meaning,confidence
+0x40,CamSetup *[4],danceCams,four Scn_GetPropCamera(0x38/0x3c/0x40/0x44); read as {u16 focal; s16 pitch; s16 yaw; s16 roll; Vec3s eye} straight into Camera_StartScripted,verified
+0x50,u16,beatSound,descriptive name,verified
+0x54,Sprite,spriteSquare,descriptive name,verified
+0x64,Sprite,spriteTriangle,descriptive name,verified
+0x74,Sprite,spriteCircle,descriptive name,verified
+0x84,Sprite,spriteCross,descriptive name,verified
+0x94,Sprite,spriteNote,descriptive name,verified
+0xa4,Sprite,spriteBarNote,descriptive name,verified
+0xb4,Sprite,spriteFrame,descriptive name,verified
+0xc4,Sprite *,currentSprite,descriptive name,verified
+0xc8,Sprite,spriteFrameDark,descriptive name,verified
+0xd8,Sprite,spriteTrack,descriptive name,verified
+0xe8,u16,currentStep,descriptive name,verified
+0xea,u16,drawnStep,descriptive name,verified
+0xec,u16,previousStep,descriptive name,verified
+0xee,u16,padMask,descriptive name,verified
+0xf0,u16,pressedMask,descriptive name,verified
+0xf4,s32,eventCode,"pending FAILURE code (0x4b2b4d-0x4b2bfe), no value means success. 1 = right button more than 200 ms late, 2 = wrong button inside the window, 3 = wrong button outside it or nothing pressed, 4 = Wolf out of costume, 5 = Wolf outside the ring, 6 = Wolf left the spot.",verified
+0xf8,s32,reactionQueued,descriptive name,verified
+0xfc,s32,wolfFrozen,descriptive name,verified
+0x100,s32,externalFreeze,descriptive name,verified
+0x104,s32,roundArmed,descriptive name,verified
+0x108,s32,insideRing,descriptive name,verified
+0x10c,s32,insideHole,descriptive name,verified
+0x110,s32,outsideRing,descriptive name,verified
+0x114,s32,insideSafe,descriptive name,verified
+0x118,s32,insideDanceZone,descriptive name,verified
+0x11c,s32,pressHandled,descriptive name,verified
+0x124,s32,danceCompleted,descriptive name,verified
+0x128,s32,unk128,"written 0 once by Create at 0x4b2727 and read nowhere in 0x4af4a0-0x4b3270 — dead field, the same pattern as Battery +0x138",verified
+0x12c,char *[4],sequenceText,descriptive name,verified
+0x13c,char *,stepClearedText,descriptive name,verified
+0x140,u16[4][20],sequenceButtons,descriptive name,verified
+0x1e0,u16[4],sequenceLengths,descriptive name,verified
+0x1ec,u16,beatIndex,descriptive name,verified
+0x1f0,s32,beatElapsedMs,descriptive name,verified
+0x1f4,s32,beatTimeMs,"timestamp of the current beat; SetState cases 2, 3 AND 4 set it to g_gameTimeMs",verified
+0x1f8,s32,pressTimeMs,descriptive name,verified
+0x1fc,s32,pressLateMs,descriptive name,verified
+0x200,s32,pressLateMinus250Ms,"pressTimeMs - (beatTimeMs+250) (0x4b2b33 add edx,0xfa). Its two tests at 0x4b2b5f/0x4b2b6b are unreachable - the enclosing branch already requires pressLateMs <= 200, so the value is always <= -50. Dead test.",verified
+0x204,u32,beatPeriod,descriptive name,verified
+0x208,s32,danceClock,round clock in g_dt units; advanced only while eventCode == 0 AND !Game_IsPaused AND !Map_IsOpen,verified
+0x20c,DancingGhost *,nearestGhost,descriptive name,verified
+0x210,DancingGhost *,secondNearestGhost,descriptive name,verified
+0x214,s32,nearestDistance,descriptive name,verified
+0x218,u8,state,descriptive name,verified
+0x21a,u16,screenWidth,descriptive name,verified
+0x21c,u16,screenHeight,descriptive name,verified
+0x21e,u16,cellW,"spriteCross.widthMinus1*2 + 2, i.e. exactly twice the cross sprite's width (Sprite.csv +8 stores width-1)",verified
+0x220,u16,cellH,"spriteCross.heightMinus1 + 1, i.e. exactly the cross sprite's height",verified
+0x222,u16,trackY,descriptive name,verified
+0x224,u16,trackWidth,descriptive name,verified
+0x226,u16,trackHeight,descriptive name,verified
+0x228,u16,trackX,descriptive name,verified
+0x22c,s32,noteLeft,descriptive name,verified
+0x230,s32,noteRight,descriptive name,verified
+0x234,s32,noteTop,descriptive name,verified
+0x238,s32,noteBottom,descriptive name,verified
+0x23c,u16,clearLineHeight,descriptive name,verified
+0x23e,u16,clearBoxY,descriptive name,verified
+0x240,u16,clearBoxWidth,descriptive name,verified
+0x242,u16,clearBoxHeight,descriptive name,verified
+0x244,u16,clearBoxX,descriptive name,verified
+0x246,u16,stepClearedLen,descriptive name,verified
+0x248,s16,clearTextY,descriptive name,verified
+0x24c,Box *,cineBox,descriptive name,verified
+0x250,char *,cineText,descriptive name,verified
+0x254,u32,cineId,descriptive name,verified
+0x258,u32,cineFlags,descriptive name,verified
+0x25c,s32,cineTriggered,descriptive name,verified
+0x260,s32,cineDone,descriptive name,verified
+0x264,ScnObject *,escapedSheep,descriptive name,verified
+0x268,PrayingGhost *[4],prayingGhosts,descriptive name,verified
+0x278,u16,prayingCount,descriptive name,verified
+0x27c,DancingGhost *[8],dancers,descriptive name,verified
+0x29c,DancingGhost *[8],tambourineGhosts,descriptive name,verified
+0x2bc,u16,dancerCount,descriptive name,verified
+0x2be,u16,tambourineCount,entries in tambourineGhosts; the store is 0x4b0c30 (0x4b0c2d is the preceding load),verified
+0x2c0,s16,stepIndex,descriptive name,verified
+0x2c4,Box *[4],stepBoxes,descriptive name,verified
+0x2d4,Box *,ringBox,descriptive name,verified
+0x2d8,Box *,holeBox,descriptive name,verified
+0x2dc,Box *,safeBox,descriptive name,verified
+0x2e0,Box *,danceBox,descriptive name,verified
+0x2e4,Box *,boxRemove,"FILLED IN: PROPERTY_..._BOX_REMOVE (prop 0xc) — the box the escaped sheep must stand in for the teardown. 0x4b120f-0x4b1267 needs Wolf in BOX_SAF AND danceCompleted AND g_pSheepOutOfZone inside this box (0x4b125a/0x4b1260), then 0x4505 to every PrayingGhost and DespawnDanceSet",verified
+0x2e8,Vec3s,stepCenter,descriptive name,verified
+0x2ee,Vec3s,ghostSpot,descriptive name,verified

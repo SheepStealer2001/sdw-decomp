@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,ZoneList,zones,"zone list {boxes, count}: Scn_FindIdList(BOXnn): zone boxes tested XZ-only against the Wolf | count (+4): count from Scn_FindIdList; the slot is kept only if > 0 (+0x6 padding)",verified
+0x8,s16,mapX,BOXnnPOSX << 1: marker x in the 512-wide virtual HUD space,verified
+0xa,s16,mapY,BOXnnPOSY (not scaled),verified

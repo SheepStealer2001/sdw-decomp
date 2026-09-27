@@ -1,0 +1,5 @@
+value,name,meaning
+#,RocksState,Rocks +0x64
+0,ROCKS_ST_INTACT,anim 1
+1,ROCKS_ST_HIT,set by msg 0 arg 0; the next Update starts the crumble
+2,ROCKS_ST_CRUMBLING,anim 0; at its end RemoveFromWorld (collision gone)

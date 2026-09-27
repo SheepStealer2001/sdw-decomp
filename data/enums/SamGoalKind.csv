@@ -1,0 +1,6 @@
+value,name,meaning
+#,SamGoalKind,sam+0x904
+0,SAM_GOAL_TARGET,chase +0xa40 (Wolf or robot)
+1,SAM_GOAL_CARRY,carry objects +0x908/+0x90c to +0x910
+2,SAM_GOAL_FETCH,go pick up +0x918/+0x91c
+3,SAM_GOAL_HOME,return to homePos

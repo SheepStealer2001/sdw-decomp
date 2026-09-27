@@ -1,0 +1,26 @@
+# A crate, one unit on each side, its base at y = 0 (y points up here, as in any .obj). tools/make_model.py makes
+# the game's files from it; crate.mtl gives the sides and lid the texture crate.png and the base a plain colour.
+# Every face is wound counter-clockwise seen from outside, the .obj convention. It is one part (`o crate`): with
+# crate.rig the model is animated with one joint, as the game's own crates are (the Case class builds an animated body).
+mtllib crate.mtl
+o crate
+v -0.5 0 -0.5
+v 0.5 0 -0.5
+v 0.5 0 0.5
+v -0.5 0 0.5
+v -0.5 1 -0.5
+v 0.5 1 -0.5
+v 0.5 1 0.5
+v -0.5 1 0.5
+vt 0 0
+vt 1 0
+vt 1 1
+vt 0 1
+usemtl wood
+f 5/1 8/2 7/3 6/4
+f 5/4 6/3 2/2 1/1
+f 6/4 7/3 3/2 2/1
+f 7/4 8/3 4/2 3/1
+f 8/4 5/3 1/2 4/1
+usemtl base
+f 2 3 4 1

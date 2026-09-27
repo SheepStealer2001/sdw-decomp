@@ -1,0 +1,8 @@
+offset,ctype,name,meaning,confidence
+0x0,s8,status,"PS1 receive-buffer byte 0: 0 = read OK, 1 = InputMgr_Poll failed. SIGNED: movsx at 0x55f01f / 0x55f06b",verified
+0x1,PadTypeLen,typeLen,"PS1 byte 1 as a bitfield {len:4, type:4} (PadTypeLen): type = controller id (4 digital, 7 analog), read and written as a C bitfield (shr 4 / and 0xf; 0x55e535, 0x55f168)",verified
+0x2,u16,buttons,active-low PS1-layout button word,verified
+0x4,u8,rightX,"right stick X, always 0x80 on PC",verified
+0x5,u8,rightY,"right stick Y, always 0x80 on PC",verified
+0x6,u8,leftX,left stick X (0x80 centre),verified
+0x7,u8,leftY,left stick Y (0x80 centre),verified

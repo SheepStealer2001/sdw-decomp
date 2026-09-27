@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x0,Vec3s,pos,the point to drive to,verified
+0x6,s16,heading,facing there (4096 per turn),verified

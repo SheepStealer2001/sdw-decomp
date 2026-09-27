@@ -1,0 +1,5 @@
+value,name,meaning
+#,SnowballState,state field of Snowball
+0x0,SNOWBALL_ST_REST,state after landing (inferred)
+0x1,SNOWBALL_ST_ROLL,"Update 1: roll sound 0x7b while pushed, -> 2 otherwise (inferred)"
+0x2,SNOWBALL_ST_FALL,Update 2: gravity until Move reports the floor (inferred)

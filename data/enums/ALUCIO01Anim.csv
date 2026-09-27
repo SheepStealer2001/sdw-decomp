@@ -1,0 +1,5 @@
+value,name,meaning
+#,ALUCIO01Anim,animation ids of WAR model ALUCIO01 (its WAR type-0x86 table; names verified from the level files). Played by: Firefly
+0x0,ALUCIO01_ANIM_MOVE,WAR name MOVE
+0x1,ALUCIO01_ANIM_MOVE1,WAR name MOVE1
+0x2,ALUCIO01_ANIM_MOVE2,WAR name MOVE2

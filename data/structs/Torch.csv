@@ -1,0 +1,3 @@
+offset,ctype,name,meaning,confidence
+0x64,ScnBody,flame,"Embedded second ScnBody: the flame sprite. Torch_Create writes 0x574c40/0x574c1c at this+0x64 and never upgrades them, so it stays a plain ScnBody. Advanced by Torch_Update and drawn as a camera-facing billboard. ScnBody ends at 0x64, and 0x64+0x64 = 0xc8 where the record starts.",verified
+0xc8,ScnRecordSynth,flameRecord,"The synthetic 0x14-byte record the Torch builds for its flame: modelResIndex = WAR_IDO_ATORCH02 (221), secondaryRes 0xFFFF, pos = the torch's own, classId and rot zeroed. Because ScnBody_Init reads the classId from record+0xa (= this+0xd2), the flame body ends up with classId 0, NOT the 0xFFFF 'clas",verified

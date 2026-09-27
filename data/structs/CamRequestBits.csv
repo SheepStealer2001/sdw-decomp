@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x0,u8:1,ledgeProbe,CAMREQ_LEDGE_PROBE,verified
+0x0,u8:1,snapYaw,CAMREQ_SNAP_YAW,verified
+0x0,u8:1,usePitch,CAMREQ_USE_PITCH,verified
+0x0,u8:1,useYaw,CAMREQ_USE_YAW,verified
+0x0,u8:1,padRotate,CAMREQ_PAD_ROTATE,verified
+0x0,u8:1,restriction,"CAMREQ_RESTRICT. g_camReqFlags 0x6e45be is this bitfield byte (mov al,[0x6e45be]; or al,1 at 0x48f9e5)",verified

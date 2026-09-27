@@ -1,0 +1,5 @@
+value,name,meaning
+#,WolfRunResult,result bits of Wolf::RunMove / events of Wolf::RunStep
+0x1,WOLF_RUN_CRASH,RunMove doc: head-on wall hit at half speed or more -> result bit 1; RunStep: crash -> stop
+0x2,WOLF_RUN_BRAKE,RunStep: events & 2 outside state 0x24 -> 0x24 keeping the sound (inferred)
+0x4,WOLF_RUN_SLIDE,RunMove: |= 4 when Wolf_SurfaceVelocity applied (sliding); RunStep 4 -> state 9

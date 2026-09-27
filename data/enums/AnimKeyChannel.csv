@@ -1,0 +1,13 @@
+value,name,meaning
+#,AnimKeyChannel,u16 control word of each packed entry in an AnimKey (also stored in AnimJointPose.channels)
+0x003f,ANIMKEY_JOINT_MASK,joint index 0-63 (not checked against the joint count)
+0x0040,ANIMKEY_ROT_X,rot[0] present
+0x0080,ANIMKEY_ROT_Y,rot[1] present
+0x0100,ANIMKEY_ROT_Z,rot[2] present
+0x0200,ANIMKEY_POS_X,pos[0] present
+0x0400,ANIMKEY_POS_Y,pos[1] present
+0x0800,ANIMKEY_POS_Z,pos[2] present
+0x1000,ANIMKEY_SCALE_X,scale[0] present
+0x2000,ANIMKEY_SCALE_Y,scale[1] present
+0x4000,ANIMKEY_SCALE_Z,scale[2] present
+0x8000,ANIMKEY_8BIT,"values are bytes (angle s8*2PI/128, pos s8, scale u8/128), payload re-aligned to 2 bytes afterwards"

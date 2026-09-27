@@ -1,0 +1,4 @@
+value,name,meaning
+#,DiamondState,state field of Diamond
+0x0,DIAMOND_ST_LOOSE,Reset/PostLoadInit SetState(0): not seated (inferred)
+0x1,DIAMOND_ST_SEATED,SetState 1: TeleportZone and sound 0x8f (the seated gem swaps its zone) (inferred)

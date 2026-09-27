@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,s16,timerMs,"ms the value has been held; signed (movsx 0x55eeb6, compared with g_padRepeatDelay 0x55eece)",verified
+0x2,u16,lastValue,value seen last call (movzx 0x55eea4),verified
+0x4,u16,output,"the value on the first frame and on each repeat, 0xffff (nothing) in between; repeats OR in 0xff06",verified

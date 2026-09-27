@@ -1,0 +1,8 @@
+offset,ctype,name,meaning,confidence
+0x0,Vec3s,pos,ScnObject.pos at cinematic start,verified
+0x6,Vec3s,rot,ScnObject.rot,verified
+0xc,s32,visible,(flags & 0x804) == 0,verified
+0x10,AnimHeader *,anim40,obj+0x40 (anim state block start),verified
+0x14,u32,anim50,obj+0x50,verified
+0x18,u32,anim54,obj+0x54,verified
+0x1c,u16[5],anim5a,obj+0x5a..+0x62 (curAnimId and four following words),verified

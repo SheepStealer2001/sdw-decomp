@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,s32,landingSpeed,"the rider's landing speed as seesaw_AddBody records it (0 when resting, at least 512 when landing, 48000 for an armed ejection); weights the rider's torque in seesaw_Update",verified
+0x4,s32,canLaunch,"0 when the rider stood in an ejection box's side (the landing arms that box instead); a later, faster landing only raises landingSpeed when this is set",verified
+0x8,ScnObject *,obj,the rider (0x4ebe25 reads it at +8),verified

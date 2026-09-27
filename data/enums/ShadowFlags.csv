@@ -1,0 +1,5 @@
+value,name,meaning
+#,ShadowFlags,Shadow.flags (u8 at +0x14; ScnMobile +0x78)
+0x1,SHADOW_F_HIDDEN,Shadow::NeedsDraw returns !(flags & 1); SetVisible(on) clears it (data/structs/Shadow.csv: 1 = not drawn)
+0x2,SHADOW_F_REPROJECT,"Shadow::NeedsProject; set by SetPosition/Shadow_Init/Reproject, cleared by Shadow_Update (Shadow.csv: re-project on the next update)"
+0x4,SHADOW_F_DYNAMIC,"Shadow::SetFlag4(1) only from SmallRock, Rock, Snowball and the Wolf; no reader (Shadow.csv) (inferred)"

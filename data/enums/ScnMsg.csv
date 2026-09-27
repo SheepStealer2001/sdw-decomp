@@ -1,0 +1,171 @@
+value,name,meaning
+#,ScnMsg,"generic scenaric message ids passed to an object's HandleMessage (vtable +0x10: this, sender, msgId, arg); class-specific ids live in <Class>Msg enums"
+0x0,MSG_KILL,"arg = WolfKillType-style cause. Rocks crumble only on arg 0 (Dynamite 300, mines 300 / 550 Rocks-only, CannonBall 70); Bush respawns on arg 0 or 2 (SmallRock shatter sends arg 2); Piranhas send arg 9 to the Wolf and the InflatableSheep"
+0x1,MSG_USE,"(object-side meaning; ids are per receiver) the player's action on an object (Wolf/Robot): Mailbox opens, TimeKeeper rings and awards, box/FloatingBox are delivered, MCardManager opens the save UI (CinematicsManager fallback)"
+0x2,MSG_QUERY_ACTION,"(object-side meaning; ids are per receiver) context-action query from ScnControllable_ScanInteractables; returns a WolfContextAction (Mailbox 3, TimeKeeper 0x1E). To MCardManager it returns 0x21 when idle and the sender is the CinematicsManager"
+0x4,MSG_PICKUP,existing name (FanMsg etc.); every receiver attaches itself to the sender's joint = arg. Other spellings MSG_ATTACH / MENU_MSG_FOCUS are other namespaces or duplicates
+0x5,MSG_DROP,existing name; every receiver detaches and moves to the DropMsgArg / Vec3s in arg
+0x6,MSG_QUERY_NEAREST_TARGET,"Wolf_ScanContextActions asks the held item (arg = &wolf+0x660). The reply {s16 classId; u16 proximity 0..0xffff} makes Hud_DrawItemPrompt draw that class's icon, reddish 0x502828 when proximity < 0xe665 and dark blue 0x101050 otherwise. Answered by the Fan (the sheep report relayed from the Perfume), the Flute (Sam within 300) and the Salad"
+0x07,MSG_INVENTORY_STORED,sent to item before storing in inventory
+0x8,MSG_INVENTORY_TAKE_OUT,"sent to an item as it leaves the inventory: Wolf_EquipItem 0x48f1a8 (then AddToWorld and msg 4), Inventory_DropUncommitted 0x50d297 and 0x542228 (both immediately before Inventory_Remove). Counterpart of MSG_INVENTORY_STORED (stored). Hoover arms on it; HoneyPot acknowledges"
+0x9,MSG_CONTAINER_STATE,"arg 0: the item is put in a container and removed from the world (Mailbox_Init 0x4d311a, Mailbox_Rollback 0x4d360f); arg 1: released into the world (box 0x49cf61, FloatingBox 0x4bf7aa/0x4bfb44), where Salad and SignPostSimple take their position as home. Not a checkpoint message"
+0xa,MSG_PUSH,"per receiver: see RockMsg, SmallRockMsg"
+0xb,MSG_SEESAW_TOUCH,existing name; seesaw_Update tells objects on the plank (arg = plank delta.y); CannonBall2/GroundMine/Robot/Rock/SmallRock react
+0xc,MSG_LAUNCH,"existing name; arg = LaunchArc: Wolf -> WOLF_ST_TRAJECTORY, Rock/SmallRock/Robot launched (seesaw, bull)"
+0xd,MSG_GROUND_QUERY,arg = GroundQuery*; handler answers with Box_GroundQueryFlatTop / Box_GroundQueryDome (name inferred)
+0x0E,MSG_FREEZE,"freeze the Wolf: the sender becomes his grabber and he stops taking input (refused in WolfStateFlags 0x200 states). About 25 objects send it: Prompt_Begin and Dialog_Begin, signs, cameras, Sam carrying him, the catapult, the telescope... When another object freezes him, the Wolf sends 0xe to the previous grabber so it learns it lost him (the receivers' rows). Was SCN_MSG_UI_FREEZE, a name for the prompt senders only"
+0x0F,MSG_UNFREEZE,"release the Wolf again (Wolf::Unfreeze 0x48d3ee); sent by Prompt_End, Dialog_Update, Dialog_UpdateAnswer and the objects that froze him. Was SCN_MSG_UI_UNFREEZE"
+0x10,MSG_CARRY_ANIM,"per receiver: see FanMsg, FishingRodMsg, HairDryerMsg, MineDetectorMsg, RobotMsg, RocketMsg, SheepMsg, TimeMachineChronoMsg, UmbrellaMsg"
+0x11,MSG_BUMP,sent by the bull AND by Wolf_RunMove 0x48bea7 when Ralph runs into an object whose class lacks flag 0x8 at >= half speed (not only a bull bump). Cactus plays its reaction anim when Ralph is within 400
+0x12,MSG_CINE_PLACE,existing name; Cine::NotifyActors walks actors to their start (Wolf WolfWalkToArg)
+0x13,MSG_CINE_END,"existing name; Cine::Finish to every actor (Wolf back to idle, Rock/SmallRock fall)"
+0x14,MSG_FAN_BLOW,"sent by the Fan (0x4bb62e, called only from Fan_Update 0x4bbb91) to objects within 400 units, arg = s16. Bush: rustle this frame. Recipients: inside a cone of heading difference <= 0x199 out to 400 units, or overlapping the Fan holder's box."
+0x15,MSG_HELD_STATE_BEGIN,"Wolf -> held object, arg = state descriptor nibble"
+0x16,MSG_HELD_STATE_END,Wolf -> held object
+0x17,MSG_QUERY_HELD_ACTION,"per receiver: see ElasticMsg, FanMsg, FishingRodMsg, FluteMsg, GoldenCoinsMsg, HairDryerMsg, HoneyPotMsg, HooverMsg, InflatableSheepMsg, InstantHooverMsg, KeyMsg, MineDetectorMsg, MineMsg, PerfumeMsg, RemoteControlMsg, RobotMsg, RocketMsg, SaladMsg, SeedMsg, SheepMsg, SmallRockMsg, TimeMachineChronoMsg, UmbrellaMsg"
+0x18,MSG_RIDER_ADD,"existing name; registers the sender as a move modifier (Wolf/Robot AddMoveModifier, CannonBall2, GroundMine)"
+0x19,MSG_RIDER_REMOVE,existing name; the counterpart: RemoveMoveModifier
+0x1a,MSG_MODIFY_MOVE,"controllable -> registered move modifiers, arg {Vec3s delta; u16 flags; Vec3s vel}"
+0x1b,MSG_MAILBOX_DELIVERED,"Mailbox_Deliver -> the LVL03ROCK Rock (Lvl-03): Rock_HandleMessage case 0x1b sets +0x5c lvl03BoxDelivered = 1, so the rock uses the LVL03WITHBOX cinematic"
+0x1c,MSG_QUERY_MOVED,"per receiver: see BullMsg, SheepMsg, WolfMsg"
+0x1d,MSG_LOUD_NOISE,"broadcast with Scenaric_BroadcastInRadius, arg = the noise source's class id. Senders: Dynamite (radius 3000, arg 2) and the playing Flute (radius 600, +-200 vertical, arg = holder class, 0 for the Wolf). The bull wakes on any arg (BullMsg MSG_LOUD_NOISE); Sam alerts only when arg == 2 and the sender is in his authorized zone, so the Flute never alerts Sam this way"
+0x1e,MSG_BULL_TARGET_QUERY,bull_TargetScoreCB asks candidates; a reply of 1 makes them charge targets (Gossamer_Lev08 0x454861 answers 1 while inside its box)
+0x1f,MSG_SWITCH_ON,SuperButton 0x4f8ac8 sends it to one of its targets; Wooden Lift sets active and dir = dirOn
+0x20,MSG_SWITCH_OFF,SuperButton's opposite-phase message; Wooden Lift clears active and dir = dirOff
+0x21,MSG_MECHANISM_RUN,WoodenPlatForm to DoorMechanism while moving; DoorMechanism 0x4b428c sets +0x7c = 1 (animates)
+0x22,MSG_MECHANISM_STOP,sent on arrival; DoorMechanism +0x7c = 0
+0x23,MSG_SCRIPT_HOLD,"per receiver: see InflatableSheepMsg, SamMsg, SheepMsg"
+0x24,MSG_SCRIPT_RELEASE,"per receiver: see InflatableSheepMsg, SamMsg, SheepMsg"
+0x25,MSG_LANDED,"sent by elastic_Update, Catapult_Update and bull_Update to a thrown object when its flight ends; Bush respawns at home; also sent by seesaw_RemoveLaunch 0x4ef04e"
+0x26,MSG_QUERY_COVER,"secondary query in ScnControllable_ScanInteractables (result goes to Wolf coverAction.action +0x650, shown as the SNEAK prompt); HiddenRocks returns 1 within 10 units XZ"
+0x27,MSG_SEESAW_DRIFT,sender seesaw_Update with arg = &drift; no handler case found in src (the existing names MSG_FORCE_SLIDE (Wolf) / MSG_SEESAW_LAUNCH conflict); inferred
+0x29,MSG_ITEM_SPLIT_QUERY,asks a composite item for its two components; returns them by pointer (Map_SplitItem)
+0x2A,MSG_ITEM_COMBINE,"Map_CombineItems sends it to the combined product it has already found, with the two parts as input (it does not return the product by pointer)"
+0x2B,MSG_ITEM_CONSUMED,tells a composite it has been taken apart (Map_SplitItem)
+0x2c,MSG_HITSWITCH_BULL,HitSwitch relays a bull's MSG_BUMP to its target with arg = the bull; no receiver case found; inferred
+0x2e,MSG_SET_ANCHOR,"existing SheepMsg name (ScnClassFlags 0x800 = SCN_CF_SHEEP_ANCHORABLE); senders Catapult, Raft, RCarpetMobile, seesaw"
+0x2f,MSG_DETECTOR_PING,"per receiver: see GoldenCoinsMsg, MineMsg"
+0x30,MSG_GEYSER_OUT,existing name; GeyserOut to its passenger / touched objects; box sets canRelease = 1
+0x31,MSG_GEYSER_IN,"existing name; GeyserIn/WaterGeyser to the victim, returns the transit time; box canRelease = 0"
+0x32,MSG_ICECUBE_RESET,"IceCube case 0x32: SetState(0), melted/heated/meltTime cleared; sender DaffyMilitary::Reset"
+0x33,MSG_TRAP_STATE,existing name; WolfTrap tells victim/Sam/Bell it caught (arg 1) or released (0); Bell rings; LightSpot to Sam
+0x34,MSG_ATTRACT_REPORT,'I am attracted to you': arg -> {u16 classId; u16 proximity = dist*0xffff/range}. Sheep_TestScentSource 0x477790 sends it to a scent source; the Perfume relays its stored report to the blowing Fan. Both keep the smallest proximity within 0x800 ticks
+0x36,MSG_RIVER_ADD_CARGO,"FrozenRiver case 0x36: adds the sender as cargo when it is over the water boxes (Wolf, Sheep, SlidingIceCube)"
+0x38,MSG_TIMEMACHINE_CALL,"existing name; TimeMachineSphere asks the follower (Dragon/Gossamer) to follow (arg = &followerTarget); Sam answers whether he can be called, bull -> state 8"
+0x39,MSG_TIMEMACHINE_LOCK,"per receiver: see DragonMsg, WolfMsg"
+0x3a,MSG_TIMEMACHINE_ARRIVE,"per receiver: see DragonMsg, WolfMsg"
+0x3b,MSG_TIMEMACHINE_SWAP,"sent by the TimeMachineSphere code (0x4fbb87, SwapToPresent 0x4fbce1, 0x4fbec2) with arg {ScnObject *partner; Vec3s pos}. FogManager switches fog; HiddenRocks moves to pos; SheepMsg 0x3B is the sheep's variant"
+0x3c,MSG_TIMEMACHINE_SWAP_OUT,"TimeMachineSphere to the copy of a designer-listed pair in the era being left, arg {ScnObject *partner; Vec3s pos mapped into the receiver's era}. Handled by TimeMachineChrono (returns 1) and 0x43b83b / 0x4ea560 (Seed); counterpart of MSG_TIMEMACHINE_SWAP 0x3b"
+0x3d,MSG_SWIRLSIGN_TURN,"SwirlSign case 0x3d: turns to the other face (state 1 -> 3, 0 -> 2); sender DaffyLevel09 state 5"
+0x3e,MSG_RIVER_CRANE_BUSY,"FrozenRiver case 0x3e: craneBusy = arg (Crane sets 1 on catch, 0 when done)"
+0x3f,MSG_REMOTE_SWITCH,"per receiver: see InstantHooverMsg, RobotMsg"
+0x40,MSG_STRUGGLE,existing name; WolfTrap to the victim per struggle press
+0x41,MSG_THAW,"HairDryer_Blow 0x4c8e2a, every frame, to objects in its +-0x199 / 400-unit cone, arg 0. Sheep: ice cube 0x24 -> 0x26; FloatingBox: flag 0x200 in its state 1"
+0x42,MSG_WHEEL_SPIN,Wheel to the boss (arg &bossMsgSender) and to the carried mobile (arg spinStep); Diamond slides by arg; Gossamer_Boss takes its chase target
+0x43,MSG_TELEPORTED,"Diamond::TeleportZone to every moved object (arg = dx) and to the sender on seat; Wheel/Gossamer_Boss shift, signs return 1"
+0x44,MSG_AXIS_LOCK,"per receiver: see RobotMsg, WolfMsg"
+0x46,MSG_CANNONBALL_HIT,"CannonBall::SweepMove to a movable object it hits, arg 1000; no receiver case found; inferred"
+0x4a,MSG_BEES_STING,existing SamMsg name; Bees to the victim when alert == 3 (other spelling MSG_ENTER_CD conflicts)
+0x4c,MSG_QUERY_CONTROLLED,"existing name; LightSpot asks the robot, RollingCarpet asks the rider (MSG_QUERY_NOT_FROZEN is the Wolf-side spelling)"
+0x4f,MSG_BALL_RETURNED,"CannonBall to its launcher and every pipe (arg = hit class): CanonSheep/CanonSimple re-place the ball, Pipe/Pipe2/Rook reset"
+0x50,MSG_HOOVER_SUCK,InstantHoover::SuckMartians: InstantMartian runs to the sender (state 3)
+0x51,MSG_MAGNET_QUERY,"Magnet_Update to every object within 400 units of attractPos each frame; nonzero = magnetic. Answered by Robot (always 1), GroundMine (proximity mode) and CannonBall2 0x4a518b (1 unless its state byte +0x86 == 2)"
+0x53,MSG_MAGNET_PULL,"arg {ScnObject *other; s32 reply}: to each magnetic candidate (other = magnet), and in hand also to the holder for the first catch (other = candidate; Wolf stores it at +0x63c and enters state 0xC8). The Magnet is the only sender"
+0x55,MSG_CHECKPOINT_ROLLBACK,"Inventory_DropUncommitted: arg 0 to each dropped item, arg 1 to each mailbox; Mailbox reverts an uncommitted state via 0x4d35c8 (name inferred)"
+0x5c,MSG_QUERY_MOVING,"per receiver: see RockMsg, SheepMsg"
+0x5d,MSG_GEYSER_ZONE_ACTIVE,"GeyserManger to its geysers: arg 1 always update, 0 normal (GeyserIn/GeyserOut)"
+0x5e,MSG_GHOST_NOTICE,Monolithe to praying ghosts with arg = the frozen target; the leader alerts the others (0x4501)
+0x5f,MSG_JAMS_STATION_ACTIVE,existing TrafficJams name; TrafficJams to the station ring (arg = arrivingTimeMs)
+0x64,MSG_PIPE_EJECT,CannonBall to a pipe: Pipe -> state 4 / Pipe2 -> 3 with launchStart
+0x65,MSG_PIPE_RELEASE,"Pipe2 case 0x65: box collision on, occupied = 0"
+0x66,MSG_PIPE_ARM,"CanonSimple to its pipes: SetState(0), armed = 1"
+0x67,MSG_HONEY_VICTIM,HoneyPot tells the hive and bees who is in the honey (arg = object)
+0x69,MSG_SHEEP_CALL,existing SheepMsg name; the Wolf (sheep costume) broadcasts it to class 0xb Sheep
+0x6c,MSG_ONDE_START,Gossamer_Boss SHAKE to the GossamerOnde: shockwave starts at the sender
+0x6f,MSG_BULLET_DONE,Bullet to Elmer after the kill (Elmer state 0xc) and Bullet case 0x6f: SetState(5)
+0x70,MSG_GHOST_BOO,the Wolf in the ghost costume broadcasts it to class 0x78 (Ghost): state 8/9 -> wolfBooed
+0x72,MSG_GATE_QUERY,existing FallingGate2 name; BipbipLevel14 and Sam_Pirate query the gate
+0x73,MSG_MAGNET_CONTACT,Magnet to a caught object within about 65 units (dist2 <= 0x1081); only CannonBall2 handles it (sets mask 0x2 (bit 1) of +0x87). Name inferred
+0x76,MSG_VOICE_STARTED,sent to g_letterboxVoiceTarget when the queued cinematic voice line begins
+0x77,MSG_COLLIDE_IGNORE_QUERY,sent to the MOVER with sender NULL and arg = candidate object; nonzero return = do not collide with it
+0x79,MSG_LIFT_CRUSH,"Wooden Lift to a Salad (class 3) or Bush (0x30) under it before refusing to descend; both handlers set an internal flag. The effect is not traced, so the name is inferred"
+0x400,MSG_WOLF_CAUGHT,"per receiver: see SamMsg, WolfMsg"
+0x403,MSG_WOLF_IS_NOISY,"per receiver: see SamMsg, WolfMsg"
+0x404,MSG_WOLF_IS_VISIBLE,"per receiver: see SamMsg, WolfMsg"
+0x40b,MSG_WOLF_IS_SHEEPCOSTUME,"per receiver: see SamMsg, WolfMsg"
+0x40c,MSG_WOLF_IS_RUNNING,"per receiver: see SamMsg, WolfMsg"
+0x40d,MSG_WOLF_IS_DEAD,"per receiver: see SamMsg, WolfMsg"
+0x410,MSG_WOLF_IS_RABBITCOSTUME,"per receiver: see SamMsg, WolfMsg"
+0x419,MSG_WOLF_IS_CATCHABLE,"per receiver: see SamMsg, WolfMsg"
+0x600,MSG_CHECKPOINT_COMMIT,Inventory_CommitAtCheckpoint to mailboxes (arg 1); Mailbox sets its committed bit 4
+0xd80,MSG_CAMRESTRICT_ENABLE,"CameraRestriction only: arg 0 = update NEVER (off); arg 1 = update ALWAYS (back on). The factory 0x4a1666 already sets ALWAYS, so arg 1 only undoes an earlier arg 0. Senders 0x45d83e, 0x4b5b5b, 0x4b6e42, 0x4b8f6e"
+0x1080,MSG_CHECKPOINT_ACTIVATE,CheckpointManager handles msgId == 0x1080; PrayingGhost state 14 sends it
+0x1400,MSG_CINE_REARM,CinematicsManager: clear 'played' on the trigger whose actBox == arg. Sender 0x43ef00 (DaffyTrainingLevel range)
+0x1900,MSG_INVENTORY_STORE_BEGIN,sent to head item before inventory store
+0x2800,MSG_GEYSER_CTRL_STATE,"GeyserIn to its controller: arg 1 idle/corked, 0 active; GeyserIn case: flag 4 = arg"
+0x2880,MSG_GEYSEROUT_START,GeyserOut case 0x2880: always update and SetState(1)
+0x2881,MSG_GEYSEROUT_CORK,"GeyserOut case 0x2881: SetFlag(8), SetState(3)"
+0x2882,MSG_GEYSEROUT_UNCORK,"GeyserOut case 0x2882: ClearFlag(8), state 1 or 0"
+0x2883,MSG_GEYSEROUT_SET_DELAY,GeyserOut case 0x2883: spitDelay = arg (activePeriod)
+0x2884,MSG_GEYSEROUT_IS_BUSY,GeyserOut case 0x2884: returns Flag(1)
+0x2885,MSG_GEYSEROUT_GET_CAMERA,GeyserOut case 0x2885: returns its camera
+0x2886,MSG_GEYSEROUT_SET_PASSENGER,GeyserOut case 0x2886: passenger = arg
+0x2887,MSG_GEYSEROUT_WANTS_WOLF_CAM,GeyserOut case 0x2887: returns Flag(0x40); GeyserIn flag 0x10 (camera for the Wolf)
+0x2888,MSG_GEYSEROUT_WANTS_OBJ_CAM,GeyserOut case 0x2888: returns Flag(2); GeyserIn flag 0x20 (camera for sheep/salad)
+0x2c80,MSG_WOLFTRAP_RESET,WolfTrap case 0x2c80: Reset(); sender Robot
+0x3080,MSG_SWIRLSIGN_IS_B,SwirlSign case 0x3080: returns 1 in state 1
+0x3081,MSG_SWIRLSIGN_IS_A,SwirlSign case 0x3081: returns 1 in state 0
+0x3181,MSG_TREESECTION_CUT,TreeSection: msgId == 0x3181 -> SetState(1); sender Elmer::SetState
+0x3200,MSG_BULLET_FIRE,Bullet case 0x3200: SetState(1); sender Elmer
+0x3201,MSG_BULLET_IS_BUSY,Bullet case 0x3201: returns state != 5
+0x3202,MSG_BULLET_RESET,Bullet case 0x3202: SetState(5); sender Elmer::Reset
+0x3203,MSG_BULLET_SET_POS,Bullet case 0x3203: SetPosition(arg)
+0x3204,MSG_BULLET_SET_BOX,Elmer::PostLoadInit sends its detectBox; no Bullet case found in the census; inferred
+0x3500,MSG_MCARD_AUTOSAVE,"CinematicsManager -> MCardManager for a flag-0x8000 trigger. MCardManager accepts (returns 1, starts autosave) when Progress runtimeBits saveSlotValid (bit 4) and autoSaveOn (bit 5) are set"
+0x3681,MSG_ROBOT_IS_DRIVEN,query answered by Robot_HandleMessage 0x460b93: returns 1 when a robot state dword has bit 0x20; the Wooden Lift then tests the robot's position instead of the Wolf's (meaning inferred)
+0x3780,MSG_WATCH_TIME_LEFT,Watch case 0x3780: returns timeLeft (stops at 0)
+0x3781,MSG_WATCH_START,"Watch case 0x3781: timeLeft = arg, SetState(1)"
+0x3782,MSG_WATCH_TICK,"Watch case 0x3782: running = arg, tick sound 0x3f on/off"
+0x3801,MSG_DAFFY09_IS_PLACARD,DaffyLevel09 case 0x3801: returns 1 in state 0
+0x3980,MSG_BEES_RELEASE,"Bees case 0x3980: alert = arg, SetState(0x13); sender Hive state 4"
+0x3981,MSG_BEES_HIVE_HIT,"Bees case 0x3981: hitHive = sender, fly to the second hive or wake all; sender Hive::SetState(1)"
+0x3982,MSG_BEES_GO_MOTHER,Bees case 0x3982: fly back to the mother hive (state 4)
+0x3e01,MSG_HIVE_HIT,"Hive case 0x3e01: freezes the Wolf, turns to the sender, SetState(1); sender CannonBall"
+0x3e02,MSG_HIVE_RESET,Hive case 0x3e02: SetState(0)
+0x3e03,MSG_HIVE_SWARM_HOME,"Hive case 0x3e03: swarmPresent = 1, swarm = sender"
+0x3e04,MSG_HIVE_TRACK_SWARM,Hive case 0x3e04: trackSwarm = 1
+0x4001,MSG_GHOST_SET_VULNERABLE,Ghost case 0x4001: vulnerable = arg with fade; sender Hoover
+0x4002,MSG_GHOST_RETHINK,Ghost case 0x4002: rethink = 1 (ghosts too close)
+0x4003,MSG_GHOST_RECOVER,Ghost case 0x4003: SetState(6) unless catching
+0x4005,MSG_GHOST_GET_SUCK_MS,Ghost case 0x4005: *arg = duration of anim 8 (STANDV1); sender Battery
+0x4300,MSG_JAIL_OPEN,"Jail case 0x4300: open (state 2), target bottom height; senders Key, PrayingGhost"
+0x4301,MSG_JAIL_CLOSE,"Jail case 0x4301: close (state 4), target top height"
+0x4401,MSG_BATTERY_COLLECTED,Battery master case 0x4401: collected[] += sender; five -> MSG_HOOVER_CHARGED
+0x4402,MSG_BATTERY_SHOW,Battery case 0x4402: arg ? state 2 : state 4
+0x4403,MSG_BATTERY_GET_COUNT,Battery case 0x4403: returns collectedCount
+0x4404,MSG_BATTERY_DRAIN,"Battery case 0x4404: arg 1 start draining, 0 empty -> MSG_HOOVER_DISCHARGED; sender Hoover"
+0x4405,MSG_BATTERY_CAN_COLLECT,Battery case 0x4405: collectedCount < 5 && !draining
+0x4500,MSG_PGHOST_PRAY,PrayingGhost case 0x4500: SetState(10)
+0x4501,MSG_PGHOST_ALERT,"PrayingGhost case 0x4501: index 0/1 chase (12), others stand (1)"
+0x4502,MSG_PGHOST_RETURN,PrayingGhost case 0x4502: SetState(0xe)
+0x4503,MSG_PGHOST_APPEAR_MID,PrayingGhost case 0x4503: ghosts 1/2 at their post appear (3)
+0x4504,MSG_PGHOST_APPEAR_OUTER,PrayingGhost case 0x4504: ghosts 0/3 at their post appear (3)
+0x4505,MSG_PGHOST_REGISTER,"PrayingGhost case 0x4505: from the DancingGhostManager, registers with index = arg"
+0x4601,MSG_INFLATABLE_QUERY,"per receiver: see InflatableSheepMsg, SamMsg"
+0x4900,MSG_HALO_DRAW_AT,GhostHalo case 0x4900: draws facing the camera at arg
+0x4c81,MSG_MARTIAN_IS_CAUGHT,InstantMartian case 0x4c81: returns 1 in state 4
+0x4d01,MSG_CANONSHEEP_DUMMY_READY,CanonSheep case 0x4d01: dummyReady = 1; sender CanonDummy
+0x4e00,MSG_DOOR_SEQUENCE_DONE,SceneSheepPanel case 0x4e00: doorSequenceDone = 1; sender DoorWorld
+0x5000,MSG_SCENEWHEEL_SAVE_DONE,Scene_Wheel: msgId == 0x5000 from the MCardManager
+0x5280,MSG_RESIZER_RECEIVE,"Resizer case 0x5280: RS_TARGET = arg, placed at the exit (state 3)"
+0x5880,MSG_DOORWORLD_OPEN,DoorWorld case 0x5880: asks its DoorLevel and opens; sender SceneSheepPanel
+0x5900,MSG_DOORLEVEL_QUERY,"DoorLevel case 0x5900: 0 level not done, 2 current level, 1 done"
+0x5981,MSG_FIREBALL_STRIKE,FireBall case 0x5981: burns arg (MSG_KILL) and appears above it
+0x6180,MSG_DAFFYWHEEL_TURN,DaffyWheel case 0x6180: state = 1; sender Scene_Wheel
+0x6181,MSG_DAFFYWHEEL_SELECT,DaffyWheel case 0x6181: state = 2 (arg = language id)
+0x6182,MSG_DAFFYWHEEL_RESET,DaffyWheel case 0x6182: state 2 with camera; sender MCardManager
+0x6480,MSG_MARVIN_SOLVED,Marvin case 0x6480: dialogueFlags.solved = arg; sender InstantHoover
+0x6501,MSG_SOCKET_DOCKED,InstantSocket case 0x6501: anim 0 looped
+0x6502,MSG_SOCKET_UNDOCKED,InstantSocket case 0x6502: anim 1 looped
+0x6580,MSG_CROWD_CHEER,Crowd case 0x6580: wantAnimId 0 or 2
+0x6581,MSG_CROWD_CALM,Crowd case 0x6581: wantAnimId 1 or 3

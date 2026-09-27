@@ -1,0 +1,9 @@
+offset,ctype,name,meaning,confidence
+0x64,ScnObject *[8],overlappingObjects,"CountAndCapture passes this address as the ObjGrid_QueryBoxPoints output (0x4aec35-46); indexed pointer load at 0x4aec92. Eight entries, inferred from the next field at 0x84.",verified
+0x84,s32,overlapCount,"the query result from EAX, stored at 0x4aec51; signed count comparison at 0x4aec5a-61 and signed loop bound at 0x4aec80-86.",verified
+0x88,Vec3s,pushDelta,"Init's word stores at 0x4ae871/7d/89 set (0,10,0); PushObjectsDown passes its address to ScnObject::Translate.",verified
+0x8e,Vec3s,unusedOffset,"Init stores (0,-30,0) into it (word stores at 0x4ae895/a1/ad). Its purpose is not established; the name is a placeholder.",inferred
+0x94,CollBox,triggerBox,thiscall receiver at 0x4ae7c7 for Box_Translate 0x5154ce; the min words at 0x98/9a/9c and max at 0x9e/a0/a2 are translated at 0x4ae7d9-867. flags + min + max: a complete CollBox.,verified
+0xa4,u8,state,SetState 0x4aea32 compares its byte argument with the field and stores it; Update switches on this byte.,verified
+0xa8,ScnObject *,victim,"cleared at 0x4ae76c; stored at 0x4aed16, then the receiver of a virtual message at 0x4aed27-3a.",verified
+0xac,s32,captureActive,cleared at 0x4ae779; a DWORD 1 is stored at 0x4aed40; SetState case 2 compares it with 1.,verified

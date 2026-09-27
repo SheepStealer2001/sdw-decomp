@@ -1,0 +1,5 @@
+value,name,meaning
+#,TrainState,"state field of Train (+0x64), set by Train_SetState 0x4fece2"
+0x0,TRAIN_ST_HIDDEN,"SetState 0: sound stopped, train and cars hidden. Entered from PostLoadInit and when the train reaches the MSG_TRAIN_FINAL_WAYPOINT of a route; Update sends MSG_STATION_BEGIN_ROUTE to its station every frame until that station starts its route (verified)"
+0x1,TRAIN_ST_AT_STATION,"SetState 1: train and cars visible, the rider unfrozen (MSG_UNFREEZE); the whistle when it stops inside an OFFTRAINBOX coming from state 2. Entered on reaching any waypoint but the final one, then waits for the station's next leg. Every Lvl-16 station route is three points (tunnel, the stop beside the TrainStation, tunnel), so this is the stop at the station; the train passes the entry point in one frame (verified)"
+0x2,TRAIN_ST_MOVING,"SetState 2: runTicks reset. Entered by every MSG_TRAIN_START_AT / MSG_TRAIN_WAYPOINT / MSG_TRAIN_FINAL_WAYPOINT; Update drives the train toward the waypoint, crushing what is in the way, and on arrival goes to state 1, or to state 0 after the final waypoint (verified)"

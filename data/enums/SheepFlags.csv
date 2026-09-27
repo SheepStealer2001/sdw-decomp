@@ -1,0 +1,19 @@
+value,name,meaning
+#,SheepFlags,u32 sheep+0x10C
+0x1,SHF_ATE,bite accepted in EAT; cleared on state change
+0x2,SHF_TARGET_RESERVED,pTarget is in g_flockReservedTargets
+0x4,SHF_DEAD,restart pending; zone checks off
+0x8,SHF_ATTRACTION_OFF,msg 0x12 on / 0x13 off
+0x10,SHF_SLEEPY,PROPERTY_SHEEP_SLEEPY bit0
+0x20,SHF_SCRIPT_HELD,msg 0x23/0x24
+0x40,SHF_HAS_ANCHOR,msg 0x2E; cleared every frame
+0x80,SHF_SPLASH_ACTIVE,shared splash playing
+0x100,SHF_ICE_ATTACHED,shared ice block attached
+0x200,SHF_RIVER_CARGO,FrozenRiver accepted msg 0x36
+0x400,SHF_PUT_TO_SLEEP,msg 0x983 (Monolithe); cleared every frame
+0x800,SHF_IN_FADE_ZONE,inside list 0x6d0c88 -> translucent
+0x1000,SHF_FADED_OUT,state 0x16
+0x2000,SHF_WENT_TO_BUSH,blocks attractor search until idle think
+0x4000,SHF_ALT_MODEL,prop bit1 and model[2] present
+0x8000,SHF_IN_GEYSER,forces out-of-zone in membership
+0x10000,SHF_KEEP_CHECKPOINT,msg 0x988

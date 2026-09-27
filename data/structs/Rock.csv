@@ -1,0 +1,26 @@
+offset,ctype,name,meaning,confidence
+0x58,u32,lvl03Enabled,1 when LVL03WITHBOX or LVL03WITHOUTBOX is nonzero; enables the LVL03BOX cinematic trigger,verified
+0x5c,u32,lvl03BoxDelivered,set by msg 0x1B (sent by Mailbox_Deliver 0x4d379e); picks the WITHBOX cinematic and is cleared when used,verified
+0x60,u16,lvl03CineWithBox,PROPERTY_ROCK_LVL03WITHBOX: cinematic id passed to Cine_Start (Lvl-03: 1),verified
+0x62,u16,lvl03CineWithoutBox,PROPERTY_ROCK_LVL03WITHOUTBOX: cinematic id (Lvl-03: 4),verified
+0x64,Box *,lvl03Box,Scn_GetPropBox(LVL03BOX); XZ trigger that starts the Lvl-03 cinematic in states 2/3,verified
+0x68,Box *,lvl03CameraBox,Scn_GetPropBox(LVL03IDCAMERABOX); in state 7 the cinematic camera is released once the Wolf leaves it,verified
+0x6c,ScnObject *,pusher,sender of the last msg 0xA; exempt from wall-crush in Rock_Move; cleared on settle/seesaw/Reset,verified
+0x70,s32,fallTime,"ticks of free fall (g_dt); gravity speed = clamp(fallTime*4000>>12,200,3000); reset on floor contact; >0x800 at landing plays sfx 0x44",verified
+0x74,Mat34s,rollMatrix,"rolling orientation (Matrix_RollByDisplacement), passed to Instance_DrawRigid instead of rot",verified
+0x94,Box *,collBox,"model box 0, or box 1 when box 0 lacks flag 4 and there are >1 boxes; used for pushes, dome ground query, shadow radius",verified
+0x98,LaunchArc,launch,"copy of the msg 0xC launch record; t at +0xbc, camera +0xc0, obj +0xc4, camParam +0xc8, flags +0xcc",verified
+0xd0,CamShot,camShot,skippable camera shot started at launch (CamShot_Update every frame),verified
+0xe4,u32,smashTime,g_gameTime when a Train smashed the rock; state 6 lasts 0x5000 ticks,verified
+0xe8,ScnRecordSynth,debrisRecord,synthetic record from Scn_BuildRecordFromExport(0xDE WAR_IDO_AROCHE03),verified
+0xfc,ScnBody,debrisBody,"embedded ScnBody (ctor stores ScnObject then ScnBody vtable at +0xfc); inst +0x100, pos +0x108, anim +0x13c; plays anim 3 when smashed. Typed as bytes because ScnBody.csv currently carries ScnMobile rows (0x6b, 0x78) that would make it overlap +0x160",verified
+0x160,ZoneList,pushBoxes,"zone list {boxes, count}: Scn_FindIdList(ALLOWPUSHBOXES): a pushed position must overlap one of these boxes | count (+4): count for pushBoxes (0 = unrestricted)",verified
+0x168,u32,stateTime,g_gameTime at the last Rock_SetState,verified
+0x16c,Vec3s,homePos,position after Init (ground-snapped unless FALLSATINIT); target of Rock_ReturnHome,verified
+0x172,Vec3s,launchStartPos,"pos at msg 0xC; msg 0xB snaps back to it when |x|,|z| are within 50 of it (compared by absolute value) and then zeroes it",verified
+0x178,Vec3s,seesawRestPos,scratch copy of pos taken by msg 0xB for the snap-back test,verified
+0x17e,s16,settleMs,"ms countdown (g_dtMs, only while no movable-object contact) before a landed rock goes back to state 0; set to 2000 by many paths",verified
+0x180,u16,rollSound,channel handle of the rolling loop sfx 0x106,verified
+0x182,s16,pushHeading,12-bit atan2 heading of the last push; state 3 rolls this way at 200 u/s,verified
+0x184,u8,state,RockState,verified
+0x185,RockFlagBits,rockFlags,RockFlags,verified

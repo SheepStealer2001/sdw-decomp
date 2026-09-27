@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0xc,ModelBoxList *,boxes,"counted box list {u32 count; CollBox[count]}, or NULL (read at 0x49250d, 0x492703; ScnObject_GetFirstModelBox 0x4c1ecf)",verified
+0x10,void *,animTable,"{u32 directCount; ptr direct[directCount]; u32 mappedCount; ptr mapped[mappedCount]}: Anim_Start uses the mapped list with a bound check, Anim_StartDirect the direct list without one",verified
+0x14,ModelJoint *,joints,"joint hierarchy, 10 bytes per joint",verified
+0x18,u16,nbJoints,"model joint count: ScnBody_Init 0x50dced movzx ecx,word [eax+0x18] (eax = inst_model) is the default joint count; ScnObject_InitWithAltModels 0x50ddcb / 0x50de97 read the same word from a model resource",verified

@@ -1,0 +1,15198 @@
+{
+"00401000": {
+"game": true,
+"size": 44
+},
+"00401030": {
+"game": true,
+"size": 10
+},
+"0040103a": {
+"game": true,
+"size": 25
+},
+"00401053": {
+"game": true,
+"size": 193
+},
+"00401114": {
+"game": true,
+"size": 1280
+},
+"00401614": {
+"game": true,
+"size": 472
+},
+"004017ec": {
+"game": true,
+"size": 133
+},
+"00401871": {
+"game": true,
+"size": 612
+},
+"00401ad5": {
+"game": true,
+"size": 212
+},
+"00401ba9": {
+"game": true,
+"size": 227
+},
+"00401c8c": {
+"game": true,
+"size": 28
+},
+"00401ca8": {
+"game": true,
+"size": 1894
+},
+"00402436": {
+"game": true,
+"size": 31
+},
+"00402455": {
+"game": true,
+"size": 371
+},
+"004025c8": {
+"game": true,
+"size": 4042
+},
+"00403592": {
+"game": true,
+"size": 93
+},
+"004035ef": {
+"game": true,
+"size": 125
+},
+"0040369c": {
+"game": true,
+"size": 645
+},
+"00403921": {
+"game": true,
+"size": 312
+},
+"00403a59": {
+"game": true,
+"size": 245
+},
+"00403b4e": {
+"game": true,
+"size": 336
+},
+"00403c9e": {
+"game": true,
+"size": 651
+},
+"00403f30": {
+"game": true,
+"size": 51
+},
+"00403f63": {
+"game": true,
+"size": 142
+},
+"00403ff1": {
+"game": true,
+"size": 404
+},
+"00404185": {
+"game": true,
+"size": 15
+},
+"00404194": {
+"game": true,
+"size": 490
+},
+"0040437e": {
+"game": true,
+"size": 67
+},
+"004043c1": {
+"game": true,
+"size": 79
+},
+"00404410": {
+"game": true,
+"size": 124
+},
+"00404490": {
+"game": true,
+"size": 46
+},
+"004044c0": {
+"game": true,
+"size": 15
+},
+"004044cf": {
+"game": true,
+"size": 15
+},
+"004044de": {
+"game": true,
+"size": 18
+},
+"004044f0": {
+"game": true,
+"size": 15
+},
+"004044ff": {
+"game": true,
+"size": 336
+},
+"0040464f": {
+"game": true,
+"size": 1181
+},
+"00404aec": {
+"game": true,
+"size": 28
+},
+"00404b08": {
+"game": true,
+"size": 403
+},
+"00404c9b": {
+"game": true,
+"size": 220
+},
+"00404d77": {
+"game": true,
+"size": 88
+},
+"00404dcf": {
+"game": true,
+"size": 183
+},
+"00404e86": {
+"game": true,
+"size": 82
+},
+"00404ed8": {
+"game": true,
+"size": 51
+},
+"00404f0b": {
+"game": true,
+"size": 256
+},
+"0040500b": {
+"game": true,
+"size": 183
+},
+"004050c2": {
+"game": true,
+"size": 183
+},
+"00405179": {
+"game": true,
+"size": 183
+},
+"00405230": {
+"game": true,
+"size": 183
+},
+"004052e7": {
+"game": true,
+"size": 128
+},
+"00405367": {
+"game": true,
+"size": 1910
+},
+"00405add": {
+"game": true,
+"size": 128
+},
+"00405b5d": {
+"game": true,
+"size": 28
+},
+"00405b79": {
+"game": true,
+"size": 152
+},
+"00405c11": {
+"game": true,
+"size": 56
+},
+"00405c49": {
+"game": true,
+"size": 111
+},
+"00405cb8": {
+"game": true,
+"size": 67
+},
+"00405cfb": {
+"game": true,
+"size": 113
+},
+"00405d6c": {
+"game": true,
+"size": 67
+},
+"00405daf": {
+"game": true,
+"size": 92
+},
+"00405e0b": {
+"game": true,
+"size": 55
+},
+"00405e42": {
+"game": true,
+"size": 198
+},
+"00405f08": {
+"game": true,
+"size": 232
+},
+"00405ff0": {
+"game": true,
+"size": 29
+},
+"0040600d": {
+"game": true,
+"size": 78
+},
+"0040605b": {
+"game": true,
+"size": 650
+},
+"004062e5": {
+"game": true,
+"size": 443
+},
+"004064a0": {
+"game": true,
+"size": 46
+},
+"004064ce": {
+"game": true,
+"size": 161
+},
+"00406570": {
+"game": true,
+"size": 46
+},
+"004065a0": {
+"game": true,
+"size": 277
+},
+"004066b5": {
+"game": true,
+"size": 146
+},
+"00406747": {
+"game": true,
+"size": 149
+},
+"004067dc": {
+"game": true,
+"size": 54
+},
+"00406812": {
+"game": true,
+"size": 45
+},
+"0040683f": {
+"game": true,
+"size": 13
+},
+"0040684c": {
+"game": true,
+"size": 13
+},
+"00406859": {
+"game": true,
+"size": 514
+},
+"00406a5b": {
+"game": true,
+"size": 17
+},
+"00406a6c": {
+"game": true,
+"size": 35
+},
+"00406a8f": {
+"game": true,
+"size": 79
+},
+"00406ade": {
+"game": true,
+"size": 79
+},
+"00406b2d": {
+"game": true,
+"size": 94
+},
+"00406b8b": {
+"game": true,
+"size": 207
+},
+"00406c5a": {
+"game": true,
+"size": 161
+},
+"00406cfb": {
+"game": true,
+"size": 127
+},
+"00406d80": {
+"game": true,
+"size": 46
+},
+"00406db0": {
+"game": true,
+"size": 294
+},
+"00406ed6": {
+"game": true,
+"size": 83
+},
+"00406f29": {
+"game": true,
+"size": 92
+},
+"00406f85": {
+"game": true,
+"size": 401
+},
+"00407116": {
+"game": true,
+"size": 102
+},
+"00407180": {
+"game": true,
+"size": 46
+},
+"004071b0": {
+"game": true,
+"size": 252
+},
+"004072ac": {
+"game": true,
+"size": 220
+},
+"00407388": {
+"game": true,
+"size": 83
+},
+"004073db": {
+"game": true,
+"size": 92
+},
+"00407437": {
+"game": true,
+"size": 814
+},
+"00407765": {
+"game": true,
+"size": 79
+},
+"004077c0": {
+"game": true,
+"size": 46
+},
+"004077f0": {
+"game": true,
+"size": 14
+},
+"004077fe": {
+"game": true,
+"size": 206
+},
+"004078cc": {
+"game": true,
+"size": 170
+},
+"00407976": {
+"game": true,
+"size": 170
+},
+"00407a20": {
+"game": true,
+"size": 385
+},
+"00407ba1": {
+"game": true,
+"size": 375
+},
+"00407d18": {
+"game": true,
+"size": 382
+},
+"00407e96": {
+"game": true,
+"size": 377
+},
+"0040800f": {
+"game": true,
+"size": 387
+},
+"00408192": {
+"game": true,
+"size": 379
+},
+"0040830d": {
+"game": true,
+"size": 169
+},
+"004083b6": {
+"game": true,
+"size": 177
+},
+"00408467": {
+"game": true,
+"size": 169
+},
+"00408510": {
+"game": true,
+"size": 252
+},
+"0040860c": {
+"game": true,
+"size": 951
+},
+"004089c3": {
+"game": true,
+"size": 424
+},
+"00408b6b": {
+"game": true,
+"size": 432
+},
+"00408d1b": {
+"game": true,
+"size": 30
+},
+"00408d39": {
+"game": true,
+"size": 30
+},
+"00408d57": {
+"game": true,
+"size": 254
+},
+"00408e55": {
+"game": true,
+"size": 936
+},
+"004091fd": {
+"game": true,
+"size": 224
+},
+"004092dd": {
+"game": true,
+"size": 224
+},
+"004093bd": {
+"game": true,
+"size": 937
+},
+"00409766": {
+"game": true,
+"size": 193
+},
+"00409827": {
+"game": true,
+"size": 203
+},
+"004098f2": {
+"game": true,
+"size": 103
+},
+"00409959": {
+"game": true,
+"size": 203
+},
+"00409a24": {
+"game": true,
+"size": 479
+},
+"00409c03": {
+"game": true,
+"size": 481
+},
+"00409de4": {
+"game": true,
+"size": 164
+},
+"00409e90": {
+"game": true,
+"size": 191
+},
+"00409f4f": {
+"game": true,
+"size": 83
+},
+"00409fa2": {
+"game": true,
+"size": 92
+},
+"00409ffe": {
+"game": true,
+"size": 273
+},
+"0040a110": {
+"game": true,
+"size": 46
+},
+"0040a140": {
+"game": true,
+"size": 802
+},
+"0040a462": {
+"game": true,
+"size": 1111
+},
+"0040a8b9": {
+"game": true,
+"size": 1246
+},
+"0040ad97": {
+"game": true,
+"size": 47
+},
+"0040adc6": {
+"game": true,
+"size": 17
+},
+"0040add7": {
+"game": true,
+"size": 17
+},
+"0040ade8": {
+"game": true,
+"size": 17
+},
+"0040adf9": {
+"game": true,
+"size": 17
+},
+"0040ae0a": {
+"game": true,
+"size": 53
+},
+"0040ae3f": {
+"game": true,
+"size": 53
+},
+"0040ae74": {
+"game": true,
+"size": 53
+},
+"0040aea9": {
+"game": true,
+"size": 34
+},
+"0040aecb": {
+"game": true,
+"size": 297
+},
+"0040aff4": {
+"game": true,
+"size": 52
+},
+"0040b030": {
+"game": true,
+"size": 46
+},
+"0040b060": {
+"game": true,
+"size": 543
+},
+"0040b27f": {
+"game": true,
+"size": 20
+},
+"0040b293": {
+"game": true,
+"size": 69
+},
+"0040b2d8": {
+"game": true,
+"size": 85
+},
+"0040b32d": {
+"game": true,
+"size": 45
+},
+"0040b35a": {
+"game": true,
+"size": 149
+},
+"0040b3ef": {
+"game": true,
+"size": 137
+},
+"0040b478": {
+"game": true,
+"size": 36
+},
+"0040b49c": {
+"game": true,
+"size": 72
+},
+"0040b4e4": {
+"game": true,
+"size": 56
+},
+"0040b51c": {
+"game": true,
+"size": 156
+},
+"0040b5d0": {
+"game": true,
+"size": 46
+},
+"0040b600": {
+"game": true,
+"size": 23
+},
+"0040b617": {
+"game": true,
+"size": 20
+},
+"0040b630": {
+"game": true,
+"size": 149
+},
+"0040b6c5": {
+"game": true,
+"size": 28
+},
+"0040b6e1": {
+"game": true,
+"size": 388
+},
+"0040b865": {
+"game": true,
+"size": 11
+},
+"0040b870": {
+"game": true,
+"size": 555
+},
+"0040ba9b": {
+"game": true,
+"size": 40
+},
+"0040bac3": {
+"game": true,
+"size": 11
+},
+"0040bace": {
+"game": true,
+"size": 11
+},
+"0040bad9": {
+"game": true,
+"size": 64
+},
+"0040bb19": {
+"game": true,
+"size": 969
+},
+"0040bee2": {
+"game": true,
+"size": 88
+},
+"0040bf3a": {
+"game": true,
+"size": 84
+},
+"0040bf8e": {
+"game": true,
+"size": 84
+},
+"0040bff0": {
+"game": true,
+"size": 46
+},
+"0040c020": {
+"game": true,
+"size": 162
+},
+"0040c0d0": {
+"game": true,
+"size": 39
+},
+"0040c100": {
+"game": true,
+"size": 162
+},
+"0040c1b0": {
+"game": true,
+"size": 43
+},
+"0040c1db": {
+"game": true,
+"size": 85
+},
+"0040c230": {
+"game": true,
+"size": 3623
+},
+"0040d057": {
+"game": true,
+"size": 170
+},
+"0040d101": {
+"game": true,
+"size": 171
+},
+"0040d1ac": {
+"game": true,
+"size": 69
+},
+"0040d1f1": {
+"game": true,
+"size": 72
+},
+"0040d239": {
+"game": true,
+"size": 2975
+},
+"0040ddd8": {
+"game": true,
+"size": 1127
+},
+"0040e23f": {
+"game": true,
+"size": 1261
+},
+"0040e72c": {
+"game": true,
+"size": 4263
+},
+"0040f7d3": {
+"game": true,
+"size": 267
+},
+"0040f8de": {
+"game": true,
+"size": 10
+},
+"0040f8e8": {
+"game": true,
+"size": 75
+},
+"0040f933": {
+"game": true,
+"size": 15
+},
+"0040f942": {
+"game": true,
+"size": 15
+},
+"0040f951": {
+"game": true,
+"size": 18
+},
+"0040f963": {
+"game": true,
+"size": 15
+},
+"0040f972": {
+"game": true,
+"size": 9944
+},
+"0041204a": {
+"game": true,
+"size": 196
+},
+"0041210e": {
+"game": true,
+"size": 70
+},
+"00412154": {
+"game": true,
+"size": 12178
+},
+"004150f0": {
+"game": true,
+"size": 46
+},
+"00415120": {
+"game": true,
+"size": 162
+},
+"004151d0": {
+"game": true,
+"size": 162
+},
+"00415280": {
+"game": true,
+"size": 162
+},
+"00415330": {
+"game": true,
+"size": 162
+},
+"004153e0": {
+"game": true,
+"size": 162
+},
+"00415490": {
+"game": true,
+"size": 162
+},
+"00415540": {
+"game": true,
+"size": 162
+},
+"004155f0": {
+"game": true,
+"size": 948
+},
+"004159b0": {
+"game": true,
+"size": 589
+},
+"00415c00": {
+"game": true,
+"size": 55
+},
+"00415c40": {
+"game": true,
+"size": 45
+},
+"00415c70": {
+"game": true,
+"size": 14
+},
+"00415c80": {
+"game": true,
+"size": 2491
+},
+"00416640": {
+"game": true,
+"size": 816
+},
+"00416970": {
+"game": true,
+"size": 514
+},
+"00416b72": {
+"game": true,
+"size": 402
+},
+"00416d04": {
+"game": true,
+"size": 95
+},
+"00416d73": {
+"game": true,
+"size": 111
+},
+"00416df2": {
+"game": true,
+"size": 166
+},
+"00416ea8": {
+"game": true,
+"size": 17
+},
+"00416eb9": {
+"game": true,
+"size": 22
+},
+"00416ecf": {
+"game": true,
+"size": 32
+},
+"00416eef": {
+"game": true,
+"size": 17
+},
+"00416f00": {
+"game": true,
+"size": 22
+},
+"00416f16": {
+"game": true,
+"size": 22
+},
+"00416f2c": {
+"game": true,
+"size": 182
+},
+"00416fe2": {
+"game": true,
+"size": 2171
+},
+"0041785d": {
+"game": true,
+"size": 449
+},
+"00417a1e": {
+"game": true,
+"size": 26
+},
+"00417a38": {
+"game": true,
+"size": 1057
+},
+"00417e59": {
+"game": true,
+"size": 118
+},
+"00417ecf": {
+"game": true,
+"size": 224
+},
+"00417faf": {
+"game": true,
+"size": 2733
+},
+"00418a5c": {
+"game": true,
+"size": 67
+},
+"00418aa0": {
+"game": true,
+"size": 46
+},
+"00418ad0": {
+"game": true,
+"size": 455
+},
+"00418c97": {
+"game": true,
+"size": 30
+},
+"00418cb5": {
+"game": true,
+"size": 81
+},
+"00418d06": {
+"game": true,
+"size": 54
+},
+"00418d3c": {
+"game": true,
+"size": 50
+},
+"00418d6e": {
+"game": true,
+"size": 1205
+},
+"00419223": {
+"game": true,
+"size": 1210
+},
+"004196dd": {
+"game": true,
+"size": 66
+},
+"0041971f": {
+"game": true,
+"size": 1036
+},
+"00419b2b": {
+"game": true,
+"size": 35
+},
+"00419b4e": {
+"game": true,
+"size": 53
+},
+"00419b83": {
+"game": true,
+"size": 49
+},
+"00419bb4": {
+"game": true,
+"size": 226
+},
+"00419c96": {
+"game": true,
+"size": 235
+},
+"00419d81": {
+"game": true,
+"size": 37
+},
+"00419da6": {
+"game": true,
+"size": 154
+},
+"00419e40": {
+"game": true,
+"size": 36
+},
+"00419e64": {
+"game": true,
+"size": 34
+},
+"00419e86": {
+"game": true,
+"size": 430
+},
+"0041a040": {
+"game": true,
+"size": 46
+},
+"0041a070": {
+"game": true,
+"size": 409
+},
+"0041a209": {
+"game": true,
+"size": 43
+},
+"0041a234": {
+"game": true,
+"size": 436
+},
+"0041a3e8": {
+"game": true,
+"size": 121
+},
+"0041a461": {
+"game": true,
+"size": 121
+},
+"0041a4da": {
+"game": true,
+"size": 676
+},
+"0041a77e": {
+"game": true,
+"size": 80
+},
+"0041a7ce": {
+"game": true,
+"size": 84
+},
+"0041a830": {
+"game": true,
+"size": 23
+},
+"0041a847": {
+"game": true,
+"size": 20
+},
+"0041a860": {
+"game": true,
+"size": 113
+},
+"0041a8d1": {
+"game": true,
+"size": 20
+},
+"0041a8f0": {
+"game": true,
+"size": 31
+},
+"0041a90f": {
+"game": true,
+"size": 28
+},
+"0041a930": {
+"game": true,
+"size": 31
+},
+"0041a94f": {
+"game": true,
+"size": 28
+},
+"0041a970": {
+"game": true,
+"size": 31
+},
+"0041a98f": {
+"game": true,
+"size": 28
+},
+"0041a9b0": {
+"game": true,
+"size": 31
+},
+"0041a9cf": {
+"game": true,
+"size": 28
+},
+"0041a9f0": {
+"game": true,
+"size": 31
+},
+"0041aa0f": {
+"game": true,
+"size": 28
+},
+"0041aa30": {
+"game": true,
+"size": 31
+},
+"0041aa4f": {
+"game": true,
+"size": 28
+},
+"0041aa70": {
+"game": true,
+"size": 23
+},
+"0041aa87": {
+"game": true,
+"size": 20
+},
+"0041aaa0": {
+"game": true,
+"size": 46
+},
+"0041aad0": {
+"game": true,
+"size": 125
+},
+"0041ab4d": {
+"game": true,
+"size": 183
+},
+"0041ac04": {
+"game": true,
+"size": 63
+},
+"0041ac43": {
+"game": true,
+"size": 160
+},
+"0041ace3": {
+"game": true,
+"size": 149
+},
+"0041ad78": {
+"game": true,
+"size": 143
+},
+"0041ae07": {
+"game": true,
+"size": 213
+},
+"0041aedc": {
+"game": true,
+"size": 219
+},
+"0041afb7": {
+"game": true,
+"size": 224
+},
+"0041b0a7": {
+"game": true,
+"size": 224
+},
+"0041b1a0": {
+"game": true,
+"size": 90
+},
+"0041b1fa": {
+"game": true,
+"size": 52
+},
+"0041b22e": {
+"game": true,
+"size": 54
+},
+"0041b264": {
+"game": true,
+"size": 73
+},
+"0041b2ad": {
+"game": true,
+"size": 60
+},
+"0041b2e9": {
+"game": true,
+"size": 99
+},
+"0041b34c": {
+"game": true,
+"size": 145
+},
+"0041b3e0": {
+"game": true,
+"size": 46
+},
+"0041b410": {
+"game": true,
+"size": 590
+},
+"0041b65e": {
+"game": true,
+"size": 68
+},
+"0041b6b0": {
+"game": true,
+"size": 46
+},
+"0041b6e0": {
+"game": true,
+"size": 77
+},
+"0041b72d": {
+"game": true,
+"size": 128
+},
+"0041b7ad": {
+"game": true,
+"size": 62
+},
+"0041b7f0": {
+"game": true,
+"size": 451
+},
+"0041b9b3": {
+"game": true,
+"size": 106
+},
+"0041ba1d": {
+"game": true,
+"size": 92
+},
+"0041ba79": {
+"game": true,
+"size": 170
+},
+"0041bb23": {
+"game": true,
+"size": 56
+},
+"0041bb5b": {
+"game": true,
+"size": 107
+},
+"0041bbc6": {
+"game": true,
+"size": 73
+},
+"0041bc0f": {
+"game": true,
+"size": 89
+},
+"0041bc68": {
+"game": true,
+"size": 139
+},
+"0041bcf3": {
+"game": true,
+"size": 232
+},
+"0041bddb": {
+"game": true,
+"size": 146
+},
+"0041be6d": {
+"game": true,
+"size": 86
+},
+"0041bec3": {
+"game": true,
+"size": 139
+},
+"0041bf4e": {
+"game": true,
+"size": 102
+},
+"0041bfb4": {
+"game": true,
+"size": 139
+},
+"0041c03f": {
+"game": true,
+"size": 247
+},
+"0041c136": {
+"game": true,
+"size": 811
+},
+"0041c461": {
+"game": true,
+"size": 981
+},
+"0041c836": {
+"game": true,
+"size": 896
+},
+"0041cbb6": {
+"game": true,
+"size": 1072
+},
+"0041cfe6": {
+"game": true,
+"size": 2028
+},
+"0041d7d2": {
+"game": true,
+"size": 2248
+},
+"0041e09a": {
+"game": true,
+"size": 2320
+},
+"0041e9ca": {
+"game": true,
+"size": 2616
+},
+"0041f422": {
+"game": true,
+"size": 297
+},
+"0041f54b": {
+"game": true,
+"size": 676
+},
+"0041f7ef": {
+"game": true,
+"size": 60
+},
+"0041f82b": {
+"game": true,
+"size": 99
+},
+"0041f88e": {
+"game": true,
+"size": 145
+},
+"0041f91f": {
+"game": true,
+"size": 117
+},
+"0041f994": {
+"game": true,
+"size": 174
+},
+"0041fa42": {
+"game": true,
+"size": 55
+},
+"0041fa79": {
+"game": true,
+"size": 85
+},
+"0041face": {
+"game": true,
+"size": 138
+},
+"0041fb58": {
+"game": true,
+"size": 25
+},
+"0041fb71": {
+"game": true,
+"size": 73
+},
+"0041fbba": {
+"game": true,
+"size": 73
+},
+"0041fc03": {
+"game": true,
+"size": 31
+},
+"0041fc22": {
+"game": true,
+"size": 31
+},
+"0041fc41": {
+"game": true,
+"size": 72
+},
+"0041fc89": {
+"game": true,
+"size": 413
+},
+"0041fe75": {
+"game": true,
+"size": 235
+},
+"0041ff60": {
+"game": true,
+"size": 1212
+},
+"00420420": {
+"game": true,
+"size": 46
+},
+"00420450": {
+"game": true,
+"size": 162
+},
+"00420500": {
+"game": true,
+"size": 162
+},
+"004205b0": {
+"game": true,
+"size": 36
+},
+"004205e0": {
+"game": true,
+"size": 85
+},
+"00420640": {
+"game": true,
+"size": 62
+},
+"00420680": {
+"game": true,
+"size": 49
+},
+"004206c0": {
+"game": true,
+"size": 92
+},
+"00420720": {
+"game": true,
+"size": 68
+},
+"00420770": {
+"game": true,
+"size": 201
+},
+"00420840": {
+"game": true,
+"size": 176
+},
+"004208f0": {
+"game": true,
+"size": 58
+},
+"00420930": {
+"game": true,
+"size": 87
+},
+"00420990": {
+"game": true,
+"size": 63
+},
+"004209d0": {
+"game": true,
+"size": 29
+},
+"004209f0": {
+"game": true,
+"size": 72
+},
+"00420a40": {
+"game": true,
+"size": 16
+},
+"00420a50": {
+"game": true,
+"size": 35
+},
+"00420a80": {
+"game": true,
+"size": 97
+},
+"00420af0": {
+"game": true,
+"size": 79
+},
+"00420b40": {
+"game": true,
+"size": 140
+},
+"00420bd0": {
+"game": true,
+"size": 98
+},
+"00420c40": {
+"game": true,
+"size": 46
+},
+"00420c70": {
+"game": true,
+"size": 22
+},
+"00420c90": {
+"game": true,
+"size": 469
+},
+"00420e70": {
+"game": true,
+"size": 27
+},
+"00420e90": {
+"game": true,
+"size": 495
+},
+"00421080": {
+"game": true,
+"size": 84
+},
+"004210e0": {
+"game": true,
+"size": 94
+},
+"00421140": {
+"game": true,
+"size": 225
+},
+"00421230": {
+"game": true,
+"size": 70
+},
+"00421280": {
+"game": true,
+"size": 33
+},
+"004212b0": {
+"game": true,
+"size": 42
+},
+"004212e0": {
+"game": true,
+"size": 141
+},
+"00421370": {
+"game": true,
+"size": 18
+},
+"00421390": {
+"game": true,
+"size": 118
+},
+"00421410": {
+"game": true,
+"size": 128
+},
+"00421490": {
+"game": true,
+"size": 209
+},
+"00421570": {
+"game": true,
+"size": 458
+},
+"00421740": {
+"game": true,
+"size": 16
+},
+"00421750": {
+"game": true,
+"size": 69
+},
+"004217a0": {
+"game": true,
+"size": 46
+},
+"004217d0": {
+"game": true,
+"size": 272
+},
+"004218e0": {
+"game": true,
+"size": 72
+},
+"00421930": {
+"game": true,
+"size": 32
+},
+"00421950": {
+"game": true,
+"size": 15
+},
+"00421960": {
+"game": true,
+"size": 184
+},
+"00421a20": {
+"game": true,
+"size": 369
+},
+"00421ba0": {
+"game": true,
+"size": 29
+},
+"00421bc0": {
+"game": true,
+"size": 57
+},
+"00421c00": {
+"game": true,
+"size": 34
+},
+"00421c30": {
+"game": true,
+"size": 175
+},
+"00421ce0": {
+"game": true,
+"size": 110
+},
+"00421d50": {
+"game": true,
+"size": 81
+},
+"00421db0": {
+"game": true,
+"size": 36
+},
+"00421de0": {
+"game": true,
+"size": 118
+},
+"00421e60": {
+"game": true,
+"size": 274
+},
+"00421f80": {
+"game": true,
+"size": 92
+},
+"00421fe0": {
+"game": true,
+"size": 78
+},
+"00422030": {
+"game": true,
+"size": 97
+},
+"004220a0": {
+"game": true,
+"size": 16
+},
+"004220b0": {
+"game": true,
+"size": 440
+},
+"00422270": {
+"game": true,
+"size": 63
+},
+"004222b0": {
+"game": true,
+"size": 3
+},
+"004222c0": {
+"game": true,
+"size": 38
+},
+"004222f0": {
+"game": true,
+"size": 34
+},
+"00422320": {
+"game": true,
+"size": 34
+},
+"00422350": {
+"game": true,
+"size": 34
+},
+"00422380": {
+"game": true,
+"size": 121
+},
+"00422400": {
+"game": true,
+"size": 17
+},
+"00422420": {
+"game": true,
+"size": 115
+},
+"004224a0": {
+"game": true,
+"size": 637
+},
+"00422740": {
+"game": true,
+"size": 196
+},
+"00422810": {
+"game": true,
+"size": 231
+},
+"00422900": {
+"game": true,
+"size": 207
+},
+"004229d0": {
+"game": true,
+"size": 157
+},
+"00422a70": {
+"game": true,
+"size": 110
+},
+"00422ae0": {
+"game": true,
+"size": 18
+},
+"00422b00": {
+"game": true,
+"size": 124
+},
+"00422b80": {
+"game": true,
+"size": 174
+},
+"00422c30": {
+"game": false,
+"size": 1
+},
+"00422c40": {
+"game": true,
+"size": 269
+},
+"00422d50": {
+"game": true,
+"size": 97
+},
+"00422dc0": {
+"game": true,
+"size": 343
+},
+"00422f20": {
+"game": true,
+"size": 627
+},
+"004231a0": {
+"game": false,
+"size": 3
+},
+"004231b0": {
+"game": true,
+"size": 572
+},
+"004233f0": {
+"game": true,
+"size": 417
+},
+"004235a0": {
+"game": true,
+"size": 1422
+},
+"00423b30": {
+"game": true,
+"size": 424
+},
+"00423cf0": {
+"game": true,
+"size": 201
+},
+"00423dc0": {
+"game": true,
+"size": 268
+},
+"00423ed0": {
+"game": true,
+"size": 135
+},
+"00423f60": {
+"game": true,
+"size": 40
+},
+"00423f90": {
+"game": true,
+"size": 309
+},
+"004240d0": {
+"game": true,
+"size": 132
+},
+"00424160": {
+"game": true,
+"size": 522
+},
+"00424390": {
+"game": true,
+"size": 441
+},
+"00424550": {
+"game": true,
+"size": 262
+},
+"00424660": {
+"game": true,
+"size": 247
+},
+"00424760": {
+"game": true,
+"size": 63
+},
+"004247a0": {
+"game": true,
+"size": 329
+},
+"004248f0": {
+"game": true,
+"size": 1115
+},
+"00424d50": {
+"game": true,
+"size": 77
+},
+"00424da0": {
+"game": true,
+"size": 613
+},
+"00425010": {
+"game": true,
+"size": 20
+},
+"00425030": {
+"game": true,
+"size": 940
+},
+"004253e0": {
+"game": true,
+"size": 412
+},
+"00425580": {
+"game": true,
+"size": 71
+},
+"004255d0": {
+"game": true,
+"size": 394
+},
+"00425760": {
+"game": true,
+"size": 428
+},
+"00425910": {
+"game": true,
+"size": 120
+},
+"00425990": {
+"game": true,
+"size": 683
+},
+"00425c40": {
+"game": true,
+"size": 39
+},
+"00425c70": {
+"game": true,
+"size": 255
+},
+"00425d70": {
+"game": true,
+"size": 284
+},
+"00425e90": {
+"game": true,
+"size": 176
+},
+"00425f40": {
+"game": true,
+"size": 621
+},
+"004261b0": {
+"game": true,
+"size": 393
+},
+"00426340": {
+"game": true,
+"size": 168
+},
+"004263f0": {
+"game": true,
+"size": 1178
+},
+"004269d0": {
+"game": true,
+"size": 807
+},
+"00426d00": {
+"game": true,
+"size": 808
+},
+"00427030": {
+"game": true,
+"size": 756
+},
+"00427330": {
+"game": true,
+"size": 600
+},
+"00427590": {
+"game": true,
+"size": 245
+},
+"00427690": {
+"game": true,
+"size": 144
+},
+"00427720": {
+"game": true,
+"size": 55
+},
+"00427760": {
+"game": true,
+"size": 538
+},
+"00427990": {
+"game": true,
+"size": 132
+},
+"00427a20": {
+"game": true,
+"size": 628
+},
+"00427ca0": {
+"game": true,
+"size": 351
+},
+"00427e00": {
+"game": true,
+"size": 39
+},
+"00427e30": {
+"game": true,
+"size": 302
+},
+"00427f60": {
+"game": true,
+"size": 27
+},
+"00427f80": {
+"game": true,
+"size": 192
+},
+"00428040": {
+"game": true,
+"size": 54
+},
+"00428080": {
+"game": true,
+"size": 332
+},
+"004281d0": {
+"game": true,
+"size": 479
+},
+"004283b0": {
+"game": true,
+"size": 113
+},
+"00428430": {
+"game": true,
+"size": 748
+},
+"00428720": {
+"game": true,
+"size": 642
+},
+"004289b0": {
+"game": true,
+"size": 651
+},
+"00428c40": {
+"game": true,
+"size": 327
+},
+"00428d90": {
+"game": true,
+"size": 1041
+},
+"004291b0": {
+"game": true,
+"size": 138
+},
+"00429240": {
+"game": true,
+"size": 255
+},
+"00429340": {
+"game": true,
+"size": 116
+},
+"004293c0": {
+"game": true,
+"size": 161
+},
+"00429470": {
+"game": true,
+"size": 153
+},
+"00429510": {
+"game": true,
+"size": 491
+},
+"00429700": {
+"game": true,
+"size": 29
+},
+"00429720": {
+"game": true,
+"size": 230
+},
+"00429810": {
+"game": true,
+"size": 13
+},
+"00429820": {
+"game": true,
+"size": 14
+},
+"00429830": {
+"game": true,
+"size": 240
+},
+"00429920": {
+"game": true,
+"size": 94
+},
+"00429980": {
+"game": true,
+"size": 114
+},
+"00429a00": {
+"game": true,
+"size": 190
+},
+"00429ac0": {
+"game": true,
+"size": 292
+},
+"00429bf0": {
+"game": true,
+"size": 79
+},
+"00429c40": {
+"game": true,
+"size": 32
+},
+"00429c60": {
+"game": true,
+"size": 54
+},
+"00429ca0": {
+"game": true,
+"size": 57
+},
+"00429ce0": {
+"game": true,
+"size": 167
+},
+"00429d90": {
+"game": true,
+"size": 20
+},
+"00429db0": {
+"game": true,
+"size": 995
+},
+"0042a1a0": {
+"game": true,
+"size": 999
+},
+"0042a590": {
+"game": true,
+"size": 1260
+},
+"0042aa80": {
+"game": true,
+"size": 776
+},
+"0042ad90": {
+"game": true,
+"size": 438
+},
+"0042af50": {
+"game": true,
+"size": 63
+},
+"0042af90": {
+"game": true,
+"size": 289
+},
+"0042b0c0": {
+"game": true,
+"size": 343
+},
+"0042b220": {
+"game": true,
+"size": 192
+},
+"0042b2e0": {
+"game": true,
+"size": 171
+},
+"0042b390": {
+"game": true,
+"size": 172
+},
+"0042b440": {
+"game": true,
+"size": 108
+},
+"0042b4b0": {
+"game": true,
+"size": 108
+},
+"0042b520": {
+"game": true,
+"size": 414
+},
+"0042b6c0": {
+"game": true,
+"size": 337
+},
+"0042b820": {
+"game": true,
+"size": 161
+},
+"0042b8d0": {
+"game": true,
+"size": 334
+},
+"0042ba20": {
+"game": true,
+"size": 170
+},
+"0042bad0": {
+"game": true,
+"size": 256
+},
+"0042bbd0": {
+"game": true,
+"size": 61
+},
+"0042bc10": {
+"game": true,
+"size": 17
+},
+"0042bc30": {
+"game": true,
+"size": 17
+},
+"0042bc50": {
+"game": true,
+"size": 8
+},
+"0042bc60": {
+"game": true,
+"size": 25
+},
+"0042bc80": {
+"game": true,
+"size": 1
+},
+"0042bc90": {
+"game": true,
+"size": 772
+},
+"0042bfa0": {
+"game": true,
+"size": 319
+},
+"0042c0e0": {
+"game": true,
+"size": 506
+},
+"0042c2e0": {
+"game": true,
+"size": 154
+},
+"0042c380": {
+"game": true,
+"size": 156
+},
+"0042c420": {
+"game": true,
+"size": 262
+},
+"0042c530": {
+"game": true,
+"size": 265
+},
+"0042c640": {
+"game": true,
+"size": 403
+},
+"0042c7e0": {
+"game": true,
+"size": 25
+},
+"0042c800": {
+"game": true,
+"size": 299
+},
+"0042c930": {
+"game": true,
+"size": 157
+},
+"0042c9d0": {
+"game": true,
+"size": 293
+},
+"0042cb00": {
+"game": true,
+"size": 119
+},
+"0042cb80": {
+"game": true,
+"size": 189
+},
+"0042cc40": {
+"game": true,
+"size": 671
+},
+"0042cee0": {
+"game": true,
+"size": 312
+},
+"0042d020": {
+"game": true,
+"size": 655
+},
+"0042d2b0": {
+"game": true,
+"size": 527
+},
+"0042d4c0": {
+"game": true,
+"size": 929
+},
+"0042d870": {
+"game": true,
+"size": 367
+},
+"0042d9e0": {
+"game": true,
+"size": 21
+},
+"0042da00": {
+"game": true,
+"size": 18
+},
+"0042da20": {
+"game": true,
+"size": 26
+},
+"0042da40": {
+"game": true,
+"size": 75
+},
+"0042da90": {
+"game": true,
+"size": 35
+},
+"0042dac0": {
+"game": true,
+"size": 29
+},
+"0042dae0": {
+"game": true,
+"size": 446
+},
+"0042dd3d": {
+"game": true,
+"size": 2091
+},
+"0042e588": {
+"game": true,
+"size": 23
+},
+"0042e59f": {
+"game": true,
+"size": 862
+},
+"0042e91d": {
+"game": true,
+"size": 106
+},
+"0042e987": {
+"game": true,
+"size": 479
+},
+"0042eb66": {
+"game": true,
+"size": 68
+},
+"0042ebaa": {
+"game": true,
+"size": 103
+},
+"0042ec20": {
+"game": true,
+"size": 15
+},
+"0042ec30": {
+"game": true,
+"size": 19
+},
+"0042ec50": {
+"game": true,
+"size": 15
+},
+"0042ec60": {
+"game": true,
+"size": 633
+},
+"0042ef72": {
+"game": true,
+"size": 118
+},
+"0042efe8": {
+"game": true,
+"size": 65
+},
+"0042f029": {
+"game": true,
+"size": 2189
+},
+"0042f8de": {
+"game": true,
+"size": 37
+},
+"0042f903": {
+"game": true,
+"size": 8470
+},
+"00431a41": {
+"game": true,
+"size": 491
+},
+"00431c79": {
+"game": true,
+"size": 163
+},
+"00431d20": {
+"game": true,
+"size": 519
+},
+"00431f27": {
+"game": true,
+"size": 165
+},
+"00431fcc": {
+"game": true,
+"size": 5651
+},
+"004335ff": {
+"game": true,
+"size": 459
+},
+"004337ca": {
+"game": true,
+"size": 2214
+},
+"00434090": {
+"game": true,
+"size": 422
+},
+"00434236": {
+"game": true,
+"size": 112
+},
+"004342b0": {
+"game": true,
+"size": 951
+},
+"00434667": {
+"game": true,
+"size": 124
+},
+"004346e3": {
+"game": true,
+"size": 3125
+},
+"00435334": {
+"game": true,
+"size": 103
+},
+"0043539b": {
+"game": true,
+"size": 2054
+},
+"00435bbd": {
+"game": true,
+"size": 25
+},
+"00435bd6": {
+"game": true,
+"size": 83
+},
+"00435c29": {
+"game": true,
+"size": 321
+},
+"00435d6a": {
+"game": true,
+"size": 144
+},
+"00435dfa": {
+"game": true,
+"size": 55
+},
+"00435e31": {
+"game": true,
+"size": 140
+},
+"00435ebd": {
+"game": true,
+"size": 103
+},
+"00435f30": {
+"game": true,
+"size": 27
+},
+"00435f4b": {
+"game": true,
+"size": 151
+},
+"00435fe2": {
+"game": true,
+"size": 143
+},
+"00436071": {
+"game": true,
+"size": 100
+},
+"004360e0": {
+"game": true,
+"size": 71
+},
+"00436127": {
+"game": true,
+"size": 74
+},
+"00436171": {
+"game": true,
+"size": 74
+},
+"004361bb": {
+"game": true,
+"size": 366
+},
+"00436329": {
+"game": true,
+"size": 914
+},
+"004366cf": {
+"game": true,
+"size": 100
+},
+"00436733": {
+"game": true,
+"size": 61
+},
+"00436770": {
+"game": true,
+"size": 290
+},
+"00436892": {
+"game": true,
+"size": 112
+},
+"00436910": {
+"game": true,
+"size": 61
+},
+"0043694d": {
+"game": true,
+"size": 61
+},
+"0043698a": {
+"game": true,
+"size": 61
+},
+"004369c7": {
+"game": true,
+"size": 61
+},
+"00436a04": {
+"game": true,
+"size": 61
+},
+"00436a41": {
+"game": true,
+"size": 198
+},
+"00436b07": {
+"game": true,
+"size": 819
+},
+"00436e3a": {
+"game": true,
+"size": 704
+},
+"0043716f": {
+"game": true,
+"size": 973
+},
+"0043753c": {
+"game": true,
+"size": 129
+},
+"004375bd": {
+"game": true,
+"size": 1246
+},
+"00437a9b": {
+"game": true,
+"size": 112
+},
+"00437b10": {
+"game": true,
+"size": 71
+},
+"00437b57": {
+"game": true,
+"size": 74
+},
+"00437ba1": {
+"game": true,
+"size": 74
+},
+"00437beb": {
+"game": true,
+"size": 918
+},
+"00438020": {
+"game": true,
+"size": 4751
+},
+"0043930b": {
+"game": true,
+"size": 293
+},
+"00439430": {
+"game": true,
+"size": 668
+},
+"004396cc": {
+"game": true,
+"size": 137
+},
+"00439755": {
+"game": true,
+"size": 523
+},
+"00439983": {
+"game": true,
+"size": 393
+},
+"00439b0c": {
+"game": true,
+"size": 130
+},
+"00439b8e": {
+"game": true,
+"size": 461
+},
+"00439d5b": {
+"game": true,
+"size": 155
+},
+"00439df6": {
+"game": true,
+"size": 455
+},
+"00439fe0": {
+"game": true,
+"size": 45
+},
+"0043a00d": {
+"game": true,
+"size": 141
+},
+"0043a0a0": {
+"game": true,
+"size": 673
+},
+"0043a3e0": {
+"game": true,
+"size": 80
+},
+"0043a430": {
+"game": true,
+"size": 1574
+},
+"0043ab0f": {
+"game": true,
+"size": 292
+},
+"0043ac33": {
+"game": true,
+"size": 76
+},
+"0043ac7f": {
+"game": true,
+"size": 1447
+},
+"0043b246": {
+"game": true,
+"size": 141
+},
+"0043b2e0": {
+"game": true,
+"size": 71
+},
+"0043b327": {
+"game": true,
+"size": 74
+},
+"0043b371": {
+"game": true,
+"size": 74
+},
+"0043b3bb": {
+"game": true,
+"size": 428
+},
+"0043b606": {
+"game": true,
+"size": 76
+},
+"0043b652": {
+"game": true,
+"size": 158
+},
+"0043b6f0": {
+"game": true,
+"size": 315
+},
+"0043b83b": {
+"game": true,
+"size": 479
+},
+"0043ba74": {
+"game": true,
+"size": 291
+},
+"0043bb97": {
+"game": true,
+"size": 757
+},
+"0043bea4": {
+"game": true,
+"size": 112
+},
+"0043bf20": {
+"game": true,
+"size": 626
+},
+"0043c192": {
+"game": true,
+"size": 11
+},
+"0043c19d": {
+"game": true,
+"size": 492
+},
+"0043c3a9": {
+"game": true,
+"size": 2808
+},
+"0043cee1": {
+"game": true,
+"size": 143
+},
+"0043cf70": {
+"game": true,
+"size": 266
+},
+"0043d07a": {
+"game": true,
+"size": 920
+},
+"0043d422": {
+"game": true,
+"size": 288
+},
+"0043d542": {
+"game": true,
+"size": 112
+},
+"0043d5c0": {
+"game": true,
+"size": 112
+},
+"0043d630": {
+"game": true,
+"size": 78
+},
+"0043d67e": {
+"game": true,
+"size": 124
+},
+"0043d6fa": {
+"game": true,
+"size": 46
+},
+"0043d728": {
+"game": true,
+"size": 197
+},
+"0043d7ed": {
+"game": true,
+"size": 133
+},
+"0043d872": {
+"game": true,
+"size": 2556
+},
+"0043e282": {
+"game": true,
+"size": 1137
+},
+"0043e7f6": {
+"game": true,
+"size": 864
+},
+"0043eb56": {
+"game": true,
+"size": 938
+},
+"0043ef00": {
+"game": true,
+"size": 7746
+},
+"00440d56": {
+"game": true,
+"size": 474
+},
+"00440f30": {
+"game": true,
+"size": 88
+},
+"00440f88": {
+"game": true,
+"size": 118
+},
+"00440ffe": {
+"game": true,
+"size": 506
+},
+"004411f8": {
+"game": true,
+"size": 128
+},
+"00441278": {
+"game": true,
+"size": 27
+},
+"00441293": {
+"game": true,
+"size": 112
+},
+"00441310": {
+"game": true,
+"size": 58
+},
+"0044134a": {
+"game": true,
+"size": 398
+},
+"004414d8": {
+"game": true,
+"size": 333
+},
+"004416c4": {
+"game": true,
+"size": 544
+},
+"00441959": {
+"game": true,
+"size": 372
+},
+"00441acd": {
+"game": true,
+"size": 262
+},
+"00441bd3": {
+"game": true,
+"size": 78
+},
+"00441c21": {
+"game": true,
+"size": 109
+},
+"00441c8e": {
+"game": true,
+"size": 546
+},
+"00441eb0": {
+"game": true,
+"size": 1199
+},
+"0044235f": {
+"game": true,
+"size": 819
+},
+"00442692": {
+"game": true,
+"size": 297
+},
+"004427bb": {
+"game": true,
+"size": 480
+},
+"004429a0": {
+"game": true,
+"size": 6033
+},
+"00444310": {
+"game": true,
+"size": 786
+},
+"00444760": {
+"game": true,
+"size": 94
+},
+"004447be": {
+"game": true,
+"size": 3708
+},
+"0044563a": {
+"game": true,
+"size": 2084
+},
+"00445ef2": {
+"game": true,
+"size": 3169
+},
+"00446beb": {
+"game": true,
+"size": 270
+},
+"00446cf9": {
+"game": true,
+"size": 62
+},
+"00446d37": {
+"game": true,
+"size": 35
+},
+"00446d5a": {
+"game": true,
+"size": 1179
+},
+"004471f5": {
+"game": true,
+"size": 184
+},
+"004472ad": {
+"game": true,
+"size": 140
+},
+"00447339": {
+"game": true,
+"size": 44
+},
+"00447365": {
+"game": true,
+"size": 435
+},
+"00447518": {
+"game": true,
+"size": 253
+},
+"00447615": {
+"game": true,
+"size": 66
+},
+"00447657": {
+"game": true,
+"size": 321
+},
+"00447798": {
+"game": true,
+"size": 427
+},
+"00447943": {
+"game": true,
+"size": 528
+},
+"00447b53": {
+"game": true,
+"size": 172
+},
+"00447bff": {
+"game": true,
+"size": 59
+},
+"00447c3a": {
+"game": true,
+"size": 470
+},
+"00447e10": {
+"game": true,
+"size": 1892
+},
+"004485c6": {
+"game": true,
+"size": 65
+},
+"00448607": {
+"game": true,
+"size": 19
+},
+"0044861a": {
+"game": true,
+"size": 163
+},
+"004486c0": {
+"game": true,
+"size": 104
+},
+"00448730": {
+"game": true,
+"size": 107
+},
+"004487a0": {
+"game": true,
+"size": 328
+},
+"004488f0": {
+"game": true,
+"size": 77
+},
+"00448940": {
+"game": true,
+"size": 92
+},
+"004489a0": {
+"game": true,
+"size": 92
+},
+"00448a00": {
+"game": true,
+"size": 61
+},
+"00448a40": {
+"game": true,
+"size": 83
+},
+"00448aa0": {
+"game": true,
+"size": 691
+},
+"00448d53": {
+"game": true,
+"size": 262
+},
+"00448e59": {
+"game": true,
+"size": 4630
+},
+"0044a0af": {
+"game": true,
+"size": 1069
+},
+"0044a4dc": {
+"game": true,
+"size": 304
+},
+"0044a697": {
+"game": true,
+"size": 2534
+},
+"0044b0bd": {
+"game": true,
+"size": 112
+},
+"0044b130": {
+"game": true,
+"size": 785
+},
+"0044b441": {
+"game": true,
+"size": 530
+},
+"0044b653": {
+"game": true,
+"size": 6497
+},
+"0044cfdc": {
+"game": true,
+"size": 633
+},
+"0044d255": {
+"game": true,
+"size": 1690
+},
+"0044d917": {
+"game": true,
+"size": 77
+},
+"0044d964": {
+"game": true,
+"size": 206
+},
+"0044da32": {
+"game": true,
+"size": 1190
+},
+"0044ded8": {
+"game": true,
+"size": 606
+},
+"0044e136": {
+"game": true,
+"size": 113
+},
+"0044e1a7": {
+"game": true,
+"size": 689
+},
+"0044e458": {
+"game": true,
+"size": 106
+},
+"0044e4c2": {
+"game": true,
+"size": 1157
+},
+"0044e947": {
+"game": true,
+"size": 186
+},
+"0044ea01": {
+"game": true,
+"size": 177
+},
+"0044eab2": {
+"game": true,
+"size": 71
+},
+"0044eaf9": {
+"game": true,
+"size": 230
+},
+"0044ebe0": {
+"game": true,
+"size": 223
+},
+"0044ecbf": {
+"game": true,
+"size": 1529
+},
+"0044f2b8": {
+"game": true,
+"size": 192
+},
+"0044f378": {
+"game": true,
+"size": 3336
+},
+"00450080": {
+"game": true,
+"size": 128
+},
+"00450473": {
+"game": true,
+"size": 756
+},
+"00450767": {
+"game": true,
+"size": 1928
+},
+"00450f43": {
+"game": true,
+"size": 281
+},
+"0045105c": {
+"game": true,
+"size": 123
+},
+"004510d7": {
+"game": true,
+"size": 299
+},
+"00451202": {
+"game": true,
+"size": 343
+},
+"00451359": {
+"game": true,
+"size": 951
+},
+"00451710": {
+"game": true,
+"size": 529
+},
+"00451921": {
+"game": true,
+"size": 867
+},
+"00451c84": {
+"game": true,
+"size": 806
+},
+"00451faa": {
+"game": true,
+"size": 417
+},
+"0045214b": {
+"game": true,
+"size": 191
+},
+"00452210": {
+"game": true,
+"size": 163
+},
+"004522b3": {
+"game": true,
+"size": 1039
+},
+"004527fa": {
+"game": true,
+"size": 248
+},
+"004528f2": {
+"game": true,
+"size": 7958
+},
+"00454861": {
+"game": true,
+"size": 1338
+},
+"00454e1c": {
+"game": true,
+"size": 299
+},
+"00454f47": {
+"game": true,
+"size": 620
+},
+"004551e1": {
+"game": true,
+"size": 1768
+},
+"004558c9": {
+"game": true,
+"size": 541
+},
+"00455ae6": {
+"game": true,
+"size": 47
+},
+"00455b15": {
+"game": true,
+"size": 206
+},
+"00455be3": {
+"game": true,
+"size": 65
+},
+"00455c30": {
+"game": true,
+"size": 94
+},
+"00455c8e": {
+"game": true,
+"size": 666
+},
+"00455fc1": {
+"game": true,
+"size": 292
+},
+"004560e5": {
+"game": true,
+"size": 67
+},
+"00456128": {
+"game": true,
+"size": 6217
+},
+"004579ad": {
+"game": true,
+"size": 122
+},
+"00457a27": {
+"game": true,
+"size": 315
+},
+"00457b62": {
+"game": true,
+"size": 2484
+},
+"0045869a": {
+"game": true,
+"size": 43
+},
+"004586c5": {
+"game": true,
+"size": 603
+},
+"00458920": {
+"game": true,
+"size": 349
+},
+"00458a7d": {
+"game": true,
+"size": 200
+},
+"00458b45": {
+"game": true,
+"size": 112
+},
+"00458bc0": {
+"game": true,
+"size": 481
+},
+"00458e40": {
+"game": true,
+"size": 88
+},
+"00458e98": {
+"game": true,
+"size": 760
+},
+"00459190": {
+"game": true,
+"size": 124
+},
+"0045920c": {
+"game": true,
+"size": 280
+},
+"00459324": {
+"game": true,
+"size": 112
+},
+"004593a0": {
+"game": true,
+"size": 880
+},
+"00459710": {
+"game": true,
+"size": 121
+},
+"00459789": {
+"game": true,
+"size": 108
+},
+"004597f5": {
+"game": true,
+"size": 663
+},
+"00459a90": {
+"game": true,
+"size": 61
+},
+"00459acd": {
+"game": true,
+"size": 61
+},
+"00459b0a": {
+"game": true,
+"size": 61
+},
+"00459b47": {
+"game": true,
+"size": 173
+},
+"00459bf4": {
+"game": true,
+"size": 139
+},
+"00459c7f": {
+"game": true,
+"size": 1276
+},
+"0045a197": {
+"game": true,
+"size": 570
+},
+"0045a446": {
+"game": true,
+"size": 221
+},
+"0045a523": {
+"game": true,
+"size": 103
+},
+"0045a58a": {
+"game": true,
+"size": 1367
+},
+"0045ab80": {
+"game": true,
+"size": 112
+},
+"0045abf0": {
+"game": true,
+"size": 45
+},
+"0045ac20": {
+"game": true,
+"size": 1268
+},
+"0045b1b3": {
+"game": true,
+"size": 8711
+},
+"0045d3f2": {
+"game": true,
+"size": 1100
+},
+"0045d83e": {
+"game": true,
+"size": 1905
+},
+"0045dfeb": {
+"game": true,
+"size": 62
+},
+"0045e029": {
+"game": true,
+"size": 215
+},
+"0045e100": {
+"game": true,
+"size": 256
+},
+"0045e200": {
+"game": true,
+"size": 42
+},
+"0045e22a": {
+"game": true,
+"size": 249
+},
+"0045e323": {
+"game": true,
+"size": 453
+},
+"0045e4e8": {
+"game": true,
+"size": 133
+},
+"0045e570": {
+"game": true,
+"size": 190
+},
+"0045e62e": {
+"game": true,
+"size": 963
+},
+"0045e9f1": {
+"game": true,
+"size": 192
+},
+"0045eab1": {
+"game": true,
+"size": 94
+},
+"0045eb0f": {
+"game": true,
+"size": 99
+},
+"0045eb72": {
+"game": true,
+"size": 237
+},
+"0045ec5f": {
+"game": true,
+"size": 132
+},
+"0045ed32": {
+"game": true,
+"size": 305
+},
+"0045ee9e": {
+"game": true,
+"size": 96
+},
+"0045eefe": {
+"game": true,
+"size": 199
+},
+"0045efc5": {
+"game": true,
+"size": 181
+},
+"0045f07a": {
+"game": true,
+"size": 134
+},
+"0045f100": {
+"game": true,
+"size": 135
+},
+"0045f187": {
+"game": true,
+"size": 195
+},
+"0045f24a": {
+"game": true,
+"size": 193
+},
+"0045f30b": {
+"game": true,
+"size": 515
+},
+"0045f50e": {
+"game": true,
+"size": 152
+},
+"0045f5a6": {
+"game": true,
+"size": 92
+},
+"0045f602": {
+"game": true,
+"size": 107
+},
+"0045f66d": {
+"game": true,
+"size": 81
+},
+"0045f6be": {
+"game": true,
+"size": 99
+},
+"0045f721": {
+"game": true,
+"size": 89
+},
+"0045f77a": {
+"game": true,
+"size": 5037
+},
+"00460b93": {
+"game": true,
+"size": 2297
+},
+"0046155f": {
+"game": true,
+"size": 65
+},
+"004615a0": {
+"game": true,
+"size": 70
+},
+"004615e6": {
+"game": true,
+"size": 43
+},
+"00461611": {
+"game": true,
+"size": 406
+},
+"004618df": {
+"game": true,
+"size": 156
+},
+"0046197b": {
+"game": true,
+"size": 98
+},
+"004619dd": {
+"game": true,
+"size": 25
+},
+"004619f6": {
+"game": true,
+"size": 426
+},
+"00461ba0": {
+"game": true,
+"size": 321
+},
+"00461ce1": {
+"game": true,
+"size": 394
+},
+"00461e6b": {
+"game": true,
+"size": 174
+},
+"00461f20": {
+"game": true,
+"size": 335
+},
+"0046206f": {
+"game": true,
+"size": 258
+},
+"00462171": {
+"game": true,
+"size": 51
+},
+"004621a4": {
+"game": true,
+"size": 86
+},
+"004621fa": {
+"game": true,
+"size": 108
+},
+"00462266": {
+"game": true,
+"size": 183
+},
+"0046231d": {
+"game": true,
+"size": 223
+},
+"004623fc": {
+"game": true,
+"size": 74
+},
+"00462446": {
+"game": true,
+"size": 2369
+},
+"00462e4a": {
+"game": true,
+"size": 27
+},
+"00462e65": {
+"game": true,
+"size": 571
+},
+"004630a0": {
+"game": true,
+"size": 111
+},
+"0046310f": {
+"game": true,
+"size": 794
+},
+"00463445": {
+"game": true,
+"size": 470
+},
+"0046361b": {
+"game": true,
+"size": 183
+},
+"004636d2": {
+"game": true,
+"size": 276
+},
+"004637e6": {
+"game": true,
+"size": 233
+},
+"004638cf": {
+"game": true,
+"size": 191
+},
+"0046398e": {
+"game": true,
+"size": 163
+},
+"00463a31": {
+"game": true,
+"size": 57
+},
+"00463a6a": {
+"game": true,
+"size": 120
+},
+"00463ae2": {
+"game": true,
+"size": 272
+},
+"00463bf2": {
+"game": true,
+"size": 64
+},
+"00463c32": {
+"game": true,
+"size": 442
+},
+"00463dec": {
+"game": true,
+"size": 53
+},
+"00463e21": {
+"game": true,
+"size": 454
+},
+"00463fe7": {
+"game": true,
+"size": 652
+},
+"00464273": {
+"game": true,
+"size": 201
+},
+"0046433c": {
+"game": true,
+"size": 526
+},
+"0046454a": {
+"game": true,
+"size": 452
+},
+"0046470e": {
+"game": true,
+"size": 990
+},
+"00464b3b": {
+"game": true,
+"size": 74
+},
+"00464b85": {
+"game": true,
+"size": 108
+},
+"00464bf1": {
+"game": true,
+"size": 220
+},
+"00464ccd": {
+"game": true,
+"size": 224
+},
+"00464dad": {
+"game": true,
+"size": 3379
+},
+"00465ae0": {
+"game": true,
+"size": 172
+},
+"00465b8c": {
+"game": true,
+"size": 283
+},
+"00465ca7": {
+"game": true,
+"size": 1317
+},
+"004661cc": {
+"game": true,
+"size": 466
+},
+"0046639e": {
+"game": true,
+"size": 20353
+},
+"0046b39e": {
+"game": true,
+"size": 483
+},
+"0046b581": {
+"game": true,
+"size": 175
+},
+"0046b630": {
+"game": true,
+"size": 347
+},
+"0046b78b": {
+"game": true,
+"size": 1113
+},
+"0046bc35": {
+"game": true,
+"size": 141
+},
+"0046bcc2": {
+"game": true,
+"size": 121
+},
+"0046bd3b": {
+"game": true,
+"size": 130
+},
+"0046bdbd": {
+"game": true,
+"size": 822
+},
+"0046c0f3": {
+"game": true,
+"size": 63
+},
+"0046c132": {
+"game": true,
+"size": 84
+},
+"0046c186": {
+"game": true,
+"size": 120
+},
+"0046c1fe": {
+"game": true,
+"size": 269
+},
+"0046c30b": {
+"game": true,
+"size": 126
+},
+"0046c389": {
+"game": true,
+"size": 1341
+},
+"0046c8d6": {
+"game": true,
+"size": 1204
+},
+"0046cd8a": {
+"game": true,
+"size": 216
+},
+"0046ce62": {
+"game": true,
+"size": 2506
+},
+"0046d83c": {
+"game": true,
+"size": 620
+},
+"0046daa8": {
+"game": true,
+"size": 355
+},
+"0046dc0b": {
+"game": true,
+"size": 3455
+},
+"0046e98a": {
+"game": true,
+"size": 60
+},
+"0046e9c6": {
+"game": true,
+"size": 153
+},
+"0046ea5f": {
+"game": true,
+"size": 105
+},
+"0046eac8": {
+"game": true,
+"size": 132
+},
+"0046eb4c": {
+"game": true,
+"size": 13
+},
+"0046eb59": {
+"game": true,
+"size": 188
+},
+"0046ec15": {
+"game": true,
+"size": 327
+},
+"0046ed60": {
+"game": true,
+"size": 1322
+},
+"0046f323": {
+"game": true,
+"size": 8217
+},
+"00471384": {
+"game": true,
+"size": 23
+},
+"0047139b": {
+"game": true,
+"size": 2201
+},
+"00471c7c": {
+"game": true,
+"size": 323
+},
+"00471dbf": {
+"game": true,
+"size": 716
+},
+"0047208b": {
+"game": true,
+"size": 42
+},
+"004720b5": {
+"game": true,
+"size": 45
+},
+"004720e2": {
+"game": true,
+"size": 198
+},
+"004721a8": {
+"game": true,
+"size": 58
+},
+"004721e2": {
+"game": true,
+"size": 245
+},
+"004722d7": {
+"game": true,
+"size": 163
+},
+"00472380": {
+"game": true,
+"size": 479
+},
+"0047255f": {
+"game": true,
+"size": 486
+},
+"00472745": {
+"game": true,
+"size": 37
+},
+"0047276a": {
+"game": true,
+"size": 5
+},
+"0047276f": {
+"game": true,
+"size": 15
+},
+"0047277e": {
+"game": true,
+"size": 15
+},
+"0047278d": {
+"game": true,
+"size": 18
+},
+"0047279f": {
+"game": true,
+"size": 15
+},
+"004727ae": {
+"game": true,
+"size": 342
+},
+"00472904": {
+"game": true,
+"size": 4746
+},
+"00473b8e": {
+"game": true,
+"size": 10
+},
+"00473b98": {
+"game": true,
+"size": 57
+},
+"00473bd1": {
+"game": true,
+"size": 10
+},
+"00473bdb": {
+"game": true,
+"size": 57
+},
+"00473c14": {
+"game": true,
+"size": 423
+},
+"00473dbb": {
+"game": true,
+"size": 595
+},
+"0047400e": {
+"game": true,
+"size": 1717
+},
+"004746c3": {
+"game": true,
+"size": 1739
+},
+"00474d90": {
+"game": true,
+"size": 262
+},
+"00474e96": {
+"game": true,
+"size": 629
+},
+"004751a4": {
+"game": true,
+"size": 100
+},
+"00475208": {
+"game": true,
+"size": 558
+},
+"00475436": {
+"game": true,
+"size": 1050
+},
+"00475880": {
+"game": true,
+"size": 32
+},
+"004758a0": {
+"game": true,
+"size": 1773
+},
+"00475fbd": {
+"game": true,
+"size": 270
+},
+"004760cb": {
+"game": true,
+"size": 79
+},
+"0047611a": {
+"game": true,
+"size": 65
+},
+"0047615b": {
+"game": true,
+"size": 37
+},
+"00476180": {
+"game": true,
+"size": 750
+},
+"0047646e": {
+"game": true,
+"size": 121
+},
+"004764e7": {
+"game": true,
+"size": 331
+},
+"00476632": {
+"game": true,
+"size": 450
+},
+"004767f4": {
+"game": true,
+"size": 575
+},
+"00476a33": {
+"game": true,
+"size": 296
+},
+"00476b5b": {
+"game": true,
+"size": 15
+},
+"00476b6a": {
+"game": true,
+"size": 401
+},
+"00476cfb": {
+"game": true,
+"size": 66
+},
+"00476d3d": {
+"game": true,
+"size": 269
+},
+"00476e50": {
+"game": true,
+"size": 10
+},
+"00476e5a": {
+"game": true,
+"size": 42
+},
+"00476e84": {
+"game": true,
+"size": 10
+},
+"00476e8e": {
+"game": true,
+"size": 25
+},
+"00476ea7": {
+"game": true,
+"size": 10
+},
+"00476eb1": {
+"game": true,
+"size": 25
+},
+"00476eca": {
+"game": true,
+"size": 421
+},
+"0047706f": {
+"game": true,
+"size": 178
+},
+"00477121": {
+"game": true,
+"size": 162
+},
+"004771c3": {
+"game": true,
+"size": 48
+},
+"004771f3": {
+"game": true,
+"size": 186
+},
+"004772ad": {
+"game": true,
+"size": 38
+},
+"004772d3": {
+"game": true,
+"size": 268
+},
+"004773df": {
+"game": true,
+"size": 311
+},
+"00477516": {
+"game": true,
+"size": 111
+},
+"00477585": {
+"game": true,
+"size": 56
+},
+"004775bd": {
+"game": true,
+"size": 82
+},
+"0047760f": {
+"game": true,
+"size": 115
+},
+"00477682": {
+"game": true,
+"size": 169
+},
+"0047772b": {
+"game": true,
+"size": 101
+},
+"00477790": {
+"game": true,
+"size": 437
+},
+"00477945": {
+"game": true,
+"size": 52
+},
+"00477979": {
+"game": true,
+"size": 55
+},
+"004779b0": {
+"game": true,
+"size": 111
+},
+"00477a1f": {
+"game": true,
+"size": 64
+},
+"00477a5f": {
+"game": true,
+"size": 101
+},
+"00477ac4": {
+"game": true,
+"size": 56
+},
+"00477afc": {
+"game": true,
+"size": 224
+},
+"00477bdc": {
+"game": true,
+"size": 163
+},
+"00477c7f": {
+"game": true,
+"size": 94
+},
+"00477cdd": {
+"game": true,
+"size": 123
+},
+"00477d58": {
+"game": true,
+"size": 385
+},
+"00477ed9": {
+"game": true,
+"size": 1083
+},
+"0047844c": {
+"game": true,
+"size": 63
+},
+"0047848b": {
+"game": true,
+"size": 63
+},
+"004784ca": {
+"game": true,
+"size": 184
+},
+"00478582": {
+"game": true,
+"size": 130
+},
+"00478604": {
+"game": true,
+"size": 441
+},
+"004787bd": {
+"game": true,
+"size": 192
+},
+"0047887d": {
+"game": true,
+"size": 147
+},
+"00478910": {
+"game": true,
+"size": 86
+},
+"00478966": {
+"game": true,
+"size": 70
+},
+"004789ac": {
+"game": true,
+"size": 93
+},
+"00478a09": {
+"game": true,
+"size": 44
+},
+"00478a35": {
+"game": true,
+"size": 423
+},
+"00478bdc": {
+"game": true,
+"size": 586
+},
+"00478e26": {
+"game": true,
+"size": 808
+},
+"0047914e": {
+"game": true,
+"size": 320
+},
+"0047928e": {
+"game": true,
+"size": 10310
+},
+"0047bb8c": {
+"game": true,
+"size": 3684
+},
+"0047cb06": {
+"game": true,
+"size": 190
+},
+"0047cbc4": {
+"game": true,
+"size": 275
+},
+"0047ccd7": {
+"game": true,
+"size": 380
+},
+"0047ce53": {
+"game": true,
+"size": 952
+},
+"0047d20b": {
+"game": true,
+"size": 121
+},
+"0047d284": {
+"game": true,
+"size": 138
+},
+"0047d310": {
+"game": true,
+"size": 23844
+},
+"004833c0": {
+"game": true,
+"size": 4496
+},
+"00484550": {
+"game": true,
+"size": 9406
+},
+"00486c1b": {
+"game": true,
+"size": 758
+},
+"00486f11": {
+"game": true,
+"size": 606
+},
+"0048716f": {
+"game": true,
+"size": 1098
+},
+"004875b9": {
+"game": true,
+"size": 349
+},
+"00487716": {
+"game": true,
+"size": 76
+},
+"00487762": {
+"game": true,
+"size": 33
+},
+"00487783": {
+"game": true,
+"size": 76
+},
+"004877cf": {
+"game": true,
+"size": 25
+},
+"004877e8": {
+"game": true,
+"size": 133
+},
+"0048786d": {
+"game": true,
+"size": 272
+},
+"0048797d": {
+"game": true,
+"size": 610
+},
+"00487bdf": {
+"game": true,
+"size": 707
+},
+"00487ea2": {
+"game": true,
+"size": 592
+},
+"004880f2": {
+"game": true,
+"size": 637
+},
+"0048836f": {
+"game": true,
+"size": 1444
+},
+"00488a51": {
+"game": true,
+"size": 393
+},
+"00488be0": {
+"game": true,
+"size": 166
+},
+"00488c86": {
+"game": true,
+"size": 309
+},
+"00488dbb": {
+"game": true,
+"size": 159
+},
+"00488e5a": {
+"game": true,
+"size": 295
+},
+"00488f81": {
+"game": true,
+"size": 570
+},
+"004891bb": {
+"game": true,
+"size": 80
+},
+"0048920b": {
+"game": true,
+"size": 65
+},
+"0048924c": {
+"game": true,
+"size": 67
+},
+"0048928f": {
+"game": true,
+"size": 549
+},
+"004894b4": {
+"game": true,
+"size": 235
+},
+"0048959f": {
+"game": true,
+"size": 324
+},
+"004896e3": {
+"game": true,
+"size": 1089
+},
+"00489b24": {
+"game": true,
+"size": 145
+},
+"00489bb5": {
+"game": true,
+"size": 596
+},
+"00489e09": {
+"game": true,
+"size": 902
+},
+"0048a18f": {
+"game": true,
+"size": 1496
+},
+"0048a767": {
+"game": true,
+"size": 304
+},
+"0048a897": {
+"game": true,
+"size": 1742
+},
+"0048af65": {
+"game": true,
+"size": 230
+},
+"0048b04b": {
+"game": true,
+"size": 775
+},
+"0048b352": {
+"game": true,
+"size": 786
+},
+"0048b664": {
+"game": true,
+"size": 679
+},
+"0048b90b": {
+"game": true,
+"size": 265
+},
+"0048ba14": {
+"game": true,
+"size": 385
+},
+"0048bb95": {
+"game": true,
+"size": 152
+},
+"0048bc2d": {
+"game": true,
+"size": 763
+},
+"0048bf28": {
+"game": true,
+"size": 849
+},
+"0048c279": {
+"game": true,
+"size": 64
+},
+"0048c2b9": {
+"game": true,
+"size": 78
+},
+"0048c307": {
+"game": true,
+"size": 38
+},
+"0048c32d": {
+"game": true,
+"size": 43
+},
+"0048c358": {
+"game": true,
+"size": 76
+},
+"0048c3a4": {
+"game": true,
+"size": 69
+},
+"0048c3e9": {
+"game": true,
+"size": 72
+},
+"0048c431": {
+"game": true,
+"size": 277
+},
+"0048c546": {
+"game": true,
+"size": 105
+},
+"0048c5af": {
+"game": true,
+"size": 165
+},
+"0048c654": {
+"game": true,
+"size": 370
+},
+"0048c7c6": {
+"game": true,
+"size": 239
+},
+"0048c8b5": {
+"game": true,
+"size": 174
+},
+"0048c963": {
+"game": true,
+"size": 57
+},
+"0048c99c": {
+"game": true,
+"size": 257
+},
+"0048ca9d": {
+"game": true,
+"size": 271
+},
+"0048cbac": {
+"game": true,
+"size": 125
+},
+"0048cc29": {
+"game": true,
+"size": 149
+},
+"0048ccbe": {
+"game": true,
+"size": 144
+},
+"0048cd4e": {
+"game": true,
+"size": 92
+},
+"0048cdaa": {
+"game": true,
+"size": 92
+},
+"0048ce06": {
+"game": true,
+"size": 119
+},
+"0048ce7d": {
+"game": true,
+"size": 183
+},
+"0048cf34": {
+"game": true,
+"size": 403
+},
+"0048d0c7": {
+"game": true,
+"size": 746
+},
+"0048d3c0": {
+"game": true,
+"size": 46
+},
+"0048d3ee": {
+"game": true,
+"size": 74
+},
+"0048d438": {
+"game": true,
+"size": 99
+},
+"0048d49b": {
+"game": true,
+"size": 70
+},
+"0048d4e1": {
+"game": true,
+"size": 49
+},
+"0048d512": {
+"game": true,
+"size": 277
+},
+"0048d627": {
+"game": true,
+"size": 196
+},
+"0048d6eb": {
+"game": true,
+"size": 99
+},
+"0048d74e": {
+"game": true,
+"size": 326
+},
+"0048d894": {
+"game": true,
+"size": 223
+},
+"0048d973": {
+"game": true,
+"size": 106
+},
+"0048d9dd": {
+"game": true,
+"size": 203
+},
+"0048daa8": {
+"game": true,
+"size": 222
+},
+"0048db86": {
+"game": true,
+"size": 146
+},
+"0048dc18": {
+"game": true,
+"size": 304
+},
+"0048dd48": {
+"game": true,
+"size": 161
+},
+"0048dde9": {
+"game": true,
+"size": 85
+},
+"0048de3e": {
+"game": true,
+"size": 54
+},
+"0048de74": {
+"game": true,
+"size": 131
+},
+"0048def7": {
+"game": true,
+"size": 206
+},
+"0048dfc5": {
+"game": true,
+"size": 107
+},
+"0048e030": {
+"game": true,
+"size": 96
+},
+"0048e090": {
+"game": true,
+"size": 289
+},
+"0048e1b1": {
+"game": true,
+"size": 206
+},
+"0048e27f": {
+"game": true,
+"size": 3745
+},
+"0048f120": {
+"game": true,
+"size": 242
+},
+"0048f212": {
+"game": true,
+"size": 150
+},
+"0048f2a8": {
+"game": true,
+"size": 1010
+},
+"0048f69a": {
+"game": true,
+"size": 388
+},
+"0048f81e": {
+"game": true,
+"size": 2579
+},
+"00490286": {
+"game": true,
+"size": 710
+},
+"0049054c": {
+"game": true,
+"size": 450
+},
+"00490778": {
+"game": true,
+"size": 1669
+},
+"00490ecf": {
+"game": true,
+"size": 113
+},
+"00490f40": {
+"game": true,
+"size": 88
+},
+"00490f98": {
+"game": true,
+"size": 249
+},
+"00491091": {
+"game": true,
+"size": 566
+},
+"004912c7": {
+"game": true,
+"size": 145
+},
+"00491358": {
+"game": true,
+"size": 52
+},
+"0049138c": {
+"game": true,
+"size": 206
+},
+"0049145a": {
+"game": true,
+"size": 38
+},
+"00491480": {
+"game": true,
+"size": 178
+},
+"00491532": {
+"game": true,
+"size": 52
+},
+"00491566": {
+"game": true,
+"size": 235
+},
+"00491651": {
+"game": true,
+"size": 38
+},
+"00491677": {
+"game": true,
+"size": 81
+},
+"004916c8": {
+"game": true,
+"size": 38
+},
+"004916ee": {
+"game": true,
+"size": 129
+},
+"0049176f": {
+"game": true,
+"size": 52
+},
+"004917a3": {
+"game": true,
+"size": 124
+},
+"0049181f": {
+"game": true,
+"size": 38
+},
+"00491845": {
+"game": true,
+"size": 115
+},
+"004918b8": {
+"game": true,
+"size": 118
+},
+"0049192e": {
+"game": true,
+"size": 50
+},
+"00491960": {
+"game": true,
+"size": 156
+},
+"004919fc": {
+"game": true,
+"size": 118
+},
+"00491a72": {
+"game": true,
+"size": 94
+},
+"00491ad0": {
+"game": true,
+"size": 136
+},
+"00491b58": {
+"game": true,
+"size": 154
+},
+"00491bf2": {
+"game": true,
+"size": 99
+},
+"00491c55": {
+"game": true,
+"size": 151
+},
+"00491cfc": {
+"game": true,
+"size": 41
+},
+"00491d25": {
+"game": true,
+"size": 222
+},
+"00491e10": {
+"game": true,
+"size": 290
+},
+"00491f32": {
+"game": true,
+"size": 144
+},
+"00491fc2": {
+"game": true,
+"size": 155
+},
+"0049205d": {
+"game": true,
+"size": 346
+},
+"004921b7": {
+"game": true,
+"size": 696
+},
+"0049246f": {
+"game": true,
+"size": 108
+},
+"004924db": {
+"game": true,
+"size": 1564
+},
+"00492af7": {
+"game": true,
+"size": 84
+},
+"00492b4b": {
+"game": true,
+"size": 596
+},
+"00492d9f": {
+"game": true,
+"size": 323
+},
+"00492ee2": {
+"game": true,
+"size": 346
+},
+"0049303c": {
+"game": true,
+"size": 690
+},
+"004932ee": {
+"game": true,
+"size": 777
+},
+"004935f7": {
+"game": true,
+"size": 180
+},
+"004936ab": {
+"game": true,
+"size": 980
+},
+"00493a7f": {
+"game": true,
+"size": 593
+},
+"00493cd0": {
+"game": true,
+"size": 72
+},
+"00493d18": {
+"game": true,
+"size": 349
+},
+"00493e80": {
+"game": true,
+"size": 75
+},
+"00493ecb": {
+"game": true,
+"size": 587
+},
+"00494116": {
+"game": true,
+"size": 83
+},
+"00494170": {
+"game": true,
+"size": 2050
+},
+"00494972": {
+"game": true,
+"size": 129
+},
+"004949f3": {
+"game": true,
+"size": 15
+},
+"00494a02": {
+"game": true,
+"size": 585
+},
+"00494d83": {
+"game": true,
+"size": 98
+},
+"00494df0": {
+"game": true,
+"size": 162
+},
+"00494e92": {
+"game": true,
+"size": 383
+},
+"00495011": {
+"game": true,
+"size": 221
+},
+"004950ee": {
+"game": true,
+"size": 100
+},
+"00495160": {
+"game": true,
+"size": 304
+},
+"004952a0": {
+"game": true,
+"size": 15
+},
+"004952af": {
+"game": true,
+"size": 11
+},
+"004952ba": {
+"game": true,
+"size": 358
+},
+"00495430": {
+"game": true,
+"size": 126
+},
+"004954ae": {
+"game": true,
+"size": 47
+},
+"004954dd": {
+"game": true,
+"size": 100
+},
+"00495550": {
+"game": true,
+"size": 406
+},
+"004956e6": {
+"game": true,
+"size": 392
+},
+"0049586e": {
+"game": true,
+"size": 15
+},
+"0049587d": {
+"game": true,
+"size": 117
+},
+"00495900": {
+"game": true,
+"size": 95
+},
+"0049595f": {
+"game": true,
+"size": 1006
+},
+"00495d5d": {
+"game": true,
+"size": 15
+},
+"00495d6c": {
+"game": true,
+"size": 877
+},
+"004960e9": {
+"game": true,
+"size": 56
+},
+"00496121": {
+"game": true,
+"size": 103
+},
+"00496190": {
+"game": true,
+"size": 608
+},
+"0049648f": {
+"game": true,
+"size": 252
+},
+"0049658b": {
+"game": true,
+"size": 1368
+},
+"00496af7": {
+"game": true,
+"size": 372
+},
+"00496c7f": {
+"game": true,
+"size": 76
+},
+"00496ccb": {
+"game": true,
+"size": 686
+},
+"00496f8d": {
+"game": true,
+"size": 505
+},
+"00497186": {
+"game": true,
+"size": 103
+},
+"004971f0": {
+"game": true,
+"size": 553
+},
+"004974b2": {
+"game": true,
+"size": 2920
+},
+"0049806a": {
+"game": true,
+"size": 387
+},
+"004981ed": {
+"game": true,
+"size": 2824
+},
+"00498d45": {
+"game": true,
+"size": 198
+},
+"00498e0b": {
+"game": true,
+"size": 225
+},
+"00498eec": {
+"game": true,
+"size": 42
+},
+"00498f16": {
+"game": true,
+"size": 38
+},
+"00498f3c": {
+"game": true,
+"size": 127
+},
+"00498fbb": {
+"game": true,
+"size": 103
+},
+"00499030": {
+"game": true,
+"size": 30
+},
+"0049904e": {
+"game": true,
+"size": 21
+},
+"00499063": {
+"game": true,
+"size": 211
+},
+"00499136": {
+"game": true,
+"size": 31
+},
+"00499155": {
+"game": true,
+"size": 320
+},
+"00499295": {
+"game": true,
+"size": 100
+},
+"00499300": {
+"game": true,
+"size": 706
+},
+"004995c2": {
+"game": true,
+"size": 190
+},
+"0049971f": {
+"game": true,
+"size": 761
+},
+"00499a18": {
+"game": true,
+"size": 857
+},
+"00499d71": {
+"game": true,
+"size": 15
+},
+"00499d80": {
+"game": true,
+"size": 163
+},
+"00499e30": {
+"game": true,
+"size": 254
+},
+"0049a066": {
+"game": true,
+"size": 21
+},
+"0049a07b": {
+"game": true,
+"size": 1366
+},
+"0049a5e5": {
+"game": true,
+"size": 15
+},
+"0049a5f4": {
+"game": true,
+"size": 1713
+},
+"0049acb9": {
+"game": true,
+"size": 45
+},
+"0049ace6": {
+"game": true,
+"size": 103
+},
+"0049ad50": {
+"game": true,
+"size": 699
+},
+"0049b149": {
+"game": true,
+"size": 594
+},
+"0049b39b": {
+"game": true,
+"size": 75
+},
+"0049b3e6": {
+"game": true,
+"size": 31
+},
+"0049b405": {
+"game": true,
+"size": 174
+},
+"0049b552": {
+"game": true,
+"size": 103
+},
+"0049b5b9": {
+"game": true,
+"size": 100
+},
+"0049b620": {
+"game": true,
+"size": 387
+},
+"0049b83c": {
+"game": true,
+"size": 421
+},
+"0049b9e1": {
+"game": true,
+"size": 333
+},
+"0049bb2e": {
+"game": true,
+"size": 467
+},
+"0049bd01": {
+"game": true,
+"size": 3636
+},
+"0049cb69": {
+"game": true,
+"size": 125
+},
+"0049cbe6": {
+"game": true,
+"size": 41
+},
+"0049cc0f": {
+"game": true,
+"size": 103
+},
+"0049cc76": {
+"game": true,
+"size": 418
+},
+"0049ce30": {
+"game": true,
+"size": 128
+},
+"0049cf49": {
+"game": true,
+"size": 24
+},
+"0049cf61": {
+"game": true,
+"size": 572
+},
+"0049d19d": {
+"game": true,
+"size": 83
+},
+"0049d1f0": {
+"game": true,
+"size": 141
+},
+"0049d27d": {
+"game": true,
+"size": 132
+},
+"0049d310": {
+"game": true,
+"size": 255
+},
+"0049d4a8": {
+"game": true,
+"size": 928
+},
+"0049d95c": {
+"game": true,
+"size": 436
+},
+"0049db10": {
+"game": true,
+"size": 469
+},
+"0049dce5": {
+"game": true,
+"size": 235
+},
+"0049ddd0": {
+"game": true,
+"size": 311
+},
+"0049df07": {
+"game": true,
+"size": 137
+},
+"0049df90": {
+"game": true,
+"size": 41
+},
+"0049dfb9": {
+"game": true,
+"size": 103
+},
+"0049e020": {
+"game": true,
+"size": 141
+},
+"0049e146": {
+"game": true,
+"size": 21
+},
+"0049e15b": {
+"game": true,
+"size": 979
+},
+"0049e52e": {
+"game": true,
+"size": 262
+},
+"0049e634": {
+"game": true,
+"size": 146
+},
+"0049e6c6": {
+"game": true,
+"size": 638
+},
+"0049e958": {
+"game": true,
+"size": 112
+},
+"0049e9d0": {
+"game": true,
+"size": 591
+},
+"0049ec1f": {
+"game": true,
+"size": 138
+},
+"0049eca9": {
+"game": true,
+"size": 751
+},
+"0049efc1": {
+"game": true,
+"size": 63
+},
+"0049f000": {
+"game": true,
+"size": 286
+},
+"0049f11e": {
+"game": true,
+"size": 217
+},
+"0049f1f7": {
+"game": true,
+"size": 100
+},
+"0049f260": {
+"game": true,
+"size": 246
+},
+"0049f48e": {
+"game": true,
+"size": 1412
+},
+"0049fa12": {
+"game": true,
+"size": 15
+},
+"0049fa21": {
+"game": true,
+"size": 1114
+},
+"0049fe7b": {
+"game": true,
+"size": 45
+},
+"0049fea8": {
+"game": true,
+"size": 136
+},
+"0049ff30": {
+"game": true,
+"size": 138
+},
+"0049ffba": {
+"game": true,
+"size": 19
+},
+"0049ffcd": {
+"game": true,
+"size": 128
+},
+"004a004d": {
+"game": true,
+"size": 100
+},
+"004a00c0": {
+"game": true,
+"size": 564
+},
+"004a0393": {
+"game": true,
+"size": 524
+},
+"004a059f": {
+"game": true,
+"size": 393
+},
+"004a0728": {
+"game": true,
+"size": 24
+},
+"004a0740": {
+"game": true,
+"size": 101
+},
+"004a07b0": {
+"game": true,
+"size": 640
+},
+"004a0a30": {
+"game": true,
+"size": 42
+},
+"004a0a5a": {
+"game": true,
+"size": 443
+},
+"004a0d53": {
+"game": true,
+"size": 98
+},
+"004a0dc0": {
+"game": true,
+"size": 270
+},
+"004a0ece": {
+"game": true,
+"size": 123
+},
+"004a1081": {
+"game": true,
+"size": 146
+},
+"004a1113": {
+"game": true,
+"size": 1363
+},
+"004a1666": {
+"game": true,
+"size": 125
+},
+"004a1790": {
+"game": true,
+"size": 781
+},
+"004a1b3c": {
+"game": true,
+"size": 256
+},
+"004a1c3c": {
+"game": true,
+"size": 4405
+},
+"004a2d89": {
+"game": true,
+"size": 1889
+},
+"004a3512": {
+"game": true,
+"size": 1230
+},
+"004a39f8": {
+"game": true,
+"size": 343
+},
+"004a3b4f": {
+"game": true,
+"size": 606
+},
+"004a3dad": {
+"game": true,
+"size": 829
+},
+"004a40ea": {
+"game": true,
+"size": 523
+},
+"004a42f5": {
+"game": true,
+"size": 1503
+},
+"004a4928": {
+"game": true,
+"size": 655
+},
+"004a4bc0": {
+"game": true,
+"size": 675
+},
+"004a4e63": {
+"game": true,
+"size": 200
+},
+"004a4f2b": {
+"game": true,
+"size": 608
+},
+"004a518b": {
+"game": true,
+"size": 732
+},
+"004a5501": {
+"game": true,
+"size": 31
+},
+"004a5520": {
+"game": true,
+"size": 219
+},
+"004a55fb": {
+"game": true,
+"size": 165
+},
+"004a56a0": {
+"game": true,
+"size": 112
+},
+"004a5710": {
+"game": true,
+"size": 60
+},
+"004a57e5": {
+"game": true,
+"size": 21
+},
+"004a57fa": {
+"game": true,
+"size": 122
+},
+"004a5874": {
+"game": true,
+"size": 216
+},
+"004a594c": {
+"game": true,
+"size": 280
+},
+"004a5a64": {
+"game": true,
+"size": 81
+},
+"004a5ab5": {
+"game": true,
+"size": 100
+},
+"004a5b20": {
+"game": true,
+"size": 853
+},
+"004a5f14": {
+"game": true,
+"size": 73
+},
+"004a5f5d": {
+"game": true,
+"size": 1498
+},
+"004a6563": {
+"game": true,
+"size": 401
+},
+"004a66f4": {
+"game": true,
+"size": 2009
+},
+"004a6ef9": {
+"game": true,
+"size": 161
+},
+"004a6f9a": {
+"game": true,
+"size": 176
+},
+"004a704a": {
+"game": true,
+"size": 142
+},
+"004a70d8": {
+"game": true,
+"size": 103
+},
+"004a7140": {
+"game": true,
+"size": 794
+},
+"004a74f9": {
+"game": true,
+"size": 152
+},
+"004a7591": {
+"game": true,
+"size": 102
+},
+"004a75f7": {
+"game": true,
+"size": 585
+},
+"004a7840": {
+"game": true,
+"size": 1132
+},
+"004a7cbc": {
+"game": true,
+"size": 1737
+},
+"004a8385": {
+"game": true,
+"size": 265
+},
+"004a848e": {
+"game": true,
+"size": 482
+},
+"004a8670": {
+"game": true,
+"size": 357
+},
+"004a87d5": {
+"game": true,
+"size": 132
+},
+"004a8859": {
+"game": true,
+"size": 103
+},
+"004a88c0": {
+"game": true,
+"size": 100
+},
+"004a8924": {
+"game": true,
+"size": 50
+},
+"004a89f5": {
+"game": true,
+"size": 63
+},
+"004a8a40": {
+"game": true,
+"size": 1715
+},
+"004a90f3": {
+"game": true,
+"size": 216
+},
+"004a91cb": {
+"game": true,
+"size": 40
+},
+"004a91f3": {
+"game": true,
+"size": 630
+},
+"004a9469": {
+"game": true,
+"size": 156
+},
+"004a963d": {
+"game": true,
+"size": 850
+},
+"004a998f": {
+"game": true,
+"size": 527
+},
+"004a9b9e": {
+"game": true,
+"size": 687
+},
+"004a9e4d": {
+"game": true,
+"size": 106
+},
+"004a9eb7": {
+"game": true,
+"size": 313
+},
+"004a9ff0": {
+"game": true,
+"size": 395
+},
+"004aa17b": {
+"game": true,
+"size": 1912
+},
+"004aa907": {
+"game": true,
+"size": 653
+},
+"004aab94": {
+"game": true,
+"size": 840
+},
+"004aaf7b": {
+"game": true,
+"size": 103
+},
+"004aafe2": {
+"game": true,
+"size": 341
+},
+"004ab137": {
+"game": true,
+"size": 280
+},
+"004ab24f": {
+"game": true,
+"size": 192
+},
+"004ab30f": {
+"game": true,
+"size": 123
+},
+"004ab390": {
+"game": true,
+"size": 115
+},
+"004ab403": {
+"game": true,
+"size": 767
+},
+"004ab702": {
+"game": true,
+"size": 133
+},
+"004ab8bf": {
+"game": true,
+"size": 21
+},
+"004ab8d4": {
+"game": true,
+"size": 713
+},
+"004abb9d": {
+"game": true,
+"size": 128
+},
+"004abcc0": {
+"game": true,
+"size": 356
+},
+"004abec3": {
+"game": true,
+"size": 852
+},
+"004ac217": {
+"game": true,
+"size": 587
+},
+"004ac462": {
+"game": true,
+"size": 189
+},
+"004ac51f": {
+"game": true,
+"size": 140
+},
+"004ac5b0": {
+"game": true,
+"size": 758
+},
+"004ac945": {
+"game": true,
+"size": 839
+},
+"004acc8c": {
+"game": true,
+"size": 110
+},
+"004accfa": {
+"game": true,
+"size": 101
+},
+"004acd5f": {
+"game": true,
+"size": 33
+},
+"004acd80": {
+"game": true,
+"size": 413
+},
+"004acfbc": {
+"game": true,
+"size": 124
+},
+"004ad038": {
+"game": true,
+"size": 105
+},
+"004ad0a1": {
+"game": true,
+"size": 845
+},
+"004ad40e": {
+"game": true,
+"size": 545
+},
+"004ad64f": {
+"game": true,
+"size": 613
+},
+"004ad8b4": {
+"game": true,
+"size": 99
+},
+"004ad917": {
+"game": true,
+"size": 103
+},
+"004ad980": {
+"game": true,
+"size": 319
+},
+"004adbf7": {
+"game": true,
+"size": 467
+},
+"004ade4b": {
+"game": true,
+"size": 155
+},
+"004adee6": {
+"game": true,
+"size": 98
+},
+"004adf48": {
+"game": true,
+"size": 330
+},
+"004ae092": {
+"game": true,
+"size": 1730
+},
+"004ae760": {
+"game": true,
+"size": 356
+},
+"004ae8c4": {
+"game": true,
+"size": 129
+},
+"004ae945": {
+"game": true,
+"size": 88
+},
+"004ae99d": {
+"game": true,
+"size": 149
+},
+"004aea32": {
+"game": true,
+"size": 484
+},
+"004aec26": {
+"game": true,
+"size": 320
+},
+"004aed66": {
+"game": true,
+"size": 159
+},
+"004aee05": {
+"game": true,
+"size": 192
+},
+"004aeec5": {
+"game": true,
+"size": 103
+},
+"004aef30": {
+"game": true,
+"size": 166
+},
+"004aefd6": {
+"game": true,
+"size": 85
+},
+"004af02b": {
+"game": true,
+"size": 84
+},
+"004af07f": {
+"game": true,
+"size": 121
+},
+"004af0f8": {
+"game": true,
+"size": 268
+},
+"004af204": {
+"game": true,
+"size": 183
+},
+"004af2bb": {
+"game": true,
+"size": 185
+},
+"004af374": {
+"game": true,
+"size": 192
+},
+"004af434": {
+"game": true,
+"size": 103
+},
+"004af4a0": {
+"game": true,
+"size": 130
+},
+"004af522": {
+"game": true,
+"size": 87
+},
+"004af579": {
+"game": true,
+"size": 228
+},
+"004af65d": {
+"game": true,
+"size": 726
+},
+"004af933": {
+"game": true,
+"size": 100
+},
+"004af997": {
+"game": true,
+"size": 139
+},
+"004afa22": {
+"game": true,
+"size": 245
+},
+"004afb17": {
+"game": true,
+"size": 2644
+},
+"004b057f": {
+"game": true,
+"size": 2209
+},
+"004b0e91": {
+"game": true,
+"size": 321
+},
+"004b0fd2": {
+"game": true,
+"size": 151
+},
+"004b1069": {
+"game": true,
+"size": 2362
+},
+"004b19b7": {
+"game": true,
+"size": 76
+},
+"004b1a03": {
+"game": true,
+"size": 2931
+},
+"004b259a": {
+"game": true,
+"size": 453
+},
+"004b2760": {
+"game": true,
+"size": 217
+},
+"004b2840": {
+"game": true,
+"size": 2597
+},
+"004b3270": {
+"game": true,
+"size": 609
+},
+"004b3609": {
+"game": true,
+"size": 91
+},
+"004b3664": {
+"game": true,
+"size": 429
+},
+"004b3811": {
+"game": true,
+"size": 97
+},
+"004b3872": {
+"game": true,
+"size": 105
+},
+"004b38db": {
+"game": true,
+"size": 401
+},
+"004b3a6c": {
+"game": true,
+"size": 103
+},
+"004b3ae0": {
+"game": true,
+"size": 48
+},
+"004b3b10": {
+"game": true,
+"size": 125
+},
+"004b3c2c": {
+"game": true,
+"size": 608
+},
+"004b3e8c": {
+"game": true,
+"size": 782
+},
+"004b419a": {
+"game": true,
+"size": 78
+},
+"004b41e8": {
+"game": true,
+"size": 36
+},
+"004b420c": {
+"game": true,
+"size": 100
+},
+"004b4270": {
+"game": true,
+"size": 28
+},
+"004b428c": {
+"game": true,
+"size": 59
+},
+"004b42c7": {
+"game": true,
+"size": 91
+},
+"004b4322": {
+"game": true,
+"size": 112
+},
+"004b43a0": {
+"game": true,
+"size": 167
+},
+"004b4447": {
+"game": true,
+"size": 848
+},
+"004b498a": {
+"game": true,
+"size": 423
+},
+"004b4c1b": {
+"game": true,
+"size": 224
+},
+"004b4d94": {
+"game": true,
+"size": 89
+},
+"004b4ded": {
+"game": true,
+"size": 120
+},
+"004b4e70": {
+"game": true,
+"size": 254
+},
+"004b4f6e": {
+"game": true,
+"size": 768
+},
+"004b531d": {
+"game": true,
+"size": 500
+},
+"004b55fa": {
+"game": true,
+"size": 120
+},
+"004b5672": {
+"game": true,
+"size": 211
+},
+"004b57e4": {
+"game": true,
+"size": 178
+},
+"004b5896": {
+"game": true,
+"size": 185
+},
+"004b5950": {
+"game": true,
+"size": 113
+},
+"004b59c1": {
+"game": true,
+"size": 103
+},
+"004b5a28": {
+"game": true,
+"size": 59
+},
+"004b5a63": {
+"game": true,
+"size": 59
+},
+"004b5a9e": {
+"game": true,
+"size": 189
+},
+"004b5b5b": {
+"game": true,
+"size": 224
+},
+"004b5c3b": {
+"game": true,
+"size": 273
+},
+"004b5d4c": {
+"game": true,
+"size": 323
+},
+"004b5e8f": {
+"game": true,
+"size": 675
+},
+"004b6132": {
+"game": true,
+"size": 168
+},
+"004b61da": {
+"game": true,
+"size": 208
+},
+"004b62aa": {
+"game": true,
+"size": 224
+},
+"004b638a": {
+"game": true,
+"size": 208
+},
+"004b645a": {
+"game": true,
+"size": 329
+},
+"004b65a3": {
+"game": true,
+"size": 101
+},
+"004b6608": {
+"game": true,
+"size": 189
+},
+"004b66c5": {
+"game": true,
+"size": 313
+},
+"004b67fe": {
+"game": true,
+"size": 136
+},
+"004b6886": {
+"game": true,
+"size": 1355
+},
+"004b6de9": {
+"game": true,
+"size": 89
+},
+"004b6e42": {
+"game": true,
+"size": 4670
+},
+"004b80bc": {
+"game": true,
+"size": 53
+},
+"004b80f1": {
+"game": true,
+"size": 1254
+},
+"004b85d7": {
+"game": true,
+"size": 954
+},
+"004b8991": {
+"game": true,
+"size": 162
+},
+"004b8b6b": {
+"game": true,
+"size": 783
+},
+"004b8e7a": {
+"game": true,
+"size": 152
+},
+"004b8f20": {
+"game": true,
+"size": 78
+},
+"004b8f6e": {
+"game": true,
+"size": 77
+},
+"004b905a": {
+"game": true,
+"size": 70
+},
+"004b90a0": {
+"game": true,
+"size": 11
+},
+"004b90ab": {
+"game": true,
+"size": 98
+},
+"004b9110": {
+"game": true,
+"size": 40
+},
+"004b91d7": {
+"game": true,
+"size": 32
+},
+"004b91f7": {
+"game": true,
+"size": 98
+},
+"004b9260": {
+"game": true,
+"size": 936
+},
+"004b96a7": {
+"game": true,
+"size": 432
+},
+"004b9857": {
+"game": true,
+"size": 648
+},
+"004b9adf": {
+"game": true,
+"size": 1756
+},
+"004ba234": {
+"game": true,
+"size": 119
+},
+"004ba2b0": {
+"game": true,
+"size": 639
+},
+"004ba5c8": {
+"game": true,
+"size": 311
+},
+"004ba6ff": {
+"game": true,
+"size": 483
+},
+"004ba8e2": {
+"game": true,
+"size": 398
+},
+"004baae9": {
+"game": true,
+"size": 1291
+},
+"004bb004": {
+"game": true,
+"size": 103
+},
+"004bb070": {
+"game": true,
+"size": 272
+},
+"004bb180": {
+"game": true,
+"size": 516
+},
+"004bb384": {
+"game": true,
+"size": 11
+},
+"004bb38f": {
+"game": true,
+"size": 15
+},
+"004bb39e": {
+"game": true,
+"size": 323
+},
+"004bb4e1": {
+"game": true,
+"size": 100
+},
+"004bb550": {
+"game": true,
+"size": 142
+},
+"004bb5de": {
+"game": true,
+"size": 80
+},
+"004bb62e": {
+"game": true,
+"size": 1111
+},
+"004bba85": {
+"game": true,
+"size": 268
+},
+"004bbb91": {
+"game": true,
+"size": 224
+},
+"004bbc71": {
+"game": true,
+"size": 739
+},
+"004bbfd8": {
+"game": true,
+"size": 111
+},
+"004bc047": {
+"game": true,
+"size": 139
+},
+"004bc0d2": {
+"game": true,
+"size": 112
+},
+"004bc150": {
+"game": true,
+"size": 47
+},
+"004bc17f": {
+"game": true,
+"size": 21
+},
+"004bc194": {
+"game": true,
+"size": 59
+},
+"004bc1cf": {
+"game": true,
+"size": 170
+},
+"004bc279": {
+"game": true,
+"size": 505
+},
+"004bc5b0": {
+"game": true,
+"size": 61
+},
+"004bc5ed": {
+"game": true,
+"size": 111
+},
+"004bc65c": {
+"game": true,
+"size": 15
+},
+"004bc66b": {
+"game": true,
+"size": 15
+},
+"004bc67a": {
+"game": true,
+"size": 18
+},
+"004bc68c": {
+"game": true,
+"size": 15
+},
+"004bc69b": {
+"game": true,
+"size": 3429
+},
+"004bd400": {
+"game": true,
+"size": 85
+},
+"004bd455": {
+"game": true,
+"size": 644
+},
+"004bd6d9": {
+"game": true,
+"size": 23
+},
+"004bd6f0": {
+"game": true,
+"size": 103
+},
+"004bd760": {
+"game": true,
+"size": 470
+},
+"004bd936": {
+"game": true,
+"size": 273
+},
+"004bda57": {
+"game": true,
+"size": 15
+},
+"004bda66": {
+"game": true,
+"size": 289
+},
+"004bdb97": {
+"game": true,
+"size": 48
+},
+"004bdbc7": {
+"game": true,
+"size": 103
+},
+"004bdc30": {
+"game": true,
+"size": 160
+},
+"004bdcd0": {
+"game": true,
+"size": 278
+},
+"004bdde6": {
+"game": true,
+"size": 33
+},
+"004bde07": {
+"game": true,
+"size": 44
+},
+"004bde33": {
+"game": true,
+"size": 32
+},
+"004bde53": {
+"game": true,
+"size": 258
+},
+"004bdf55": {
+"game": true,
+"size": 1341
+},
+"004be528": {
+"game": true,
+"size": 226
+},
+"004be60a": {
+"game": true,
+"size": 239
+},
+"004be6f9": {
+"game": true,
+"size": 112
+},
+"004be769": {
+"game": true,
+"size": 122
+},
+"004be7e3": {
+"game": true,
+"size": 155
+},
+"004be87e": {
+"game": true,
+"size": 344
+},
+"004be9d6": {
+"game": true,
+"size": 600
+},
+"004becb3": {
+"game": true,
+"size": 19
+},
+"004becc6": {
+"game": true,
+"size": 168
+},
+"004bed6e": {
+"game": true,
+"size": 21
+},
+"004bed83": {
+"game": true,
+"size": 130
+},
+"004bee05": {
+"game": true,
+"size": 21
+},
+"004bee1a": {
+"game": true,
+"size": 130
+},
+"004bee9c": {
+"game": true,
+"size": 15
+},
+"004beeab": {
+"game": true,
+"size": 15
+},
+"004beeba": {
+"game": true,
+"size": 18
+},
+"004beecc": {
+"game": true,
+"size": 15
+},
+"004beedb": {
+"game": true,
+"size": 1991
+},
+"004bf6b0": {
+"game": true,
+"size": 250
+},
+"004bf7aa": {
+"game": true,
+"size": 200
+},
+"004bf872": {
+"game": true,
+"size": 402
+},
+"004bfaa3": {
+"game": true,
+"size": 161
+},
+"004bfb44": {
+"game": true,
+"size": 4862
+},
+"004c0e56": {
+"game": true,
+"size": 2219
+},
+"004c17c1": {
+"game": true,
+"size": 1372
+},
+"004c1d35": {
+"game": true,
+"size": 245
+},
+"004c1e2a": {
+"game": true,
+"size": 135
+},
+"004c1ec0": {
+"game": true,
+"size": 41
+},
+"004c1ef0": {
+"game": true,
+"size": 84
+},
+"004c1f44": {
+"game": true,
+"size": 525
+},
+"004c2151": {
+"game": true,
+"size": 765
+},
+"004c24ca": {
+"game": true,
+"size": 85
+},
+"004c251f": {
+"game": true,
+"size": 198
+},
+"004c25e5": {
+"game": true,
+"size": 204
+},
+"004c26b1": {
+"game": true,
+"size": 161
+},
+"004c2760": {
+"game": true,
+"size": 167
+},
+"004c28a6": {
+"game": true,
+"size": 112
+},
+"004c2916": {
+"game": true,
+"size": 98
+},
+"004c2980": {
+"game": true,
+"size": 101
+},
+"004c29e5": {
+"game": true,
+"size": 1031
+},
+"004c2e8b": {
+"game": true,
+"size": 49
+},
+"004c2ebc": {
+"game": true,
+"size": 715
+},
+"004c3187": {
+"game": true,
+"size": 645
+},
+"004c340c": {
+"game": true,
+"size": 190
+},
+"004c34ca": {
+"game": true,
+"size": 385
+},
+"004c364b": {
+"game": true,
+"size": 239
+},
+"004c373a": {
+"game": true,
+"size": 426
+},
+"004c38e4": {
+"game": true,
+"size": 739
+},
+"004c3bc7": {
+"game": true,
+"size": 60
+},
+"004c3c03": {
+"game": true,
+"size": 673
+},
+"004c3eb0": {
+"game": true,
+"size": 463
+},
+"004c411e": {
+"game": true,
+"size": 23
+},
+"004c4135": {
+"game": true,
+"size": 4119
+},
+"004c5160": {
+"game": true,
+"size": 223
+},
+"004c534f": {
+"game": true,
+"size": 800
+},
+"004c5683": {
+"game": true,
+"size": 533
+},
+"004c58ac": {
+"game": true,
+"size": 103
+},
+"004c5920": {
+"game": true,
+"size": 295
+},
+"004c5ae6": {
+"game": true,
+"size": 322
+},
+"004c5c28": {
+"game": true,
+"size": 101
+},
+"004c5c90": {
+"game": true,
+"size": 625
+},
+"004c5f01": {
+"game": true,
+"size": 36
+},
+"004c5f25": {
+"game": true,
+"size": 2141
+},
+"004c6792": {
+"game": true,
+"size": 164
+},
+"004c6846": {
+"game": true,
+"size": 443
+},
+"004c6ab0": {
+"game": true,
+"size": 949
+},
+"004c7002": {
+"game": true,
+"size": 103
+},
+"004c7070": {
+"game": true,
+"size": 141
+},
+"004c70fd": {
+"game": true,
+"size": 97
+},
+"004c71fd": {
+"game": true,
+"size": 100
+},
+"004c7270": {
+"game": true,
+"size": 134
+},
+"004c7395": {
+"game": true,
+"size": 151
+},
+"004c742c": {
+"game": true,
+"size": 108
+},
+"004c74a0": {
+"game": true,
+"size": 540
+},
+"004c76bc": {
+"game": true,
+"size": 15
+},
+"004c76cb": {
+"game": true,
+"size": 501
+},
+"004c78c0": {
+"game": true,
+"size": 98
+},
+"004c7930": {
+"game": true,
+"size": 171
+},
+"004c79db": {
+"game": true,
+"size": 102
+},
+"004c7a41": {
+"game": true,
+"size": 522
+},
+"004c7c5f": {
+"game": true,
+"size": 127
+},
+"004c7cde": {
+"game": true,
+"size": 775
+},
+"004c8009": {
+"game": true,
+"size": 44
+},
+"004c8035": {
+"game": true,
+"size": 96
+},
+"004c8095": {
+"game": true,
+"size": 109
+},
+"004c8110": {
+"game": true,
+"size": 119
+},
+"004c8187": {
+"game": true,
+"size": 200
+},
+"004c824f": {
+"game": true,
+"size": 176
+},
+"004c82ff": {
+"game": true,
+"size": 1188
+},
+"004c87a3": {
+"game": true,
+"size": 103
+},
+"004c880a": {
+"game": true,
+"size": 103
+},
+"004c8880": {
+"game": true,
+"size": 157
+},
+"004c891d": {
+"game": true,
+"size": 84
+},
+"004c8971": {
+"game": true,
+"size": 80
+},
+"004c89c1": {
+"game": true,
+"size": 822
+},
+"004c8d73": {
+"game": true,
+"size": 183
+},
+"004c8e2a": {
+"game": true,
+"size": 676
+},
+"004c90ce": {
+"game": true,
+"size": 112
+},
+"004c9140": {
+"game": true,
+"size": 413
+},
+"004c937c": {
+"game": true,
+"size": 46
+},
+"004c93aa": {
+"game": true,
+"size": 717
+},
+"004c9677": {
+"game": true,
+"size": 311
+},
+"004c97ae": {
+"game": true,
+"size": 147
+},
+"004c9841": {
+"game": true,
+"size": 15
+},
+"004c9850": {
+"game": true,
+"size": 53
+},
+"004c9885": {
+"game": true,
+"size": 11
+},
+"004c9890": {
+"game": true,
+"size": 156
+},
+"004c9930": {
+"game": true,
+"size": 21
+},
+"004c9945": {
+"game": true,
+"size": 11
+},
+"004c9950": {
+"game": true,
+"size": 317
+},
+"004c9a8d": {
+"game": true,
+"size": 98
+},
+"004c9af0": {
+"game": true,
+"size": 98
+},
+"004c9b52": {
+"game": true,
+"size": 184
+},
+"004c9ca9": {
+"game": true,
+"size": 62
+},
+"004c9ce7": {
+"game": true,
+"size": 87
+},
+"004c9d40": {
+"game": true,
+"size": 248
+},
+"004c9ed7": {
+"game": true,
+"size": 37
+},
+"004c9efc": {
+"game": true,
+"size": 522
+},
+"004ca116": {
+"game": true,
+"size": 480
+},
+"004ca2f6": {
+"game": true,
+"size": 423
+},
+"004ca49d": {
+"game": true,
+"size": 330
+},
+"004ca5e7": {
+"game": true,
+"size": 112
+},
+"004ca660": {
+"game": true,
+"size": 232
+},
+"004ca7e7": {
+"game": true,
+"size": 709
+},
+"004caaac": {
+"game": true,
+"size": 840
+},
+"004cae78": {
+"game": true,
+"size": 485
+},
+"004cb071": {
+"game": true,
+"size": 69
+},
+"004cb0b6": {
+"game": true,
+"size": 112
+},
+"004cb130": {
+"game": true,
+"size": 185
+},
+"004cb1e9": {
+"game": true,
+"size": 123
+},
+"004cb264": {
+"game": true,
+"size": 748
+},
+"004cb550": {
+"game": true,
+"size": 843
+},
+"004cb8bb": {
+"game": true,
+"size": 486
+},
+"004cbaa1": {
+"game": true,
+"size": 112
+},
+"004cbb20": {
+"game": true,
+"size": 121
+},
+"004cbb99": {
+"game": true,
+"size": 469
+},
+"004cbd6e": {
+"game": true,
+"size": 299
+},
+"004cbe99": {
+"game": true,
+"size": 153
+},
+"004cbf32": {
+"game": true,
+"size": 89
+},
+"004cbf8b": {
+"game": true,
+"size": 321
+},
+"004cc0dc": {
+"game": true,
+"size": 103
+},
+"004cc150": {
+"game": true,
+"size": 178
+},
+"004cc202": {
+"game": true,
+"size": 342
+},
+"004cc358": {
+"game": true,
+"size": 190
+},
+"004cc4b5": {
+"game": true,
+"size": 142
+},
+"004cc543": {
+"game": true,
+"size": 100
+},
+"004cc5b0": {
+"game": true,
+"size": 112
+},
+"004cc620": {
+"game": true,
+"size": 61
+},
+"004cc65d": {
+"game": true,
+"size": 78
+},
+"004cc6ab": {
+"game": true,
+"size": 411
+},
+"004cc846": {
+"game": true,
+"size": 93
+},
+"004cc8a3": {
+"game": true,
+"size": 66
+},
+"004cc8e5": {
+"game": true,
+"size": 113
+},
+"004cc956": {
+"game": true,
+"size": 483
+},
+"004ccb39": {
+"game": true,
+"size": 366
+},
+"004ccca7": {
+"game": true,
+"size": 1609
+},
+"004cd320": {
+"game": true,
+"size": 1123
+},
+"004cd805": {
+"game": true,
+"size": 135
+},
+"004cd88c": {
+"game": true,
+"size": 786
+},
+"004cdb9e": {
+"game": true,
+"size": 182
+},
+"004cdc54": {
+"game": true,
+"size": 159
+},
+"004cdd00": {
+"game": true,
+"size": 668
+},
+"004cdf9c": {
+"game": true,
+"size": 567
+},
+"004ce1d3": {
+"game": true,
+"size": 1108
+},
+"004ce64f": {
+"game": true,
+"size": 411
+},
+"004ce7ea": {
+"game": true,
+"size": 581
+},
+"004ceac3": {
+"game": true,
+"size": 260
+},
+"004cebc7": {
+"game": true,
+"size": 432
+},
+"004ced77": {
+"game": true,
+"size": 476
+},
+"004cef53": {
+"game": true,
+"size": 274
+},
+"004cf065": {
+"game": true,
+"size": 103
+},
+"004cf0d0": {
+"game": true,
+"size": 84
+},
+"004cf124": {
+"game": true,
+"size": 84
+},
+"004cf178": {
+"game": true,
+"size": 19
+},
+"004cf18b": {
+"game": true,
+"size": 190
+},
+"004cf249": {
+"game": true,
+"size": 100
+},
+"004cf2b0": {
+"game": true,
+"size": 1351
+},
+"004cf7f7": {
+"game": true,
+"size": 62
+},
+"004cf835": {
+"game": true,
+"size": 878
+},
+"004cfbb7": {
+"game": true,
+"size": 404
+},
+"004cfd4b": {
+"game": true,
+"size": 343
+},
+"004cfeb6": {
+"game": true,
+"size": 82
+},
+"004cff08": {
+"game": true,
+"size": 103
+},
+"004cff70": {
+"game": true,
+"size": 201
+},
+"004d0039": {
+"game": true,
+"size": 170
+},
+"004d00e3": {
+"game": true,
+"size": 106
+},
+"004d014d": {
+"game": true,
+"size": 154
+},
+"004d01e7": {
+"game": true,
+"size": 528
+},
+"004d0473": {
+"game": true,
+"size": 112
+},
+"004d04f0": {
+"game": true,
+"size": 440
+},
+"004d06d0": {
+"game": true,
+"size": 75
+},
+"004d071b": {
+"game": true,
+"size": 602
+},
+"004d0975": {
+"game": true,
+"size": 358
+},
+"004d0adb": {
+"game": true,
+"size": 463
+},
+"004d0f2a": {
+"game": true,
+"size": 118
+},
+"004d0fa0": {
+"game": true,
+"size": 110
+},
+"004d1010": {
+"game": true,
+"size": 109
+},
+"004d107d": {
+"game": true,
+"size": 250
+},
+"004d1177": {
+"game": true,
+"size": 100
+},
+"004d11e0": {
+"game": true,
+"size": 318
+},
+"004d13bd": {
+"game": true,
+"size": 54
+},
+"004d13f3": {
+"game": true,
+"size": 411
+},
+"004d158e": {
+"game": true,
+"size": 310
+},
+"004d16c4": {
+"game": true,
+"size": 135
+},
+"004d174b": {
+"game": true,
+"size": 590
+},
+"004d1999": {
+"game": true,
+"size": 246
+},
+"004d1a8f": {
+"game": true,
+"size": 103
+},
+"004d1b00": {
+"game": true,
+"size": 143
+},
+"004d1b8f": {
+"game": true,
+"size": 354
+},
+"004d1cf1": {
+"game": true,
+"size": 100
+},
+"004d1d60": {
+"game": true,
+"size": 594
+},
+"004d1fb2": {
+"game": true,
+"size": 149
+},
+"004d2047": {
+"game": true,
+"size": 223
+},
+"004d2126": {
+"game": true,
+"size": 426
+},
+"004d22d0": {
+"game": true,
+"size": 142
+},
+"004d235e": {
+"game": true,
+"size": 1137
+},
+"004d27cf": {
+"game": true,
+"size": 554
+},
+"004d2a6d": {
+"game": true,
+"size": 216
+},
+"004d2b45": {
+"game": true,
+"size": 298
+},
+"004d2c6f": {
+"game": true,
+"size": 112
+},
+"004d2ce0": {
+"game": true,
+"size": 1782
+},
+"004d3475": {
+"game": true,
+"size": 186
+},
+"004d35c8": {
+"game": true,
+"size": 195
+},
+"004d368b": {
+"game": true,
+"size": 527
+},
+"004d389a": {
+"game": true,
+"size": 259
+},
+"004d3a3c": {
+"game": true,
+"size": 799
+},
+"004d3dd0": {
+"game": true,
+"size": 103
+},
+"004d3e40": {
+"game": true,
+"size": 221
+},
+"004d3f1d": {
+"game": true,
+"size": 396
+},
+"004d4148": {
+"game": true,
+"size": 270
+},
+"004d4256": {
+"game": true,
+"size": 101
+},
+"004d42c0": {
+"game": true,
+"size": 11
+},
+"004d42d0": {
+"game": true,
+"size": 214
+},
+"004d4445": {
+"game": true,
+"size": 1545
+},
+"004d4a66": {
+"game": true,
+"size": 391
+},
+"004d4c62": {
+"game": true,
+"size": 11
+},
+"004d4c6d": {
+"game": true,
+"size": 100
+},
+"004d4ce0": {
+"game": true,
+"size": 74
+},
+"004d4d2a": {
+"game": true,
+"size": 93
+},
+"004d4d87": {
+"game": true,
+"size": 55
+},
+"004d4dbe": {
+"game": true,
+"size": 650
+},
+"004d505c": {
+"game": true,
+"size": 149
+},
+"004d50f1": {
+"game": true,
+"size": 88
+},
+"004d5149": {
+"game": true,
+"size": 123
+},
+"004d51c4": {
+"game": true,
+"size": 153
+},
+"004d525d": {
+"game": true,
+"size": 578
+},
+"004d549f": {
+"game": true,
+"size": 460
+},
+"004d566b": {
+"game": true,
+"size": 675
+},
+"004d590e": {
+"game": true,
+"size": 211
+},
+"004d59e1": {
+"game": true,
+"size": 1463
+},
+"004d5f98": {
+"game": true,
+"size": 397
+},
+"004d6195": {
+"game": true,
+"size": 209
+},
+"004d6266": {
+"game": true,
+"size": 179
+},
+"004d6319": {
+"game": true,
+"size": 600
+},
+"004d6610": {
+"game": true,
+"size": 220
+},
+"004d66ec": {
+"game": true,
+"size": 175
+},
+"004d679b": {
+"game": true,
+"size": 806
+},
+"004d6ac1": {
+"game": true,
+"size": 434
+},
+"004d6c73": {
+"game": true,
+"size": 1716
+},
+"004d7347": {
+"game": true,
+"size": 729
+},
+"004d7699": {
+"game": true,
+"size": 855
+},
+"004d7a14": {
+"game": true,
+"size": 166
+},
+"004d7aba": {
+"game": true,
+"size": 69
+},
+"004d7aff": {
+"game": true,
+"size": 337
+},
+"004d7c50": {
+"game": true,
+"size": 166
+},
+"004d7d00": {
+"game": true,
+"size": 308
+},
+"004d7e34": {
+"game": true,
+"size": 763
+},
+"004d813f": {
+"game": true,
+"size": 1055
+},
+"004d8585": {
+"game": true,
+"size": 518
+},
+"004d878b": {
+"game": true,
+"size": 48
+},
+"004d87bb": {
+"game": true,
+"size": 83
+},
+"004d880e": {
+"game": true,
+"size": 84
+},
+"004d8862": {
+"game": true,
+"size": 220
+},
+"004d893e": {
+"game": true,
+"size": 229
+},
+"004d8a23": {
+"game": true,
+"size": 122
+},
+"004d8aa0": {
+"game": true,
+"size": 473
+},
+"004d8db1": {
+"game": true,
+"size": 115
+},
+"004d8e99": {
+"game": true,
+"size": 15
+},
+"004d8ea8": {
+"game": true,
+"size": 251
+},
+"004d8fa3": {
+"game": true,
+"size": 98
+},
+"004d9010": {
+"game": true,
+"size": 174
+},
+"004d90be": {
+"game": true,
+"size": 2007
+},
+"004d98a5": {
+"game": true,
+"size": 824
+},
+"004d9bdd": {
+"game": true,
+"size": 428
+},
+"004d9d89": {
+"game": true,
+"size": 55
+},
+"004d9dc0": {
+"game": true,
+"size": 103
+},
+"004d9e30": {
+"game": true,
+"size": 107
+},
+"004d9e9b": {
+"game": true,
+"size": 15
+},
+"004d9eaa": {
+"game": true,
+"size": 429
+},
+"004da0f6": {
+"game": true,
+"size": 145
+},
+"004da187": {
+"game": true,
+"size": 371
+},
+"004da2fa": {
+"game": true,
+"size": 101
+},
+"004da360": {
+"game": true,
+"size": 161
+},
+"004da401": {
+"game": true,
+"size": 298
+},
+"004da52b": {
+"game": true,
+"size": 309
+},
+"004da660": {
+"game": true,
+"size": 85
+},
+"004da6b5": {
+"game": true,
+"size": 441
+},
+"004da86e": {
+"game": true,
+"size": 908
+},
+"004dac80": {
+"game": true,
+"size": 314
+},
+"004dadba": {
+"game": true,
+"size": 4566
+},
+"004dbf90": {
+"game": true,
+"size": 817
+},
+"004dc33e": {
+"game": true,
+"size": 197
+},
+"004dc403": {
+"game": true,
+"size": 107
+},
+"004dc46e": {
+"game": true,
+"size": 103
+},
+"004dc4e0": {
+"game": true,
+"size": 283
+},
+"004dc69a": {
+"game": true,
+"size": 4794
+},
+"004dd954": {
+"game": true,
+"size": 391
+},
+"004ddb61": {
+"game": true,
+"size": 726
+},
+"004dde37": {
+"game": true,
+"size": 339
+},
+"004ddf8a": {
+"game": true,
+"size": 73
+},
+"004ddfd3": {
+"game": true,
+"size": 103
+},
+"004de040": {
+"game": true,
+"size": 10
+},
+"004de04a": {
+"game": true,
+"size": 42
+},
+"004de074": {
+"game": true,
+"size": 10
+},
+"004de07e": {
+"game": true,
+"size": 42
+},
+"004de0a8": {
+"game": true,
+"size": 97
+},
+"004de109": {
+"game": true,
+"size": 229
+},
+"004de1ee": {
+"game": true,
+"size": 181
+},
+"004de2a3": {
+"game": true,
+"size": 375
+},
+"004de4b9": {
+"game": true,
+"size": 58
+},
+"004de4f3": {
+"game": true,
+"size": 1170
+},
+"004de995": {
+"game": true,
+"size": 28
+},
+"004de9b1": {
+"game": true,
+"size": 1370
+},
+"004def1b": {
+"game": true,
+"size": 103
+},
+"004def90": {
+"game": true,
+"size": 141
+},
+"004df01d": {
+"game": true,
+"size": 97
+},
+"004df11d": {
+"game": true,
+"size": 100
+},
+"004df190": {
+"game": true,
+"size": 153
+},
+"004df229": {
+"game": true,
+"size": 324
+},
+"004df36d": {
+"game": true,
+"size": 287
+},
+"004df48c": {
+"game": true,
+"size": 91
+},
+"004df4e7": {
+"game": true,
+"size": 2264
+},
+"004dfdbf": {
+"game": true,
+"size": 189
+},
+"004dfe80": {
+"game": true,
+"size": 268
+},
+"004e002b": {
+"game": true,
+"size": 106
+},
+"004e0095": {
+"game": true,
+"size": 733
+},
+"004e0435": {
+"game": true,
+"size": 814
+},
+"004e0848": {
+"game": true,
+"size": 82
+},
+"004e089a": {
+"game": true,
+"size": 481
+},
+"004e0a7b": {
+"game": true,
+"size": 806
+},
+"004e0da1": {
+"game": true,
+"size": 1036
+},
+"004e11ad": {
+"game": true,
+"size": 135
+},
+"004e1240": {
+"game": true,
+"size": 19
+},
+"004e1253": {
+"game": true,
+"size": 825
+},
+"004e160a": {
+"game": true,
+"size": 202
+},
+"004e16d4": {
+"game": true,
+"size": 205
+},
+"004e17a1": {
+"game": true,
+"size": 112
+},
+"004e1820": {
+"game": true,
+"size": 94
+},
+"004e187e": {
+"game": true,
+"size": 645
+},
+"004e1ba2": {
+"game": true,
+"size": 39
+},
+"004e1bc9": {
+"game": true,
+"size": 1480
+},
+"004e21a1": {
+"game": true,
+"size": 267
+},
+"004e22ac": {
+"game": true,
+"size": 514
+},
+"004e24ae": {
+"game": true,
+"size": 130
+},
+"004e2530": {
+"game": true,
+"size": 116
+},
+"004e25b0": {
+"game": true,
+"size": 97
+},
+"004e2611": {
+"game": true,
+"size": 70
+},
+"004e2657": {
+"game": true,
+"size": 300
+},
+"004e2783": {
+"game": true,
+"size": 108
+},
+"004e27ef": {
+"game": true,
+"size": 1133
+},
+"004e2c5c": {
+"game": true,
+"size": 143
+},
+"004e2ceb": {
+"game": true,
+"size": 1631
+},
+"004e3366": {
+"game": true,
+"size": 43
+},
+"004e3391": {
+"game": true,
+"size": 2274
+},
+"004e3d20": {
+"game": true,
+"size": 186
+},
+"004e3dda": {
+"game": true,
+"size": 120
+},
+"004e3f8a": {
+"game": true,
+"size": 248
+},
+"004e4082": {
+"game": true,
+"size": 118
+},
+"004e40f8": {
+"game": true,
+"size": 1271
+},
+"004e4688": {
+"game": true,
+"size": 152
+},
+"004e4720": {
+"game": true,
+"size": 227
+},
+"004e4810": {
+"game": true,
+"size": 337
+},
+"004e4961": {
+"game": true,
+"size": 643
+},
+"004e4be4": {
+"game": true,
+"size": 449
+},
+"004e4dbd": {
+"game": true,
+"size": 1043
+},
+"004e51fb": {
+"game": true,
+"size": 92
+},
+"004e5257": {
+"game": true,
+"size": 200
+},
+"004e531f": {
+"game": true,
+"size": 435
+},
+"004e54d2": {
+"game": true,
+"size": 120
+},
+"004e5550": {
+"game": true,
+"size": 226
+},
+"004e5632": {
+"game": true,
+"size": 179
+},
+"004e5784": {
+"game": true,
+"size": 127
+},
+"004e5878": {
+"game": true,
+"size": 100
+},
+"004e58e0": {
+"game": true,
+"size": 66
+},
+"004e5922": {
+"game": true,
+"size": 1213
+},
+"004e5ddf": {
+"game": true,
+"size": 77
+},
+"004e5e2c": {
+"game": true,
+"size": 189
+},
+"004e5ee9": {
+"game": true,
+"size": 253
+},
+"004e5fe6": {
+"game": true,
+"size": 2225
+},
+"004e68af": {
+"game": true,
+"size": 540
+},
+"004e6acb": {
+"game": true,
+"size": 960
+},
+"004e6ea3": {
+"game": true,
+"size": 146
+},
+"004e6f35": {
+"game": true,
+"size": 409
+},
+"004e70ce": {
+"game": true,
+"size": 585
+},
+"004e7320": {
+"game": true,
+"size": 206
+},
+"004e73ee": {
+"game": true,
+"size": 62
+},
+"004e742c": {
+"game": true,
+"size": 1178
+},
+"004e78c6": {
+"game": true,
+"size": 41
+},
+"004e78ef": {
+"game": true,
+"size": 310
+},
+"004e7a25": {
+"game": true,
+"size": 546
+},
+"004e7c47": {
+"game": true,
+"size": 112
+},
+"004e7cc0": {
+"game": true,
+"size": 100
+},
+"004e7d24": {
+"game": true,
+"size": 19
+},
+"004e7d37": {
+"game": true,
+"size": 15
+},
+"004e7d46": {
+"game": true,
+"size": 100
+},
+"004e7db0": {
+"game": true,
+"size": 177
+},
+"004e7e61": {
+"game": true,
+"size": 283
+},
+"004e7f7c": {
+"game": true,
+"size": 277
+},
+"004e8091": {
+"game": true,
+"size": 1571
+},
+"004e8762": {
+"game": true,
+"size": 94
+},
+"004e87c0": {
+"game": true,
+"size": 66
+},
+"004e8802": {
+"game": true,
+"size": 348
+},
+"004e895e": {
+"game": true,
+"size": 225
+},
+"004e8a3f": {
+"game": true,
+"size": 138
+},
+"004e8ad0": {
+"game": true,
+"size": 121
+},
+"004e8b49": {
+"game": true,
+"size": 1453
+},
+"004e91a3": {
+"game": true,
+"size": 118
+},
+"004e928a": {
+"game": true,
+"size": 264
+},
+"004e941a": {
+"game": true,
+"size": 100
+},
+"004e9480": {
+"game": true,
+"size": 96
+},
+"004e94e0": {
+"game": true,
+"size": 22
+},
+"004e94f6": {
+"game": true,
+"size": 1627
+},
+"004e9c08": {
+"game": true,
+"size": 93
+},
+"004e9cfe": {
+"game": true,
+"size": 114
+},
+"004e9e09": {
+"game": true,
+"size": 100
+},
+"004e9e70": {
+"game": true,
+"size": 209
+},
+"004e9f41": {
+"game": true,
+"size": 19
+},
+"004e9f54": {
+"game": true,
+"size": 15
+},
+"004e9f63": {
+"game": true,
+"size": 11
+},
+"004e9f6e": {
+"game": true,
+"size": 100
+},
+"004e9fe0": {
+"game": true,
+"size": 22
+},
+"004e9ff6": {
+"game": true,
+"size": 11
+},
+"004ea001": {
+"game": true,
+"size": 15
+},
+"004ea010": {
+"game": true,
+"size": 98
+},
+"004ea080": {
+"game": true,
+"size": 660
+},
+"004ea3b3": {
+"game": true,
+"size": 66
+},
+"004ea3f5": {
+"game": true,
+"size": 347
+},
+"004ea560": {
+"game": true,
+"size": 1912
+},
+"004eacf8": {
+"game": true,
+"size": 103
+},
+"004ead5f": {
+"game": true,
+"size": 11
+},
+"004ead6a": {
+"game": true,
+"size": 81
+},
+"004eadbb": {
+"game": true,
+"size": 23
+},
+"004eadd2": {
+"game": true,
+"size": 245
+},
+"004eaec7": {
+"game": true,
+"size": 374
+},
+"004eb03d": {
+"game": true,
+"size": 98
+},
+"004eb09f": {
+"game": true,
+"size": 11
+},
+"004eb0b0": {
+"game": true,
+"size": 77
+},
+"004eb0fd": {
+"game": true,
+"size": 2542
+},
+"004ebbb7": {
+"game": true,
+"size": 555
+},
+"004ebde2": {
+"game": true,
+"size": 750
+},
+"004ec0d0": {
+"game": true,
+"size": 4965
+},
+"004ed435": {
+"game": true,
+"size": 335
+},
+"004ed584": {
+"game": true,
+"size": 76
+},
+"004ed5d0": {
+"game": true,
+"size": 157
+},
+"004ed66d": {
+"game": true,
+"size": 5423
+},
+"004eeb9c": {
+"game": true,
+"size": 1202
+},
+"004ef04e": {
+"game": true,
+"size": 225
+},
+"004ef12f": {
+"game": true,
+"size": 59
+},
+"004ef16a": {
+"game": true,
+"size": 660
+},
+"004ef3fe": {
+"game": true,
+"size": 793
+},
+"004ef717": {
+"game": true,
+"size": 434
+},
+"004ef8c9": {
+"game": true,
+"size": 48
+},
+"004ef8f9": {
+"game": true,
+"size": 137
+},
+"004ef982": {
+"game": true,
+"size": 269
+},
+"004efa8f": {
+"game": true,
+"size": 94
+},
+"004efaf0": {
+"game": true,
+"size": 852
+},
+"004efedd": {
+"game": true,
+"size": 1391
+},
+"004f044c": {
+"game": true,
+"size": 410
+},
+"004f05e6": {
+"game": true,
+"size": 99
+},
+"004f0649": {
+"game": true,
+"size": 103
+},
+"004f06b0": {
+"game": true,
+"size": 1121
+},
+"004f0b11": {
+"game": true,
+"size": 95
+},
+"004f0b70": {
+"game": true,
+"size": 431
+},
+"004f0d1f": {
+"game": true,
+"size": 120
+},
+"004f0da0": {
+"game": true,
+"size": 141
+},
+"004f0e2d": {
+"game": true,
+"size": 97
+},
+"004f0f2d": {
+"game": true,
+"size": 100
+},
+"004f0fa0": {
+"game": true,
+"size": 309
+},
+"004f10d5": {
+"game": true,
+"size": 301
+},
+"004f1202": {
+"game": true,
+"size": 62
+},
+"004f1240": {
+"game": true,
+"size": 439
+},
+"004f13f7": {
+"game": true,
+"size": 62
+},
+"004f1435": {
+"game": true,
+"size": 383
+},
+"004f15c8": {
+"game": true,
+"size": 212
+},
+"004f169c": {
+"game": true,
+"size": 534
+},
+"004f18c2": {
+"game": true,
+"size": 398
+},
+"004f1a50": {
+"game": true,
+"size": 315
+},
+"004f1bea": {
+"game": true,
+"size": 325
+},
+"004f1d86": {
+"game": true,
+"size": 98
+},
+"004f1de8": {
+"game": true,
+"size": 100
+},
+"004f1e4c": {
+"game": true,
+"size": 98
+},
+"004f1eb0": {
+"game": true,
+"size": 500
+},
+"004f2143": {
+"game": true,
+"size": 360
+},
+"004f22ab": {
+"game": true,
+"size": 838
+},
+"004f2615": {
+"game": true,
+"size": 194
+},
+"004f26d7": {
+"game": true,
+"size": 315
+},
+"004f28ab": {
+"game": true,
+"size": 103
+},
+"004f2920": {
+"game": true,
+"size": 10
+},
+"004f292a": {
+"game": true,
+"size": 25
+},
+"004f2943": {
+"game": true,
+"size": 148
+},
+"004f29d7": {
+"game": true,
+"size": 21
+},
+"004f29ec": {
+"game": true,
+"size": 105
+},
+"004f2a55": {
+"game": true,
+"size": 74
+},
+"004f2a9f": {
+"game": true,
+"size": 783
+},
+"004f2dae": {
+"game": true,
+"size": 139
+},
+"004f2e39": {
+"game": true,
+"size": 94
+},
+"004f2e97": {
+"game": true,
+"size": 1488
+},
+"004f3477": {
+"game": true,
+"size": 525
+},
+"004f36d3": {
+"game": true,
+"size": 53
+},
+"004f3708": {
+"game": true,
+"size": 249
+},
+"004f393f": {
+"game": true,
+"size": 99
+},
+"004f39a2": {
+"game": true,
+"size": 470
+},
+"004f3b78": {
+"game": true,
+"size": 103
+},
+"004f3be0": {
+"game": true,
+"size": 144
+},
+"004f3c70": {
+"game": true,
+"size": 172
+},
+"004f3d1c": {
+"game": true,
+"size": 2500
+},
+"004f47c4": {
+"game": true,
+"size": 31
+},
+"004f47e3": {
+"game": true,
+"size": 1527
+},
+"004f4ec9": {
+"game": true,
+"size": 64
+},
+"004f4f09": {
+"game": true,
+"size": 96
+},
+"004f4f69": {
+"game": true,
+"size": 463
+},
+"004f5138": {
+"game": true,
+"size": 857
+},
+"004f5491": {
+"game": true,
+"size": 129
+},
+"004f55ab": {
+"game": true,
+"size": 161
+},
+"004f564c": {
+"game": true,
+"size": 283
+},
+"004f5770": {
+"game": true,
+"size": 331
+},
+"004f58bb": {
+"game": true,
+"size": 273
+},
+"004f59cc": {
+"game": true,
+"size": 496
+},
+"004f5bbc": {
+"game": true,
+"size": 284
+},
+"004f5cd8": {
+"game": true,
+"size": 11
+},
+"004f5ce3": {
+"game": true,
+"size": 834
+},
+"004f6025": {
+"game": true,
+"size": 92
+},
+"004f6081": {
+"game": true,
+"size": 112
+},
+"004f60f1": {
+"game": true,
+"size": 110
+},
+"004f6160": {
+"game": true,
+"size": 102
+},
+"004f61c6": {
+"game": true,
+"size": 557
+},
+"004f63f3": {
+"game": true,
+"size": 92
+},
+"004f644f": {
+"game": true,
+"size": 100
+},
+"004f64c0": {
+"game": true,
+"size": 699
+},
+"004f677b": {
+"game": true,
+"size": 15
+},
+"004f678a": {
+"game": true,
+"size": 82
+},
+"004f67dc": {
+"game": true,
+"size": 101
+},
+"004f6841": {
+"game": true,
+"size": 15
+},
+"004f6850": {
+"game": true,
+"size": 15
+},
+"004f685f": {
+"game": true,
+"size": 18
+},
+"004f6871": {
+"game": true,
+"size": 15
+},
+"004f6880": {
+"game": true,
+"size": 1598
+},
+"004f6ebe": {
+"game": true,
+"size": 15
+},
+"004f6ecd": {
+"game": true,
+"size": 6326
+},
+"004f8783": {
+"game": true,
+"size": 11
+},
+"004f878e": {
+"game": true,
+"size": 259
+},
+"004f88a0": {
+"game": true,
+"size": 80
+},
+"004f88f0": {
+"game": true,
+"size": 113
+},
+"004f8961": {
+"game": true,
+"size": 165
+},
+"004f8a06": {
+"game": true,
+"size": 46
+},
+"004f8a34": {
+"game": true,
+"size": 148
+},
+"004f8ac8": {
+"game": true,
+"size": 230
+},
+"004f8bae": {
+"game": true,
+"size": 97
+},
+"004f8c0f": {
+"game": true,
+"size": 22
+},
+"004f8c25": {
+"game": true,
+"size": 60
+},
+"004f8c61": {
+"game": true,
+"size": 98
+},
+"004f8cd0": {
+"game": true,
+"size": 69
+},
+"004f8d15": {
+"game": true,
+"size": 11
+},
+"004f8d20": {
+"game": true,
+"size": 102
+},
+"004f8d86": {
+"game": true,
+"size": 230
+},
+"004f8e6c": {
+"game": true,
+"size": 323
+},
+"004f8fbf": {
+"game": true,
+"size": 100
+},
+"004f9030": {
+"game": true,
+"size": 394
+},
+"004f91ba": {
+"game": true,
+"size": 86
+},
+"004f9210": {
+"game": true,
+"size": 88
+},
+"004f9268": {
+"game": true,
+"size": 1221
+},
+"004f972d": {
+"game": true,
+"size": 1019
+},
+"004f9b28": {
+"game": true,
+"size": 98
+},
+"004f9b90": {
+"game": true,
+"size": 142
+},
+"004f9c1e": {
+"game": true,
+"size": 59
+},
+"004f9c59": {
+"game": true,
+"size": 237
+},
+"004f9d46": {
+"game": true,
+"size": 11
+},
+"004f9d51": {
+"game": true,
+"size": 529
+},
+"004f9f72": {
+"game": true,
+"size": 100
+},
+"004f9fe0": {
+"game": true,
+"size": 836
+},
+"004fa324": {
+"game": true,
+"size": 4658
+},
+"004fb596": {
+"game": true,
+"size": 1164
+},
+"004fba46": {
+"game": true,
+"size": 72
+},
+"004fba8e": {
+"game": true,
+"size": 249
+},
+"004fbb87": {
+"game": true,
+"size": 346
+},
+"004fbce1": {
+"game": true,
+"size": 432
+},
+"004fbe91": {
+"game": true,
+"size": 49
+},
+"004fbec2": {
+"game": true,
+"size": 302
+},
+"004fbff0": {
+"game": true,
+"size": 133
+},
+"004fc080": {
+"game": true,
+"size": 117
+},
+"004fc0f5": {
+"game": true,
+"size": 19
+},
+"004fc108": {
+"game": true,
+"size": 683
+},
+"004fc433": {
+"game": true,
+"size": 179
+},
+"004fc4e6": {
+"game": true,
+"size": 129
+},
+"004fc567": {
+"game": true,
+"size": 112
+},
+"004fc5e0": {
+"game": true,
+"size": 336
+},
+"004fc730": {
+"game": true,
+"size": 30
+},
+"004fc74e": {
+"game": true,
+"size": 102
+},
+"004fc7b4": {
+"game": true,
+"size": 130
+},
+"004fc840": {
+"game": true,
+"size": 410
+},
+"004fca73": {
+"game": true,
+"size": 44
+},
+"004fca9f": {
+"game": true,
+"size": 1836
+},
+"004fd1cb": {
+"game": true,
+"size": 469
+},
+"004fd3f6": {
+"game": true,
+"size": 96
+},
+"004fd456": {
+"game": true,
+"size": 239
+},
+"004fd545": {
+"game": true,
+"size": 103
+},
+"004fd5b0": {
+"game": true,
+"size": 246
+},
+"004fd6a6": {
+"game": true,
+"size": 5692
+},
+"004fece2": {
+"game": true,
+"size": 801
+},
+"004ff003": {
+"game": true,
+"size": 968
+},
+"004ff46a": {
+"game": true,
+"size": 46
+},
+"004ff498": {
+"game": true,
+"size": 45
+},
+"004ff4c5": {
+"game": true,
+"size": 6035
+},
+"00500c58": {
+"game": true,
+"size": 1102
+},
+"00501110": {
+"game": true,
+"size": 53
+},
+"00501150": {
+"game": true,
+"size": 101
+},
+"005011b5": {
+"game": true,
+"size": 86
+},
+"0050120b": {
+"game": true,
+"size": 1128
+},
+"00501712": {
+"game": true,
+"size": 11
+},
+"0050171d": {
+"game": true,
+"size": 1391
+},
+"00501c8c": {
+"game": true,
+"size": 803
+},
+"00501fb0": {
+"game": true,
+"size": 31
+},
+"00501fcf": {
+"game": true,
+"size": 150
+},
+"00502065": {
+"game": true,
+"size": 200
+},
+"0050212d": {
+"game": true,
+"size": 280
+},
+"00502245": {
+"game": true,
+"size": 124
+},
+"005022d0": {
+"game": true,
+"size": 244
+},
+"005023c4": {
+"game": true,
+"size": 111
+},
+"00502433": {
+"game": true,
+"size": 464
+},
+"00502603": {
+"game": true,
+"size": 272
+},
+"00502713": {
+"game": true,
+"size": 362
+},
+"0050287d": {
+"game": true,
+"size": 112
+},
+"005028f0": {
+"game": true,
+"size": 266
+},
+"005029fa": {
+"game": true,
+"size": 308
+},
+"00502b2e": {
+"game": true,
+"size": 15
+},
+"00502b3d": {
+"game": true,
+"size": 198
+},
+"00502c03": {
+"game": true,
+"size": 45
+},
+"00502c30": {
+"game": true,
+"size": 103
+},
+"00502ca0": {
+"game": true,
+"size": 407
+},
+"00502e37": {
+"game": true,
+"size": 1093
+},
+"00503323": {
+"game": true,
+"size": 235
+},
+"0050340e": {
+"game": true,
+"size": 165
+},
+"005034b3": {
+"game": true,
+"size": 112
+},
+"00503530": {
+"game": true,
+"size": 260
+},
+"00503634": {
+"game": true,
+"size": 15
+},
+"00503643": {
+"game": true,
+"size": 473
+},
+"005038bb": {
+"game": true,
+"size": 269
+},
+"005039c8": {
+"game": true,
+"size": 132
+},
+"00503a4c": {
+"game": true,
+"size": 101
+},
+"00503ac0": {
+"game": true,
+"size": 1758
+},
+"0050419e": {
+"game": true,
+"size": 5733
+},
+"005058d6": {
+"game": true,
+"size": 15
+},
+"005058e5": {
+"game": true,
+"size": 1103
+},
+"00505de3": {
+"game": true,
+"size": 754
+},
+"005060d5": {
+"game": true,
+"size": 207
+},
+"005061b0": {
+"game": true,
+"size": 140
+},
+"0050623c": {
+"game": true,
+"size": 256
+},
+"0050646e": {
+"game": true,
+"size": 209
+},
+"0050653f": {
+"game": true,
+"size": 33
+},
+"00506560": {
+"game": true,
+"size": 506
+},
+"0050675a": {
+"game": true,
+"size": 217
+},
+"00506840": {
+"game": true,
+"size": 175
+},
+"0050698e": {
+"game": true,
+"size": 1070
+},
+"00506dd8": {
+"game": true,
+"size": 23
+},
+"00506def": {
+"game": true,
+"size": 692
+},
+"005070bf": {
+"game": true,
+"size": 21
+},
+"005070d4": {
+"game": true,
+"size": 103
+},
+"00507140": {
+"game": true,
+"size": 372
+},
+"005072b4": {
+"game": true,
+"size": 659
+},
+"00507547": {
+"game": true,
+"size": 239
+},
+"00507636": {
+"game": true,
+"size": 240
+},
+"00507726": {
+"game": true,
+"size": 315
+},
+"00507861": {
+"game": true,
+"size": 130
+},
+"005078f0": {
+"game": true,
+"size": 1080
+},
+"00507dc7": {
+"game": true,
+"size": 272
+},
+"00507ed7": {
+"game": true,
+"size": 1491
+},
+"005084aa": {
+"game": true,
+"size": 314
+},
+"0050862e": {
+"game": true,
+"size": 601
+},
+"0050889b": {
+"game": true,
+"size": 226
+},
+"0050897d": {
+"game": true,
+"size": 386
+},
+"00508aff": {
+"game": true,
+"size": 834
+},
+"00508e41": {
+"game": true,
+"size": 767
+},
+"00509140": {
+"game": true,
+"size": 1236
+},
+"00509614": {
+"game": true,
+"size": 101
+},
+"00509680": {
+"game": true,
+"size": 40
+},
+"00509747": {
+"game": true,
+"size": 186
+},
+"00509801": {
+"game": true,
+"size": 11
+},
+"0050980c": {
+"game": true,
+"size": 70
+},
+"00509852": {
+"game": true,
+"size": 98
+},
+"005098c0": {
+"game": true,
+"size": 174
+},
+"0050996e": {
+"game": true,
+"size": 31
+},
+"0050998d": {
+"game": true,
+"size": 323
+},
+"00509ad0": {
+"game": true,
+"size": 293
+},
+"00509bf5": {
+"game": true,
+"size": 140
+},
+"00509c81": {
+"game": true,
+"size": 715
+},
+"00509f4c": {
+"game": true,
+"size": 112
+},
+"00509fc0": {
+"game": true,
+"size": 400
+},
+"0050a1e9": {
+"game": true,
+"size": 865
+},
+"0050a54a": {
+"game": true,
+"size": 300
+},
+"0050a676": {
+"game": true,
+"size": 73
+},
+"0050a6bf": {
+"game": true,
+"size": 561
+},
+"0050a8f0": {
+"game": true,
+"size": 1276
+},
+"0050adec": {
+"game": true,
+"size": 797
+},
+"0050b109": {
+"game": true,
+"size": 168
+},
+"0050b1b1": {
+"game": true,
+"size": 101
+},
+"0050b220": {
+"game": true,
+"size": 265
+},
+"0050b329": {
+"game": true,
+"size": 78
+},
+"0050b377": {
+"game": true,
+"size": 398
+},
+"0050b505": {
+"game": true,
+"size": 239
+},
+"0050b5f4": {
+"game": true,
+"size": 619
+},
+"0050b85f": {
+"game": true,
+"size": 94
+},
+"0050b8bd": {
+"game": true,
+"size": 98
+},
+"0050b920": {
+"game": true,
+"size": 16
+},
+"0050b930": {
+"game": true,
+"size": 933
+},
+"0050bcd5": {
+"game": true,
+"size": 189
+},
+"0050bd92": {
+"game": true,
+"size": 47
+},
+"0050bdc1": {
+"game": true,
+"size": 27
+},
+"0050bddc": {
+"game": true,
+"size": 181
+},
+"0050be91": {
+"game": true,
+"size": 36
+},
+"0050beb5": {
+"game": true,
+"size": 43
+},
+"0050bee0": {
+"game": true,
+"size": 623
+},
+"0050c16f": {
+"game": true,
+"size": 67
+},
+"0050c1b2": {
+"game": true,
+"size": 211
+},
+"0050c2a1": {
+"game": true,
+"size": 209
+},
+"0050c380": {
+"game": true,
+"size": 25
+},
+"0050c399": {
+"game": true,
+"size": 143
+},
+"0050c428": {
+"game": true,
+"size": 132
+},
+"0050c4ac": {
+"game": true,
+"size": 242
+},
+"0050c59e": {
+"game": true,
+"size": 151
+},
+"0050c635": {
+"game": true,
+"size": 58
+},
+"0050c66f": {
+"game": true,
+"size": 50
+},
+"0050c6a1": {
+"game": true,
+"size": 187
+},
+"0050c75c": {
+"game": true,
+"size": 181
+},
+"0050c811": {
+"game": true,
+"size": 14
+},
+"0050c81f": {
+"game": true,
+"size": 238
+},
+"0050c90d": {
+"game": true,
+"size": 24
+},
+"0050c925": {
+"game": true,
+"size": 28
+},
+"0050c941": {
+"game": true,
+"size": 73
+},
+"0050c98a": {
+"game": true,
+"size": 320
+},
+"0050caca": {
+"game": true,
+"size": 551
+},
+"0050ccf1": {
+"game": true,
+"size": 56
+},
+"0050cd29": {
+"game": true,
+"size": 217
+},
+"0050ce02": {
+"game": true,
+"size": 45
+},
+"0050ce2f": {
+"game": true,
+"size": 33
+},
+"0050ce50": {
+"game": true,
+"size": 702
+},
+"0050d10e": {
+"game": true,
+"size": 114
+},
+"0050d180": {
+"game": true,
+"size": 511
+},
+"0050d37f": {
+"game": true,
+"size": 436
+},
+"0050d540": {
+"game": true,
+"size": 180
+},
+"0050d5f4": {
+"game": true,
+"size": 28
+},
+"0050d610": {
+"game": true,
+"size": 32
+},
+"0050d630": {
+"game": true,
+"size": 236
+},
+"0050d71c": {
+"game": true,
+"size": 28
+},
+"0050d738": {
+"game": true,
+"size": 90
+},
+"0050d792": {
+"game": true,
+"size": 89
+},
+"0050d7eb": {
+"game": true,
+"size": 34
+},
+"0050d80d": {
+"game": true,
+"size": 34
+},
+"0050d82f": {
+"game": true,
+"size": 125
+},
+"0050d94b": {
+"game": true,
+"size": 100
+},
+"0050d9af": {
+"game": true,
+"size": 195
+},
+"0050da72": {
+"game": true,
+"size": 322
+},
+"0050dbb4": {
+"game": true,
+"size": 113
+},
+"0050dc25": {
+"game": true,
+"size": 113
+},
+"0050dc96": {
+"game": true,
+"size": 148
+},
+"0050dd2a": {
+"game": true,
+"size": 117
+},
+"0050dd9f": {
+"game": true,
+"size": 510
+},
+"0050df9d": {
+"game": true,
+"size": 204
+},
+"0050e069": {
+"game": true,
+"size": 294
+},
+"0050e18f": {
+"game": true,
+"size": 54
+},
+"0050e1c5": {
+"game": true,
+"size": 280
+},
+"0050e2dd": {
+"game": true,
+"size": 52
+},
+"0050e311": {
+"game": true,
+"size": 52
+},
+"0050e345": {
+"game": true,
+"size": 89
+},
+"0050e39e": {
+"game": true,
+"size": 88
+},
+"0050e3f6": {
+"game": true,
+"size": 88
+},
+"0050e44e": {
+"game": true,
+"size": 327
+},
+"0050e595": {
+"game": true,
+"size": 290
+},
+"0050e6b7": {
+"game": true,
+"size": 3362
+},
+"0050f3d9": {
+"game": true,
+"size": 130
+},
+"0050f45b": {
+"game": true,
+"size": 130
+},
+"0050f4dd": {
+"game": true,
+"size": 109
+},
+"0050f54a": {
+"game": true,
+"size": 103
+},
+"0050f5b1": {
+"game": true,
+"size": 159
+},
+"0050f650": {
+"game": true,
+"size": 250
+},
+"0050f74a": {
+"game": true,
+"size": 118
+},
+"0050f7c0": {
+"game": true,
+"size": 78
+},
+"0050f80e": {
+"game": true,
+"size": 568
+},
+"0050fa46": {
+"game": true,
+"size": 540
+},
+"0050fc62": {
+"game": true,
+"size": 516
+},
+"0050fe66": {
+"game": true,
+"size": 174
+},
+"0050ff14": {
+"game": true,
+"size": 182
+},
+"0050ffca": {
+"game": true,
+"size": 119
+},
+"00510041": {
+"game": true,
+"size": 109
+},
+"005100ae": {
+"game": true,
+"size": 158
+},
+"0051014c": {
+"game": true,
+"size": 137
+},
+"005101d5": {
+"game": true,
+"size": 264
+},
+"005102dd": {
+"game": true,
+"size": 93
+},
+"0051033a": {
+"game": true,
+"size": 147
+},
+"005103cd": {
+"game": true,
+"size": 133
+},
+"00510452": {
+"game": true,
+"size": 168
+},
+"005104fa": {
+"game": true,
+"size": 122
+},
+"00510574": {
+"game": true,
+"size": 25
+},
+"0051058d": {
+"game": true,
+"size": 232
+},
+"00510675": {
+"game": true,
+"size": 188
+},
+"00510731": {
+"game": true,
+"size": 106
+},
+"0051079b": {
+"game": true,
+"size": 492
+},
+"00510987": {
+"game": true,
+"size": 369
+},
+"00510af8": {
+"game": true,
+"size": 453
+},
+"00510cbd": {
+"game": true,
+"size": 631
+},
+"00510f34": {
+"game": true,
+"size": 817
+},
+"00511265": {
+"game": true,
+"size": 113
+},
+"005112d6": {
+"game": true,
+"size": 292
+},
+"005113fa": {
+"game": true,
+"size": 303
+},
+"00511529": {
+"game": true,
+"size": 130
+},
+"005115ab": {
+"game": true,
+"size": 36
+},
+"005115cf": {
+"game": true,
+"size": 117
+},
+"00511644": {
+"game": true,
+"size": 41
+},
+"0051166d": {
+"game": true,
+"size": 55
+},
+"005116a4": {
+"game": true,
+"size": 352
+},
+"00511804": {
+"game": true,
+"size": 105
+},
+"0051186d": {
+"game": true,
+"size": 113
+},
+"005118de": {
+"game": true,
+"size": 38
+},
+"00511904": {
+"game": true,
+"size": 120
+},
+"0051197c": {
+"game": true,
+"size": 43
+},
+"005119a7": {
+"game": true,
+"size": 107
+},
+"00511a12": {
+"game": true,
+"size": 230
+},
+"00511af8": {
+"game": true,
+"size": 236
+},
+"00511be4": {
+"game": true,
+"size": 477
+},
+"00511dc1": {
+"game": true,
+"size": 397
+},
+"00511f50": {
+"game": true,
+"size": 202
+},
+"0051201a": {
+"game": true,
+"size": 69
+},
+"0051205f": {
+"game": true,
+"size": 123
+},
+"005120da": {
+"game": true,
+"size": 73
+},
+"00512123": {
+"game": true,
+"size": 227
+},
+"00512206": {
+"game": true,
+"size": 23
+},
+"0051221d": {
+"game": true,
+"size": 1702
+},
+"005128c3": {
+"game": true,
+"size": 61
+},
+"00512900": {
+"game": true,
+"size": 221
+},
+"005129dd": {
+"game": true,
+"size": 519
+},
+"00512be4": {
+"game": true,
+"size": 174
+},
+"00512c92": {
+"game": true,
+"size": 303
+},
+"00512dc1": {
+"game": true,
+"size": 613
+},
+"00513026": {
+"game": true,
+"size": 420
+},
+"005131ca": {
+"game": true,
+"size": 183
+},
+"00513281": {
+"game": true,
+"size": 439
+},
+"00513438": {
+"game": true,
+"size": 290
+},
+"00513560": {
+"game": true,
+"size": 4188
+},
+"005145c0": {
+"game": true,
+"size": 5
+},
+"005145c5": {
+"game": true,
+"size": 145
+},
+"00514656": {
+"game": true,
+"size": 193
+},
+"00514717": {
+"game": true,
+"size": 56
+},
+"0051474f": {
+"game": true,
+"size": 110
+},
+"005147bd": {
+"game": true,
+"size": 102
+},
+"00514823": {
+"game": true,
+"size": 220
+},
+"005148ff": {
+"game": true,
+"size": 205
+},
+"005149cc": {
+"game": true,
+"size": 217
+},
+"00514aa5": {
+"game": true,
+"size": 177
+},
+"00514b56": {
+"game": true,
+"size": 164
+},
+"00514bfa": {
+"game": true,
+"size": 196
+},
+"00514cbe": {
+"game": true,
+"size": 45
+},
+"00514ceb": {
+"game": true,
+"size": 2019
+},
+"005154ce": {
+"game": true,
+"size": 159
+},
+"0051556d": {
+"game": true,
+"size": 72
+},
+"005155b5": {
+"game": true,
+"size": 68
+},
+"005155f9": {
+"game": true,
+"size": 55
+},
+"00515630": {
+"game": true,
+"size": 56
+},
+"00515668": {
+"game": true,
+"size": 68
+},
+"005156ac": {
+"game": true,
+"size": 68
+},
+"005156f0": {
+"game": true,
+"size": 80
+},
+"00515740": {
+"game": true,
+"size": 125
+},
+"005157bd": {
+"game": true,
+"size": 86
+},
+"00515813": {
+"game": true,
+"size": 123
+},
+"0051588e": {
+"game": true,
+"size": 62
+},
+"005158cc": {
+"game": true,
+"size": 104
+},
+"00515934": {
+"game": true,
+"size": 204
+},
+"00515a00": {
+"game": true,
+"size": 385
+},
+"00515b81": {
+"game": true,
+"size": 719
+},
+"00515e50": {
+"game": true,
+"size": 101
+},
+"00515eb5": {
+"game": true,
+"size": 36
+},
+"00515ed9": {
+"game": true,
+"size": 7
+},
+"00515ee0": {
+"game": true,
+"size": 5
+},
+"00515ee5": {
+"game": true,
+"size": 5
+},
+"00515eea": {
+"game": true,
+"size": 5
+},
+"00515eef": {
+"game": true,
+"size": 5
+},
+"00515f00": {
+"game": true,
+"size": 15
+},
+"00515f0f": {
+"game": true,
+"size": 15
+},
+"00515f1e": {
+"game": true,
+"size": 18
+},
+"00515f30": {
+"game": true,
+"size": 15
+},
+"00515f3f": {
+"game": true,
+"size": 15
+},
+"00515f4e": {
+"game": true,
+"size": 15
+},
+"00515f5d": {
+"game": true,
+"size": 18
+},
+"00515f6f": {
+"game": true,
+"size": 15
+},
+"00515f7e": {
+"game": true,
+"size": 10
+},
+"00515f88": {
+"game": true,
+"size": 5
+},
+"00515f8d": {
+"game": true,
+"size": 10
+},
+"00515f97": {
+"game": true,
+"size": 5
+},
+"00515f9c": {
+"game": true,
+"size": 704
+},
+"0051625c": {
+"game": true,
+"size": 697
+},
+"00516515": {
+"game": true,
+"size": 400
+},
+"005166a5": {
+"game": true,
+"size": 69
+},
+"005166ea": {
+"game": true,
+"size": 76
+},
+"00516740": {
+"game": true,
+"size": 261
+},
+"00516845": {
+"game": true,
+"size": 38
+},
+"0051686b": {
+"game": true,
+"size": 61
+},
+"005168a8": {
+"game": true,
+"size": 167
+},
+"0051694f": {
+"game": true,
+"size": 111
+},
+"005169c0": {
+"game": true,
+"size": 520
+},
+"00516bc8": {
+"game": true,
+"size": 524
+},
+"00516dd4": {
+"game": true,
+"size": 510
+},
+"00516fd2": {
+"game": true,
+"size": 514
+},
+"005171d4": {
+"game": true,
+"size": 510
+},
+"005173d2": {
+"game": true,
+"size": 520
+},
+"005175da": {
+"game": true,
+"size": 1649
+},
+"00517c4b": {
+"game": true,
+"size": 228
+},
+"00517d2f": {
+"game": true,
+"size": 284
+},
+"00517e4b": {
+"game": true,
+"size": 850
+},
+"0051819d": {
+"game": true,
+"size": 1445
+},
+"00518742": {
+"game": true,
+"size": 843
+},
+"00518a8d": {
+"game": true,
+"size": 1442
+},
+"0051902f": {
+"game": true,
+"size": 1674
+},
+"005196c0": {
+"game": true,
+"size": 50
+},
+"005196f2": {
+"game": true,
+"size": 10
+},
+"005196fc": {
+"game": true,
+"size": 771
+},
+"005199ff": {
+"game": true,
+"size": 86
+},
+"00519a55": {
+"game": true,
+"size": 405
+},
+"00519bea": {
+"game": true,
+"size": 899
+},
+"00519f6d": {
+"game": true,
+"size": 2673
+},
+"0051a9de": {
+"game": true,
+"size": 2339
+},
+"0051b301": {
+"game": true,
+"size": 187
+},
+"0051b3bc": {
+"game": true,
+"size": 361
+},
+"0051b525": {
+"game": true,
+"size": 206
+},
+"0051b5f3": {
+"game": true,
+"size": 687
+},
+"0051b8a2": {
+"game": true,
+"size": 2549
+},
+"0051c297": {
+"game": true,
+"size": 647
+},
+"0051c51e": {
+"game": true,
+"size": 1152
+},
+"0051c99e": {
+"game": true,
+"size": 2330
+},
+"0051d2eb": {
+"game": true,
+"size": 261
+},
+"0051d3f0": {
+"game": true,
+"size": 3139
+},
+"0051e033": {
+"game": true,
+"size": 440
+},
+"0051e1f0": {
+"game": true,
+"size": 452
+},
+"0051e3b4": {
+"game": true,
+"size": 2220
+},
+"0051ec60": {
+"game": true,
+"size": 2203
+},
+"0051f4fb": {
+"game": true,
+"size": 2414
+},
+"0051fe69": {
+"game": true,
+"size": 2642
+},
+"005208bb": {
+"game": true,
+"size": 3215
+},
+"0052154a": {
+"game": true,
+"size": 5012
+},
+"005228de": {
+"game": true,
+"size": 5
+},
+"005228f0": {
+"game": true,
+"size": 15
+},
+"005228ff": {
+"game": true,
+"size": 15
+},
+"0052290e": {
+"game": true,
+"size": 18
+},
+"00522920": {
+"game": true,
+"size": 15
+},
+"0052292f": {
+"game": true,
+"size": 15
+},
+"0052293e": {
+"game": true,
+"size": 15
+},
+"0052294d": {
+"game": true,
+"size": 18
+},
+"0052295f": {
+"game": true,
+"size": 15
+},
+"0052296e": {
+"game": true,
+"size": 10
+},
+"00522978": {
+"game": true,
+"size": 15
+},
+"00522987": {
+"game": true,
+"size": 10
+},
+"00522991": {
+"game": true,
+"size": 15
+},
+"005229a0": {
+"game": true,
+"size": 15
+},
+"005229af": {
+"game": true,
+"size": 15
+},
+"005229be": {
+"game": true,
+"size": 18
+},
+"005229d0": {
+"game": true,
+"size": 15
+},
+"005229df": {
+"game": true,
+"size": 10
+},
+"005229e9": {
+"game": true,
+"size": 57
+},
+"00522a22": {
+"game": true,
+"size": 10
+},
+"00522a2c": {
+"game": true,
+"size": 57
+},
+"00522a65": {
+"game": true,
+"size": 1248
+},
+"00522f45": {
+"game": true,
+"size": 1257
+},
+"0052342e": {
+"game": true,
+"size": 1248
+},
+"0052390e": {
+"game": true,
+"size": 1269
+},
+"00523e03": {
+"game": true,
+"size": 1244
+},
+"005242df": {
+"game": true,
+"size": 1266
+},
+"005247d1": {
+"game": true,
+"size": 1201
+},
+"00524c82": {
+"game": true,
+"size": 1316
+},
+"005251a6": {
+"game": true,
+"size": 1201
+},
+"00525657": {
+"game": true,
+"size": 1279
+},
+"00525b56": {
+"game": true,
+"size": 1317
+},
+"0052607b": {
+"game": true,
+"size": 1404
+},
+"00526600": {
+"game": true,
+"size": 183
+},
+"005266b7": {
+"game": true,
+"size": 164
+},
+"0052675b": {
+"game": true,
+"size": 71
+},
+"005267a2": {
+"game": true,
+"size": 50
+},
+"005267d4": {
+"game": true,
+"size": 183
+},
+"0052688b": {
+"game": true,
+"size": 165
+},
+"00526930": {
+"game": true,
+"size": 71
+},
+"00526977": {
+"game": true,
+"size": 50
+},
+"005269a9": {
+"game": true,
+"size": 37
+},
+"005269ce": {
+"game": true,
+"size": 36
+},
+"005269f2": {
+"game": true,
+"size": 41
+},
+"00526a1b": {
+"game": true,
+"size": 43
+},
+"00526a46": {
+"game": true,
+"size": 43
+},
+"00526a71": {
+"game": true,
+"size": 146
+},
+"00526b03": {
+"game": true,
+"size": 170
+},
+"00526bad": {
+"game": true,
+"size": 153
+},
+"00526c46": {
+"game": true,
+"size": 211
+},
+"00526d19": {
+"game": true,
+"size": 58
+},
+"00526d53": {
+"game": true,
+"size": 115
+},
+"00526dc6": {
+"game": true,
+"size": 294
+},
+"00526eec": {
+"game": true,
+"size": 294
+},
+"00527012": {
+"game": true,
+"size": 549
+},
+"00527237": {
+"game": true,
+"size": 85
+},
+"0052728c": {
+"game": true,
+"size": 86
+},
+"005272e2": {
+"game": true,
+"size": 254
+},
+"005273e0": {
+"game": true,
+"size": 254
+},
+"005274de": {
+"game": true,
+"size": 227
+},
+"005275c1": {
+"game": true,
+"size": 227
+},
+"005276b0": {
+"game": true,
+"size": 13
+},
+"005276bd": {
+"game": true,
+"size": 13
+},
+"005276ca": {
+"game": true,
+"size": 33
+},
+"005276eb": {
+"game": true,
+"size": 135
+},
+"00527772": {
+"game": true,
+"size": 91
+},
+"005277cd": {
+"game": true,
+"size": 135
+},
+"00527854": {
+"game": true,
+"size": 94
+},
+"005278b2": {
+"game": true,
+"size": 170
+},
+"0052795c": {
+"game": true,
+"size": 162
+},
+"00527a00": {
+"game": true,
+"size": 188
+},
+"00527abc": {
+"game": true,
+"size": 184
+},
+"00527b74": {
+"game": true,
+"size": 377
+},
+"00527ced": {
+"game": true,
+"size": 46
+},
+"00527d1b": {
+"game": true,
+"size": 57
+},
+"00527d54": {
+"game": true,
+"size": 126
+},
+"00527dd2": {
+"game": true,
+"size": 26
+},
+"00527dec": {
+"game": true,
+"size": 48
+},
+"00527e1c": {
+"game": true,
+"size": 177
+},
+"00527ecd": {
+"game": true,
+"size": 329
+},
+"00528026": {
+"game": true,
+"size": 84
+},
+"0052807a": {
+"game": true,
+"size": 574
+},
+"005282b8": {
+"game": true,
+"size": 93
+},
+"00528315": {
+"game": true,
+"size": 169
+},
+"005283be": {
+"game": true,
+"size": 200
+},
+"00528486": {
+"game": true,
+"size": 167
+},
+"0052852d": {
+"game": true,
+"size": 1505
+},
+"00528b0e": {
+"game": true,
+"size": 375
+},
+"00528c85": {
+"game": true,
+"size": 399
+},
+"00528e14": {
+"game": true,
+"size": 222
+},
+"00528ef2": {
+"game": true,
+"size": 114
+},
+"00528f64": {
+"game": true,
+"size": 1452
+},
+"00529510": {
+"game": true,
+"size": 1515
+},
+"00529afb": {
+"game": true,
+"size": 92
+},
+"00529b6b": {
+"game": true,
+"size": 82
+},
+"00529bbd": {
+"game": true,
+"size": 106
+},
+"00529c27": {
+"game": true,
+"size": 121
+},
+"00529ca0": {
+"game": true,
+"size": 108
+},
+"00529d0c": {
+"game": true,
+"size": 105
+},
+"00529d75": {
+"game": true,
+"size": 50
+},
+"00529da7": {
+"game": true,
+"size": 248
+},
+"00529e9f": {
+"game": true,
+"size": 104
+},
+"00529f10": {
+"game": true,
+"size": 46
+},
+"00529f40": {
+"game": true,
+"size": 72
+},
+"00529f88": {
+"game": true,
+"size": 781
+},
+"0052a2a0": {
+"game": true,
+"size": 36
+},
+"0052a2c4": {
+"game": true,
+"size": 18
+},
+"0052a2d6": {
+"game": true,
+"size": 40
+},
+"0052a2fe": {
+"game": true,
+"size": 10
+},
+"0052a308": {
+"game": true,
+"size": 10
+},
+"0052a312": {
+"game": true,
+"size": 10
+},
+"0052a31c": {
+"game": true,
+"size": 10
+},
+"0052a326": {
+"game": true,
+"size": 128
+},
+"0052a3a6": {
+"game": true,
+"size": 134
+},
+"0052a42c": {
+"game": true,
+"size": 65
+},
+"0052a46d": {
+"game": true,
+"size": 71
+},
+"0052a4c0": {
+"game": true,
+"size": 15
+},
+"0052a4cf": {
+"game": true,
+"size": 15
+},
+"0052a4de": {
+"game": true,
+"size": 18
+},
+"0052a4f0": {
+"game": true,
+"size": 15
+},
+"0052a4ff": {
+"game": true,
+"size": 49
+},
+"0052a530": {
+"game": true,
+"size": 80
+},
+"0052a580": {
+"game": true,
+"size": 166
+},
+"0052a626": {
+"game": true,
+"size": 30
+},
+"0052a644": {
+"game": true,
+"size": 30
+},
+"0052a662": {
+"game": true,
+"size": 25
+},
+"0052a67b": {
+"game": true,
+"size": 44
+},
+"0052a6a7": {
+"game": true,
+"size": 97
+},
+"0052a708": {
+"game": true,
+"size": 58
+},
+"0052a742": {
+"game": true,
+"size": 152
+},
+"0052a7e0": {
+"game": true,
+"size": 46
+},
+"0052a810": {
+"game": true,
+"size": 65
+},
+"0052a860": {
+"game": true,
+"size": 15
+},
+"0052a86f": {
+"game": true,
+"size": 15
+},
+"0052a87e": {
+"game": true,
+"size": 18
+},
+"0052a890": {
+"game": true,
+"size": 15
+},
+"0052a89f": {
+"game": true,
+"size": 330
+},
+"0052a9e9": {
+"game": true,
+"size": 1471
+},
+"0052afa8": {
+"game": true,
+"size": 25
+},
+"0052afc1": {
+"game": true,
+"size": 5749
+},
+"0052c636": {
+"game": true,
+"size": 301
+},
+"0052c763": {
+"game": true,
+"size": 649
+},
+"0052c9ec": {
+"game": true,
+"size": 669
+},
+"0052cc89": {
+"game": true,
+"size": 429
+},
+"0052ce36": {
+"game": true,
+"size": 696
+},
+"0052d0ee": {
+"game": true,
+"size": 659
+},
+"0052d381": {
+"game": true,
+"size": 507
+},
+"0052d57c": {
+"game": true,
+"size": 533
+},
+"0052d791": {
+"game": true,
+"size": 480
+},
+"0052d971": {
+"game": true,
+"size": 626
+},
+"0052dbe3": {
+"game": true,
+"size": 161
+},
+"0052dc84": {
+"game": true,
+"size": 109
+},
+"0052dcf1": {
+"game": true,
+"size": 76
+},
+"0052dd40": {
+"game": true,
+"size": 5
+},
+"0052dd45": {
+"game": true,
+"size": 5
+},
+"0052dd4a": {
+"game": true,
+"size": 5
+},
+"0052dd4f": {
+"game": true,
+"size": 5
+},
+"0052dd54": {
+"game": true,
+"size": 5
+},
+"0052dd59": {
+"game": true,
+"size": 7
+},
+"0052dd60": {
+"game": true,
+"size": 5
+},
+"0052dd70": {
+"game": true,
+"size": 141
+},
+"0052de00": {
+"game": true,
+"size": 60
+},
+"0052de40": {
+"game": true,
+"size": 6
+},
+"0052de50": {
+"game": true,
+"size": 83
+},
+"0052dea3": {
+"game": true,
+"size": 212
+},
+"0052df80": {
+"game": true,
+"size": 15
+},
+"0052df8f": {
+"game": true,
+"size": 15
+},
+"0052df9e": {
+"game": true,
+"size": 18
+},
+"0052dfb0": {
+"game": true,
+"size": 15
+},
+"0052dfbf": {
+"game": true,
+"size": 5
+},
+"0052dfc4": {
+"game": true,
+"size": 167
+},
+"0052e06b": {
+"game": true,
+"size": 5
+},
+"0052e070": {
+"game": true,
+"size": 115
+},
+"0052e0e3": {
+"game": true,
+"size": 200
+},
+"0052e1ab": {
+"game": true,
+"size": 5
+},
+"0052e1b0": {
+"game": true,
+"size": 35
+},
+"0052e1e0": {
+"game": true,
+"size": 121
+},
+"0052e259": {
+"game": true,
+"size": 34
+},
+"0052e27b": {
+"game": true,
+"size": 167
+},
+"0052e322": {
+"game": true,
+"size": 382
+},
+"0052e4a0": {
+"game": true,
+"size": 389
+},
+"0052e625": {
+"game": true,
+"size": 666
+},
+"0052e8bf": {
+"game": true,
+"size": 230
+},
+"0052e9a5": {
+"game": true,
+"size": 6901
+},
+"0053049a": {
+"game": true,
+"size": 5486
+},
+"00531a08": {
+"game": true,
+"size": 469
+},
+"00531bdd": {
+"game": true,
+"size": 749
+},
+"00531ed0": {
+"game": true,
+"size": 46
+},
+"00531f00": {
+"game": true,
+"size": 157
+},
+"00531f9d": {
+"game": true,
+"size": 46
+},
+"00531fcb": {
+"game": true,
+"size": 60
+},
+"00532007": {
+"game": true,
+"size": 25
+},
+"00532020": {
+"game": true,
+"size": 107
+},
+"0053208b": {
+"game": true,
+"size": 70
+},
+"005320d1": {
+"game": true,
+"size": 39
+},
+"005320f8": {
+"game": true,
+"size": 21
+},
+"0053210d": {
+"game": true,
+"size": 116
+},
+"00532181": {
+"game": true,
+"size": 79
+},
+"005321d0": {
+"game": true,
+"size": 10
+},
+"005321da": {
+"game": true,
+"size": 18
+},
+"005321ec": {
+"game": true,
+"size": 15
+},
+"005321fb": {
+"game": true,
+"size": 15
+},
+"0053220a": {
+"game": true,
+"size": 18
+},
+"0053221c": {
+"game": true,
+"size": 15
+},
+"0053222b": {
+"game": true,
+"size": 136
+},
+"005322b3": {
+"game": true,
+"size": 57
+},
+"005322ec": {
+"game": true,
+"size": 15
+},
+"005322fb": {
+"game": true,
+"size": 25
+},
+"00532314": {
+"game": true,
+"size": 302
+},
+"00532442": {
+"game": true,
+"size": 255
+},
+"00532541": {
+"game": true,
+"size": 192
+},
+"00532601": {
+"game": true,
+"size": 232
+},
+"005326e9": {
+"game": true,
+"size": 458
+},
+"005328b3": {
+"game": true,
+"size": 2764
+},
+"0053337f": {
+"game": true,
+"size": 132
+},
+"00533403": {
+"game": true,
+"size": 316
+},
+"0053353f": {
+"game": true,
+"size": 74
+},
+"00533589": {
+"game": true,
+"size": 106
+},
+"005335f3": {
+"game": true,
+"size": 76
+},
+"0053363f": {
+"game": true,
+"size": 26
+},
+"00533659": {
+"game": true,
+"size": 43
+},
+"00533684": {
+"game": true,
+"size": 52
+},
+"005336b8": {
+"game": true,
+"size": 21
+},
+"005336cd": {
+"game": true,
+"size": 15
+},
+"005336dc": {
+"game": true,
+"size": 115
+},
+"0053374f": {
+"game": true,
+"size": 59
+},
+"0053378a": {
+"game": true,
+"size": 172
+},
+"00533836": {
+"game": true,
+"size": 52
+},
+"0053386a": {
+"game": true,
+"size": 63
+},
+"005338a9": {
+"game": true,
+"size": 199
+},
+"00533970": {
+"game": true,
+"size": 140
+},
+"005339fc": {
+"game": true,
+"size": 104
+},
+"00533a64": {
+"game": true,
+"size": 171
+},
+"00533b0f": {
+"game": true,
+"size": 209
+},
+"00533be0": {
+"game": true,
+"size": 258
+},
+"00533ce2": {
+"game": true,
+"size": 134
+},
+"00533d68": {
+"game": true,
+"size": 114
+},
+"00533dda": {
+"game": true,
+"size": 233
+},
+"00533ec3": {
+"game": true,
+"size": 250
+},
+"00533fbd": {
+"game": true,
+"size": 1053
+},
+"005343da": {
+"game": true,
+"size": 93
+},
+"00534437": {
+"game": true,
+"size": 69
+},
+"0053447c": {
+"game": true,
+"size": 375
+},
+"005345f3": {
+"game": true,
+"size": 61
+},
+"00534630": {
+"game": true,
+"size": 37
+},
+"00534655": {
+"game": true,
+"size": 68
+},
+"00534699": {
+"game": true,
+"size": 102
+},
+"005346ff": {
+"game": true,
+"size": 427
+},
+"005348aa": {
+"game": true,
+"size": 46
+},
+"005348d8": {
+"game": true,
+"size": 84
+},
+"0053492c": {
+"game": true,
+"size": 51
+},
+"0053495f": {
+"game": true,
+"size": 736
+},
+"00534cd0": {
+"game": true,
+"size": 94
+},
+"00534d2e": {
+"game": true,
+"size": 3418
+},
+"00535a88": {
+"game": true,
+"size": 425
+},
+"00535c31": {
+"game": true,
+"size": 82
+},
+"00535c83": {
+"game": true,
+"size": 342
+},
+"00535dd9": {
+"game": true,
+"size": 5
+},
+"00535dde": {
+"game": true,
+"size": 273
+},
+"00535eef": {
+"game": true,
+"size": 5
+},
+"00535ef4": {
+"game": true,
+"size": 15
+},
+"00535f03": {
+"game": true,
+"size": 608
+},
+"00536173": {
+"game": true,
+"size": 25
+},
+"0053618c": {
+"game": true,
+"size": 325
+},
+"005362e0": {
+"game": true,
+"size": 55
+},
+"00536317": {
+"game": true,
+"size": 82
+},
+"00536369": {
+"game": true,
+"size": 44
+},
+"005363a0": {
+"game": true,
+"size": 5
+},
+"005363a5": {
+"game": true,
+"size": 5
+},
+"005363aa": {
+"game": true,
+"size": 5
+},
+"005363af": {
+"game": true,
+"size": 5
+},
+"005363b4": {
+"game": true,
+"size": 5
+},
+"005363b9": {
+"game": true,
+"size": 5
+},
+"005363c0": {
+"game": true,
+"size": 186
+},
+"0053647a": {
+"game": true,
+"size": 157
+},
+"00536517": {
+"game": true,
+"size": 632
+},
+"0053678f": {
+"game": true,
+"size": 37
+},
+"005367b4": {
+"game": true,
+"size": 1392
+},
+"00536d24": {
+"game": true,
+"size": 272
+},
+"00536e34": {
+"game": true,
+"size": 4860
+},
+"00538130": {
+"game": true,
+"size": 196
+},
+"005381f4": {
+"game": true,
+"size": 1658
+},
+"0053886e": {
+"game": true,
+"size": 360
+},
+"005389d6": {
+"game": true,
+"size": 343
+},
+"00538b2d": {
+"game": true,
+"size": 499
+},
+"00538d20": {
+"game": true,
+"size": 148
+},
+"00538dc0": {
+"game": true,
+"size": 46
+},
+"00538df0": {
+"game": true,
+"size": 5
+},
+"00538df5": {
+"game": true,
+"size": 5
+},
+"00538e00": {
+"game": true,
+"size": 15
+},
+"00538e0f": {
+"game": true,
+"size": 15
+},
+"00538e1e": {
+"game": true,
+"size": 18
+},
+"00538e30": {
+"game": true,
+"size": 15
+},
+"00538e3f": {
+"game": true,
+"size": 115
+},
+"00538eb2": {
+"game": true,
+"size": 49
+},
+"00538ee3": {
+"game": true,
+"size": 36
+},
+"00538f07": {
+"game": true,
+"size": 72
+},
+"00538f4f": {
+"game": true,
+"size": 128
+},
+"00538fcf": {
+"game": true,
+"size": 174
+},
+"0053907d": {
+"game": true,
+"size": 54
+},
+"005390b3": {
+"game": true,
+"size": 54
+},
+"005390e9": {
+"game": true,
+"size": 176
+},
+"00539199": {
+"game": true,
+"size": 218
+},
+"00539273": {
+"game": true,
+"size": 168
+},
+"0053931b": {
+"game": true,
+"size": 217
+},
+"005393f4": {
+"game": true,
+"size": 133
+},
+"00539479": {
+"game": true,
+"size": 94
+},
+"005394d7": {
+"game": true,
+"size": 48
+},
+"00539507": {
+"game": true,
+"size": 73
+},
+"00539550": {
+"game": true,
+"size": 119
+},
+"005395c7": {
+"game": true,
+"size": 716
+},
+"00539893": {
+"game": true,
+"size": 65
+},
+"005398d4": {
+"game": true,
+"size": 145
+},
+"00539965": {
+"game": true,
+"size": 477
+},
+"00539b42": {
+"game": true,
+"size": 231
+},
+"00539c29": {
+"game": true,
+"size": 360
+},
+"00539d91": {
+"game": true,
+"size": 409
+},
+"00539f2a": {
+"game": true,
+"size": 531
+},
+"0053a13d": {
+"game": true,
+"size": 951
+},
+"0053a4f4": {
+"game": true,
+"size": 566
+},
+"0053a72a": {
+"game": true,
+"size": 205
+},
+"0053a7f7": {
+"game": true,
+"size": 3058
+},
+"0053b419": {
+"game": true,
+"size": 49
+},
+"0053b44a": {
+"game": true,
+"size": 49
+},
+"0053b47b": {
+"game": true,
+"size": 182
+},
+"0053b531": {
+"game": true,
+"size": 333
+},
+"0053b67e": {
+"game": true,
+"size": 3187
+},
+"0053c321": {
+"game": true,
+"size": 53
+},
+"0053c356": {
+"game": true,
+"size": 53
+},
+"0053c38b": {
+"game": true,
+"size": 428
+},
+"0053c537": {
+"game": true,
+"size": 587
+},
+"0053c782": {
+"game": true,
+"size": 2342
+},
+"0053d0a8": {
+"game": true,
+"size": 411
+},
+"0053d243": {
+"game": true,
+"size": 322
+},
+"0053d385": {
+"game": true,
+"size": 310
+},
+"0053d4bb": {
+"game": true,
+"size": 1018
+},
+"0053d8b5": {
+"game": true,
+"size": 539
+},
+"0053dad0": {
+"game": true,
+"size": 1622
+},
+"0053e126": {
+"game": true,
+"size": 447
+},
+"0053e2e5": {
+"game": true,
+"size": 144
+},
+"0053e375": {
+"game": true,
+"size": 201
+},
+"0053e43e": {
+"game": true,
+"size": 704
+},
+"0053e700": {
+"game": true,
+"size": 103
+},
+"0053e767": {
+"game": true,
+"size": 146
+},
+"0053e7f9": {
+"game": true,
+"size": 170
+},
+"0053e8a3": {
+"game": true,
+"size": 418
+},
+"0053ea50": {
+"game": true,
+"size": 252
+},
+"0053eb4c": {
+"game": true,
+"size": 60
+},
+"0053eb88": {
+"game": true,
+"size": 122
+},
+"0053ec02": {
+"game": true,
+"size": 728
+},
+"0053eeda": {
+"game": true,
+"size": 14
+},
+"0053eee8": {
+"game": true,
+"size": 194
+},
+"0053efaa": {
+"game": true,
+"size": 152
+},
+"0053f042": {
+"game": true,
+"size": 10
+},
+"0053f04c": {
+"game": true,
+"size": 28
+},
+"0053f068": {
+"game": true,
+"size": 10
+},
+"0053f072": {
+"game": true,
+"size": 33
+},
+"0053f093": {
+"game": true,
+"size": 10
+},
+"0053f09d": {
+"game": true,
+"size": 67
+},
+"0053f0e0": {
+"game": true,
+"size": 10
+},
+"0053f0ea": {
+"game": true,
+"size": 28
+},
+"0053f106": {
+"game": true,
+"size": 10
+},
+"0053f110": {
+"game": true,
+"size": 28
+},
+"0053f12c": {
+"game": true,
+"size": 127
+},
+"0053f1ab": {
+"game": true,
+"size": 85
+},
+"0053f200": {
+"game": true,
+"size": 78
+},
+"0053f24e": {
+"game": true,
+"size": 121
+},
+"0053f2c7": {
+"game": true,
+"size": 243
+},
+"0053f3ba": {
+"game": true,
+"size": 35
+},
+"0053f3dd": {
+"game": true,
+"size": 35
+},
+"0053f400": {
+"game": true,
+"size": 35
+},
+"0053f430": {
+"game": true,
+"size": 15
+},
+"0053f43f": {
+"game": true,
+"size": 2624
+},
+"0053fe7f": {
+"game": true,
+"size": 15
+},
+"0053fe8e": {
+"game": true,
+"size": 140
+},
+"0053ff1a": {
+"game": true,
+"size": 472
+},
+"005400f2": {
+"game": true,
+"size": 54
+},
+"00540128": {
+"game": true,
+"size": 81
+},
+"00540179": {
+"game": true,
+"size": 304
+},
+"005402a9": {
+"game": true,
+"size": 86
+},
+"005402ff": {
+"game": true,
+"size": 3306
+},
+"00541019": {
+"game": true,
+"size": 440
+},
+"005411d1": {
+"game": true,
+"size": 1776
+},
+"005418c1": {
+"game": true,
+"size": 409
+},
+"00541a5a": {
+"game": true,
+"size": 80
+},
+"00541aaa": {
+"game": true,
+"size": 281
+},
+"00541bc3": {
+"game": true,
+"size": 265
+},
+"00541ccc": {
+"game": true,
+"size": 312
+},
+"00541e04": {
+"game": true,
+"size": 169
+},
+"00541ead": {
+"game": true,
+"size": 172
+},
+"00541f59": {
+"game": true,
+"size": 32
+},
+"00541f79": {
+"game": true,
+"size": 299
+},
+"005420a4": {
+"game": true,
+"size": 265
+},
+"005421ad": {
+"game": true,
+"size": 100
+},
+"00542211": {
+"game": true,
+"size": 152
+},
+"005422a9": {
+"game": true,
+"size": 64
+},
+"005422e9": {
+"game": true,
+"size": 72
+},
+"00542331": {
+"game": true,
+"size": 276
+},
+"00542445": {
+"game": true,
+"size": 129
+},
+"005424c6": {
+"game": true,
+"size": 183
+},
+"0054257d": {
+"game": true,
+"size": 77
+},
+"005425ca": {
+"game": true,
+"size": 100
+},
+"0054262e": {
+"game": true,
+"size": 108
+},
+"0054269a": {
+"game": true,
+"size": 191
+},
+"00542759": {
+"game": true,
+"size": 314
+},
+"00542893": {
+"game": true,
+"size": 13
+},
+"005428a0": {
+"game": true,
+"size": 10
+},
+"005428aa": {
+"game": true,
+"size": 21
+},
+"005428c0": {
+"game": true,
+"size": 451
+},
+"00542ac0": {
+"game": true,
+"size": 58
+},
+"00542afa": {
+"game": true,
+"size": 211
+},
+"00542bcd": {
+"game": true,
+"size": 446
+},
+"00542d8b": {
+"game": true,
+"size": 13
+},
+"00542d98": {
+"game": true,
+"size": 42
+},
+"00542dc2": {
+"game": true,
+"size": 232
+},
+"00542eca": {
+"game": true,
+"size": 60
+},
+"00542f06": {
+"game": true,
+"size": 109
+},
+"00542f73": {
+"game": true,
+"size": 82
+},
+"00542fc5": {
+"game": true,
+"size": 512
+},
+"005431e5": {
+"game": true,
+"size": 55
+},
+"0054321c": {
+"game": true,
+"size": 55
+},
+"00543253": {
+"game": true,
+"size": 128
+},
+"005432d3": {
+"game": true,
+"size": 293
+},
+"0054341c": {
+"game": true,
+"size": 268
+},
+"0054354c": {
+"game": true,
+"size": 66
+},
+"0054358e": {
+"game": true,
+"size": 36
+},
+"005435b2": {
+"game": true,
+"size": 36
+},
+"005435d6": {
+"game": true,
+"size": 173
+},
+"00543683": {
+"game": true,
+"size": 104
+},
+"005436eb": {
+"game": true,
+"size": 534
+},
+"00543901": {
+"game": true,
+"size": 60
+},
+"0054393d": {
+"game": true,
+"size": 174
+},
+"005439eb": {
+"game": true,
+"size": 124
+},
+"00543a67": {
+"game": true,
+"size": 65
+},
+"00543aa8": {
+"game": true,
+"size": 678
+},
+"00543d6e": {
+"game": true,
+"size": 298
+},
+"00543ebc": {
+"game": true,
+"size": 335
+},
+"0054402f": {
+"game": true,
+"size": 104
+},
+"00544097": {
+"game": true,
+"size": 289
+},
+"005441b8": {
+"game": true,
+"size": 373
+},
+"00544359": {
+"game": true,
+"size": 373
+},
+"005444fa": {
+"game": true,
+"size": 373
+},
+"0054469b": {
+"game": true,
+"size": 376
+},
+"0054483f": {
+"game": true,
+"size": 262
+},
+"00544968": {
+"game": true,
+"size": 262
+},
+"00544a91": {
+"game": true,
+"size": 262
+},
+"00544bba": {
+"game": true,
+"size": 262
+},
+"00544ce3": {
+"game": true,
+"size": 262
+},
+"00544e0c": {
+"game": true,
+"size": 262
+},
+"00544f35": {
+"game": true,
+"size": 279
+},
+"0054506f": {
+"game": true,
+"size": 279
+},
+"005451a9": {
+"game": true,
+"size": 279
+},
+"005452e3": {
+"game": true,
+"size": 154
+},
+"0054537d": {
+"game": true,
+"size": 362
+},
+"005454e7": {
+"game": true,
+"size": 694
+},
+"0054579d": {
+"game": true,
+"size": 396
+},
+"00545929": {
+"game": true,
+"size": 576
+},
+"00545b69": {
+"game": true,
+"size": 168
+},
+"00545c11": {
+"game": true,
+"size": 398
+},
+"00545d9f": {
+"game": true,
+"size": 213
+},
+"00545e74": {
+"game": true,
+"size": 213
+},
+"00545f49": {
+"game": true,
+"size": 10
+},
+"00545f53": {
+"game": true,
+"size": 10
+},
+"00545f5d": {
+"game": true,
+"size": 129
+},
+"00545fde": {
+"game": true,
+"size": 155
+},
+"00546079": {
+"game": true,
+"size": 10
+},
+"00546083": {
+"game": true,
+"size": 213
+},
+"00546158": {
+"game": true,
+"size": 206
+},
+"00546226": {
+"game": true,
+"size": 663
+},
+"005464bd": {
+"game": true,
+"size": 38
+},
+"005464e3": {
+"game": true,
+"size": 50
+},
+"00546515": {
+"game": true,
+"size": 172
+},
+"005465c1": {
+"game": true,
+"size": 60
+},
+"005465fd": {
+"game": true,
+"size": 42
+},
+"00546627": {
+"game": true,
+"size": 72
+},
+"0054666f": {
+"game": true,
+"size": 5
+},
+"00546674": {
+"game": true,
+"size": 5
+},
+"00546680": {
+"game": true,
+"size": 435
+},
+"00546833": {
+"game": true,
+"size": 187
+},
+"005468ee": {
+"game": true,
+"size": 323
+},
+"00546a31": {
+"game": true,
+"size": 154
+},
+"00546acb": {
+"game": true,
+"size": 105
+},
+"00546b34": {
+"game": true,
+"size": 140
+},
+"00546bc0": {
+"game": true,
+"size": 206
+},
+"00546c8e": {
+"game": true,
+"size": 551
+},
+"00546eb5": {
+"game": true,
+"size": 105
+},
+"00546f1e": {
+"game": true,
+"size": 321
+},
+"0054705f": {
+"game": true,
+"size": 472
+},
+"00547240": {
+"game": true,
+"size": 23
+},
+"00547257": {
+"game": true,
+"size": 48
+},
+"00547287": {
+"game": true,
+"size": 26
+},
+"005472a1": {
+"game": true,
+"size": 56
+},
+"005472d9": {
+"game": true,
+"size": 33
+},
+"005472fa": {
+"game": true,
+"size": 22
+},
+"00547310": {
+"game": true,
+"size": 53
+},
+"00547345": {
+"game": true,
+"size": 51
+},
+"00547378": {
+"game": true,
+"size": 76
+},
+"005473c4": {
+"game": true,
+"size": 19
+},
+"005473d7": {
+"game": true,
+"size": 62
+},
+"00547415": {
+"game": true,
+"size": 31
+},
+"00547434": {
+"game": true,
+"size": 60
+},
+"00547470": {
+"game": true,
+"size": 189
+},
+"005475cb": {
+"game": true,
+"size": 487
+},
+"00547855": {
+"game": true,
+"size": 2362
+},
+"0054818f": {
+"game": true,
+"size": 471
+},
+"00548366": {
+"game": true,
+"size": 27
+},
+"00548381": {
+"game": true,
+"size": 162
+},
+"00548430": {
+"game": true,
+"size": 12
+},
+"0054843c": {
+"game": true,
+"size": 578
+},
+"0054867e": {
+"game": true,
+"size": 41
+},
+"005486b0": {
+"game": true,
+"size": 22
+},
+"005486d0": {
+"game": true,
+"size": 377
+},
+"00548850": {
+"game": true,
+"size": 293
+},
+"00548980": {
+"game": true,
+"size": 494
+},
+"00548b6e": {
+"game": true,
+"size": 75
+},
+"00548bb9": {
+"game": true,
+"size": 392
+},
+"00548d41": {
+"game": true,
+"size": 53
+},
+"00548d76": {
+"game": true,
+"size": 71
+},
+"00548dd0": {
+"game": true,
+"size": 5
+},
+"00548dd5": {
+"game": true,
+"size": 15
+},
+"00548de4": {
+"game": true,
+"size": 65
+},
+"00548e25": {
+"game": true,
+"size": 18
+},
+"00548e37": {
+"game": true,
+"size": 80
+},
+"00548e87": {
+"game": true,
+"size": 15
+},
+"00548e96": {
+"game": true,
+"size": 68
+},
+"00548eda": {
+"game": true,
+"size": 18
+},
+"00548eec": {
+"game": true,
+"size": 83
+},
+"00548f3f": {
+"game": true,
+"size": 534
+},
+"00549155": {
+"game": true,
+"size": 99
+},
+"005491b8": {
+"game": true,
+"size": 570
+},
+"005493f2": {
+"game": true,
+"size": 51
+},
+"00549425": {
+"game": true,
+"size": 106
+},
+"0054948f": {
+"game": true,
+"size": 149
+},
+"00549524": {
+"game": true,
+"size": 137
+},
+"005495ad": {
+"game": true,
+"size": 92
+},
+"00549609": {
+"game": true,
+"size": 92
+},
+"00549665": {
+"game": true,
+"size": 38
+},
+"0054968b": {
+"game": true,
+"size": 45
+},
+"005496b8": {
+"game": true,
+"size": 468
+},
+"0054988c": {
+"game": true,
+"size": 85
+},
+"005498e1": {
+"game": true,
+"size": 32
+},
+"00549901": {
+"game": true,
+"size": 15
+},
+"00549910": {
+"game": true,
+"size": 15
+},
+"0054991f": {
+"game": true,
+"size": 503
+},
+"00549b16": {
+"game": true,
+"size": 75
+},
+"00549b61": {
+"game": true,
+"size": 444
+},
+"00549d20": {
+"game": true,
+"size": 5
+},
+"00549d25": {
+"game": true,
+"size": 1015
+},
+"0054a1ba": {
+"game": true,
+"size": 104
+},
+"0054a230": {
+"game": true,
+"size": 70
+},
+"0054a276": {
+"game": true,
+"size": 70
+},
+"0054a2bc": {
+"game": true,
+"size": 24
+},
+"0054a2d4": {
+"game": true,
+"size": 24
+},
+"0054a2ec": {
+"game": true,
+"size": 58
+},
+"0054a326": {
+"game": true,
+"size": 454
+},
+"0054a582": {
+"game": true,
+"size": 104
+},
+"0054a5f0": {
+"game": true,
+"size": 10
+},
+"0054a5fa": {
+"game": true,
+"size": 28
+},
+"0054a616": {
+"game": true,
+"size": 10
+},
+"0054a620": {
+"game": true,
+"size": 33
+},
+"0054a641": {
+"game": true,
+"size": 10
+},
+"0054a64b": {
+"game": true,
+"size": 67
+},
+"0054a68e": {
+"game": true,
+"size": 10
+},
+"0054a698": {
+"game": true,
+"size": 28
+},
+"0054a6b4": {
+"game": true,
+"size": 10
+},
+"0054a6be": {
+"game": true,
+"size": 28
+},
+"0054a6da": {
+"game": true,
+"size": 33
+},
+"0054a6fb": {
+"game": true,
+"size": 200
+},
+"0054a7c3": {
+"game": true,
+"size": 360
+},
+"0054a92b": {
+"game": true,
+"size": 61
+},
+"0054a968": {
+"game": true,
+"size": 73
+},
+"0054a9c1": {
+"game": true,
+"size": 233
+},
+"0054aaaa": {
+"game": true,
+"size": 316
+},
+"0054abe6": {
+"game": true,
+"size": 43
+},
+"0054ac11": {
+"game": true,
+"size": 229
+},
+"0054acf6": {
+"game": true,
+"size": 148
+},
+"0054ad8a": {
+"game": true,
+"size": 254
+},
+"0054ae88": {
+"game": true,
+"size": 254
+},
+"0054af86": {
+"game": true,
+"size": 90
+},
+"0054afe0": {
+"game": true,
+"size": 110
+},
+"0054b04e": {
+"game": true,
+"size": 62
+},
+"0054b08c": {
+"game": true,
+"size": 143
+},
+"0054b11b": {
+"game": true,
+"size": 91
+},
+"0054b176": {
+"game": true,
+"size": 739
+},
+"0054b459": {
+"game": true,
+"size": 5117
+},
+"0054c93b": {
+"game": true,
+"size": 1610
+},
+"0054d02d": {
+"game": true,
+"size": 30
+},
+"0054d04b": {
+"game": true,
+"size": 39
+},
+"0054d072": {
+"game": true,
+"size": 30
+},
+"0054d090": {
+"game": true,
+"size": 320
+},
+"0054d1d0": {
+"game": true,
+"size": 764
+},
+"0054d4cc": {
+"game": true,
+"size": 41
+},
+"0054d4f5": {
+"game": true,
+"size": 5
+},
+"0054d500": {
+"game": true,
+"size": 7
+},
+"0054d510": {
+"game": true,
+"size": 81
+},
+"0054d561": {
+"game": true,
+"size": 35
+},
+"0054d584": {
+"game": true,
+"size": 414
+},
+"0054d722": {
+"game": true,
+"size": 11
+},
+"0054d72d": {
+"game": true,
+"size": 722
+},
+"0054d9ff": {
+"game": true,
+"size": 45
+},
+"0054da2c": {
+"game": true,
+"size": 22
+},
+"0054da42": {
+"game": true,
+"size": 11
+},
+"0054da4d": {
+"game": true,
+"size": 11
+},
+"0054da58": {
+"game": true,
+"size": 11
+},
+"0054da63": {
+"game": true,
+"size": 13
+},
+"0054da70": {
+"game": true,
+"size": 13
+},
+"0054da7d": {
+"game": true,
+"size": 63
+},
+"0054dabc": {
+"game": true,
+"size": 123
+},
+"0054db37": {
+"game": true,
+"size": 123
+},
+"0054dbb2": {
+"game": true,
+"size": 116
+},
+"0054dc26": {
+"game": true,
+"size": 437
+},
+"0054dddb": {
+"game": true,
+"size": 79
+},
+"0054de2a": {
+"game": true,
+"size": 270
+},
+"0054df38": {
+"game": true,
+"size": 953
+},
+"0054e2f1": {
+"game": true,
+"size": 844
+},
+"0054e63d": {
+"game": true,
+"size": 298
+},
+"0054e767": {
+"game": true,
+"size": 141
+},
+"0054e800": {
+"game": true,
+"size": 16
+},
+"0054e810": {
+"game": true,
+"size": 28
+},
+"0054e82c": {
+"game": true,
+"size": 29
+},
+"0054e849": {
+"game": true,
+"size": 147
+},
+"0054e8dc": {
+"game": true,
+"size": 178
+},
+"0054e98e": {
+"game": true,
+"size": 128
+},
+"0054ea0e": {
+"game": true,
+"size": 98
+},
+"0054ea70": {
+"game": true,
+"size": 262
+},
+"0054eb76": {
+"game": true,
+"size": 187
+},
+"0054ec31": {
+"game": true,
+"size": 67
+},
+"0054ec74": {
+"game": true,
+"size": 179
+},
+"0054ed27": {
+"game": true,
+"size": 102
+},
+"0054ed8d": {
+"game": true,
+"size": 194
+},
+"0054ee4f": {
+"game": true,
+"size": 75
+},
+"0054ee9a": {
+"game": true,
+"size": 144
+},
+"0054ef2a": {
+"game": true,
+"size": 150
+},
+"0054efc0": {
+"game": true,
+"size": 103
+},
+"0054f027": {
+"game": true,
+"size": 2064
+},
+"0054f837": {
+"game": true,
+"size": 174
+},
+"0054f8f0": {
+"game": true,
+"size": 49
+},
+"0054f921": {
+"game": true,
+"size": 141
+},
+"0054f9ae": {
+"game": true,
+"size": 887
+},
+"0054fd25": {
+"game": true,
+"size": 238
+},
+"0054fe20": {
+"game": true,
+"size": 46
+},
+"0054fe50": {
+"game": true,
+"size": 10
+},
+"0054fe5a": {
+"game": true,
+"size": 65
+},
+"0054fe9b": {
+"game": true,
+"size": 277
+},
+"0054ffb0": {
+"game": true,
+"size": 76
+},
+"0054fffc": {
+"game": true,
+"size": 96
+},
+"0055005c": {
+"game": true,
+"size": 314
+},
+"00550196": {
+"game": true,
+"size": 578
+},
+"005503d8": {
+"game": true,
+"size": 265
+},
+"005504e1": {
+"game": true,
+"size": 299
+},
+"0055060c": {
+"game": true,
+"size": 604
+},
+"00550868": {
+"game": true,
+"size": 5
+},
+"0055086d": {
+"game": true,
+"size": 324
+},
+"005509b1": {
+"game": true,
+"size": 1255
+},
+"00550e98": {
+"game": true,
+"size": 1718
+},
+"0055154e": {
+"game": true,
+"size": 759
+},
+"00551845": {
+"game": true,
+"size": 1406
+},
+"00551dc3": {
+"game": true,
+"size": 1530
+},
+"005523bd": {
+"game": true,
+"size": 143
+},
+"00552450": {
+"game": true,
+"size": 252
+},
+"0055254c": {
+"game": true,
+"size": 222
+},
+"0055262a": {
+"game": true,
+"size": 34
+},
+"0055264c": {
+"game": true,
+"size": 34
+},
+"0055266e": {
+"game": true,
+"size": 91
+},
+"005526c9": {
+"game": true,
+"size": 404
+},
+"0055285d": {
+"game": true,
+"size": 1477
+},
+"00552e22": {
+"game": true,
+"size": 3926
+},
+"00553d78": {
+"game": true,
+"size": 270
+},
+"00553e86": {
+"game": true,
+"size": 279
+},
+"00553fad": {
+"game": true,
+"size": 415
+},
+"0055414c": {
+"game": true,
+"size": 734
+},
+"0055442a": {
+"game": true,
+"size": 1363
+},
+"0055497d": {
+"game": true,
+"size": 1341
+},
+"00554eba": {
+"game": true,
+"size": 208
+},
+"00554f8a": {
+"game": true,
+"size": 178
+},
+"0055503c": {
+"game": true,
+"size": 428
+},
+"005551e8": {
+"game": true,
+"size": 6786
+},
+"00556c6a": {
+"game": true,
+"size": 417
+},
+"00556e0b": {
+"game": true,
+"size": 3954
+},
+"00557d8d": {
+"game": true,
+"size": 2746
+},
+"00558857": {
+"game": true,
+"size": 221
+},
+"00558934": {
+"game": true,
+"size": 777
+},
+"00558c3d": {
+"game": true,
+"size": 288
+},
+"00558d5d": {
+"game": true,
+"size": 536
+},
+"00558f75": {
+"game": true,
+"size": 38
+},
+"00558f9b": {
+"game": true,
+"size": 599
+},
+"005591f2": {
+"game": true,
+"size": 399
+},
+"00559381": {
+"game": true,
+"size": 124
+},
+"005593fd": {
+"game": true,
+"size": 216
+},
+"005594d5": {
+"game": true,
+"size": 295
+},
+"005595fc": {
+"game": true,
+"size": 61
+},
+"00559639": {
+"game": true,
+"size": 825
+},
+"00559972": {
+"game": true,
+"size": 488
+},
+"00559b5a": {
+"game": true,
+"size": 239
+},
+"00559c49": {
+"game": true,
+"size": 446
+},
+"00559e07": {
+"game": true,
+"size": 449
+},
+"00559ff1": {
+"game": true,
+"size": 561
+},
+"0055a222": {
+"game": true,
+"size": 5
+},
+"0055a227": {
+"game": true,
+"size": 225
+},
+"0055a308": {
+"game": true,
+"size": 5
+},
+"0055a30d": {
+"game": true,
+"size": 90
+},
+"0055a367": {
+"game": true,
+"size": 105
+},
+"0055a3d0": {
+"game": true,
+"size": 777
+},
+"0055a70d": {
+"game": true,
+"size": 561
+},
+"0055a93e": {
+"game": true,
+"size": 148
+},
+"0055a9d2": {
+"game": true,
+"size": 485
+},
+"0055abb7": {
+"game": true,
+"size": 180
+},
+"0055ac6b": {
+"game": true,
+"size": 76
+},
+"0055acb7": {
+"game": true,
+"size": 309
+},
+"0055adec": {
+"game": true,
+"size": 332
+},
+"0055af38": {
+"game": true,
+"size": 614
+},
+"0055b1a0": {
+"game": true,
+"size": 10
+},
+"0055b1aa": {
+"game": true,
+"size": 68
+},
+"0055b1ee": {
+"game": true,
+"size": 54
+},
+"0055b224": {
+"game": true,
+"size": 71
+},
+"0055b26b": {
+"game": true,
+"size": 33
+},
+"0055b28c": {
+"game": true,
+"size": 290
+},
+"0055b3ae": {
+"game": true,
+"size": 354
+},
+"0055b510": {
+"game": true,
+"size": 502
+},
+"0055b736": {
+"game": true,
+"size": 51
+},
+"0055b769": {
+"game": true,
+"size": 97
+},
+"0055b7ca": {
+"game": true,
+"size": 111
+},
+"0055b839": {
+"game": true,
+"size": 121
+},
+"0055b8b2": {
+"game": true,
+"size": 360
+},
+"0055ba1a": {
+"game": true,
+"size": 256
+},
+"0055bb1a": {
+"game": true,
+"size": 204
+},
+"0055bbe6": {
+"game": true,
+"size": 1266
+},
+"0055c0e0": {
+"game": true,
+"size": 548
+},
+"0055c304": {
+"game": true,
+"size": 1171
+},
+"0055c797": {
+"game": true,
+"size": 664
+},
+"0055ca30": {
+"game": true,
+"size": 10
+},
+"0055ca3a": {
+"game": true,
+"size": 57
+},
+"0055ca73": {
+"game": true,
+"size": 105
+},
+"0055cadc": {
+"game": true,
+"size": 7
+},
+"0055cae3": {
+"game": true,
+"size": 325
+},
+"0055cc28": {
+"game": true,
+"size": 1234
+},
+"0055d0fa": {
+"game": true,
+"size": 31
+},
+"0055d119": {
+"game": true,
+"size": 231
+},
+"0055d200": {
+"game": true,
+"size": 231
+},
+"0055d2e7": {
+"game": true,
+"size": 54
+},
+"0055d31d": {
+"game": true,
+"size": 686
+},
+"0055d5cb": {
+"game": true,
+"size": 5
+},
+"0055d5d0": {
+"game": true,
+"size": 5
+},
+"0055d5d5": {
+"game": true,
+"size": 172
+},
+"0055d681": {
+"game": true,
+"size": 490
+},
+"0055d86b": {
+"game": true,
+"size": 435
+},
+"0055da1e": {
+"game": true,
+"size": 145
+},
+"0055dab0": {
+"game": true,
+"size": 64
+},
+"0055daf0": {
+"game": true,
+"size": 94
+},
+"0055db4e": {
+"game": true,
+"size": 70
+},
+"0055db94": {
+"game": true,
+"size": 121
+},
+"0055dc0d": {
+"game": true,
+"size": 59
+},
+"0055dc48": {
+"game": true,
+"size": 178
+},
+"0055dcfa": {
+"game": true,
+"size": 24
+},
+"0055dd12": {
+"game": true,
+"size": 748
+},
+"0055dffe": {
+"game": true,
+"size": 287
+},
+"0055e11d": {
+"game": true,
+"size": 141
+},
+"0055e1aa": {
+"game": true,
+"size": 726
+},
+"0055e480": {
+"game": true,
+"size": 123
+},
+"0055e4fb": {
+"game": true,
+"size": 125
+},
+"0055e578": {
+"game": true,
+"size": 44
+},
+"0055e5a4": {
+"game": true,
+"size": 32
+},
+"0055e5c4": {
+"game": true,
+"size": 47
+},
+"0055e5f3": {
+"game": true,
+"size": 245
+},
+"0055e6e8": {
+"game": true,
+"size": 27
+},
+"0055e703": {
+"game": true,
+"size": 17
+},
+"0055e714": {
+"game": true,
+"size": 204
+},
+"0055e7e0": {
+"game": true,
+"size": 10
+},
+"0055e7ea": {
+"game": true,
+"size": 177
+},
+"0055e89b": {
+"game": true,
+"size": 120
+},
+"0055e913": {
+"game": true,
+"size": 172
+},
+"0055e9bf": {
+"game": true,
+"size": 263
+},
+"0055eac6": {
+"game": true,
+"size": 231
+},
+"0055ebad": {
+"game": true,
+"size": 5
+},
+"0055ebb2": {
+"game": true,
+"size": 17
+},
+"0055ebc3": {
+"game": true,
+"size": 166
+},
+"0055ec69": {
+"game": true,
+"size": 95
+},
+"0055ecc8": {
+"game": true,
+"size": 216
+},
+"0055edb0": {
+"game": true,
+"size": 107
+},
+"0055ee1b": {
+"game": true,
+"size": 109
+},
+"0055ee88": {
+"game": true,
+"size": 161
+},
+"0055ef29": {
+"game": true,
+"size": 118
+},
+"0055ef9f": {
+"game": true,
+"size": 118
+},
+"0055f015": {
+"game": true,
+"size": 76
+},
+"0055f061": {
+"game": true,
+"size": 23
+},
+"0055f078": {
+"game": true,
+"size": 13
+},
+"0055f085": {
+"game": true,
+"size": 13
+},
+"0055f092": {
+"game": true,
+"size": 11
+},
+"0055f09d": {
+"game": true,
+"size": 11
+},
+"0055f0a8": {
+"game": true,
+"size": 180
+},
+"0055f15c": {
+"game": true,
+"size": 108
+},
+"0055f1c8": {
+"game": true,
+"size": 72
+},
+"0055f210": {
+"game": true,
+"size": 275
+},
+"0055f323": {
+"game": true,
+"size": 286
+},
+"0055f441": {
+"game": true,
+"size": 286
+},
+"0055f55f": {
+"game": true,
+"size": 322
+},
+"0055f6b0": {
+"game": true,
+"size": 78
+},
+"0055f700": {
+"game": true,
+"size": 197
+},
+"0055f7c5": {
+"game": true,
+"size": 34
+},
+"0055f7e7": {
+"game": true,
+"size": 245
+},
+"0055f8dc": {
+"game": true,
+"size": 94
+},
+"0055f93a": {
+"game": true,
+"size": 34
+},
+"0055f95c": {
+"game": true,
+"size": 74
+},
+"0055f9a6": {
+"game": true,
+"size": 170
+},
+"0055fa50": {
+"game": true,
+"size": 241
+},
+"0055fb41": {
+"game": true,
+"size": 113
+},
+"0055fbb2": {
+"game": true,
+"size": 68
+},
+"0055fc00": {
+"game": true,
+"size": 250
+},
+"0055fcfa": {
+"game": true,
+"size": 745
+},
+"0055ffe3": {
+"game": true,
+"size": 415
+},
+"00560182": {
+"game": true,
+"size": 347
+},
+"005602e2": {
+"game": true,
+"size": 1
+},
+"00560382": {
+"game": true,
+"size": 435
+},
+"00560542": {
+"game": true,
+"size": 398
+},
+"005606e0": {
+"game": true,
+"size": 94
+},
+"0056073e": {
+"game": true,
+"size": 89
+},
+"00560797": {
+"game": true,
+"size": 175
+},
+"00560846": {
+"game": true,
+"size": 139
+},
+"005608d1": {
+"game": true,
+"size": 139
+},
+"0056095c": {
+"game": true,
+"size": 34
+},
+"0056097e": {
+"game": true,
+"size": 30
+},
+"0056099c": {
+"game": true,
+"size": 22
+},
+"005609c0": {
+"game": true,
+"size": 123
+},
+"00560a3b": {
+"game": true,
+"size": 401
+},
+"00560bcc": {
+"game": true,
+"size": 582
+},
+"00560e12": {
+"game": true,
+"size": 203
+},
+"00560edd": {
+"game": true,
+"size": 100
+},
+"00560f41": {
+"game": true,
+"size": 58
+},
+"00560f80": {
+"game": true,
+"size": 175
+},
+"0056102f": {
+"game": true,
+"size": 16
+},
+"0056103f": {
+"game": true,
+"size": 37
+},
+"00561064": {
+"game": true,
+"size": 40
+},
+"0056108c": {
+"game": true,
+"size": 372
+},
+"00561200": {
+"game": true,
+"size": 25
+},
+"00561219": {
+"game": true,
+"size": 136
+},
+"005612a1": {
+"game": true,
+"size": 35
+},
+"005612c4": {
+"game": true,
+"size": 97
+},
+"00561325": {
+"game": true,
+"size": 59
+},
+"00561360": {
+"game": true,
+"size": 70
+},
+"005613a6": {
+"game": true,
+"size": 114
+},
+"00561418": {
+"game": true,
+"size": 68
+},
+"0056145c": {
+"game": true,
+"size": 84
+},
+"005614b0": {
+"game": true,
+"size": 75
+},
+"005614fb": {
+"game": true,
+"size": 53
+},
+"00561530": {
+"game": true,
+"size": 157
+},
+"005615d0": {
+"game": true,
+"size": 15
+},
+"005615df": {
+"game": true,
+"size": 15
+},
+"005615ee": {
+"game": true,
+"size": 18
+},
+"00561600": {
+"game": true,
+"size": 15
+},
+"0056160f": {
+"game": true,
+"size": 432
+},
+"005617c0": {
+"game": true,
+"size": 57
+},
+"00561800": {
+"game": true,
+"size": 25
+},
+"00561820": {
+"game": true,
+"size": 244
+},
+"00561920": {
+"game": true,
+"size": 70
+},
+"00561970": {
+"game": true,
+"size": 77
+},
+"005619c0": {
+"game": true,
+"size": 71
+},
+"00561a10": {
+"game": true,
+"size": 71
+},
+"00561a60": {
+"game": true,
+"size": 52
+},
+"00561aa0": {
+"game": true,
+"size": 52
+},
+"00561ae0": {
+"game": true,
+"size": 42
+},
+"00561b10": {
+"game": true,
+"size": 42
+},
+"00561b40": {
+"game": true,
+"size": 18
+},
+"00561b60": {
+"game": true,
+"size": 95
+},
+"00561bc0": {
+"game": true,
+"size": 26
+},
+"00561be0": {
+"game": true,
+"size": 100
+},
+"00561c50": {
+"game": true,
+"size": 52
+},
+"00561c90": {
+"game": true,
+"size": 25
+},
+"00561cb0": {
+"game": true,
+"size": 25
+},
+"00561cd0": {
+"game": true,
+"size": 54
+},
+"00561d10": {
+"game": true,
+"size": 161
+},
+"00561dc0": {
+"game": true,
+"size": 159
+},
+"00561e60": {
+"game": true,
+"size": 228
+},
+"00561f50": {
+"game": true,
+"size": 280
+},
+"00562070": {
+"game": true,
+"size": 45
+},
+"005620a0": {
+"game": true,
+"size": 266
+},
+"005621b0": {
+"game": true,
+"size": 224
+},
+"005622b0": {
+"game": true,
+"size": 138
+},
+"00562340": {
+"game": true,
+"size": 135
+},
+"005623d0": {
+"game": true,
+"size": 74
+},
+"00562420": {
+"game": true,
+"size": 157
+},
+"005624c0": {
+"game": true,
+"size": 173
+},
+"00562570": {
+"game": true,
+"size": 128
+},
+"005625f0": {
+"game": true,
+"size": 102
+},
+"00562660": {
+"game": true,
+"size": 71
+},
+"005626b0": {
+"game": true,
+"size": 31
+},
+"005626d0": {
+"game": true,
+"size": 1804
+},
+"00562e00": {
+"game": true,
+"size": 216
+},
+"00562ee0": {
+"game": true,
+"size": 136
+},
+"00562f70": {
+"game": true,
+"size": 38
+},
+"00562fa0": {
+"game": true,
+"size": 18
+},
+"00562fc0": {
+"game": true,
+"size": 48
+},
+"00562ff0": {
+"game": true,
+"size": 99
+},
+"00563060": {
+"game": true,
+"size": 137
+},
+"005630f0": {
+"game": true,
+"size": 40
+},
+"00563120": {
+"game": true,
+"size": 35
+},
+"00563150": {
+"game": true,
+"size": 57
+},
+"00563190": {
+"game": true,
+"size": 60
+},
+"005631d0": {
+"game": true,
+"size": 375
+},
+"00563350": {
+"game": true,
+"size": 157
+},
+"005633f0": {
+"game": true,
+"size": 116
+},
+"00563470": {
+"game": true,
+"size": 61
+},
+"005634b0": {
+"game": true,
+"size": 10
+},
+"005634c0": {
+"game": true,
+"size": 13
+},
+"005634d0": {
+"game": true,
+"size": 45
+},
+"00563500": {
+"game": true,
+"size": 32
+},
+"00563520": {
+"game": true,
+"size": 278
+},
+"00563640": {
+"game": true,
+"size": 112
+},
+"005636b0": {
+"game": true,
+"size": 144
+},
+"00563740": {
+"game": true,
+"size": 475
+},
+"00563920": {
+"game": true,
+"size": 31
+},
+"00563940": {
+"game": true,
+"size": 497
+},
+"00563bd0": {
+"game": true,
+"size": 951
+},
+"00563f90": {
+"game": true,
+"size": 132
+},
+"00564020": {
+"game": true,
+"size": 310
+},
+"00564160": {
+"game": true,
+"size": 383
+},
+"005642e0": {
+"game": true,
+"size": 95
+},
+"00564340": {
+"game": true,
+"size": 23
+},
+"00564360": {
+"game": true,
+"size": 205
+},
+"00564430": {
+"game": true,
+"size": 85
+},
+"00564490": {
+"game": true,
+"size": 22
+},
+"005644b0": {
+"game": true,
+"size": 35
+},
+"00565850": {
+"game": false,
+"size": 7
+},
+"00565860": {
+"game": false,
+"size": 224
+},
+"00565940": {
+"game": false,
+"size": 14
+},
+"0056594e": {
+"game": false,
+"size": 45
+},
+"0056597b": {
+"game": false,
+"size": 17
+},
+"0056598c": {
+"game": false,
+"size": 17
+},
+"0056599d": {
+"game": false,
+"size": 163
+},
+"00565a42": {
+"game": false,
+"size": 9
+},
+"00565a4b": {
+"game": false,
+"size": 9
+},
+"00565a54": {
+"game": false,
+"size": 26
+},
+"00565a70": {
+"game": false,
+"size": 254
+},
+"00565b6e": {
+"game": false,
+"size": 23
+},
+"00565b86": {
+"game": false,
+"size": 56
+},
+"00565bbe": {
+"game": false,
+"size": 23
+},
+"00565be0": {
+"game": false,
+"size": 123
+},
+"00565c5b": {
+"game": false,
+"size": 49
+},
+"00565c8c": {
+"game": false,
+"size": 76
+},
+"00565cd8": {
+"game": false,
+"size": 49
+},
+"00565d09": {
+"game": false,
+"size": 19
+},
+"00565d1c": {
+"game": false,
+"size": 39
+},
+"00565d43": {
+"game": false,
+"size": 11
+},
+"00565d50": {
+"game": false,
+"size": 88
+},
+"00565da8": {
+"game": false,
+"size": 126
+},
+"00565e26": {
+"game": false,
+"size": 18
+},
+"00565e70": {
+"game": false,
+"size": 664
+},
+"005661b0": {
+"game": false,
+"size": 56
+},
+"005661f0": {
+"game": false,
+"size": 172
+},
+"005662a0": {
+"game": false,
+"size": 129
+},
+"00566330": {
+"game": false,
+"size": 47
+},
+"00566374": {
+"game": false,
+"size": 9
+},
+"00566410": {
+"game": false,
+"size": 20
+},
+"00566424": {
+"game": false,
+"size": 9
+},
+"0056642d": {
+"game": false,
+"size": 145
+},
+"005664be": {
+"game": false,
+"size": 181
+},
+"00566580": {
+"game": false,
+"size": 20
+},
+"00566594": {
+"game": false,
+"size": 9
+},
+"0056659d": {
+"game": false,
+"size": 157
+},
+"00566640": {
+"game": false,
+"size": 25
+},
+"00566659": {
+"game": false,
+"size": 9
+},
+"00566662": {
+"game": false,
+"size": 78
+},
+"00566860": {
+"game": false,
+"size": 170
+},
+"00566910": {
+"game": false,
+"size": 52
+},
+"00566944": {
+"game": false,
+"size": 340
+},
+"00566a98": {
+"game": false,
+"size": 78
+},
+"00566ae6": {
+"game": false,
+"size": 44
+},
+"00566b12": {
+"game": false,
+"size": 18
+},
+"00566b24": {
+"game": false,
+"size": 44
+},
+"00566b50": {
+"game": false,
+"size": 231
+},
+"00566bb7": {
+"game": false,
+"size": 9
+},
+"00566c16": {
+"game": false,
+"size": 9
+},
+"00566c4c": {
+"game": false,
+"size": 215
+},
+"00566cb6": {
+"game": false,
+"size": 9
+},
+"00566d0e": {
+"game": false,
+"size": 9
+},
+"00566d35": {
+"game": false,
+"size": 11
+},
+"00566d54": {
+"game": false,
+"size": 9
+},
+"00566e00": {
+"game": false,
+"size": 20
+},
+"00566e14": {
+"game": false,
+"size": 9
+},
+"00566e1d": {
+"game": false,
+"size": 125
+},
+"00566ea0": {
+"game": false,
+"size": 10
+},
+"00566eb4": {
+"game": false,
+"size": 44
+},
+"00566ee0": {
+"game": false,
+"size": 141
+},
+"00566f6d": {
+"game": false,
+"size": 34
+},
+"00566f8f": {
+"game": false,
+"size": 353
+},
+"005670f0": {
+"game": false,
+"size": 47
+},
+"0056711f": {
+"game": false,
+"size": 232
+},
+"00567207": {
+"game": false,
+"size": 47
+},
+"00567236": {
+"game": false,
+"size": 266
+},
+"00567349": {
+"game": false,
+"size": 139
+},
+"005673f0": {
+"game": false,
+"size": 193
+},
+"005674ac": {
+"game": false,
+"size": 111
+},
+"0056751b": {
+"game": false,
+"size": 46
+},
+"00567549": {
+"game": false,
+"size": 92
+},
+"005675ae": {
+"game": false,
+"size": 164
+},
+"00567652": {
+"game": false,
+"size": 60
+},
+"0056774a": {
+"game": false,
+"size": 47
+},
+"00567779": {
+"game": false,
+"size": 35
+},
+"0056779c": {
+"game": false,
+"size": 47
+},
+"005677cb": {
+"game": false,
+"size": 35
+},
+"005677ee": {
+"game": false,
+"size": 82
+},
+"00567840": {
+"game": false,
+"size": 52
+},
+"00567874": {
+"game": false,
+"size": 33
+},
+"00567895": {
+"game": false,
+"size": 125
+},
+"00567920": {
+"game": false,
+"size": 10
+},
+"00567940": {
+"game": false,
+"size": 39
+},
+"00567967": {
+"game": false,
+"size": 46
+},
+"00567995": {
+"game": false,
+"size": 146
+},
+"00567a30": {
+"game": false,
+"size": 10
+},
+"00567a62": {
+"game": false,
+"size": 65
+},
+"00567aa3": {
+"game": false,
+"size": 207
+},
+"00567b72": {
+"game": false,
+"size": 13
+},
+"00567b7f": {
+"game": false,
+"size": 34
+},
+"00567ba1": {
+"game": false,
+"size": 220
+},
+"00567c7d": {
+"game": false,
+"size": 101
+},
+"00567ce2": {
+"game": false,
+"size": 115
+},
+"00567d55": {
+"game": false,
+"size": 23
+},
+"00567d6c": {
+"game": false,
+"size": 719
+},
+"0056803b": {
+"game": false,
+"size": 101
+},
+"005680a0": {
+"game": false,
+"size": 473
+},
+"00568279": {
+"game": false,
+"size": 101
+},
+"005682de": {
+"game": false,
+"size": 395
+},
+"00568469": {
+"game": false,
+"size": 93
+},
+"005684c6": {
+"game": false,
+"size": 131
+},
+"00568549": {
+"game": false,
+"size": 37
+},
+"00568570": {
+"game": false,
+"size": 123
+},
+"005685ec": {
+"game": false,
+"size": 120
+},
+"00568665": {
+"game": false,
+"size": 214
+},
+"005686cf": {
+"game": false,
+"size": 9
+},
+"0056874a": {
+"game": false,
+"size": 9
+},
+"00568753": {
+"game": false,
+"size": 253
+},
+"0056885b": {
+"game": false,
+"size": 34
+},
+"00568880": {
+"game": false,
+"size": 35
+},
+"005688a4": {
+"game": false,
+"size": 41
+},
+"005688cd": {
+"game": false,
+"size": 97
+},
+"0056892e": {
+"game": false,
+"size": 21
+},
+"00568943": {
+"game": false,
+"size": 18
+},
+"00568955": {
+"game": false,
+"size": 62
+},
+"00568993": {
+"game": false,
+"size": 41
+},
+"005689bc": {
+"game": false,
+"size": 90
+},
+"00568a7c": {
+"game": false,
+"size": 62
+},
+"00568aba": {
+"game": false,
+"size": 97
+},
+"00568b1b": {
+"game": false,
+"size": 194
+},
+"00568bdd": {
+"game": false,
+"size": 85
+},
+"00568c32": {
+"game": false,
+"size": 167
+},
+"00568cd9": {
+"game": false,
+"size": 147
+},
+"00568d6c": {
+"game": false,
+"size": 81
+},
+"00568dbd": {
+"game": false,
+"size": 37
+},
+"00568de2": {
+"game": false,
+"size": 329
+},
+"00568f2b": {
+"game": false,
+"size": 81
+},
+"00568f7c": {
+"game": false,
+"size": 43
+},
+"00568fa7": {
+"game": false,
+"size": 368
+},
+"00569117": {
+"game": false,
+"size": 200
+},
+"005691df": {
+"game": false,
+"size": 781
+},
+"0056936a": {
+"game": false,
+"size": 9
+},
+"005694b8": {
+"game": false,
+"size": 11
+},
+"00569510": {
+"game": false,
+"size": 103
+},
+"00569577": {
+"game": false,
+"size": 140
+},
+"005696d3": {
+"game": false,
+"size": 7
+},
+"005696f5": {
+"game": false,
+"size": 23
+},
+"0056970c": {
+"game": false,
+"size": 25
+},
+"00569725": {
+"game": false,
+"size": 67
+},
+"00569768": {
+"game": false,
+"size": 22
+},
+"0056977e": {
+"game": false,
+"size": 13
+},
+"0056978b": {
+"game": false,
+"size": 42
+},
+"00569870": {
+"game": false,
+"size": 23
+},
+"00569887": {
+"game": false,
+"size": 60
+},
+"005698c3": {
+"game": false,
+"size": 84
+},
+"00569917": {
+"game": false,
+"size": 152
+},
+"005699af": {
+"game": false,
+"size": 691
+},
+"00569c62": {
+"game": false,
+"size": 535
+},
+"00569e79": {
+"game": false,
+"size": 136
+},
+"00569f01": {
+"game": false,
+"size": 40
+},
+"00569f29": {
+"game": false,
+"size": 37
+},
+"00569f4e": {
+"game": false,
+"size": 45
+},
+"00569f7b": {
+"game": false,
+"size": 41
+},
+"00569fa4": {
+"game": false,
+"size": 90
+},
+"00569ffe": {
+"game": false,
+"size": 193
+},
+"0056a0bf": {
+"game": false,
+"size": 14
+},
+"0056a0cd": {
+"game": false,
+"size": 15
+},
+"0056a0dc": {
+"game": false,
+"size": 35
+},
+"0056a0ff": {
+"game": false,
+"size": 86
+},
+"0056a367": {
+"game": false,
+"size": 304
+},
+"0056a497": {
+"game": false,
+"size": 101
+},
+"0056a4fc": {
+"game": false,
+"size": 27
+},
+"0056a517": {
+"game": false,
+"size": 45
+},
+"0056a544": {
+"game": false,
+"size": 328
+},
+"0056a68c": {
+"game": false,
+"size": 93
+},
+"0056a6e9": {
+"game": false,
+"size": 72
+},
+"0056a731": {
+"game": false,
+"size": 43
+},
+"0056a75c": {
+"game": false,
+"size": 809
+},
+"0056aa85": {
+"game": false,
+"size": 777
+},
+"0056ad8e": {
+"game": false,
+"size": 177
+},
+"0056ae3f": {
+"game": false,
+"size": 251
+},
+"0056af3a": {
+"game": false,
+"size": 758
+},
+"0056b230": {
+"game": false,
+"size": 324
+},
+"0056b374": {
+"game": false,
+"size": 86
+},
+"0056b3ca": {
+"game": false,
+"size": 194
+},
+"0056b48c": {
+"game": false,
+"size": 87
+},
+"0056b4e3": {
+"game": false,
+"size": 69
+},
+"0056b528": {
+"game": false,
+"size": 520
+},
+"0056b730": {
+"game": false,
+"size": 292
+},
+"0056b854": {
+"game": false,
+"size": 169
+},
+"0056b900": {
+"game": false,
+"size": 32
+},
+"0056b942": {
+"game": false,
+"size": 104
+},
+"0056b9d6": {
+"game": false,
+"size": 24
+},
+"0056bab5": {
+"game": false,
+"size": 27
+},
+"0056bad0": {
+"game": false,
+"size": 62
+},
+"0056bb0e": {
+"game": false,
+"size": 61
+},
+"0056bb4b": {
+"game": false,
+"size": 72
+},
+"0056bb93": {
+"game": false,
+"size": 7
+},
+"0056bb9a": {
+"game": false,
+"size": 305
+},
+"0056bccb": {
+"game": false,
+"size": 51
+},
+"0056bcfe": {
+"game": false,
+"size": 60
+},
+"0056bd3a": {
+"game": false,
+"size": 115
+},
+"0056bdad": {
+"game": false,
+"size": 9
+},
+"0056bdb6": {
+"game": false,
+"size": 9
+},
+"0056bdbf": {
+"game": false,
+"size": 444
+},
+"0056bf7b": {
+"game": false,
+"size": 220
+},
+"0056c057": {
+"game": false,
+"size": 280
+},
+"0056c16f": {
+"game": false,
+"size": 117
+},
+"0056c1e4": {
+"game": false,
+"size": 1837
+},
+"0056c931": {
+"game": false,
+"size": 32
+},
+"0056c951": {
+"game": false,
+"size": 49
+},
+"0056c982": {
+"game": false,
+"size": 57
+},
+"0056c9bb": {
+"game": false,
+"size": 16
+},
+"0056c9cb": {
+"game": false,
+"size": 147
+},
+"0056ca5e": {
+"game": false,
+"size": 141
+},
+"0056caeb": {
+"game": false,
+"size": 42
+},
+"0056cb15": {
+"game": false,
+"size": 1825
+},
+"0056d256": {
+"game": false,
+"size": 53
+},
+"0056d28b": {
+"game": false,
+"size": 49
+},
+"0056d2bc": {
+"game": false,
+"size": 56
+},
+"0056d2f4": {
+"game": false,
+"size": 13
+},
+"0056d301": {
+"game": false,
+"size": 14
+},
+"0056d30f": {
+"game": false,
+"size": 289
+},
+"0056d3a8": {
+"game": false,
+"size": 9
+},
+"0056d431": {
+"game": false,
+"size": 9
+},
+"0056d44c": {
+"game": false,
+"size": 129
+},
+"0056d4cd": {
+"game": false,
+"size": 2597
+},
+"0056def2": {
+"game": false,
+"size": 55
+},
+"0056df29": {
+"game": false,
+"size": 26
+},
+"0056df43": {
+"game": false,
+"size": 23
+},
+"0056df5a": {
+"game": false,
+"size": 36
+},
+"0056df7e": {
+"game": false,
+"size": 63
+},
+"0056dfbd": {
+"game": false,
+"size": 110
+},
+"0056e09c": {
+"game": false,
+"size": 9
+},
+"0056e8e6": {
+"game": false,
+"size": 518
+},
+"0056eaec": {
+"game": false,
+"size": 178
+},
+"0056ee6b": {
+"game": false,
+"size": 18
+},
+"0056ee7d": {
+"game": false,
+"size": 84
+},
+"0056eed1": {
+"game": false,
+"size": 19
+},
+"0056eee4": {
+"game": false,
+"size": 103
+},
+"0056ef4b": {
+"game": false,
+"size": 194
+},
+"0056f00d": {
+"game": false,
+"size": 291
+},
+"0056f130": {
+"game": false,
+"size": 124
+},
+"0056f1ac": {
+"game": false,
+"size": 127
+},
+"0056f22b": {
+"game": false,
+"size": 66
+},
+"0056f26d": {
+"game": false,
+"size": 95
+},
+"0056f2cc": {
+"game": false,
+"size": 34
+},
+"0056f2ee": {
+"game": false,
+"size": 293
+},
+"0056f413": {
+"game": false,
+"size": 76
+},
+"0056f478": {
+"game": false,
+"size": 318
+},
+"0056f5b6": {
+"game": false,
+"size": 58
+},
+"0056f5f0": {
+"game": false,
+"size": 88
+},
+"0056f648": {
+"game": false,
+"size": 185
+},
+"0056f701": {
+"game": false,
+"size": 153
+},
+"0056f79a": {
+"game": false,
+"size": 436
+},
+"0056f94e": {
+"game": false,
+"size": 306
+},
+"0056fa80": {
+"game": false,
+"size": 57
+},
+"0056fab9": {
+"game": false,
+"size": 339
+},
+"0056fc0c": {
+"game": false,
+"size": 53
+},
+"0056fc41": {
+"game": false,
+"size": 22
+},
+"0056fc57": {
+"game": false,
+"size": 146
+},
+"0056fce9": {
+"game": false,
+"size": 137
+},
+"0056fd72": {
+"game": false,
+"size": 111
+},
+"0056fde1": {
+"game": false,
+"size": 203
+},
+"0056feac": {
+"game": false,
+"size": 73
+},
+"0056fef5": {
+"game": false,
+"size": 86
+},
+"0056ff4b": {
+"game": false,
+"size": 140
+},
+"0056ffd7": {
+"game": false,
+"size": 27
+},
+"0056fff2": {
+"game": false,
+"size": 12
+},
+"0056fffe": {
+"game": false,
+"size": 27
+},
+"00570019": {
+"game": false,
+"size": 141
+},
+"005700a6": {
+"game": false,
+"size": 364
+},
+"00570212": {
+"game": false,
+"size": 22
+},
+"00570228": {
+"game": false,
+"size": 22
+},
+"0057023e": {
+"game": false,
+"size": 45
+},
+"0057026b": {
+"game": false,
+"size": 45
+},
+"00570298": {
+"game": false,
+"size": 119
+},
+"0057030f": {
+"game": false,
+"size": 92
+},
+"0057036b": {
+"game": false,
+"size": 182
+},
+"00570430": {
+"game": false,
+"size": 664
+},
+"00570765": {
+"game": false,
+"size": 9
+},
+"0057076e": {
+"game": false,
+"size": 70
+},
+"005707b4": {
+"game": false,
+"size": 151
+},
+"0057084b": {
+"game": false,
+"size": 114
+},
+"005708bd": {
+"game": false,
+"size": 489
+},
+"00570aa6": {
+"game": false,
+"size": 518
+},
+"00570cac": {
+"game": false,
+"size": 208
+},
+"00570d7c": {
+"game": false,
+"size": 3
+},
+"00570d7f": {
+"game": false,
+"size": 23
+},
+"00570d96": {
+"game": false,
+"size": 517
+},
+"00570fa0": {
+"game": false,
+"size": 128
+},
+"00571020": {
+"game": false,
+"size": 68
+},
+"00571064": {
+"game": false,
+"size": 41
+},
+"0057108d": {
+"game": false,
+"size": 318
+},
+"005711d6": {
+"game": false,
+"size": 93
+},
+"00571233": {
+"game": false,
+"size": 201
+},
+"00571300": {
+"game": false,
+"size": 104
+},
+"00571370": {
+"game": false,
+"size": 117
+},
+"005713e5": {
+"game": false,
+"size": 249
+},
+"005714de": {
+"game": false,
+"size": 89
+},
+"00571537": {
+"game": false,
+"size": 105
+},
+"005715a0": {
+"game": false,
+"size": 40
+},
+"005715d0": {
+"game": false,
+"size": 31
+},
+"005715ef": {
+"game": false,
+"size": 110
+},
+"0057165d": {
+"game": false,
+"size": 597
+},
+"005718da": {
+"game": false,
+"size": 429
+},
+"00571a87": {
+"game": false,
+"size": 74
+},
+"00571ad1": {
+"game": false,
+"size": 51
+},
+"00571b04": {
+"game": false,
+"size": 41
+},
+"00571b2d": {
+"game": false,
+"size": 389
+},
+"00571cb2": {
+"game": false,
+"size": 28
+},
+"00571cce": {
+"game": false,
+"size": 391
+},
+"00571e55": {
+"game": false,
+"size": 88
+},
+"00571ead": {
+"game": false,
+"size": 103
+},
+"00571f14": {
+"game": false,
+"size": 46
+},
+"00571f42": {
+"game": false,
+"size": 647
+},
+"005721c9": {
+"game": false,
+"size": 33
+},
+"005721ea": {
+"game": false,
+"size": 428
+},
+"00572396": {
+"game": false,
+"size": 320
+},
+"005724d6": {
+"game": false,
+"size": 97
+},
+"00572537": {
+"game": false,
+"size": 17
+},
+"00572548": {
+"game": false,
+"size": 49
+},
+"00572579": {
+"game": false,
+"size": 137
+},
+"00572602": {
+"game": false,
+"size": 511
+},
+"00572826": {
+"game": false,
+"size": 43
+},
+"00572851": {
+"game": false,
+"size": 33
+},
+"00572872": {
+"game": false,
+"size": 94
+},
+"005728d0": {
+"game": false,
+"size": 46
+},
+"005728fe": {
+"game": false,
+"size": 45
+},
+"0057292b": {
+"game": false,
+"size": 199
+},
+"005729f2": {
+"game": false,
+"size": 1185
+},
+"00572ec3": {
+"game": false,
+"size": 659
+},
+"00573156": {
+"game": false,
+"size": 111
+},
+"005731c5": {
+"game": false,
+"size": 204
+},
+"00573291": {
+"game": false,
+"size": 295
+},
+"005733b8": {
+"game": false,
+"size": 43
+},
+"005733f0": {
+"game": false,
+"size": 62
+},
+"00573430": {
+"game": false,
+"size": 58
+},
+"0057346a": {
+"game": false,
+"size": 544
+},
+"0057368a": {
+"game": false,
+"size": 124
+},
+"00573706": {
+"game": false,
+"size": 45
+},
+"00573733": {
+"game": false,
+"size": 92
+},
+"00573790": {
+"game": false,
+"size": 208
+},
+"00573860": {
+"game": false,
+"size": 257
+},
+"005775f0": {
+"game": false,
+"size": 1
+},
+"00577608": {
+"game": false,
+"size": 1
+},
+"005777a8": {
+"game": false,
+"size": 1
+},
+"005777b8": {
+"game": false,
+"size": 1
+},
+"005777c8": {
+"game": false,
+"size": 1
+}
+}

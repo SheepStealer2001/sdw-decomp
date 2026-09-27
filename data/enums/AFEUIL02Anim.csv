@@ -1,0 +1,3 @@
+value,name,meaning
+#,AFEUIL02Anim,animation ids of WAR model AFEUIL02 (its WAR type-0x86 table; names verified from the level files). Played by: Leaf
+0x0,AFEUIL02_ANIM_FLY,WAR name FLY

@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,ScnObject *,object,"the tracked object (entry 0 = the Wolf, the rest sheep; filled by Sam_SnapshotSheepPositions 0x464ccd)",verified
+0x4,s16,x,the object's x when last checked,verified
+0x6,s16,z,the object's z when last checked,verified

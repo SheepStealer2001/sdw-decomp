@@ -1,0 +1,5 @@
+# the Mods menu and the load order read this (MODDING.md)
+name: Infinite Rocket
+version: 1.0
+author: example mod
+description: Rockets never run out of fuel and never break.

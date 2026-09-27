@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,Vec3s,target,destination point (0x44e957),verified
+0x6,s16,speed,"units per second along the leg (0x44e9a1); 400 patrol/flee, 200 slow patrol",verified
+0x8,s16,heading,"facing to approach the target with: atan2(dx, dz) + 0x800 (0x44e9ee)",verified
+0xa,s16,arriveDist,"50: Ghost_StepTravel reports arrival below this distance (0x44e9f5, 0x44ea99)",verified

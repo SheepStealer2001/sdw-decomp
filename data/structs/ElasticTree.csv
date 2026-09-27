@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x40,Vec3s *,pullUpPoint,Scn_GetPropBox(IDPOINTUP)+4 = &box.min; handed to the elastic by msg 0x1a80,verified
+0x44,ScnObject *,camRestrict,IDCAMREST CameraRestriction; switched off on the first Update,verified
+0x48,u8,unk48,zeroed by Init; no reader found,inferred

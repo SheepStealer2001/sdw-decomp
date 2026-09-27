@@ -1,0 +1,2 @@
+offset,ctype,name,meaning,confidence
+0x64,Vec3s,homePos,Position saved by Init (after the ground snap) and by msg 9 arg 1; restored by msg 0x55.,verified

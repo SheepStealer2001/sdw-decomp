@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x7c,ScnObject *[4],caught,Objects the magnet holds as a mover (they accepted MSG_RIDER_ADD 0x18); the list is kept in step with each frame's candidates by Magnet_UpdateCaughtList; cleared by Init and ReleaseAll,verified
+0x8c,Vec3s,homePos,Respawn position: pos at Init and at msg 9 arg 1; Reset moves there with SetPosition when in the world,verified
+0x92,u16,humSound,"Looping hum channel handle: Sound_Play(0x92, this, 0xff, 0xb, 0x1000) while anything is caught; Sound_Stop in ReleaseAll; zeroed by Init and Reset (Reset does not stop it)",verified
+0x94,Vec3s,attractPos,"Centre of the 400-unit search and the Magnet_PullMover target: pos each frame while attached, plus 75 vertical (below) when hung on a MagnetRod; = pos at Init and Reset",verified
+0x9a,u8:1,onRod,"bit 0 of the flag byte +0x9a, a one-bit field (byte loads/ANDs at 0x4d1e7e and 0x4d204d, byte store at 0x4d2c4e): MagnetFlags. Bit 0 = on a MagnetRod line (parent classId 0x44), recomputed each frame while attached; cleared by Init (written only at 0x4d2405 and 0x4d2c4b; msg 5 does not clear it)",verified
+0x9b,u8,pad9b,tail padding to sizeof 0x9c,inferred

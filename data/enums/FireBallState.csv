@@ -1,0 +1,4 @@
+value,name,meaning
+#,FireBallState,state field of FireBall
+0x0,FIREBALL_ST_OFF,"SetState 0: anim STAND, hidden, never updated (inferred)"
+0x1,FIREBALL_ST_BURN,"SetState 1: anim KILL looped, visible, always updated, flame offsets randomised (inferred)"

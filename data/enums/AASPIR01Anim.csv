@@ -1,0 +1,5 @@
+value,name,meaning
+#,AASPIR01Anim,animation ids of WAR model AASPIR01 (its WAR type-0x86 table; names verified from the level files). Played by: Hoover
+0x0,AASPIR01_ANIM_OBJET,WAR name OBJET
+0x1,AASPIR01_ANIM_LINK,WAR name LINK
+0x2,AASPIR01_ANIM_SUCK1,WAR name SUCK1

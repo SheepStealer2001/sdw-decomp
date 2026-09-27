@@ -1,0 +1,7 @@
+offset,ctype,name,meaning,confidence
+0x0,Vec3s,groundPos,ground position the blob is projected to,inferred
+0x6,u8,alpha,blob alpha,inferred
+0x7,u8,radius,"blob radius (ScnMobile +0x6b = shadow +7, verified there)",verified
+0x8,Vec3s[2],corners,"the two half-diagonals of the projected ground quad (tangent+bitangent, tangent-bitangent); Shadow_Update 0x4726a1 takes one pointer to +8 and writes [0] and [1] through it",verified
+0x14,u8,flags,"1 = not drawn (Shadow_Render 0x472904), 2 = re-project on the next Shadow_Update, 4 = set by SmallRock_Init/Wolf (SetFlag4) with no known reader; ScnMobile +0x78 = shadow +0x14",verified
+0x15,u8[3],pad15,tail padding to the 0x18-byte size used by ScnLogicShadowed +0x40 and ScnMobile +0x64,inferred

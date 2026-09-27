@@ -1,0 +1,6 @@
+offset,ctype,name,meaning,confidence
+0x40,CamMgrEntry[16],entries,compacted CAMERAnn/CAMERAnnBOX pairs (both props nonzero),verified
+0x140,s32,entryCount,number of entries,verified
+0x144,u8[2],enableMask,16 enable bits indexed by designer slot (0..14); init 0xFFFF; msg 0xD00 rewrites it,verified
+0x146,s8[16],entrySlot,designer slot index (CAMERAnn - 1) of each entry; 0xFF unused,verified
+0x158,s32,scriptActive,1 after this manager started a scripted camera; on exit it calls Camera_ReleaseAny,verified

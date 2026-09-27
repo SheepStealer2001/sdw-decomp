@@ -1,0 +1,7 @@
+value,name,meaning
+#,DtlGait,DaffyTrainingLevel::MoveTo gait / field gait (+0x244); helpSlot TYPE % 10
+0x0,DTL_GAIT_WALK,MoveTo case 0 plays anim 0x12 WALK1 (AROBIN01)
+0x1,DTL_GAIT_WALK2,case 1 plays anim 0x13 WALK2
+0x2,DTL_GAIT_JUMP,"case 2 jumps (anim 0x25 with the jump duration, or 0x14 JUMP3)"
+0x3,DTL_GAIT_WARP_A,cases 3/4 SetPosition(dst) directly; 3 and 4 are not told apart in MoveTo (inferred)
+0x4,DTL_GAIT_WARP_B,see 3 (inferred)

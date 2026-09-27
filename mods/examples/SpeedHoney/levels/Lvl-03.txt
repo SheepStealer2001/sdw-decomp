@@ -1,0 +1,8 @@
+# SpeedHoney: the honey pot of Level 10 (Lvl-12, model resource 21, animated) imported into Level 3 and shown by a
+# new object of class 198 (the mod's item), a copy of object 114 (static scenery) placed 600 units ahead of where
+# Ralph starts (-2003, -2, -6273).
+import honey from Lvl-12 21
+new pot from 114
+pot model honey
+pot class 198
+pot pos -2003 -2 -5673

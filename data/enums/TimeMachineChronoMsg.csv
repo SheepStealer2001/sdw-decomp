@@ -1,0 +1,12 @@
+value,name,meaning
+#,TimeMachineChronoMsg,TimeMachineChrono_HandleMessage 0x4fc108 (class 85; ChronometerMsg is the different class 134)
+0x2,MSG_QUERY_ACTION,4 CTX_PICKUP for the Wolf only
+0x4,MSG_PICKUP,"attach, held = 1, shadow hidden"
+0x5,MSG_DROP,"detach to arg pos, held = 0, shadow shown"
+0x9,MSG_CONTAINER_STATE,held = 0; arg 1 also sets homePos
+0x10,MSG_CARRY_ANIM,pose 9: anim 2 blend
+0x15,MSG_HELD_STATE_BEGIN,"anim 3; if held and in the present, sphere msg 0x2f00"
+0x17,MSG_QUERY_HELD_ACTION,"0x13 HELD_TIMEMACHINE in the present, 0 in the past"
+0x3b,MSG_TIMEMACHINE_SWAP,"returns 1, no action"
+0x3c,MSG_TIMEMACHINE_SWAP_OUT,"returns 1, no action"
+0x55,MSG_CHECKPOINT_ROLLBACK,vtable Reset

@@ -1,0 +1,3 @@
+value,name,meaning
+#,ASABLE02Anim,animation ids of WAR model ASABLE02 (its WAR type-0x86 table; names verified from the level files). Played by: Wolf
+0x1,ASABLE02_ANIM_SAND1,WAR name SAND1

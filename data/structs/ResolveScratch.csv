@@ -1,0 +1,5 @@
+offset,ctype,name,meaning,confidence
+0x0,Vec3i,projected,Collide_ResolveMove: the remaining displacement << 10 while it is projected off the contact planes (dword stores at 0x50eebe/0x50eecd/0x50eedd),verified
+0xc,Vec3i,normalSum,sum of the normals projected off in one pass; 3/8 of their mean is added back (dword zeroing at 0x50ef2f/0x50ef3c),verified
+0x18,Vec3s,step,the part of the displacement travelled up to the first contact (word store at 0x50e958); reused as box corner minus contact point (0x50eb26/0x50eb39),verified
+0x1e,u8[16],contactClass,"per contact of the last sweep: 1 floor, 2 wall, 4 floor-plane contact the box corner is below (byte stores at 0x50ec7f/0x50ec91/0x50ed08)",verified

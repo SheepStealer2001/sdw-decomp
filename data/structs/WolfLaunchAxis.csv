@@ -1,0 +1,4 @@
+offset,ctype,name,meaning,confidence
+0x0,s32,p0,"start coordinate (Wolf_LaunchArcStep 0x48c04d mov eax,[edx])",verified
+0x4,s32,v,"initial speed, times t >> 8 (0x48c043 imul ecx,[eax+4]; sar ecx,8)",verified
+0x8,s32,a,"acceleration term, times t*t >> 15 (0x48c057 imul edx,[ecx+8]; sar edx,0xf)",verified

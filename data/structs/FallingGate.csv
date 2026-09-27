@@ -1,0 +1,18 @@
+offset,ctype,name,meaning,confidence
+0x64,AltModel,mainModel,base model slot filled by ScnObject_InitWithAltModels in FallingGate_Create,verified
+0x74,AltModel[5],gateModels,"WAR_IDO_AGRILL01..05 (id list 0x57b64c: 147,150,148,161,198); indexed by modelIndex",verified
+0xc4,u32,modelIndex,TYPE decoded to 0..4 (after the 10 is removed); indexes gateModels and g_fallingGateAnims,verified
+0xc8,u8,state,FallingGateState,verified
+0xcc,s32,closedAtStart,"CLOSED property, but only when a Train (class 0x87) exists; otherwise always 1",verified
+0xd0,s32,closed,current state (1 closed); the reply to msg 0x72,verified
+0xd8,s32,busy,"1 while moving; switch messages are ignored. Never cleared after a single-activation move, which is what latches it.",verified
+0xdc,s32,onlyOneActivation,ONLYONEACTIVATION property,verified
+0xe0,s32,wolfFrozen,the gate froze the Wolf for its camera shot; msg 0xf is sent when the move ends,verified
+0xe4,s32,cameraActive,a scripted camera shot started by msg 0x1f is running,verified
+0xe8,s32,cutCamera,"CUTCAMERA property: nonzero → CamScriptFlags 2 (cut in, blend out); 0 → 3 (blend in and out)",verified
+0xec,s32,cameraReleased,1 at Init and 0 when a shot starts; set to 1 only in a compiled-out if(0) branch,verified
+0xf0,s32,keepCamera,"TYPE >= 10: the camera is not released at the end of the move, only by msg 0x20",verified
+0xf4,CamSetup *,camera,IDCAMERA setup {u16 focal; u16 rot[3]; Vec3s pos},verified
+0xf8,CollBox *,solidBox,ScnObject_GetFirstSolidBox; the crush test region once translated to pos,verified
+0xfc,s32,retriggered,set when msg 0x1f arrives while busy or already toggled; cleared by msg 0x20; suppresses a new camera shot,verified
+0x100,u32,unk100,zeroed by Init; no reader found,inferred

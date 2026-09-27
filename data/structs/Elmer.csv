@@ -1,0 +1,48 @@
+offset,ctype,name,meaning,confidence
+0x7c,u8,state,ElmerState 0..15; written at the end of Elmer_SetState 0x44b074 and switched on by Update 0x449167,verified
+0x80,char *,rabbitText,RABBITTEXT (property 24) localised line via Text_GetClassString (0x448c0e); spoken when the swirl sign says rabbit season (0x449e9b),verified
+0x84,char *,daffyText,DAFFYTEXT (property 8) localised line via Text_GetClassString (0x448c36); spoken when the sign says duck season (0x449ed6),verified
+0x88,s16,speed,"walk speed in units/s: 0x1f4 at load and while Ralph is not the rabbit, 0x3e8 once he is (0x44a1df/0x44a27a); multiplies the sin/cos step in Elmer_MoveToward (0x44a325)",verified
+0x8a,s16,waitTimerMs,"countdown in ms for state 8 (0x449c75): 0xfa0 on entering state 8 (0x44adad), 0x1f4 from msg 0x76 (0x44a509) and from Reset",verified
+0x8c,u8[8],unk08c,not touched by this class,inferred
+0x94,s32,heading,12-bit bearing toward the move target computed by Elmer_MoveToward (0x44a136) and used as the sin/cos index (0x44a314),verified
+0x98,s32,shootTimerMs,"-1 at load; set to 0x400 when Elmer is inside the moving box in state 14 (0x449fa3); decremented by g_dtMs at the end of every Update (0x44a04e). While negative the Ralph-in-moving-box test runs, otherwise it is forced true (0x4490b9)",verified
+0x9c,u8[4],unk09c,not touched by this class,inferred
+0xa0,s32,sweepRate,0x1000 / (anim 0 duration in ms / 2) (0x448d38): the phase rate that sweeps the gun barrel in state 5,verified
+0xa4,u16,sweepPhase,"12-bit phase accumulated from g_dtMs in state 5 (0x449764), reset to 0 when the animation ends",verified
+0xa8,s32,restart,"1 = the trajectory follower must pick its nearest waypoint again when state 5 is entered (0x44acea); set at load, on Reset and when a state re-enters the patrol",verified
+0xac,s32,wolfFrozen,result of Wolf msg 0xe / 0xf (freeze / unfreeze during the shooting sequence): 0x44ada4 / 0x449444; cleared by msg 0xe (0x44a51a),verified
+0xb0,s32,unk0b0,zeroed by PostLoadInit 0x448c47 and never read,verified
+0xb4,u8[4],unk0b4,not touched by this class,inferred
+0xb8,s32,wolfSpotted,Ralph is inside DETECTBOX and answers msg 0x410 and the swirl sign answers msg 0x3080 (0x448f94): recomputed every frame,verified
+0xbc,s32,canAmbush,set when the XYZ distance to Ralph passes 0x15f90 (0x4490a9) and cleared on Reset and on entering state 8 (0x44adb9): gates the state-5 pounce,verified
+0xc0,s32,bulletBusy,result of Bullet msg 0x3201 (bullet state != 5) every frame (0x448fd9),verified
+0xc4,s32,wolfIsRabbit,cached Wolf msg 0x40c (wearing the rabbit costume) read in Elmer_MoveToward (0x44a1c3); a change switches the walk animation and the speed,verified
+0xc8,s32,wolfFar,distance squared to Ralph > 0x31704 (0x449009),verified
+0xcc,s32,wolfNear,distance squared to Ralph < 0x62e08 (0x448ff1),verified
+0xd0,s32,selfInBox,Elmer's own position is inside MOVINGBOX (0x449149); forced to 1 while shootTimerMs >= 0 (0x449157),verified
+0xd4,s32,wolfInBox,Ralph is inside MOVINGBOX (0x449094),verified
+0xd8,Vec3s,step,"this frame's movement, the input and output of Collide_ResolveMove (0x449964, 0x44a395)",verified
+0xde,u8[6],unk0de,not touched by this class,inferred
+0xe4,Vec3s,wolfPos,copy of g_pWolf->pos taken at the top of every Update (0x448e68),verified
+0xea,Vec3s,homePos,"TREESECTION's position, ground-snapped at load (0x448cb4): where Elmer stands and what he walks back to",verified
+0xf0,Box *,movingBox,MOVINGBOX (property 20) 0x448b32: the patrol area,verified
+0xf4,Box *,detectBox,DETECTBOX (property 12) 0x448af1,verified
+0xf8,Box **,exceptBoxes,EXCEPTMOVINGBOX (property 16) id list via Scn_FindIdList 0x448b6e: holes inside the moving box that stop the walk,verified
+0xfc,u16,exceptBoxCount,count written by Scn_FindIdList (0x448b5a) and the loop bound at 0x44a436,verified
+0xfe,u8[2],unk0fe,alignment before the ContactInfo,inferred
+0x100,ContactInfo,contact,Collide_ResolveMove output (0x449958),verified
+0x11c,ScnObject *,blocker,contact.wallObj kept when the state-5 walk is blocked (0x449b7c); state 6 waits until it is 0x3840 away,verified
+0x120,ScnObject *,swirlSign,SWIRLSIGN (property 28) 0x448b98; asked msg 0x3080 for which season the sign shows,verified
+0x124,ScnObject *,treeSection,TREESECTION (property 36) 0x448b81; its position is Elmer's home and it is told msg 0x3181 when he steps out,verified
+0x128,ScnObject *,bullet,BULLET (property 0) 0x448ac3,verified
+0x12c,ScnObject *,daffy,"DaffyLevel09 (class 104), found by Scenaric_FindByClass (0x448bac); never read by this class",verified
+0x130,CamSetup *,camera,CAMERA (property 4) 0x448ada: {focal; rotX; rotY; rotZ; Vec3s pos} used by Camera_StartScripted (0x44a83f),verified
+0x134,Trajectory *,trajectory,TRAJECTORY (property 32) 0x448bc5: u16 point count then Vec3s points,verified
+0x138,TrajFollower,follower,"initialised with speed 0x50, heading bias 0x800, continuous heading, 3D distance and arrive radius 0x32 (0x448bef)",verified
+0x158,s16,waypoint,"the follower's waypoint index that this class drives itself: stepped by waypointDir when the follower reaches one (0x44981c), wrapped at both ends",verified
+0x15a,s16,waypointDir,+1 or -1; negated every time the 1000 ms patrol pause expires (0x44aab1... 0x449ab7) so Elmer walks the trajectory back and forth,verified
+0x15c,s32,pauseTimerMs,1000 ms pause between patrol waypoints (0x449a97); counts down by g_dtMs (0x449a08),verified
+0x160,s32,turnRate,Math_ApproachAngle angular-velocity accumulator (0x4498d9),verified
+0x164,s16,newFacing,Math_ApproachAngle result stored before it is copied into rot.y (0x4498f7),verified
+0x166,u16,soundHandle,Sound_Play handle of the walk sound 0x100 (0x44a227); stopped at the top of Elmer_SetState (0x44a6d9),verified
