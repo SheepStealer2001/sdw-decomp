@@ -21,6 +21,7 @@ h3 { margin: 0 0 6px; font-size: 11px; letter-spacing: .06em; text-transform: up
 .title { font-size: 15px; }
 .title span { color: var(--dim); }
 .path { color: var(--dim); font-size: 11px; word-break: break-all; margin: 2px 0 8px; }
+.warn { color: var(--gone); font-size: 12px; margin: 4px 0 8px; }
 .row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
 button { background: #2b2f37; color: var(--text); border: 1px solid #3a3f49; border-radius: 4px; padding: 4px 10px;
   font: inherit; cursor: pointer; }
@@ -84,6 +85,7 @@ dl.keys dd { margin: 0; color: var(--dim); }
     <select id="cMod"></select>
     <input id="cNew" placeholder="The new mod's name: letters, digits, - and _" hidden style="margin-top:6px">
     <div class="path" id="cDir" style="margin-top:10px"></div>
+    <div class="warn" id="cWarn" hidden></div>
     <div class="row"><button class="primary" id="cOpen">Open</button> <span id="cStatus"></span></div>
   </div>
 </div>
@@ -490,7 +492,7 @@ function objectsAlong(ray) {
   for (const o of state) {
     if (o.removed && o.res === null) continue;
     const t = hitBox(ray, o);
-    if (t <= wall + 50) hits.push([t, o]);
+    if (t < Infinity && t <= wall + 50) hits.push([t, o]);  // (a ray into the sky meets no wall: then only real hits)
   }
   return hits.sort((a, b) => a[0] - b[0]).map(h => h[1]);
 }
@@ -1027,6 +1029,10 @@ async function showChooser() {
   $('#cMod').value = c.mod && c.mods.includes(c.mod) ? c.mod : c.mods.length ? c.mods[0] : '';
   $('#cNew').hidden = $('#cMod').value !== '';
   $('#cDir').textContent = 'Mods folder: ' + c.modsDir;
+  $('#cWarn').hidden = c.writable;
+  $('#cWarn').textContent = c.writable ? '' : 'The editor may not write in this folder, so it cannot save there. On Windows a game '
+    + 'under Program Files needs administrator rights: close this page, then right-click SDW Level Editor.bat and choose '
+    + 'Run as administrator. Or install the game outside Program Files.';
   $('#loading').style.display = 'none';
   $('#chooser').hidden = false;
 }

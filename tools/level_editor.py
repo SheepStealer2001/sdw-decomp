@@ -27,6 +27,7 @@ import os
 import re
 import struct
 import sys
+import tempfile
 import threading
 import time
 import webbrowser
@@ -37,6 +38,7 @@ from urllib.parse import parse_qs, urlparse
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import textio  # noqa: F401,E402  (UTF-8, LF text files on Windows)
 import build_mods  # noqa: E402
+import scenaric_to_c  # noqa: E402
 import war_meshes  # noqa: E402
 import war_collision  # noqa: E402
 
@@ -75,6 +77,33 @@ def game_folders():
             if exe.parent not in found:
                 found.append(exe.parent)
     return sorted(found, key=lambda f: not (f / "Mods").is_dir())
+
+
+def make_names(games):
+    """The objects' class and property names come from src/include/scenaric_props.h, which tools/scenaric_to_c.py
+    generates from the game's own Scenaric_Classes.h. When it has not been generated, generate it now: from the
+    repository's copy of the disc, else from an installed game's Levels/Lvl-03 (the game installs that header too)."""
+    if scenaric_to_c.OUT_H.exists():
+        return
+    for src in [scenaric_to_c.SRC] + [g / "Levels" / "Lvl-03" / "Scenaric_Classes.h" for g in games]:
+        if src.is_file() and src.with_name("GameRes.h").is_file():
+            print("the objects' names, from %s:" % src)
+            scenaric_to_c.main(src)
+            return
+    print("no Scenaric_Classes.h found: the objects are shown by class number")
+
+
+def writable(folder):
+    """True when the editor can save into `folder`, or, while it does not exist yet, into the folder that will hold it.
+    Under Program Files, Windows lets only administrators write."""
+    d = Path(folder)
+    while not d.exists() and d.parent != d:
+        d = d.parent
+    try:
+        with tempfile.TemporaryFile(dir=d):
+            return True
+    except OSError:
+        return False
 
 
 def use_levels(folder):
@@ -536,6 +565,11 @@ def clean_settings(values):
             out[key] = v
     return out
 
+NO_WRITE = ("The editor may not write in %s, so it cannot save there. On Windows a game under Program Files needs "
+            "administrator rights: close this page, then right-click SDW Level Editor.bat and choose Run as "
+            "administrator. Or install the game outside Program Files.")
+
+
 class Editor:
     def __init__(self, mods_dir, level=None, mod=None):
         self.mods_dir, self.sch = Path(mods_dir), schema()
@@ -558,7 +592,7 @@ class Editor:
         mods = sorted(d.name for d in self.mods_dir.iterdir() if d.is_dir() and d.name.lower() != "cache"
                       and LEVEL_NAME.match(d.name)) if self.mods_dir.is_dir() else []
         return {"levels": [[l, LEVEL_NAMES.get(l, l)] for l in levels()], "mods": mods, "modsDir": str(self.mods_dir),
-                "level": self.level, "mod": self.mod_dir.name if self.mod_dir else None}
+                "writable": writable(self.mods_dir), "level": self.level, "mod": self.mod_dir.name if self.mod_dir else None}
 
     def objects_of(self, level):
         if level not in self.cache:
@@ -678,6 +712,8 @@ def serve(editor, port, open_browser=True, app=False):
                 editor.patch_path.parent.mkdir(parents=True, exist_ok=True)
                 editor.patch_path.write_text(text)
                 self.reply(json.dumps({"saved": str(editor.patch_path), "text": text}))
+            except PermissionError:
+                self.reply(json.dumps({"error": NO_WRITE % editor.mods_dir}), code=500)
             except Exception as e:  # noqa: BLE001
                 self.reply(json.dumps({"error": str(e)}), code=500)
 
@@ -776,6 +812,7 @@ def main(argv):
     games = game_folders()
     if not LEVELS.is_dir() and games and (games[0] / "Levels").is_dir():
         use_levels(games[0] / "Levels")
+    make_names(games)
     mods = Path(a.mods) if a.mods else games[0] / "Mods" if games else ROOT / "mods" / "examples"
     level = level_folder(a.level) if a.level else None
     if a.level and level is None:

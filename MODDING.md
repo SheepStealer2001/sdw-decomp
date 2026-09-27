@@ -26,7 +26,7 @@ The game imports one function from `dinput8.dll`; the loader passes it on to Win
 
 **CrossOver or Wine:** in CrossOver the game's folder is inside the bottle (`~/Library/Application Support/CrossOver/Bottles/<bottle>/drive_c/Program Files/...`; the bottle's Open C: Drive shows it). Wine uses its own built-in `dinput8.dll` unless told to prefer the one next to the game. In CrossOver, open the bottle's Wine configuration, add `dinput8` on the Libraries tab and set it to "Native then Builtin"; with plain Wine, `WINEDLLOVERRIDES="dinput8=n,b" wine SheepD3D.exe`.
 
-**Windows:** if the game is under `Program Files`, Windows may keep the loader's log in its VirtualStore folder, or refuse the level editor's saves; installing the game elsewhere, or giving your account write access to its folder, avoids it. For a game outside `Program Files`, start the level editor with `--mods` ("The level editor" below).
+**Windows:** if the game is under `Program Files`, Windows keeps the loader's log in its VirtualStore folder, and only administrators may save there: start the level editor by right-clicking `SDW Level Editor.bat` and choosing Run as administrator (its start screen says so when it cannot save), or install the game elsewhere. For a game outside `Program Files`, start the level editor with `--mods` ("The level editor" below).
 
 ### When something does not work
 
@@ -111,7 +111,7 @@ Every applied patch is listed in `Mods\mods.log`, with each line that could not 
 
 Double-click `SDW Level Editor.app` (Mac) or `SDW Level Editor.bat` (Windows, with Python 3 installed) in the repository's folder. The editor opens in your browser (a page served on this computer only; nothing is downloaded) with a start screen: pick a level, by its folder or its number as players count, and a mod, one of your `Mods` folder's or a new name.
 
-It saves into the installed game's `Mods` folder. It looks for one in `Program Files` and in CrossOver and Wine bottles (a game folder with a `Mods` folder first), and saves into `mods/examples` when it finds none; the start screen shows which ("Mods folder: ..."). A saved change is in the game the next time that level loads. "Change level" goes back to the start screen. Started by double-click, it stops about 40 seconds after its page is closed.
+It saves into the installed game's `Mods` folder. It looks for one in `Program Files` and in CrossOver and Wine bottles (a game folder with a `Mods` folder first), and saves into `mods/examples` when it finds none; the start screen shows which ("Mods folder: ..."), and warns when it may not write there. It takes the objects' names from the installed game's `Levels/Lvl-03/Scenaric_Classes.h` when `tools/scenaric_to_c.py` has not been run. A saved change is in the game the next time that level loads. "Change level" goes back to the start screen. Started by double-click, it stops about 40 seconds after its page is closed.
 
 On a Mac the launcher runs `/usr/bin/python3`: if macOS offers to install its command-line tools, install them and open the editor again. A copy of the repository downloaded as a zip may be stopped the first time it opens; Open Anyway in System Settings, Privacy & Security, lets it run.
 
