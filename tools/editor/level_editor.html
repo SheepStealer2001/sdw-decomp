@@ -144,7 +144,7 @@ dl.keys dd { margin: 0; color: var(--dim); }
       <div class="grid">
         <span>Left drag</span><select id="setLeft"><option value="rotate">Turn the view</option><option value="pan">Pan the view</option></select>
         <span>Middle drag</span><select id="setMiddle"><option value="rotate">Turn the view</option><option value="pan">Pan the view</option></select>
-        <span>Right drag</span><select id="setRight"><option value="rotate">Turn the view</option><option value="pan">Pan the view</option></select>
+        <span>Right mouse</span><span>Look around</span>
         <span>Wheel step</span><input id="setStep" type="text" inputmode="numeric" title="how far one notch of the wheel moves the view">
       </div>
       <p class="hint">Kept on this computer: they are the same the next time the editor opens. A left click on an object
@@ -155,11 +155,13 @@ dl.keys dd { margin: 0; color: var(--dim); }
       <dl class="keys">
         <dt>Left drag</dt><dd><span id="helpLeft"></span>, or move the object under the cursor</dd>
         <dt>Middle drag</dt><dd id="helpMiddle"></dd>
-        <dt>Right drag</dt><dd id="helpRight"></dd>
+        <dt>Right mouse</dt><dd>hold and move to look around from the camera's position</dd>
         <dt>Click again</dt><dd>pick the object behind the one picked</dd>
         <dt>Wheel</dt><dd>move the view forward and back</dd>
         <dt>Double-click</dt><dd>look at that point</dd>
-        <dt><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></dt><dd>move the view</dd>
+        <dt><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></dt><dd>click the view, then fly where it looks; W/S include looking up and down</dd>
+        <dt><kbd>Shift</kbd></dt><dd>fly four times faster</dd>
+        <dt><kbd>Space</kbd> / <kbd>C</kbd></dt><dd>rise / descend</dd>
         <dt><kbd>Shift</kbd>+drag</dt><dd>move the object up and down</dd>
         <dt><kbd>Q</kbd> <kbd>E</kbd></dt><dd>turn the object (with Shift: finely)</dd>
         <dt>Arrows</dt><dd>nudge the object (with Shift: further)</dd>
@@ -431,8 +433,18 @@ let markerBuf = null, dynBuf = null;
 
 // ---------------------------------------------------------------- camera
 const cam = { target: [0, 0, 0], yaw: 0.6, pitch: 0.55, dist: 3000, fov: 55 * Math.PI / 180 };
+function cameraForward() {
+  return [-Math.cos(cam.pitch) * Math.sin(cam.yaw), -Math.sin(cam.pitch), -Math.cos(cam.pitch) * Math.cos(cam.yaw)];
+}
 function eye() {
-  return add(cam.target, mulv([Math.cos(cam.pitch) * Math.sin(cam.yaw), Math.sin(cam.pitch), Math.cos(cam.pitch) * Math.cos(cam.yaw)], cam.dist));
+  return sub(cam.target, mulv(cameraForward(), cam.dist));
+}
+function lookAround(dx, dy) {
+  // Turn around the camera itself, not the orbit target: looking must not move the camera.
+  const position = eye(), pitchLimit = Math.PI / 2 - 0.001;
+  cam.yaw -= dx * 0.006;
+  cam.pitch = Math.max(-pitchLimit, Math.min(pitchLimit, cam.pitch + dy * 0.006));
+  cam.target = add(position, mulv(cameraForward(), cam.dist));
 }
 function viewProj() {
   const w = canvas.width, h = canvas.height;
@@ -839,14 +851,13 @@ function refreshOthers() {
 
 // ---------------------------------------------------------------- settings (kept by the server in a file on this computer)
 const settings = { left: 'rotate', middle: 'pan', right: 'pan', step: 150 };
-const BUTTONS = ['left', 'middle', 'right'];
+const BUTTONS = ['left', 'middle'];
 function showSettings() {
-  $('#setLeft').value = settings.left; $('#setMiddle').value = settings.middle; $('#setRight').value = settings.right;
+  $('#setLeft').value = settings.left; $('#setMiddle').value = settings.middle;
   $('#setStep').value = String(settings.step);
   const say = { rotate: 'turn the view', pan: 'pan the view' };
   $('#helpLeft').textContent = say[settings.left];
   $('#helpMiddle').textContent = say[settings.middle];
-  $('#helpRight').textContent = say[settings.right];
 }
 async function loadSettings() {
   try { Object.assign(settings, await (await fetch('/api/settings')).json()); } catch (e) { /* the defaults */ }
@@ -856,7 +867,7 @@ function saveSettings() {
   fetch('/api/settings', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(settings) });
   showSettings();
 }
-for (const [id, key] of [['setLeft', 'left'], ['setMiddle', 'middle'], ['setRight', 'right']])
+for (const [id, key] of [['setLeft', 'left'], ['setMiddle', 'middle']])
   $('#' + id).addEventListener('change', e => { settings[key] = e.target.value; saveSettings(); });
 $('#setStep').addEventListener('change', e => {
   const v = parseInt(e.target.value, 10);
@@ -867,9 +878,48 @@ loadSettings();
 
 // ---------------------------------------------------------------- input
 let drag = null;
+const FLY_KEYS = new Set(['KeyW', 'KeyA', 'KeyS', 'KeyD', 'Space', 'KeyC']);
+const flyKeys = new Set();
+let flyFrame = 0, flyLastTime = 0, flyBoost = false;
+function flyStep(now) {
+  flyFrame = 0;
+  if (document.activeElement !== canvas || !flyKeys.size) { stopFlyMove(); return; }
+  const dt = flyLastTime ? Math.min((now - flyLastTime) / 1000, 0.05) : 0;
+  flyLastTime = now;
+  if (dt) {
+    const forward = cameraForward();
+    const right = norm(cross(forward, [0, 1, 0]));
+    let move = [0, 0, 0];
+    if (flyKeys.has('KeyW')) move = add(move, forward);
+    if (flyKeys.has('KeyS')) move = sub(move, forward);
+    if (flyKeys.has('KeyD')) move = add(move, right);
+    if (flyKeys.has('KeyA')) move = sub(move, right);
+    if (flyKeys.has('Space')) move[1] += 1;
+    if (flyKeys.has('KeyC')) move[1] -= 1;
+    if (dot(move, move) > 0) {
+      const speed = Math.max(100, cam.dist * 0.55) * (flyBoost ? 4 : 1);
+      cam.target = add(cam.target, mulv(norm(move), speed * dt));
+      redraw();
+    }
+  }
+  flyFrame = requestAnimationFrame(flyStep);
+}
+function startFlyMove() {
+  if (!flyFrame) flyFrame = requestAnimationFrame(flyStep);
+}
+function stopFlyMove() {
+  flyKeys.clear(); flyLastTime = 0; flyBoost = false;
+  if (flyFrame) cancelAnimationFrame(flyFrame);
+  flyFrame = 0;
+}
 canvas.addEventListener('contextmenu', e => e.preventDefault());
 canvas.addEventListener('mousedown', e => {
   canvas.focus();
+  if (e.button === 2) {
+    flyBoost = e.shiftKey;
+    drag = { kind: 'fly', x: e.clientX, y: e.clientY, moved: false };
+    return;
+  }
   const ray = rayAt(e.clientX, e.clientY);
   const button = BUTTONS[e.button];
   if (!button) return;
@@ -888,7 +938,8 @@ canvas.addEventListener('mousedown', e => {
     drag = { kind: settings[button] === 'pan' ? 'pan' : 'orbit', left: e.button === 0, x: e.clientX, y: e.clientY, moved: false };
   }
 });
-window.addEventListener('mouseup', () => {
+window.addEventListener('mouseup', e => {
+  if (drag && drag.kind === 'fly' && e.button !== 2) return;
   if (drag && drag.left && !drag.moved) select(null);  // a left click on nothing
   if (drag && drag.kind === 'object' && drag.moved) { refreshPanel(); refreshList(); }
   if (drag && drag.kind === 'object' && !drag.moved && drag.cycle && drag.hits.length > 1)
@@ -898,6 +949,12 @@ window.addEventListener('mouseup', () => {
 window.addEventListener('mousemove', e => {
   if (!drag) return hoverAt(e);
   const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+  if (drag.kind === 'fly') {
+    lookAround(dx, dy);
+    drag.x = e.clientX; drag.y = e.clientY;
+    redraw();
+    return;
+  }
   if (!drag.moved && Math.hypot(dx, dy) < 4) return;
   if (drag.kind === 'orbit') {
     drag.moved = true;
@@ -975,6 +1032,14 @@ window.addEventListener('keydown', e => {
   const typing = /INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName);
   const mod = e.ctrlKey || e.metaKey, k = e.key.toLowerCase();
   if (mod && k === 's') { e.preventDefault(); save(); return; }
+  if (document.activeElement === canvas && !typing && !mod) {
+    flyBoost = e.shiftKey;
+    // Physical keys keep WASD working with either an English or Russian keyboard layout.
+    if (FLY_KEYS.has(e.code)) {
+      e.preventDefault(); flyKeys.add(e.code); startFlyMove(); return;
+    }
+    if (drag && drag.kind === 'fly') return;
+  }
   if (typing) return;
   const o = selected();
   if (mod && k === 'z') { e.preventDefault(); e.shiftKey ? redoIt() : undo(); return; }
@@ -999,9 +1064,14 @@ window.addEventListener('keydown', e => {
     refreshPanel();
     return;
   }
-  const moves = { w: f, s: mulv(f, -1), a: mulv(r, -1), d: r };
-  if (moves[k]) { cam.target = add(cam.target, mulv(moves[k], cam.dist * 0.06)); redraw(); }
 });
+window.addEventListener('keyup', e => {
+  flyBoost = e.shiftKey;
+  flyKeys.delete(e.code);
+  if (!flyKeys.size && flyFrame) { cancelAnimationFrame(flyFrame); flyFrame = 0; flyLastTime = 0; }
+});
+canvas.addEventListener('blur', stopFlyMove);
+window.addEventListener('blur', () => { stopFlyMove(); if (drag && drag.kind === 'fly') drag = null; });
 
 // ---------------------------------------------------------------- save
 async function save() {
